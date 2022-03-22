@@ -1,0 +1,368 @@
+codeunit 70040 "PWD GlobalSecurityManagement"
+{
+
+    trigger OnRun()
+    var
+        Selection: Integer;
+    begin
+        IF CONFIRM(Text1000000001, FALSE) THEN BEGIN
+            Selection := STRMENU(Text1000000000, 2);
+            IF Selection = 0 THEN
+                EXIT;
+
+            IF Selection = 1 THEN BEGIN
+                Window.OPEN('#1###################');
+                Window.UPDATE(1, Text1000000003);
+                ResetAllRolesAndPermissions();
+                Window.CLOSE();
+                MESSAGE(Text1000000002);
+            END;
+
+            IF Selection = 2 THEN BEGIN
+                Window.OPEN('#1###################');
+                Window.UPDATE(1, Text1000000003);
+                ResetOnlyRoleTOUS();
+                Window.CLOSE();
+                MESSAGE(Text1000000002);
+            END;
+
+            IF Selection = 3 THEN BEGIN
+                Window.OPEN('#1###################');
+                UserRole.RESET();
+                UserRole.SETFILTER("Role ID", '<>SUPER&<>TOUS');
+                IF UserRole.FIND('-') THEN
+                    REPEAT
+                        Window.UPDATE(1, UserRole."Role ID");
+                        ResetUserTableDataPermissions(UserRole);
+                    UNTIL UserRole.NEXT() = 0;
+                Window.CLOSE();
+                MESSAGE(Text1000000002);
+            END;
+
+            IF Selection = 4 THEN BEGIN
+                Window.OPEN('#1###################');
+                Permission.RESET();
+                Permission.SETFILTER("Role ID", '<>SUPER&<>TOUS');
+                IF Permission.FIND('-') THEN
+                    REPEAT
+                        Window.UPDATE(1, Permission."Role ID");
+                        IF NOT AllObj.GET(Permission."Object Type", Permission."Object ID") THEN
+                            Permission.DELETE()
+                        ELSE BEGIN
+                            //ToDo
+                            Permission."Execute Allowed" := Permission."Execute Permission" = Permission."Execute Permission"::Yes;
+                            Permission."Insert Allowed" := Permission."Insert Permission" = Permission."Insert Permission"::Yes;
+                            Permission."Modify Allowed" := Permission."Modify Permission" = Permission."Modify Permission"::Yes;
+                            Permission."Delete Allowed" := Permission."Delete Permission" = Permission."Delete Permission"::Yes;
+                            Permission.MODIFY();
+                        END;
+                    UNTIL Permission.NEXT() = 0;
+                Window.CLOSE();
+                MESSAGE(Text1000000002);
+            END;
+        END;
+    end;
+
+    var
+        UserRole: Record "Permission Set";
+        Permission: Record Permission;
+        AllObj: Record AllObj;
+        Text1000000000: Label 'Restore minimum permissions (roles Super and Tous),Restore permissions for role Tous,Delete custom permissions on Table Data,Check existing permissions';
+        Text1000000001: Label 'You are about to reset the existing configuration. Do you really want to continue ?';
+        Text1000000002: Label 'Permissions have been successfully updated.';
+        Window: Dialog;
+        Text1000000003: Label 'Please wait...';
+        Text1000000004: Label 'Role Selection : #1##########';
+        Text1000000005: Label 'Role %1 does not exist.';
+
+
+    procedure ResetAllRolesAndPermissions()
+    begin
+        DeleteAllRoles();
+        SetRoleTOUSProperties();
+    end;
+
+
+    procedure ResetOnlyRoleTOUS()
+    begin
+        DeleteRoleTOUS();
+        SetRoleTOUSProperties();
+    end;
+
+
+    procedure SetMaximumPermission(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
+
+    begin
+        //Maximum Permissions
+        Permission.INIT();
+        Permission."Role ID" := RoleID;
+        Permission."Object Type" := ObjectType;
+        Permission."Object ID" := ObjectID;
+        Permission."Read Permission" := Permission."Read Permission"::Yes;
+        Permission."Insert Permission" := Permission."Insert Permission"::Yes;
+        Permission."Modify Permission" := Permission."Modify Permission"::Yes;
+        Permission."Delete Permission" := Permission."Delete Permission"::Yes;
+        Permission."Execute Permission" := Permission."Execute Permission"::Yes;
+        //Todo
+        Permission."Execute Allowed" := TRUE;
+        Permission."Insert Allowed" := TRUE;
+        Permission."Modify Allowed" := TRUE;
+        Permission."Delete Allowed" := TRUE;
+        Permission.INSERT();
+    end;
+
+
+    procedure SetExecuteIndirect(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
+    begin
+        Permission."Role ID" := RoleID;
+        Permission."Object Type" := ObjectType;
+        Permission."Object ID" := ObjectID;
+        Permission."Read Permission" := Permission."Read Permission"::" ";
+        Permission."Insert Permission" := Permission."Insert Permission"::" ";
+        Permission."Modify Permission" := Permission."Modify Permission"::" ";
+        Permission."Delete Permission" := Permission."Delete Permission"::" ";
+        Permission."Execute Permission" := Permission."Execute Permission"::Indirect;
+        //todo
+        Permission."Execute Allowed" := FALSE;
+        Permission."Insert Allowed" := FALSE;
+        Permission."Modify Allowed" := FALSE;
+        Permission."Delete Allowed" := FALSE;
+        Permission.INSERT();
+    end;
+
+
+    procedure SetExecuteYes(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
+
+    begin
+        Permission."Role ID" := RoleID;
+        Permission."Object Type" := ObjectType;
+        Permission."Object ID" := ObjectID;
+        Permission."Read Permission" := Permission."Read Permission"::" ";
+        Permission."Insert Permission" := Permission."Insert Permission"::" ";
+        Permission."Modify Permission" := Permission."Modify Permission"::" ";
+        Permission."Delete Permission" := Permission."Delete Permission"::" ";
+        Permission."Execute Permission" := Permission."Execute Permission"::Yes;
+        //Todo
+        Permission."Execute Allowed" := TRUE;
+        Permission."Insert Allowed" := FALSE;
+        Permission."Modify Allowed" := FALSE;
+        Permission."Delete Allowed" := FALSE;
+        Permission.INSERT();
+    end;
+
+
+    procedure SetREtoYesIMDtoInd(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
+    var
+
+    begin
+        Permission."Role ID" := RoleID;
+        Permission."Object Type" := ObjectType;
+        Permission."Object ID" := ObjectID;
+        Permission."Read Permission" := Permission."Read Permission"::Yes;
+        Permission."Insert Permission" := Permission."Insert Permission"::Indirect;
+        Permission."Modify Permission" := Permission."Modify Permission"::Indirect;
+        Permission."Delete Permission" := Permission."Delete Permission"::Indirect;
+        Permission."Execute Permission" := Permission."Execute Permission"::Yes;
+        //TOdo
+        Permission."Execute Allowed" := TRUE;
+        Permission."Insert Allowed" := FALSE;
+        Permission."Modify Allowed" := FALSE;
+        Permission."Delete Allowed" := FALSE;
+        Permission.INSERT();
+    end;
+
+
+    procedure SetIMDtoYes(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
+    var
+    begin
+        Permission."Role ID" := RoleID;
+        Permission."Object Type" := ObjectType;
+        Permission."Object ID" := ObjectID;
+        Permission."Read Permission" := Permission."Read Permission"::" ";
+        Permission."Insert Permission" := Permission."Insert Permission"::Yes;
+        Permission."Modify Permission" := Permission."Modify Permission"::Yes;
+        Permission."Delete Permission" := Permission."Delete Permission"::Yes;
+        Permission."Execute Permission" := Permission."Execute Permission"::" ";
+        //todo
+        Permission."Execute Allowed" := FALSE;
+        Permission."Insert Allowed" := TRUE;
+        Permission."Modify Allowed" := TRUE;
+        Permission."Delete Allowed" := TRUE;
+        Permission.INSERT();
+    end;
+
+
+    procedure SetREtoYes(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
+    begin
+        Permission."Role ID" := RoleID;
+        Permission."Object Type" := ObjectType;
+        Permission."Object ID" := ObjectID;
+        Permission."Read Permission" := Permission."Read Permission"::Yes;
+        Permission."Insert Permission" := Permission."Insert Permission"::" ";
+        Permission."Modify Permission" := Permission."Modify Permission"::" ";
+        Permission."Delete Permission" := Permission."Delete Permission"::" ";
+        Permission."Execute Permission" := Permission."Execute Permission"::Yes;
+        //ToDo
+        Permission."Execute Allowed" := TRUE;
+        Permission."Insert Allowed" := FALSE;
+        Permission."Modify Allowed" := FALSE;
+        Permission."Delete Allowed" := FALSE;
+        Permission.INSERT();
+    end;
+
+
+    procedure SetExecuteAllowedValue(ValueInput: Boolean; var ObjectMembership: Record "PWD Object Membership"; RoleInput: Code[20])
+    var
+
+    begin
+        Window.OPEN(Text1000000004, RoleInput);
+        Window.Update(1, RoleInput);
+        Window.CLOSE();
+        ObjectMembership.FIND('-');
+        IF NOT UserRole.GET(RoleInput) THEN
+            ERROR(Text1000000005, RoleInput)
+        ELSE
+            REPEAT
+                Permission."Role ID" := RoleInput;
+                Permission."Object Type" := ObjectMembership."Object Type";
+                Permission."Object ID" := ObjectMembership."Object ID";
+                IF NOT Permission.MODIFY() THEN BEGIN
+                    Permission.INSERT();
+                    //Todo
+                    Permission.VALIDATE("Execute Allowed", ValueInput);
+                END ELSE
+                    Permission.VALIDATE("Execute Allowed", ValueInput);
+            UNTIL ObjectMembership.NEXT() = 0;
+    end;
+
+    procedure ResetUserTableDataPermissions(SelUserRole: Record "Permission Set")
+    var
+        Permission: Record Permission;
+        AllObj: Record AllObj;
+    begin
+        AllObj.RESET();
+        AllObj.SETFILTER("Object Type", 'TableData');
+        AllObj.SETFILTER("Object ID", '<2000000000');
+        IF AllObj.FIND('-') THEN
+            REPEAT
+                IF STRPOS(UPPERCASE(AllObj."Object Name"), 'BUFFER') = 0 THEN
+                    IF Permission.GET(SelUserRole."Role ID", AllObj."Object Type", AllObj."Object ID") THEN
+                        Permission.DELETE();
+            UNTIL AllObj.NEXT() = 0;
+        AllObj.RESET();
+        AllObj.SETFILTER("Object Type", 'TableData');
+        AllObj.SETFILTER("Object ID", '2000000002..2000000006|2000000053..2000000054|2000000203');
+        IF AllObj.FIND('-') THEN
+            REPEAT
+                IF Permission.GET(SelUserRole."Role ID", AllObj."Object Type", AllObj."Object ID") THEN
+                    Permission.DELETE();
+            UNTIL AllObj.NEXT() = 0;
+    end;
+
+    procedure DeleteAllRoles()
+    begin
+        UserRole.SETFILTER("Role ID", '<>SUPER');
+        IF UserRole.FIND('-') THEN
+            UserRole.DELETEALL();
+
+        Permission.SETFILTER("Role ID", '<>SUPER');
+        IF Permission.FIND('-') THEN
+            Permission.DELETEALL();
+    end;
+
+    procedure DeleteRoleTOUS()
+    begin
+        UserRole.SETFILTER("Role ID", 'TOUS');
+        IF UserRole.FIND('-') THEN
+            UserRole.DELETEALL();
+
+        Permission.SETFILTER("Role ID", 'TOUS');
+        IF Permission.FIND('-') THEN
+            Permission.DELETEALL();
+    end;
+
+    procedure SetRoleTOUSProperties()
+    begin
+        Permission.RESET();
+        IF Permission.FIND('-') THEN
+            REPEAT
+                Permission.VALIDATE("Execute Permission");
+                Permission.MODIFY();
+            UNTIL Permission.NEXT() = 0;
+
+        IF NOT UserRole.GET('TOUS') THEN BEGIN
+            UserRole."Role ID" := 'TOUS';
+            UserRole.Name := 'Tous les utilisateurs';
+            UserRole.INSERT();
+        END;
+        UserRole.SETFILTER("Role ID", 'TOUS');
+        UserRole.FIND('-');
+        //Set Permissions for TableData
+        AllObj.RESET();
+        AllObj.SETRANGE("Object Type", AllObj."Object Type"::TableData);
+        IF AllObj.FIND('-') THEN
+            SetREtoYesIMDtoInd(UserRole."Role ID", AllObj."Object Type", 0);
+        //Set Permissions for 'Buffer' Table Data
+        AllObj.RESET();
+        AllObj.SETRANGE("Object Type", AllObj."Object Type"::TableData);
+        IF AllObj.FIND('-') THEN
+            REPEAT
+                IF STRPOS(UPPERCASE(AllObj."Object Name"), 'BUFFER') <> 0 THEN
+                    SetIMDtoYes(UserRole."Role ID", AllObj."Object Type", AllObj."Object ID");
+            UNTIL AllObj.NEXT() = 0;
+        //Set Permissions for object 'Table'
+        AllObj.RESET();
+        AllObj.SETRANGE("Object Type", AllObj."Object Type"::Table);
+        IF AllObj.FIND('-') THEN
+            SetREtoYes(UserRole."Role ID", AllObj."Object Type", 0);
+        //Set Permissions for objects 'Form' & 'Report'
+        AllObj.RESET();
+        AllObj.SETRANGE("Object Type", AllObj."Object Type"::Page);
+        IF AllObj.FIND('-') THEN
+            SetExecuteIndirect(UserRole."Role ID", AllObj."Object Type", 0);
+        AllObj.SETRANGE("Object Type", AllObj."Object Type"::Report);
+        IF AllObj.FIND('-') THEN
+            SetExecuteIndirect(UserRole."Role ID", AllObj."Object Type", 0);
+        //Set Permissions for objects 'Dataport' & 'Codeunit'
+        AllObj.RESET();
+        AllObj.SETRANGE("Object Type", AllObj."Object Type"::XMLport);
+        IF AllObj.FIND('-') THEN
+            SetMaximumPermission(UserRole."Role ID", AllObj."Object Type", 0);
+        AllObj.SETRANGE("Object Type", AllObj."Object Type"::Codeunit);
+        IF AllObj.FIND('-') THEN
+            SetMaximumPermission(UserRole."Role ID", AllObj."Object Type", 0);
+        //Set Permissions for 'Menu' forms
+        AllObj.RESET();
+        AllObj.SETRANGE("Object Type", AllObj."Object Type"::Page);
+        IF AllObj.FIND('-') THEN
+            REPEAT
+                //ToDo
+                IF STRPOS(UPPERCASE(AllObj."Object Name"), 'MENU') <> 0 THEN
+                    SetExecuteYes(UserRole."Role ID", AllObj."Object Type", AllObj."Object ID");
+            UNTIL AllObj.NEXT() = 0;
+        //Set Permissions for System Functions
+        AllObj.RESET();
+        AllObj.SETRANGE("Object Type", AllObj."Object Type"::System);
+        IF AllObj.FIND('-') THEN BEGIN
+            SetMaximumPermission(UserRole."Role ID", AllObj."Object Type", 2510);
+            SetMaximumPermission(UserRole."Role ID", AllObj."Object Type", 2520);
+            SetMaximumPermission(UserRole."Role ID", AllObj."Object Type", 3220);
+            SetMaximumPermission(UserRole."Role ID", AllObj."Object Type", 3230);
+            SetMaximumPermission(UserRole."Role ID", AllObj."Object Type", 3410);
+            SetMaximumPermission(UserRole."Role ID", AllObj."Object Type", 3510);
+            SetMaximumPermission(UserRole."Role ID", AllObj."Object Type", 5830);
+        END;
+
+        //Set Permissions for System TableData
+        AllObj.RESET();
+        AllObj.SETRANGE("Object Type", AllObj."Object Type"::TableData);
+        AllObj.SETFILTER("Object ID", '>=2000000000');
+        IF AllObj.FIND('-') THEN
+            REPEAT
+                IF NOT (AllObj."Object ID" IN [2000000002 .. 2000000006, 2000000053, 2000000054, 2000000058, 2000000203]) THEN
+                    SetIMDtoYes(UserRole."Role ID", AllObj."Object Type", AllObj."Object ID");
+            UNTIL AllObj.NEXT() = 0;
+        AllObj.RESET();
+    end;
+}
+
