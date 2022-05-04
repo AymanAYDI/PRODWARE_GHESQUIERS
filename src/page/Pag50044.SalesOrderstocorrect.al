@@ -93,30 +93,26 @@ page 50044 "PWD Sales Orders to correct"
     }
 
     var
-        SalesHeader: Record "Sales Header";
-        SalesLine: Record "Sales Line";
         Item: Record Item;
-        RecLocPriority: Record "PWD Location Priority";
-        AvailableInventory: Decimal;
         Item2: Record Item;
-        LastLineNo: BigInteger;
-        SalesLine2: Record "Sales Line";
-        Text1000000009: Label 'You can''t select more than one line for picking';
-        Text1000000010: Label 'You must select at least one line for picking';
-        UoMgt: Codeunit "Unit of Measure Management";
-        CheckLocationAvailability: Codeunit "Item-Check Avail.";
-        QtytoSend: Decimal;
-        CumulatedInventory: Decimal;
-        RemainingDifference: Decimal;
-        ItemTrackingLines: Record "Tracking Specification";
-        Text1000000011: Label 'The items corresponding to the order %1 have been picked successfully !';
+        RecLocPriority: Record "PWD Location Priority";
         ReservEntry: Record "Reservation Entry";
         ReservEntryNo: Record "Reservation Entry";
-        Text1000000012: Label 'The picking list cannot be printed until the ordre has been prepared';
-        Text1000000013: Label 'The order %1 has not yet been prepared !';
-        InventorySetup: Record "Inventory Setup";
-        Text1000000014: Label 'No prepared quantity has been changed in the order %1';
+        SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        SalesLine2: Record "Sales Line";
+        ItemTrackingLines: Record "Tracking Specification";
+        PWDFunctionMgt: codeunit "PWD Function Mgt";
         FormSalesLinetoCorrect: Page "PWD Sales Line to Correct";
+        LastLineNo: BigInteger;
+        AvailableInventory: Decimal;
+        CumulatedInventory: Decimal;
+        QtytoSend: Decimal;
+        RemainingDifference: Decimal;
+        Text1000000009: Label 'You can''t select more than one line for picking';
+        Text1000000010: Label 'You must select at least one line for picking';
+        Text1000000013: Label 'The order %1 has not yet been prepared !';
+        Text1000000014: Label 'No prepared quantity has been changed in the order %1';
 
     procedure BreakdownSalesLineQty(InputQuantity: Decimal)
     var
@@ -126,11 +122,11 @@ page 50044 "PWD Sales Orders to correct"
         InsertedSalesLineQty := 0;
         CumulatedInventory := 0;
         RecLocPriority.RESET();
-        RecLocPriority.SETRANGE(RecLocPriority."Call Type Code", SalesHeader."PWD Call Type");
+        RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", SalesHeader."PWD Call Type");
         IF RecLocPriority.FIND('-') THEN BEGIN
             REPEAT
-                AvailableInventory := CheckLocationAvailability.CalculateNeed(SalesLine, RecLocPriority."Location code");
-                CumulatedInventory += CheckLocationAvailability.CalculateNeed(SalesLine, RecLocPriority."Location code");
+                AvailableInventory := PWDFunctionMgt.CalculateNeed(SalesLine, RecLocPriority."PWD Location code");
+                CumulatedInventory += PWDFunctionMgt.CalculateNeed(SalesLine, RecLocPriority."PWD Location code");
                 IF AvailableInventory <> 0 THEN BEGIN
                     InsertedSalesLineQty += SalesLine2.Quantity;
                     RemainingDifference := InputQuantity - InsertedSalesLineQty;
@@ -145,7 +141,7 @@ page 50044 "PWD Sales Orders to correct"
                     SalesLine2.VALIDATE(SalesLine2."Line No.", LastLineNo);
                     SalesLine2.VALIDATE(SalesLine2.Type, SalesLine.Type);
                     SalesLine2.VALIDATE(SalesLine2."No.", SalesLine."No.");
-                    SalesLine2.VALIDATE(SalesLine2."Location Code", RecLocPriority."Location code");
+                    SalesLine2.VALIDATE(SalesLine2."Location Code", RecLocPriority."PWD Location code");
                     IF CumulatedInventory <= InputQuantity THEN
                         SalesLine2.VALIDATE(SalesLine2.Quantity, AvailableInventory) ELSE
                         SalesLine2.VALIDATE(SalesLine2.Quantity, RemainingDifference);
@@ -185,16 +181,16 @@ page 50044 "PWD Sales Orders to correct"
 
     local procedure CalculateNeed(): Decimal
     var
+        ItemSalesLine: Record Item;
         GrossRequirement: Decimal;
         PlannedOrderReceipt: Decimal;
-        ScheduledReceipt: Decimal;
         PlannedOrderReleases: Decimal;
-        ItemSalesLine: Record Item;
+        ScheduledReceipt: Decimal;
     begin
         ItemSalesLine.RESET();
         ItemSalesLine.SETRANGE("No.", SalesLine."No.");
         ItemSalesLine.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
-        ItemSalesLine.SETRANGE("Location Filter", RecLocPriority."Location code");
+        ItemSalesLine.SETRANGE("Location Filter", RecLocPriority."PWD Location code");
         ItemSalesLine.SETRANGE("PWD Preparation Filter", SalesLine."PWD Preparation in Process");
         IF ItemSalesLine.FIND('-') THEN
             ItemSalesLine.CALCFIELDS("Qty. on Sales Order");
@@ -202,7 +198,7 @@ page 50044 "PWD Sales Orders to correct"
         Item.RESET();
         Item.SETRANGE("No.", SalesLine."No.");
         Item.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
-        Item.SETRANGE(Item."Location Filter", RecLocPriority."Location code");
+        Item.SETRANGE(Item."Location Filter", RecLocPriority."PWD Location code");
         IF Item.FIND('-') THEN BEGIN
             Item.CALCFIELDS(
               "Qty. on Purch. Order",
@@ -246,11 +242,10 @@ page 50044 "PWD Sales Orders to correct"
     procedure InsertTrackingLines()
     var
         ItemLedgerEntry: Record "Item Ledger Entry";
-        ItemTrackingLines: Record "Tracking Specification";
-        EntryNo: Integer;
         CumulatedRemainingQty: Decimal;
         Difference: Decimal;
         InsertedTrackingQty: Decimal;
+        EntryNo: Integer;
     begin
         CumulatedRemainingQty := 0;
         Difference := 0;
@@ -316,10 +311,10 @@ page 50044 "PWD Sales Orders to correct"
     var
         ItemLedgerEntry: Record "Item Ledger Entry";
         ItemTrackingLines: Record "Tracking Specification";
-        EntryNo: Integer;
         CumulatedRemainingQty: Decimal;
         Difference: Decimal;
         InsertedTrackingQty: Decimal;
+        EntryNo: Integer;
     begin
         CumulatedRemainingQty := 0;
         Difference := 0;

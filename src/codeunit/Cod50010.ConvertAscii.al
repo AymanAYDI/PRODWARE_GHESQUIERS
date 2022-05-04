@@ -6,10 +6,10 @@ codeunit 50010 "PWD ConvertAscii"
     end;
 
     var
+        trouve: Boolean;
         Correspondances: array[83, 2] of Char;
         i: Integer;
         pos: Integer;
-        trouve: Boolean;
 
 
     procedure AsciiToAnsi(var TextAscii: Text[250]) TextAnsi: Text[250]

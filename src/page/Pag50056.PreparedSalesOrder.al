@@ -206,7 +206,7 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     ApplicationArea = All;
                 }
-                field("Discount Profit %"; "Discount Profit %")
+                field("Discount Profit %"; Rec."PWD Discount Profit %")
                 {
                     Editable = false;
                     ApplicationArea = All;
@@ -362,10 +362,12 @@ page 50056 "PWD Prepared Sales Order"
                     ApplicationArea = All;
 
                     trigger OnAssistEdit()
+                    var
+                        ChangeExchangeRate: page "Change Exchange Rate";
                     begin
                         ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date");
-                        IF ChangeExchangeRate.RUNMODAL = ACTION::OK THEN BEGIN
-                            Rec.VALIDATE("Currency Factor", ChangeExchangeRate.GetParameter);
+                        IF ChangeExchangeRate.RUNMODAL() = ACTION::OK THEN BEGIN
+                            Rec.VALIDATE("Currency Factor", ChangeExchangeRate.GetParameter());
                             CurrPage.UPDATE();
                         END;
                         CLEAR(ChangeExchangeRate);
@@ -399,36 +401,36 @@ page 50056 "PWD Prepared Sales Order"
             group(BizTalk)
             {
                 Caption = 'BizTalk';
-                field("BizTalk Sales Order"; "PWD BizTalk Sales Order")
+                field("BizTalk Sales Order"; "BizTalk Sales Order")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Date Received"; "PWD Date Received")
+                field("Date Received"; "Date Received")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Time Received"; "PWD Time Received")
+                field("Time Received"; "Time Received")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Customer Order No."; "PWD Customer Order No.")
+                field("Customer Order No."; "Customer Order No.")
                 {
                     ApplicationArea = All;
                 }
-                field("BizTalk Sales Order Cnfmn."; "PWD BizTalk Sales Order Cnfmn.")
-                {
-                    Editable = false;
-                    ApplicationArea = All;
-                }
-                field("Date Sent"; "PWD Date Sent")
+                field("BizTalk Sales Order Cnfmn."; "BizTalk Sales Order Cnfmn.")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Time Sent"; "PWD Time Sent")
+                field("Date Sent"; "Date Sent")
+                {
+                    Editable = false;
+                    ApplicationArea = All;
+                }
+                field("Time Sent"; "Time Sent")
                 {
                     Editable = false;
                     ApplicationArea = All;
@@ -455,11 +457,11 @@ page 50056 "PWD Prepared Sales Order"
                         FromSalesLine: Record "Sales Line";
                     begin
                         CurrPage.SalesLines.PAGE.GETRECORD(FromSalesLine);
-                        IF FromSalesLine."Trading Brand" = TRUE THEN BEGIN
-                            FromSalesLine.VALIDATE("Trading Brand", FALSE);
+                        IF FromSalesLine."PWD Trading Brand" = TRUE THEN BEGIN
+                            FromSalesLine.VALIDATE("PWD Trading Brand", FALSE);
                             FromSalesLine.VALIDATE("Location Code", Rec."Location Code");
                         END ELSE BEGIN
-                            FromSalesLine.VALIDATE("Trading Brand", TRUE);
+                            FromSalesLine.VALIDATE("PWD Trading Brand", TRUE);
                             FromSalesLine.VALIDATE("Location Code", 'CML');
                         END;
                         FromSalesLine.MODIFY();
@@ -486,7 +488,7 @@ page 50056 "PWD Prepared Sales Order"
                     trigger OnAction()
                     begin
                         CreatePurchQuote.InitDocument(Rec."Document Type", Rec."No.");
-                        CreatePurchQuote.RUN;
+                        CreatePurchQuote.RUN();
                     end;
                 }
                 action("Export demandes de prix au format Excel")
@@ -497,9 +499,9 @@ page 50056 "PWD Prepared Sales Order"
                     trigger OnAction()
                     begin
                         CreatePurchQuote.InitDocument(Rec."Document Type", Rec."No.");
-                        CreatePurchQuote.RUN;
+                        CreatePurchQuote.RUN();
                         Rec.SETRECFILTER();
-                        REPORT.RUNMODAL(50022, FALSE, FALSE, Rec);
+                        REPORT.RUNMODAL(Report::"PWD Export Microsoft Excel", FALSE, FALSE, Rec);
                         Rec.RESET();
                     end;
                 }
@@ -511,7 +513,7 @@ page 50056 "PWD Prepared Sales Order"
                     trigger OnAction()
                     begin
                         Rec.SETRECFILTER();
-                        REPORT.RUNMODAL(50023, FALSE, FALSE, Rec);
+                        REPORT.RUNMODAL(Report::"PWD Import Microsoft Excel", FALSE, FALSE, Rec);
                         Rec.RESET();
                     end;
                 }
@@ -531,7 +533,7 @@ page 50056 "PWD Prepared Sales Order"
                         SalesLine.SETRANGE("Document Type", Rec."Document Type");
                         SalesLine.SETRANGE("Document No.", Rec."No.");
                         SalesLine.SETRANGE(Type, SalesLine.Type::Item);
-                        FORM.RUN(50004, SalesLine);
+                        Page.RUN(Page::"Vendors offers to select -TrB", SalesLine);
                     end;
                 }
                 action("Acceptation des offres")
@@ -545,7 +547,7 @@ page 50056 "PWD Prepared Sales Order"
                     begin
                         SalesHeader := Rec;
                         SalesHeader.SETRECFILTER();
-                        REPORT.RUN(50006, FALSE, FALSE, SalesHeader);
+                        REPORT.RUN(Report::"Accept selected offers -TrB", FALSE, FALSE, SalesHeader);
                     end;
                 }
                 separator(Action1000000019)
@@ -577,7 +579,7 @@ page 50056 "PWD Prepared Sales Order"
                     begin
                         SalesHeader := Rec;
                         SalesHeader.SETRECFILTER();
-                        REPORT.RUN(50007, TRUE, FALSE, SalesHeader);
+                        REPORT.RUN(Report::"Generation Purchase Order -TrB", TRUE, FALSE, SalesHeader);
                     end;
                 }
             }
@@ -597,7 +599,7 @@ page 50056 "PWD Prepared Sales Order"
                             CurrPage.SalesLines.PAGE.CalcInvDisc();
                             COMMIT()
                         END;
-                        FORM.RUNMODAL(FORM::"Sales Order Statistics", Rec);
+                        Page.RUNMODAL(Page::"Sales Order Statistics", Rec);
                     end;
                 }
                 action(Fiche)
@@ -647,9 +649,11 @@ page 50056 "PWD Prepared Sales Order"
                     ApplicationArea = All;
 
                     trigger OnAction()
+                    var
+                        SalesPlan: page "Sales Order Planning";
                     begin
-                        SalesPlanForm.SetSalesOrder(Rec."No.");
-                        SalesPlanForm.RUNMODAL;
+                        SalesPlan.SetSalesOrder(Rec."No.");
+                        SalesPlan.RUNMODAL();
                     end;
                 }
                 separator(Action1000000010)
@@ -732,7 +736,7 @@ page 50056 "PWD Prepared Sales Order"
                     begin
                         OrderPromisingLine.SETRANGE("Source Type", Rec."Document Type");
                         OrderPromisingLine.SETRANGE("Source ID", Rec."No.");
-                        FORM.RUNMODAL(FORM::"Order Promising Lines", OrderPromisingLine);
+                        Page.RUNMODAL(Page::"Order Promising Lines", OrderPromisingLine);
                     end;
                 }
                 group(Magasin)
@@ -789,6 +793,7 @@ page 50056 "PWD Prepared Sales Order"
 
                     trigger OnAction()
                     var
+                        //ToDo
                         BizTalkManagement: Codeunit "BizTalkManagement";
                     begin
                         BizTalkManagement.SendSalesOrderConf(Rec);
@@ -826,7 +831,7 @@ page 50056 "PWD Prepared Sales Order"
                         SalesHeader: Record "Sales Header";
                         Text1000000002: Label 'Attention : la préparation de commande n''a pas encore été calculée.';
                     begin
-                        IF "Preparation in process" = FALSE THEN MESSAGE(Text1000000002);
+                        IF Rec."PWD Preparation in process" = FALSE THEN MESSAGE(Text1000000002);
                         CurrPage.SETSELECTIONFILTER(SalesHeader);
                         REPORT.RUN(REPORT::"Picking List Unit Price Null", TRUE, TRUE, SalesHeader);
                         //***//
@@ -860,7 +865,7 @@ page 50056 "PWD Prepared Sales Order"
                         Rec.VerifyPriceweight(Rec);
                         CLEAR(ValidateSalesOrder);
                         ValidateSalesOrder.InitRequete(Rec);
-                        ValidateSalesOrder.RUNMODAL;
+                        ValidateSalesOrder.RUNMODAL();
                     end;
                 }
                 action("Valider et i&mprimer")
@@ -934,7 +939,7 @@ page 50056 "PWD Prepared Sales Order"
 
     trigger OnModifyRecord(): Boolean
     begin
-        BlockDocument;
+        Rec.BlockDocument();
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
@@ -961,25 +966,21 @@ page 50056 "PWD Prepared Sales Order"
     end;
 
     var
-        Text000: Label 'Unable to execute this function while in view only mode.';
-        CopySalesDoc: Report 292;
-        MoveNegSalesLines: Report 6699;
-        ReportPrint: Codeunit "Test Report-Print";
-        DocPrint: Codeunit "Document-Print";
-        ArchiveManagement: Codeunit ArchiveManagement;
-        SalesSetup: Record "Sales & Receivables Setup";
-        UserMgt: Codeunit "User Setup Management";
-        CreatePurchQuote: Report "Create Purchase Quote r -TrB";
-        SalesLineamount: Record "Sales Line";
         Memberof: Record 2000000003;
-        Text1000000004: Label 'You are not allowed to modify this field !';
-        ValidateSalesOrder: Report "Validate Sales Order";
+        SalesSetup: Record "Sales & Receivables Setup";
         SalesHeader: Record "Sales Header";
-        RecCall: Record "PWD Call";
-        RecCust: Record Customer;
         PurchRRec: Record "Sales Shipment Header";
+        CopySalesDoc: Report "Copy Sales Document";
+        CreatePurchQuote: Report "Create Purchase Quote r -TrB";
+        MoveNegSalesLines: Report "Move Negative Sales Lines";
+        ValidateSalesOrder: Report "PWD Validate Sales Order";
+        ArchiveManagement: Codeunit ArchiveManagement;
+        DocPrint: Codeunit "Document-Print";
+        ReportPrint: Codeunit "Test Report-Print";
+        UserMgt: Codeunit "User Setup Management";
+        Text000: Label 'Unable to execute this function while in view only mode.';
+        Text1000000004: Label 'You are not allowed to modify this field !';
         DateLastPurchR: Text[30];
-        CstG001: Label 'Indiquez un N° de client facturé dans la fiche client';
 
     procedure UpdateAllowed(): Boolean
     begin
@@ -990,7 +991,7 @@ page 50056 "PWD Prepared Sales Order"
 
     procedure PrintCustomsCertificate()
     begin
-        CurrPage.SalesLines.PAGE.DescriptionOnFormat;
+        CurrPage.SalesLines.PAGE.DescriptionOnFormat();
     end;
 
     local procedure SelltoCustomerNoOnAfterValidat()

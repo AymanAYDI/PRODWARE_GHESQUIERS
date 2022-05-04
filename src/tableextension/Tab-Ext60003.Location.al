@@ -119,7 +119,7 @@ tableextension 60003 "PWD Location" extends Location
             TableRelation = "Permission Set";
             DataClassification = CustomerContent;
         }
-        field(50037; "Régime sortie"; Code[10])
+        field(50037; "PWD Régime sortie"; Code[10])
         {
             Caption = 'Régime sortie';
             Description = 'PW2009';

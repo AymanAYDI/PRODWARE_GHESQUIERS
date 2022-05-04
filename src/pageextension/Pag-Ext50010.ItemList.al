@@ -145,20 +145,20 @@ pageextension 50010 "PWD ItemList" extends "Item List"
             action("PWD Evaluation stock")
             {
                 Caption = 'Evaluation stock';
-                RunObject = Report 50115;
+                RunObject = Report "PWD Evaluation stock SAS Ghes";
                 ApplicationArea = all;
             }
             action("PWD Apurement fin de mois")
             {
                 ApplicationArea = All;
                 Caption = 'Apurement fin de mois';
-                RunObject = Report 50113;
+                RunObject = Report "PWD Apurement fin de mois";
             }
             action("PWD Inventaire pour la douane")
             {
                 ApplicationArea = all;
                 Caption = 'Inventaire pour la douane';
-                RunObject = Report 50074;
+                RunObject = Report "PWD Inventaire pour la douane";
             }
             action("Avita : Stock par lot")
             {
@@ -170,25 +170,25 @@ pageextension 50010 "PWD ItemList" extends "Item List"
             {
                 ApplicationArea = all;
                 caption = 'Relev‚ de douane';
-                RunObject = Report 50033;
+                RunObject = Report "PWD Relevé de douane";
             }
             action("SEAF : relev‚ vtes … emporter")
             {
                 ApplicationArea = all;
                 caption = 'SEAF : relev‚ vtes … emporter';
-                RunObject = Report 50039;
+                RunObject = Report "SEAF : relevé vtes à emporter";
             }
             action("PWD Generation Purchase Order-TrB")
             {
                 ApplicationArea = all;
                 caption = 'Generation Purchase Order -TrB';
-                RunObject = Report 50007;
+                RunObject = Report "Generation Purchase Order -TrB";
             }
             action("Relev‚ des Sorties Export 2")
             {
                 ApplicationArea = all;
                 caption = 'Relev‚ des Sorties Export 2';
-                RunObject = Report 50034;
+                RunObject = Report "Relevé des Sorties Export 2";
             }
         }
     }

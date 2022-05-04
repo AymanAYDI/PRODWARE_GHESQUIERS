@@ -11,7 +11,7 @@ codeunit 50016 "PWD Shipment Line - Edit"
         SalesShptLine.FIND();
         SalesShptLine."Net Weight" := "Net Weight";
         SalesShptLine."Gross Weight" := "Gross Weight";
-        SalesShptLine."Cle (restitution)" := "Cle (restitution)";
+        SalesShptLine."PWD Cle (restitution)" := "PWD Cle (restitution)";
         SalesShptLine."PWD Parcel Nb." := "PWD Parcel Nb.";
         SalesShptLine."PWD Certified Origin" := "PWD Certified Origin";
         SalesShptLine."PWD Origin Area" := "PWD Origin Area";

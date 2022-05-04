@@ -166,11 +166,9 @@ tableextension 60022 "PWD SalesShipmentHeader" extends "Sales Shipment Header"
 
 
     procedure PrintCustomsDoc(CustomsType: Code[10])
-    var
-        ReportT1: Report "MAJ Nomenclature T27";
     begin
 
-        IF CustomsType = 'T5' THEN REPORT.RUNMODAL(REPORT::"Calcul PU=CU*coef", TRUE, TRUE, Rec);
+        IF CustomsType = 'T5' THEN REPORT.RUNMODAL(REPORT::"PWD Calcul PU=CU*coef", TRUE, TRUE, Rec);
 
         IF CustomsType = 'CO' THEN REPORT.RUNMODAL(REPORT::"Certificat d'origine", TRUE, TRUE, Rec);
         IF CustomsType = 'CHARGEMENT' THEN REPORT.RUNMODAL(REPORT::"Loading List", TRUE, TRUE, Rec);
@@ -183,8 +181,6 @@ tableextension 60022 "PWD SalesShipmentHeader" extends "Sales Shipment Header"
     trigger OnInsert()
     var
     begin
-
-
     end;
 }
 

@@ -2,7 +2,7 @@ page 90002 "Req. Worksheet/Vendor detail"
 {
     PageType = List;
     SourceTable = "Requisition Line";
-    SourceTableView = WHERE(Suppl. lines=CONST(Yes));
+    SourceTableView = WHERE("PWD Suppl. lines" = CONST(True));
 
     layout
     {
@@ -293,13 +293,9 @@ page 90002 "Req. Worksheet/Vendor detail"
     }
 
     var
-        GetSalesOrder: Report "Get Sales Orders";
-        GetSalesOrderVendor: Report "Get Sales Orders/Vendor -TrB";
-        CalculatePlan: Report "Calculate Plan - Req. Wksh.";
         ReqJnlManagement: Codeunit ReqJnlManagement;
-        CurrentJnlBatchName: Code[10];
-        Description2: Text[30];
-        BuyFromVendorName: Text[30];
         ShortcutDimCode: array[8] of Code[20];
+        BuyFromVendorName: Text[30];
+        Description2: Text[30];
 }
 

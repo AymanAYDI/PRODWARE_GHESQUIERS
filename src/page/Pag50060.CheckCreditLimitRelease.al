@@ -126,33 +126,30 @@ page 50060 "PWD Check Credit Limit Release"
     end;
 
     var
-        Text000: Label '%1 Do you still want to record the amount?';
-        Text001: Label 'Overdue Amounts (LCY) as of %1';
-        Text002: Label 'The customer''s credit limit has been exceeded.';
-        Text003: Label 'This customer has an overdue balance.';
         CurrExchRate: Record "Currency Exchange Rate";
-        SalesHeader: Record "Sales Header";
-        SalesLine: Record "Sales Line";
         Cust2: Record Customer;
-        SalesSetup: Record "Sales & Receivables Setup";
+        SalesLine: Record "Sales Line";
+        [InDataSet]
+        CUSTVisible: Boolean;
+        [InDataSet]
+        NoVisible: Boolean;
+        [InDataSet]
+        YESVisible: Boolean;
         CustNo: Code[20];
-        Heading: Text[80];
+        CustCreditAmountLCY: Decimal;
         NewOrderAmountLCY: Decimal;
         OldOrderAmountLCY: Decimal;
         OrderAmountThisOrderLCY: Decimal;
         OrderAmountTotalLCY: Decimal;
-        CustCreditAmountLCY: Decimal;
-        ShippedRetRcdNotIndLCY: Decimal;
         OutstandingRetOrdersLCY: Decimal;
         RcdNotInvdRetOrdersLCY: Decimal;
-        TextHeader: Text[100];
+        ShippedRetRcdNotIndLCY: Decimal;
+        Text000: Label '%1 Do you still want to record the amount?';
+        Text001: Label 'Overdue Amounts (LCY) as of %1';
+        Text002: Label 'The customer''s credit limit has been exceeded.';
         Text004: Label '%1 Voulez vous lancer la commande ?';
-        [InDataSet]
-        YESVisible: Boolean;
-        [InDataSet]
-        NoVisible: Boolean;
-        [InDataSet]
-        CUSTVisible: Boolean;
+        Heading: Text[80];
+        TextHeader: Text[100];
 
 
     procedure SalesHeaderShowWarning(SalesHeader: Record "Sales Header"): Boolean

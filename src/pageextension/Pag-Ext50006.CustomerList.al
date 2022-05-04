@@ -17,7 +17,7 @@ pageextension 50006 "PWD CustomerList" extends "Customer List"
                 ApplicationArea = All;
                 trigger OnValidate()
                 VAR
-                    RecLCustomer: Record 18;
+                    RecLCustomer: Record Customer;
                 BEGIN
                     COMMIT();
                     CurrPage.UPDATE();
@@ -238,26 +238,102 @@ pageextension 50006 "PWD CustomerList" extends "Customer List"
             }
             field("PWD SetLastInvoiceNo"; SetLastInvoiceNo())
             {
+                Caption = 'Last invoice No.';
                 ApplicationArea = all;
+                Trigger OnAssistEdit()
+                VAR
+                    recLSalesInvoiceHeader: Record "Sales Invoice Header";
+                    PPostedSalesInvoices: Page "Posted Sales Invoices";
+                BEGIN
+                    recLSalesInvoiceHeader.RESET();
+                    recLSalesInvoiceHeader.SETCURRENTKEY("Sell-to Customer No.", "Posting Date");
+                    recLSalesInvoiceHeader.SETRANGE("Sell-to Customer No.", Rec."No.");
+                    PPostedSalesInvoices.SETRECORD(recLSalesInvoiceHeader);
+                    PPostedSalesInvoices.SETTABLEVIEW(recLSalesInvoiceHeader);
+                    PPostedSalesInvoices.RUN();
+                END;
             }
-            /*
-            group("PWD PWDEMail")
+        }
+        addafter(Control1)
+        {
+            group("PWD EMail")
             {
                 Caption = 'Email sur groupe de client';
                 field("PWD TxtGAddressList"; TxtGAddressList)
                 {
                     ApplicationArea = All;
                 }
-            }*/
+            }
         }
-
+        modify(SalesHistSelltoFactBox)
+        {
+            Editable = false;
+        }
+        modify(SalesHistBilltoFactBox)
+        {
+            Editable = false;
+        }
+        modify(CustomerStatisticsFactBox)
+        {
+            Editable = false;
+        }
+        modify(CustomerDetailsFactBox)
+        {
+            Editable = false;
+        }
+        modify(Control1907829707)
+        {
+            Editable = false;
+        }
+        modify(Control1902613707)
+        {
+            Editable = false;
+        }
+        modify(Control1905767507)
+        {
+            Editable = false;
+        }
     }
     var
         TxtGAddressList: Text[1024];
 
+    trigger OnOpenPage()
+    VAR
+        RecLCustomer: Record Customer;
+        RecLCustomer2: Record Customer;
+    BEGIN
+        RecLCustomer.RESET();
+        RecLCustomer.SETCURRENTKEY("PWD Group In EMail");
+        RecLCustomer.SETRANGE("PWD Group In EMail", TRUE);
+        IF RecLCustomer.FINDFIRST() THEN
+            REPEAT
+                RecLCustomer2.GET(RecLCustomer."No.");
+                RecLCustomer2."PWD Group In EMail" := FALSE;
+                RecLCustomer2.MODIFY();
+            UNTIL RecLCustomer.NEXT() = 0;
+        TxtGAddressList := '';
+    end;
+
+    trigger OnClosePage()
+    VAR
+        RecLCustomer: Record Customer;
+        RecLCustomer2: Record Customer;
+    BEGIN
+        RecLCustomer.RESET();
+        RecLCustomer.SETCURRENTKEY("PWD Group In EMail");
+        RecLCustomer.SETRANGE("PWD Group In EMail", TRUE);
+        IF RecLCustomer.FINDFIRST() THEN
+            REPEAT
+                RecLCustomer2.GET(RecLCustomer."No.");
+                RecLCustomer2."PWD Group In EMail" := FALSE;
+                RecLCustomer2.MODIFY();
+            UNTIL RecLCustomer.NEXT() = 0;
+        TxtGAddressList := '';
+    END;
+
     PROCEDURE SetLastInvoiceNo(): Code[20];
     VAR
-        recLSalesInvoiceHeader: Record 112;
+        recLSalesInvoiceHeader: Record "Sales Invoice Header";
     BEGIN
         recLSalesInvoiceHeader.RESET();
         recLSalesInvoiceHeader.SETCURRENTKEY("Sell-to Customer No.", "Posting Date");

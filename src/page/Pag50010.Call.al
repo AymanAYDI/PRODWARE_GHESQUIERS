@@ -123,9 +123,5 @@ page 50010 "PWD Call"
     actions
     {
     }
-
-    var
-        Country: Record "Country/Region";
-        MyFlag: Code[10];
 }
 

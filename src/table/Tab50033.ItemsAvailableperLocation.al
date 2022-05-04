@@ -33,13 +33,13 @@ table 50033 "Items Available per Location"
 
             trigger OnValidate()
             begin
-                LocationPriority.SETRANGE(LocationPriority."Location code", "Location Code");
+                LocationPriority.SETRANGE(LocationPriority."PWD Location code", "Location Code");
                 IF LocationPriority.FIND('-') THEN
                     REPEAT
-                        IF CallType <> LocationPriority."Call Type Code" THEN
-                            IF NOT ItemAvailableperCallType.GET(LocationPriority."Call Type Code", LocationPriority."Location code", "Item No.") THEN BEGIN
+                        IF CallType <> LocationPriority."PWD Call Type Code" THEN
+                            IF NOT ItemAvailableperCallType.GET(LocationPriority."PWD Call Type Code", LocationPriority."PWD Location code", "Item No.") THEN BEGIN
                                 ItemAvailableperCallType.INIT();
-                                ItemAvailableperCallType.VALIDATE("Call Type", LocationPriority."Call Type Code");
+                                ItemAvailableperCallType.VALIDATE("Call Type", LocationPriority."PWD Call Type Code");
                                 ItemAvailableperCallType.VALIDATE("Location Code", "Location Code");
                                 ItemAvailableperCallType.VALIDATE("Item No.", "Item No.");
                                 ItemAvailableperCallType.VALIDATE("Available Inventory", "Available Inventory");
@@ -48,20 +48,20 @@ table 50033 "Items Available per Location"
                                 ItemAvailableperCallType.VALIDATE("Available Inventory", "Available Inventory");
                                 ItemAvailableperCallType.MODIFY();
                             END;
-                        CallType := LocationPriority."Call Type Code";
+                        CallType := LocationPriority."PWD Call Type Code";
                     UNTIL LocationPriority.NEXT() = 0;
 
                 IF RecCallType.FIND('-') THEN
                     REPEAT
                         ItemAvailableperCallType.RESET();
                         LocationPriority.RESET();
-                        LocationPriority.SETRANGE(LocationPriority."Call Type Code", RecCallType.Code);
+                        LocationPriority.SETRANGE(LocationPriority."PWD Call Type Code", RecCallType.Code);
                         IF LocationPriority.FIND('-') THEN
                             REPEAT
-                                IF NOT ItemAvailableperCallType.GET(RecCallType.Code, LocationPriority."Location code", "Item No.") THEN BEGIN
+                                IF NOT ItemAvailableperCallType.GET(RecCallType.Code, LocationPriority."PWD Location code", "Item No.") THEN BEGIN
                                     ItemAvailableperCallType.INIT();
                                     ItemAvailableperCallType.VALIDATE("Call Type", RecCallType.Code);
-                                    ItemAvailableperCallType.VALIDATE("Location Code", LocationPriority."Location code");
+                                    ItemAvailableperCallType.VALIDATE("Location Code", LocationPriority."PWD Location code");
                                     ItemAvailableperCallType.VALIDATE("Item No.", "Item No.");
                                     ItemAvailableperCallType.INSERT();
                                 END;
@@ -92,10 +92,10 @@ table 50033 "Items Available per Location"
 
     var
         Item: Record Item;
-        LocationPriority: Record "PWD Location Priority";
         ItemAvailableperCallType: Record "Items Available per Call Type";
-        CallType: Code[20];
-        RecCallType: Record "PWD Call Type";
         Location: Record Location;
+        RecCallType: Record "PWD Call Type";
+        LocationPriority: Record "PWD Location Priority";
+        CallType: Code[20];
 }
 

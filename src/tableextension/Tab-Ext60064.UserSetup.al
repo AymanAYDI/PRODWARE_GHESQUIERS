@@ -5,7 +5,7 @@ tableextension 60064 "PWD UserSetup" extends "User Setup"
         field(50000; "PWD Signing"; Blob)
         {
             Caption = 'Signing';
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             SubType = Bitmap;
         }
     }

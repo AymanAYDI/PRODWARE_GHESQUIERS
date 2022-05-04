@@ -451,7 +451,6 @@ page 50045 "PWD Sales Line to Correct"
 
     trigger OnDeleteRecord(): Boolean
     var
-        ReleaseSalesDoc: Codeunit "Release Sales Document";
         DeleteAnomalie: Codeunit "PWD delete ligne anomalie";
     begin
         CLEAR(DeleteAnomalie);
@@ -466,11 +465,11 @@ page 50045 "PWD Sales Line to Correct"
 
     var
         SalesHeader: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        ReleaseSalesDoc: Codeunit "Release Sales Document";
         SalesPriceCalcMgt: Codeunit "Sales Price Calc. Mgt.";
         TransferExtendedText: Codeunit "Transfer Extended Text";
         ShortcutDimCode: array[8] of Code[20];
-        ReleaseSalesDoc: Codeunit "Release Sales Document";
-        SalesLine: Record "Sales Line";
         Text19027551: Label 'Sales Lines to modify';
 
 
@@ -608,11 +607,11 @@ page 50045 "PWD Sales Line to Correct"
 
     procedure PrintHealthCertificate()
     var
-        HealthCertifWordMngt: Codeunit "PWD Customs Sales Doc WordMngt";
         CustomsCertif: Record "PWD Customs Documents Template";
         SalesLine: Record "Sales Line";
-        DocTemplateCode: Code[10];
+        HealthCertifWordMngt: Codeunit "PWD Customs Sales Doc WordMngt";
         AssignDocTemplateCode: Page "Choose Customs Doc Template";
+        DocTemplateCode: Code[10];
     begin
         CLEAR(AssignDocTemplateCode);
         AssignDocTemplateCode.LOOKUPMODE := TRUE;

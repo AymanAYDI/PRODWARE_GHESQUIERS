@@ -213,10 +213,10 @@ table 50031 "PWD Appeal for Tenders"
 
     var
         Item: Record Item;
-        Vendor: Record Vendor;
         ItemVend: Record "Item Vendor";
         AppTenders: Record "PWD Appeal for Tenders";
-        UOMMgt: Codeunit 5402;
+        Vendor: Record Vendor;
+        UOMMgt: Codeunit "Unit of Measure Management";
 
     local procedure GetItem()
     begin

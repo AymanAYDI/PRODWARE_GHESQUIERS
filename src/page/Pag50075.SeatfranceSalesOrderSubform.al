@@ -147,13 +147,6 @@ page 50075 "Seatfrance Sales Order Subform"
     actions
     {
     }
-    var
-        SalesHeader: Record "Sales Header";
-        SalesPriceCalcMgt: Codeunit "Sales Price Calc. Mgt.";
-        ShortcutDimCode: array[8] of Code[20];
-        Item: Record Item;
-        TextC2A001: Label 'Opération abandonnée.';
-        TextC2A002: Label 'Mise à jour enregistrée.';
 
 
     procedure ApproveCalcInvDisc()
@@ -169,14 +162,10 @@ page 50075 "Seatfrance Sales Order Subform"
     end;
 
     procedure OpenPurchOrderForm()
-    var
-        PurchHeader: Record "Purchase Header";
     begin
     end;
 
     procedure OpenSpecialPurchOrderForm()
-    var
-        PurchHeader: Record "Purchase Header";
     begin
     end;
 
@@ -233,14 +222,10 @@ page 50075 "Seatfrance Sales Order Subform"
     end;
 
     procedure OrderPromisingLine()
-    var
-        OrderPromisingLine: Record "Order Promising Line" temporary;
     begin
     end;
 
     procedure SetUnpickedQuantity()
-    var
-        UnpickedQty: Decimal;
     begin
     end;
 

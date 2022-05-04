@@ -49,7 +49,5 @@ tableextension 60037 "PWD RequisitionLine" extends "Requisition Line"
             MaintainSQLIndex = false;
         }
     }
-    var
-        MemSpecificCost: Decimal;
 }
 

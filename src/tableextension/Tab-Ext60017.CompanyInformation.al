@@ -24,12 +24,14 @@ tableextension 60017 "PWD CompanyInformation" extends "Company Information"
         {
             Caption = 'Logo AVITA facture';
             Description = 'PW2009';
+            SubType = Bitmap;
             DataClassification = CustomerContent;
         }
         field(50004; "PWD Logo ISSA"; BLOB)
         {
             Caption = 'Logo ISSA';
             Description = 'PW2009';
+            SubType = Bitmap;
             DataClassification = CustomerContent;
         }
         field(50005; "PWD Location Rights Acquit Filter"; Text[100])

@@ -640,37 +640,36 @@ page 50053 "PWD Feuille saisie prestation"
     end;
 
     var
-        Text000: Label 'You cannot use entry type %1 in this journal.';
+        InvSetup: Record "Inventory Setup";
+        ItemJnlBatch: Record "Item Journal Batch";
+        CalcWhseAdjmt: Report "Calculate Whse. Adjustment";
         ItemJnlMgt: Codeunit ItemJnlManagement;
         ReportPrint: Codeunit "Test Report-Print";
-        CalcWhseAdjmt: Report "Calculate Whse. Adjustment";
         CurrentJnlBatchName: Code[10];
-        ItemDescription: Text[50];
-        ShortcutDimCode: array[8] of Code[20];
-        "--": Integer;
-        VendorNo: Code[20];
         TypePresta: Code[10];
         CustNo: Code[20];
-        VendorName: Text[50];
+        ShortcutDimCode: array[8] of Code[20];
+        VendorNo: Code[20];
+        Text000: Label 'You cannot use entry type %1 in this journal.';
+        Text19036003: Label 'Pièces jointes';
+        Text1000000014: Label 'Attention, après validation vous ne pourrez plus rééditer les document (avis de placement ou bon de commande). Continuer ?';
         CustName: Text[50];
-        PrestaName: Text[50];
-        Scellement: Text[50];
+        ItemDescription: Text[50];
         PJ1: Text[50];
         PJ2: Text[50];
         PJ3: Text[50];
         PJ4: Text[50];
-        ItemJnlBatch: Record "Item Journal Batch";
-        InvSetup: Record "Inventory Setup";
-        Text1000000014: Label 'Attention, après validation vous ne pourrez plus rééditer les document (avis de placement ou bon de commande). Continuer ?';
-        Text19036003: Label 'Pièces jointes';
+        PrestaName: Text[50];
+        Scellement: Text[50];
+        VendorName: Text[50];
 
 
     procedure MAJ()
     var
-        ItemJnlBatch: Record "Item Journal Batch";
-        Vendor: Record Vendor;
         Cust: Record Customer;
+        ItemJnlBatch: Record "Item Journal Batch";
         Presta: Record "PWD Prestations";
+        Vendor: Record Vendor;
     begin
         ItemJnlMgt.MAJPrest(CurrentJnlBatchName, VendorNo, CustNo, TypePresta);
         IF Vendor.GET(VendorNo) THEN VendorName := Vendor.Name ELSE VendorName := '';

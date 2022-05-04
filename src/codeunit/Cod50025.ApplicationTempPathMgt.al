@@ -7,7 +7,7 @@ codeunit 50025 "PWD Application Temp Path Mgt."
     end;
 
     var
-        ThreeTierMgt: Codeunit "3-Tier Automation Mgt.";
+        ThreeTierMgt: Codeunit "File Management"; //3-Tier Automation Mgt.
         ClientTempPath: Text[1024];
         ServerTempPath: Text[1024];
 

@@ -6,20 +6,18 @@ codeunit 50004 "PWD Restitution Calculation"
     end;
 
     var
+        RecItem: Record Item;
+        RecItem2: Record Item;
+        RecUnitItem: Record "Item Unit of Measure";
+        RecLocation: Record Location;
         RecRestCalc: Record "PWD RateRestitutionCalculation";
         RecResRestCalc: Record "Result Restitution Calculation";
-        RecListRest: Record "PWD Item Restitution";
-        RecLocation: Record Location;
-        RecItem: Record Item;
-        RecUnitItem: Record "Item Unit of Measure";
         SalesShipmentLine: Record "Sales Shipment Line";
-        ConvertUnitOfMeasure: Codeunit "Unit of Measure Management";
-        OrderNo: Code[20];
-        RecItem2: Record Item;
 
 
     procedure CallShipmentHeader(SalesShipmentHeader: Record "Sales Shipment Header"; Datefilter1: Date; Datefilter2: Date)
     var
+        PWDFunctionMgt: Codeunit "PWD Function Mgt";
         QtyPer: Decimal;
         QtyPerSpecif: Decimal;
     begin
@@ -45,7 +43,7 @@ codeunit 50004 "PWD Restitution Calculation"
                                         RecRestCalc.SETCURRENTKEY("Restitution Code", "Valid Until");
                                         RecRestCalc.SETRANGE(RecRestCalc."Restitution Code", RecItem."PWD Restitution Key");
                                         RecRestCalc.SETFILTER(RecRestCalc."Valid Until", '%1..%2', Datefilter1, Datefilter2);
-                                        QtyPer := ConvertUnitOfMeasure.GetQtyPerFromUnitToUnit(RecItem,
+                                        QtyPer := PWDFunctionMgt.GetQtyPerFromUnitToUnit(RecItem,
                                         SalesShipmentLine."Unit of Measure Code", RecItem."Base Unit of Measure");
                                         IF RecRestCalc.FIND('+') THEN BEGIN
                                             QtyPerSpecif := QtyPer * SalesShipmentLine.Quantity;

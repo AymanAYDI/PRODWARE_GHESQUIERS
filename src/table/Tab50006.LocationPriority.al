@@ -7,19 +7,19 @@ table 50006 "PWD Location Priority"
 
     fields
     {
-        field(1; "Call Type Code"; Code[20])
+        field(1; "PWD Call Type Code"; Code[20])
         {
             Caption = 'Call Type Code';
             NotBlank = true;
             TableRelation = "PWD Call Type".Code;
             DataClassification = CustomerContent;
         }
-        field(2; "Location priority"; Integer)
+        field(2; "PWD Location priority"; Integer)
         {
             Caption = 'Location priority';
             DataClassification = CustomerContent;
         }
-        field(3; "Location code"; Code[20])
+        field(3; "PWD Location code"; Code[20])
         {
             Caption = 'Location code';
             NotBlank = true;
@@ -30,11 +30,11 @@ table 50006 "PWD Location Priority"
 
     keys
     {
-        key(Key1; "Call Type Code", "Location code")
+        key(Key1; "PWD Call Type Code", "PWD Location code")
         {
             Clustered = true;
         }
-        key(Key2; "Call Type Code", "Location priority")
+        key(Key2; "PWD Call Type Code", "PWD Location priority")
         {
         }
     }

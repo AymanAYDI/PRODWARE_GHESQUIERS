@@ -11,12 +11,12 @@ page 50079 "PWD RunJournal"
 
     trigger OnOpenPage()
     begin
-        RunJournal.RUN;
+        RunJournal.RUN();
         ERROR('');
         CurrPage.CLOSE();
     end;
 
     var
-        RunJournal: Codeunit RunJournal;
+        RunJournal: Codeunit "PWD RunJournal";
 }
 

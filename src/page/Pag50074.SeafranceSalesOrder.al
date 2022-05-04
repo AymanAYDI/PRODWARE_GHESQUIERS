@@ -407,29 +407,17 @@ page 50074 "PWD Seafrance Sales Order"
         }
     }
     var
-        Text000: Label 'Unable to execute this function while in view only mode.';
-        CopySalesDoc: Report 292;
-        MoveNegSalesLines: Report 6699;
-        ReportPrint: Codeunit "Test Report-Print";
-        DocPrint: Codeunit "Document-Print";
-        SalesSetup: Record "Sales & Receivables Setup";
-        Usage: Option "Order Confirmation","Work Order";
-        SalesPost: Codeunit "Sales-Post (Yes/No)";
-        SalesPostPrint: Codeunit "Sales-Post + Print";
-        TextC2A000: Label 'Vous n''avez pas l''autorisation de facturer. Contactez-votre administrateur.';
-        TextC2A001: Label 'Opération abandonnée.';
-        TextC2A002: Label 'Saisie enregistrée.';
-        RecGSalesHeader: Record "Sales Header";
         RecGSalesSetup: Record "Sales & Receivables Setup";
+        RecGSalesHeader: Record "Sales Header";
         ChangeExchangeRate: Page "Change Exchange Rate";
 
     procedure Fct_ControlLine(var P_SeafranceSalesHeader: Record "PWD Seafrance Sales Header")
     var
-        RecLSeafranceSalesLine: Record "PWD Seafrance Sales Line";
-        CstL001: Label 'The article %1 of the line %2 of order %3 does not exist in the foundation Navision. Please create it to you?';
         RecLItem: Record Item;
-        CstL002: Label 'Cancelled treatment. It is necessary you to change code article of the line %1 of order %2 and to throw the check on lines once again.';
+        RecLSeafranceSalesLine: Record "PWD Seafrance Sales Line";
         BoolCreateItem: Boolean;
+        CstL001: Label 'The article %1 of the line %2 of order %3 does not exist in the foundation Navision. Please create it to you?';
+        CstL002: Label 'Cancelled treatment. It is necessary you to change code article of the line %1 of order %2 and to throw the check on lines once again.';
         CstL003: Label 'Check on ended order.';
         CstL004: Label 'No Item Line to prove.';
     begin
@@ -510,11 +498,11 @@ page 50074 "PWD Seafrance Sales Order"
 
     Procedure Fct_CreateLine(var P_SeafranceSalesHeaderForLine: Record "PWD Seafrance Sales Header"; var P_SalesHeaderCreate: Record "Sales Header")
     var
+        RecLocPriority: Record "PWD Location Priority";
         RecLSeafranceSalesLine: Record "PWD Seafrance Sales Line";
         RecLSalesLine: Record "Sales Line";
         CuLItemCheckAvail: Codeunit "Item-Check Avail.";
         CstL007: Label 'No line to be validated.';
-        RecLocPriority: Record "PWD Location Priority";
     begin
         RecLSeafranceSalesLine.RESET();
         RecLSeafranceSalesLine.SETRANGE("Document Type", P_SeafranceSalesHeaderForLine."Document Type");
@@ -531,10 +519,10 @@ page 50074 "PWD Seafrance Sales Order"
                 RecLSalesLine.VALIDATE(Type, RecLSeafranceSalesLine.Type);
                 RecLSalesLine."PWD Call Type" := RecLSeafranceSalesLine."Call Type";
                 RecLocPriority.RESET();
-                RecLocPriority.SETCURRENTKEY(RecLocPriority."Call Type Code", RecLocPriority."Location priority");
-                RecLocPriority.SETRANGE(RecLocPriority."Call Type Code", RecLSalesLine."PWD Call Type");
+                RecLocPriority.SETCURRENTKEY(RecLocPriority."PWD Call Type Code", RecLocPriority."PWD Location priority");
+                RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", RecLSalesLine."PWD Call Type");
                 IF RecLocPriority.FIND('+') THEN
-                    RecLSalesLine."Location Code" := RecLocPriority."Location code";
+                    RecLSalesLine."Location Code" := RecLocPriority."PWD Location code";
                 IF RecLSalesLine.Type <> RecLSalesLine.Type::" " THEN BEGIN
                     RecLSalesLine.VALIDATE("No.", RecLSeafranceSalesLine."No.");
                     RecLSalesLine.VALIDATE(Quantity, RecLSeafranceSalesLine.Quantity);
@@ -559,9 +547,9 @@ page 50074 "PWD Seafrance Sales Order"
 
     procedure "Fct_OrderVérif"(P_SeafranceSalesHeader: Record "PWD Seafrance Sales Header")
     var
-        RecLSeafranceSalesLine: Record "PWD Seafrance Sales Line";
-        RecLItem: Record Item;
         RecLCustomer: Record Customer;
+        RecLItem: Record Item;
+        RecLSeafranceSalesLine: Record "PWD Seafrance Sales Line";
     begin
         P_SeafranceSalesHeader.TESTFIELD(P_SeafranceSalesHeader."Controlled Order", TRUE);
         P_SeafranceSalesHeader.TESTFIELD(P_SeafranceSalesHeader."Call Type");

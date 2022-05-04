@@ -10,24 +10,15 @@ codeunit 70060 "PWD ArchiveAutoManagement"
     end;
 
     var
-        Text001: Label 'Document %1 has been archived.';
-        Text002: Label 'Do you want to Restore %1 %2 Version %3?';
-        Text003: Label '%1 %2 has been restored.';
-        Text004: Label 'Document restored from Version %1.';
-        Text005: Label '%1 %2 has been partly posted.\Restore not possible.';
-        Text006: Label 'Entries exist for on or more of the following:\  - %1\  - %2\  - %3.\Restoration of document will delete these entries.\Continue with restore?';
-        Text007: Label 'Archive %1 no.: %2?';
-        Text008: Label 'Item Tracking Line';
-        ReleaseSalesDoc: Codeunit "Release Sales Document";
         Ok: Boolean;
 
 
     procedure StoreSalesDocument(SalesHeader: Record "Sales Header")
     var
-        SalesSetup: Record "Sales & Receivables Setup";
-        SalesLine: Record "Sales Line";
         SalesHeaderArchive: Record "PWD Archived Sales Header";
         SalesLineArchive: Record "PWD Archived Sales Line";
+        SalesSetup: Record "Sales & Receivables Setup";
+        SalesLine: Record "Sales Line";
     begin
         SalesSetup.GET();
         CASE SalesHeader."Document Type" OF
@@ -72,8 +63,8 @@ codeunit 70060 "PWD ArchiveAutoManagement"
 
     procedure StorePurchDocument(PurchHeader: Record "Purchase Header")
     var
-        PurchSetup: Record "Purchases & Payables Setup";
         PurchLine: Record "Purchase Line";
+        PurchSetup: Record "Purchases & Payables Setup";
         PurchHeaderArchive: Record "PWD Archived Purchase Header";
         PurchLineArchive: Record "PWD Archived Purchase Line";
     begin
@@ -120,8 +111,8 @@ codeunit 70060 "PWD ArchiveAutoManagement"
 
     procedure GetNextOccurrenceNo(TableId: Integer; DocType: Option Quote,"Order",Invoice,"Credit Memo","Blanket Order","Return Order"; DocNo: Code[20]): Integer
     var
-        SalesHeaderArchive: Record "PWD Archived Sales Header";
         PurchHeaderArchive: Record "PWD Archived Purchase Header";
+        SalesHeaderArchive: Record "PWD Archived Sales Header";
     begin
         CASE TableId OF
             DATABASE::"Sales Header":
@@ -150,8 +141,8 @@ codeunit 70060 "PWD ArchiveAutoManagement"
 
     procedure GetNextVersionNo(TableId: Integer; DocType: Option Quote,"Order",Invoice,"Credit Memo","Blanket Order","Return Order"; DocNo: Code[20]; DocNoOccurrence: Integer): Integer
     var
-        SalesHeaderArchive: Record "PWD Archived Sales Header";
         PurchHeaderArchive: Record "PWD Archived Purchase Header";
+        SalesHeaderArchive: Record "PWD Archived Sales Header";
     begin
         CASE TableId OF
             DATABASE::"Sales Header":

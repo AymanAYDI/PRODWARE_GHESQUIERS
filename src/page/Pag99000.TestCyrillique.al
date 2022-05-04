@@ -389,13 +389,10 @@ page 99000 "PWD Test Cyrillique"
     //end;
 
     var
-        TestFrappe: Text[250];
-        Excel: Automation;
         Book: Automation;
+        Excel: Automation;
         Sheet: Automation;
-        i: Integer;
-        j: Code[10];
         NomFeuilleExcel: Text[50];
-        WordApp: Automation;
+        TestFrappe: Text[250];
 }
 

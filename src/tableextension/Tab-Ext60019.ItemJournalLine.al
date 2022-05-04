@@ -194,15 +194,15 @@ tableextension 60019 "PWD ItemJournalLine" extends "Item Journal Line"
 
     procedure OpenItemTrackingLinesButch(IsReclass: Boolean; var OriginButchEntry: Record "Reservation Entry")
     var
-        ReserveItemJnlLine: Codeunit "Item Jnl. Line-Reserve";
+        PWDFunctionMget: Codeunit "PWD Function Mgt";
     begin
-        ReserveItemJnlLine.CallItemTrackingButch(Rec, IsReclass, OriginButchEntry);
+        PWDFunctionMget.CallItemTrackingButch(Rec, IsReclass, OriginButchEntry);
     end;
 
     procedure SetUpNewLinePrest(LastItemJnlLine: Record "Item Journal Line")
     var
-        ItemJnlTemplate: Record "Item Journal Template";
         ItemJnlBatch: Record "Item Journal Batch";
+        ItemJnlTemplate: Record "Item Journal Template";
     begin
         MfgSetup.GET();
         ItemJnlTemplate.GET("Journal Template Name");
@@ -262,7 +262,7 @@ tableextension 60019 "PWD ItemJournalLine" extends "Item Journal Line"
         Item: Record Item;
         MfgSetup: Record "Manufacturing Setup";
         NoSeriesMgt: Codeunit NoSeriesManagement;
-        UserMgt: Codeunit 5700;
+        UserMgt: Codeunit "User Setup Management";
         CstG002: Label 'Voulez-vous mettre à jour le prix douane dans la fiche de l''article %1  ?';
 
 }

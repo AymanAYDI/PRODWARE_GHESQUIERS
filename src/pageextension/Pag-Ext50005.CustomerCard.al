@@ -2,6 +2,20 @@ pageextension 50005 "PWD CustomerCard" extends "Customer Card"
 {
     layout
     {
+        modify("No.")
+        {
+            Visible = false;
+        }
+        addafter("No.")
+        {
+            field("PWD No."; Rec."No.")
+            {
+                ApplicationArea = All;
+                Importance = Standard;
+                ToolTip = 'Specifies the number of the customer. The field is either filled automatically from a defined number series, or you enter the number manually because you have enabled manual number entry in the number-series setup.';
+                Visible = PWDNoFieldVisible;
+            }
+        }
         addafter("No.")
         {
             field("PWD Additional name"; Rec."PWD Additional name")
@@ -47,8 +61,8 @@ pageextension 50005 "PWD CustomerCard" extends "Customer Card"
                 ApplicationArea = All;
                 trigger OnDrillDown()
                 VAR
-                    recLSalesInvoiceHeader: Record 112;
-                    PPostedSalesInvoices: Page 143;
+                    recLSalesInvoiceHeader: Record "Sales Invoice Header";
+                    PPostedSalesInvoices: Page "Posted Sales Invoices";
                 BEGIN
                     recLSalesInvoiceHeader.RESET();
                     recLSalesInvoiceHeader.SETCURRENTKEY("Sell-to Customer No.", "Posting Date");
@@ -93,7 +107,7 @@ pageextension 50005 "PWD CustomerCard" extends "Customer Card"
                 ApplicationArea = All;
             }
         }
-        addafter("Home Page")
+        addafter("IC Partner Code")
         {
             field("PWD Acknowledgement"; Rec."PWD Acknowledgement")
             {
@@ -181,9 +195,12 @@ pageextension 50005 "PWD CustomerCard" extends "Customer Card"
             }
         }
     }
+    var
+        PWDNoFieldVisible: Boolean;
+
     PROCEDURE SetLastInvoiceNo(): Code[20];
     VAR
-        recLSalesInvoiceHeader: Record 112;
+        recLSalesInvoiceHeader: Record "Sales Invoice Header";
     BEGIN
         recLSalesInvoiceHeader.RESET();
         recLSalesInvoiceHeader.SETCURRENTKEY("Sell-to Customer No.", "Posting Date");
@@ -192,4 +209,11 @@ pageextension 50005 "PWD CustomerCard" extends "Customer Card"
             EXIT(recLSalesInvoiceHeader."No.");
         EXIT('');
     END;
+
+    procedure PWDSetNoFieldVisible()
+    var
+        DocumentNoVisibility: Codeunit DocumentNoVisibility;
+    begin
+        PWDNoFieldVisible := DocumentNoVisibility.CustomerNoIsVisible();
+    end;
 }

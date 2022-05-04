@@ -88,9 +88,5 @@ page 50073 "Seatfance Sales Orders List"
             }
         }
     }
-
-    var
-        RecGSalesHeader: Record "Sales Header";
-        RecGSalesSetup: Record "Sales & Receivables Setup";
 }
 

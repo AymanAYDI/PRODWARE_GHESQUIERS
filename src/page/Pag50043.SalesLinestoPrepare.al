@@ -101,15 +101,16 @@ page 50043 "PWD Sales Lines to Prepare"
         SalesHeader.SETRANGE(SalesHeader."No.", OrderNo);
         IF SalesHeader.FIND('-') THEN BEGIN
             CLEAR(ReleaseSalesDoc);
-            ReleaseSalesDoc.InitRelease(TRUE);
+            PWDSetGetFunctions.InitRelease(TRUE);
             ReleaseSalesDoc.Reopen(SalesHeader);
         END;
     end;
 
     var
-        OrderNo: Code[20];
         SalesHeader: Record "Sales Header";
+        PWDSetGetFunctions: Codeunit "PWD Set/Get Functions";
         ReleaseSalesDoc: Codeunit "Release Sales Document";
+        OrderNo: Code[20];
         // "--MIGRATION2009R2--": ;
         CstG001: Label 'Interdit de modifier le code magasin !';
 

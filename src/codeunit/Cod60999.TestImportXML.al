@@ -1,6 +1,7 @@
 codeunit 60999 "PWD Test Import XML"
 {
-
+    //ToDo Automation
+    /*
     trigger OnRun()
     begin
         CLEAR(SourceXml);
@@ -17,5 +18,6 @@ codeunit 60999 "PWD Test Import XML"
 
     var
         SourceXml: Automation;
+        */
 }
 

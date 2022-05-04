@@ -26,6 +26,15 @@
         {
             "id":"AA0072",
             "action": "None"
+        },
+        {
+            "id":"AA0074",
+            "action": "None"
+        },
+        {
+            "id":"AA0470",
+            "action": "None",
+            "justification": "Variable 'XXXX' with placeholders should have a comment explaining their content"
         }
     ]
 }

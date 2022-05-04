@@ -86,11 +86,11 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
                 SalesSetup: Record "Sales & Receivables Setup";
                 NoSeriesMgt: Codeunit NoSeriesManagement;
             begin
-                LocationPriority.SETRANGE(LocationPriority."Call Type Code", "PWD Call Type");
-                LocationPriority.SETCURRENTKEY("Call Type Code", "Location priority"); //gte
+                LocationPriority.SETRANGE(LocationPriority."PWD Call Type Code", "PWD Call Type");
+                LocationPriority.SETCURRENTKEY("PWD Call Type Code", "PWD Location priority"); //gte
                 LocationPriority.ASCENDING(TRUE);
                 IF LocationPriority.FIND('-') THEN
-                    VALIDATE("Location Code", LocationPriority."Location code");
+                    VALIDATE("Location Code", LocationPriority."PWD Location code");
                 IF (CallType.GET("PWD Call Type")) AND ("PWD Call Type" <> '') THEN BEGIN
                     CallType.TESTFIELD("Posting No. Series");
                     VALIDATE("Posting No. Series", CallType."Posting No. Series");
@@ -354,16 +354,16 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
 
     procedure CalcAlcool(var VolumeEff: Decimal; var TotalPI: Decimal; var TotalBiere: Decimal; var TotalVin: Decimal; var TotalVolEff: Decimal; var TotalMillCig: Decimal; var TotalKgTabac: Decimal; var TotalAlcoolPur: Decimal; var TotalRhum: Decimal)
     var
-        FromSalesLine: Record "Sales Line";
         Item: Record Item;
         ItemFamily: Record "PWD Family & Sub Family";
         ItemSubFamily: Record "PWD Family & Sub Family";
-        VolumeLigne: Decimal;
+        FromSalesLine: Record "Sales Line";
         PoidsLigne: Decimal;
         "QtéAlcool": Decimal;
-        "QtéTabac": Decimal;
         "QtéAlcoolTotal": Decimal;
+        "QtéTabac": Decimal;
         "QtéTabacTotal": Decimal;
+        VolumeLigne: Decimal;
     begin
 
         CLEAR(FromSalesLine);
@@ -424,21 +424,21 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
                 END;
             UNTIL FromSalesLine.NEXT() = 0;
     end;
-    //TODO
-    // procedure BlockDocument()
-    // var
-    //     MemberOf: Record 2000000003;
-    //     Text1000000001: Label 'Vous ne pouvez pas modifier de commande au statut %1.';
-    // begin
-    //     CLEAR(MemberOf);
-    //     IF ((Status = Status::Released) AND (NOT MemberOf.GET(USERID, 'DIRECTION'))) THEN ERROR(Text1000000001, FORMAT(Status));
-    // end;
+
+    procedure BlockDocument()
+    var
+        MemberOf: Record "Access Control";
+        Text1000000001: Label 'Vous ne pouvez pas modifier de commande au statut %1.';
+    begin
+        CLEAR(MemberOf);
+        IF ((Status = Status::Released) AND (NOT MemberOf.GET(USERID, 'DIRECTION'))) THEN ERROR(Text1000000001, FORMAT(Status));
+    end;
 
     var
         RecCall: Record "PWD Call";
+        CallType: Record "PWD Call Type";
         LocationPriority: Record "PWD Location Priority";
         SalesLineII: Record "Sales Line";
-        CallType: Record "PWD Call Type";
         CstG001: Label 'Vous devez remplir le poids Net pour toutes les lignes de vente';
         CstG002: Label 'Vous devez remplir le poids Brut pour toutes les lignes de vente';
         CstG003: Label 'Vous devez remplir le prix de l''article pour toutes les lignes de vente';

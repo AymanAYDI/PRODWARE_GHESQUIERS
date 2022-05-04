@@ -107,8 +107,8 @@ page 50004 "Vendors offers to select -TrB"
                 part(VendorsReply; "PWD Vendor reply -TrB")
                 {
                     ApplicationArea = all;
-                    SubPageLink = "Sales Type Doc Appeal tenders" = FIELD("Document Type"), "Sales No. Appeal Tenders" = FIELD("Document No."), "Sales Line No. Appeal Tenders" = FIELD("Line No.");
-                    SubPageView = SORTING("Sales Type Doc Appeal tenders", "Sales No. Appeal Tenders", "Sales Line No. Appeal Tenders");
+                    SubPageLink = "PWD Sales Type Doc Appeal tenders" = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("Document No."), "PWD Sales Line No. Appeal Tenders" = FIELD("Line No.");
+                    SubPageView = SORTING("PWD Sales Type Doc Appeal tenders", "PWD Sales No. Appeal Tenders", "PWD Sales Line No. Appeal Tenders");
                 }
             }
         }
@@ -130,19 +130,16 @@ page 50004 "Vendors offers to select -TrB"
 
     var
         Cust: Record Customer;
-        Text1000000001: Label 'Customer No.';
-        Text1000000002: Label 'Document No. %1';
         SalesHeader: Record "Sales Header";
-        Text1000000004: Label 'Salesperson/Purchaser %1';
-        PurchSalesManagement: Codeunit "Customs Sales Doc WordMngt";
+        [InDataSet]
+        DescriptionEmphasize: Boolean;
         [InDataSet]
         "Document No.Emphasize": Boolean;
         [InDataSet]
         "No.Emphasize": Boolean;
-        [InDataSet]
-        DescriptionEmphasize: Boolean;
-        Text19047029: Label 'Document de vente';
-        Text19076846: Label 'Demande de prix';
+        Text1000000001: Label 'Customer No.';
+        Text1000000002: Label 'Document No. %1';
+        Text1000000004: Label 'Salesperson/Purchaser %1';
 
     local procedure DocumentNoOnFormat()
     begin

@@ -2,8 +2,19 @@ pageextension 50009 "PWD ItemCard" extends "Item Card"
 {
     layout
     {
+        modify("No.")
+        {
+            Visible = false;
+        }
         addafter("No.")
         {
+            field("PWD No."; Rec."No.")
+            {
+                ApplicationArea = All;
+                Importance = Standard;
+                ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
+                Visible = NoFieldVisible;
+            }
             field("PWD SEAF Code"; Rec."PWD SEAF Code")
             {
                 ApplicationArea = all;
@@ -255,10 +266,13 @@ pageextension 50009 "PWD ItemCard" extends "Item Card"
                 {
                     ApplicationArea = all;
                 }
-                /* field("PWD Boucherie"; "PWD Boucherie")
-                 {
-                     ApplicationArea = All;
-                 }*/
+            }
+        }
+        addafter("PWD Customs")
+        {
+            group("PWD Boucherie")
+            {
+                Caption = 'Boucherie';
                 field("PWD Butchery"; Rec."PWD Butchery")
                 {
                     ApplicationArea = All;

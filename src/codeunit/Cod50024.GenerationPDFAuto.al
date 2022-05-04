@@ -1,35 +1,29 @@
 codeunit 50024 "PWD Generation PDF Auto"
 {
     trigger OnRun()
-    var
-        lRecSalInvHeader: Record "Sales Invoice Header";
-        ltxtNomPDF: Text[1024];
     begin
     end;
-
+    //ToDo
     var
-        gCUThreeTierMgt: Codeunit "3-Tier Automation Mgt.";
-        //[RunOnClient]
-        BullZipPDF: DotNet ComPdfSettings;
-        //[RunOnClient]
-        BullZipPDFUtil: DotNet ComPdfUtil;
         gRecPrinterSelection: Record "Printer Selection";
-        gTmpRecPrinterSelNew: Record "Printer Selection" temporary;
         gTmpRecPrinterSelMod: Record "Printer Selection" temporary;
+        gTmpRecPrinterSelNew: Record "Printer Selection" temporary;
+        gCUThreeTierMgt: Codeunit "3-Tier Automation Mgt.";
+        BullZipPDF: DotNet ComPdfSettings;
+        BullZipPDFUtil: DotNet ComPdfUtil;
 
     procedure GeneratePDFSalesQuote(pCodeDocumentNo: Code[20])
     var
-        Txt001: Label 'GHESQUIERS Devis n° %1 / Quotation n° %1';
-        lCUMail: Codeunit Mail;
         lRecCompanyInfo: Record "Company Information";
-        lRecSalesHeader: Record "Sales Header";
         lRecCustomer: Record Customer;
         lRecReportSelect: Record "Report Selections";
-        lTxtClientFileName: Text[1024];
-        lTxtStatusFile: Text[1024];
-        lTxtFileName: Text[1024];
+        lRecSalesHeader: Record "Sales Header";
+        Txt001: Label 'GHESQUIERS Devis n° %1 / Quotation n° %1';
         lTxtNewLine: Text[30];
         lTxtEmail: Text[80];
+        lTxtClientFileName: Text[1024];
+        lTxtFileName: Text[1024];
+        lTxtStatusFile: Text[1024];
     begin
         lRecSalesHeader.SETRANGE("Document Type", lRecSalesHeader."Document Type"::Quote);
         lRecSalesHeader.SETRANGE("No.", pCodeDocumentNo);
@@ -86,17 +80,16 @@ codeunit 50024 "PWD Generation PDF Auto"
 
     procedure GeneratePDFSalesOrder(pCodeDocumentNo: Code[20])
     var
-        Txt001: Label 'GHESQUIERS Confirmation de commande n° %1 / Order confirmation n° %1';
-        lCUMail: Codeunit Mail;
         lRecCompanyInfo: Record "Company Information";
-        lRecSalesHeader: Record "Sales Header";
         lRecCustomer: Record Customer;
         lRecReportSelect: Record "Report Selections";
-        lTxtClientFileName: Text[1024];
-        lTxtStatusFile: Text[1024];
-        lTxtFileName: Text[1024];
+        lRecSalesHeader: Record "Sales Header";
+        Txt001: Label 'GHESQUIERS Confirmation de commande n° %1 / Order confirmation n° %1';
         lTxtNewLine: Text[30];
         lTxtEMail: Text[80];
+        lTxtClientFileName: Text[1024];
+        lTxtFileName: Text[1024];
+        lTxtStatusFile: Text[1024];
     begin
         lRecSalesHeader.SETRANGE("Document Type", lRecSalesHeader."Document Type"::Order);
         lRecSalesHeader.SETRANGE("No.", pCodeDocumentNo);
@@ -152,21 +145,20 @@ codeunit 50024 "PWD Generation PDF Auto"
 
     procedure GeneratePDFPurchaseOrder(pCodeDocumentNo: Code[20])
     var
+        lRecCompanyInfo: Record "Company Information";
+        lRecPurchaseHeader: Record "Purchase Header";
+        lRecReportSelect: Record "Report Selections";
+        lRecVendor: Record Vendor;
         Txt001: Label 'GHESQUIERS Nouvelle commande n° %1 / New order n° %1';
         Txt002: Label 'Nous vous prions de bien vouloir trouver ci-joint notre nouvelle commande n° %1 pour le navire %2.';
         Txt003: Label 'Please find attached a new order n° %1 for the vessel %2.';
-        lCUMail: Codeunit Mail;
-        lRecCompanyInfo: Record "Company Information";
-        lRecPurchaseHeader: Record "Purchase Header";
-        lRecVendor: Record Vendor;
         Txt004: Label 'Cette commande est à nous livrer le %1.';
         Txt005: Label 'Picking will be done on %1.';
-        lRecReportSelect: Record "Report Selections";
-        lTxtClientFileName: Text[1024];
-        lTxtStatusFile: Text[1024];
-        lTxtFileName: Text[1024];
         lTxtNewLine: Text[30];
         lTxtEmail: Text[80];
+        lTxtClientFileName: Text[1024];
+        lTxtFileName: Text[1024];
+        lTxtStatusFile: Text[1024];
     begin
         lRecPurchaseHeader.SETRANGE("Document Type", lRecPurchaseHeader."Document Type"::Order);
         lRecPurchaseHeader.SETRANGE("No.", pCodeDocumentNo);

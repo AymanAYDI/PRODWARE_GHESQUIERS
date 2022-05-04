@@ -200,7 +200,7 @@ page 50065 "PWD Posted Sales Shpt. Lines"
                 {
                     ApplicationArea = All;
                 }
-                field("Cle (restitution)"; "Cle (restitution)")
+                field("Cle (restitution)"; Rec."PWD Cle (restitution)")
                 {
                     ApplicationArea = All;
                 }
@@ -278,11 +278,11 @@ page 50065 "PWD Posted Sales Shpt. Lines"
 
     procedure PrintHealthCertificate()
     var
-        HealthCertifWordMngt: Codeunit "Customs Shipmt Doc WordMngt";
         CustomsCertif: Record "PWD Customs Documents Template";
         ShipmentLine: Record "Sales Shipment Line";
-        DocTemplateCode: Code[10];
+        HealthCertifWordMngt: Codeunit "Customs Shipmt Doc WordMngt";
         AssignDocTemplateCode: page "Choose Customs Doc Template";
+        DocTemplateCode: Code[10];
     begin
         CLEAR(AssignDocTemplateCode);
         AssignDocTemplateCode.LOOKUPMODE := TRUE;

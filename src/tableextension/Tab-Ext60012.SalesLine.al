@@ -107,6 +107,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             Caption = 'Call No.';
             Description = 'PW2009';
             TableRelation = "PWD Call"."Call No.";
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
@@ -118,32 +119,38 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         {
             Caption = 'Parcel Nb.';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50002; "PWD Unit per Parcel"; Decimal)
         {
             Caption = 'Unit per Parcel';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50003; "PWD Output Date"; Date)
         {
             Caption = 'Output Date';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50004; "PWD Health Approval No."; Code[20])
         {
             Caption = 'Health Approval No.';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50005; "PWD Marked"; Code[30])
         {
             Caption = 'Mark';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50006; "PWD Origin Area"; Code[10])
         {
             Caption = 'Origin Area';
             Description = 'PW2009';
             TableRelation = "Country/Region";
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             var
@@ -159,16 +166,19 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             Caption = 'Continental Code';
             Description = 'PW2009';
             TableRelation = "PWD Custom Parameters".Code WHERE("Table ID" = CONST(9), "Field ID" = CONST(50001));
+            DataClassification = CustomerContent;
         }
         field(50010; "PWD Origin Certified"; Boolean)
         {
             Caption = 'Origin Certified';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50011; "PWD Manifest"; Boolean)
         {
             Caption = 'Manifest';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50012; "PWD Manifest Category"; Option)
         {
@@ -176,43 +186,47 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             Description = 'PW2009';
             OptionCaption = ' ,alcool,aperitif,tabaco,toilet water';
             OptionMembers = " ",alcool,aperitif,tabaco,"toilet water";
+            DataClassification = CustomerContent;
         }
         field(50013; "PWD Document Date"; Date)
         {
             Caption = 'Document Date';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50014; "PWD Certificate Transit No."; Code[30])
         {
             Caption = 'Certificate Transit No.';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50015; "PWD Call Type"; Code[10])
         {
             Caption = 'Call Type';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
-                //abu
-                RecLocPriority.SETCURRENTKEY(RecLocPriority."Call Type Code", RecLocPriority."Location priority");
+                RecLocPriority.SETCURRENTKEY(RecLocPriority."PWD Call Type Code", RecLocPriority."PWD Location priority");
                 RecLocPriority.ASCENDING(TRUE);
-                RecLocPriority.SETRANGE(RecLocPriority."Call Type Code", "PWD Call Type");
+                RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", "PWD Call Type");
                 IF RecLocPriority.FIND('-') THEN
-                    VALIDATE("Location Code", RecLocPriority."Location code");
-                //fin ajout
+                    VALIDATE("Location Code", RecLocPriority."PWD Location code");
             end;
         }
         field(50016; "PWD Preparation in Process"; Boolean)
         {
             Caption = 'Preparation in process';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50017; "PWD Prepared Quantity"; Decimal)
         {
             Caption = 'Prepared Quantity';
             DecimalPlaces = 0 : 5;
             Description = 'PW2009';
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
@@ -220,16 +234,10 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
                 // validate qui suivent les valeurs saisies se perdaient.
                 MemLineDiscount := "Line Discount %";
                 MemUnitPrice := "Unit Price";
-                // END Ajout
 
-                VALIDATE("PWD Prepared Quantity (Base)", CalcBaseQty("PWD Prepared Quantity"));
+                VALIDATE("PWD Prepared Quantity (Base)", CalcBaseQty("PWD Prepared Quantity", FieldCaption("PWD Prepared Quantity"), FieldCaption("PWD Prepared Quantity (Base)")));
                 "PWD Adjmt Prepared Qty" := Quantity - "PWD Prepared Quantity";
 
-                // C2A GTE >>>
-                /*IF CurrFieldNo=FIELDNO("Prepared Quantity") THEN BEGIN
-                  CLEAR (itemCheckAvailPrep);
-                  itemCheckAvailPrep.SalesLineCheck(Rec);
-                END;*/
                 IF CurrFieldNo = FIELDNO("PWD Prepared Quantity") THEN
                     IF "PWD Prepared Quantity" <= Quantity THEN
                         VALIDATE(Quantity, "PWD Prepared Quantity")
@@ -241,7 +249,6 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
                 VALIDATE("Line Discount %", MemLineDiscount);
                 VALIDATE("Unit Price", MemUnitPrice);
                 MODIFY(TRUE);
-                // fin Ajout
 
             end;
         }
@@ -249,208 +256,197 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         {
             Caption = 'Prepared Quantity (Base)';
             Description = 'PW2009';
-
-            trigger OnValidate()
-            begin
-                //PickingForm.CheckTrackingLines(Rec);
-            end;
+            DataClassification = CustomerContent;
         }
         field(50019; "PWD Order Line Prepared"; Boolean)
         {
             Caption = 'Order Line Prepared';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50020; "PWD Posting Date"; Date)
         {
             Caption = 'Posting Date';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50023; "PWD New Item"; Boolean)
         {
             Caption = 'New Item';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50024; "PWD Seafrance Order Line No."; Integer)
         {
             BlankZero = true;
             Caption = 'Seafrance Order Line No.';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50030; "PWD Item SEAF Code"; Code[20])
         {
             Caption = 'SEAF Code';
             Description = 'GHES1.30';
+            DataClassification = CustomerContent;
 
             trigger OnLookup()
             var
                 recLItem: Record Item;
             begin
-                //>>P3346_0011
                 IF Type = Type::Item THEN BEGIN
                     recLItem.RESET();
                     recLItem.SETFILTER("PWD SEAF Code", '<>%1', '');
                     IF Page.RUNMODAL(0, recLItem) = ACTION::LookupOK THEN
                         VALIDATE("No.", recLItem."No.");
                 END;
-                //<<P3346_0011
             end;
 
             trigger OnValidate()
             var
                 recLItem: Record Item;
             begin
-                //>>P3346_0011
                 recLItem.RESET();
                 recLItem.SETRANGE("PWD SEAF Code", "PWD Item SEAF Code");
                 IF recLItem.FINDFIRST() THEN
                     VALIDATE("No.", recLItem."No.");
-                //<<P3346_0011
             end;
         }
         field(50031; "PWD Item SEAF Code 2"; Code[20])
         {
             Caption = 'Item SEAF Code 2';
             Description = 'NDBI';
+            DataClassification = CustomerContent;
 
             trigger OnLookup()
             var
                 recLItem: Record Item;
             begin
-                //>>NDBI (P25940_001)
                 IF Type = Type::Item THEN BEGIN
                     recLItem.RESET();
                     recLItem.SETFILTER("PWD SEAF Code 2", '<>%1', '');
                     IF PAGE.RUNMODAL(0, recLItem) = ACTION::LookupOK THEN
                         VALIDATE("No.", recLItem."No.");
                 END;
-                //<<NDBI (P25940_001)
             end;
 
             trigger OnValidate()
             var
                 recLItem: Record Item;
             begin
-                //>>NDBI (P25940_001)
                 recLItem.RESET();
                 recLItem.SETRANGE("PWD SEAF Code 2", "PWD Item SEAF Code 2");
                 IF recLItem.FINDFIRST() THEN
                     VALIDATE("No.", recLItem."No.");
-                //<<NDBI (P25940_001)
             end;
         }
         field(50032; "PWD Item SEAF Code 3"; Code[20])
         {
             Caption = 'Item SEAF Code 3';
             Description = 'NDBI';
+            DataClassification = CustomerContent;
 
             trigger OnLookup()
             var
                 recLItem: Record Item;
             begin
-                //>>NDBI (P25940_001)
                 IF Type = Type::Item THEN BEGIN
                     recLItem.RESET();
                     recLItem.SETFILTER("PWD SEAF Code 3", '<>%1', '');
                     IF PAGE.RUNMODAL(0, recLItem) = ACTION::LookupOK THEN
                         VALIDATE("No.", recLItem."No.");
                 END;
-                //<<NDBI (P25940_001)
             end;
 
             trigger OnValidate()
             var
                 recLItem: Record Item;
             begin
-                //>>NDBI (P25940_001)
                 recLItem.RESET();
                 recLItem.SETRANGE("PWD SEAF Code 3", "PWD Item SEAF Code 3");
                 IF recLItem.FINDFIRST() THEN
                     VALIDATE("No.", recLItem."No.");
-                //<<NDBI (P25940_001)
             end;
         }
         field(50033; "PWD Item SEAF Code 4"; Code[20])
         {
             Caption = 'Item SEAF Code 4';
             Description = 'NDBI';
+            DataClassification = CustomerContent;
 
             trigger OnLookup()
             var
                 recLItem: Record Item;
             begin
-                //>>NDBI (P27817_002)
                 IF Type = Type::Item THEN BEGIN
                     recLItem.RESET();
                     recLItem.SETFILTER("PWD SEAF Code 4", '<>%1', '');
                     IF PAGE.RUNMODAL(0, recLItem) = ACTION::LookupOK THEN
                         VALIDATE("No.", recLItem."No.");
                 END;
-                //<<NDBI (P27817_002)
             end;
 
             trigger OnValidate()
             var
                 recLItem: Record Item;
             begin
-                //>>NDBI (P27817_002)
                 recLItem.RESET();
                 recLItem.SETRANGE("PWD SEAF Code 4", "PWD Item SEAF Code 4");
                 IF recLItem.FINDFIRST() THEN
                     VALIDATE("No.", recLItem."No.");
-                //<<NDBI (P27817_002)
             end;
         }
         field(50034; "PWD Item SEAF Code 5"; Code[20])
         {
             Caption = 'Item SEAF Code 5';
             Description = 'NDBI';
+            DataClassification = CustomerContent;
 
             trigger OnLookup()
             var
                 recLItem: Record Item;
             begin
-                //>>NDBI (P27817_002)
                 IF Type = Type::Item THEN BEGIN
                     recLItem.RESET();
                     recLItem.SETFILTER("PWD SEAF Code 5", '<>%1', '');
                     IF PAGE.RUNMODAL(0, recLItem) = ACTION::LookupOK THEN
                         VALIDATE("No.", recLItem."No.");
                 END;
-                //<<NDBI (P27817_002)
             end;
 
             trigger OnValidate()
             var
                 recLItem: Record Item;
             begin
-                //>>NDBI (P27817_002)
                 recLItem.RESET();
                 recLItem.SETRANGE("PWD SEAF Code 5", "PWD Item SEAF Code 5");
                 IF recLItem.FINDFIRST() THEN
                     VALIDATE("No.", recLItem."No.");
-                //<<NDBI (P27817_002)
             end;
         }
         field(50041; "PWD Shelf/Bin No."; Code[10])
         {
             Caption = 'Shelf/Bin No.';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50050; "PWD NewPage"; Integer)
         {
             Description = 'RE_GHE1.00';
+            DataClassification = CustomerContent;
         }
         field(50052; "PWD Provision/materiel"; Option)
         {
             Caption = 'Provision/matériel';
             Description = 'PW2009';
             OptionMembers = " ",Materiel,Provision;
+            DataClassification = CustomerContent;
         }
         field(50053; "PWD Coefficient Seafrance"; Decimal)
         {
             BlankZero = true;
             Caption = 'Coefficient Seafrance';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50054; "PWD Quantity Seafrance"; Decimal)
         {
@@ -458,37 +454,44 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             Caption = 'Quantity Seafrance';
             DecimalPlaces = 0 : 2;
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(52002; "PWD Propriete Seafrance"; Boolean)
         {
             Caption = 'Propriété Seafrance';
             Description = 'PW2009';
             InitValue = false;
+            DataClassification = CustomerContent;
         }
         field(55001; "Realised profit (LCY)"; Decimal)
         {
             Caption = 'Realised profit (LCY)';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55002; "% de marge réalisé"; Decimal)
         {
             Caption = '% de marge réalisé';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55007; "PWD DSA No."; Code[10])
         {
             Caption = 'DSA No.';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55008; "PWD Family"; Code[10])
         {
             Caption = 'Family';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55009; "PWD Trading Brand"; Boolean)
         {
             Caption = 'Trading Brand';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
@@ -525,10 +528,11 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         {
             Caption = 'Order Trading Brand';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
 
             trigger OnValidate()
             begin
-                GetItem();
+                GetItem(Item);
             end;
         }
         field(55013; "PWD Trad. Brand Order Purch No."; Code[20])
@@ -536,11 +540,13 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             Caption = 'Trad. Brand Order Purch No.';
             Description = 'PW2009';
             TableRelation = IF ("PWD Trading Brand" = CONST(true)) "Purchase Header"."No." WHERE("Document Type" = CONST(Order));
+            DataClassification = CustomerContent;
         }
         field(55014; "PWD Trad. Br Order Purch. Line No."; Integer)
         {
             Caption = 'Trad. Br Order Purch. Line No.';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55020; "PWD Quantity Ordered Purch."; Decimal)
         {
@@ -565,84 +571,100 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             Caption = 'Tampon qté dispo';
             Description = 'PW2009';
             Editable = false;
+            DataClassification = CustomerContent;
         }
         field(55024; "PWD Linked Sales Line"; Integer)
         {
             Caption = 'Ligne vente liée';
             Description = 'PW2009';
             Editable = false;
+            DataClassification = CustomerContent;
         }
         field(55025; "PWD Adjmt Prepared Qty"; Decimal)
         {
             Caption = 'Adjmt Prepared Qty';
             Description = 'PW2009';
             Editable = false;
+            DataClassification = CustomerContent;
         }
         field(55027; "PWD Health Certificate Required"; Boolean)
         {
             Caption = 'Health Certificate Required';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55028; "PWD Conformity Certificate"; Boolean)
         {
             Caption = 'Conformity Certificate';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55029; "PWD Technical Card"; Boolean)
         {
             Caption = 'Technical Card';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55030; "PWD Butchery"; Boolean)
         {
             Caption = 'Butchery';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55031; "PWD Previous Line No"; Integer)
         {
             Caption = 'Previous Line No';
             Description = 'PW2009';
             Editable = false;
+            DataClassification = CustomerContent;
         }
         field(55033; "PWD User Id"; Code[50])
         {
             Caption = 'User Id';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55034; "PWD Quantity to prepare"; Decimal)
         {
             Caption = 'Quantity to prepare';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55035; "PWD Requested Receipt Date"; Date)
         {
             Caption = 'Requested Receipt Date';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55036; "PWD Promised Receipt Date"; Date)
         {
             Caption = 'Promised Receipt Date';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55037; "PWD Lead Time Calculation"; DateFormula)
         {
             Caption = 'Lead Time Calculation';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55038; "PWD Inbound Whse. Handling Time"; DateFormula)
         {
             Caption = 'Inbound Whse. Handling Time';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55039; "PWD Planned Receipt Date"; Date)
         {
             Caption = 'Planned Receipt Date';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55040; "PWD Countermark Location"; Boolean)
         {
             Caption = 'Countermark Location';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55041; "PWD Vendor No."; Code[20])
         {
@@ -652,16 +674,19 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             //This property is currently not supported
             //TestTableRelation = true;
             ValidateTableRelation = true;
+            DataClassification = CustomerContent;
         }
         field(55042; "PWD Code ventilation article"; Code[10])
         {
             Caption = 'Code ventilation aticle';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55043; "PWD Family Code"; Code[20])
         {
             Caption = 'Code famille';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55044; "PWD Quantity Ordered Sp. Order"; Decimal)
         {
@@ -686,95 +711,113 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             Caption = 'National Add. Code';
             Description = 'PW2009';
             TableRelation = "PWD National Add. Code";
+            DataClassification = CustomerContent;
         }
         field(55048; "PWD Monthly Code"; Code[10])
         {
             Caption = 'Monthly Code';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55049; "PWD Quantite initiale"; Decimal)
         {
             Description = 'PW2009';
             Editable = false;
+            DataClassification = CustomerContent;
         }
         field(55050; "Cle (restitution)"; Code[20])
         {
             Caption = 'Restitution Key';
             Description = 'PW2009';
             TableRelation = "PWD Item Restitution".Cle;
+            DataClassification = CustomerContent;
         }
         field(55051; "PWD Designation ENU"; Text[50])
         {
             Caption = 'Désignation ENU';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55052; "PWD Sell-to Country Code"; Code[10])
         {
             Caption = 'Sell-to Country Code';
             Description = 'PW2009';
             TableRelation = "Country/Region";
+            DataClassification = CustomerContent;
         }
         field(60000; "PWD DCG Tariff No."; Code[20])
         {
             Caption = 'DCG Tariff No.';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(61000; "PWD KPI"; BLOB)
         {
             Caption = 'Alerte';
             Description = 'GHE-RE1.00';
             SubType = Bitmap;
+            DataClassification = CustomerContent;
         }
         field(70000; "Valeur douane (correction)"; Decimal)
         {
             Caption = 'Valeur douane (correction)';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(70010; "Methode de Calcul (prestation)"; Text[30])
         {
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(70011; "Reference Calcul (prestation)"; Text[30])
         {
             Caption = 'Référence Calcul (prestation)';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(70012; "PWD No. DOC saisie presta"; Code[20])
         {
             Caption = 'N°DOC saisie presta';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(70013; "PWD Code prestation"; Code[10])
         {
             Caption = 'Code prestation presta';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(70014; "PWD Code fournisseur"; Code[20])
         {
             Caption = 'Code fournisseur presta';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(70015; "PWD preparation to recalculate"; Boolean)
         {
             Caption = 'préparation à re-calculer';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(70016; "PWD loc. Code for prepa to recalc."; Code[10])
         {
             Caption = 'Code mag. pour prépa recalc.';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(70017; "PWD Specific Cost"; Boolean)
         {
             Caption = 'Coût spécifique';
             Description = 'PW2009';
             Editable = false;
+            DataClassification = CustomerContent;
         }
         field(70018; "PWD SEAF Code"; Integer)
         {
             BlankZero = true;
             Caption = 'Code SEAF';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
     }
     keys
@@ -814,46 +857,6 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         {
         }
     }
-    //TODO
-    // procedure ShowKitLines()
-    // var
-    //     KitSalesLine: Record "Kit Sales Line";
-    // begin
-    //     TESTFIELD("Document No.");
-    //     TESTFIELD("Line No.");
-    //     KitSalesLine.SETRANGE("Document Type", "Document Type");
-    //     KitSalesLine.SETRANGE("Document No.", "Document No.");
-    //     KitSalesLine.SETRANGE("Document Line No.", "Line No.");
-    //     KitSalesLines.SETTABLEVIEW(KitSalesLine);
-    //     KitSalesLines.RUNMODAL;
-    // end;
-
-    // procedure UpdateKitSalesLines()
-    // begin
-    //     TESTFIELD("Build Kit", TRUE);
-    //     KitManagement.UpdateKitSales(Rec, TempKitSalesLine);
-    // end;
-
-    // procedure RefreshKitSalesLines()
-    // begin
-    //     TESTFIELD("Build Kit", TRUE);
-    //     VALIDATE("Build Kit", TRUE);
-    //     ForceKitRefresh := TRUE;
-    //     MODIFY(TRUE);
-    //     ForceKitRefresh := FALSE;
-    // end;
-
-    // procedure GetTempKitSalesLines(var TempKitSalesLine2: Record "Kit Sales Line" temporary)
-    // begin
-    //     TempKitSalesLine2.DELETEALL;
-    //     IF TempKitSalesLine.FINDSET THEN
-    //         REPEAT
-    //             TempKitSalesLine2 := TempKitSalesLine;
-    //             TempKitSalesLine2.INSERT;
-    //         UNTIL TempKitSalesLine.NEXT = 0;
-    //     TempKitSalesLine.DELETEALL;
-    // end;
-
     procedure VerifChange()
     begin
         IF "PWD Trading Brand" = FALSE THEN
@@ -885,10 +888,10 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
 
     procedure DeleteAppTenders_quote()
     var
-        AppTenders: Record "PWD Appeal for Tenders";
         PurchQuoteHeader: Record "Purchase Header";
         PurchQuoteLine: Record "Purchase Line";
         PurchQuoteLine2: Record "Purchase Line";
+        AppTenders: Record "PWD Appeal for Tenders";
     begin
 
 
@@ -938,10 +941,10 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
 
     procedure Delete_Purchquote(From_salesLine: Record "Sales Line")
     var
-        AppTenders: Record "PWD Appeal for Tenders";
         PurchQuoteHeader: Record "Purchase Header";
         PurchQuoteLine: Record "Purchase Line";
         PurchQuoteLine2: Record "Purchase Line";
+        AppTenders: Record "PWD Appeal for Tenders";
     begin
 
         //*** ajout sca - Contremarque - c2a - suppression appel d'offre et demande de prix.
@@ -978,14 +981,14 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
 
     procedure CheckavailforPriorityLocation(CalledbyFieldNo: Integer; SalesLine: Record "Sales Line"; Deletion: Boolean)
     var
+        NetChange: Boolean;
         AvailableInventory: Decimal;
         OldItemNetChange: Decimal;
-        NetChange: Boolean;
     begin
         GetSalesHeader();
         AvailableInventory := 0;
         IF (Type = Type::Item) AND (Nonstock = FALSE) AND ("No." <> '') THEN BEGIN
-            GetItem();
+            GetItem(Item);
 
 
             IF xRec."Outstanding Qty. (Base)" = 0 THEN
@@ -993,12 +996,12 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             IF NetChange = TRUE THEN
                 OldItemNetChange := xRec."Outstanding Qty. (Base)" - "Outstanding Qty. (Base)";
             RecLocPriority.RESET();
-            RecLocPriority.SETCURRENTKEY("Call Type Code", "Location priority"); //gte
+            RecLocPriority.SETCURRENTKEY("PWD Call Type Code", "PWD Location priority"); //gte
             RecLocPriority.ASCENDING(TRUE); //gte
-            RecLocPriority.SETRANGE(RecLocPriority."Call Type Code", SalesHeader."PWD Call Type");
+            RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", SalesHeader."PWD Call Type");
             IF RecLocPriority.FIND('-') THEN BEGIN
                 REPEAT
-                    AvailableInventory += CalculateNeed(RecLocPriority."Location code", "Shipment Date");
+                    AvailableInventory += CalculateNeed(RecLocPriority."PWD Location code", "Shipment Date");
                 UNTIL RecLocPriority.NEXT() = 0;
 
 
@@ -1022,10 +1025,10 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
     var
         GrossRequirement: Decimal;
         PlannedOrderReceipt: Decimal;
-        ScheduledReceipt: Decimal;
         PlannedOrderReleases: Decimal;
+        ScheduledReceipt: Decimal;
     begin
-        GetItem();
+        GetItem(Item);
         Item.SETRANGE("No.", Item."No.");
         Item.SETRANGE("Date Filter", 0D, ShipmentDate);
         Item.SETRANGE("Location Filter", LocationCode);
@@ -1046,6 +1049,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
 
     procedure CtrlUnitPrice()
     var
+        Location: Record Location;
         BottomPrice: Decimal;
     begin
         //*** Controle prix unitaire > prix plancher de l'article
@@ -1054,7 +1058,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         //<<SOBI
         IF Type = Type::Item THEN
             IF Item.GET("No.") THEN
-                IF Location.GET("Location Code") AND (Location."Controle du prix plancher") THEN BEGIN
+                IF Location.GET("Location Code") AND (Location."PWD Controle du prix plancher") THEN BEGIN
 
                     BottomPrice := Item."PWD Bottom Price";
                     IF SalesHeader."Currency Code" <> '' THEN
@@ -1122,12 +1126,13 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
     var
 
         Item: Record Item;
+        RecCall: Record "PWD Call";
+        RecLocPriority: Record "PWD Location Priority";
+        LinkedtoCommentSalesLine: Record "Sales Line";
 
 
         GetSalesOrder: Report "Get Sales Orders/Vendor -TrB";
-        RecLocPriority: Record "PWD Location Priority";
-        RecCall: Record "PWD Call";
-        LinkedtoCommentSalesLine: Record "Sales Line";
+        BooGHideMessage: Boolean;
         MemLineDiscount: Decimal;
         MemUnitPrice: Decimal;
         Text1000000001: Label 'You can''t delete this line.\There ''re #1###### purchase quote attached.';
@@ -1136,6 +1141,5 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         Text1000000004: Label 'Available Inventory not sufficient for Item No %1 (%2) :';
         Text1000000023: Label 'Unit price (%1) is smaller than bottom price (%2)';
         Text1000000026: Label 'You cannot prepare a greater quantity than the ordered one !';
-        BooGHideMessage: Boolean;
 }
 

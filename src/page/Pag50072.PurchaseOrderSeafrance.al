@@ -1,23 +1,5 @@
 page 50072 "PWD Purchase Order Seafrance"
 {
-    // -------------------------------------------------
-    // Prodware - www.prodware.fr
-    // -------------------------------------------------
-    // //>>GHES1.00
-    // FED_ADV_20090909_IMP_CDEACHAT_V3 :SOBI 07/10/2009 - PURCHASE ORDER SEAFRANCE
-    //                                                     Create
-    // 
-    // //>>GHES1.03
-    // FED_ADV_2010_04_28_QTESEAF: SOBI 14/10/2010 - PURCHASE ORDER SEAFRANCE
-    //                                               Add Field ID 14 "Seafrance Quantity"
-    //                                               Add Code in Function "Fct_ControlLines()"
-    // 
-    // //>>GHES1.03
-    // FED_ADV_2010_04_28_QTESEAF: SOBI 08/11/2010 - PURCHASE ORDER SEAFRANCE
-    //                                               New Customer Request (Sefrance Quantity = Quantity)
-    // >>GHE-RE1.00:DO 19/05/2011 :
-    //   - add controle unitaire
-
     Caption = 'Purchase Order Seafrance';
     PageType = List;
     SourceTable = "PWD Purchase Order Seafrance";
@@ -159,8 +141,8 @@ page 50072 "PWD Purchase Order Seafrance"
 
     procedure Fct_UptdateRecord()
     var
-        RecLPurchOrderSeafrance: Record "PWD Purchase Order Seafrance";
         RecLItem: Record Item;
+        RecLPurchOrderSeafrance: Record "PWD Purchase Order Seafrance";
     begin
         RecLPurchOrderSeafrance.RESET();
         RecLPurchOrderSeafrance.SETCURRENTKEY(RecLPurchOrderSeafrance."Controlled line");
@@ -179,15 +161,14 @@ page 50072 "PWD Purchase Order Seafrance"
     procedure Fct_ControlLines()
     var
         RecLItem: Record Item;
-        CstL001: Label 'The article %1 of the line %2 of order %3 does not exist in the foundation Navision. Please create it to you?';
-        RecLPurchaseOrderSeafrance: Record "PWD Purchase Order Seafrance";
-        CstL002: Label 'For the same order he can have there only an only one encodes purveyor, an only one encodes performance, an only one encodes customer. See Order %1.';
         BoolLCheckRecord: Boolean;
         BoolLFirstTime: Boolean;
-        CodLVendorNum: Code[20];
         CodLEncodePerformance: Code[10];
         CodLCustomerNum: Code[20];
+        CodLVendorNum: Code[20];
         CodLOrderNum: Code[30];
+        CstL001: Label 'The article %1 of the line %2 of order %3 does not exist in the foundation Navision. Please create it to you?';
+        CstL002: Label 'For the same order he can have there only an only one encodes purveyor, an only one encodes performance, an only one encodes customer. See Order %1.';
         CstL003: Label 'Vendor code it does not give information to it for the line %1 of order %2.';
         CstL004: Label 'Prestation code it does not give information to it for the line %1 of order %2.';
         CstL005: Label 'Customer code it does not give information to it for the line %1 of order %2.';
@@ -287,18 +268,15 @@ page 50072 "PWD Purchase Order Seafrance"
 
     procedure Fct_CreateItemJournalLine()
     var
-        RecLPurchaseOrderSeafrance: Record "PWD Purchase Order Seafrance";
-        CstL010: Label 'No line to be validated.';
-        RecLItemJournalBatch: Record "Item Journal Batch";
         RecLInventorySetup: Record "Inventory Setup";
-        CstL011: Label 'There is not leaf for crossroads Customer Code %1, Vendor Code %2, Performance Code %3.';
-        BoolLFirstTime: Boolean;
-        CodLOrderNum: Code[30];
+        RecLItemJournalBatch: Record "Item Journal Batch";
         RecLItemJournalLine: Record "Item Journal Line";
-        IntLLineNumber: Integer;
         RecLItemJournalLineInsert: Record "Item Journal Line";
-        CstL012: Label 'Incorporation of orders in the leaves of seizures ended successfully.';
         RecLItemJournalTemplate: Record "Item Journal Template";
+        RecLPurchaseOrderSeafrance: Record "PWD Purchase Order Seafrance";
+        IntLLineNumber: Integer;
+        CstL010: Label 'No line to be validated.';
+        CstL011: Label 'There is not leaf for crossroads Customer Code %1, Vendor Code %2, Performance Code %3.';
     begin
         RecLPurchaseOrderSeafrance.RESET();
         RecLPurchaseOrderSeafrance.SETCURRENTKEY(RecLPurchaseOrderSeafrance."Controlled line");
@@ -374,15 +352,14 @@ page 50072 "PWD Purchase Order Seafrance"
     procedure Fct_ControlLinesUnit()
     var
         RecLItem: Record Item;
-        CstL001: Label 'The article %1 of the line %2 of order %3 does not exist in the foundation Navision. Please create it to you?';
-        RecLPurchaseOrderSeafrance: Record "PWD Purchase Order Seafrance";
-        CstL002: Label 'For the same order he can have there only an only one encodes purveyor, an only one encodes performance, an only one encodes customer. See Order %1.';
         BoolLCheckRecord: Boolean;
         BoolLFirstTime: Boolean;
-        CodLVendorNum: Code[20];
         CodLEncodePerformance: Code[10];
         CodLCustomerNum: Code[20];
+        CodLVendorNum: Code[20];
         CodLOrderNum: Code[30];
+        CstL001: Label 'The article %1 of the line %2 of order %3 does not exist in the foundation Navision. Please create it to you?';
+        CstL002: Label 'For the same order he can have there only an only one encodes purveyor, an only one encodes performance, an only one encodes customer. See Order %1.';
         CstL003: Label 'Vendor code it does not give information to it for the line %1 of order %2.';
         CstL004: Label 'Prestation code it does not give information to it for the line %1 of order %2.';
         CstL005: Label 'Customer code it does not give information to it for the line %1 of order %2.';

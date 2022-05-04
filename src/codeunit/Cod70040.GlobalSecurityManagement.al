@@ -50,10 +50,10 @@ codeunit 70040 "PWD GlobalSecurityManagement"
                             Permission.DELETE()
                         ELSE BEGIN
                             //ToDo
-                            Permission."Execute Allowed" := Permission."Execute Permission" = Permission."Execute Permission"::Yes;
-                            Permission."Insert Allowed" := Permission."Insert Permission" = Permission."Insert Permission"::Yes;
-                            Permission."Modify Allowed" := Permission."Modify Permission" = Permission."Modify Permission"::Yes;
-                            Permission."Delete Allowed" := Permission."Delete Permission" = Permission."Delete Permission"::Yes;
+                            Permission."Execute Permission" := Permission."Execute Permission"::Yes;
+                            Permission."Insert Permission" := Permission."Insert Permission"::Yes;
+                            Permission."Modify Permission" := Permission."Modify Permission"::Yes;
+                            Permission."Delete Permission" := Permission."Delete Permission"::Yes;
                             Permission.MODIFY();
                         END;
                     UNTIL Permission.NEXT() = 0;
@@ -64,13 +64,13 @@ codeunit 70040 "PWD GlobalSecurityManagement"
     end;
 
     var
-        UserRole: Record "Permission Set";
-        Permission: Record Permission;
         AllObj: Record AllObj;
+        Permission: Record Permission;
+        UserRole: Record "Permission Set";
+        Window: Dialog;
         Text1000000000: Label 'Restore minimum permissions (roles Super and Tous),Restore permissions for role Tous,Delete custom permissions on Table Data,Check existing permissions';
         Text1000000001: Label 'You are about to reset the existing configuration. Do you really want to continue ?';
         Text1000000002: Label 'Permissions have been successfully updated.';
-        Window: Dialog;
         Text1000000003: Label 'Please wait...';
         Text1000000004: Label 'Role Selection : #1##########';
         Text1000000005: Label 'Role %1 does not exist.';
@@ -82,7 +82,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         SetRoleTOUSProperties();
     end;
 
-
     procedure ResetOnlyRoleTOUS()
     begin
         DeleteRoleTOUS();
@@ -93,7 +92,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
     procedure SetMaximumPermission(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
 
     begin
-        //Maximum Permissions
         Permission.INIT();
         Permission."Role ID" := RoleID;
         Permission."Object Type" := ObjectType;
@@ -103,11 +101,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         Permission."Modify Permission" := Permission."Modify Permission"::Yes;
         Permission."Delete Permission" := Permission."Delete Permission"::Yes;
         Permission."Execute Permission" := Permission."Execute Permission"::Yes;
-        //Todo
-        Permission."Execute Allowed" := TRUE;
-        Permission."Insert Allowed" := TRUE;
-        Permission."Modify Allowed" := TRUE;
-        Permission."Delete Allowed" := TRUE;
         Permission.INSERT();
     end;
 
@@ -122,11 +115,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         Permission."Modify Permission" := Permission."Modify Permission"::" ";
         Permission."Delete Permission" := Permission."Delete Permission"::" ";
         Permission."Execute Permission" := Permission."Execute Permission"::Indirect;
-        //todo
-        Permission."Execute Allowed" := FALSE;
-        Permission."Insert Allowed" := FALSE;
-        Permission."Modify Allowed" := FALSE;
-        Permission."Delete Allowed" := FALSE;
         Permission.INSERT();
     end;
 
@@ -142,11 +130,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         Permission."Modify Permission" := Permission."Modify Permission"::" ";
         Permission."Delete Permission" := Permission."Delete Permission"::" ";
         Permission."Execute Permission" := Permission."Execute Permission"::Yes;
-        //Todo
-        Permission."Execute Allowed" := TRUE;
-        Permission."Insert Allowed" := FALSE;
-        Permission."Modify Allowed" := FALSE;
-        Permission."Delete Allowed" := FALSE;
         Permission.INSERT();
     end;
 
@@ -163,11 +146,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         Permission."Modify Permission" := Permission."Modify Permission"::Indirect;
         Permission."Delete Permission" := Permission."Delete Permission"::Indirect;
         Permission."Execute Permission" := Permission."Execute Permission"::Yes;
-        //TOdo
-        Permission."Execute Allowed" := TRUE;
-        Permission."Insert Allowed" := FALSE;
-        Permission."Modify Allowed" := FALSE;
-        Permission."Delete Allowed" := FALSE;
         Permission.INSERT();
     end;
 
@@ -183,11 +161,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         Permission."Modify Permission" := Permission."Modify Permission"::Yes;
         Permission."Delete Permission" := Permission."Delete Permission"::Yes;
         Permission."Execute Permission" := Permission."Execute Permission"::" ";
-        //todo
-        Permission."Execute Allowed" := FALSE;
-        Permission."Insert Allowed" := TRUE;
-        Permission."Modify Allowed" := TRUE;
-        Permission."Delete Allowed" := TRUE;
         Permission.INSERT();
     end;
 
@@ -202,11 +175,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         Permission."Modify Permission" := Permission."Modify Permission"::" ";
         Permission."Delete Permission" := Permission."Delete Permission"::" ";
         Permission."Execute Permission" := Permission."Execute Permission"::Yes;
-        //ToDo
-        Permission."Execute Allowed" := TRUE;
-        Permission."Insert Allowed" := FALSE;
-        Permission."Modify Allowed" := FALSE;
-        Permission."Delete Allowed" := FALSE;
         Permission.INSERT();
     end;
 
@@ -226,19 +194,29 @@ codeunit 70040 "PWD GlobalSecurityManagement"
                 Permission."Role ID" := RoleInput;
                 Permission."Object Type" := ObjectMembership."Object Type";
                 Permission."Object ID" := ObjectMembership."Object ID";
+                //ToDo "if" inutil
                 IF NOT Permission.MODIFY() THEN BEGIN
                     Permission.INSERT();
                     //Todo
-                    Permission.VALIDATE("Execute Allowed", ValueInput);
-                END ELSE
-                    Permission.VALIDATE("Execute Allowed", ValueInput);
+                    if ValueInput then
+                        Permission.Validate("Execute Permission", Permission."Execute Permission"::Yes)
+                    else
+                        Permission.Validate("Execute Permission", Permission."Execute Permission"::" ");
+                    //Permission.VALIDATE("Execute Allowed", ValueInput);
+                END ELSE begin
+                    if ValueInput then
+                        Permission.Validate("Execute Permission", Permission."Execute Permission"::Yes)
+                    else
+                        Permission.Validate("Execute Permission", Permission."Execute Permission"::" ");
+                    // Permission.VALIDATE("Execute Allowed", ValueInput);
+                end;
             UNTIL ObjectMembership.NEXT() = 0;
     end;
 
     procedure ResetUserTableDataPermissions(SelUserRole: Record "Permission Set")
     var
-        Permission: Record Permission;
         AllObj: Record AllObj;
+        Permission: Record Permission;
     begin
         AllObj.RESET();
         AllObj.SETFILTER("Object Type", 'TableData');

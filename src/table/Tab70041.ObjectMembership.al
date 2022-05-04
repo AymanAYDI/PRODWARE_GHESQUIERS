@@ -90,8 +90,8 @@ table 70041 "PWD Object Membership"
         AllObj: Record AllObj;
         ObjectMembership: Record "PWD Object Membership";
         Window: Dialog;
-        LineNo: Integer;
         LineCount: Integer;
+        LineNo: Integer;
         ObjectNo: Integer;
     begin
         IF ObjectMembership.FIND('-') THEN

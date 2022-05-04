@@ -2,6 +2,20 @@ pageextension 50008 "PWD VendorCard" extends "Vendor Card"
 {
     layout
     {
+        modify("No.")
+        {
+            Visible = false;
+        }
+        addafter("No.")
+        {
+            field("PWD No."; Rec."No.")
+            {
+                ApplicationArea = All;
+                Importance = Standard;
+                ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
+                Visible = PWDNoFieldVisible;
+            }
+        }
         addafter("Primary Contact No.")
         {
             field("PWD Family"; Rec."PWD Family")
@@ -52,4 +66,13 @@ pageextension 50008 "PWD VendorCard" extends "Vendor Card"
             }
         }
     }
+    var
+        PWDNoFieldVisible: Boolean;
+
+    procedure PWDSetNoFieldVisible()
+    var
+        DocumentNoVisibility: Codeunit DocumentNoVisibility;
+    begin
+        PWDNoFieldVisible := DocumentNoVisibility.VendorNoIsVisible();
+    end;
 }

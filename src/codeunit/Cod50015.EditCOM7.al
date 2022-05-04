@@ -126,28 +126,27 @@ codeunit 50015 "PWD Edit COM7"
     end;
 
     var
+        EntryPoint: Record "Entry/Exit Point";
         PurchReceiptLine: Record "Purch. Rcpt. Line";
+        PurchSetup: Record "Purchases & Payables Setup";
+        ItemRestit: Record "PWD Item Restitution";
         CustomsLine: Record "PWD Ligne document Douane";
-        CurrentCleRest: Code[20];
-        CurrentLocation: Code[20];
-        NextLineNo: Integer;
-        Locationlist: array[50] of Code[20];
-        i: Integer;
-        j: Integer;
         CleRestitList: array[100] of Code[20];
+        CurrentCleRest: Code[20];
+        Locationlist: array[50] of Code[20];
         TotalGrossWeight: Decimal;
         TotalNetWeight: Decimal;
         TotalParcel: Decimal;
         TotalStatValue: Decimal;
-        PurchSetup: Record "Purchases & Payables Setup";
-        ItemRestit: Record "PWD Item Restitution";
-        EntryPoint: Record "Entry/Exit Point";
+        i: Integer;
+        j: Integer;
+        NextLineNo: Integer;
 
     procedure NumberCom7(PurchReceiptHeader: Record "Purch. Rcpt. Header")
     var
-        LastLocationCode: Code[20];
         NoSeriesMngt: Codeunit NoSeriesManagement;
         CurrentCustDocNo: Code[20];
+        LastLocationCode: Code[20];
     begin
         PurchSetup.GET();
         PurchSetup.TESTFIELD(PurchSetup."PWD Souche COM 7");

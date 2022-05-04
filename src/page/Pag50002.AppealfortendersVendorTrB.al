@@ -191,25 +191,25 @@ page 50002 "Appeal for tenders/Vendor -TrB"
     end;
 
     var
-        ShowDetail: Boolean;
         SalesHeader: Record "Sales Header";
-        Description2: Text[30];
-        BuyFromVendorName: Text[30];
-        Text1000000000: Label 'New line added';
-        [InDataSet]
-        "No.Emphasize": Boolean;
-        [InDataSet]
-        "No.Indent": Integer;
-        [InDataSet]
-        DescriptionEmphasize: Boolean;
-        [InDataSet]
-        DescriptionIndent: Integer;
+        SalesOrder: Page "Sales Order";
+        SalesQuote: Page "Sales Quote";
         [InDataSet]
         "Description 2Emphasize": Boolean;
         [InDataSet]
+        DescriptionEmphasize: Boolean;
+        [InDataSet]
+        "No.Emphasize": Boolean;
+        ShowDetail: Boolean;
+        [InDataSet]
         "Description 2Indent": Integer;
-        SalesOrder: Page "Sales Order";
-        SalesQuote: Page "Sales Quote";
+        [InDataSet]
+        DescriptionIndent: Integer;
+        [InDataSet]
+        "No.Indent": Integer;
+        Text1000000000: Label 'New line added';
+        BuyFromVendorName: Text[30];
+        Description2: Text[30];
 
     procedure AddNewLine(AppTenders: Record "PWD Appeal for Tenders")
     var

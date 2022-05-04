@@ -142,7 +142,7 @@ page 50069 "PWD CIEL Data"
 
                 trigger OnAction()
                 var
-                    RepLCIELDataCalcul: Report "CIEL Data Calcul";
+                    RepLCIELDataCalcul: Report "PWD CIEL Data Calcul";
                 begin
                     IF Rec.GET('', '') THEN Rec.DELETE();
 
@@ -154,7 +154,7 @@ page 50069 "PWD CIEL Data"
 
                     COMMIT();
 
-                    RepLCIELDataCalcul.RUNMODAL;
+                    RepLCIELDataCalcul.RUNMODAL();
                 end;
             }
             action(Export)
@@ -168,13 +168,13 @@ page 50069 "PWD CIEL Data"
 
                 trigger OnAction()
                 var
-                    RepLExportCIEL: Report "Export CIEL";
+                    RepLExportCIEL: Report "PWD Export CIEL";
                 begin
                     IF Rec.FINDFIRST() THEN BEGIN
                         IF NOT CONFIRM(CstG004, FALSE) THEN
                             ERROR(CstG003)
                         ELSE
-                            RepLExportCIEL.RUNMODAL;
+                            RepLExportCIEL.RUNMODAL();
                     END ELSE
                         ERROR(CstG005);
                 end;
@@ -218,7 +218,7 @@ page 50069 "PWD CIEL Data"
                 Promoted = true;
                 PromotedCategory = "Report";
                 PromotedIsBig = true;
-                RunObject = Report "Apurement fin de mois V2";
+                RunObject = Report "PWD Apurement fin de mois V2";
                 ApplicationArea = All;
             }
         }
@@ -237,17 +237,14 @@ page 50069 "PWD CIEL Data"
     end;
 
     var
-        CstG001: Label 'Lines already exist.\Do you want to delete them before open the page ?';
-        CstG002: Label 'Lines already exist.\This lines will be delete.\Do you want to continue the calcul ?';
-        CstG003: Label 'Cancel !';
-        DatGStartingDate: Date;
-        DatGEndingDate: Date;
-        CstG004: Label 'Do you want to create the EDI DTI+ CIEL file ?';
-        CstG005: Label 'Table is empty !';
-        RecGCompanyInformation: Record "Company Information";
         [InDataSet]
         BooGModify: Boolean;
         [InDataSet]
         BooGView: Boolean;
+        CstG001: Label 'Lines already exist.\Do you want to delete them before open the page ?';
+        CstG002: Label 'Lines already exist.\This lines will be delete.\Do you want to continue the calcul ?';
+        CstG003: Label 'Cancel !';
+        CstG004: Label 'Do you want to create the EDI DTI+ CIEL file ?';
+        CstG005: Label 'Table is empty !';
 }
 

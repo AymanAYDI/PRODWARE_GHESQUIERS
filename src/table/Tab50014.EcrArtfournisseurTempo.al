@@ -134,7 +134,7 @@ table 50014 "PWD EcrArt/fournisseur Tempo"
             Caption = 'Document Date';
             DataClassification = CustomerContent;
         }
-        field(61; "External Document No."; Code[20])
+        field(61; "External Document No."; Code[35])
         {
             Caption = 'External Document No.';
             DataClassification = CustomerContent;

@@ -50,8 +50,8 @@ page 60000 "PWD Test Chiffres vers lettres"
     }
 
     var
-        nombre: Decimal;
         codeu: Codeunit "PrintTextAmount(dec => Letter)";
+        nombre: Decimal;
         NombreText: array[3] of Text[100];
 }
 

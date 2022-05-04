@@ -107,16 +107,6 @@ page 50003 "Appeal for tenders/Vendor det"
         VendorNoOnFormat();
     end;
 
-    var
-        GetSalesOrder: Report "Get Sales Orders";
-        GetSalesOrderVendor: Report "Get Sales Orders/Vendor -TrB";
-        CalculatePlan: Report "Calculate Plan - Req. Wksh.";
-        ReqJnlManagement: Codeunit ReqJnlManagement;
-        CurrentJnlBatchName: Code[10];
-        Description2: Text[30];
-        BuyFromVendorName: Text[30];
-        ShortcutDimCode: array[8] of Code[20];
-
     local procedure GetItemVendor(): Boolean
     var
         Item: Record Item;

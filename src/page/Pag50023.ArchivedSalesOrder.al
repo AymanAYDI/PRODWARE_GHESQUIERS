@@ -321,8 +321,5 @@ page 50023 "PWD Archived Sales Order"
             }
         }
     }
-
-    var
-        ArchSalesHeader: Record "PWD Archived Sales Header";
 }
 

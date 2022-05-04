@@ -11,24 +11,24 @@ codeunit 50014 "PWD Edit T5"
         CustomsLine.SETRANGE("Document Type", CustomsLine."Document Type"::"S.Shipment");
         CustomsLine.SETRANGE("Document No.", "No.");
         CustomsLine.SETRANGE("Customs Document Type", CustomsLine."Customs Document Type"::T5);
-        IF NOT CustomsLine.FIND('-') THEN BEGIN   // ** Création des lignes de T5
+        IF NOT CustomsLine.FIND('-') THEN BEGIN
             CLEAR(Locationlist);
             CLEAR(CleRestitList);
             CLEAR(CustomsLine);
             SalesShipmentLine.RESET();
-            SalesShipmentLine.SETCURRENTKEY("Document No.", Type, "Location Code", "Cle (restitution)");
+            SalesShipmentLine.SETCURRENTKEY("Document No.", Type, "Location Code", "PWD Cle (restitution)");
             SalesShipmentLine.SETRANGE("Document No.", "No.");
             SalesShipmentLine.SETRANGE(Type, SalesShipmentLine.Type::Item);
             SalesShipmentLine.SETFILTER("Location Code", '3|5|6');
-            SalesShipmentLine.SETFILTER("Cle (restitution)", '<>%1', '');
+            SalesShipmentLine.SETFILTER("PWD Cle (restitution)", '<>%1', '');
             SalesShipmentLine.SETFILTER(Quantity, '<>0');
             IF SalesShipmentLine.FIND('-') THEN
                 REPEAT
-                    IF CurrentCleRest <> SalesShipmentLine."Cle (restitution)" THEN BEGIN
+                    IF CurrentCleRest <> SalesShipmentLine."PWD Cle (restitution)" THEN BEGIN
                         i += 1;
                         Locationlist[i] := SalesShipmentLine."Location Code";
-                        CleRestitList[i] := SalesShipmentLine."Cle (restitution)";
-                        CurrentCleRest := SalesShipmentLine."Cle (restitution)";
+                        CleRestitList[i] := SalesShipmentLine."PWD Cle (restitution)";
+                        CurrentCleRest := SalesShipmentLine."PWD Cle (restitution)";
                         CustomsLine.RESET();
                         IF CustomsLine.FIND('+') THEN
                             NextLineNo := CustomsLine."Entry No." + 1 ELSE
@@ -42,40 +42,39 @@ codeunit 50014 "PWD Edit T5"
                         CustomsLine."Document No." := "No.";
                         CustomsLine."Customs Document Type" := CustomsLine."Customs Document Type"::T5;
                         CustomsLine."Location Code" := SalesShipmentLine."Location Code";
-                        CustomsLine."Cle (restitution)" := SalesShipmentLine."Cle (restitution)";
+                        CustomsLine."Cle (restitution)" := SalesShipmentLine."PWD Cle (restitution)";
                         IF NOT ItemRestit.GET(CustomsLine."Cle (restitution)") THEN ItemRestit.INIT();
                         CustomsLine."Cle Description" := ItemRestit.Designation;
                         CustomsLine.INSERT();
                     END;
                 UNTIL SalesShipmentLine.NEXT() = 0;
-            NumberT5(Rec); // **Numérotation des T5
+            NumberT5(Rec);
         END;
 
-        //Affectation des données d'expé
         SalesShipmentLine.RESET();
-        SalesShipmentLine.SETCURRENTKEY("Document No.", Type, "Location Code", "Cle (restitution)");
+        SalesShipmentLine.SETCURRENTKEY("Document No.", Type, "Location Code", "PWD Cle (restitution)");
         SalesShipmentLine.SETRANGE("Document No.", "No.");
         SalesShipmentLine.SETRANGE(Type, SalesShipmentLine.Type::Item);
         SalesShipmentLine.SETFILTER("Location Code", '3|5|6');
-        SalesShipmentLine.SETFILTER("Cle (restitution)", '<>%1', '');
+        SalesShipmentLine.SETFILTER("PWD Cle (restitution)", '<>%1', '');
         SalesShipmentLine.SETFILTER(Quantity, '<>0');
         IF SalesShipmentLine.FIND('-') THEN
             REPEAT
-                IF CurrentCleRest <> SalesShipmentLine."Cle (restitution)" THEN BEGIN
+                IF CurrentCleRest <> SalesShipmentLine."PWD Cle (restitution)" THEN BEGIN
                     i += 1;
                     Locationlist[i] := SalesShipmentLine."Location Code";
-                    CleRestitList[i] := SalesShipmentLine."Cle (restitution)";
-                    CurrentCleRest := SalesShipmentLine."Cle (restitution)";
+                    CleRestitList[i] := SalesShipmentLine."PWD Cle (restitution)";
+                    CurrentCleRest := SalesShipmentLine."PWD Cle (restitution)";
                 END;
             UNTIL SalesShipmentLine.NEXT() = 0;
 
         FOR j := 1 TO 50 DO BEGIN
             SalesShipmentLine.RESET();
-            SalesShipmentLine.SETCURRENTKEY("Document No.", Type, "Location Code", "Cle (restitution)");
+            SalesShipmentLine.SETCURRENTKEY("Document No.", Type, "Location Code", "PWD Cle (restitution)");
             SalesShipmentLine.SETRANGE("Document No.", "No.");
             SalesShipmentLine.SETRANGE(Type, SalesShipmentLine.Type::Item);
             SalesShipmentLine.SETRANGE("Location Code", Locationlist[j]);
-            SalesShipmentLine.SETRANGE("Cle (restitution)", CleRestitList[j]);
+            SalesShipmentLine.SETRANGE("PWD Cle (restitution)", CleRestitList[j]);
             SalesShipmentLine.SETFILTER(Quantity, '<>0');
             IF SalesShipmentLine.FIND('-') THEN BEGIN
                 CLEAR(TotalGrossWeight);
@@ -123,27 +122,26 @@ codeunit 50014 "PWD Edit T5"
     end;
 
     var
-        SalesShipmentLine: Record "Sales Shipment Line";
+        ItemRestit: Record "PWD Item Restitution";
         CustomsLine: Record "PWD Ligne document Douane";
-        CurrentCleRest: Code[20];
-        CurrentLocation: Code[20];
-        NextLineNo: Integer;
-        Locationlist: array[50] of Code[20];
-        i: Integer;
-        j: Integer;
+        SalesSetup: Record "Sales & Receivables Setup";
+        SalesShipmentLine: Record "Sales Shipment Line";
         CleRestitList: array[100] of Code[20];
+        CurrentCleRest: Code[20];
+        Locationlist: array[50] of Code[20];
         TotalGrossWeight: Decimal;
         TotalNetWeight: Decimal;
         TotalParcel: Decimal;
-        ItemRestit: Record "PWD Item Restitution";
-        SalesSetup: Record "Sales & Receivables Setup";
+        i: Integer;
+        j: Integer;
+        NextLineNo: Integer;
 
 
     procedure NumberT5(SalesShipHeader: Record "Sales Shipment Header")
     var
-        LastLocationCode: Code[20];
         NoSeriesMngt: Codeunit NoSeriesManagement;
         CurrentCustDocNo: Code[20];
+        LastLocationCode: Code[20];
     begin
         SalesSetup.GET();
         SalesSetup.TESTFIELD("PWD Souche de T5");

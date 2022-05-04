@@ -35,7 +35,18 @@ pageextension 50011 "PWD ItemLedgerEntries" extends "Item Ledger Entries"
             {
                 ApplicationArea = All;
             }
-
+            field("PWD Seafrance Order No."; Rec."PWD Seafrance Order No.")
+            {
+                ApplicationArea = All;
+            }
+            field("PWD Seafrance Order Line No."; Rec."PWD Seafrance Order Line No.")
+            {
+                ApplicationArea = All;
+            }
+            field("PWD Seafrance Quantity"; Rec."PWD Seafrance Quantity")
+            {
+                ApplicationArea = All;
+            }
         }
     }
 }

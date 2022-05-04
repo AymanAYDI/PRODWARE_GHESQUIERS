@@ -4,10 +4,10 @@ codeunit 50013 "PWD delete ligne anomalie"
 
     trigger OnRun()
     var
-        SalesLine: Record "Sales Line";
         SalesHeader: Record "Sales Header";
-        ReleaseSales: Codeunit "Release Sales Document";
         SalesHeader2: Record "Sales Header";
+        SalesLine: Record "Sales Line";
+        ReleaseSales: Codeunit "Release Sales Document";
     begin
         SalesLine := Rec;
         SalesHeader.GET(SalesLine."Document Type", SalesLine."Document No.");

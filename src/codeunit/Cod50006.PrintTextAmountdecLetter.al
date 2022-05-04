@@ -6,6 +6,10 @@ codeunit 50006 "PrintTextAmount(dec => Letter)"
     end;
 
     var
+        Text026: Label 'ZERO';
+        Text027: Label 'HUNDRED';
+        Text028: Label 'AND';
+        Text029: Label '%1 results in a written number that is too long.';
         Text032: Label 'ONE';
         Text033: Label 'TWO';
         Text034: Label 'THREE';
@@ -36,21 +40,11 @@ codeunit 50006 "PrintTextAmount(dec => Letter)"
         Text059: Label 'THOUSAND';
         Text060: Label 'MILLION';
         Text061: Label 'BILLION';
-        Text062: Label 'G/L Account,Customer,Vendor,Bank Account';
         Text1120000: Label 'EUROS';
         Text1120001: Label 'CENT';
-        Text029: Label '%1 results in a written number that is too long.';
-        Text030: Label ' is already applied to %1 %2 for customer %3.';
-        Text031: Label ' is already applied to %1 %2 for vendor %3.';
-        Text026: Label 'ZERO';
-        Text027: Label 'HUNDRED';
-        Text028: Label 'AND';
+        ExponentText: array[5] of Text[30];
         OnesText: array[20] of Text[30];
         TensText: array[10] of Text[30];
-        ExponentText: array[5] of Text[30];
-        CheckAmountText: Text[250];
-        i2: Integer;
-        Currency: Record Currency;
 
     procedure FormatNoText(var NoText: array[3] of Text[80]; No: Decimal; CurrencyCode: Code[10])
     begin
@@ -110,11 +104,11 @@ codeunit 50006 "PrintTextAmount(dec => Letter)"
     procedure FormatNoTextFR(var NoText: array[3] of Text[80]; No: Decimal; CurrencyCode: Code[10])
     var
         PrintExponent: Boolean;
+        Exponent: Integer;
+        Hundreds: Integer;
+        NoTextIndex: Integer;
         Ones: Integer;
         Tens: Integer;
-        Hundreds: Integer;
-        Exponent: Integer;
-        NoTextIndex: Integer;
     begin
         CLEAR(NoText);
         NoTextIndex := 1;
@@ -226,11 +220,11 @@ codeunit 50006 "PrintTextAmount(dec => Letter)"
     procedure FormatNoTextINTL(var NoText: array[3] of Text[80]; No: Decimal; CurrencyCode: Code[10])
     var
         PrintExponent: Boolean;
+        Exponent: Integer;
+        Hundreds: Integer;
+        NoTextIndex: Integer;
         Ones: Integer;
         Tens: Integer;
-        Hundreds: Integer;
-        Exponent: Integer;
-        NoTextIndex: Integer;
     begin
         CLEAR(NoText);
         NoTextIndex := 1;

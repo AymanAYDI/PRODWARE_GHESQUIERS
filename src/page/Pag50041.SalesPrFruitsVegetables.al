@@ -266,17 +266,16 @@ page 50041 "Sales Pr Fruits & Vegetables"
     var
         Cust: Record Customer;
         CustPriceGr: Record "Customer Price Group";
-        Item: Record Item;
-        SalesTypeFilter: Option Customer,"Customer Price Group","All Customers","None";
-        SalesCodeFilter: Text[250];
-        ItemNoFilter: Text[250];
-        StartingDateFilter: Text[30];
-        CurrencyCodeFilter: Text[250];
-        Text000: Label 'All Customers';
         [InDataSet]
         "Sales CodeEditable": Boolean;
         [InDataSet]
         SalesCodeFilterCtrlEnable: Boolean;
+        Text000: Label 'All Customers';
+        SalesTypeFilter: Option Customer,"Customer Price Group","All Customers","None";
+        StartingDateFilter: Text[30];
+        CurrencyCodeFilter: Text[250];
+        ItemNoFilter: Text[250];
+        SalesCodeFilter: Text[250];
 
 
     procedure GetRecFilters()
@@ -336,8 +335,8 @@ page 50041 "Sales Pr Fruits & Vegetables"
     procedure GetCaption(): Text[250]
     var
         ObjTransl: Record "Object Translation";
-        SourceTableName: Text[100];
         SalesSrcTableName: Text[100];
+        SourceTableName: Text[100];
         Description: Text[250];
     begin
         GetRecFilters();

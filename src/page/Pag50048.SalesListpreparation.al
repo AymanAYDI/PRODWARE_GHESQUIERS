@@ -18,11 +18,11 @@ page 50048 "PWD Sales List preparation"
                 {
                     ApplicationArea = All;
                 }
-                field("Call No."; "Call No.")
+                field("Call No."; Rec."PWD Call No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Call Type"; "Call Type")
+                field("Call Type"; Rec."PWD Call Type")
                 {
                     ApplicationArea = All;
                 }
@@ -116,7 +116,7 @@ page 50048 "PWD Sales List preparation"
                 {
                     ApplicationArea = All;
                 }
-                field("Delivery time"; "Delivery time")
+                field("Delivery time"; Rec."PWD Delivery time")
                 {
                     ApplicationArea = All;
                 }
@@ -183,8 +183,5 @@ page 50048 "PWD Sales List preparation"
             }
         }
     }
-
-    var
-        DimMgt: Codeunit DimensionManagement;
 }
 

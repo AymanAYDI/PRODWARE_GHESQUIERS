@@ -479,7 +479,7 @@ table 50016 "PWD Seafrance Sales Header"
             Caption = 'Document Date';
             DataClassification = CustomerContent;
         }
-        field(100; "External Document No."; Code[20])
+        field(100; "External Document No."; Code[35])
         {
             Caption = 'External Document No.';
             DataClassification = CustomerContent;

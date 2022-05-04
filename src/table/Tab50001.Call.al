@@ -287,10 +287,10 @@ table 50001 "PWD Call"
     end;
 
     var
-        SRSetup: Record "Sales & Receivables Setup";
-        RecCall: Record "PWD Call";
-        Cust: Record Customer;
         RecCountry: Record "Country/Region";
+        Cust: Record Customer;
+        RecCall: Record "PWD Call";
+        SRSetup: Record "Sales & Receivables Setup";
         NoSeriesMgt: Codeunit NoSeriesManagement;
 
     procedure AssistEdit(OldCall: Record "PWD Call"): Boolean

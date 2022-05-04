@@ -96,6 +96,8 @@ table 50030 "PWD Customs Documents Template"
     }
 
     var
+        RMSetup: Record "Marketing Setup";
+        Text001: Label 'Replace existing attachment?';
         Text002: Label 'The attachment is empty.';
         Text003: Label 'Attachment is already in use on this machine.';
         Text004: Label 'When you have saved your document, click Yes to import the document.';
@@ -105,19 +107,16 @@ table 50030 "PWD Customs Documents Template"
         Text008: Label 'Error during copying file.';
         Text009: Label 'Do you want to remove %1?';
         Text010: Label 'External file could not be removed.';
-        Text012: Label '\Doc';
         Text013: Label 'Only Microsoft Word documents can be printed.';
         Text014: Label 'Only Microsoft Word documents can be faxed.';
-        Text001: Label 'Replace existing attachment?';
-        RMSetup: Record "Marketing Setup";
 
 
     procedure OpenAttachment(Caption: Text[260]; IsTemporary: Boolean)
     var
         WordManagement: Codeunit "Customs Sales Doc WordMngt";
+        ShipWordManagement: Codeunit "Customs Shipmt Doc WordMngt";
         AttachmentManagement: Codeunit "PWD Customs Doc AttachmentMngt";
         FileName: Text[260];
-        ShipWordManagement: Codeunit "Customs Shipmt Doc WordMngt";
     begin
         IF "Storage Type" = "Storage Type"::Embedded THEN BEGIN
             CALCFIELDS(Attachment);
@@ -153,8 +152,8 @@ table 50030 "PWD Customs Documents Template"
     procedure ExportAttachment(ExportToFile: Text[260]): Boolean
     var
         CommonDialogMgt: Codeunit "Common Dialog Management";
-        FileName: Text[260];
         FileFilter: Text[260];
+        FileName: Text[260];
     begin
         RMSetup.GET();
         CASE "Storage Type" OF
@@ -333,13 +332,11 @@ table 50030 "PWD Customs Documents Template"
     var
         I: Integer;
         DocNo: Text[30];
-        FileManagement: Codeunit "File Management";
     begin
         REPEAT
             IF I <> 0 THEN
                 DocNo := FORMAT(I);
             //todo
-            FileName := FileManagement.GetDirectoryName('TEMP') + Text012 + DocNo + '.' + "File Extension";
             //FileName := ENVIRON('TEMP') + Text012 + DocNo + '.' + "File Extension";
             IF NOT EXISTS(FileName) THEN
                 EXIT;
@@ -372,9 +369,9 @@ table 50030 "PWD Customs Documents Template"
     procedure CreateAttachment()
     var
         Attachment: Record "PWD Customs Documents Template";
-        AttachmentManagement: Codeunit "PWD Customs Doc AttachmentMngt";
         WordManagement: Codeunit "Customs Sales Doc WordMngt";
         ShipWordManagement: Codeunit "Customs Shipmt Doc WordMngt";
+        AttachmentManagement: Codeunit "PWD Customs Doc AttachmentMngt";
     begin
         IF "Attachment No." <> 0 THEN BEGIN
             IF Attachment.GET("Attachment No.") THEN

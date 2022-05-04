@@ -119,29 +119,25 @@ page 50058 "PWD Check Availability Prep"
     end;
 
     var
-        SalesSetup: Record "Sales & Receivables Setup";
-        OldSalesLine: Record "Sales Line";
-        OldTransLine: Record "Transfer Line";
         CompanyInfo: Record "Company Information";
         Item2: Record Item;
-        OldServiceInvLine: Record "Service Line";
+        OldSalesLine: Record "Sales Line";
         AvailToPromise: Codeunit "Available to Promise";
-        ItemNo: Code[20];
+        SetupDataIsPresent: Boolean;
+        UseOrderPromise: Boolean;
         UnitOfMeasureCode: Code[10];
+        ItemNo: Code[20];
+        EarliestAvailDate: Date;
+        OldItemShipmentDate: Date;
+        AvailableQty: Decimal;
+        GrossReq: Decimal;
+        InitialQtyAvailable: Decimal;
+        InventoryQty: Decimal;
+        ItemNetChange: Decimal;
         NewItemNetChange: Decimal;
         OldItemNetChange: Decimal;
-        ItemNetChange: Decimal;
         QtyPerUnitOfMeasure: Decimal;
-        InitialQtyAvailable: Decimal;
-        OldServItemNetChange: Decimal;
-        UseOrderPromise: Boolean;
-        GrossReq: Decimal;
         SchedRcpt: Decimal;
-        SetupDataIsPresent: Boolean;
-        AvailableQty: Decimal;
-        EarliestAvailDate: Date;
-        InventoryQty: Decimal;
-        OldItemShipmentDate: Date;
         Text19051598: Label 'The quantity on inventory is not sufficient to cover the net change in inventory.';
 
 
@@ -207,11 +203,13 @@ page 50058 "PWD Check Availability Prep"
     end;
 
     local procedure Calculate(QtyToShip: Decimal)
+    Var
+        PWDFunctionMgt: codeunit "PWD Function Mgt";
     begin
         IF NOT SetupDataIsPresent THEN
             GetSetupData();
 
-        AvailToPromise.PrepQtyAvailabletoPromise(
+        PWDFunctionMgt.PrepQtyAvailabletoPromise(
           Rec, GrossReq, SchedRcpt, Rec.GETRANGEMAX("Date Filter"),
           CompanyInfo."Check-Avail. Time Bucket", CompanyInfo."Check-Avail. Period Calc.");
 

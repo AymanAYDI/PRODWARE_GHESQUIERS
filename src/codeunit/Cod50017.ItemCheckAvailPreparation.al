@@ -24,12 +24,12 @@ codeunit 50017 "Item-Check Avail. Preparation"
 
     procedure CalculateNeed(SalesLine: Record "Sales Line"; LocationCode: Code[10]): Decimal
     var
-        GrossRequirement: Decimal;
-        PlannedOrderReceipt: Decimal;
-        ScheduledReceipt: Decimal;
-        PlannedOrderReleases: Decimal;
         Item: Record Item;
         ItemSalesLine: Record Item;
+        GrossRequirement: Decimal;
+        PlannedOrderReceipt: Decimal;
+        PlannedOrderReleases: Decimal;
+        ScheduledReceipt: Decimal;
     begin
         ItemSalesLine.RESET();
         ItemSalesLine.SETRANGE("No.", SalesLine."No.");

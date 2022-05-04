@@ -108,7 +108,7 @@ page 50076 "PWD User Item List"
                         Fct_ProhibitDisplay();
                     end;
                 }
-                field("Alcool %"; "Alcool %")
+                field("Alcool %"; Rec."PWD Alcool %")
                 {
                     ApplicationArea = All;
                 }
@@ -151,9 +151,9 @@ page 50076 "PWD User Item List"
 
                 trigger OnAction()
                 var
-                    ItemTrackingMgt: Codeunit "Item Tracking Management";
+                    PWDFunctionMgt: Codeunit "PWD Function Mgt";
                 begin
-                    ItemTrackingMgt.CallItemTrackingEntryFormUser(0, '', Rec."No.", '', '', '');
+                    PWDFunctionMgt.CallItemTrackingEntryFormUser(0, '', Rec."No.", '', '', '');
                 end;
             }
         }

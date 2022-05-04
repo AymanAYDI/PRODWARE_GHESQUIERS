@@ -142,7 +142,7 @@ page 50042 "PWD Sales Orders to prepare"
                         IF SalesHeader.FIND('-') THEN
                             IF SalesHeader."PWD Preparation in process" = FALSE THEN
                                 MESSAGE(Text1000000012) ELSE
-                                REPORT.RUNMODAL(50042, TRUE, TRUE, SalesHeader);
+                                REPORT.RUNMODAL(Report::"PWD Picking List", TRUE, TRUE, SalesHeader);
                     end;
                 }
                 action("Mettre à jour (Qté à préparer)")
@@ -227,43 +227,40 @@ page 50042 "PWD Sales Orders to prepare"
         }
     }
     var
-        SalesHeader: Record "Sales Header";
-        SalesLine: Record "Sales Line";
         Item: Record Item;
-        RecLocPriority: Record "PWD Location Priority";
-        AvailableInventory: Decimal;
         Item2: Record Item;
-        LastLineNo: BigInteger;
-        SalesLine2: Record "Sales Line";
-        Text1000000009: Label 'You can''t select more than one line for picking';
-        Text1000000010: Label 'You must select at least one line for picking';
-        UoMgt: Codeunit "Unit of Measure Management";
-        CheckLocationAvailability: Codeunit "Item-Check Avail.";
-        QtytoSend: Decimal;
-        CumulatedInventory: Decimal;
-        RemainingDifference: Decimal;
-        ItemTrackingLines: Record "Tracking Specification";
-        Text1000000011: Label 'The items corresponding to the order %1 have been picked successfully !';
+        RecLocPriority: Record "PWD Location Priority";
         ReservEntry: Record "Reservation Entry";
         ReservEntryNo: Record "Reservation Entry";
-        Text1000000012: Label 'The picking list cannot be printed until the ordre has been prepared';
-        Text1000000013: Label 'The order %1 has not yet been prepared !';
-        InventorySetup: Record "Inventory Setup";
+        SalesHeader: Record "Sales Header";
         CommentSalesLine: Record "Sales Line";
-        Commentaires: array[20] of Text[50];
-        ItemNo: Code[20];
+        SalesLine: Record "Sales Line";
+        SalesLine2: Record "Sales Line";
         SalesLineItem: Record "Sales Line";
-        ItemNo2: Code[20];
+        ItemTrackingLines: Record "Tracking Specification";
         ReleaseSalesDoc: Codeunit "Release Sales Document";
         FormSalesLinetoPrepare: Page "PWD Sales Lines to Prepare";
+        LastLineNo: BigInteger;
+        ItemNo: Code[20];
+        ItemNo2: Code[20];
+        AvailableInventory: Decimal;
+        CumulatedInventory: Decimal;
+        QtytoSend: Decimal;
+        RemainingDifference: Decimal;
+        Text1000000009: Label 'You can''t select more than one line for picking';
+        Text1000000010: Label 'You must select at least one line for picking';
+        Text1000000011: Label 'The items corresponding to the order %1 have been picked successfully !';
+        Text1000000012: Label 'The picking list cannot be printed until the ordre has been prepared';
+        Text1000000013: Label 'The order %1 has not yet been prepared !';
+        Commentaires: array[20] of Text[50];
 
     procedure BreakdownSalesLineQty(InputQuantity: Decimal)
     var
         InsertedSalesLineQty: Decimal;
-        TotalAvailableInventory: Decimal;
-        UnavailableQty: Decimal;
         PositiveRemainingQty: Decimal;
         Qtyinserted: Decimal;
+        TotalAvailableInventory: Decimal;
+        UnavailableQty: Decimal;
     begin
         AvailableInventory := 0;
         TotalAvailableInventory := 0;
@@ -273,8 +270,8 @@ page 50042 "PWD Sales Orders to prepare"
         CumulatedInventory := 0;
         UnavailableQty := 0;
         RecLocPriority.RESET();
-        RecLocPriority.SETCURRENTKEY("Call Type Code", "Location priority");
-        RecLocPriority.SETRANGE(RecLocPriority."Call Type Code", SalesHeader."PWD Call Type");
+        RecLocPriority.SETCURRENTKEY("PWD Call Type Code", "PWD Location priority");
+        RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", SalesHeader."PWD Call Type");
         IF RecLocPriority.FIND('-') THEN BEGIN
             REPEAT
                 TotalAvailableInventory := CalculateNeed();
@@ -301,7 +298,7 @@ page 50042 "PWD Sales Orders to prepare"
                     SalesLine2.VALIDATE(SalesLine2."Line No.", LastLineNo);
                     SalesLine2.VALIDATE(SalesLine2.Type, SalesLine.Type);
                     SalesLine2.VALIDATE(SalesLine2."No.", SalesLine."No.");
-                    SalesLine2.VALIDATE(SalesLine2."Location Code", RecLocPriority."Location code");
+                    SalesLine2.VALIDATE(SalesLine2."Location Code", RecLocPriority."PWD Location code");
                     IF CumulatedInventory <= InputQuantity THEN
                         SalesLine2.Quantity := AvailableInventory ELSE
                         SalesLine2.Quantity := RemainingDifference;
@@ -357,23 +354,23 @@ page 50042 "PWD Sales Orders to prepare"
 
     local procedure CalculateNeed(): Decimal
     var
+        ItemSalesLine: Record Item;
         GrossRequirement: Decimal;
         PlannedOrderReceipt: Decimal;
-        ScheduledReceipt: Decimal;
         PlannedOrderReleases: Decimal;
-        ItemSalesLine: Record Item;
+        ScheduledReceipt: Decimal;
     begin
         ItemSalesLine.RESET();
         ItemSalesLine.SETRANGE("No.", SalesLine."No.");
         ItemSalesLine.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
-        ItemSalesLine.SETRANGE("Location Filter", RecLocPriority."Location code");
+        ItemSalesLine.SETRANGE("Location Filter", RecLocPriority."PWD Location code");
         IF ItemSalesLine.FIND('-') THEN
             ItemSalesLine.CALCFIELDS("Qty. on Sales Order");
 
         Item.RESET();
         Item.SETRANGE("No.", SalesLine."No.");
         Item.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
-        Item.SETRANGE(Item."Location Filter", RecLocPriority."Location code");
+        Item.SETRANGE(Item."Location Filter", RecLocPriority."PWD Location code");
         IF Item.FIND('-') THEN BEGIN
             Item.CALCFIELDS(
               "Qty. on Purch. Order",
@@ -401,11 +398,10 @@ page 50042 "PWD Sales Orders to prepare"
     procedure InsertTrackingLines()
     var
         ItemLedgerEntry: Record "Item Ledger Entry";
-        ItemTrackingLines: Record "Tracking Specification";
-        EntryNo: Integer;
         CumulatedRemainingQty: Decimal;
         Difference: Decimal;
         InsertedTrackingQty: Decimal;
+        EntryNo: Integer;
     begin
         CumulatedRemainingQty := 0;
         Difference := 0;
@@ -471,10 +467,10 @@ page 50042 "PWD Sales Orders to prepare"
     var
         ItemLedgerEntry: Record "Item Ledger Entry";
         ItemTrackingLines: Record "Tracking Specification";
-        EntryNo: Integer;
         CumulatedRemainingQty: Decimal;
         Difference: Decimal;
         InsertedTrackingQty: Decimal;
+        EntryNo: Integer;
     begin
         CumulatedRemainingQty := 0;
         Difference := 0;
@@ -519,7 +515,6 @@ page 50042 "PWD Sales Orders to prepare"
     var
         CommentLineNumber: Integer;
         i: Integer;
-        Increment: Integer;
         J: Integer;
     begin
         CommentSalesLine.RESET();
@@ -634,11 +629,11 @@ page 50042 "PWD Sales Orders to prepare"
                 SalesHeader.VALIDATE(SalesHeader.Status, SalesHeader.Status::Released);
                 SalesHeader.MODIFY();
                 COMMIT();
-                REPORT.RUNMODAL(50042, TRUE, TRUE, SalesHeader);
+                REPORT.RUNMODAL(Report::"PWD Picking List", TRUE, TRUE, SalesHeader);
                 MESSAGE(Text1000000011, SalesHeader."No.");
             END ELSE
-                REPORT.RUNMODAL(50042, TRUE, TRUE, SalesHeader);
-            REPORT.RUNMODAL(50041, TRUE, TRUE, SalesHeader);
+                REPORT.RUNMODAL(Report::"PWD Picking List", TRUE, TRUE, SalesHeader);
+            REPORT.RUNMODAL(Report::"PWD Fiche Anomalie", TRUE, TRUE, SalesHeader);
             REPORT.RUNMODAL(50065, TRUE, TRUE, SalesHeader);
         END;
     end;

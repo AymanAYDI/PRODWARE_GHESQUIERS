@@ -230,7 +230,6 @@ tableextension 60005 "PWD Customer" extends Customer
     var
         ContUpd: Record Contact;
         ContBusRelUpd: Record "Contact Business Relation";
-        CustUpd: Record Customer;
     begin
         //--------------------------------------------//
         //*** Fonction C2A -  MAJ Busines initiator & Payback commissoin rate

@@ -35,9 +35,9 @@ page 50000 "PWD Custom Parameters"
 
     procedure UpdateFormCaption(TableIDFilter: Text[30]; FieldIDFilter: Text[30]): Text[50]
     var
-        GetTableID: Integer;
-        GetFieldID: Integer;
         RecFields: Record "Field";
+        GetFieldID: Integer;
+        GetTableID: Integer;
     begin
         IF (EVALUATE(GetTableID, TableIDFilter) AND EVALUATE(GetFieldID, FieldIDFilter)) THEN
             IF RecFields.GET(GetTableID, GetFieldID) THEN EXIT(RecFields."Field Caption");

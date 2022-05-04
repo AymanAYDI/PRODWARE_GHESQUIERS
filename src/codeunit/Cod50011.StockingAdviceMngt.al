@@ -4,9 +4,9 @@ codeunit 50011 "PWD Stocking Advice Mngt"
 
     trigger OnRun()
     var
-        ReservEntry: Record "Reservation Entry";
-        PurchHeader: Record "Purchase Header";
         Location: Record Location;
+        PurchHeader: Record "Purchase Header";
+        ReservEntry: Record "Reservation Entry";
         NoSeriesMngt: Codeunit NoSeriesManagement;
     begin
         IF Location.GET("Location Code") THEN

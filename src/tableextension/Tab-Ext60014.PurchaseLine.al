@@ -20,42 +20,50 @@ tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
         {
             Caption = 'Parcel Nb.';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50002; "PWD Unit per Parcel"; Decimal)
         {
             Caption = 'Unit per Parcel';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50003; "PWD Origin"; Code[10])
         {
             Caption = 'Origin';
             Description = 'PW2009';
             TableRelation = "Country/Region";
+            DataClassification = CustomerContent;
         }
         field(50004; "PWD Cetificate Transit No."; Code[50])
         {
             Caption = 'Cetificate Transit No.';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(50005; "PWD Family"; Code[10])
         {
             Caption = 'Family';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55000; "PWD Sales Type Doc Appeal tenders"; Enum "PWD Sales TypeDocAppealtenders")
         {
             Caption = 'Sales Type Doc Appeal tenders';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55001; "PWD Sales No. Appeal Tenders"; Code[20])
         {
             Caption = 'Sales No. Appeal Tenders';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55002; "PWD Sales Line No. Appeal Tenders"; Integer)
         {
             Caption = 'Sales Line No. Appeal Tenders';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55010; "PWD Appeal for tenders"; Integer)
         {
@@ -68,44 +76,52 @@ tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
         {
             Caption = 'Selected Quote';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55012; "PWD Lead Time Calculation Import"; Text[50])
         {
             Caption = 'Délai de réappro. Import';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55043; "PWD Family Code"; Code[20])
         {
             Caption = 'Family Code';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55044; "PWD Purchaser code"; Code[20])
         {
             Caption = 'Purchaser code';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(55045; "PWD Quantite initiale"; Decimal)
         {
             Caption = 'Quantite initiale';
             Description = 'PW2009';
             Editable = false;
+            DataClassification = CustomerContent;
         }
         field(55050; "PWD Cle (restitution)"; Code[20])
         {
             Caption = 'Restitution Key';
             Description = 'PW2009';
             TableRelation = "PWD Item Restitution".Cle;
+            DataClassification = CustomerContent;
         }
         field(55051; "PWD Designation FR"; Text[50])
         {
             Caption = 'Designation FR';
             Description = 'PW2009';
+            DataClassification = CustomerContent;
         }
         field(70017; "PWD Specific Cost"; Boolean)
         {
             Caption = 'Specific Cost';
             Description = 'PW2009';
             Editable = false;
+            DataClassification = CustomerContent;
         }
     }
     keys
@@ -128,9 +144,9 @@ tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
 
     procedure VerifUnitCost()
     var
-        PurchHeader: Record "Purchase Header";
-        CurrExchRate: Record "Currency Exchange Rate";
         Currency: Record Currency;
+        CurrExchRate: Record "Currency Exchange Rate";
+        PurchHeader: Record "Purchase Header";
         MaxPrice: Decimal;
     begin
         //*** Controle Cout unitaire > prix plafond de l'article

@@ -42,8 +42,8 @@ table 50017 "PWD Seafrance Sales Line"
 
             trigger OnValidate()
             var
-                CstL001: Label 'It is not possible to top up lines.';
                 RecLSeafranceSalesHeader: Record "PWD Seafrance Sales Header";
+                CstL001: Label 'It is not possible to top up lines.';
                 CstL002: Label 'Warning, this order is already controlled. The modification of the article will cancel the control of this last. Do you like to go on?';
                 CstL003: Label 'Cancelled treatment.';
             begin
@@ -507,16 +507,16 @@ table 50017 "PWD Seafrance Sales Line"
 
             trigger OnValidate()
             var
-                ReservEntry_v: Record "Reservation Entry";
-                ReservEntry2_v: Record "Reservation Entry";
                 PurchaseHeader_v: Record "Purchase Header";
-                MatrixOrderNo: array[10] of Code[20];
-                MatrixOrderLineNo: array[10] of Integer;
-                MatrixOrderQty: array[10] of Decimal;
-                MatrixIndex: Integer;
-                i: Integer;
-                Found: Boolean;
                 PurchaseLine_v: Record "Purchase Line";
+                ReservEntry2_v: Record "Reservation Entry";
+                ReservEntry_v: Record "Reservation Entry";
+                Found: Boolean;
+                MatrixOrderNo: array[10] of Code[20];
+                MatrixOrderQty: array[10] of Decimal;
+                i: Integer;
+                MatrixIndex: Integer;
+                MatrixOrderLineNo: array[10] of Integer;
             begin
             end;
         }

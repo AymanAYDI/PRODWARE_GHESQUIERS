@@ -29,8 +29,8 @@ page 50008 "PWD Purchases Line FactBox"
     }
 
     var
-        "PWDFunctionMgt": Codeunit "PWD Function Mgt";
-        PurchPriceMgt: Codeunit "Purch. Price Calc. Mgt.";
         PurchaseHeader: Record "Purchase Header";
+        PurchPriceMgt: Codeunit "Purch. Price Calc. Mgt.";
+        "PWDFunctionMgt": Codeunit "PWD Function Mgt";
 }
 

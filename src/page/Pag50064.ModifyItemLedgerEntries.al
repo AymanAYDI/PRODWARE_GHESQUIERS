@@ -204,9 +204,11 @@ page 50064 "PWD Modify Item Ledger Entries"
                     ApplicationArea = All;
 
                     trigger OnAction()
+                    var
+                        TrackingForm: Page "Order Tracking";
                     begin
                         TrackingForm.SetItemLedgEntry(Rec);
-                        TrackingForm.RUNMODAL;
+                        TrackingForm.RUNMODAL();
                     end;
                 }
             }
@@ -221,9 +223,11 @@ page 50064 "PWD Modify Item Ledger Entries"
                 ApplicationArea = All;
 
                 trigger OnAction()
+                var
+                    Navigate: Page Navigate;
                 begin
                     Navigate.SetDoc(Rec."Posting Date", Rec."Document No.");
-                    Navigate.RUN;
+                    Navigate.RUN();
                 end;
             }
         }
@@ -234,8 +238,8 @@ page 50064 "PWD Modify Item Ledger Entries"
     var
         ObjTransl: Record "Object Translation";
         CurrOrderNo: Code[20];
-        SourceTableName: Text[100];
         ItemNo: Code[20];
+        SourceTableName: Text[100];
     begin
         CASE TRUE OF
             Rec.GETFILTER("Item No.") <> '':

@@ -2,10 +2,10 @@ codeunit 50021 "PWD RunJournal"
 {
     trigger OnRun()
     begin
-        ItemJnlManagement.RunPrestation;
+        PWDFunctionMgt.RunPrestation();
     end;
 
     var
-        ItemJnlManagement: Codeunit ItemJnlManagement;
+        PWDFunctionMgt: Codeunit "PWD Function Mgt";
 }
 
