@@ -1,6 +1,5 @@
 codeunit 50037 "PWD ConvertAscii I"
 {
-
     trigger OnRun()
     begin
     end;
@@ -10,7 +9,6 @@ codeunit 50037 "PWD ConvertAscii I"
         Correspondances: array[83, 2] of Char;
         i: Integer;
         pos: Integer;
-
 
     procedure AsciiToAnsi(var TextAscii: Text[1024]) TextAnsi: Text[1024]
     begin
@@ -30,7 +28,6 @@ codeunit 50037 "PWD ConvertAscii I"
             END;
     end;
 
-
     procedure AnsiToAscii(var TextAnsi: Text[1024]) TextAscii: Text[1024]
     begin
         InitTableauCorrespondances();
@@ -48,7 +45,6 @@ codeunit 50037 "PWD ConvertAscii I"
                 END;
             END;
     end;
-
 
     procedure InitTableauCorrespondances()
     begin
@@ -301,7 +297,5 @@ codeunit 50037 "PWD ConvertAscii I"
         /*²*/
         Correspondances[83] [1] := 253;
         Correspondances[83] [2] := 178;
-
     end;
 }
-

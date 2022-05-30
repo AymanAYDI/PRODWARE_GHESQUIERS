@@ -8,4 +8,3 @@ codeunit 50021 "PWD RunJournal"
     var
         PWDFunctionMgt: Codeunit "PWD Function Mgt";
 }
-

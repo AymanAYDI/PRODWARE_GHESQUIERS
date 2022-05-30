@@ -122,6 +122,5 @@ pageextension 50023 "PWD PurchaseOrderSubform" extends "Purchase Order Subform"
                 ApplicationArea = all;
             }
         }
-
     }
 }

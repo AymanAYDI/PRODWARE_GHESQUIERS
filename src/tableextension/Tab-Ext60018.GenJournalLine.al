@@ -9,6 +9,4 @@ tableextension 60018 "PWD GenJournalLine" extends "Gen. Journal Line"
             DataClassification = CustomerContent;
         }
     }
-
 }
-

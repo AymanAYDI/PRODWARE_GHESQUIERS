@@ -8,7 +8,7 @@ page 50065 "PWD Posted Sales Shpt. Lines"
     PageType = List;
     Permissions = TableData "Sales Shipment Line" = rm;
     SourceTable = "Sales Shipment Line";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -228,7 +228,6 @@ page 50065 "PWD Posted Sales Shpt. Lines"
         EXIT(FALSE);
     end;
 
-
     procedure ShowTracking()
     var
         ItemLedgEntry: Record "Item Ledger Entry";
@@ -242,18 +241,15 @@ page 50065 "PWD Posted Sales Shpt. Lines"
         TrackingForm.RUNMODAL();
     end;
 
-
     procedure ShowDimensions()
     begin
         Rec.ShowDimensions();
     end;
 
-
     procedure ShowItemTrackingLines()
     begin
         Rec.ShowItemTrackingLines();
     end;
-
 
     procedure UndoShipmentPosting()
     var
@@ -263,7 +259,6 @@ page 50065 "PWD Posted Sales Shpt. Lines"
         CurrPage.SETSELECTIONFILTER(SalesShptLine);
         CODEUNIT.RUN(CODEUNIT::"Undo Sales Shipment Line", SalesShptLine);
     end;
-
 
     procedure InvoiceLines()
     var
@@ -291,8 +286,8 @@ page 50065 "PWD Posted Sales Shpt. Lines"
             CustomsCertif.GET(DocTemplateCode);
             CLEAR(HealthCertifWordMngt);
             CurrPage.SETSELECTIONFILTER(ShipmentLine);
-            HealthCertifWordMngt.Merge(ShipmentLine, CustomsCertif, CustomsCertif."No.");
+            //ToDo
+            // HealthCertifWordMngt.Merge(ShipmentLine, CustomsCertif, CustomsCertif."No.");
         END;
     end;
 }
-

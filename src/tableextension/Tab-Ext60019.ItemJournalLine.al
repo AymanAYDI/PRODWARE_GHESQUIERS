@@ -264,6 +264,4 @@ tableextension 60019 "PWD ItemJournalLine" extends "Item Journal Line"
         NoSeriesMgt: Codeunit NoSeriesManagement;
         UserMgt: Codeunit "User Setup Management";
         CstG002: Label 'Voulez-vous mettre à jour le prix douane dans la fiche de l''article %1  ?';
-
 }
-

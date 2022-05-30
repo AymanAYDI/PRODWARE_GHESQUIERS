@@ -8,4 +8,3 @@ tableextension 60054 "PWD StockkeepingUnit" extends "Stockkeeping Unit"
         }
     }
 }
-

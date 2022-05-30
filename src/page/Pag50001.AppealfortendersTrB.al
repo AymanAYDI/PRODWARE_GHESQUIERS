@@ -7,7 +7,7 @@ page 50001 "PWD Appeal for tenders -TrB"
     Editable = false;
     PageType = List;
     SourceTable = "PWD Appeal for Tenders";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -67,4 +67,3 @@ page 50001 "PWD Appeal for tenders -TrB"
     {
     }
 }
-

@@ -1,6 +1,5 @@
 tableextension 60031 "PWD PurchInvLine" extends "Purch. Inv. Line"
 {
-
     fields
     {
         field(50001; "PWD Parcel Nb."; Decimal)
@@ -70,4 +69,3 @@ tableextension 60031 "PWD PurchInvLine" extends "Purch. Inv. Line"
         }
     }
 }
-

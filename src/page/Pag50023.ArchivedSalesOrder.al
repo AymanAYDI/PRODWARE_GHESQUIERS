@@ -1,17 +1,10 @@
 page 50023 "PWD Archived Sales Order"
 {
-    // -------------------------------------------------
-    // Prodware - www.prodware.fr
-    // -------------------------------------------------
-    // //>>GHES1.01
-    // FED_ADV_20090827_IMP_CDEVENTE_V2 :SOBI 19/10/2009 - SALES ORDER SEAFRANCE
-    //                                                     Add Fields ID 50021 "Seafrance Order No."
-
-    Caption = 'Archived Sales Order';
+     Caption = 'Archived Sales Order';
     Editable = false;
     PageType = Card;
     SourceTable = "PWD Archived Sales Header";
-
+UsageCategory = None;
     layout
     {
         area(content)
@@ -315,11 +308,13 @@ page 50023 "PWD Archived Sales Order"
                 {
                     ApplicationArea = all;
                     Caption = 'Dimensions';
-                    RunObject = Page "Document Dimensions Archive";
-                    RunPageLink = "Table ID" = CONST(36), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0), "Doc. No. Occurrence" = FIELD("Doc. No. Occurrence"), "Version No." = FIELD("Version No.");
+                    //ToDo
+                    /*
+                     RunObject = Page "Document Dimensions Archive";
+                     RunPageLink = "Table ID" = CONST(36), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0), "Doc. No. Occurrence" = FIELD("Doc. No. Occurrence"), "Version No." = FIELD("Version No.");
+                 */
                 }
             }
         }
     }
 }
-

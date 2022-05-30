@@ -3,7 +3,7 @@ page 50008 "PWD Purchases Line FactBox"
     Caption = 'Détails ligne achat';
     PageType = CardPart;
     SourceTable = "Purchase Line";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -33,4 +33,3 @@ page 50008 "PWD Purchases Line FactBox"
         PurchPriceMgt: Codeunit "Purch. Price Calc. Mgt.";
         "PWDFunctionMgt": Codeunit "PWD Function Mgt";
 }
-

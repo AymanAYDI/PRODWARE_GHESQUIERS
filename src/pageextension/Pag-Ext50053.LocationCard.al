@@ -85,7 +85,6 @@ pageextension 50053 "PWD LocationCard" extends "Location Card"
                 {
                     ApplicationArea = All;
                 }
-
             }
         }
     }

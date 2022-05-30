@@ -152,4 +152,3 @@ tableextension 60042 "PWD SalesReceivablesSetup" extends "Sales & Receivables Se
         }
     }
 }
-

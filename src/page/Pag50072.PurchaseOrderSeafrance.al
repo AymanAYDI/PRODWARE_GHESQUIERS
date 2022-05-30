@@ -3,7 +3,8 @@ page 50072 "PWD Purchase Order Seafrance"
     Caption = 'Purchase Order Seafrance';
     PageType = List;
     SourceTable = "PWD Purchase Order Seafrance";
-
+    ApplicationArea = all;
+    UsageCategory = lists;
     layout
     {
         area(content)
@@ -138,7 +139,6 @@ page 50072 "PWD Purchase Order Seafrance"
         // "--MIGRATION2009R2--": ;
         CstG001: Label 'Ok';
 
-
     procedure Fct_UptdateRecord()
     var
         RecLItem: Record Item;
@@ -156,7 +156,6 @@ page 50072 "PWD Purchase Order Seafrance"
                 END;
             UNTIL RecLPurchOrderSeafrance.NEXT() = 0;
     end;
-
 
     procedure Fct_ControlLines()
     var
@@ -243,7 +242,6 @@ page 50072 "PWD Purchase Order Seafrance"
 
                     Rec.MODIFY();
                 END;
-
             UNTIL Rec.NEXT() = 0;
             Rec.CLEARMARKS();
             Rec.MARKEDONLY(FALSE);
@@ -251,9 +249,7 @@ page 50072 "PWD Purchase Order Seafrance"
         END ELSE
             MESSAGE(CstL007);
         Rec.RESET();
-
     end;
-
 
     procedure Fct_CreateItem(P_ItemCode: Code[20])
     var
@@ -264,7 +260,6 @@ page 50072 "PWD Purchase Order Seafrance"
         RecLItem.Blocked := TRUE;
         RecLItem.INSERT();
     end;
-
 
     procedure Fct_CreateItemJournalLine()
     var
@@ -340,14 +335,11 @@ page 50072 "PWD Purchase Order Seafrance"
                     RecLItemJournalLineInsert.INSERT();
 
                     RecLPurchaseOrderSeafrance.DELETE();
-
                 END;
-
             UNTIL RecLPurchaseOrderSeafrance.NEXT() = 0;
             MESSAGE(CstG001);
         END;
     end;
-
 
     procedure Fct_ControlLinesUnit()
     var
@@ -438,7 +430,6 @@ page 50072 "PWD Purchase Order Seafrance"
 
                     Rec.MODIFY();
                 END;
-
             UNTIL Rec.NEXT() = 0;
             Rec.CLEARMARKS();
             Rec.MARKEDONLY(FALSE);
@@ -446,7 +437,5 @@ page 50072 "PWD Purchase Order Seafrance"
         END ELSE
             MESSAGE(CstL007);
         Rec.RESET();
-
     end;
 }
-

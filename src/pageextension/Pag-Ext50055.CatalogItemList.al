@@ -32,7 +32,6 @@ pageextension 50055 "PWD CatalogItemList" extends "Catalog Item List"
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

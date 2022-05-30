@@ -3,7 +3,7 @@ page 50049 "PWD Liste préstations"
     DelayedInsert = true;
     PageType = List;
     SourceTable = "PWD Prestations";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -43,4 +43,3 @@ page 50049 "PWD Liste préstations"
         }
     }
 }
-

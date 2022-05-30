@@ -6,7 +6,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
     InsertAllowed = false;
     PageType = List;
     SourceTable = "Sales Header";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -386,11 +386,11 @@ page 50063 "PWD Sales AVOIR to prepare V2"
         NewSalesLine.MODIFY(TRUE);
 
         CLEAR(DimMgt);
-        DimMgt.InsertDocDim(
-          DATABASE::"Sales Line", NewSalesLine."Document Type", NewSalesLine."Document No.", NewSalesLine."Line No.",
-          NewSalesLine."Shortcut Dimension 1 Code", NewSalesLine."Shortcut Dimension 2 Code");
+        //ToDo
+        /* DimMgt.InsertDocDim(
+           DATABASE::"Sales Line", NewSalesLine."Document Type", NewSalesLine."Document No.", NewSalesLine."Line No.",
+           NewSalesLine."Shortcut Dimension 1 Code", NewSalesLine."Shortcut Dimension 2 Code");*/
     end;
-
 
     procedure InsertNewLineNull(FromLocationCode: Code[20]; FromQty: Decimal; NewLineNo: Integer)
     begin
@@ -406,15 +406,15 @@ page 50063 "PWD Sales AVOIR to prepare V2"
         NewSalesLine.VALIDATE("Shortcut Dimension 1 Code");
         NewSalesLine.VALIDATE("Shortcut Dimension 2 Code");
 
-
         NewSalesLine.VALIDATE("PWD Quantity to prepare", NewSalesLine.Quantity);
         NewSalesLine.VALIDATE("Qty. to Ship", 0);
         NewSalesLine."PWD Preparation in Process" := TRUE;
         NewSalesLine.MODIFY(TRUE);
         CLEAR(DimMgt);
-        DimMgt.InsertDocDim(
+        //ToDo
+        /*DimMgt.InsertDocDim(
           DATABASE::"Sales Line", NewSalesLine."Document Type", NewSalesLine."Document No.", NewSalesLine."Line No.",
-          NewSalesLine."Shortcut Dimension 1 Code", NewSalesLine."Shortcut Dimension 2 Code");
+          NewSalesLine."Shortcut Dimension 1 Code", NewSalesLine."Shortcut Dimension 2 Code");*/
     end;
 
     local procedure NoOnFormat()
@@ -423,4 +423,3 @@ page 50063 "PWD Sales AVOIR to prepare V2"
             "No.Emphasize" := TRUE;
     end;
 }
-

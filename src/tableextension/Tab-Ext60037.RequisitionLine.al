@@ -3,11 +3,11 @@ tableextension 60037 "PWD RequisitionLine" extends "Requisition Line"
     // ------------------------------------------------------------------------------------------------------------------------------------
     // Prodware : www.prodware.fr
     // ------------------------------------------------------------------------------------------------------------------------------------
-    // 
+    //
     // //>>MIGRATION2009R2
-    // 
+    //
     // ------------------------------------------------------------------------------------------------------------------------------------
-    // 
+    //
     // >>GHE-RE1.00:DO 08/04/2011 :
     //   - MAJ description
     //   - retait MAJ description si update fournisseur
@@ -39,7 +39,6 @@ tableextension 60037 "PWD RequisitionLine" extends "Requisition Line"
     }
     keys
     {
-
         key(Key14; "Worksheet Template Name", "Journal Batch Name", "Vendor No.", "Sell-to Customer No.", "Ship-to Code", "Order Address Code", "Currency Code", "Location Code", "Transfer-from Code")
         {
             MaintainSQLIndex = false;
@@ -50,4 +49,3 @@ tableextension 60037 "PWD RequisitionLine" extends "Requisition Line"
         }
     }
 }
-

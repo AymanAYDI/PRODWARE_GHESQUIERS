@@ -43,4 +43,3 @@ table 50011 "PWD En-tête saisie prestation"
     {
     }
 }
-

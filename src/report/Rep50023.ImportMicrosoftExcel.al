@@ -2,6 +2,7 @@ report 50023 "PWD Import Microsoft Excel"
 {
     Caption = 'PWD Import Microsoft Excel';
     ProcessingOnly = true;
+    UsageCategory = None;
     dataset
     {
         dataitem(SalesHeader; "Sales Header")
@@ -632,9 +633,9 @@ report 50023 "PWD Import Microsoft Excel"
             }
             trigger OnPreDataItem()
             begin
-
-                CREATE(AppExcel);
-                AppExcel.Visible := TRUE;
+                //ToDo
+                //CREATE(AppExcel);
+                //AppExcel.Visible := TRUE;
             end;
 
             trigger OnAfterGetRecord()
@@ -643,49 +644,52 @@ report 50023 "PWD Import Microsoft Excel"
                 SalesSetup.GET();
                 salesline.SETRANGE("Document Type", "Document Type");
                 salesline.SETRANGE("Document No.", "No.");
-                IF salesline.FIND('-') THEN BEGIN
+                IF salesline.FIND('-') THEN
                     REPEAT
                         Purchline.RESET();
-                        Purchline.SETRANGE("PWD Sales Type Doc Appeal tenders", "Document Type");
+                        //ToDo
+                        //Purchline.SETRANGE("PWD Sales Type Doc Appeal tenders", "Document Type");
                         Purchline.SETRANGE("PWD Sales No. Appeal Tenders", "No.");
                         Purchline.SETCURRENTKEY("Document Type", "Document No.", "Line No.");
-                        IF Purchline.FIND('-') THEN BEGIN
+                        IF Purchline.FINDSet() THEN
                             REPEAT
                                 DosArgumentII := FORMAT(Purchline."Buy-from Vendor No.") + FORMAT(Purchline."Document No.");
                                 ImportFile :=
                                   SalesSetup."PWD Path xls File Export" + '\' + DosArgumentII + '\' +
                                   FORMAT(Purchline."Buy-from Vendor No.") + FORMAT(Purchline."Document No.") + '.xls';
-                                IF EXISTS(ImportFile) THEN BEGIN
+                                //ToDo
+                                /*IF EXISTS(ImportFile) THEN BEGIN
                                     OpenFile.OPEN(ImportFile);
                                     AppExcel.Workbooks.Add(ImportFile);
-                                    AppExcel.Range('A7').Select;
-                                    REPEAT
-                                        Cell := FORMAT(AppExcel.ActiveCell.Value);
-                                        IF Cell = '' THEN
-                                            NewCell := 0
-                                        ELSE
-                                            EVALUATE(NewCell, Cell);
-                                        Purchline2.SETRANGE("Line No.", NewCell);
-                                        Purchline2.RESET();
-                                        Purchline2.SETRANGE("Document Type", Purchline."Document Type");
-                                        Purchline2.SETRANGE("Document No.", Purchline."Document No.");
-                                        Purchline2.SETCURRENTKEY("Document Type", "Document No.", "Line No.");
-                                        IF Purchline2.FIND('-') THEN BEGIN
-                                            IF Purchline2."Line No." = NewCell THEN BEGIN
-                                                MESSAGE(FORMAT(AppExcel.ActiveCell.Offset(0, 7).Value));
-                                                Purchline2."Direct Unit Cost" := AppExcel.ActiveCell.Offset(0, 6).Value;
-                                                Purchline2."Promised Receipt Date" := AppExcel.ActiveCell.Offset(0, 7).Value;
-                                                Purchline2."PWD Lead Time Calculation Import" := FORMAT(AppExcel.ActiveCell.Offset(0, 8).Value);
-                                                Purchline2.MODIFY(TRUE);
-                                            END;
-                                            AppExcel.ActiveCell.Offset(1, 0).Select;
-                                        END;
-                                    UNTIL Cell = '';
+                                    AppExcel.Range('A7').Select;*/
+                                REPEAT
+                                    //ToDo
+                                    //Cell := FORMAT(AppExcel.ActiveCell.Value);
+                                    IF Cell = '' THEN
+                                        NewCell := 0
+                                    ELSE
+                                        EVALUATE(NewCell, Cell);
+                                    Purchline2.SETRANGE("Line No.", NewCell);
+                                    Purchline2.RESET();
+                                    Purchline2.SETRANGE("Document Type", Purchline."Document Type");
+                                    Purchline2.SETRANGE("Document No.", Purchline."Document No.");
+                                    Purchline2.SETCURRENTKEY("Document Type", "Document No.", "Line No.");
+                                    IF Purchline2.FIND('-') THEN
+                                        ;
+                                //ToDo
+                                /*
+                                IF Purchline2."Line No." = NewCell THEN BEGIN
+                                    MESSAGE(FORMAT(AppExcel.ActiveCell.Offset(0, 7).Value));
+                                    Purchline2."Direct Unit Cost" := AppExcel.ActiveCell.Offset(0, 6).Value;
+                                    Purchline2."Promised Receipt Date" := AppExcel.ActiveCell.Offset(0, 7).Value;
+                                    Purchline2."PWD Lead Time Calculation Import" := FORMAT(AppExcel.ActiveCell.Offset(0, 8).Value);
+                                    Purchline2.MODIFY(TRUE);
                                 END;
+                                AppExcel.ActiveCell.Offset(1, 0).Select;*/
+                                UNTIL Cell = '';
+                            //END;
                             UNTIL Purchline.NEXT() = 0;
-                        END;
                     UNTIL salesline.NEXT() = 0;
-                END;
             end;
         }
     }
@@ -712,8 +716,6 @@ report 50023 "PWD Import Microsoft Excel"
         Purchline2: Record "Purchase Line";
         SalesSetup: Record "Sales & Receivables Setup";
         salesline: Record "Sales Line";
-        AppExcel: automation;
-        OpenFile: file;
         NewCell: Integer;
         Cell: Text[100];
         DosArgumentII: Text[100];

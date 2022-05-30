@@ -3,14 +3,13 @@ report 50047 "Màj Certificate Transit No."
     Permissions = TableData "Purch. Rcpt. Line" = rm,
                   TableData "Purch. Inv. Line" = rm;
     ProcessingOnly = true;
-
+    UsageCategory = None;
     dataset
     {
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -55,4 +54,3 @@ report 50047 "Màj Certificate Transit No."
         Recept: Code[20];
         NewCertif: Code[50];
 }
-

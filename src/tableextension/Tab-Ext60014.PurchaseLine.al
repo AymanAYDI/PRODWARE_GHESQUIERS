@@ -3,16 +3,16 @@ tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
     // ------------------------------------------------------------------------------------------------------------------------------------
     // Prodware : www.prodware.fr
     // ------------------------------------------------------------------------------------------------------------------------------------
-    // 
+    //
     // //>>MIGRATION2009R2
-    // 
+    //
     // ------------------------------------------------------------------------------------------------------------------------------------
     // *** Contremarque - C2A
     // 12.07.2007    C2A(LLE) cf appel NAV0016854 AddNewFields
     //                           70017 - Specific Cost
     //                        Modif in trigger UpdateUnitCost()
     // 19.07.2007    C2A(LLE) cf appel NAV0016904 Modif in trigger UpdateUnitCost()
-    // 
+    //
     // ------------------------------------------------------------------------------------------------------------------------------------
     fields
     {
@@ -154,17 +154,16 @@ tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
             IF Item.GET("No.") THEN BEGIN
 
                 MaxPrice := Item."PWD Maximum Price";
-                PurchHeader.GET("Document Type", "Document No."); //TODO A vérifier
-                Currency.GET(PurchHeader."Currency Code"); //TODO A vérifier
-                IF PurchHeader."Currency Code" <> '' THEN
+                PurchHeader.GET("Document Type", "Document No.");
+                IF PurchHeader."Currency Code" <> '' THEN begin
+                    Currency.GET(PurchHeader."Currency Code");
                     MaxPrice :=
                      ROUND(
                        CurrExchRate.ExchangeAmtLCYToFCY(
                          GetDate(), PurchHeader."Currency Code",
                          MaxPrice, PurchHeader."Currency Factor"),
                          Currency."Unit-Amount Rounding Precision");
-
-
+                end;
                 IF ("Direct Unit Cost" > MaxPrice) AND (MaxPrice <> 0) THEN
                     ERROR(Text1000000000, "Direct Unit Cost", MaxPrice);
             END;
@@ -200,7 +199,6 @@ tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
             SalesLine.MODIFY();
         END;
 
-
         //*** Recherche du document de vente Appeal Tenders
 
         IF SalesLine.GET("PWD Sales Type Doc Appeal tenders", "PWD Sales No. Appeal Tenders", "PWD Sales Line No. Appeal Tenders") THEN BEGIN
@@ -217,4 +215,3 @@ tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
         Text1000000000: Label 'Unit cost (%1) can''t be greatest than maximum price (%2)';
         Text1000000001: Label 'You can''t modify the field %1 (Appeal for tenders)';
 }
-

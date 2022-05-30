@@ -79,4 +79,3 @@ tableextension 60032 "PWD PurchCrMemoHdr" extends "Purch. Cr. Memo Hdr."
         }
     }
 }
-

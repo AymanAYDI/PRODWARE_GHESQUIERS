@@ -10,4 +10,3 @@ tableextension 60034 "PWD ResJournalLine" extends "Res. Journal Line"
         }
     }
 }
-

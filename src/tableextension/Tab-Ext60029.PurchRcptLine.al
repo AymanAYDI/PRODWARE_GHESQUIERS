@@ -85,7 +85,6 @@ tableextension 60029 "PWD PurchRcptLine" extends "Purch. Rcpt. Line"
     }
     keys
     {
-
         key(Key50000; "PWD Sales Type Doc Appeal tenders", "PWD Sales No. Appeal Tenders", "PWD Sales Line No. Appeal Tenders")
         {
             //SumIndexFields = Quantity;
@@ -99,4 +98,3 @@ tableextension 60029 "PWD PurchRcptLine" extends "Purch. Rcpt. Line"
         }
     }
 }
-

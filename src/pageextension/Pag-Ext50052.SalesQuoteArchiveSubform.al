@@ -8,7 +8,6 @@ pageextension 50052 "PWD SalesQuoteArchiveSubform" extends "Sales Quote Archive 
             {
                 ApplicationArea = All;
             }
-
         }
         addafter("Shortcut Dimension 2 Code")
         {
@@ -16,7 +15,6 @@ pageextension 50052 "PWD SalesQuoteArchiveSubform" extends "Sales Quote Archive 
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

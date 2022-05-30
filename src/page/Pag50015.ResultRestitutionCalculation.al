@@ -5,7 +5,7 @@ page 50015 "Result Restitution Calculation"
     PageType = List;
     SourceTable = "Result Restitution Calculation";
     SourceTableView = SORTING("Shipment No.", "NDP 13") ORDER(Ascending);
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -61,4 +61,3 @@ page 50015 "Result Restitution Calculation"
     {
     }
 }
-

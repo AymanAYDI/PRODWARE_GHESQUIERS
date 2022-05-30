@@ -1,26 +1,9 @@
-report 408 "PWD Purchase - Receipt"
+report 60000 "PWD Purchase - Receipt"
 {
-    // ------------------------------------------------------------------------
-    // Prodware - www.prodware.fr
-    // ------------------------------------------------------------------------
-    // //>>MODIF HL 01/10/2008 SU-GEPO cf appel I008356
-    // //   ADD field Location Code in the section
-    // //<<
-    // 
-    // >>GHE-RE1.00:DO 07/04/2011 :
-    //   - Merge
-    // >>GHE1.10:DO 18/07/2011 :
-    //   - add vendor contact
-    // 
-    // //>>MODIF HL
-    // TI238314 DO.GEPO 19/08/2014 : modify Purch. Rcpt. Line - OnAfterGetRecord
-    // TI238314 DO.GEPO 12/11/2014 : modify Purch. Rcpt. Line - OnAfterGetRecord
-    // ------------------------------------------------------------------------
     DefaultLayout = RDLC;
-    RDLCLayout = './rdl/PurchaseReceipt.rdlc';
-
+    RDLCLayout = './src/report/rdl/PurchaseReceipt.rdlc';
     Caption = 'Purchase - Receipt';
-
+    UsageCategory = None;
     dataset
     {
         dataitem("Purch. Rcpt. Header"; "Purch. Rcpt. Header")
@@ -40,7 +23,8 @@ report 408 "PWD Purchase - Receipt"
                     column(STRSUBSTNO_Text002_CopyText_; STRSUBSTNO(Text002, CopyText))
                     {
                     }
-                    column(STRSUBSTNO_Text003_FORMAT_CurrReport_PAGENO__; STRSUBSTNO(Text003, FORMAT(CurrReport.PAGENO())))
+                    //column(STRSUBSTNO_Text003_FORMAT_CurrReport_PAGENO__; STRSUBSTNO(Text003, FORMAT(CurrReport.PAGENO())))
+                    column(Text003; Text003)
                     {
                     }
                     column(ShipToAddr_1_; ShipToAddr[1])
@@ -176,7 +160,7 @@ report 408 "PWD Purchase - Receipt"
                                     Continue := TRUE;
                                     EXIT;
                                 END;
-                            UNTIL (PostedDocDim1.NEXT = 0);
+                            UNTIL (PostedDocDim1.NEXT() = 0);
                         end;
 
                         trigger OnPreDataItem()
@@ -329,7 +313,7 @@ report 408 "PWD Purchase - Receipt"
                                         Continue := TRUE;
                                         EXIT;
                                     END;
-                                UNTIL (PostedDocDim2.NEXT = 0);
+                                UNTIL (PostedDocDim2.NEXT() = 0);
                             end;
 
                             trigger OnPreDataItem()
@@ -344,22 +328,11 @@ report 408 "PWD Purchase - Receipt"
                         begin
                             IF (NOT ShowCorrectionLines) AND Correction THEN
                                 CurrReport.SKIP();
-
-                            PostedDocDim2.SETRANGE("Table ID", DATABASE::"Purch. Rcpt. Line");
-                            PostedDocDim2.SETRANGE("Document No.", "Purch. Rcpt. Line"."Document No.");
-                            PostedDocDim2.SETRANGE("Line No.", "Purch. Rcpt. Line"."Line No.");
-                            // appel 8664 / C2A JMB
-                            //PrixLigne:="Purch. Rcpt. Line".Quantity*"Purch. Rcpt. Line"."Unit Price (LCY)";
-                            //>>TI238314
-                            //PrixLigne:="Purch. Rcpt. Line".Quantity*"Purch. Rcpt. Line"."Unit Cost (LCY)";
+                            //ToDo
+                            //PostedDocDim2.SETRANGE("Table ID", DATABASE::"Purch. Rcpt. Line");
                             PrixLigne := "Purch. Rcpt. Line".Quantity * "Purch. Rcpt. Line"."Direct Unit Cost";
-                            //>>>TI238314 DO.GEPO 12/11/2014 : modify Purch. Rcpt. Line - OnAfterGetRecord
-                            IF "Purch. Rcpt. Line"."Line Discount %" <> 0 THEN BEGIN
+                            IF "Purch. Rcpt. Line"."Line Discount %" <> 0 THEN
                                 PrixLigne := ROUND(PrixLigne - (PrixLigne * "Purch. Rcpt. Line"."Line Discount %" / 100), 0.01);
-                            END;
-                            //<<<TI238314 DO.GEPO 12/11/2014 : modify Purch. Rcpt. Line - OnAfterGetRecord
-                            //<<TI238314
-                            // Fin appel 8664
                             PoidsNetLigne := "Purch. Rcpt. Line".Quantity * "Purch. Rcpt. Line"."Net Weight";
                             PoidsBrutLigne := "Purch. Rcpt. Line".Quantity * "Purch. Rcpt. Line"."Gross Weight";
                         end;
@@ -373,10 +346,10 @@ report 408 "PWD Purchase - Receipt"
                             IF NOT MoreLines THEN
                                 CurrReport.BREAK();
                             SETRANGE("Line No.", 0, "Line No.");
-                            CurrReport.CREATETOTALS(PrixLigne, PoidsNetLigne, PoidsBrutLigne);
+                            //CurrReport.CREATETOTALS(PrixLigne, PoidsNetLigne, PoidsBrutLigne);
                         end;
                     }
-                    dataitem(Total; Table2000000026)
+                    dataitem(Total; Integer)
                     {
                         DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
                         column(Purch__Rcpt__Header___Buy_from_Vendor_No__; "Purch. Rcpt. Header"."Buy-from Vendor No.")
@@ -396,7 +369,7 @@ report 408 "PWD Purchase - Receipt"
                                 CurrReport.BREAK();
                         end;
                     }
-                    dataitem(Total2; Table2000000026)
+                    dataitem(Total2; Integer)
                     {
                         DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
                         column(Purch__Rcpt__Header___Pay_to_Vendor_No__; "Purch. Rcpt. Header"."Pay-to Vendor No.")
@@ -440,12 +413,11 @@ report 408 "PWD Purchase - Receipt"
 
                 trigger OnAfterGetRecord()
                 begin
-                    IF Number > 1 THEN BEGIN
+                    IF Number > 1 THEN
                         CopyText := Text001;
-                        IF ISSERVICETIER THEN
-                            OutputNo += 1;
-                    END;
-                    CurrReport.PAGENO := 1;
+                    //IF ISSERVICETIER THEN
+                    //OutputNo += 1;
+                    //CurrReport.PAGENO := 1;
                 end;
 
                 trigger OnPostDataItem()
@@ -456,8 +428,8 @@ report 408 "PWD Purchase - Receipt"
 
                 trigger OnPreDataItem()
                 begin
-                    IF ISSERVICETIER THEN
-                        OutputNo := 1;
+                    //IF ISSERVICETIER THEN
+                    //OutputNo := 1;
 
                     NoOfLoops := ABS(NoOfCopies) + 1;
                     CopyText := '';
@@ -467,23 +439,21 @@ report 408 "PWD Purchase - Receipt"
 
             trigger OnAfterGetRecord()
             begin
-                CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");
+                CurrReport.LANGUAGE := Language.GetLanguageIdOrDefault("Language Code");
 
-                CompanyInfo.GET;
+                CompanyInfo.GET();
 
                 IF RespCenter.GET("Responsibility Center") THEN BEGIN
                     FormatAddr.RespCenter(CompanyAddr, RespCenter);
                     CompanyInfo."Phone No." := RespCenter."Phone No.";
                     CompanyInfo."Fax No." := RespCenter."Fax No.";
-                END ELSE BEGIN
+                END ELSE
                     FormatAddr.Company(CompanyAddr, CompanyInfo);
-                END;
 
-                PostedDocDim1.SETRANGE("Table ID", DATABASE::"Purch. Rcpt. Header");
-                PostedDocDim1.SETRANGE("Document No.", "Purch. Rcpt. Header"."No.");
+                PostedDocDim1.SETRANGE("Dimension Set ID", "Purch. Rcpt. Header"."Dimension Set ID");
 
                 IF "Purchaser Code" = '' THEN BEGIN
-                    SalesPurchPerson.INIT;
+                    SalesPurchPerson.INIT();
                     PurchaserText := '';
                 END ELSE BEGIN
                     SalesPurchPerson.GET("Purchaser Code");
@@ -520,19 +490,23 @@ report 408 "PWD Purchase - Receipt"
                     field(NoOfCopies; NoOfCopies)
                     {
                         Caption = 'No. of Copies';
+                        ApplicationArea = All;
                     }
                     field(ShowInternalInfo; ShowInternalInfo)
                     {
                         Caption = 'Show Internal Information';
+                        ApplicationArea = All;
                     }
                     field(LogInteraction; LogInteraction)
                     {
                         Caption = 'Log Interaction';
                         Enabled = LogInteractionEnable;
+                        ApplicationArea = All;
                     }
                     field(ShowCorrectionLines; ShowCorrectionLines)
                     {
                         Caption = 'Show Correction Lines';
+                        ApplicationArea = All;
                     }
                 }
             }
@@ -559,18 +533,17 @@ report 408 "PWD Purchase - Receipt"
     }
 
     var
-        Language: Record "8";
-        SalesPurchPerson: Record "13";
-        CompanyInfo: Record "79";
-        PostedDocDim1: Record "359";
-        PostedDocDim2: Record "359";
-        RespCenter: Record "5714";
-        RcptCountPrinted: Codeunit "318";
-        FormatAddr: Codeunit "365";
-        SegManagement: Codeunit "5051";
+        CompanyInfo: Record "Company Information";
+        PostedDocDim1: Record "Dimension Set Entry";
+        PostedDocDim2: Record "Dimension Set Entry";
+        RespCenter: Record "Responsibility Center";
+        SalesPurchPerson: Record "Salesperson/Purchaser";
+        FormatAddr: Codeunit "Format Address";
+        Language: Codeunit Language;
+        RcptCountPrinted: Codeunit "Purch.Rcpt.-Printed";
+        SegManagement: Codeunit SegManagement;
         Continue: Boolean;
         LogInteraction: Boolean;
-        [InDataSet]
         LogInteractionEnable: Boolean;
         MoreLines: Boolean;
         ShowCorrectionLines: Boolean;
@@ -580,7 +553,6 @@ report 408 "PWD Purchase - Receipt"
         PrixLigne: Decimal;
         NoOfCopies: Integer;
         NoOfLoops: Integer;
-        OutputNo: Integer;
         Code_Mag_CaptionLbl: Label 'Code Mag.';
         CompanyInfo__Fax_No__CaptionLbl: Label 'Fax No.';
         CompanyInfo__Phone_No__CaptionLbl: Label 'Phone No.';
@@ -602,7 +574,7 @@ report 408 "PWD Purchase - Receipt"
         Text000: Label 'Purchaser';
         Text001: Label 'COPY';
         Text002: Label 'Purchase - Receipt %1';
-        Text003: Label 'Page %1';
+        Text003: Label 'Page';
         Total_Poids_brutCaptionLbl: Label 'Total Poids brut';
         Total_Poids_netCaptionLbl: Label 'Total Poids net';
         "UnitéCaptionLbl": Label 'Unité';
@@ -615,4 +587,3 @@ report 408 "PWD Purchase - Receipt"
         ReferenceText: Text[80];
         DimText: Text[120];
 }
-

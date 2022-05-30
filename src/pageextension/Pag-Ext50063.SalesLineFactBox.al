@@ -9,7 +9,6 @@ pageextension 50063 "PWD SalesLineFactBox" extends "Sales Line FactBox"
                 Caption = 'Purchase Prices';
                 ApplicationArea = All;
             }
-
         }
     }
     VAR

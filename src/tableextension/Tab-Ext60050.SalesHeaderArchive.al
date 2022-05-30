@@ -20,7 +20,5 @@ tableextension 60050 "PWD SalesHeaderArchive" extends "Sales Header Archive"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-
     }
 }
-

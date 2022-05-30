@@ -4,7 +4,7 @@ page 50026 "PWD Archived Purchase Order"
     Editable = false;
     PageType = Card;
     SourceTable = "PWD Archived Purchase Header";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -299,8 +299,11 @@ page 50026 "PWD Archived Purchase Order"
                 {
                     ApplicationArea = all;
                     Caption = 'Dimensions';
+                    //ToDo
+                    /*
                     RunObject = Page "Document Dimensions Archive";
                     RunPageLink = "Table ID" = CONST(38), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0), "Doc. No. Occurrence" = FIELD("Doc. No. Occurrence"), "Version No." = FIELD("Version No.");
+                */
                 }
             }
             group("<Action122>")
@@ -310,11 +313,13 @@ page 50026 "PWD Archived Purchase Order"
                 {
                     ApplicationArea = all;
                     Caption = 'Dimensions';
+                    //ToDo
+                    /*
                     RunObject = Page "Document Dimensions Archive";
                     RunPageLink = "Table ID" = CONST(38), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0), "Doc. No. Occurrence" = FIELD("Doc. No. Occurrence"), "Version No." = FIELD("Version No.");
+                */
                 }
             }
         }
     }
 }
-

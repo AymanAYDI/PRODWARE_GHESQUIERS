@@ -62,4 +62,3 @@ tableextension 60036 "PWD ItemJournalBatch" extends "Item Journal Batch"
         }
     }
 }
-

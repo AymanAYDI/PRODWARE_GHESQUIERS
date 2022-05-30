@@ -1,19 +1,12 @@
 page 50028 "PWD Archived Purchase List"
 {
-    // --------------------------------------------------------------------------------------------------------
-    // Prodware - www.prodware.fr
-    // --------------------------------------------------------------------------------------------------------
-    // 
-    // //>>MODIF HL
-    // TI058903.001 DO.ALMI 25/08/11  : - Add CardFormID Archived Purchase Order
-    // --------------------------------------------------------------------------------------------------------
-
     Caption = 'Archived Purchase List';
     CardPageID = "PWD Archived Purchase Order";
     Editable = false;
     PageType = List;
     SourceTable = "PWD Archived Purchase Header";
-
+    ApplicationArea = all;
+    UsageCategory = History;
     layout
     {
         area(content)
@@ -179,4 +172,3 @@ page 50028 "PWD Archived Purchase List"
         }
     }
 }
-

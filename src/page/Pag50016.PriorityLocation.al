@@ -5,7 +5,8 @@ page 50016 "PWD Priority Location"
     PageType = List;
     SourceTable = "PWD Location Priority";
     SourceTableView = SORTING("PWD Call Type Code", "PWD Location priority") ORDER(Ascending);
-
+    ApplicationArea = all;
+    UsageCategory = Administration;
     layout
     {
         area(content)
@@ -33,4 +34,3 @@ page 50016 "PWD Priority Location"
     {
     }
 }
-

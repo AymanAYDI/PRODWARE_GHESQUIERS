@@ -47,4 +47,3 @@ tableextension 60033 "PWD PurchCrMemoLine" extends "Purch. Cr. Memo Line"
         }
     }
 }
-

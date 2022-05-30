@@ -1,14 +1,12 @@
 page 50005 "PWD Vendor reply -TrB"
 {
-    // *** Contremarque - C2A
-
     Caption = 'Vendor reply';
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = ListPart;
     SourceTable = "Purchase Line";
     SourceTableView = WHERE("Document Type" = CONST(Quote));
-
+UsageCategory = None;
     layout
     {
         area(content)
@@ -117,4 +115,3 @@ page 50005 "PWD Vendor reply -TrB"
     {
     }
 }
-

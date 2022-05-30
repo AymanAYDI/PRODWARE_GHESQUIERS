@@ -1,6 +1,5 @@
 codeunit 70040 "PWD GlobalSecurityManagement"
 {
-
     trigger OnRun()
     var
         Selection: Integer;
@@ -75,7 +74,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         Text1000000004: Label 'Role Selection : #1##########';
         Text1000000005: Label 'Role %1 does not exist.';
 
-
     procedure ResetAllRolesAndPermissions()
     begin
         DeleteAllRoles();
@@ -87,7 +85,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         DeleteRoleTOUS();
         SetRoleTOUSProperties();
     end;
-
 
     procedure SetMaximumPermission(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
 
@@ -104,7 +101,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         Permission.INSERT();
     end;
 
-
     procedure SetExecuteIndirect(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
     begin
         Permission."Role ID" := RoleID;
@@ -117,7 +113,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         Permission."Execute Permission" := Permission."Execute Permission"::Indirect;
         Permission.INSERT();
     end;
-
 
     procedure SetExecuteYes(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
 
@@ -132,7 +127,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         Permission."Execute Permission" := Permission."Execute Permission"::Yes;
         Permission.INSERT();
     end;
-
 
     procedure SetREtoYesIMDtoInd(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
     var
@@ -149,7 +143,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         Permission.INSERT();
     end;
 
-
     procedure SetIMDtoYes(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
     var
     begin
@@ -164,7 +157,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         Permission.INSERT();
     end;
 
-
     procedure SetREtoYes(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
     begin
         Permission."Role ID" := RoleID;
@@ -177,7 +169,6 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         Permission."Execute Permission" := Permission."Execute Permission"::Yes;
         Permission.INSERT();
     end;
-
 
     procedure SetExecuteAllowedValue(ValueInput: Boolean; var ObjectMembership: Record "PWD Object Membership"; RoleInput: Code[20])
     var
@@ -203,13 +194,12 @@ codeunit 70040 "PWD GlobalSecurityManagement"
                     else
                         Permission.Validate("Execute Permission", Permission."Execute Permission"::" ");
                     //Permission.VALIDATE("Execute Allowed", ValueInput);
-                END ELSE begin
+                END ELSE
                     if ValueInput then
                         Permission.Validate("Execute Permission", Permission."Execute Permission"::Yes)
                     else
                         Permission.Validate("Execute Permission", Permission."Execute Permission"::" ");
-                    // Permission.VALIDATE("Execute Allowed", ValueInput);
-                end;
+            // Permission.VALIDATE("Execute Allowed", ValueInput);
             UNTIL ObjectMembership.NEXT() = 0;
     end;
 
@@ -343,4 +333,3 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         AllObj.RESET();
     end;
 }
-

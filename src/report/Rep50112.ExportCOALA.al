@@ -3,7 +3,8 @@ report 50112 "PWD Export COALA"
     Caption = 'Export COALA';
     Permissions = TableData "G/L Entry" = rim;
     ProcessingOnly = true;
-
+    ApplicationArea = all;
+    UsageCategory = lists;
     dataset
     {
         dataitem("G/L Entry"; "G/L Entry")
@@ -33,7 +34,6 @@ report 50112 "PWD Export COALA"
                                 RecGSalesCrMemoHeader.GET("G/L Entry"."Document No.");
                                 GRecExportCoala.Description := 'AVOIR' + '/' + COPYSTR(RecGSalesCrMemoHeader."Bill-to Name", 1, 15) + '/' +
                                   RecGSalesCrMemoHeader."Bill-to Country/Region Code" + '/' + COPYSTR(RecGSalesCrMemoHeader."Ship-to Name", 1, 28);
-
                             END;
                     END;
                     GRecExportCoala.MODIFY();
@@ -120,7 +120,6 @@ report 50112 "PWD Export COALA"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -131,20 +130,24 @@ report 50112 "PWD Export COALA"
                     field(PrintToExcel; PrintToExcel)
                     {
                         Caption = 'Print to Excel';
+                        ApplicationArea = All;
                     }
                     field(SourceCode; SourceCode)
                     {
                         Caption = 'Code journal';
                         DrillDownPageID = "Source Codes";
                         LookupPageID = "Source Codes";
+                        ApplicationArea = All;
                     }
                     field("Nouvel export"; NewExport)
                     {
                         Caption = 'Nouvel export';
+                        ApplicationArea = All;
                     }
                     field(StartingDate; StartingDate)
                     {
                         Caption = 'Filtre date début';
+                        ApplicationArea = All;
                         trigger OnValidate()
                         begin
                             EnddingDate := StartingDate;
@@ -153,6 +156,7 @@ report 50112 "PWD Export COALA"
                     field(EnndingDate; EnddingDate)
                     {
                         Caption = 'Filtre date fin';
+                        ApplicationArea = All;
 
                         trigger OnValidate()
                         begin
@@ -217,21 +221,18 @@ report 50112 "PWD Export COALA"
         EnddingDate: Date;
         StartingDate: Date;
         NumInt: Integer;
-        Text000: Label 'Period: %1';
-        Text001: Label 'Trial Balance';
-        Text002: Label 'Data';
-        Text003: Label 'Debit';
         PeriodText: Text[30];
         GLFilter: Text[250];
 
     procedure MakeExcelInfo()
     begin
         MakeExcelDataHeader();
-
     end;
 
     local procedure MakeExcelDataHeader()
     begin
+        //ToDo
+        /*
         ExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Document Date"), FALSE, '', FALSE, FALSE, TRUE, '');
         ExcelBuf.AddColumn(FORMAT(Text000), FALSE, '', FALSE, FALSE, TRUE, '');
         ExcelBuf.AddColumn(FORMAT(Text001), FALSE, '', FALSE, FALSE, TRUE, '');
@@ -241,7 +242,7 @@ report 50112 "PWD Export COALA"
         ExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Credit Amount"), FALSE, '', FALSE, FALSE, TRUE, '');
         ExcelBuf.AddColumn(FORMAT(Text002), FALSE, '', FALSE, FALSE, TRUE, '');
         ExcelBuf.AddColumn(FORMAT(Text003), FALSE, '', FALSE, FALSE, TRUE, '');
-
+        */
     end;
 
     procedure MakeExcelDataBody()
@@ -250,6 +251,8 @@ report 50112 "PWD Export COALA"
     begin
         BlankFiller := PADSTR(' ', MAXSTRLEN(BlankFiller), ' ');
         ExcelBuf.NewRow();
+        //ToDo
+        /*
         ExcelBuf.AddColumn(
           "PWD Export COALA"."Document Date", FALSE, '', FALSE,
           FALSE, FALSE, '');
@@ -290,13 +293,15 @@ report 50112 "PWD Export COALA"
         ExcelBuf.AddColumn(
           "G/L Entry"."Global Dimension 1 Code", FALSE, '', FALSE,
           FALSE, FALSE, '');
+          */
     end;
 
     procedure CreateExcelbook()
     begin
-        ExcelBuf.CreateBook;
+        //ToDo
+        /*ExcelBuf.CreateBook;
         ExcelBuf.CreateSheet(Text002, Text001, COMPANYNAME, USERID);
-        ExcelBuf.GiveUserControl;
+        ExcelBuf.GiveUserControl;*/
         ERROR('');
     end;
 }

@@ -36,4 +36,3 @@ tableextension 60060 "PWD ReturnShipmentLine" extends "Return Shipment Line"
         }
     }
 }
-

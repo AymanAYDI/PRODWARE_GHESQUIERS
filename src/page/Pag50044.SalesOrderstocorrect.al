@@ -3,7 +3,7 @@ page 50044 "PWD Sales Orders to correct"
     PageType = List;
     SourceTable = "Sales Header";
     SourceTableView = SORTING("Requested Delivery Date", "PWD Delivery time") ORDER(Ascending) WHERE("Document Type" = FILTER(Order));
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -159,7 +159,6 @@ page 50044 "PWD Sales Orders to correct"
         END;
     end;
 
-
     procedure CheckTrackingLines(SalesLine: Record "Sales Line")
     begin
         ReservEntry.RESET();
@@ -286,7 +285,6 @@ page 50044 "PWD Sales Orders to correct"
         END;
     end;
 
-
     procedure CheckTrackingLines2(SalesLine: Record "Sales Line")
     begin
         ItemTrackingLines.RESET();
@@ -305,7 +303,6 @@ page 50044 "PWD Sales Orders to correct"
             InsertTrackingLines();
         END;
     end;
-
 
     procedure InsertTrackingLines2()
     var
@@ -355,4 +352,3 @@ page 50044 "PWD Sales Orders to correct"
         END;
     end;
 }
-

@@ -7,8 +7,9 @@ report 50033 "PWD Relevé de douane"
     //   - Migration2009 changement cle
     // --------------------------------------------
     DefaultLayout = RDLC;
-    RDLCLayout = './rdl/Relevédedouane.rdl';
-
+    RDLCLayout = './src/report/rdl/Relevédedouane.rdl';
+    ApplicationArea = all;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {
@@ -16,13 +17,16 @@ report 50033 "PWD Relevé de douane"
         {
             PrintOnlyIfDetail = true;
             RequestFilterFields = "No.", "Date Filter", "Location Filter", "PWD No. sommier hors CEE";
-            column(STRSUBSTNO_Text1000000002_StartDate_EndDate_; STRSUBSTNO(Text1000000002, StartDate, EndDate))
+            column(StartDate_EndDate; STRSUBSTNO(Text1000000002, StartDate, EndDate))
+            {
+            }
+            column(NosommierHorsCEE; "PWD No. sommier hors CEE")
             {
             }
             column(COMPANYNAME; COMPANYNAME)
             {
             }
-            column(CODE___LocationFilter; 'CODE ' + LocationFilter)
+            column(CODE_LocationFilter; 'CODE ' + LocationFilter)
             {
             }
             column(location_Name; location.Name)
@@ -43,7 +47,7 @@ report 50033 "PWD Relevé de douane"
             column(TODAY; TODAY)
             {
             }
-            column(Page_N_______FORMAT_CurrReport_PAGENO_; 'Page N°. : ' + FORMAT(CurrReport.PAGENO()))
+            column(Page_N_______FORMAT_CurrReport_PAGENO_; 'Page N°. : ')
             {
             }
             column(COMPTABILITE_MATIERESCaption; COMPTABILITE_MATIERESCaptionLbl)
@@ -122,7 +126,9 @@ report 50033 "PWD Relevé de douane"
                 column(PreviousInventory_Item_No_; "Item No.")
                 {
                 }
-
+                column(HeaderShown; HeaderShown)
+                {
+                }
                 trigger OnAfterGetRecord()
                 begin
                     CLEAR(TempItemEntry);
@@ -132,9 +138,6 @@ report 50033 "PWD Relevé de douane"
                     FindAppliedEntry(PreviousInventory);
                     TempItemEntry.SETCURRENTKEY("Item No.");
                     IF TempItemEntry.FIND('-') THEN BEGIN
-                        //C2A GTE MIS EN COMMENTAIRE APPEL 9048
-                        // 010905 MODIF C2A(LLE) suite appel 9293 la correction de GTE provoque d'autres pb.
-                        // explication fonctionnels
                         TempItemEntry.SETRANGE("Posting Date", 0D, StartDate - 1);
                         TempItemEntry.CALCSUMS(Quantity);
                         PreviousSalesQty := TempItemEntry.Quantity;
@@ -247,6 +250,9 @@ report 50033 "PWD Relevé de douane"
                 column(PWDShowOuTPUT; PWDShowOuTPUT)
                 {
                 }
+                column(PWDShowOutPUT2; PWDShowOutPUT2)
+                {
+                }
                 trigger OnAfterGetRecord()
                 var
                     PurchRcptLine: Record "Purch. Rcpt. Line";
@@ -297,11 +303,9 @@ report 50033 "PWD Relevé de douane"
                         PurchRcptLine.SETFILTER("Location Code", "Item Ledger Entry"."Location Code");
                         PurchRcptLine.SETRANGE(Quantity, "Item Ledger Entry".Quantity);
                         PurchRcptLine.SETFILTER("No.", "Item Ledger Entry"."Item No.");
-                        IF PurchRcptLine.FIND('-') THEN Certificate := PurchRcptLine."PWD Cetificate Transit No.";
+                        IF PurchRcptLine.FindFirst() THEN Certificate := PurchRcptLine."PWD Cetificate Transit No.";
                     END;
-
                 end;
-
             }
 
             trigger OnAfterGetRecord()
@@ -316,7 +320,6 @@ report 50033 "PWD Relevé de douane"
                 IF LocationFilter <> '9HCEE' THEN
                     SommierDouanier := Item."PWD Base Customs No." ELSE
                     SommierDouanier := Item."PWD No. sommier hors CEE";
-
 
                 IF NOT location.GET(LocationFilter) THEN
                     location.INIT();
@@ -334,7 +337,6 @@ report 50033 "PWD Relevé de douane"
 
     requestpage
     {
-
         layout
         {
         }
@@ -462,7 +464,7 @@ report 50033 "PWD Relevé de douane"
             PurchReceiptLine.SETRANGE("Document No.", FromItemLedgEntry."Document No.");
             PurchReceiptLine.SETRANGE(Type, PurchReceiptLine.Type::Item);
             PurchReceiptLine.SETRANGE("No.", FromItemLedgEntry."Item No.");
-            IF PurchReceiptLine.FIND('-') THEN BEGIN
+            IF PurchReceiptLine.FindFirst() THEN BEGIN
                 NumAvisPlc := PurchReceiptLine."PWD No. avis de placement";
                 Com7Desc := GetCom7Desc(FromItemLedgEntry);
             END ELSE BEGIN
@@ -482,4 +484,3 @@ report 50033 "PWD Relevé de douane"
                 EXIT('COM7');
     end;
 }
-

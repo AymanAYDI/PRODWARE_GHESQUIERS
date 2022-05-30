@@ -17,4 +17,3 @@ tableextension 60053 "PWD PurchaseLineArchive" extends "Purchase Line Archive"
         }
     }
 }
-

@@ -53,7 +53,6 @@ table 70042 "PWD Object Membership Buffer"
         Text1000000000: Label 'Looking for new Table Data';
         Text1000000001: Label 'Looking for new System Functions';
 
-
     procedure UpdSystemMembership()
     var
         AllObj: Record AllObj;
@@ -93,4 +92,3 @@ table 70042 "PWD Object Membership Buffer"
         Window.CLOSE();
     end;
 }
-

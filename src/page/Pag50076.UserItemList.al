@@ -9,7 +9,7 @@ page 50076 "PWD User Item List"
     PageType = List;
     SourceTable = Item;
     SourceTableView = SORTING("No.") WHERE("No." = FILTER('S*'));
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -159,7 +159,6 @@ page 50076 "PWD User Item List"
         }
     }
 
-
     procedure Fct_ProhibitDisplay()
     var
         CstL001: Label 'Access denied.';
@@ -167,4 +166,3 @@ page 50076 "PWD User Item List"
         ERROR(CstL001);
     end;
 }
-

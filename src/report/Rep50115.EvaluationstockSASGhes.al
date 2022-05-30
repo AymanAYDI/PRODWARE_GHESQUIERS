@@ -1,10 +1,10 @@
 report 50115 "PWD Evaluation stock SAS Ghes"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './rdl/EvaluationstockSASGhes.rdlc';
-
+    RDLCLayout = './src/report/rdl/EvaluationstockSASGhes.rdl';
     Caption = 'Evaluation stock SAS Ghes';
-
+    ApplicationArea = all;
+    UsageCategory = ReportsAndAnalysis;
     dataset
     {
         dataitem(Item; Item)
@@ -15,7 +15,7 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             column(FORMAT_TODAY_0_4_; FORMAT(TODAY, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PAGENO())
+            column(CurrReport_PAGENO; '')
             {
             }
             column(USERID; USERID)
@@ -77,10 +77,6 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             column(Item_Ledger_Entry___Invoiced_Quantity_; "Item Ledger Entry"."Invoiced Quantity")
             {
             }
-            column(ValueOfQtyOnHand_; ValueOfQtyOnHand)
-            {
-                AutoFormatType = 1;
-            }
             column(ValueOfRcdIncreases_; ValueOfRcdIncreases)
             {
                 AutoFormatType = 1;
@@ -95,10 +91,6 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             }
             column(STRSUBSTNO_Text008__Tariff_No___; STRSUBSTNO(Text008, "Tariff No."))
             {
-            }
-            column(RcdIncreases; RcdIncreases)
-            {
-                DecimalPlaces = 0 : 5;
             }
             column(ShipDecreases; ShipDecreases)
             {
@@ -133,10 +125,10 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             {
                 DecimalPlaces = 0 : 5;
             }
-            column(Item_Ledger_Entry___Invoiced_Quantity__Control1000000014; "Item Ledger Entry"."Invoiced Quantity")
+            column(Item_Ledger_Entry_Invoiced_Quantity; "Item Ledger Entry"."Invoiced Quantity")
             {
             }
-            column(ValueOfQtyOnHand__Control25; ValueOfQtyOnHand)
+            column(ValueOfQtyOnHand; ValueOfQtyOnHand)
             {
                 AutoFormatType = 1;
             }
@@ -152,10 +144,6 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             {
                 AutoFormatType = 1;
             }
-            column(RcdIncreases_Control1000000007; RcdIncreases)
-            {
-                DecimalPlaces = 0 : 5;
-            }
             column(ShipDecreases_Control1000000012; ShipDecreases)
             {
                 DecimalPlaces = 0 : 5;
@@ -169,7 +157,7 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             column(CurrReport_PAGENOCaption; CurrReport_PAGENOCaptionLbl)
             {
             }
-            column(This_report_includes_entries_that_have_been_posted_with_expected_costs_Caption; This_report_includes_entries_that_have_been_posted_with_expected_costs_CaptionLbl)
+            column(Text_Caption; This_report_includes_entries_that_have_been_posted_with_expected_costs_CaptionLbl)
             {
             }
             column(Item_Ledger_Entry__Item_No__Caption; "Item Ledger Entry".FIELDCAPTION("Item No."))
@@ -191,12 +179,6 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             {
             }
             column(ValueCaption; ValueCaptionLbl)
-            {
-            }
-            column(ValueCaption_Control28; ValueCaption_Control28Lbl)
-            {
-            }
-            column(QuantityCaption_Control31; QuantityCaption_Control31Lbl)
             {
             }
             column(ValueCaption_Control32; ValueCaption_Control32Lbl)
@@ -235,13 +217,31 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             dataitem("Item Ledger Entry"; "Item Ledger Entry")
             {
                 DataItemTableView = SORTING("Item No.", Open, "Variant Code", Positive, "Expiration Date", "Lot No.", "Serial No.");
-                column(Item_Ledger_Entry__Item_No__; "Item No.")
+                column(Item_Ledger_Entry_Item_No_; "Item No.")
                 {
                 }
-                column(Item_Description_____Item__Description_2_; Item.Description + ' ' + Item."Description 2")
+                column(Item_Ledger_Entry_Open; Open)
                 {
                 }
-                column("Coût_unitaire"; ItemUnitCost)
+                column(Item_Ledger_Entry_Positive; Positive)
+                {
+                }
+                column(Item_Ledger_Entry_Variant_Code; "Variant Code")
+                {
+                }
+                column(Item_Ledger_Entry_Serial_No; "Serial No.")
+                {
+                }
+                column(Item_Ledger_Entry_Lot_No; "Lot No.")
+                {
+                }
+                column(Item_Ledger_Entry_Expiration_Date; "Expiration Date")
+                {
+                }
+                column(Item_Description_Item__Description_2_; Item.Description + ' ' + Item."Description 2")
+                {
+                }
+                column(Coût_unitaire; ItemUnitCost)
                 {
                 }
                 column(InvoicedQty; InvoicedQty)
@@ -260,15 +260,7 @@ report 50115 "PWD Evaluation stock SAS Ghes"
                 {
                     AutoFormatType = 1;
                 }
-                column(ValueOfInvIncreases_Control16; ValueOfInvIncreases)
-                {
-                    AutoFormatType = 1;
-                }
-                column(CostOfInvDecreases_Control21; CostOfInvDecreases)
-                {
-                    AutoFormatType = 1;
-                }
-                column(Value_Entry___Cost_Amount__Actual___Control52; "Value Entry"."Cost Amount (Actual)")
+                column(Value_Entry_Cost_Amount_Actual; "Value Entry"."Cost Amount (Actual)")
                 {
                 }
                 column(Item_Ledger_Entry__Invoiced_Quantity_; "Invoiced Quantity")
@@ -278,7 +270,7 @@ report 50115 "PWD Evaluation stock SAS Ghes"
                 {
                     DecimalPlaces = 0 : 2;
                 }
-                column("Coût_unitaire_Control1000000018"; Item."Qty. on Purch. Order")
+                column(Item_Coût_unitaire; Item."Qty. on Purch. Order")
                 {
                 }
                 column(Item_Ledger_Entry_Quantity; Quantity)
@@ -288,7 +280,7 @@ report 50115 "PWD Evaluation stock SAS Ghes"
                 {
                     DecimalPlaces = 0 : 5;
                 }
-                column(RcdIncreases_Control63; RcdIncreases)
+                column(RcdIncreases; RcdIncreases)
                 {
                     DecimalPlaces = 0 : 5;
                 }
@@ -321,7 +313,21 @@ report 50115 "PWD Evaluation stock SAS Ghes"
                 dataitem("Value Entry"; "Value Entry")
                 {
                     DataItemTableView = SORTING("Item Ledger Entry No.");
-
+                    column(ShowExpected; ShowExpected)
+                    {
+                    }
+                    column(ExpCostPostedToGL; ExpCostPostedToGL)
+                    {
+                    }
+                    column(CostPostedToGL; CostPostedToGL)
+                    {
+                    }
+                    column(StartDate; StartDate)
+                    {
+                    }
+                    column(InvandShipDiffer; InvandShipDiffer)
+                    {
+                    }
                     trigger OnAfterGetRecord()
                     begin
                         IF (EndDate <> 0D) AND ("Posting Date" > EndDate) THEN
@@ -339,24 +345,24 @@ report 50115 "PWD Evaluation stock SAS Ghes"
                         CostOfInvDecreases := 0;
                         InvDecreases := 0;
 
-                        IF ("Posting Date" < StartDate) THEN BEGIN
+                        IF("Posting Date" < StartDate) THEN BEGIN
                             ValueOfQtyOnHand := "Cost Amount (Expected)";
                             ValueOfInvoicedQty := "Cost Amount (Actual)";
                             InvoicedQty := "Invoiced Quantity";
                         END ELSE
-                            IF ("Item Ledger Entry Type" IN
-                               ["Item Ledger Entry Type"::Purchase,
-                                "Item Ledger Entry Type"::"Positive Adjmt.",
-                                "Item Ledger Entry Type"::Output])
-                            THEN BEGIN
-                                ValueOfRcdIncreases := "Cost Amount (Expected)";
-                                ValueOfInvIncreases := "Cost Amount (Actual)";
-                                InvIncreases := "Invoiced Quantity";
-                            END ELSE BEGIN
-                                CostOfShipDecreases := -"Cost Amount (Expected)";
-                                CostOfInvDecreases := -"Cost Amount (Actual)";
-                                InvDecreases := -"Invoiced Quantity";
-                            END;
+                        IF ("Item Ledger Entry Type" IN
+                           ["Item Ledger Entry Type"::Purchase,
+                            "Item Ledger Entry Type"::"Positive Adjmt.",
+                            "Item Ledger Entry Type"::Output])
+                        THEN BEGIN
+                            ValueOfRcdIncreases := "Cost Amount (Expected)";
+                            ValueOfInvIncreases := "Cost Amount (Actual)";
+                            InvIncreases := "Invoiced Quantity";
+                        END ELSE BEGIN
+                            CostOfShipDecreases := -"Cost Amount (Expected)";
+                            CostOfInvDecreases := -"Cost Amount (Actual)";
+                            InvDecreases := -"Invoiced Quantity";
+                        END;
 
                         IF "Expected Cost" THEN BEGIN
                             CostPostedToGL := "Cost Posted to G/L";
@@ -384,11 +390,6 @@ report 50115 "PWD Evaluation stock SAS Ghes"
                         SETFILTER("Location Code", Item.GETFILTER("Location Filter"));
                         SETFILTER("Global Dimension 1 Code", Item.GETFILTER("Global Dimension 1 Filter"));
                         SETFILTER("Global Dimension 2 Code", Item.GETFILTER("Global Dimension 2 Filter"));
-
-                        CurrReport.CREATETOTALS(InvoicedQty, InvIncreases, InvDecreases, "Invoiced Quantity");
-                        CurrReport.CREATETOTALS(
-                          ValueOfQtyOnHand, ValueOfRcdIncreases, CostOfShipDecreases, CostPostedToGL, ExpCostPostedToGL,
-                          ValueOfInvoicedQty, ValueOfInvIncreases, CostOfInvDecreases, "Cost Amount (Actual)", InvCostPostedToGL);
                     end;
                 }
 
@@ -400,7 +401,7 @@ report 50115 "PWD Evaluation stock SAS Ghes"
 
                     IF "Posting Date" < StartDate THEN
                         QtyOnHand := Quantity
-                    ELSE BEGIN
+                    ELSE
                         IF ("Entry Type" IN
                            ["Entry Type"::Purchase,
                             "Entry Type"::"Positive Adjmt.",
@@ -409,7 +410,6 @@ report 50115 "PWD Evaluation stock SAS Ghes"
                             RcdIncreases := Quantity
                         ELSE
                             ShipDecreases := -Quantity;
-                    END;
                 end;
 
                 trigger OnPreDataItem()
@@ -421,39 +421,24 @@ report 50115 "PWD Evaluation stock SAS Ghes"
                     SETFILTER("Global Dimension 2 Code", Item.GETFILTER("Global Dimension 2 Filter"));
                     IF EndDate <> 0D THEN
                         SETRANGE("Posting Date", 0D, EndDate);
-
-                    CurrReport.CREATETOTALS(QtyOnHand, RcdIncreases, ShipDecreases, Quantity, InvoicedQty, InvIncreases,
-                      InvDecreases, "Invoiced Quantity");
-                    CurrReport.CREATETOTALS(
-                      ValueOfQtyOnHand, ValueOfRcdIncreases, CostOfShipDecreases, CostPostedToGL, ExpCostPostedToGL,
-                      ValueOfInvoicedQty, ValueOfInvIncreases, CostOfInvDecreases, "Value Entry"."Cost Amount (Actual)",
-                      InvCostPostedToGL);
                 end;
             }
 
             trigger OnAfterGetRecord()
             begin
                 InvandShipDiffer := FALSE;
+                IF TariffNumber.GET(Item."Tariff No.") THEN;
             end;
 
             trigger OnPreDataItem()
             begin
                 ItemFilter := Item.GETFILTERS;
-
-                CurrReport.CREATETOTALS(QtyOnHand, RcdIncreases, ShipDecreases, "Item Ledger Entry".Quantity, "Item Ledger Entry"."Invoiced Quantity");
-                CurrReport.CREATETOTALS(InvoicedQty, InvIncreases, InvDecreases);
-                CurrReport.CREATETOTALS(
-                  ValueOfQtyOnHand, ValueOfRcdIncreases, CostOfShipDecreases, CostPostedToGL, ExpCostPostedToGL);
-                CurrReport.CREATETOTALS(
-                  ValueOfInvoicedQty, ValueOfInvIncreases, CostOfInvDecreases,
-                  "Value Entry"."Cost Amount (Actual)", InvCostPostedToGL);
                 InfoSoc.GET();
             end;
         }
     }
     requestpage
     {
-
         layout
         {
         }
@@ -509,8 +494,7 @@ report 50115 "PWD Evaluation stock SAS Ghes"
         InvDecreases_Control39CaptionLbl: Label 'Decreases (LCY)';
         Inventory_Valuation____Tariff_No_CaptionLbl: Label 'Inventory Valuation  / Tariff No.';
         InvIncreases_Control38CaptionLbl: Label 'Increases (LCY)';
-        Item_Description_____Item__Description_2_CaptionLbl: Label 'Label9';
-        QuantityCaption_Control31Lbl: Label 'Quantity';
+        Item_Description_____Item__Description_2_CaptionLbl: Label 'Label';
         QuantityCaption_Control40Lbl: Label 'Quantity';
         QuantityCaption_Control58Lbl: Label 'Quantity';
         QuantityCaption_Control1000000019Lbl: Label 'Quantity';
@@ -523,7 +507,6 @@ report 50115 "PWD Evaluation stock SAS Ghes"
         Text009: Label 'Expected Cost Total: %1';
         This_report_includes_entries_that_have_been_posted_with_expected_costs_CaptionLbl: Label 'This report includes entries that have been posted with expected costs.';
         TotalCaptionLbl: Label 'Total';
-        ValueCaption_Control28Lbl: Label 'Value';
         ValueCaption_Control32Lbl: Label 'Value';
         ValueCaption_Control56Lbl: Label 'Value';
         ValueCaptionLbl: Label 'Value';
@@ -537,4 +520,3 @@ report 50115 "PWD Evaluation stock SAS Ghes"
           (InvoicedQty + InvIncreases - InvDecreases));
     end;
 }
-

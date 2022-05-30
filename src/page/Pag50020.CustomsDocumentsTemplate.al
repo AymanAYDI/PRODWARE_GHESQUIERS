@@ -4,7 +4,7 @@ page 50020 "PWD Customs Documents Template"
     DelayedInsert = true;
     PageType = List;
     SourceTable = "PWD Customs Documents Template";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -51,7 +51,6 @@ page 50020 "PWD Customs Documents Template"
 
                     trigger OnAction()
                     var
-                        InteractTemplLanguage: Record "Interaction Tmpl. Language";
                     begin
                         Rec.OpenAttachment(Rec.Description, FALSE);
                     end;
@@ -64,7 +63,6 @@ page 50020 "PWD Customs Documents Template"
 
                     trigger OnAction()
                     var
-                        InteractTemplLanguage: Record "Interaction Tmpl. Language";
                     begin
                         Rec.CreateAttachment();
                         CurrPage.UPDATE();
@@ -99,7 +97,6 @@ page 50020 "PWD Customs Documents Template"
                     Ellipsis = true;
                     trigger OnAction()
                     var
-                        InteractTemplLanguage: Record "Interaction Tmpl. Language";
                     begin
                         Rec.ImportAttachment('', TRUE);
                         CurrPage.UPDATE();
@@ -138,4 +135,3 @@ page 50020 "PWD Customs Documents Template"
         }
     }
 }
-

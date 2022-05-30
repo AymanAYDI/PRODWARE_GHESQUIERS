@@ -124,4 +124,3 @@ tableextension 60024 "PWD SalesInvoiceHeader" extends "Sales Invoice Header"
         }
     }
 }
-

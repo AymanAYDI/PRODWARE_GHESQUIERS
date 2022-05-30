@@ -12,7 +12,6 @@ codeunit 50001 "PWD Customs Doc AttachmentMngt"
          Text005: Label '\Attachment.%1';
          Text007: Label 'This feature requires that Microsoft Word 2000 is installed on your system.';
 
-
      procedure InsertAttachment(AttachmentNo: Integer): Integer
      var
          Attachment: Record "PWD Customs Documents Template";
@@ -20,9 +19,7 @@ codeunit 50001 "PWD Customs Doc AttachmentMngt"
          Attachment3: Record "PWD Customs Documents Template";
          "NextAttachmentNo.": Integer;
      begin
-
      end;
-
 
      procedure FileExtension(FileName: Text[260]) Extension: Text[260]
      var
@@ -69,7 +66,6 @@ codeunit 50001 "PWD Customs Doc AttachmentMngt"
          END;
      end;
 
-
      procedure UseComServer(FileExtension: Text[250]; RequireAutomation: Boolean): Boolean
      var
          AutomationServers: Record "Automation Server";
@@ -89,4 +85,3 @@ codeunit 50001 "PWD Customs Doc AttachmentMngt"
      end;
      */
 }
-

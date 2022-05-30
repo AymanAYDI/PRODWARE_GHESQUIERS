@@ -5,7 +5,7 @@ page 50043 "PWD Sales Lines to Prepare"
     PageType = List;
     SourceTable = "Sales Line";
     SourceTableView = SORTING("PWD Shelf/Bin No.", "Location Code") ORDER(Ascending);
-
+UsageCategory = None;
     layout
     {
         area(content)
@@ -76,8 +76,10 @@ page 50043 "PWD Sales Lines to Prepare"
                 ApplicationArea = All;
 
                 trigger OnAction()
+                var
+                    ItemAvailFormsMgt: Codeunit "Item Availability Forms Mgt";
                 begin
-                    ItemAvailability(2);
+                    ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec, ItemAvailFormsMgt.ByLocation)
                 end;
             }
         }
@@ -86,7 +88,7 @@ page 50043 "PWD Sales Lines to Prepare"
     trigger OnClosePage()
     begin
         CLEAR(ReleaseSalesDoc);
-        ReleaseSalesDoc.InitRelease(TRUE);
+        PWDSetGetFunctions.InitRelease(TRUE);
         ReleaseSalesDoc.RUN(SalesHeader);
     end;
 
@@ -111,19 +113,10 @@ page 50043 "PWD Sales Lines to Prepare"
         PWDSetGetFunctions: Codeunit "PWD Set/Get Functions";
         ReleaseSalesDoc: Codeunit "Release Sales Document";
         OrderNo: Code[20];
-        // "--MIGRATION2009R2--": ;
         CstG001: Label 'Interdit de modifier le code magasin !';
-
 
     procedure InitOrderNo("No.": Code[20])
     begin
         OrderNo := "No.";
     end;
-
-
-    procedure ItemAvailability(AvailabilityType: Option Date,Variant,Location,Bin)
-    begin
-        Rec.ItemAvailability(AvailabilityType);
-    end;
 }
-

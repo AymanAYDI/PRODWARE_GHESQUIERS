@@ -6,7 +6,7 @@ report 50008 "Get Item Ledger Entries SPE"
     // //>>SOBI
     // P3346_0011 RO.LALE REGIE 11/07/2013 :
     //    - Création report de traitement spécifique utilisé dans la feuille intracom (report repris du report standard 594).
-    // 
+    //
     // //>> 16/09/2013 SU-DADE cf appel TI180058
     // //   InsertItemJnlLine()
     // //<< 16/09/2013 SU-DADE cf appel TI180058
@@ -14,7 +14,7 @@ report 50008 "Get Item Ledger Entries SPE"
     Caption = 'Get Item Ledger Entries';
     Permissions = TableData "General Posting Setup" = imd;
     ProcessingOnly = true;
-
+    UsageCategory = None;
     dataset
     {
         dataitem("Country/Region"; "Country/Region")
@@ -437,7 +437,6 @@ report 50008 "Get Item Ledger Entries SPE"
         IntrastatJnlLine.VALIDATE("Cost Regulation %", IndirectCostPctReq);
         IF IntrastatJnlLine.Quantity >= 0 THEN
             IntrastatJnlLine.INSERT();
-
     end;
 
     local procedure GetGLSetup()
@@ -506,4 +505,3 @@ report 50008 "Get Item Ledger Entries SPE"
         END;
     end;
 }
-

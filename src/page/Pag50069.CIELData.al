@@ -3,7 +3,7 @@ page 50069 "PWD CIEL Data"
     // -----------------------------------------------------------------------------------------------------------------
     // Prodware - www.prodware.fr
     // -----------------------------------------------------------------------------------------------------------------
-    // 
+    //
     // //>>NDBI (P25940_002)
     // LALE.RO : 03/09/2018 : cf NDBI ID 437
     //                        new Page
@@ -12,7 +12,8 @@ page 50069 "PWD CIEL Data"
     InsertAllowed = false;
     PageType = List;
     SourceTable = "PWD CIEL Data";
-
+    ApplicationArea = all;
+    UsageCategory = Tasks;
     layout
     {
         area(content)
@@ -247,4 +248,3 @@ page 50069 "PWD CIEL Data"
         CstG004: Label 'Do you want to create the EDI DTI+ CIEL file ?';
         CstG005: Label 'Table is empty !';
 }
-

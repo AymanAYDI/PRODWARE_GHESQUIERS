@@ -2,7 +2,7 @@ page 50051 "PWD En-tête saisie préstation"
 {
     PageType = Card;
     SourceTable = "PWD En-tête saisie prestation";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -40,4 +40,3 @@ page 50051 "PWD En-tête saisie préstation"
     {
     }
 }
-

@@ -3,7 +3,7 @@ page 50006 "PWD Tarifs prestation M2"
     DelayedInsert = true;
     PageType = List;
     SourceTable = "PWD Tarifs prestation M2";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -74,4 +74,3 @@ page 50006 "PWD Tarifs prestation M2"
     {
     }
 }
-

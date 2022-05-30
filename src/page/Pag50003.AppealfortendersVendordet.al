@@ -6,7 +6,7 @@ page 50003 "Appeal for tenders/Vendor det"
     PageType = ListPart;
     SourceTable = "PWD Appeal for Tenders";
     SourceTableView = WHERE(Detail = CONST(true));
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -120,4 +120,3 @@ page 50003 "Appeal for tenders/Vendor det"
         IF GetItemVendor() THEN;
     end;
 }
-

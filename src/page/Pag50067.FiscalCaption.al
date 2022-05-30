@@ -3,7 +3,7 @@ page 50067 "PWD Fiscal Caption"
     // -----------------------------------------------------------------------------------------------------------------
     // Prodware - www.prodware.fr
     // -----------------------------------------------------------------------------------------------------------------
-    // 
+    //
     // //>>NDBI (P25940_002)
     // LALE.RO : 03/09/2018 : cf NDBI ID 437
     //                        new Page
@@ -11,7 +11,8 @@ page 50067 "PWD Fiscal Caption"
     Caption = 'Fiscal Caption';
     PageType = List;
     SourceTable = "PWD Fiscal Caption";
-
+    ApplicationArea = all;
+    UsageCategory = Lists;
     layout
     {
         area(content)
@@ -34,4 +35,3 @@ page 50067 "PWD Fiscal Caption"
     {
     }
 }
-

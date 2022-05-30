@@ -26,7 +26,6 @@ pageextension 50040 "PWD TariffNumbers" extends "Tariff Numbers"
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

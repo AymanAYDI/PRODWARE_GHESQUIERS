@@ -70,4 +70,3 @@ table 50007 "PWD Call Type"
     {
     }
 }
-

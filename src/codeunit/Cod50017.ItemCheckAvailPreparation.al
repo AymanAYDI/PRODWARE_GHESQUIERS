@@ -1,13 +1,11 @@
 codeunit 50017 "Item-Check Avail. Preparation"
 {
-
     trigger OnRun()
     begin
     end;
 
     var
         Text000: Label 'The update has been interrupted to respect the warning.';
-
 
     procedure SalesLineCheck(SalesLine: Record "Sales Line")
     var
@@ -20,7 +18,6 @@ codeunit 50017 "Item-Check Avail. Preparation"
             ERROR(Text000);
         END;
     end;
-
 
     procedure CalculateNeed(SalesLine: Record "Sales Line"; LocationCode: Code[10]): Decimal
     var
@@ -82,14 +79,13 @@ codeunit 50017 "Item-Check Avail. Preparation"
         END;
     end;
 
-
     procedure CheckItemAvailability(SalesLine: Record "Sales Line") OldItemNetChange: Boolean
     var
         OldsalesLine: Record "Sales Line";
     begin
         OldItemNetChange := FALSE;
         OldsalesLine := SalesLine;
-        IF OldsalesLine.FIND() THEN
+        IF OldsalesLine.findFirst() THEN
             IF (OldsalesLine."Document Type" = OldsalesLine."Document Type"::Order) AND
                (OldsalesLine."No." = SalesLine."No.") AND
                (OldsalesLine."Variant Code" = SalesLine."Variant Code") AND
@@ -103,4 +99,3 @@ codeunit 50017 "Item-Check Avail. Preparation"
         EXIT(OldItemNetChange);
     end;
 }
-

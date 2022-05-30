@@ -8,7 +8,6 @@ pageextension 50057 "PWD PurchasingCodeList" extends "Purchasing Code List"
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

@@ -34,7 +34,6 @@ codeunit 50002 "Customs Shipmt Doc WordMngt"
          Text030: Label 'Formal Salutation';
          Text031: Label 'Informal Salutation';
 
-
      procedure CreateWordAttachment(WordCaption: Text[260]; AttchmentNo: Code[10]) NewAttachNo: Code[10]
      var
          Attachment: Record "PWD Customs Documents Template";
@@ -172,7 +171,7 @@ codeunit 50002 "Customs Shipmt Doc WordMngt"
          Mail: Codeunit Mail;
          MergeFileName: Text[260];
          MainFileName: Text[260];
-         CustAddr: array[8] of Text[50];
+         CustAddr: array[8] of Text[100];
          ShipToAddr: array[8] of Text[50];
          NoOfRecords: Integer;
          ParamBln: Boolean;
@@ -330,7 +329,7 @@ codeunit 50002 "Customs Shipmt Doc WordMngt"
          FormatAddr: Codeunit "Format Address";
          MergeFileName: Text[260];
          MainFileName: Text[260];
-         CustAddr: array[8] of Text[50];
+         CustAddr: array[8] of Text[100];
          ShipToAddr: array[8] of Text[50];
          ParamInt: Integer;
          ParamFalse: Boolean;
@@ -493,7 +492,6 @@ codeunit 50002 "Customs Shipmt Doc WordMngt"
          END;
      end;
 
-
      procedure WordHandler(var wrdDoc: Automation; var Attachment: Record "PWD Customs Documents Template"; Caption: Text[260]; IsTemporary: Boolean; FileName: Text[260]) DocImported: Boolean
      var
          Attachment2: Record "PWD Customs Documents Template";
@@ -578,7 +576,6 @@ codeunit 50002 "Customs Shipmt Doc WordMngt"
          UNTIL I = 999;
      end;
 
-
      procedure DocContainMergefields(var Attachment: Record "PWD Customs Documents Template") MergeFields: Boolean
      var
          [WithEvents]
@@ -604,4 +601,3 @@ codeunit 50002 "Customs Shipmt Doc WordMngt"
          CLEAR(wrdApp);
      end;*/
 }
-

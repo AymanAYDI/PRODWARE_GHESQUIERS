@@ -11,4 +11,3 @@ tableextension 60056 "PWD Purchasing" extends Purchasing
         }
     }
 }
-

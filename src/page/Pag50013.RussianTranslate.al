@@ -3,7 +3,7 @@ page 50013 "PWD Russian Translate"
     Caption = 'Russian Translate';
     PageType = List;
     SourceTable = "PWD Russian translate";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -39,4 +39,3 @@ page 50013 "PWD Russian Translate"
     {
     }
 }
-

@@ -3,7 +3,7 @@ page 50000 "PWD Custom Parameters"
     Caption = 'Custom Parameters';
     PageType = List;
     SourceTable = "PWD Custom Parameters";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -43,4 +43,3 @@ page 50000 "PWD Custom Parameters"
             IF RecFields.GET(GetTableID, GetFieldID) THEN EXIT(RecFields."Field Caption");
     end;
 }
-

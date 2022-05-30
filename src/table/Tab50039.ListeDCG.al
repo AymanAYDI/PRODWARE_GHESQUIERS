@@ -38,4 +38,3 @@ table 50039 "PWD Liste DCG"
     {
     }
 }
-

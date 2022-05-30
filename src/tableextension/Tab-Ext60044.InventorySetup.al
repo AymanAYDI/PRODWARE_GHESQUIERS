@@ -30,7 +30,6 @@ tableextension 60044 "PWD InventorySetup" extends "Inventory Setup"
         }
     }
 
-
     procedure UpdateTranslation(LanguageCode: Code[10])
     var
         Item: Record Item;
@@ -47,4 +46,3 @@ tableextension 60044 "PWD InventorySetup" extends "Inventory Setup"
             UNTIL Item.NEXT() = 0;
     end;
 }
-

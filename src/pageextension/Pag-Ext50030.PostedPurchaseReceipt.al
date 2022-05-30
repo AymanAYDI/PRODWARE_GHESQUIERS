@@ -22,22 +22,18 @@ pageextension 50030 "PWD PostedPurchaseReceipt" extends "Posted Purchase Receipt
                 {
                     ApplicationArea = all;
                 }
-
                 Field("Attachment 1"; Rec."PWD Attachment 1")
                 {
                     ApplicationArea = all;
                 }
-
                 Field("Attachment 2"; Rec."PWD Attachment 2")
                 {
                     ApplicationArea = all;
                 }
-
                 Field("Attachment 3"; Rec."PWD Attachment 3")
                 {
                     ApplicationArea = all;
                 }
-
                 Field("Attachment 4"; Rec."PWD Attachment 4")
                 {
                     ApplicationArea = all;
@@ -52,7 +48,6 @@ pageextension 50030 "PWD PostedPurchaseReceipt" extends "Posted Purchase Receipt
                 {
                     ApplicationArea = all;
                 }
-
                 Field("Delivered Quantity Rating"; Rec."PWD Delivered Quantity Rating")
                 {
                     ApplicationArea = all;
@@ -61,12 +56,10 @@ pageextension 50030 "PWD PostedPurchaseReceipt" extends "Posted Purchase Receipt
                 {
                     ApplicationArea = all;
                 }
-
                 Field("Documentation Rating"; Rec."PWD Documentation Rating")
                 {
                     ApplicationArea = all;
                 }
-
             }
         }
     }
@@ -145,6 +138,3 @@ pageextension 50030 "PWD PostedPurchaseReceipt" extends "Posted Purchase Receipt
     VAR
         PurchRcptHeader: Record "Purch. Rcpt. Header";
 }
-
-
-

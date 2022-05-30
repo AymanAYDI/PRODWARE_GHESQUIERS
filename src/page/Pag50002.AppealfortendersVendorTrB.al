@@ -1,6 +1,5 @@
 page 50002 "Appeal for tenders/Vendor -TrB"
 {
-
     AutoSplitKey = true;
     Caption = 'Appeal for tenders/Vendor Avita';
     DelayedInsert = true;
@@ -9,7 +8,7 @@ page 50002 "Appeal for tenders/Vendor -TrB"
     PageType = Card;
     SaveValues = true;
     SourceTable = "PWD Appeal for Tenders";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -175,7 +174,6 @@ page 50002 "Appeal for tenders/Vendor -TrB"
         }
     }
 
-
     trigger OnAfterGetRecord()
     begin
         "No.Indent" := 0;
@@ -267,4 +265,3 @@ page 50002 "Appeal for tenders/Vendor -TrB"
             "Description 2Emphasize" := TRUE;
     end;
 }
-

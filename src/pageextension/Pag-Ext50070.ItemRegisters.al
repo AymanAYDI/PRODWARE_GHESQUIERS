@@ -60,7 +60,6 @@ pageextension 50070 "PWD ItemRegisters" extends "Item Registers"
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

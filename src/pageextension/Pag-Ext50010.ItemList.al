@@ -134,7 +134,6 @@ pageextension 50010 "PWD ItemList" extends "Item List"
             {
                 ApplicationArea = all;
             }
-
         }
     }
 
@@ -164,7 +163,8 @@ pageextension 50010 "PWD ItemList" extends "Item List"
             {
                 ApplicationArea = All;
                 Caption = 'Avita : Stock par lot';
-                RunObject = Report 50073;
+                //ToDo
+                //RunObject = Report 50073;
             }
             action("Relev‚ de douane")
             {

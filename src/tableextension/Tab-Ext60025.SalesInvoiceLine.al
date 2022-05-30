@@ -172,4 +172,3 @@ tableextension 60025 "PWD SalesInvoiceLine" extends "Sales Invoice Line"
         }
     }
 }
-

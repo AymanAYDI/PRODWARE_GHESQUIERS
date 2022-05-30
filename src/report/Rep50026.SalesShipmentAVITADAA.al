@@ -1,26 +1,7 @@
 report 50026 "Sales - Shipment AVITA - DAA"
 {
-    // Text Exemplaire ...... paramétrer ds OnInitReport
-    // --------------------------------------------
-    // Prodware - www.prodware.com
-    // --------------------------------------------
-    // >>GUE-RE1.00:DO 12/04/2011 :
-    //   - compilation
-    // 
-    // //>>GHES
-    // P3346_0011 DO:SOBI 12/09/2012  : Add locationFilter from SalesSetup
-    //                                 - C/AL code OninitRequestForm
-    //                                 - Skip C/AL code OnInitReport
-    //                                 - Skip Filter Item.Family='SE' Sales Shipment Line
-    // 
-    // //>> 01/04/2016 SU-DADE cf appel TI321001
-    // //   Sales Shipment Line - OnAfterGetRecord()
-    // //<< 01/04/2016 SU-DADE cf appel TI321001
-    // 
-    // --------------------------------------------
     DefaultLayout = RDLC;
     RDLCLayout = './SalesShipmentAVITADAA.rdl';
-
     Caption = 'Sales - Shipment';
 
     dataset
@@ -49,7 +30,7 @@ report 50026 "Sales - Shipment AVITA - DAA"
                     column(ExemplaireT; ExemplaireT)
                     {
                     }
-                    column(STRSUBSTNO_Text003_FORMAT_CurrReport_PAGENO__; STRSUBSTNO(Text003, FORMAT(CurrReport.PAGENO())))
+                    column(STRSUBSTNO_Text003_FORMAT_CurrReport_PAGENO__; Text003)
                     {
                     }
                     column(CompanyAddr_1_; CompanyAddr[1])
@@ -154,7 +135,7 @@ report 50026 "Sales - Shipment AVITA - DAA"
                     column(TextExemplaire_Control1000000113; TextExemplaire)
                     {
                     }
-                    column(STRSUBSTNO_Text003_FORMAT_CurrReport_PAGENO___Control2; STRSUBSTNO(Text003, FORMAT(CurrReport.PAGENO())))
+                    column(STRSUBSTNO_Text003_FORMAT_CurrReport_PAGENO___Control2; Text003)
                     {
                     }
                     column(CompanyAddr_1__Control5; CompanyAddr[1])
@@ -831,86 +812,58 @@ report 50026 "Sales - Shipment AVITA - DAA"
                                 IF NOT Item.GET("Sales Shipment Line"."No.") THEN
                                     Item.INIT();
                             END;
-
-                            CodeDEpotEntete := "Sales Shipment Line"."Location Code";
-
+                            //ToDo var not used.
+                            //CodeDEpotEntete := "Sales Shipment Line"."Location Code";
                             // Calcul total tabac alcool
                             QtéAlcool := 0;
                             QtéTabac := 0;
                             IF ItemFamily.GET(ItemFamily.Type::Item, ItemFamily."Group Type"::Family, '', Item."PWD Family") THEN BEGIN
                                 IF ((ItemFamily."Type famille" = ItemFamily."Type famille"::Alcool) AND (Item."PWD Family" = '47')) THEN BEGIN
                                     IF Item."PWD Alcool %" <> 0 THEN BEGIN
-                                        IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN BEGIN
+                                        IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN
                                             QtéAlcool := "Sales Shipment Line"."Net Weight" * "Sales Shipment Line"."Quantity (Base)" / 100;
-                                        END;
-                                        IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net x °Alcool" THEN BEGIN
+                                        IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net x °Alcool" THEN
                                             QtéAlcool := "Sales Shipment Line"."Net Weight" * "Sales Shipment Line"."Quantity (Base)" * Item."PWD Alcool %" / 100;
-                                        END;
                                     END;
                                     IF ((Item."PWD Family" = '47') AND (Item."PWD Sub Family" <> '05')) THEN TotalAlcoolPur += QtéAlcool;
                                     IF ((Item."PWD Family" = '47') AND (Item."PWD Sub Family" = '05')) THEN TotalRhum += QtéAlcool;
-
                                 END;
-
-                                IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN BEGIN
-                                    IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN BEGIN
+                                IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN
+                                    IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN
                                         QtéTabac := "Sales Shipment Line"."Net Weight" * "Sales Shipment Line"."Quantity (Base)";
-                                    END;
-                                END;
                             END;
                             QtéAlcoolTotal := QtéAlcoolTotal + QtéAlcool;
                             QtéTabacTotal := QtéTabacTotal + QtéTabac;
-
                             CalcTotalVentil();
-
-                            // ** Calcul total tabac alcool SEA FRANCE **
-                            //>>P3346_0011
-                            //>> 01/04/2016 SU-DADE cf appel TI321001 => j'enlève le commentaire sur ce code
                             IF Item."PWD Family" = 'SE' THEN BEGIN
-                                //<< 01/04/2016 SU-DADE cf appel TI321001
-                                //<<P3346_0011
                                 QtéAlcool := 0;
                                 QtéTabac := 0;
 
                                 IF ItemFamily.GET(ItemFamily.Type::Item, ItemFamily."Group Type"::Family, '', Item."PWD Family (Sea France)") THEN BEGIN
                                     IF ((ItemFamily."Type famille" = ItemFamily."Type famille"::Alcool) AND (Item."PWD Family (Sea France)" = '47')) THEN BEGIN
                                         IF Item."PWD Alcool %" <> 0 THEN BEGIN
-                                            IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN BEGIN
+                                            IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN
                                                 QtéAlcool := "Sales Shipment Line"."Net Weight" * "Sales Shipment Line"."Quantity (Base)" / 100;
-                                            END;
-                                            IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net x °Alcool" THEN BEGIN
+                                            IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net x °Alcool" THEN
                                                 QtéAlcool := "Sales Shipment Line"."Net Weight" * "Sales Shipment Line"."Quantity (Base)" * Item."PWD Alcool %" / 100;
-                                            END;
                                         END;
                                         IF ((Item."PWD Family (Sea France)" = '47') AND (Item."PWD Sub Family (Sea France)" <> '05')) THEN TotalAlcoolPur += QtéAlcool;
                                         IF ((Item."PWD Family (Sea France)" = '47') AND (Item."PWD Sub Family (Sea France)" = '05')) THEN TotalRhum += QtéAlcool;
-
                                     END;
 
-                                    IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN BEGIN
-                                        IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN BEGIN
+                                    IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN
+                                        IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN
                                             QtéTabac := "Sales Shipment Line"."Net Weight" * "Sales Shipment Line"."Quantity (Base)";
-                                        END;
-                                    END;
                                 END;
                                 QtéAlcoolTotal := QtéAlcoolTotal + QtéAlcool;
                                 QtéTabacTotal := QtéTabacTotal + QtéTabac;
 
                                 CalcTotalVentilSEAF();
-                                //>>P3346_0011
                             END;
-                            //<<P3346_0011
                         end;
 
                         trigger OnPreDataItem()
                         begin
-                            //MoreLines := FIND('+');
-                            //WHILE MoreLines AND (Description = '') AND ("No." = '') AND (Quantity = 0) DO
-                            //  MoreLines := NEXT(-1) <> 0;
-                            //IF NOT MoreLines THEN
-                            //  CurrReport.BREAK;
-                            //SETRANGE("Line No.",0,"Line No.");
-
                             SETFILTER("Location Code", LocationFilter);
                         end;
                     }
@@ -918,7 +871,6 @@ report 50026 "Sales - Shipment AVITA - DAA"
                     trigger OnAfterGetRecord()
                     begin
                         NumLigne := 0;
-
                         // Calcul total tabac alcool
                         QtéAlcoolTotal := 0;
                         QtéTabacTotal := 0;
@@ -937,14 +889,10 @@ report 50026 "Sales - Shipment AVITA - DAA"
                     CLEAR(TotalAlcoolPur);
                     CLEAR(TotalRhum);
 
-
                     IF Number > 1 THEN
                         CopyText := Text001;
-                    CurrReport.PAGENO := 1;
-
                     NumCopie := ROUND(Number / 5, 1, '>');
                     Exemplaire := Number - ((NumCopie - 1) * 5);
-
 
                     CASE Exemplaire OF
                         1:
@@ -972,7 +920,6 @@ report 50026 "Sales - Shipment AVITA - DAA"
                                 TextExemplaire := TextExemplaire5;
                                 ExemplaireT := '1 BIS';
                             END;
-
                     END;
                 end;
 
@@ -992,7 +939,6 @@ report 50026 "Sales - Shipment AVITA - DAA"
 
             trigger OnAfterGetRecord()
             begin
-                // Modif LLE 01-09-04
                 SellToCustName := "Sell-to Customer Name";
                 SellToCustaddr := "Sell-to Address";
                 SellToCustaddr2 := "Sell-to Address 2";
@@ -1003,9 +949,7 @@ report 50026 "Sales - Shipment AVITA - DAA"
                 BillToCustaddr2 := "Bill-to Address 2";
                 BillToPostCode := "Bill-to Post Code";
                 BillToCity := "Bill-to City";
-                // fin modif LLE
-
-                CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");
+                CurrReport.LANGUAGE := Language.GetLanguageIdOrDefault("Language Code");
 
                 IF RespCenter.GET("Responsibility Center") THEN BEGIN
                     FormatAddr.RespCenter(CompanyAddr, RespCenter);
@@ -1030,25 +974,23 @@ report 50026 "Sales - Shipment AVITA - DAA"
                 ELSE
                     ReferenceText := FIELDCAPTION("Your Reference");
                 FormatAddr.SalesShptShipTo(ShipToAddr, "Sales Shipment Header");
-
-                FormatAddr.SalesShptBillTo(CustAddr, "Sales Shipment Header");
-                ShowCustAddr := "Bill-to Customer No." <> "Sell-to Customer No.";
+                //ToDo a vérifier
+                FormatAddr.SalesShptBillTo(CustAddr, ShipToAddr, "Sales Shipment Header");
+                //ToDo Var not used
+                //ShowCustAddr := "Bill-to Customer No." <> "Sell-to Customer No.";
                 FOR i := 1 TO ARRAYLEN(CustAddr) DO
                     IF CustAddr[i] <> ShipToAddr[i] THEN
-                        ShowCustAddr := TRUE;
+                        //ToDo Var not used
+                        //ShowCustAddr := TRUE;
 
-                IF LogInteraction THEN
-                    IF NOT CurrReport.PREVIEW THEN
-                        //>-> GUE-RE.1.00
-                        //    SegManagement.LogDocument(
-                        //      5,"No.",0,0,DATABASE::Customer,"Sell-to Customer No.","Salesperson Code","Posting Description");
-                        SegManagement.LogDocument(
-                      5, "No.", 0, 0, DATABASE::Customer, "Sell-to Customer No.", "Salesperson Code", '', "Posting Description", '');
+                        IF LogInteraction THEN
+                            IF NOT CurrReport.PREVIEW THEN
+                                SegManagement.LogDocument(
+                              5, "No.", 0, 0, DATABASE::Customer, "Sell-to Customer No.", "Salesperson Code", '', "Posting Description", '');
                 //<-< GUE-RE.1.00
                 //*** Recherche du nom du transporteur
-                IF NOT ShippingAgent.GET("Sales Shipment Header"."Shipping Agent Code") THEN BEGIN
+                IF NOT ShippingAgent.GET("Sales Shipment Header"."Shipping Agent Code") THEN
                     ShippingAgent.Name := '';
-                END;
 
                 //*** Calcul du nombre de ligne article total / doc
                 SalesShipLine.SETCURRENTKEY("Document No.", "Location Code");
@@ -1058,20 +1000,18 @@ report 50026 "Sales - Shipment AVITA - DAA"
                 SalesShipLine.SETFILTER(Quantity, '<>0');
                 NbLigneTotal := SalesShipLine.COUNT;
                 SalesShipLine.SETRANGE(Type);
-                IF SalesShipLine.FIND('-') THEN
-                    CodeDEpotEntete := SalesShipLine."Location Code"
-                ELSE
-                    CodeDEpotEntete := '';
+                IF SalesShipLine.FIND('-') THEN;
+                //ToDo var not used.
+                //CodeDEpotEntete := SalesShipLine."Location Code"
+                //ELSE
+                //ToDo var not used.
+                //CodeDEpotEntete := '';
 
                 NumLigne := 0;
-
-                //- Total tabac alcool
                 QtéAlcoolTotal := 0;
                 QtéTabacTotal := 0;
 
                 NumCopie := 0;
-                // Modif C2A(LLE) 161104
-                // suite demande Mme Danneels
                 Cust.GET("Sales Shipment Header"."Bill-to Customer No.");
                 Colonne3 := 'N° D''ACCISES :' + Cust."PWD No. d accises";
                 /*
@@ -1089,7 +1029,6 @@ report 50026 "Sales - Shipment AVITA - DAA"
                 END ELSE
                   NomPaysDest:='FRANCE';*/
                 NomPaysDest := "Sales Shipment Header"."Ship-to Post Code" + ' ' + "Sales Shipment Header"."Ship-to City";
-
             end;
 
             trigger OnPreDataItem()
@@ -1105,7 +1044,6 @@ report 50026 "Sales - Shipment AVITA - DAA"
 
     requestpage
     {
-
         layout
         {
         }
@@ -1132,9 +1070,8 @@ report 50026 "Sales - Shipment AVITA - DAA"
     begin
         IF NOT CurrReport.USEREQUESTPAGE THEN
             InitLogInteraction();
-
-
-        DepotSpecial := '8';
+        //ToDo Var not used
+        //DepotSpecial := '8';
 
         IF USERID <> '' THEN
             UserTable.GET(USERID);
@@ -1149,7 +1086,6 @@ report 50026 "Sales - Shipment AVITA - DAA"
         PostedDocDim1: Record "Dimension Set Entry";
         PostedDocDim2: Record "Dimension Set Entry";
         Item: Record Item;
-        Language: Record Language;
         ItemFamily: Record "PWD Family & Sub Family";
         ItemSubFamily: Record "PWD Family & Sub Family";
         RespCenter: Record "Responsibility Center";
@@ -1159,15 +1095,19 @@ report 50026 "Sales - Shipment AVITA - DAA"
         UserSetup: record "User Setup";
         UserTable: Record "User Setup";
         FormatAddr: Codeunit "Format Address";
+        Language: Codeunit Language;
         ShptCountPrinted: Codeunit "Sales Shpt.-Printed";
         SegManagement: Codeunit SegManagement;
         LogInteraction: Boolean;
         ShowCorrectionLines: Boolean;
-        ShowCustAddr: Boolean;
+        //ToDo Var not used
+        //ShowCustAddr: Boolean;
         BillToPostCode: Code[10];
-        DepotSpecial: Code[10];
+        //ToDo Var not used
+        //DepotSpecial: Code[10];
         SellToPostCode: Code[10];
-        CodeDEpotEntete: Code[20];
+        //ToDo var not used.
+        //CodeDEpotEntete: Code[20];
         "QtéAlcool": Decimal;
         "QtéAlcoolTotal": Decimal;
         "QtéTabac": Decimal;
@@ -1353,9 +1293,9 @@ report 50026 "Sales - Shipment AVITA - DAA"
         Colonne3: Text[50];
         CompanyAddr: array[8] of Text[50];
         CopyText: Text[50];
-        CustAddr: array[8] of Text[50];
         NomPaysDest: Text[50];
         ShipToAddr: array[8] of Text[50];
+        CustAddr: array[8] of Text[100];
         TextExemplaire: Text[100];
         TextExemplaire1: Text[100];
         TextExemplaire2: Text[100];
@@ -1389,20 +1329,15 @@ report 50026 "Sales - Shipment AVITA - DAA"
                     IF ((Item."PWD Family" = '46') AND (Item."PWD Sub Family" = '02')) THEN TotalPI += VolumeLigne;
                     IF (Item."PWD Family" = '41') THEN TotalBiere += VolumeLigne;
                     IF (Item."PWD Family" IN ['43', '44', '45']) THEN TotalVin += VolumeLigne;
-
                 END;
             END;
-            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN BEGIN
+            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN
                 IF ItemSubFamily.GET(ItemSubFamily.Type::Item, ItemSubFamily."Group Type"::"Sub Family",
                                       Item."PWD Family", Item."PWD Sub Family") THEN BEGIN
                     IF ((Item."PWD Family" = '48') AND (Item."PWD Sub Family" = '10')) THEN
-                        //TotalMillCig += (("Sales Shipment Line"."Quantity (Base)" * 200)/1000);
-                        // MODIF GTE DDE CHRISTINE 15 03
-                        //TotalMillCig += (("Sales Shipment Line"."Gross Weight"));
                         TotalMillCig += (("Sales Shipment Line"."Net Weight" * "Sales Shipment Line".Quantity));
                     IF ((Item."PWD Family" = '48') AND (Item."PWD Sub Family" IN ['20', '30'])) THEN TotalKgTabac += PoidsLigne;
                 END;
-            END;
         END;
     end;
 
@@ -1426,20 +1361,15 @@ report 50026 "Sales - Shipment AVITA - DAA"
                     IF ((Item."PWD Family (Sea France)" = '46') AND (Item."PWD Sub Family (Sea France)" = '02')) THEN TotalPI += VolumeLigne;
                     IF (Item."PWD Family (Sea France)" = '41') THEN TotalBiere += VolumeLigne;
                     IF (Item."PWD Family (Sea France)" IN ['43', '44', '45']) THEN TotalVin += VolumeLigne;
-
                 END;
             END;
-            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN BEGIN
+            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN
                 IF ItemSubFamily.GET(ItemSubFamily.Type::Item, ItemSubFamily."Group Type"::"Sub Family",
                                       Item."PWD Family (Sea France)", Item."PWD Sub Family (Sea France)") THEN BEGIN
                     IF ((Item."PWD Family (Sea France)" = '48') AND (Item."PWD Sub Family (Sea France)" = '10')) THEN
-                        //TotalMillCig += (("Sales Shipment Line"."Quantity (Base)" * 200)/1000);
-                        //TotalMillCig += (("Sales Shipment Line"."Gross Weight"));
                         TotalMillCig += (("Sales Shipment Line"."Net Weight" * "Sales Shipment Line".Quantity));
                     IF ((Item."PWD Family (Sea France)" = '48') AND (Item."PWD Sub Family (Sea France)" IN ['20', '30'])) THEN TotalKgTabac += PoidsLigne;
                 END;
-            END;
         END;
     end;
 }
-

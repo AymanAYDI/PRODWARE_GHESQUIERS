@@ -148,7 +148,6 @@ tableextension 60022 "PWD SalesShipmentHeader" extends "Sales Shipment Header"
     }
     keys
     {
-
         key(Key8; "Shipment Date")
         {
         }
@@ -158,24 +157,25 @@ tableextension 60022 "PWD SalesShipmentHeader" extends "Sales Shipment Header"
         key(key10; "Posting Date")
         {
         }
+        //ToDo
+        /*
         key(Key11; "PWD DSA No.", "Posting Date")
         {
-        }
+        }*/
     }
-
-
 
     procedure PrintCustomsDoc(CustomsType: Code[10])
     begin
 
         IF CustomsType = 'T5' THEN REPORT.RUNMODAL(REPORT::"PWD Calcul PU=CU*coef", TRUE, TRUE, Rec);
-
-        IF CustomsType = 'CO' THEN REPORT.RUNMODAL(REPORT::"Certificat d'origine", TRUE, TRUE, Rec);
-        IF CustomsType = 'CHARGEMENT' THEN REPORT.RUNMODAL(REPORT::"Loading List", TRUE, TRUE, Rec);
-        IF CustomsType = 'MUTATION' THEN REPORT.RUNMODAL(REPORT::"Loading by Location", TRUE, TRUE, Rec);
-        IF CustomsType = 'TM' THEN REPORT.RUNMODAL(REPORT::TM, TRUE, TRUE, Rec);
-        IF CustomsType = 'CHARSIMPLE' THEN REPORT.RUNMODAL(REPORT::"Loading List-Simple", TRUE, TRUE, Rec);
-        IF CustomsType = 'CHARTM' THEN REPORT.RUNMODAL(REPORT::"Loading List TM", TRUE, TRUE, Rec);
+        //ToDo
+        /*
+                IF CustomsType = 'CO' THEN REPORT.RUNMODAL(REPORT::"Certificat d'origine", TRUE, TRUE, Rec);
+                IF CustomsType = 'CHARGEMENT' THEN REPORT.RUNMODAL(REPORT::"Loading List", TRUE, TRUE, Rec);
+                IF CustomsType = 'MUTATION' THEN REPORT.RUNMODAL(REPORT::"Loading by Location", TRUE, TRUE, Rec);
+                IF CustomsType = 'TM' THEN REPORT.RUNMODAL(REPORT::TM, TRUE, TRUE, Rec);
+                IF CustomsType = 'CHARSIMPLE' THEN REPORT.RUNMODAL(REPORT::"Loading List-Simple", TRUE, TRUE, Rec);
+                IF CustomsType = 'CHARTM' THEN REPORT.RUNMODAL(REPORT::"Loading List TM", TRUE, TRUE, Rec);*/
     end;
 
     trigger OnInsert()
@@ -183,4 +183,3 @@ tableextension 60022 "PWD SalesShipmentHeader" extends "Sales Shipment Header"
     begin
     end;
 }
-

@@ -16,7 +16,6 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
                 Visible = PWDDocNoVisible;
             }
 
-
             field("PWD Call No."; Rec."PWD Call No.")
             {
                 ApplicationArea = All;
@@ -28,7 +27,6 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
         }
         addafter("Requested Delivery Date")
         {
-
             field("PWD Delivery time"; Rec."PWD Delivery time")
             {
                 ApplicationArea = all;
@@ -113,7 +111,7 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
                     RecLSalesHeader.RESET();
                     RecLSalesHeader.SETRANGE("Document Type", Rec."Document Type");
                     RecLSalesHeader.SETRANGE("No.", Rec."No.");
-                    REPORT.RUN(REPORT::"Calcul PU=CU*coef", TRUE, TRUE, RecLSalesHeader);
+                    REPORT.RUN(REPORT::"PWD Calcul PU=CU*coef", TRUE, TRUE, RecLSalesHeader);
                 END;
             }
             action("PWD Quote PDF_Email")

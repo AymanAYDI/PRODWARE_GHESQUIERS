@@ -4,7 +4,7 @@ page 50057 "PWD Lignes Doc Douane"
     InsertAllowed = false;
     PageType = List;
     SourceTable = "PWD Ligne document Douane";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -106,4 +106,3 @@ page 50057 "PWD Lignes Doc Douane"
     {
     }
 }
-

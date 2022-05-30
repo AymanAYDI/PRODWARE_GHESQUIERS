@@ -39,7 +39,7 @@ codeunit 60004 "PWD CduEvents AB"
         IF SalesHeader."PWD Preparation Status" = SalesHeader."PWD Preparation Status"::"Ready to prepare" THEN
             SalesHeader."PWD Preparation Status" := SalesHeader."PWD Preparation Status"::" ";
     end;
-    //---CDU333--- 
+    //---CDU333---
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Req. Wksh.-Make Order", 'OnInsertPurchOrderLineOnAfterTransferFromReqLineToPurchLine', '', false, false)]
     local procedure CDU333_OnInsertPurchOrderLineOnAfterTransferFromReqLineToPurchLine(var PurchOrderLine: Record "Purchase Line"; RequisitionLine: Record "Requisition Line")
     var
@@ -55,7 +55,7 @@ codeunit 60004 "PWD CduEvents AB"
     begin
         CduFunctiontMgt.FCT_CDU333OnAfterInsertPurchOrderLine(PurchOrderLine);
     end;
-    //---CDU5703--- 
+    //---CDU5703---
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Catalog Item Management", 'OnCreateNewItemOnBeforeItemInsert', '', false, false)]
     local procedure CDU5703_OnCreateNewItemOnBeforeItemInsert(var Item: Record Item; NonstockItem: Record "Nonstock Item")
     var
@@ -65,7 +65,6 @@ codeunit 60004 "PWD CduEvents AB"
     end;
 
     var
-
 
 */
 }

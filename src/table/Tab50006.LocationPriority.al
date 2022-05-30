@@ -43,4 +43,3 @@ table 50006 "PWD Location Priority"
     {
     }
 }
-

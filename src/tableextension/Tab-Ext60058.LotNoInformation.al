@@ -12,4 +12,3 @@ tableextension 60058 "PWD LotNoInformation" extends "Lot No. Information"
         }
     }
 }
-

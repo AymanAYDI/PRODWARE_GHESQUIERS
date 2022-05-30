@@ -78,7 +78,6 @@ codeunit 50000 "PWD Customs Sales Doc WordMngt"
          DeleteFile(MergeFileName);
      end;
 
-
      procedure OpenWordAttachment(var Attachment: Record "PWD Customs Documents Template"; FileName: Text[260]; Caption: Text[260]; IsTemporary: Boolean)
      var
          wrdApp: Automation;
@@ -177,7 +176,7 @@ codeunit 50000 "PWD Customs Sales Doc WordMngt"
          Mail: Codeunit Mail;
          MergeFileName: Text[260];
          MainFileName: Text[260];
-         CustAddr: array[8] of Text[50];
+         CustAddr: array[8] of Text[100];
          ShipToAddr: array[8] of Text[50];
          NoOfRecords: Integer;
          ParamBln: Boolean;
@@ -329,7 +328,7 @@ codeunit 50000 "PWD Customs Sales Doc WordMngt"
          FormatAddr: Codeunit "Format Address";
          MergeFileName: Text[260];
          MainFileName: Text[260];
-         CustAddr: array[8] of Text[50];
+         CustAddr: array[8] of Text[100];
          ShipToAddr: array[8] of Text[50];
          ParamInt: Integer;
          ParamFalse: Boolean;
@@ -496,7 +495,6 @@ codeunit 50000 "PWD Customs Sales Doc WordMngt"
              CloseFile;
          END;
      end;
-
 
      procedure WordHandler(var wrdDoc: Automation; var Attachment: Record "PWD Customs Documents Template"; Caption: Text[260]; IsTemporary: Boolean; FileName: Text[260]) DocImported: Boolean
      var

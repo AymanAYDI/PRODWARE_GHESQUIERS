@@ -21,7 +21,6 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
             {
                 ApplicationArea = All;
             }
-
         }
         addafter("Order No.")
         {
@@ -162,10 +161,8 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                         SalesShptHeader := Rec;
                         SalesShptHeader.SETRECFILTER();
                         REPORT.RUN(Report::"Sales - Shipment AVITA - DAA", TRUE, FALSE, SalesShptHeader);
-
                     END;
                 }
-
                 Action("PWD DSA")
                 {
                     Caption = 'DSA';
@@ -313,7 +310,6 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                 }
             }
         }
-
     }
 
     var

@@ -3,14 +3,14 @@ codeunit 50024 "PWD Generation PDF Auto"
     trigger OnRun()
     begin
     end;
-    //ToDo
+
     var
         gRecPrinterSelection: Record "Printer Selection";
         gTmpRecPrinterSelMod: Record "Printer Selection" temporary;
         gTmpRecPrinterSelNew: Record "Printer Selection" temporary;
-        gCUThreeTierMgt: Codeunit "3-Tier Automation Mgt.";
-        BullZipPDF: DotNet ComPdfSettings;
-        BullZipPDFUtil: DotNet ComPdfUtil;
+    //ToDo
+    //BullZipPDF: DotNet ComPdfSettings;
+    //BullZipPDFUtil: DotNet ComPdfUtil;
 
     procedure GeneratePDFSalesQuote(pCodeDocumentNo: Code[20])
     var
@@ -18,18 +18,17 @@ codeunit 50024 "PWD Generation PDF Auto"
         lRecCustomer: Record Customer;
         lRecReportSelect: Record "Report Selections";
         lRecSalesHeader: Record "Sales Header";
-        Txt001: Label 'GHESQUIERS Devis n° %1 / Quotation n° %1';
         lTxtNewLine: Text[30];
         lTxtEmail: Text[80];
-        lTxtClientFileName: Text[1024];
         lTxtFileName: Text[1024];
         lTxtStatusFile: Text[1024];
     begin
         lRecSalesHeader.SETRANGE("Document Type", lRecSalesHeader."Document Type"::Quote);
         lRecSalesHeader.SETRANGE("No.", pCodeDocumentNo);
         lRecSalesHeader.FINDFIRST();
-        lTxtClientFileName := gCUThreeTierMgt.ClientTempFileName('', '');
-        lTxtFileName := STRSUBSTNO('%1%2.pdf', gCUThreeTierMgt.Path(lTxtClientFileName), lRecSalesHeader."No.");
+        //ToDo
+        //lTxtClientFileName := gCUThreeTierMgt.ClientTempFileName('', '');
+        //lTxtFileName := STRSUBSTNO('%1%2.pdf', gCUThreeTierMgt.Path(lTxtClientFileName), lRecSalesHeader."No.");
         lTxtStatusFile := fInitBullZipPDF(lTxtFileName);
         lRecReportSelect.SETRANGE(Usage, lRecReportSelect.Usage::"S.Quote");
         IF NOT lRecReportSelect.FINDFIRST() THEN
@@ -45,7 +44,8 @@ codeunit 50024 "PWD Generation PDF Auto"
             lTxtEmail := lRecCustomer."E-Mail";
         lRecCompanyInfo.FINDFIRST();
         lTxtNewLine := fGetNewLine();
-        AddBodyline('Bonjour,');
+        //ToDo
+        /*AddBodyline('Bonjour,');
         AddBodyline(lTxtNewLine);
         AddBodyline('Suite à votre demande, veuillez trouver ci-joint notre devis.');
         AddBodyline(lTxtNewLine);
@@ -75,7 +75,7 @@ codeunit 50024 "PWD Generation PDF Auto"
         AddBodyline(lTxtNewLine);
         AddBodyline(lRecCompanyInfo."Home Page");
         AddBodyline(lTxtNewLine);
-        NewMessage(lTxtEmail, '', '', STRSUBSTNO(Txt001, lRecSalesHeader."No."), '', lTxtFileName, TRUE);
+        NewMessage(lTxtEmail, '', '', STRSUBSTNO(Txt001, lRecSalesHeader."No."), '', lTxtFileName, TRUE);*/
     end;
 
     procedure GeneratePDFSalesOrder(pCodeDocumentNo: Code[20])
@@ -84,18 +84,17 @@ codeunit 50024 "PWD Generation PDF Auto"
         lRecCustomer: Record Customer;
         lRecReportSelect: Record "Report Selections";
         lRecSalesHeader: Record "Sales Header";
-        Txt001: Label 'GHESQUIERS Confirmation de commande n° %1 / Order confirmation n° %1';
         lTxtNewLine: Text[30];
         lTxtEMail: Text[80];
-        lTxtClientFileName: Text[1024];
         lTxtFileName: Text[1024];
         lTxtStatusFile: Text[1024];
     begin
         lRecSalesHeader.SETRANGE("Document Type", lRecSalesHeader."Document Type"::Order);
         lRecSalesHeader.SETRANGE("No.", pCodeDocumentNo);
         lRecSalesHeader.FINDFIRST();
-        lTxtClientFileName := gCUThreeTierMgt.ClientTempFileName('', '');
-        lTxtFileName := STRSUBSTNO('%1%2.pdf', gCUThreeTierMgt.Path(lTxtClientFileName), lRecSalesHeader."No.");
+        //ToDo
+        //lTxtClientFileName := gCUThreeTierMgt.ClientTempFileName('', '');
+        //lTxtFileName := STRSUBSTNO('%1%2.pdf', gCUThreeTierMgt.Path(lTxtClientFileName), lRecSalesHeader."No.");
         lTxtStatusFile := fInitBullZipPDF(lTxtFileName);
         lRecReportSelect.SETRANGE(Usage, lRecReportSelect.Usage::"S.Order");
         IF NOT lRecReportSelect.FINDFIRST() THEN
@@ -110,7 +109,7 @@ codeunit 50024 "PWD Generation PDF Auto"
             lTxtEMail := lRecCustomer."E-Mail";
         lRecCompanyInfo.FINDFIRST();
         lTxtNewLine := fGetNewLine();
-        AddBodyline('Bonjour,');
+        /*AddBodyline('Bonjour,');
         AddBodyline(lTxtNewLine);
         AddBodyline('Nous vous prions de bien vouloir trouver ci-joint votre confirmation de commande.');
         AddBodyline(lTxtNewLine);
@@ -140,7 +139,7 @@ codeunit 50024 "PWD Generation PDF Auto"
         AddBodyline(lTxtNewLine);
         AddBodyline(lRecCompanyInfo."Home Page");
         AddBodyline(lTxtNewLine);
-        NewMessage(lTxtEMail, '', '', STRSUBSTNO(Txt001, lRecSalesHeader."No."), '', lTxtFileName, TRUE);
+        NewMessage(lTxtEMail, '', '', STRSUBSTNO(Txt001, lRecSalesHeader."No."), '', lTxtFileName, TRUE);*/
     end;
 
     procedure GeneratePDFPurchaseOrder(pCodeDocumentNo: Code[20])
@@ -149,22 +148,17 @@ codeunit 50024 "PWD Generation PDF Auto"
         lRecPurchaseHeader: Record "Purchase Header";
         lRecReportSelect: Record "Report Selections";
         lRecVendor: Record Vendor;
-        Txt001: Label 'GHESQUIERS Nouvelle commande n° %1 / New order n° %1';
-        Txt002: Label 'Nous vous prions de bien vouloir trouver ci-joint notre nouvelle commande n° %1 pour le navire %2.';
-        Txt003: Label 'Please find attached a new order n° %1 for the vessel %2.';
-        Txt004: Label 'Cette commande est à nous livrer le %1.';
-        Txt005: Label 'Picking will be done on %1.';
         lTxtNewLine: Text[30];
         lTxtEmail: Text[80];
-        lTxtClientFileName: Text[1024];
         lTxtFileName: Text[1024];
         lTxtStatusFile: Text[1024];
     begin
         lRecPurchaseHeader.SETRANGE("Document Type", lRecPurchaseHeader."Document Type"::Order);
         lRecPurchaseHeader.SETRANGE("No.", pCodeDocumentNo);
         lRecPurchaseHeader.FINDFIRST();
-        lTxtClientFileName := gCUThreeTierMgt.ClientTempFileName('', '');
-        lTxtFileName := STRSUBSTNO('%1%2.pdf', gCUThreeTierMgt.Path(lTxtClientFileName), lRecPurchaseHeader."No.");
+        //ToDo
+        //lTxtClientFileName := gCUThreeTierMgt.ClientTempFileName('', '');
+        //lTxtFileName := STRSUBSTNO('%1%2.pdf', gCUThreeTierMgt.Path(lTxtClientFileName), lRecPurchaseHeader."No.");
         lTxtStatusFile := fInitBullZipPDF(lTxtFileName);
         lRecReportSelect.SETRANGE(Usage, lRecReportSelect.Usage::"P.Order");
         IF NOT lRecReportSelect.FINDFIRST() THEN
@@ -179,7 +173,7 @@ codeunit 50024 "PWD Generation PDF Auto"
             lTxtEmail := lRecVendor."E-Mail";
         lRecCompanyInfo.FINDFIRST();
         lTxtNewLine := fGetNewLine();
-        AddBodyline('Bonjour,');
+        /*AddBodyline('Bonjour,');
         AddBodyline(lTxtNewLine);
         AddBodyline(STRSUBSTNO(Txt002, lRecPurchaseHeader."No.", lRecPurchaseHeader."Buy-from Contact"));
         AddBodyline(lTxtNewLine);
@@ -218,6 +212,7 @@ codeunit 50024 "PWD Generation PDF Auto"
         AddBodyline(lRecCompanyInfo."Home Page");
         AddBodyline(lTxtNewLine);
         NewMessage(lRecVendor."E-Mail", '', '', STRSUBSTNO(Txt001, lRecPurchaseHeader."No."), '', lTxtFileName, TRUE);
+    */
     end;
 
     procedure SetPrinterSelection(pReportID: Integer)
@@ -258,30 +253,31 @@ codeunit 50024 "PWD Generation PDF Auto"
 
     procedure fInitBullZipPDF(pTxtFileName: Text[1024]) rTxtStatusFile: Text[1024]
     begin
-        rTxtStatusFile := gCUThreeTierMgt.ClientTempFileName('', 'ini');
-        BullZipPDF := BullZipPDF.ComPdfSettings;
-        BullZipPDFUtil := BullZipPDFUtil.ComPdfUtil;
-        Init;
-        PrinterName := BullZipPDFUtil.DefaultPrinterName;
-        SetValue('Output', pTxtFileName);
-        SetValue('ShowSaveAs', 'never');
-        SetValue('ShowSettings', 'never');
-        SetValue('ShowPDF', 'no');
-        SetValue('ShowProgress', 'no');
-        SetValue('ShowProgressFinished', 'no');
-        SetValue('SuppressErrors', 'yes');
-        SetValue('ConfirmOverwrite', 'no');
-        SetValue('StatusFile', rTxtStatusFile);
-        WriteSettings(TRUE);
+        /*  rTxtStatusFile := gCUThreeTierMgt.ClientTempFileName('', 'ini');
+         BullZipPDF := BullZipPDF.ComPdfSettings;
+         BullZipPDFUtil := BullZipPDFUtil.ComPdfUtil;
+         Init;
+          PrinterName := BullZipPDFUtil.DefaultPrinterName;
+          SetValue('Output', pTxtFileName);
+          SetValue('ShowSaveAs', 'never');
+          SetValue('ShowSettings', 'never');
+          SetValue('ShowPDF', 'no');
+          SetValue('ShowProgress', 'no');
+          SetValue('ShowProgressFinished', 'no');
+          SetValue('SuppressErrors', 'yes');
+          SetValue('ConfirmOverwrite', 'no');
+          SetValue('StatusFile', rTxtStatusFile);
+          WriteSettings(TRUE);*/
     end;
 
     local procedure fWaitForFile(pTxtStatusFile: Text[1024])
     begin
-        IF BullZipPDFUtil.WaitForFile(pTxtStatusFile, 20000) THEN BEGIN
+        //ToDo
+        /*IF BullZipPDFUtil.WaitForFile(pTxtStatusFile, 20000) THEN BEGIN
             IF BullZipPDFUtil.ReadIniString(pTxtStatusFile, 'Status', 'Errors', '') <> '0' THEN
                 ERROR('Erreur lors de la création du PDF. %1', BullZipPDFUtil.ReadIniString(pTxtStatusFile, 'Status', 'MessageText', ''));
         END ELSE
-            ERROR('Erreur lors de la création du PDF.');
+            ERROR('Erreur lors de la création du PDF.');*/
     end;
 
     local procedure fGetNewLine(): Text[30]
@@ -294,4 +290,3 @@ codeunit 50024 "PWD Generation PDF Auto"
         EXIT(FORMAT(CR) + FORMAT(LF))
     end;
 }
-

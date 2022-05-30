@@ -1,14 +1,7 @@
 report 50016 "PWD Calcul PU=CU*coef"
 {
-    // --------------------------------------------
-    // Prodware - www.prodware.fr
-    // --------------------------------------------
-    // //>>SOBI
-    // P3346_0011 RO.LALE REGIE 11/07/2013 : - Création report de traitement utilisé dans les cdes et devis vente
-    // P3346_0011 RO.LALE REGIE 15/07/2013 : - correctif suite test.
-
     ProcessingOnly = true;
-
+UsageCategory = None;
     dataset
     {
         dataitem("Sales Header"; "Sales Header")
@@ -21,21 +14,20 @@ report 50016 "PWD Calcul PU=CU*coef"
 
                 trigger OnAfterGetRecord()
                 begin
-                    "Sales Line".VALIDATE("Unit Price", ROUND("Sales Line"."Unit Cost" * DecGCoefficient, 0.01));
+                    "Sales Line".VALIDATE("Unit Price", ROUND("Sales Line"."Unit Cost" * "PWD DecGCoefficient", 0.01));
                     "Sales Line".MODIFY();
                 end;
             }
 
             trigger OnPostDataItem()
             begin
-                MESSAGE('Prix unitaire des lignes calculés sur le coût unitaire avec coefficient %1', DecGCoefficient);
+                MESSAGE('Prix unitaire des lignes calculés sur le coût unitaire avec coefficient %1', "PWD DecGCoefficient");
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -43,7 +35,7 @@ report 50016 "PWD Calcul PU=CU*coef"
                 group(Options)
                 {
                     Caption = 'Options';
-                    field(DecGCoefficient; DecGCoefficient)
+                    field(DecGCoefficient; "PWD DecGCoefficient")
                     {
                         Caption = 'Coefficient à appliquer';
                         ApplicationArea = All;
@@ -62,6 +54,5 @@ report 50016 "PWD Calcul PU=CU*coef"
     }
 
     var
-        DecGCoefficient: Decimal;
+        "PWD DecGCoefficient": Decimal;
 }
-

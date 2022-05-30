@@ -20,7 +20,6 @@ pageextension 50080 "PWD PostedPurchaseCreditMemo" extends "Posted Purchase Cred
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

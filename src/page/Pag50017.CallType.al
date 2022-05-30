@@ -1,12 +1,9 @@
 page 50017 "PWD Call Type"
 {
-    // 31.01.2006    C2A(LLE)  add New fields
-    //                         Ne pas imprimer DLC sur BP
-    //                         Pas de saut de page sur BP
-
     Caption = 'Call Type';
     PageType = List;
     SourceTable = "PWD Call Type";
+    UsageCategory = None;
 
     layout
     {
@@ -78,4 +75,3 @@ page 50017 "PWD Call Type"
         CurrPage.LOOKUPMODE := TRUE;
     end;
 }
-

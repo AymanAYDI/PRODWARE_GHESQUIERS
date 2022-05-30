@@ -127,9 +127,6 @@ pageextension 50074 "PWD PostedPurchaseRcptSubform" extends "Posted Purchase Rcp
             {
                 ApplicationArea = All;
             }
-
         }
-
     }
-
 }

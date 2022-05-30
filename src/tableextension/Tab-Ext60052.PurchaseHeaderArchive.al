@@ -8,7 +8,5 @@ tableextension 60052 "PWD PurchaseHeaderArchive" extends "Purchase Header Archiv
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-
     }
 }
-

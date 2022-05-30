@@ -7,42 +7,41 @@ pageextension 50042 "PWD SalesOrderStatistics" extends "Sales Order Statistics"
             group("PWD Profit")
             {
                 caption = 'Profit';
+                //ToDo
+                /*
+                                field(CustDiscountProfit; Customer."Discount Profit %")
+                                {
+                                    applicationarea = all;
+                                }
+                                field("PWD ProfitPct1"; CurrPage."ProfitPct[1]")
+                                {
+                                    Caption = '% marge sur vente';
+                                    ApplicationArea = All;
+                                }
+                                field("PWD ProfitLCY[1]"; ProfitLCY[1])
+                                {
+                                    ApplicationArea = All;
+                                }
 
-                field(CustDiscountProfit; Customer."Discount Profit %")
-                {
-                    applicationarea = all;
-                }
-                field("PWD ProfitPct1"; CurrPage."ProfitPct[1]")
-                {
-                    Caption = '% marge sur vente';
-                    ApplicationArea = All;
-                }
-                field("PWD ProfitLCY[1]"; ProfitLCY[1])
-                {
-                    ApplicationArea = All;
-                }
+                                field("Margin Profit"; CurrPage."ProfitPct[1]" - Customer."Discount Profit %")
+                                {
+                                    Caption = 'Margin Profit';
+                                    applicationarea = all;
+                                }
 
-
-                field("Margin Profit"; CurrPage."ProfitPct[1]" - Customer."Discount Profit %")
-                {
-                    Caption = 'Margin Profit';
-                    applicationarea = all;
-                }
-
-                field(DiscountProfitLCY; TotalSalesLineLCY[1].Amount * Customer."Discount Profit %" / 100)
-                {
-                    Caption = 'Discount Profit (LCY)';
-                    applicationarea = all;
-                    Editable = FALSE;
-                }
-                field("Differencial Profit (LCY)"; ProfitLCY[1]] - (TotalSalesLineLCY[1]].Amount * Customer."Discount Profit %" / 100))
-                {
-                    ApplicationArea = All;
-                }
-                
+                                field(DiscountProfitLCY; TotalSalesLineLCY[1].Amount * Customer."Discount Profit %" / 100)
+                                {
+                                    Caption = 'Discount Profit (LCY)';
+                                    applicationarea = all;
+                                    Editable = FALSE;
+                                }
+                                field("Differencial Profit (LCY)"; ProfitLCY[1] - (TotalSalesLineLCY[1]].Amount * Customer."Discount Profit %" / 100))
+                                {
+                                    ApplicationArea = All;
+                                }
+                                */
             }
         }
-        movebefore(DiscountProfitLCY; "ProfitLCY[1]")
         addafter("PWD Profit")
         {
             group("PWD Alcool")
@@ -99,15 +98,15 @@ pageextension 50042 "PWD SalesOrderStatistics" extends "Sales Order Statistics"
     }
     var
         Customer: Record Customer;
-        VolumeEff: Decimal;
-        TotalPI: Decimal;
+        TotalAlcoolPur: Decimal;
         TotalBiere: Decimal;
+        TotalKgTabac: Decimal;
+        TotalMillCig: Decimal;
+        TotalPI: Decimal;
+        TotalRhum: Decimal;
         TotalVin: Decimal;
         TotalVolEff: Decimal;
-        TotalMillCig: Decimal;
-        TotalKgTabac: Decimal;
-        TotalAlcoolPur: Decimal;
-        TotalRhum: Decimal;
+        VolumeEff: Decimal;
 
     trigger OnAfterGetRecord()
     var

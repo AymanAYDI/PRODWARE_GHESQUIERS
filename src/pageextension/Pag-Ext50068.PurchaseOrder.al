@@ -100,8 +100,10 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
             part("PWD Purchases Line FactBox"; "PWD Purchases Line FactBox")
             {
                 applicationArea = all;
-                SubPageLink = "Document Type" = FIELD("Document Type"),
-                            "No." = FIELD("Document No.");
+                SubPageLink = "Document Type" = FIELD("Document Type")
+                            //ToDo
+                            //,"No." = FIELD("Document No.")
+                            ;
             }
         }
     }
@@ -217,11 +219,10 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
         PurchRRec.RESET();
         PurchRRec.SETCURRENTKEY("Order No.", "Document Date");
         PurchRRec.SETRANGE("Order No.", Rec."No.");
-        IF PurchRRec.FIND('-') THEN BEGIN
-            DateLastPurchR := FORMAT(PurchRRec."Document Date");
-        END ELSE BEGIN
+        IF PurchRRec.FIND('-') THEN
+            DateLastPurchR := FORMAT(PurchRRec."Document Date")
+        ELSE
             DateLastPurchR := '';
-        END;
     end;
 
     trigger OnAfterGetRecord()
@@ -229,11 +230,10 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
         PurchRRec.RESET();
         PurchRRec.SETCURRENTKEY("Order No.", "Document Date");
         PurchRRec.SETRANGE("Order No.", Rec."No.");
-        IF PurchRRec.FIND('-') THEN BEGIN
-            DateLastPurchR := FORMAT(PurchRRec."Document Date");
-        END ELSE BEGIN
+        IF PurchRRec.FIND('-') THEN
+            DateLastPurchR := FORMAT(PurchRRec."Document Date")
+        ELSE
             DateLastPurchR := '';
-        END;
     end;
 
     procedure PWDSetDocNoVisible()

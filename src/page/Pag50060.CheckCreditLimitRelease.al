@@ -8,7 +8,7 @@ page 50060 "PWD Check Credit Limit Release"
     ModifyAllowed = false;
     PageType = Card;
     SourceTable = Customer;
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -151,7 +151,6 @@ page 50060 "PWD Check Credit Limit Release"
         Heading: Text[80];
         TextHeader: Text[100];
 
-
     procedure SalesHeaderShowWarning(SalesHeader: Record "Sales Header"): Boolean
     begin
         // Used when additional lines are inserted
@@ -224,7 +223,6 @@ page 50060 "PWD Check Credit Limit Release"
         Rec.CALCFIELDS("Balance Due (LCY)");
     end;
 
-
     procedure CalcReturnAmounts(var OutstandingRetOrdersLCY2: Decimal; var RcdNotInvdRetOrdersLCY2: Decimal): Decimal
     begin
         SalesLine.RESET();
@@ -236,4 +234,3 @@ page 50060 "PWD Check Credit Limit Release"
         RcdNotInvdRetOrdersLCY2 := SalesLine."Return Rcd. Not Invd. (LCY)";
     end;
 }
-

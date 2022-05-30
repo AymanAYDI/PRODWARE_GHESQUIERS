@@ -2,7 +2,7 @@ page 50052 "PWD Sous form prestation"
 {
     PageType = ListPart;
     SourceTable = "Item Journal Line";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -54,4 +54,3 @@ page 50052 "PWD Sous form prestation"
     {
     }
 }
-

@@ -165,4 +165,3 @@ tableextension 60027 "PWD SalesCrMemoLine" extends "Sales Cr.Memo Line"
         }
     }
 }
-

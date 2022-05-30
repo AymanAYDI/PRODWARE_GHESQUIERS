@@ -8,7 +8,6 @@ pageextension 50066 "PWD SalesQuoteArchives" extends "Sales Quote Archives"
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

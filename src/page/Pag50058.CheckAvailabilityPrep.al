@@ -7,7 +7,7 @@ page 50058 "PWD Check Availability Prep"
     ModifyAllowed = false;
     PageType = Card;
     SourceTable = Item;
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -140,7 +140,6 @@ page 50058 "PWD Check Availability Prep"
         SchedRcpt: Decimal;
         Text19051598: Label 'The quantity on inventory is not sufficient to cover the net change in inventory.';
 
-
     procedure SalesLineShowWarning(SalesLine: Record "Sales Line"): Boolean
     begin
         OldItemNetChange := 0;
@@ -242,11 +241,9 @@ page 50058 "PWD Check Availability Prep"
         EXIT(ROUND(Qty / QtyPerUnitOfMeasure, 0.00001));
     end;
 
-
     procedure GetSetupData()
     begin
         CompanyInfo.GET();
         SetupDataIsPresent := TRUE;
     end;
 }
-

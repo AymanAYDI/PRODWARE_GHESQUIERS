@@ -3,11 +3,11 @@ report 50034 "Relevé des Sorties Export 2"
     // ---------------------------------------------------
     // Prodware - www.prodware.fr
     // --------------------------------------------------
-    // 
+    //
     // //>>GHE1.01
     //    FED_010420088report50034_Ghesquiers:SOBI 23/04/08 : - changes
     DefaultLayout = RDLC;
-    RDLCLayout = './rdl/RelevédesSortiesExport2.rdl';
+    RDLCLayout = './src/report/rdl/RelevédesSortiesExport2.rdl';
 
     Permissions = TableData "Sales Shipment Line" = rm,
                   TableData "Sales Cr.Memo Line" = rm;
@@ -134,7 +134,6 @@ report 50034 "Relevé des Sorties Export 2"
                     END;
                     //<<FED_010420088report50034_Ghesquiers
 
-
                     Item.RESET();
                     IF NOT Item.GET("Sales Shipment Line"."No.") THEN Item.INIT();
 
@@ -154,7 +153,6 @@ report 50034 "Relevé des Sorties Export 2"
                     END;
 
                     "Sales Shipment Line".MODIFY();
-
                 end;
 
                 trigger OnPreDataItem()
@@ -173,7 +171,6 @@ report 50034 "Relevé des Sorties Export 2"
                 //CurrReport.CREATETOTALS(NetWeight);
                 //CurrReport.CREATETOTALS(DSACrMemoWeight,DSACrMemoAmount);
                 //CurrReport.CREATETOTALS(LineWeight,Lineamount);
-
 
                 LocationFilter := GETFILTER("PWD Location Filter");
                 DateFilter := GETFILTER("Posting Date");
@@ -299,6 +296,7 @@ report 50034 "Relevé des Sorties Export 2"
                 begin
                     SETFILTER("Location Code", LocationFilter);
                     SETRANGE(Type, "Sales Cr.Memo Line".Type::Item);
+
                     // CurrReport.CREATETOTALS(NetWeight);
                     // CurrReport.CREATETOTALS(Amount, "Line Amount");
                 end;
@@ -419,7 +417,6 @@ report 50034 "Relevé des Sorties Export 2"
                 Lineamount := "PWD Line Amount";//-DSACrMemoAmount;
             end;
 
-
             trigger OnPreDataItem()
             begin
                 DSACrMemoWeight := 0;
@@ -439,7 +436,6 @@ report 50034 "Relevé des Sorties Export 2"
 
     requestpage
     {
-
         layout
         {
         }
@@ -519,7 +515,6 @@ report 50034 "Relevé des Sorties Export 2"
         DSACrMemoWeight := 0;
         DSACrMemoAmount := 0;
 
-
         FromCRMemoLines.SETCURRENTKEY("Document No.", "PWD Provision/materiel");
 
         FromCRMemoLines.SETFILTER("PWD Posting Date PW", DateFilter);
@@ -544,5 +539,5 @@ report 50034 "Relevé des Sorties Export 2"
         TotalCrMemoWeight += DSACrMemoWeight;
         TotalCrMemoAmount += DSACrMemoAmount;
     end;
-}
 
+}

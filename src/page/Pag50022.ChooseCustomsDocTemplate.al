@@ -2,7 +2,7 @@ page 50022 "Choose Customs Doc Template"
 {
     Caption = 'Choose Customs Doc Template';
     PageType = Card;
-
+UsageCategory = None;
     layout
     {
         area(content)
@@ -23,10 +23,8 @@ page 50022 "Choose Customs Doc Template"
     var
         DocumentTemplateCode: Code[10];
 
-
     procedure GetFields(var GetDocTemplateCode: Code[10])
     begin
         GetDocTemplateCode := DocumentTemplateCode;
     end;
 }
-

@@ -28,4 +28,3 @@ table 50012 "PWD Ligne saisie prestation"
     {
     }
 }
-

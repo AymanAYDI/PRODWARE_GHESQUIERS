@@ -4,7 +4,7 @@ page 50014 "PWD RateCalculationRestitution"
     Caption = 'Rate for Calculation Restitution';
     PageType = List;
     SourceTable = "PWD RateRestitutionCalculation";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -40,4 +40,3 @@ page 50014 "PWD RateCalculationRestitution"
     {
     }
 }
-

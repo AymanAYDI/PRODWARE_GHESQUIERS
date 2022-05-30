@@ -19,7 +19,6 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
             {
                 ApplicationArea = All;
             }
-
         }
         addafter("Sell-to Contact")
         {
@@ -46,7 +45,6 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
             {
                 ApplicationArea = All;
             }
-
         }
         addafter(Status)
         {
@@ -64,11 +62,12 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 ApplicationArea = All;
                 trigger OnValidate()
                 begin
-
-                    Memberof.SETRANGE(Memberof."User ID", USERID);
-                    Memberof.SETRANGE(Memberof."Role ID", CstG002);
-                    IF NOT Memberof.FIND('-') THEN
-                        ERROR(cstG004);
+                    //ToDo
+                    /*
+                                        Memberof.SETRANGE(Memberof."User ID", USERID);
+                                        Memberof.SETRANGE(Memberof."Role ID", CstG002);
+                                        IF NOT Memberof.FIND('-') THEN
+                                            ERROR(cstG004);*/
                 end;
             }
             field("PWD DateLastPurchR"; DateLastPurchR)
@@ -198,7 +197,6 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
             {
                 ApplicationArea = All;
             }
-
         }
     }
     actions
@@ -251,7 +249,8 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 BEGIN
                     IF Rec."PWD Preparation in process" = FALSE THEN MESSAGE(cstG004);
                     CurrPage.SETSELECTIONFILTER(SalesHeader);
-                    REPORT.RUN(REPORT::"Picking List Unit Price Null", TRUE, TRUE, SalesHeader);
+                    //ToDo
+                    //REPORT.RUN(REPORT::"Picking List Unit Price Null", TRUE, TRUE, SalesHeader);
                     REPORT.RUN(REPORT::"Picking List", TRUE, TRUE, SalesHeader);
                 END;
             }
@@ -280,7 +279,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                     RecLSalesHeader.RESET();
                     RecLSalesHeader.SETRANGE("Document Type", Rec."Document Type");
                     RecLSalesHeader.SETRANGE("No.", Rec."No.");
-                    REPORT.RUN(REPORT::"Calcul PU=CU*coef", TRUE, TRUE, RecLSalesHeader);
+                    REPORT.RUN(REPORT::"PWD Calcul PU=CU*coef", TRUE, TRUE, RecLSalesHeader);
                 END;
             }
             action("PWD Confirm. commande PDF / Mail")
@@ -353,7 +352,6 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
         }
         addafter("&Print")
         {
-
             separator("PWD Separator23")
             {
             }
@@ -469,7 +467,8 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                     caption = 'Disponibilit‚ Art. Mag.';
                     Trigger OnAction()
                     BEGIN
-                        CurrPage.SalesLines.Page.ItemAvailability(2);
+                        //ToDo
+                        //CurrPage.SalesLines.Page.ItemAvailability(2);
                     END;
                 }
             }
@@ -543,11 +542,10 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
         PurchRRec.RESET();
         PurchRRec.SETCURRENTKEY("Order No.", "Document Date");
         PurchRRec.SETRANGE("Order No.", Rec."No.");
-        IF PurchRRec.FIND('-') THEN BEGIN
-            DateLastPurchR := FORMAT(PurchRRec."Document Date");
-        END ELSE BEGIN
+        IF PurchRRec.FIND('-') THEN
+            DateLastPurchR := FORMAT(PurchRRec."Document Date")
+        ELSE
             DateLastPurchR := '';
-        END;
     end;
 
     trigger OnAfterGetRecord()
@@ -555,11 +553,10 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
         PurchRRec.RESET();
         PurchRRec.SETCURRENTKEY(PurchRRec."Order No.", PurchRRec."Document Date");
         PurchRRec.SETRANGE(PurchRRec."Order No.", Rec."No.");
-        IF PurchRRec.FIND('-') THEN BEGIN
-            DateLastPurchR := FORMAT(PurchRRec."Document Date");
-        END ELSE BEGIN
+        IF PurchRRec.FIND('-') THEN
+            DateLastPurchR := FORMAT(PurchRRec."Document Date")
+        ELSE
             DateLastPurchR := '';
-        END;
     END;
 
     trigger OnModifyRecord(): Boolean
@@ -568,13 +565,13 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
     END;
 
     var
-        Memberof: Record 2000000003;
+        //ToDo
+        //Memberof: Record 2000000003;
         SalesHeader: Record "Sales Header";
         PurchRRec: Record "Sales Shipment Header";
         CreatePurchQuote: Report "Create Purchase Quote r -TrB";
         ValidateSalesOrder: Report "PWD Validate Sales Order";
         UserMgt: Codeunit "User Setup Management";
-        CstG002: label 'SUPER';
         cstG004: Label 'Vous n''avez pas les droits pour modifier ce champ !';
         DateLastPurchR: Text[30];
 }

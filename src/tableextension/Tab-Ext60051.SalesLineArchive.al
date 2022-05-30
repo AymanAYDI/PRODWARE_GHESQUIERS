@@ -20,4 +20,3 @@ tableextension 60051 "PWD SalesLineArchive" extends "Sales Line Archive"
         }
     }
 }
-

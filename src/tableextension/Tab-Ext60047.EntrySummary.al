@@ -28,4 +28,3 @@ tableextension 60047 "PWD EntrySummary" extends "Entry Summary"
         }
     }
 }
-

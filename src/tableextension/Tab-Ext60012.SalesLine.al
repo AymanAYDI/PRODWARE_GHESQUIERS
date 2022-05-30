@@ -3,11 +3,11 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
     // ------------------------------------------------------------------------------------------------------------------------------------
     // Prodware : www.prodware.fr
     // ------------------------------------------------------------------------------------------------------------------------------------
-    // 
+    //
     // //>>MIGRATION2009R2
-    // 
+    //
     // ------------------------------------------------------------------------------------------------------------------------------------
-    // 
+    //
     // *** Contremarque - C2A
     // 03.11.2004    C2A.LLE AddNewFields
     //                  70010 Methode de Calcul (prestation)
@@ -21,7 +21,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
     // 20.02.06      C2A(LLE) add new fields cf commande CDVN001047
     //                        70015 - preparation to recalculate
     //                        70016 - loc. Code for prepa to recalc.
-    // 
+    //
     // 20.06.06     C2A(LLE)   Modif in trigger Quantity - OnValidate() cf appel 12377
     // 07/06/07     C2A(LLE)   cf appel NAV0016498  suite livraison dev de JRA modif in trigger
     //                                 GetUnitCost()
@@ -35,7 +35,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
     //                                 No. - OnValidate()
     // 03/10/07     C2A(LE)    cf appel NAV0017476 ajout clé de tri
     //                              Document Type,Document No.,Location Code,Shelf/Bin No.,Family Code,No.
-    // 
+    //
     // -------------------------------------------------
     // Prodware - www.prodware.fr
     // -------------------------------------------------
@@ -43,61 +43,61 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
     // FED_ADV_20090827_IMP_CDEVENTE_V2 :SOBI 19/10/2009 - SALES ORDER SEAFRANCE
     //                                                     Add Fields ID 50023 "New Item"
     //                                                                ID 50024 "Seafrance Order Line No."
-    // 
+    //
     // //>>GHES1.02
     // FED_ADV_20090827_IMP_CDEVENTE_V2_NEW_DEMANDE :SOBI 05/03/2010 - SALES ORDER SEAFRANCE (NEW DEMANDE)
     //                                                     Add Fields ID 50053 "Coefficient SEAFRANCE"
     //                                                                ID 50054 "Quantity SEAFRANCE"
-    // 
+    //
     // >>GHE-RE1.00:DO 08/04/2011 :
     //   - Ajout d'indicateur
     //   - Retrait commentaire
-    // 
+    //
     // >>GHE-RE1.00:DO 06/05/2011 :
     //   - add field "newpage" for report 50042
-    // 
+    //
     // //>>MODIF HL
     // TI062523.001 DO.ALMI 21/09/2011  : - Add condition item Nonstock function
     //                                      CheckavailforPriorityLocation
-    // 
+    //
     // //>>GHES1.20
     // P3346_0011 DO.ALMI SOBI 12/04/2012 : - Add new key "Document Type","Document No.","Location Code",Family,"No."
-    // 
+    //
     // //>>GHES1.30
     // P3346_0011 DO.ALMI REGIE 22/08/2012:-  Add SEAF Code item to sales line
     //                                        Create new field
     //                                        "Item SEAF Code" Onvalidate,OnlookUp
-    // 
+    //
     // //>>SOBI
     // P3346_0011 RO.LALE REGIE 11/07/2013 : - Modif Trigger Quantity - OnValidate()
     //                                       - add function FctPushVendorAndUnitPriceItem
-    // 
+    //
     // //>>SOBI
     // P3346_0015 RO.LALE REGIE 25/02/2015 : - Add Function FctSetHideMessage
     //                                       - Add C/AL Global BooGHideMessage
     //                                       - Modif C/AL Code in trigger CtrlUnitPrice()
-    // 
+    //
     // //>>NDBI (P25940_001)
     // LALE.RO : 29/05/2018 : cf NDBI ID 258
     //                     - MODIF C/AL Code in trigger No. - OnValidate()
-    // 
+    //
     // //>>NDBI (P25940_001)
     // LALE.RO : 30/05/2018 : cf NDBI ID 580
     //                       Add Fields 50031 - Item SEAF Code 2 - Code20
     //                                  50032 - Item SEAF Code 3 - Code20
     //                       Add C/AL Code in trigger  No. - OnValidate()
-    // 
+    //
     // //>> 14/10/2019 SU-DADE cf appel TI474110
     // //   ctrlunitprice()
     // //<< 14/10/2019 SU-DADE cf appel TI474110
-    // 
+    //
     // //>>NDBI (P27817_002)
     // LALE.PA : 27/01/2021 : cf TDD_SAS GHESQUIERS JPG_Ajout champs_V1 suite TI521553
     //                       Add Fields 50033 - SEAF Code 4 - Code20
     //                                  50034 - SEAF Code 5 - Code20
     //                       Add C/AL Code in trigger  No. - OnValidate()
-    // 
-    // 
+    //
+    //
     // ------------------------------------------------------------------------------------------------------------------------------------
 
     fields
@@ -233,9 +233,12 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
                 // BEGIN 06-07-05 Ajout C2A(LLE) suite appel 8620  On mémorise "Unit Price" et "Line Discount %" car suite aux
                 // validate qui suivent les valeurs saisies se perdaient.
                 MemLineDiscount := "Line Discount %";
+                SetGetFunctions.SetMemLineDiscount(MemLineDiscount);
                 MemUnitPrice := "Unit Price";
+                SetGetFunctions.SetMemUnitPrice(MemUnitPrice);
+                //ToDo  // "CalcBaseQty": fct local
+                //VALIDATE("PWD Prepared Quantity (Base)", CalcBaseQty("PWD Prepared Quantity", FieldCaption("PWD Prepared Quantity"), FieldCaption("PWD Prepared Quantity (Base)")));
 
-                VALIDATE("PWD Prepared Quantity (Base)", CalcBaseQty("PWD Prepared Quantity", FieldCaption("PWD Prepared Quantity"), FieldCaption("PWD Prepared Quantity (Base)")));
                 "PWD Adjmt Prepared Qty" := Quantity - "PWD Prepared Quantity";
 
                 IF CurrFieldNo = FIELDNO("PWD Prepared Quantity") THEN
@@ -246,10 +249,11 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
 
                 // BEGIN 06-07-05 Ajout C2A(LLE) suite appel 8620  On mémorise "Unit Price" et "Line Discount %" car suite aux
                 // validate qui suivent les valeurs saisies se perdaient.
-                VALIDATE("Line Discount %", MemLineDiscount);
-                VALIDATE("Unit Price", MemUnitPrice);
+                //VALIDATE("Line Discount %", MemLineDiscount);
+                VALIDATE("Line Discount %", SetGetFunctions.GetMemLineDiscount());
+                //VALIDATE("Unit Price", MemUnitPrice);
+                VALIDATE("Unit Price", SetGetFunctions.GetMemUnitPrice());
                 MODIFY(TRUE);
-
             end;
         }
         field(50018; "PWD Prepared Quantity (Base)"; Decimal)
@@ -880,10 +884,12 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
 
     procedure UpdateTradingBrade(create: Boolean)
     begin
+        //ToDo
+        /*
         IF create = TRUE THEN
             GetSalesOrder.Create(Rec)
         ELSE
-            DeleteAppTenders_quote();
+            DeleteAppTenders_quote();*/
     end;
 
     procedure DeleteAppTenders_quote()
@@ -893,8 +899,6 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         PurchQuoteLine2: Record "Purchase Line";
         AppTenders: Record "PWD Appeal for Tenders";
     begin
-
-
 
         //------------------------------------------------------------------//
         //*** ajout sca - c2a - Contremarque - suppression appel d'offre et demande de prix.
@@ -908,14 +912,10 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         IF "PWD Nb Purchase Quote" <> 0 THEN
             ERROR(Text1000000001, "PWD Nb Purchase Quote");
 
-
-
         PurchQuoteLine.SETCURRENTKEY("PWD Sales Type Doc Appeal tenders", "PWD Sales No. Appeal Tenders", "PWD Sales Line No. Appeal Tenders");
         PurchQuoteLine.SETRANGE("PWD Sales Type Doc Appeal tenders", "Document Type".AsInteger());
         PurchQuoteLine.SETRANGE("PWD Sales No. Appeal Tenders", "Document No.");
         PurchQuoteLine.SETRANGE("PWD Sales Line No. Appeal Tenders", "Line No.");
-
-
 
         IF PurchQuoteLine.COUNT <> 0 THEN BEGIN
             PurchQuoteLine.FIND('-');
@@ -924,17 +924,15 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
                 PurchQuoteLine2.SETRANGE("Document Type", PurchQuoteLine."Document Type");
                 PurchQuoteLine2.SETRANGE("Document No.", PurchQuoteLine."Document No.");
                 PurchQuoteLine.DELETE();
-
-                DimMgt.DeleteDocDim(DATABASE::"Purchase Line", PurchQuoteLine."Document Type", PurchQuoteLine."Document No.",
-                   PurchQuoteLine."Line No.");
-
+                //ToDo
+                //DimMgt.DeleteDocDim(DATABASE::"Purchase Line", PurchQuoteLine."Document Type", PurchQuoteLine."Document No.",
+                // PurchQuoteLine."Line No.");
 
                 //*** si plus de ligne on supprime l'entete
                 IF PurchQuoteLine2.COUNT = 0 THEN BEGIN
                     PurchQuoteHeader.GET(PurchQuoteLine."Document Type", PurchQuoteLine."Document No.");
                     PurchQuoteHeader.DELETE();
                 END;
-
             UNTIL PurchQuoteLine.NEXT() = 0;
         END;
     end;
@@ -953,7 +951,6 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         AppTenders.SETRANGE("Line No. document", "Line No.");
         IF AppTenders.FIND('-') THEN
             AppTenders.DELETEALL();
-
 
         PurchQuoteLine.SETCURRENTKEY("PWD Sales Type Doc Appeal tenders", "PWD Sales No. Appeal Tenders", "PWD Sales Line No. Appeal Tenders");
 
@@ -981,6 +978,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
 
     procedure CheckavailforPriorityLocation(CalledbyFieldNo: Integer; SalesLine: Record "Sales Line"; Deletion: Boolean)
     var
+        SalesHeader: Record "Sales Header";
         NetChange: Boolean;
         AvailableInventory: Decimal;
         OldItemNetChange: Decimal;
@@ -990,7 +988,6 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         IF (Type = Type::Item) AND (Nonstock = FALSE) AND ("No." <> '') THEN BEGIN
             GetItem(Item);
 
-
             IF xRec."Outstanding Qty. (Base)" = 0 THEN
                 NetChange := FALSE;
             IF NetChange = TRUE THEN
@@ -998,12 +995,12 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             RecLocPriority.RESET();
             RecLocPriority.SETCURRENTKEY("PWD Call Type Code", "PWD Location priority"); //gte
             RecLocPriority.ASCENDING(TRUE); //gte
+            SalesHeader.Get(Rec."Document Type", Rec."Document No.");
             RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", SalesHeader."PWD Call Type");
             IF RecLocPriority.FIND('-') THEN BEGIN
                 REPEAT
                     AvailableInventory += CalculateNeed(RecLocPriority."PWD Location code", "Shipment Date");
                 UNTIL RecLocPriority.NEXT() = 0;
-
 
                 IF NetChange = TRUE THEN
                     AvailableInventory := Item."PWD Buffer Qty Available" + OldItemNetChange ELSE
@@ -1061,17 +1058,17 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
                 IF Location.GET("Location Code") AND (Location."PWD Controle du prix plancher") THEN BEGIN
 
                     BottomPrice := Item."PWD Bottom Price";
-                    IF SalesHeader."Currency Code" <> '' THEN
+                    //ToDo
+                    /*IF SalesHeader."Currency Code" <> '' THEN
                         BottomPrice :=
                          ROUND(
                            CurrExchRate.ExchangeAmtLCYToFCY(
                              GetDate(), SalesHeader."Currency Code",
                              BottomPrice, SalesHeader."Currency Factor"),
-                             Currency."Unit-Amount Rounding Precision");
+                             Currency."Unit-Amount Rounding Precision");*/
                     IF "Unit Price" < BottomPrice THEN
                         MESSAGE(Text1000000023, "Unit Price", BottomPrice);
                 END;
-
     end;
 
     procedure CalcRealisedProfit()
@@ -1097,7 +1094,6 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             "PWD Previous Line No" := "Line No.";
     end;
 
-
     procedure FctPushVendorAndUnitCostItem()
     var
         RecLItem: Record Item;
@@ -1122,16 +1118,16 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         BooGHideMessage := BooPHideMessage;
     end;
 
-
     var
 
         Item: Record Item;
         RecCall: Record "PWD Call";
         RecLocPriority: Record "PWD Location Priority";
         LinkedtoCommentSalesLine: Record "Sales Line";
+        SetGetFunctions: codeunit "PWD Set/Get Functions";
 
-
-        GetSalesOrder: Report "Get Sales Orders/Vendor -TrB";
+        //ToDo
+        //  GetSalesOrder: Report "Get Sales Orders/Vendor -TrB";
         BooGHideMessage: Boolean;
         MemLineDiscount: Decimal;
         MemUnitPrice: Decimal;
@@ -1142,4 +1138,3 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         Text1000000023: Label 'Unit price (%1) is smaller than bottom price (%2)';
         Text1000000026: Label 'You cannot prepare a greater quantity than the ordered one !';
 }
-

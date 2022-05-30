@@ -2,7 +2,7 @@ report 50126 "Validate And Print Sales Order"
 {
     Caption = 'Validate and Print Sales Order';
     ProcessingOnly = true;
-
+    UsageCategory = None;
     dataset
     {
         dataitem(SalesHeader; "Sales Header")
@@ -28,7 +28,6 @@ report 50126 "Validate And Print Sales Order"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -183,9 +182,8 @@ report 50126 "Validate And Print Sales Order"
             IF MemberOf.FIND('-') THEN BEGIN
                 IF CONFIRM(Text1000000000, TRUE, ProfitPct, Cust."Discount Profit %", '%') = FALSE THEN
                     ERROR(Text1000000001, ProfitPct, Cust."Discount Profit %", '%');
-            END ELSE BEGIN
+            END ELSE
                 ERROR(Text1000000001, ProfitPct, Cust."Discount Profit %", '%');
-            END;
         END;
     end;
 
@@ -210,25 +208,25 @@ report 50126 "Validate And Print Sales Order"
                     SalesLine.SETFILTER(SalesLine."PWD Countermark Location", '=%1', FALSE);
                 END;
             SalesHeader."Document Type"::"Return Order":
-                BEGIN
-                    //ToDo
-                    //Selection := STRMENU(Text002,3);
-                    //IF Selection = 0 THEN
-                    //  EXIT;
-                    //Receive := Selection IN [1,3];
-                    //Invoice := Selection IN [2,3];
-                END ELSE
-                        IF NOT
-                           CONFIRM(
-                             Text001, FALSE,
-                             SalesHeader."Document Type")
-                        THEN
-                            EXIT;
+
+                ;
+            //ToDo
+            //Selection := STRMENU(Text002,3);
+            //IF Selection = 0 THEN
+            //  EXIT;
+            //Receive := Selection IN [1,3];
+            //Invoice := Selection IN [2,3];
+            ELSE
+                IF NOT
+                   CONFIRM(
+                     Text001, FALSE,
+                     SalesHeader."Document Type")
+                THEN
+                    EXIT;
         END;
         SalesPost.RUN(SalesHeader);
         GetReport(SalesHeader);
         COMMIT();
-
     end;
 
     procedure InitRequete(SalesHeader1: Record "Sales Header")
@@ -254,7 +252,7 @@ report 50126 "Validate And Print Sales Order"
         SalesLineCtrl.SETRANGE("Document Type", SalesHeader."Document Type");
         SalesLineCtrl.SETRANGE("Document No.", SalesHeader."No.");
         SalesLineCtrl.SETRANGE(Type, SalesLineCtrl.Type::Item);
-        IF SalesLineCtrl.FIND('-') THEN BEGIN
+        IF SalesLineCtrl.FIND('-') THEN
             REPEAT
                 IF Item.GET(SalesLineCtrl."No.") THEN BEGIN
                     BottomPrice := Item."PWD Bottom Price";
@@ -269,12 +267,12 @@ report 50126 "Validate And Print Sales Order"
                     END;
                     Location.GET(SalesLineCtrl."Location Code");
                     IF ((SalesLineCtrl."Unit Price" < BottomPrice) OR (SalesLineCtrl."Unit Price" = 0)) AND
-                       (Location."PWD Controle du prix plancher") THEN BEGIN
-                        IF Avertissement = FALSE THEN BEGIN
+                       (Location."PWD Controle du prix plancher") THEN
+                        IF Avertissement = FALSE THEN
                             ERROR('Document %1 Ligne %2 Article %3 \Le prix unitaire de vente (%4) est inferieur au prix plancher (%5)',
                                    SalesLineCtrl."Document No.", SalesLineCtrl."Line No.", SalesLineCtrl."No.",
-                                   SalesLineCtrl."Unit Price", BottomPrice);
-                        END ELSE BEGIN
+                                   SalesLineCtrl."Unit Price", BottomPrice)
+                        ELSE
                             IF CONFIRM(
                                   'Document %1 Ligne %2 Article %3 \Le prix unitaire de vente (%4) est inferieur au prix plancher (%5) \Continuer ',
                                   TRUE,
@@ -283,12 +281,8 @@ report 50126 "Validate And Print Sales Order"
                                 ERROR('Document %1 Ligne %2 Article %3 \Le prix unitaire de vente (%4) est inferieur au prix plancher (%5)',
                                        SalesLineCtrl."Document No.", SalesLineCtrl."Line No.", SalesLineCtrl."No.",
                                        SalesLineCtrl."Unit Price", BottomPrice);
-                        END
-                    END;
                 END;
             UNTIL SalesLineCtrl.NEXT() = 0;
-        END;
-
     end;
 
     procedure GetReport(var SalesHeader: Record "Sales Header")
@@ -365,4 +359,3 @@ report 50126 "Validate And Print Sales Order"
         UNTIL ReportSelection.NEXT() = 0;
     end;
 }
-

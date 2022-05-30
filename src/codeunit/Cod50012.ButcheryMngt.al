@@ -1,10 +1,8 @@
 codeunit 50012 "PWD ButcheryMngt"
 {
-
     trigger OnRun()
     begin
     end;
-
 
     procedure GetOrigin(ItemJnlLine: Record "Item Journal Line"; EntryLineNo: Integer; var OriginButchEntry: Record "Reservation Entry")
     var
@@ -20,4 +18,3 @@ codeunit 50012 "PWD ButcheryMngt"
             OriginButchEntry.INIT();
     end;
 }
-

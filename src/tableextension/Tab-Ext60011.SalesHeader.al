@@ -3,39 +3,39 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
     // ------------------------------------------------------------------------------------------------------------------------------------
     // Prodware : www.prodware.fr
     // ------------------------------------------------------------------------------------------------------------------------------------
-    // 
+    //
     // //>>MIGRATION2009R2
-    // 
+    //
     // ------------------------------------------------------------------------------------------------------------------------------------
-    // 
+    //
     // *** Contremarque - C2A
     // 30/10/06   C2A(LLE)   modif in trigger Bill-to Customer No. - OnValidate()
-    // 
+    //
     // 14/05/07   C2A JRA DDT 16105 Validate Client facturé Fonction RecreateSalesLine>>>>
-    // 
+    //
     // 16/05/07   C2A LLE suite DDT 16105 on modifie le message du Text048 dans la fonction RecreateSalesLines
-    // 
+    //
     // -------------------------------------------------
     // Prodware - www.prodware.fr
     // -------------------------------------------------
     // //>>GHES1.01
     // FED_ADV_20090827_IMP_CDEVENTE_V2 :SOBI 19/10/2009 - SALES ORDER SEAFRANCE
     //                                                     Add Fields ID 50021 "Seafrance Order No."
-    // 
+    //
     // >>GHE-RE1.00:DO 04/04/2011 :
     //   - ajout d'un oubli de code (No serie)
-    // 
+    //
     // >>GHE-RE1.00:DO 08/04/2011 :
     //   - Ajout d'indicateur
     // >>GHE-RE1.00:DO 12/04/2011 :
     //   - On conserve uniquement le staut "qté expedié"
-    // 
+    //
     // //>>SOBI
     // P3346_0011 RO.LALE REGIE 04/07/2013 : - Modif fonction RecreateSalesLines
-    // 
+    //
     // CF TI238802 : RO : 2014/09/04  - Demande de développemnt sur Ressources dans lignes ventes
     //                                  Modif fonction RecreateSalesLines
-    // 
+    //
     // //>>SOBI
     // P3346_0015 RO.LALE REGIE 18/03/2015 : point 10-11
     //                                - add fields
@@ -96,7 +96,6 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
                     VALIDATE("Posting No. Series", CallType."Posting No. Series");
                     CallType.TESTFIELD("Shipping No. Series");
                     VALIDATE("Shipping No. Series", CallType."Shipping No. Series");
-
                 END;
                 IF "PWD Call Type" = '' THEN BEGIN
                     SalesSetup.GET();
@@ -431,7 +430,13 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
         Text1000000001: Label 'Vous ne pouvez pas modifier de commande au statut %1.';
     begin
         CLEAR(MemberOf);
-        IF ((Status = Status::Released) AND (NOT MemberOf.GET(USERID, 'DIRECTION'))) THEN ERROR(Text1000000001, FORMAT(Status));
+        //IF ((Status = Status::Released) AND (NOT MemberOf.GET(USERID, 'DIRECTION'))) THEN ERROR(Text1000000001, FORMAT(Status));
+        IF (Status = Status::Released) then begin
+            MemberOf.SetRange("User Security ID", UserSecurityId());
+            MemberOf.SetRange("Role Id", 'DIRECTION');
+            If MemberOf.IsEmpty then
+                ERROR(Text1000000001, FORMAT(Status));
+        end;
     end;
 
     var
@@ -443,4 +448,3 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
         CstG002: Label 'Vous devez remplir le poids Brut pour toutes les lignes de vente';
         CstG003: Label 'Vous devez remplir le prix de l''article pour toutes les lignes de vente';
 }
-

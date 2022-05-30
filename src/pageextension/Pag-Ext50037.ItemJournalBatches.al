@@ -23,7 +23,6 @@ pageextension 50037 "PWD ItemJournalBatches" extends "Item Journal Batches"
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

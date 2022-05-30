@@ -7,7 +7,8 @@ page 50041 "Sales Pr Fruits & Vegetables"
     SaveValues = true;
     SourceTable = "Price List Line";
     SourceTableView = WHERE("PWD Family" = CONST('50'));
-
+    ApplicationArea = all;
+    UsageCategory = Tasks;
     layout
     {
         area(content)
@@ -106,6 +107,8 @@ page 50041 "Sales Pr Fruits & Vegetables"
             repeater(Control1)
             {
                 ShowCaption = false;
+                //ToDo
+                /*
                 field("Sales Type"; "Sales Type")
                 {
                     Editable = false;
@@ -116,7 +119,7 @@ page 50041 "Sales Pr Fruits & Vegetables"
                     Editable = "Sales CodeEditable";
                     Visible = false;
                     ApplicationArea = All;
-                }
+                }*/
                 field("Asset No."; Rec."Asset No.")
                 {
                     ApplicationArea = All;
@@ -225,7 +228,8 @@ page 50041 "Sales Pr Fruits & Vegetables"
                 action("Tarif de la semaine")
                 {
                     Caption = 'Tarif de la semaine';
-                    RunObject = Report "Liste prix fruits et légumes";
+                    //ToDo
+                    //RunObject = Report "Liste prix fruits et légumes";
                     ApplicationArea = All;
                 }
             }
@@ -250,7 +254,8 @@ page 50041 "Sales Pr Fruits & Vegetables"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        "Sales Type" := xRec."Sales Type";
+        //ToDo
+        //"Sales Type" := xRec."Sales Type";
         OnAfterGetCurrRecord();
     end;
 
@@ -277,19 +282,19 @@ page 50041 "Sales Pr Fruits & Vegetables"
         ItemNoFilter: Text[250];
         SalesCodeFilter: Text[250];
 
-
     procedure GetRecFilters()
     begin
-        IF Rec.GETFILTERS <> '' THEN BEGIN
-            IF Rec.GETFILTER("Sales Type") <> '' THEN
+        IF Rec.GETFILTERS <> '' THEN
+            //ToDo
+            /*IF Rec.GETFILTER("Sales Type") <> '' THEN
                 SalesTypeFilter := SalesTypeFilter
             ELSE
                 SalesTypeFilter := SalesTypeFilter::None;
 
             SalesCodeFilter := Rec.GETFILTER("Sales Code");
             ItemNoFilter := Rec.GETFILTER("Item No.");
+*/
             CurrencyCodeFilter := Rec.GETFILTER("Currency Code");
-        END;
 
         EVALUATE(StartingDateFilter, Rec.GETFILTER("Starting Date"));
     end;
@@ -297,23 +302,25 @@ page 50041 "Sales Pr Fruits & Vegetables"
     procedure SetRecFilters()
     begin
 
-
         SalesCodeFilterCtrlEnable := TRUE;
+        //ToDo
+        /*
         IF SalesTypeFilter <> SalesTypeFilter::None THEN
             Rec.SETRANGE("Sales Type", SalesTypeFilter)
         ELSE
             Rec.SETRANGE("Sales Type");
-
+*/
         IF SalesTypeFilter IN [SalesTypeFilter::"All Customers", SalesTypeFilter::None] THEN BEGIN
             SalesCodeFilterCtrlEnable := FALSE;
             SalesCodeFilter := '';
         END;
-
-        IF SalesCodeFilter <> '' THEN
-            Rec.SETFILTER("Sales Code", SalesCodeFilter)
-        ELSE
-            Rec.SETRANGE("Sales Code");
-
+        //ToDo
+        /*
+                IF SalesCodeFilter <> '' THEN
+                    Rec.SETFILTER("Sales Code", SalesCodeFilter)
+                ELSE
+                    Rec.SETRANGE("Sales Code");
+        */
         IF StartingDateFilter <> '' THEN
             Rec.SETFILTER("Starting Date", StartingDateFilter)
         ELSE
@@ -329,7 +336,6 @@ page 50041 "Sales Pr Fruits & Vegetables"
         ELSE
             Rec.SETRANGE("Currency Code");
         CurrPage.UPDATE(TRUE);
-
     end;
 
     procedure GetCaption(): Text[250]
@@ -340,12 +346,13 @@ page 50041 "Sales Pr Fruits & Vegetables"
         Description: Text[250];
     begin
         GetRecFilters();
-
-        IF "Sales Type" = "Sales Type"::"All Customers" THEN
-            "Sales CodeEditable" := FALSE
-        ELSE
-            "Sales CodeEditable" := TRUE;
-
+        //ToDo
+        /*
+                IF "Sales Type" = "Sales Type"::"All Customers" THEN
+                    "Sales CodeEditable" := FALSE
+                ELSE
+                    "Sales CodeEditable" := TRUE;
+        */
         SourceTableName := '';
         IF ItemNoFilter <> '' THEN
             SourceTableName := ObjTransl.TranslateObject(ObjTransl."Object Type"::Table, 27);
@@ -415,10 +422,11 @@ page 50041 "Sales Pr Fruits & Vegetables"
     local procedure OnAfterGetCurrRecord()
     begin
         xRec := Rec;
+        //ToDo
+        /*
         IF "Sales Type" = "Sales Type"::"All Customers" THEN
             "Sales CodeEditable" := FALSE
         ELSE
-            "Sales CodeEditable" := TRUE;
+            "Sales CodeEditable" := TRUE;*/
     end;
 }
-

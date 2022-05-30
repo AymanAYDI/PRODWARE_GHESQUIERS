@@ -1,22 +1,7 @@
 report 50044 "PWD Validate Purchase Order"
 {
-    // --------------------------------------------
-    // Prodware - www.prodware.com
-    // --------------------------------------------
-    // >>GHE-RE1.00:DO 07/04/2011 :
-    //   - Design Page
-    // 
-    // 
-    // //>> 20/06/2011 SU-DADE cf appel TI051007
-    // //   Initrequete()
-    // //<< 20/06/2011 SU-DADE cf appel TI051007
-    // 
-    // >>GHE1.10:DO 18/07/2011 :
-    //   - add print function
-    // --------------------------------------------
-
     ProcessingOnly = true;
-
+    UsageCategory = None;
     dataset
     {
         dataitem(PurchHeader; "Purchase Header")
@@ -42,7 +27,6 @@ report 50044 "PWD Validate Purchase Order"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -64,7 +48,7 @@ report 50044 "PWD Validate Purchase Order"
                         Caption = 'Receptionner';
                         ApplicationArea = All;
                     }
-                    field(ToInvoice; ToInvoice)
+                    field(ToInvoice; "PWD ToInvoice")
                     {
                         Caption = 'Facturer';
                         ApplicationArea = All;
@@ -87,7 +71,7 @@ report 50044 "PWD Validate Purchase Order"
         ReportSelection: Record "Report Selections";
         PurchPost: Codeunit "Purch.-Post";
         Gbool_Print: Boolean;
-        ToInvoice: Boolean;
+        "PWD ToInvoice": Boolean;
         ToReceive: Boolean;
         NumDocument: Code[20];
         DocumentDate: Date;
@@ -104,7 +88,7 @@ report 50044 "PWD Validate Purchase Order"
         DocType := PurchHeader1."Document Type".AsInteger();
         NumDocument := PurchHeader1."No.";
         ToReceive := TRUE;
-        ToInvoice := TRUE;
+        "PWD ToInvoice" := TRUE;
     end;
 
     local procedure "Code"()
@@ -115,31 +99,32 @@ report 50044 "PWD Validate Purchase Order"
         PurchHeader.VALIDATE("Posting Date", PostingDate);
         PurchHeader.VALIDATE("Document Date", DocumentDate);
         PurchHeader.Receive := ToReceive;
-        PurchHeader.Invoice := ToInvoice;
+        PurchHeader.Invoice := "PWD ToInvoice";
         // fin ajout
         CASE PurchHeader."Document Type" OF
             PurchHeader."Document Type"::Order:
-                BEGIN
-                    //Selection := STRMENU(Text000,3);
-                    //IF Selection = 0 THEN
-                    //  EXIT;
-                    //Receive := Selection IN [1,3];
-                    //Invoice := Selection IN [2,3];
-                END;
+
+                ;
+            //Selection := STRMENU(Text000,3);
+            //IF Selection = 0 THEN
+            //  EXIT;
+            //Receive := Selection IN [1,3];
+            //Invoice := Selection IN [2,3];
             PurchHeader."Document Type"::"Return Order":
-                BEGIN
-                    //Selection := STRMENU(Text002,3);
-                    //IF Selection = 0 THEN
-                    //  EXIT;
-                    //Ship := Selection IN [1,3];
-                    //Invoice := Selection IN [2,3];
-                END ELSE
-                        IF NOT
-                           CONFIRM(
-                             Text001, FALSE,
-                             PurchHeader."Document Type")
-                        THEN
-                            EXIT;
+
+                ;
+            //Selection := STRMENU(Text002,3);
+            //IF Selection = 0 THEN
+            //  EXIT;
+            //Ship := Selection IN [1,3];
+            //Invoice := Selection IN [2,3];
+            ELSE
+                IF NOT
+                   CONFIRM(
+                     Text001, FALSE,
+                     PurchHeader."Document Type")
+                THEN
+                    EXIT;
         END;
         PurchPost.RUN(PurchHeader);
         //>-> GHE.1.10
@@ -171,4 +156,3 @@ report 50044 "PWD Validate Purchase Order"
         //<-< GHE.1.10
     end;
 }
-

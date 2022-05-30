@@ -6,7 +6,7 @@ report 50003 "Create Purchase Quote r -TrB"
     Caption = 'Create Purchase Quote';
     ProcessingOnly = true;
     UseRequestPage = false;
-
+    UsageCategory = None;
     dataset
     {
         dataitem("PWD Appeal for Tenders"; "PWD Appeal for Tenders")
@@ -42,7 +42,6 @@ report 50003 "Create Purchase Quote r -TrB"
                     END;
                     "PWD Appeal for Tenders".DELETE();
 
-
                     //*** Recherche si derniere ligne détail pour ce doc / ligne
                     AppTenders.SETRANGE("Document Type", "PWD Appeal for Tenders"."Document Type");
                     AppTenders.SETRANGE("Document No.", "PWD Appeal for Tenders"."Document No.");
@@ -77,7 +76,6 @@ report 50003 "Create Purchase Quote r -TrB"
 
     requestpage
     {
-
         layout
         {
         }
@@ -171,4 +169,3 @@ report 50003 "Create Purchase Quote r -TrB"
         PurchQuoteLine.INSERT();
     end;
 }
-
