@@ -7,4 +7,3 @@ tableextension 60048 "PWD ItemApplicationEntry" extends "Item Application Entry"
         }
     }
 }
-

@@ -10,5 +10,4 @@ enum 50003 "PWD Calcul Methode"
     {
         Caption = 'Montant';
     }
-
 }

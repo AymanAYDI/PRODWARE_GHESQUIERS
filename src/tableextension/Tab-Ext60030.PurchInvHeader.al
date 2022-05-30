@@ -60,4 +60,3 @@ tableextension 60030 "PWD PurchInvHeader" extends "Purch. Inv. Header"
         }
     }
 }
-

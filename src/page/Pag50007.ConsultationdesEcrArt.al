@@ -5,7 +5,8 @@ page 50007 "PWD Consultation des Ecr Art"
     Editable = false;
     PageType = List;
     SourceTable = "Item Ledger Entry";
-
+    ApplicationArea = all;
+    UsageCategory = ReportsAndAnalysis;
 
     layout
     {
@@ -103,4 +104,3 @@ page 50007 "PWD Consultation des Ecr Art"
     var
         Text19074687: Label 'Pour les écritures liées à la prestation, filtrer sur Code prestation <> ''''';
 }
-

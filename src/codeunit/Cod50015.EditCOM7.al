@@ -8,12 +8,12 @@ codeunit 50015 "PWD Edit COM7"
         CLEAR(CustomsLine);
         CustomsLine.SETCURRENTKEY("Document Type", "Document No.", "Location Code");
         CustomsLine.SETRANGE("Document Type", CustomsLine."Document Type"::"P.Receipt");
-        CustomsLine.SETRANGE("Document No.", "No.");
+        CustomsLine.SETRANGE("Document No.", Rec."No.");
         CustomsLine.SETRANGE("Customs Document Type", CustomsLine."Customs Document Type"::COM7);
         IF NOT CustomsLine.FIND('-') THEN BEGIN
             PurchReceiptLine.RESET();
             PurchReceiptLine.SETCURRENTKEY("Document No.", Type, "Location Code", "PWD Cle (restitution)");
-            PurchReceiptLine.SETRANGE("Document No.", "No.");
+            PurchReceiptLine.SETRANGE("Document No.", Rec."No.");
             PurchReceiptLine.SETRANGE(Type, PurchReceiptLine.Type::Item);
             PurchReceiptLine.SETFILTER("Location Code", '5');
             PurchReceiptLine.SETFILTER("PWD Cle (restitution)", '<>%1', '');
@@ -36,15 +36,15 @@ codeunit 50015 "PWD Edit COM7"
                         CustomsLine.INIT();
                         CustomsLine."Entry No." := NextLineNo;
                         CustomsLine."Document Type" := CustomsLine."Document Type"::"P.Receipt";
-                        CustomsLine."Document No." := "No.";
+                        CustomsLine."Document No." := Rec."No.";
                         CustomsLine."Customs Document Type" := CustomsLine."Customs Document Type"::COM7;
                         CustomsLine."Location Code" := PurchReceiptLine."Location Code";
                         CustomsLine."Cle (restitution)" := PurchReceiptLine."PWD Cle (restitution)";
                         IF NOT ItemRestit.GET(CustomsLine."Cle (restitution)") THEN ItemRestit.INIT();
                         CustomsLine."Cle Description" := ItemRestit.Designation;
-                        IF NOT EntryPoint.GET("Entry Point") THEN
+                        IF NOT EntryPoint.GET(Rec."Entry Point") THEN
                             EntryPoint.INIT();
-                        IF "Entry Point" = '' THEN EntryPoint.GET('001');
+                        IF Rec."Entry Point" = '' THEN EntryPoint.GET('001');
                         CustomsLine."Pays d origine" := EntryPoint.Description;
                         CustomsLine.INSERT();
                     END;
@@ -54,7 +54,7 @@ codeunit 50015 "PWD Edit COM7"
         END;
         PurchReceiptLine.RESET();
         PurchReceiptLine.SETCURRENTKEY("Document No.", Type, "Location Code", "PWD Cle (restitution)");
-        PurchReceiptLine.SETRANGE("Document No.", "No.");
+        PurchReceiptLine.SETRANGE("Document No.", Rec."No.");
         PurchReceiptLine.SETRANGE(Type, PurchReceiptLine.Type::Item);
         PurchReceiptLine.SETFILTER("Location Code", '5');
         PurchReceiptLine.SETFILTER("PWD Cle (restitution)", '<>%1', '');
@@ -73,7 +73,7 @@ codeunit 50015 "PWD Edit COM7"
         FOR j := 1 TO 50 DO BEGIN
             PurchReceiptLine.RESET();
             PurchReceiptLine.SETCURRENTKEY("Document No.", Type, "Location Code", "PWD Cle (restitution)");
-            PurchReceiptLine.SETRANGE("Document No.", "No.");
+            PurchReceiptLine.SETRANGE("Document No.", Rec."No.");
             PurchReceiptLine.SETRANGE(Type, PurchReceiptLine.Type::Item);
             PurchReceiptLine.SETRANGE("Location Code", Locationlist[j]);
             PurchReceiptLine.SETRANGE("PWD Cle (restitution)", CleRestitList[j]);
@@ -91,7 +91,7 @@ codeunit 50015 "PWD Edit COM7"
                     CLEAR(CustomsLine);
                     CustomsLine.SETCURRENTKEY("Document Type", "Document No.", "Customs Document Type", "Location Code", "Cle (restitution)");
                     CustomsLine.SETRANGE("Document Type", CustomsLine."Document Type"::"P.Receipt");
-                    CustomsLine.SETRANGE("Document No.", "No.");
+                    CustomsLine.SETRANGE("Document No.", Rec."No.");
                     CustomsLine.SETRANGE("Customs Document Type", CustomsLine."Customs Document Type"::COM7);
                     CustomsLine.SETRANGE("Location Code", Locationlist[j]);
                     CustomsLine.SETRANGE("Cle (restitution)", CleRestitList[j]);
@@ -108,7 +108,7 @@ codeunit 50015 "PWD Edit COM7"
         CLEAR(CustomsLine);
         CustomsLine.SETCURRENTKEY("Document Type", "Document No.", "Location Code");
         CustomsLine.SETRANGE("Document Type", CustomsLine."Document Type"::"P.Receipt");
-        CustomsLine.SETRANGE("Document No.", "No.");
+        CustomsLine.SETRANGE("Document No.", Rec."No.");
         FOR i := 1 TO 50 DO BEGIN
             j := 0;
             CustomsLine.SETRANGE("Location Code", Locationlist[i]);
@@ -156,7 +156,7 @@ codeunit 50015 "PWD Edit COM7"
         CustomsLine.SETRANGE("Document Type", CustomsLine."Document Type"::"P.Receipt");
         CustomsLine.SETRANGE("Document No.", PurchReceiptHeader."No.");
         CustomsLine.SETRANGE("Customs Document Type", CustomsLine."Customs Document Type"::COM7);
-        IF CustomsLine.FIND('-') THEN
+        IF CustomsLine.FindSet() THEN
             REPEAT
                 IF (LastLocationCode <> CustomsLine."Location Code") THEN BEGIN
                     LastLocationCode := CustomsLine."Location Code";
@@ -174,4 +174,3 @@ codeunit 50015 "PWD Edit COM7"
     begin
     end;
 }
-

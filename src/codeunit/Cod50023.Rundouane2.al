@@ -9,4 +9,3 @@ codeunit 50023 "PWD Run douane2"
         REPORT.RUNMODAL(REPORT::"Relevé des Sorties Export 2", TRUE, TRUE, SalesShipHeader);
     end;
 }
-

@@ -6,7 +6,7 @@
     "al.backgroundCodeAnalysis": true,
     "al.codeAnalyzers": [
         "${CodeCop}",
-        "${PerTenantExtensionCop}",
+    //    "${PerTenantExtensionCop}",
         "${UICop}"
     ],
     "al.enableCodeActions": true,

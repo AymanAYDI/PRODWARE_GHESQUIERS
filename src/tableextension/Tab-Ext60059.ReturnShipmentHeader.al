@@ -10,4 +10,3 @@ tableextension 60059 "PWD ReturnShipmentHeader" extends "Return Shipment Header"
         }
     }
 }
-

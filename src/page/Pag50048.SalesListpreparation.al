@@ -6,7 +6,7 @@ page 50048 "PWD Sales List preparation"
     Editable = false;
     PageType = List;
     SourceTable = "Sales Header";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -184,4 +184,3 @@ page 50048 "PWD Sales List preparation"
         }
     }
 }
-

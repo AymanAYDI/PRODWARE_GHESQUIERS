@@ -29,7 +29,6 @@ tableextension 60046 "PWD ReservationEntry" extends "Reservation Entry"
     }
     keys
     {
-
         key(Key50000; "Source ID", "Source Batch Name", "Source Ref. No.")
         {
         }
@@ -68,6 +67,5 @@ tableextension 60046 "PWD ReservationEntry" extends "Reservation Entry"
     OriginArea:="Country Origin"; //MIGRATION2009R2 : Add specific code
     //<<MIGRATION2009R2
     */
-    //end;   
+    //end;
 }
-

@@ -252,4 +252,3 @@ tableextension 60005 "PWD Customer" extends Customer
             UNTIL ContBusRelUpd.NEXT() = 0;
     end;
 }
-

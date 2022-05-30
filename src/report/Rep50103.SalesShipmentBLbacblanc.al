@@ -1,10 +1,9 @@
 report 50103 "Sales - Shipment BL bac blanc"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './rdl/SalesShipmentBLbacblanc.rdlc';
-
+    RDLCLayout = './src/report/rdl/SalesShipmentBLbacblanc.rdl';
     Caption = 'Sales - Shipment BL bac blanc';
-
+    UsageCategory = None;
     dataset
     {
         dataitem(copyLoop; Integer)
@@ -217,6 +216,8 @@ report 50103 "Sales - Shipment BL bac blanc"
                         column(Sales_Shipment_Line_Quantity; Quantity)
                         {
                         }
+                        column(Sales_Shipment_Line_Shelf_Bin_No;"PWD Shelf/Bin No."){
+                        }
                         column(Description__Description_2_; Description + "Description 2")
                         {
                         }
@@ -271,10 +272,9 @@ report 50103 "Sales - Shipment BL bac blanc"
                             END;
                             CodeDEpotEntete := "Sales Shipment Line"."Location Code";
                             CodeSeaFrance := '';
-                            IF "Sales Shipment Header"."Shortcut Dimension 1 Code" = 'SEAFRANCE' THEN BEGIN
+                            IF "Sales Shipment Header"."Shortcut Dimension 1 Code" = 'SEAFRANCE' THEN
                                 IF Type = Type::Item THEN
                                     IF Item.GET("No.") THEN CodeSeaFrance := Item."PWD SEAF Code";
-                            END;
                             IF LocationFilter[BoucleMag.Number] <> 'CML|1' THEN BEGIN
                                 IF LocationFilter[BoucleMag.Number] = '9HCEE' THEN BEGIN
                                     IF Item."PWD No. sommier hors CEE" <> '' THEN
@@ -282,9 +282,8 @@ report 50103 "Sales - Shipment BL bac blanc"
                                         CodeSommier := Item."PWD Base Customs No.";
                                 END ELSE
                                     CodeSommier := Item."PWD Base Customs No.";
-                            END ELSE BEGIN
+                            END ELSE
                                 CodeSommier := '';
-                            END;
                             CLEAR(TextDLC);
                             ItemEntryRelation.SETCURRENTKEY("Source ID", "Source Type");
                             ItemEntryRelation.SETRANGE("Source Type", DATABASE::"Sales Shipment Line");
@@ -293,12 +292,12 @@ report 50103 "Sales - Shipment BL bac blanc"
                             ItemEntryRelation.SETRANGE("Source Batch Name", '');
                             ItemEntryRelation.SETRANGE("Source Prod. Order Line", 0);
                             ItemEntryRelation.SETRANGE("Source Ref. No.", "Line No.");
-                            IF ItemEntryRelation.FIND('-') THEN BEGIN
+                            IF ItemEntryRelation.FIND('-') THEN
                                 REPEAT
                                     ItemLedgEntry.GET(ItemEntryRelation."Item Entry No.");
                                     TextDLC := 'DLC : ' + FORMAT(ItemLedgEntry."Expiration Date");
-                                UNTIL ItemEntryRelation.NEXT() = 0;
-                            END ELSE
+                                UNTIL ItemEntryRelation.NEXT() = 0
+                            ELSE
                                 CLEAR(TextDLC);
                             NombreLigne := NombreLigne - 1;
                             IF NombreLigne = 0 THEN FinLigne := TRUE;
@@ -315,6 +314,7 @@ report 50103 "Sales - Shipment BL bac blanc"
                                 CLEAR(TextDLC_SF);
                             IF TextDLC_SF = '' THEN
                                 TextDLC_SF := Item."Vendor Item No.";
+
                         end;
 
                         trigger OnPreDataItem()
@@ -334,6 +334,7 @@ report 50103 "Sales - Shipment BL bac blanc"
                             NombreLigne := "Sales Shipment Line".COUNT;
                             FinLigne := FALSE;
                             CLEAR(LastBinNo);
+
                         end;
                     }
 
@@ -369,8 +370,8 @@ report 50103 "Sales - Shipment BL bac blanc"
                     ELSE
                         ReferenceText := FIELDCAPTION("Your Reference");
                     FormatAddr.SalesShptShipTo(ShipToAddr, "Sales Shipment Header");
-
-                    FormatAddr.SalesShptBillTo(CustAddr, "Sales Shipment Header");
+                    //ToDo verifier
+                    FormatAddr.SalesShptBillTo(CustAddr, ShipToAddr, "Sales Shipment Header");
                     ShowCustAddr := "Bill-to Customer No." <> "Sell-to Customer No.";
                     FOR i := 1 TO ARRAYLEN(CustAddr) DO
                         IF CustAddr[i] <> ShipToAddr[i] THEN
@@ -381,9 +382,8 @@ report 50103 "Sales - Shipment BL bac blanc"
                             SegManagement.LogDocument(
                             5, "No.", 0, 0, DATABASE::Customer, "Sell-to Customer No.", "Salesperson Code",
                             '', "Posting Description", '');
-                    IF NOT ShippingAgent.GET("Sales Shipment Header"."Shipping Agent Code") THEN BEGIN
+                    IF NOT ShippingAgent.GET("Sales Shipment Header"."Shipping Agent Code") THEN
                         ShippingAgent.Name := '';
-                    END;
                     SalesShipLine.SETCURRENTKEY("Document No.", "Location Code");
                     SalesShipLine.SETRANGE("Document No.", "Sales Shipment Header"."No.");
                     SalesShipLine.SETRANGE(Type, SalesShipLine.Type::Item);
@@ -408,25 +408,18 @@ report 50103 "Sales - Shipment BL bac blanc"
                     REPEAT
                         Item.GET(SalesShipLine."No.");
                         IF ItemFamily.GET(ItemFamily.Type::Item, ItemFamily."Group Type"::Family, '', Item."Pwd Family") THEN BEGIN
-                            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Alcool THEN BEGIN
+                            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Alcool THEN
                                 IF Item."PWD Alcool %" <> 0 THEN BEGIN
-                                    IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN BEGIN
+                                    IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN
                                         QtéAlcoolTotal += SalesShipLine."Net Weight" * SalesShipLine."Quantity (Base)" / 100;
-                                    END;
-                                    IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net x °Alcool" THEN BEGIN
+                                    IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net x °Alcool" THEN
                                         QtéAlcoolTotal += SalesShipLine."Net Weight" * SalesShipLine."Quantity (Base)" * Item."PWD Alcool %" / 100;
-                                    END;
                                 END;
-
-                            END;
-                            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN BEGIN
-                                IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN BEGIN
+                            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN
+                                IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN
                                     QtéTabacTotal += SalesShipLine."Net Weight" * SalesShipLine."Quantity (Base)";
-                                END;
-                            END;
                         END;
                     UNTIL SalesShipLine.NEXT() = 0;
-
 
                     CLEAR(LocationFilter);
                     CLEAR(LocationName);
@@ -486,6 +479,9 @@ report 50103 "Sales - Shipment BL bac blanc"
                 END;
 
                 CLEAR(NumLigne);
+                if Number > 1 then begin
+                    OutputNo += 1;
+                end;
             end;
 
             trigger OnPreDataItem()
@@ -495,13 +491,13 @@ report 50103 "Sales - Shipment BL bac blanc"
                 TextLineFooter[3] := 'EXEMPLAIRE A RETOURNER AU BUREAU DOUANE DE DUNKERQUE PORT OUEST 59279 LOON PLAGE';
                 TextLineFooter[4] := 'EXEMPLAIRE A REMETTRE A BORD - STEWARD''S RECEIPT';
                 TextLineFooter[5] := 'DUPLICATA A NOUS RETOURNER SIGNE - DUPLICATA TO BE RETURNED DULY SIGNED';
+                OutputNo := 1;
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -549,7 +545,6 @@ report 50103 "Sales - Shipment BL bac blanc"
         DepotSpecial := '8';
         If UserSetup.Get() then
             UserSetup.CALCFIELDS("PWD Signing");
-
     end;
 
     var
@@ -559,7 +554,6 @@ report 50103 "Sales - Shipment BL bac blanc"
         Item: Record Item;
         ItemEntryRelation: Record "Item Entry Relation";
         ItemLedgEntry: Record "Item Ledger Entry";
-        Language: Codeunit Language;
         Location: Record Location;
         Call: Record "PWD Call";
         ItemFamily: Record "PWD Family & Sub Family";
@@ -570,6 +564,7 @@ report 50103 "Sales - Shipment BL bac blanc"
         ShippingAgent: Record "Shipping Agent";
         UserSetup: record "User Setup";
         FormatAddr: Codeunit "Format Address";
+        Language: Codeunit Language;
         SegManagement: Codeunit SegManagement;
         FinLigne: Boolean;
         LogInteraction: Boolean;
@@ -595,6 +590,7 @@ report 50103 "Sales - Shipment BL bac blanc"
         NombreLigne: Integer;
         NoOfCopies: Integer;
         NumLigne: Integer;
+        OutputNo: Integer;
         TotalLocation: Integer;
         A_Calais_leCaptionLbl: Label 'A Calais le';
         Armateur__CaptionLbl: Label 'Client :';
@@ -637,7 +633,6 @@ report 50103 "Sales - Shipment BL bac blanc"
         TextDLC_SF: Text[30];
         Titre: Text[30];
         CompanyAddr: array[8] of Text[50];
-        CustAddr: array[8] of Text[50];
         ShipToAddr: array[8] of Text[50];
         LocationName: array[20] of Text[60];
         TextFooter1: Text[80];
@@ -645,10 +640,10 @@ report 50103 "Sales - Shipment BL bac blanc"
         TextFooter3: Text[80];
         TextFooter4: Text[80];
         TextLineFooter: array[5] of Text[80];
+        CustAddr: array[8] of Text[100];
 
     procedure InitLogInteraction()
     begin
         LogInteraction := SegManagement.FindInteractTmplCode(5) <> '';
     end;
 }
-

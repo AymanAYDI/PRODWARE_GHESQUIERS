@@ -382,25 +382,21 @@ table 70062 "PWD Archived Purchase Header"
         {
             Caption = 'Buy-from Vendor Name';
             //TODO Récuperer traduction            DataClassification = CustomerContent;
-
         }
         field(80; "Buy-from Vendor Name 2"; Text[50])
         {
             Caption = 'Buy-from Vendor Name 2';
             //TODO Récuperer traduction            DataClassification = CustomerContent;
-
         }
         field(81; "Buy-from Address"; Text[100])
         {
             Caption = 'Buy-from Address';
             //TODO Récuperer traduction            DataClassification = CustomerContent;
-
         }
         field(82; "Buy-from Address 2"; Text[50])
         {
             Caption = 'Buy-from Address 2';
             //TODO Récuperer traduction            DataClassification = CustomerContent;
-
         }
         field(83; "Buy-from City"; Text[30])
         {
@@ -415,7 +411,6 @@ table 70062 "PWD Archived Purchase Header"
         {
             Caption = 'Buy-from Contact';
             //TODO Récuperer traduction            DataClassification = CustomerContent;
-
         }
         field(85; "Pay-to Post Code"; Code[20])
         {
@@ -452,7 +447,6 @@ table 70062 "PWD Archived Purchase Header"
             CaptionClass = '5,1,' + "Buy-from Country Code";
             Caption = 'Buy-from County';
             //TODO Récuperer traduction            DataClassification = CustomerContent;
-
         }
         field(90; "Buy-from Country Code"; Code[10])
         {
@@ -685,7 +679,6 @@ table 70062 "PWD Archived Purchase Header"
         {
             Caption = 'Posting from Whse. Ref.';
             //TODO Récuperer traduction            DataClassification = CustomerContent;
-
         }
         field(5754; "Location Filter"; Code[10])
         {
@@ -856,4 +849,3 @@ table 70062 "PWD Archived Purchase Header"
     begin
     end;
 }
-

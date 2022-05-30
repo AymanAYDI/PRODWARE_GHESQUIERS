@@ -158,9 +158,8 @@ pageextension 50069 "PWD SalesQuoteSubform" extends "Sales Quote Subform"
         IF Rec."Unit Price" * (1 - (Rec."Line Discount %" / 100)) < Rec."Unit Cost" * CoefPrixUnitaire THEN BEGIN
             Rec."PWD KPI" := RecLKPIRulesSetup.KPI;
             Rec.CALCFIELDS(Rec."PWD KPI");
-        END ELSE BEGIN
+        END ELSE
             CLEAR(Rec."PWD KPI");
-        END;
     END;
 
     var

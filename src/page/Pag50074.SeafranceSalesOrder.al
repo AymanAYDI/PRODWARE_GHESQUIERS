@@ -5,6 +5,7 @@ page 50074 "PWD Seafrance Sales Order"
     RefreshOnActivate = true;
     SourceTable = "PWD Seafrance Sales Header";
     SourceTableView = WHERE("Document Type" = FILTER(Order));
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -585,4 +586,3 @@ page 50074 "PWD Seafrance Sales Order"
         CurrPage.UPDATE();
     end;
 }
-

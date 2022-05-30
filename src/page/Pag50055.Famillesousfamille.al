@@ -2,7 +2,8 @@ page 50055 "PWD Famille / sous-famille"
 {
     PageType = List;
     SourceTable = "PWD Family & Sub Family";
-
+    ApplicationArea = all;
+    UsageCategory = Administration;
     layout
     {
         area(content)
@@ -54,4 +55,3 @@ page 50055 "PWD Famille / sous-famille"
     {
     }
 }
-

@@ -11,7 +11,6 @@ codeunit 50007 "PWD Browse for Folder"
          ActiveWindow: Automation;
          Text001: Label 'Title goes here...';
 
-
      procedure BrowseForFolder(Title: Text[80]; Root: Variant): Text[260]
      var
          SelectedFolder: Automation;
@@ -36,4 +35,3 @@ codeunit 50007 "PWD Browse for Folder"
      end;
      */
 }
-

@@ -1,13 +1,12 @@
 table 70061 "PWD Archived Sales Line"
 {
     // Copied from table 5108 (Sales Line Archive)
-    // 
+    //
     // //>>SOBI
     // P3346_0015 RO.LALE REGIE 23/02/2015 : - add field 55041 - Vendor No. - Code20
 
     Caption = 'Archived Sales Line';
     //TODO Récupérer traduction FRA=Ligne vente archive    DataClassification = CustomerContent;
-
 
     fields
     {
@@ -274,7 +273,6 @@ table 70061 "PWD Archived Sales Line"
             Caption = 'Apply and Close (Job)';
             DataClassification = CustomerContent;
         }
-
         field(52; "Work Type Code"; Code[10])
         {
             Caption = 'Work Type Code';
@@ -1216,4 +1214,3 @@ table 70061 "PWD Archived Sales Line"
     begin
     end;
 }
-

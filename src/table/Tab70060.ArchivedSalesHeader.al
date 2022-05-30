@@ -1,7 +1,7 @@
 table 70060 "PWD Archived Sales Header"
 {
     // Copied from table 5107 (Sales Header Archive)
-    // 
+    //
     // -------------------------------------------------
     // Prodware - www.prodware.fr
     // -------------------------------------------------
@@ -223,7 +223,6 @@ table 70060 "PWD Archived Sales Header"
         {
             Caption = 'Allow Quantity Disc.';
             //TODO Récupérer traduction FRA= Remise quantité autorisée            DataClassification = CustomerContent;
-
         }
         field(37; "Invoice Disc. Code"; Code[20])
         {
@@ -598,7 +597,6 @@ table 70060 "PWD Archived Sales Header"
         {
             Caption = 'Status';
             //TODO Récupérer traduction FRA=Etat            DataClassification = CustomerContent;
-
         }
         field(121; "Invoice Discount Calculation"; Option)
         {
@@ -625,7 +623,6 @@ table 70060 "PWD Archived Sales Header"
                 ShowDimensions();
             end;
         }
-
         field(3998; "Source Doc. Exists"; Boolean)
         {
             FieldClass = Flowfield;
@@ -749,7 +746,6 @@ table 70060 "PWD Archived Sales Header"
         {
             Caption = 'Posting from Whse. Ref.';
             //TODO Récupérer traduction FRA=Validation à partir réf. magasin            DataClassification = CustomerContent;
-
         }
         field(5754; "Location Filter"; Code[10])
         {
@@ -953,4 +949,3 @@ table 70060 "PWD Archived Sales Header"
         DimMgt.ShowDimensionSet("Dimension Set ID", StrSubstNo('%1 %2', "Document Type", "No."));
     end;
 }
-

@@ -53,7 +53,6 @@ codeunit 60003 "PWD Function Mgt AB"
         //<<MIGRATION2009R2
     END;
 
-
     PROCEDURE FormatAddrInvoiceGHES(VAR AddrArray: ARRAY[8] OF Text[90]; Name: Text[90]; Name2: Text[90]; Contact: Text[90]; Addr: Text[50]; Addr2: Text[50]; City: Text[50]; PostCode: Code[20]; County: Text[50]; CountryCode: Code[10]);
     VAR
         Country: Record "Country/Region";

@@ -32,7 +32,6 @@ pageextension 50054 "PWD CatalogItemCard" extends "Catalog Item Card"
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

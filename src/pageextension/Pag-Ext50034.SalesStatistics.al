@@ -41,10 +41,8 @@ pageextension 50034 "PWD SalesStatistics" extends "Sales Statistics"
                     ApplicationArea = All;
                     Caption = 'Differencial Profit (LCY)';
                 }
-
             }
         }
     }
     var
-
 }

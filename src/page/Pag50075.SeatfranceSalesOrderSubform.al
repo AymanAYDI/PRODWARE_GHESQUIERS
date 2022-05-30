@@ -7,6 +7,7 @@ page 50075 "Seatfrance Sales Order Subform"
     PageType = ListPart;
     SourceTable = "PWD Seafrance Sales Line";
     SourceTableView = WHERE("Document Type" = FILTER(Order));
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -148,7 +149,6 @@ page 50075 "Seatfrance Sales Order Subform"
     {
     }
 
-
     procedure ApproveCalcInvDisc()
     begin
     end;
@@ -278,4 +278,3 @@ page 50075 "Seatfrance Sales Order Subform"
         END;
     end;
 }
-

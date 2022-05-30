@@ -54,4 +54,3 @@ tableextension 60017 "PWD CompanyInformation" extends "Company Information"
         }
     }
 }
-

@@ -265,7 +265,8 @@ pageextension 50006 "PWD CustomerList" extends "Customer List"
                 }
             }
         }
-        modify(SalesHistSelltoFactBox)
+        //ToDo
+        /*modify(SalesHistSelltoFactBox)
         {
             Editable = false;
         }
@@ -292,7 +293,7 @@ pageextension 50006 "PWD CustomerList" extends "Customer List"
         modify(Control1905767507)
         {
             Editable = false;
-        }
+        }*/
     }
     var
         TxtGAddressList: Text[1024];

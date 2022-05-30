@@ -1,6 +1,5 @@
 codeunit 50006 "PrintTextAmount(dec => Letter)"
 {
-
     trigger OnRun()
     begin
     end;
@@ -100,7 +99,6 @@ codeunit 50006 "PrintTextAmount(dec => Letter)"
         ExponentText[4] := Text061;
     end;
 
-
     procedure FormatNoTextFR(var NoText: array[3] of Text[80]; No: Decimal; CurrencyCode: Code[10])
     var
         PrintExponent: Boolean;
@@ -156,7 +154,6 @@ codeunit 50006 "PrintTextAmount(dec => Letter)"
         END;
     end;
 
-
     procedure FormatTens(var NoText: array[3] of Text[80]; var NoTextIndex: Integer; var PrintExponent: Boolean; Exponent: Integer; Hundreds: Integer; Tens: Integer; Ones: Integer)
     begin
         CASE Tens OF
@@ -204,7 +201,6 @@ codeunit 50006 "PrintTextAmount(dec => Letter)"
                     ELSE
                         AddToNoText(NoText, NoTextIndex, PrintExponent, OnesText[Ones]);
 
-
             ELSE BEGIN
                     AddToNoText(NoText, NoTextIndex, PrintExponent, TensText[Tens]);
                     IF Ones > 0 THEN BEGIN
@@ -215,7 +211,6 @@ codeunit 50006 "PrintTextAmount(dec => Letter)"
                 END;
         END;
     end;
-
 
     procedure FormatNoTextINTL(var NoText: array[3] of Text[80]; No: Decimal; CurrencyCode: Code[10])
     var
@@ -262,4 +257,3 @@ codeunit 50006 "PrintTextAmount(dec => Letter)"
             AddToNoText(NoText, NoTextIndex, PrintExponent, CurrencyCode);
     end;
 }
-

@@ -9,4 +9,3 @@ tableextension 60035 "PWD JobJournalLine" extends "Job Journal Line"
         }
     }
 }
-

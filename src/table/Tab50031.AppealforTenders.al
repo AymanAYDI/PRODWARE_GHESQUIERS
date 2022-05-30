@@ -225,4 +225,3 @@ table 50031 "PWD Appeal for Tenders"
             Item.GET("No.");
     end;
 }
-

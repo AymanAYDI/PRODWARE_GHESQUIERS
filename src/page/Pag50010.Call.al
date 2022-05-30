@@ -3,7 +3,7 @@ page 50010 "PWD Call"
     Caption = 'Call';
     PageType = Card;
     SourceTable = "PWD Call";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -124,4 +124,3 @@ page 50010 "PWD Call"
     {
     }
 }
-

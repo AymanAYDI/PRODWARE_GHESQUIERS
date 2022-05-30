@@ -1,10 +1,9 @@
 report 50061 "PWD Sales - Invoice AVITA"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './rdl/SalesInvoiceAVITA.rdlc';
-
+    RDLCLayout = './src/report/rdl/SalesInvoiceAVITA.rdlc';
     Caption = 'Sales - Invoice AVITA';
-
+    UsageCategory = None;
     dataset
     {
         dataitem("Sales Invoice Header"; "Sales Invoice Header")
@@ -615,7 +614,7 @@ report 50061 "PWD Sales - Invoice AVITA"
                                 IntGLineNo := "Sales Invoice Line"."Line No.";
                                 IF Type <> Type::Item THEN
                                     IntTriRTC := IntGTotalLocation + 1
-                                ELSE BEGIN
+                                ELSE
                                     IF ("Location Code" = 'CML') OR ("Location Code" = '1') THEN
                                         IntTriRTC := 1
                                     ELSE BEGIN
@@ -631,7 +630,6 @@ report 50061 "PWD Sales - Invoice AVITA"
                                             j := j + 1;
                                         END;
                                     END;
-                                END;
                                 RecGCallType.GET("Sales Invoice Header"."PWD Call Type");
                                 IF RecGCallType."Message EXO" = TRUE THEN
                                     TxTGMentionEXO := 'Exonération TVA art.262 II du C.G.I.'
@@ -654,7 +652,6 @@ report 50061 "PWD Sales - Invoice AVITA"
                                     RecGVatArrayBase[i] := VATAmountLine."VAT Base";
                                     RecGVatArrayAmount[i] := VATAmountLine."VAT Amount";
                                 END;
-
                             END;
                             IF "Sales Invoice Line"."PWD Designation ENU" <> '' THEN
                                 GDescription := "Sales Invoice Line"."PWD Designation ENU"
@@ -724,7 +721,7 @@ report 50061 "PWD Sales - Invoice AVITA"
                 RecLSalesInvoiceLine: Record "Sales Invoice Line";
                 j: Integer;
             begin
-                CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");
+                CurrReport.LANGUAGE := Language.GetLanguageIdOrDefault("Language Code");
 
                 IF RespCenter.GET("Responsibility Center") THEN BEGIN
                     FormatAddr.RespCenter(CompanyAddr, RespCenter);
@@ -787,14 +784,13 @@ report 50061 "PWD Sales - Invoice AVITA"
                         ShowShippingAddr := TRUE;
 
                 IF LogInteraction THEN
-                    IF NOT CurrReport.PREVIEW THEN BEGIN
+                    IF NOT CurrReport.PREVIEW THEN
                         IF "Bill-to Contact No." <> '' THEN
                             SegManagement.LogDocument(
                               4, "No.", 0, 0, DATABASE::Contact, "Bill-to Contact No.", "Salesperson Code", '', "Posting Description", '')
                         ELSE
                             SegManagement.LogDocument(
                               4, "No.", 0, 0, DATABASE::Customer, "Bill-to Customer No.", "Salesperson Code", '', "Posting Description", '');
-                    END;
 
                 CLEAR(TxtGLocationFilter);
                 TxtGLocationFilter[1] := 'CML|1';
@@ -903,7 +899,6 @@ report 50061 "PWD Sales - Invoice AVITA"
         DimSetEntry2: Record "Dimension Set Entry";
         GLSetup: Record "General Ledger Setup";
         ItemTrans: Record "Item Translation";
-        Language: Record Language;
         PaymentMethod: Record "Payment Method";
         PaymentTerms: Record "Payment Terms";
         RecGCallType: Record "PWD Call Type";
@@ -913,6 +908,7 @@ report 50061 "PWD Sales - Invoice AVITA"
         ShipmentMethod: Record "Shipment Method";
         VATAmountLine: Record "VAT Amount Line" temporary;
         FormatAddr: Codeunit "Format Address";
+        Language: Codeunit Language;
         PWDFunctionMgt: codeunit "PWD Function Mgt";
         SalesInvCountPrinted: Codeunit "Sales Inv.-Printed";
         SegManagement: Codeunit SegManagement;
@@ -988,13 +984,13 @@ report 50061 "PWD Sales - Invoice AVITA"
         VATNoText: Text[30];
         CompanyAddr: array[8] of Text[50];
         CopyText: Text[50];
-        CustAddr: array[8] of Text[50];
         GDescription: Text[50];
         ShipToAddr: array[8] of Text[50];
         TotalExclVATText: Text[50];
         TotalInclVATText: Text[50];
         TotalText: Text[50];
         OldDimText: Text[75];
+        CustAddr: array[8] of Text[100];
         DimText: Text[120];
         MentionEXO: Text[200];
         TxTGMentionEXO: Text[200];
@@ -1019,4 +1015,3 @@ report 50061 "PWD Sales - Invoice AVITA"
         END;
     end;
 }
-

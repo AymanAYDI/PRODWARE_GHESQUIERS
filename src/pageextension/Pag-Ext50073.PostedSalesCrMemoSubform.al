@@ -115,5 +115,4 @@ pageextension 50073 "PWD PostedSalesCrMemoSubform" extends "Posted Sales Cr. Mem
         CODEUNIT.RUN(CODEUNIT::"PWD Cr.Memo Line - Edit", Rec);
         EXIT(FALSE);
     END;
-
 }

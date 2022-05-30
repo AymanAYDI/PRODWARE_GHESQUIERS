@@ -2,7 +2,7 @@ page 50066 "PWD KPI Card"
 {
     PageType = Card;
     SourceTable = "PWD KPI Rules Setup";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -41,4 +41,3 @@ page 50066 "PWD KPI Card"
     {
     }
 }
-

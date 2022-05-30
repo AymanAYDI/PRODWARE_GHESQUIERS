@@ -55,4 +55,3 @@ tableextension 60043 "PWD PurchasesPayablesSetup" extends "Purchases & Payables 
         }
     }
 }
-

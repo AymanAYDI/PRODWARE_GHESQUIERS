@@ -1,6 +1,8 @@
 page 50079 "PWD RunJournal"
 {
     Caption = 'Saisie SeaFrance';
+    ApplicationArea = all;
+    UsageCategory = lists;
     layout
     {
     }
@@ -19,4 +21,3 @@ page 50079 "PWD RunJournal"
     var
         RunJournal: Codeunit "PWD RunJournal";
 }
-

@@ -2,7 +2,8 @@ page 50054 "PWD Codes Add. National"
 {
     PageType = List;
     SourceTable = "PWD National Add. Code";
-
+    ApplicationArea = all;
+    UsageCategory = Administration;
     layout
     {
         area(content)
@@ -26,4 +27,3 @@ page 50054 "PWD Codes Add. National"
     {
     }
 }
-

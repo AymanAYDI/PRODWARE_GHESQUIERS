@@ -46,7 +46,6 @@ pageextension 50038 "PWD RecurringGeneralJournal" extends "Recurring General Jou
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

@@ -3,7 +3,7 @@ page 50068 "PWD Personal Caption"
     // -----------------------------------------------------------------------------------------------------------------
     // Prodware - www.prodware.fr
     // -----------------------------------------------------------------------------------------------------------------
-    // 
+    //
     // //>>NDBI (P25940_002)
     // LALE.RO : 03/09/2018 : cf NDBI ID 437
     //                        new Page
@@ -11,7 +11,8 @@ page 50068 "PWD Personal Caption"
     Caption = 'Personnal Caption';
     PageType = List;
     SourceTable = "PWD Personal Caption";
-
+    ApplicationArea = all;
+    UsageCategory = Lists;
     layout
     {
         area(content)
@@ -42,4 +43,3 @@ page 50068 "PWD Personal Caption"
     {
     }
 }
-

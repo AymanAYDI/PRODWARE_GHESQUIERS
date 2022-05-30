@@ -30,4 +30,3 @@ tableextension 60057 "PWD ValueEntry" extends "Value Entry"
         }
     }
 }
-

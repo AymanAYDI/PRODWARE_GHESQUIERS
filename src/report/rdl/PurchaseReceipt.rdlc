@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Purch__Rcpt__Header_No_">
+          <DataField>Purch__Rcpt__Header_No_</DataField>
+        </Field>
+        <Field Name="STRSUBSTNO_Text002_CopyText_">
+          <DataField>STRSUBSTNO_Text002_CopyText_</DataField>
+        </Field>
+        <Field Name="Text003">
+          <DataField>Text003</DataField>
+        </Field>
+        <Field Name="ShipToAddr_1_">
+          <DataField>ShipToAddr_1_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_1_">
+          <DataField>CompanyAddr_1_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_2_">
+          <DataField>ShipToAddr_2_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_2_">
+          <DataField>CompanyAddr_2_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_3_">
+          <DataField>ShipToAddr_3_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_3_">
+          <DataField>CompanyAddr_3_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_4_">
+          <DataField>ShipToAddr_4_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_4_">
+          <DataField>CompanyAddr_4_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_5_">
+          <DataField>ShipToAddr_5_</DataField>
+        </Field>
+        <Field Name="CompanyInfo__Phone_No__">
+          <DataField>CompanyInfo__Phone_No__</DataField>
+        </Field>
+        <Field Name="ShipToAddr_6_">
+          <DataField>ShipToAddr_6_</DataField>
+        </Field>
+        <Field Name="CompanyInfo__Fax_No__">
+          <DataField>CompanyInfo__Fax_No__</DataField>
+        </Field>
+        <Field Name="CompanyInfo__VAT_Registration_No__">
+          <DataField>CompanyInfo__VAT_Registration_No__</DataField>
+        </Field>
+        <Field Name="FORMAT__Purch__Rcpt__Header___Document_Date__0_4_">
+          <DataField>FORMAT__Purch__Rcpt__Header___Document_Date__0_4_</DataField>
+        </Field>
+        <Field Name="PurchaserText">
+          <DataField>PurchaserText</DataField>
+        </Field>
+        <Field Name="SalesPurchPerson_Name">
+          <DataField>SalesPurchPerson_Name</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Header___No__">
+          <DataField>Purch__Rcpt__Header___No__</DataField>
+        </Field>
+        <Field Name="ReferenceText">
+          <DataField>ReferenceText</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Header___Your_Reference_">
+          <DataField>Purch__Rcpt__Header___Your_Reference_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_7_">
+          <DataField>ShipToAddr_7_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_8_">
+          <DataField>ShipToAddr_8_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_5_">
+          <DataField>CompanyAddr_5_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_6_">
+          <DataField>CompanyAddr_6_</DataField>
+        </Field>
+        <Field Name="SPE_Purch__Inv__Contact_Vendor">
+          <DataField>SPE_Purch__Inv__Contact_Vendor</DataField>
+        </Field>
+        <Field Name="CompanyInfo__Phone_No__Caption">
+          <DataField>CompanyInfo__Phone_No__Caption</DataField>
+        </Field>
+        <Field Name="CompanyInfo__Fax_No__Caption">
+          <DataField>CompanyInfo__Fax_No__Caption</DataField>
+        </Field>
+        <Field Name="CompanyInfo__VAT_Registration_No__Caption">
+          <DataField>CompanyInfo__VAT_Registration_No__Caption</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Header___No__Caption">
+          <DataField>Purch__Rcpt__Header___No__Caption</DataField>
+        </Field>
+        <Field Name="SPE_Invoice_No_Caption">
+          <DataField>SPE_Invoice_No_Caption</DataField>
+        </Field>
+        <Field Name="PageLoop_Number">
+          <DataField>PageLoop_Number</DataField>
+        </Field>
+        <Field Name="DimText">
+          <DataField>DimText</DataField>
+        </Field>
+        <Field Name="DimText_Control47">
+          <DataField>DimText_Control47</DataField>
+        </Field>
+        <Field Name="Header_DimensionsCaption">
+          <DataField>Header_DimensionsCaption</DataField>
+        </Field>
+        <Field Name="DimensionLoop1_Number">
+          <DataField>DimensionLoop1_Number</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line_Description">
+          <DataField>Purch__Rcpt__Line_Description</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line_Description_Control38">
+          <DataField>Purch__Rcpt__Line_Description_Control38</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line_Quantity">
+          <DataField>Purch__Rcpt__Line_Quantity</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line_QuantityFormat">
+          <DataField>Purch__Rcpt__Line_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line__Unit_of_Measure_">
+          <DataField>Purch__Rcpt__Line__Unit_of_Measure_</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line__No__">
+          <DataField>Purch__Rcpt__Line__No__</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line_Description_Control1000000040">
+          <DataField>Purch__Rcpt__Line_Description_Control1000000040</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line_Quantity_Control1000000041">
+          <DataField>Purch__Rcpt__Line_Quantity_Control1000000041</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line_Quantity_Control1000000041Format">
+          <DataField>Purch__Rcpt__Line_Quantity_Control1000000041Format</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line__Unit_of_Measure__Control1000000042">
+          <DataField>Purch__Rcpt__Line__Unit_of_Measure__Control1000000042</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line__Direct_Unit_Cost_">
+          <DataField>Purch__Rcpt__Line__Direct_Unit_Cost_</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line__Direct_Unit_Cost_Format">
+          <DataField>Purch__Rcpt__Line__Direct_Unit_Cost_Format</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line__Line_Discount___">
+          <DataField>Purch__Rcpt__Line__Line_Discount___</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line__Line_Discount___Format">
+          <DataField>Purch__Rcpt__Line__Line_Discount___Format</DataField>
+        </Field>
+        <Field Name="PrixLigne">
+          <DataField>PrixLigne</DataField>
+        </Field>
+        <Field Name="PrixLigneFormat">
+          <DataField>PrixLigneFormat</DataField>
+        </Field>
+        <Field Name="PoidsNetLigne">
+          <DataField>PoidsNetLigne</DataField>
+        </Field>
+        <Field Name="PoidsNetLigneFormat">
+          <DataField>PoidsNetLigneFormat</DataField>
+        </Field>
+        <Field Name="PoidsBrutLigne">
+          <DataField>PoidsBrutLigne</DataField>
+        </Field>
+        <Field Name="PoidsBrutLigneFormat">
+          <DataField>PoidsBrutLigneFormat</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line__Location_Code_">
+          <DataField>Purch__Rcpt__Line__Location_Code_</DataField>
+        </Field>
+        <Field Name="PrixLigne_Control1000000052">
+          <DataField>PrixLigne_Control1000000052</DataField>
+        </Field>
+        <Field Name="PrixLigne_Control1000000052Format">
+          <DataField>PrixLigne_Control1000000052Format</DataField>
+        </Field>
+        <Field Name="PoidsNetLigne_Control1000000053">
+          <DataField>PoidsNetLigne_Control1000000053</DataField>
+        </Field>
+        <Field Name="PoidsNetLigne_Control1000000053Format">
+          <DataField>PoidsNetLigne_Control1000000053Format</DataField>
+        </Field>
+        <Field Name="PoidsBrutLigne_Control1000000054">
+          <DataField>PoidsBrutLigne_Control1000000054</DataField>
+        </Field>
+        <Field Name="PoidsBrutLigne_Control1000000054Format">
+          <DataField>PoidsBrutLigne_Control1000000054Format</DataField>
+        </Field>
+        <Field Name="UnitéCaption">
+          <DataField>UnitéCaption</DataField>
+        </Field>
+        <Field Name="QuantitéCaption">
+          <DataField>QuantitéCaption</DataField>
+        </Field>
+        <Field Name="DésignationCaption">
+          <DataField>DésignationCaption</DataField>
+        </Field>
+        <Field Name="N_Caption">
+          <DataField>N_Caption</DataField>
+        </Field>
+        <Field Name="remise_ligneCaption">
+          <DataField>remise_ligneCaption</DataField>
+        </Field>
+        <Field Name="Cout_unit__DirectCaption">
+          <DataField>Cout_unit__DirectCaption</DataField>
+        </Field>
+        <Field Name="Montant_LigneCaption">
+          <DataField>Montant_LigneCaption</DataField>
+        </Field>
+        <Field Name="Poids_net_LigneCaption">
+          <DataField>Poids_net_LigneCaption</DataField>
+        </Field>
+        <Field Name="Poids_brut_LigneCaption">
+          <DataField>Poids_brut_LigneCaption</DataField>
+        </Field>
+        <Field Name="Code_Mag_Caption">
+          <DataField>Code_Mag_Caption</DataField>
+        </Field>
+        <Field Name="Total_Poids_netCaption">
+          <DataField>Total_Poids_netCaption</DataField>
+        </Field>
+        <Field Name="Montant_TotalCaption">
+          <DataField>Montant_TotalCaption</DataField>
+        </Field>
+        <Field Name="Total_Poids_brutCaption">
+          <DataField>Total_Poids_brutCaption</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line_Document_No_">
+          <DataField>Purch__Rcpt__Line_Document_No_</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Line_Line_No_">
+          <DataField>Purch__Rcpt__Line_Line_No_</DataField>
+        </Field>
+        <Field Name="DimText_Control65">
+          <DataField>DimText_Control65</DataField>
+        </Field>
+        <Field Name="DimText_Control67">
+          <DataField>DimText_Control67</DataField>
+        </Field>
+        <Field Name="Line_DimensionsCaption">
+          <DataField>Line_DimensionsCaption</DataField>
+        </Field>
+        <Field Name="DimensionLoop2_Number">
+          <DataField>DimensionLoop2_Number</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Header___Buy_from_Vendor_No__">
+          <DataField>Purch__Rcpt__Header___Buy_from_Vendor_No__</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Header___Buy_from_Vendor_No__Caption">
+          <DataField>Purch__Rcpt__Header___Buy_from_Vendor_No__Caption</DataField>
+        </Field>
+        <Field Name="Total_Number">
+          <DataField>Total_Number</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Header___Pay_to_Vendor_No__">
+          <DataField>Purch__Rcpt__Header___Pay_to_Vendor_No__</DataField>
+        </Field>
+        <Field Name="VendAddr_1_">
+          <DataField>VendAddr_1_</DataField>
+        </Field>
+        <Field Name="VendAddr_2_">
+          <DataField>VendAddr_2_</DataField>
+        </Field>
+        <Field Name="VendAddr_3_">
+          <DataField>VendAddr_3_</DataField>
+        </Field>
+        <Field Name="VendAddr_4_">
+          <DataField>VendAddr_4_</DataField>
+        </Field>
+        <Field Name="VendAddr_5_">
+          <DataField>VendAddr_5_</DataField>
+        </Field>
+        <Field Name="VendAddr_6_">
+          <DataField>VendAddr_6_</DataField>
+        </Field>
+        <Field Name="VendAddr_7_">
+          <DataField>VendAddr_7_</DataField>
+        </Field>
+        <Field Name="VendAddr_8_">
+          <DataField>VendAddr_8_</DataField>
+        </Field>
+        <Field Name="Pay_to_AddressCaption">
+          <DataField>Pay_to_AddressCaption</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Header___Pay_to_Vendor_No__Caption">
+          <DataField>Purch__Rcpt__Header___Pay_to_Vendor_No__Caption</DataField>
+        </Field>
+        <Field Name="Total2_Number">
+          <DataField>Total2_Number</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

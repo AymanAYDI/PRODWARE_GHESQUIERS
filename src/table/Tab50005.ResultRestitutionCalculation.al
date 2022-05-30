@@ -82,4 +82,3 @@ table 50005 "Result Restitution Calculation"
     {
     }
 }
-

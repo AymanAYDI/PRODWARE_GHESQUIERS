@@ -27,10 +27,13 @@ page 99000 "PWD Test Cyrillique"
 
                 trigger OnAction()
                 begin
-                    CLEAR(Excel);
-                    CREATE(Excel);
-                    Excel.LanguageSettings;
 
+                    //ToDo
+                    //CLEAR(Excel);
+                    //CREATE(Excel);
+                    /*
+
+                    Excel.LanguageSettings;
 
                     Book := Excel.Workbooks.Add;
                     NomFeuilleExcel := '';
@@ -39,7 +42,7 @@ page 99000 "PWD Test Cyrillique"
 
                     Excel.ActiveCell.Value := TestFrappe;
 
-                    Excel.Visible := TRUE;
+                    Excel.Visible := TRUE;*/
                 end;
             }
         }
@@ -389,10 +392,5 @@ page 99000 "PWD Test Cyrillique"
     //end;
 
     var
-        Book: Automation;
-        Excel: Automation;
-        Sheet: Automation;
-        NomFeuilleExcel: Text[50];
         TestFrappe: Text[250];
 }
-

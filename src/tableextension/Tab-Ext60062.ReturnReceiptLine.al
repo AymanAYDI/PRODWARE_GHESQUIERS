@@ -16,4 +16,3 @@ tableextension 60062 "PWD ReturnReceiptLine" extends "Return Receipt Line"
         }
     }
 }
-

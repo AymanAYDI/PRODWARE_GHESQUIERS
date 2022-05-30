@@ -2,13 +2,14 @@ codeunit 50003 "PWD File Management"
 {
     procedure ClientTempFileName(FileExtension: Text) ClientFileName: Text
     var
-        TempFile: File;
         ClientTempPath: Text;
     begin
         if not IsLocalFileSystemAccessible() then
             Error(LocalFileSystemNotAccessibleErr);
 
         // Returns the pseudo uniquely generated name of a non existing file in the client temp directory
+        //ToDo
+        /*
         TempFile.CreateTempFile;
         ClientFileName := CreateFileNameWithExtension(TempFile.Name, FileExtension);
         TempFile.Close;
@@ -16,7 +17,7 @@ codeunit 50003 "PWD File Management"
         TempFile.Close;
         ClientTempPath := GetDirectoryName(DownloadTempFile(ClientFileName));
         if Erase(ClientFileName) then;
-        ClientFileHelper.Delete(ClientTempPath + '\' + PathHelper.GetFileName(ClientFileName));
+        ClientFileHelper.Delete(ClientTempPath + '\' + PathHelper.GetFileName(ClientFileName));*/
         ClientFileName := CreateFileNameWithExtension(ClientTempPath + '\' + Format(CreateGuid()), FileExtension);
     end;
 
@@ -44,21 +45,22 @@ codeunit 50003 "PWD File Management"
             exit(FileName);
 
         FileName := DelChr(FileName, '<');
-        exit(PathHelper.GetDirectoryName(FileName));
+        //ToDo
+        //exit(PathHelper.GetDirectoryName(FileName));
     end;
 
     procedure DownloadTempFile(ServerFileName: Text): Text
     var
         FileName: Text;
-        Path: Text;
     begin
         FileName := ServerFileName;
+        //ToDo
+        /*
         Path := Magicpath;
-        Download(ServerFileName, '', Path, AllFilesDescriptionTxt, FileName);
+        Download(ServerFileName, '', Path, AllFilesDescriptionTxt, FileName);*/
         exit(FileName);
     end;
 
     var
         LocalFileSystemNotAccessibleErr: Label 'Sorry, this action is not available for the online version of the app.';
-
 }

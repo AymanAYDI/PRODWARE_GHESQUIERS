@@ -1,10 +1,9 @@
 report 50025 "Sales - Shipment BL bac rose"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './rdl/SalesShipmentBLbacrose.rdl';
-
+    RDLCLayout = './src/report/rdl/SalesShipmentBLbacrose.rdl';
     Caption = 'Sales - Shipment BL bac rose';
-
+    UsageCategory = None;
     dataset
     {
         dataitem(copyLoop; Integer)
@@ -15,28 +14,29 @@ report 50025 "Sales - Shipment BL bac rose"
                 DataItemTableView = SORTING("No.");
                 RequestFilterFields = "No.", "Sell-to Customer No.", "No. Printed";
                 RequestFilterHeading = 'Posted Sales Shipment';
-                column(BON_DE_LIVRAISON_; 'BON DE LIVRAISON')
+                column(DELIVERY_NOTE; DELIVERY_NOTE)
                 {
                 }
-                column(Sales_Shipment_Header__Sales_Shipment_Header__Reference; "Sales Shipment Header"."PWD Reference")
+
+                column(Sales_Shipment_Header_Reference; "Sales Shipment Header"."PWD Reference")
                 {
                 }
-                column(Sales_Shipment_Header__Sales_Shipment_Header___Bill_to_Customer_No__; "Sales Shipment Header"."Bill-to Customer No.")
+                column(Sales_Shipment_Header_Bill_to_Customer_No; "Sales Shipment Header"."Bill-to Customer No.")
                 {
                 }
                 column(Titre; Titre)
                 {
                 }
-                column(Sales_Shipment_Header__Promised_Delivery_Date_; "Promised Delivery Date")
+                column(Sales_Shipment_Header_Promised_Delivery_Date; "Promised Delivery Date")
                 {
                 }
-                column(Sales_Shipment_Header__Sales_Shipment_Header___Order_No__; "Sales Shipment Header"."Order No.")
+                column(Sales_Shipment_Header_Order_No; "Sales Shipment Header"."Order No.")
                 {
                 }
-                column(Sales_Shipment_Header___Sales_Shipment_Header___Posting_Date_; "Sales Shipment Header"."Posting Date")
+                column(Sales_Shipment_Header_Posting_Date; "Sales Shipment Header"."Posting Date")
                 {
                 }
-                column(Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_City_; "Sales Shipment Header"."Ship-to City")
+                column(Sales_Shipment_Header_Ship_to_City; "Sales Shipment Header"."Ship-to City")
                 {
                 }
                 column(ShipToAddr_1_; ShipToAddr[1])
@@ -57,49 +57,49 @@ report 50025 "Sales - Shipment BL bac rose"
                 column(CompanyAddr_5_; CompanyAddr[5])
                 {
                 }
-                column(Tel_______CompanyInfo__Phone_No__; 'Tel : ' + CompanyInfo."Phone No.")
+                column(Tel_CompanyInfo_Phone_No; 'Tel : ' + CompanyInfo."Phone No.")
                 {
                 }
-                column(E_Mail_______CompanyInfo__E_Mail_; 'E-Mail : ' + CompanyInfo."E-Mail")
+                column(E_Mail_CompanyInfo_E_Mail; 'E-Mail : ' + CompanyInfo."E-Mail")
                 {
                 }
-                column(au_Capital_de___CompanyInfo__Stock_Capital_; 'au Capital de ' + CompanyInfo."Stock Capital")
+                column(au_Capital_CompanyInfo_Stock_Capital; 'au Capital de ' + CompanyInfo."Stock Capital")
                 {
                 }
-                column(Fax_______CompanyInfo__Fax_No__; 'Fax : ' + CompanyInfo."Fax No.")
+                column(Fax_CompanyInfo_Fax_No; 'Fax : ' + CompanyInfo."Fax No.")
                 {
                 }
-                column(N__id__intracom_____CompanyInfo__VAT_Registration_No__; 'N° id. intracom : ' + CompanyInfo."VAT Registration No.")
+                column(Intracom_CompanyInfo_VAT_Registration_No; 'N° id. intracom : ' + CompanyInfo."VAT Registration No.")
                 {
                 }
-                column(Sales_Shipment_Header__Sales_Shipment_Header___Bill_to_Name_; "Sales Shipment Header"."Bill-to Name")
+                column(Sales_Shipment_Header_Bill_to_Name; "Sales Shipment Header"."Bill-to Name")
                 {
                 }
                 column(CompanyAddr_1_; CompanyAddr[1])
                 {
                 }
-                column(Sales_Shipment_Header__Sales_Shipment_Header___No__; "Sales Shipment Header"."No.")
+                column(Sales_Shipment_Header_No; "Sales Shipment Header"."No.")
                 {
                 }
-                column(CompanyInfo__Logo_AVITA_facture_; CompanyInfo."PWD Logo AVITA facture")
+                column(CompanyInfo_Logo_AVITA_facture; CompanyInfo."PWD Logo AVITA facture")
                 {
                 }
-                column(Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_Address_; "Sales Shipment Header"."Ship-to Address")
+                column(Sales_Shipment_Header_Ship_to_Address; "Sales Shipment Header"."Ship-to Address")
                 {
                 }
-                column(Sales_Shipment_Header___Sales_Shipment_Header___Delivry_time_; "Sales Shipment Header"."PWD Delivry time")
+                column(Sales_Shipment_Header_Delivry_time; "Sales Shipment Header"."PWD Delivry time")
                 {
                 }
-                column(ADMIS_ET_RECONNU_CONFORME_LE_; 'ADMIS ET RECONNU CONFORME LE')
+                column(ADMIS_ET_RECONNU_CONFORME_LE; 'ADMIS ET RECONNU CONFORME LE')
                 {
                 }
-                column(FORMAT___Sales_Shipment_Header___Posting_Date__0_4_; FORMAT("Sales Shipment Header"."Posting Date", 0, 4))
+                column(Format_Sales_Shipment_Header_Posting_Date; FORMAT("Sales Shipment Header"."Posting Date", 0, 4))
                 {
                 }
                 column(TotalPoidsNet; TotalPoidsNet)
                 {
                 }
-                column(articles_sur_le_BL_n_________Sales_Shipment_Line___Document_No__; 'articles sur le BL n° : ' + "Sales Shipment Line"."Document No.")
+                column(Item_BL_Sales_Shipment_Line_Document_No; 'articles sur le BL n° : ' + "Sales Shipment Line"."Document No.")
                 {
                 }
                 column(NbLigneTotal; NbLigneTotal)
@@ -108,46 +108,43 @@ report 50025 "Sales - Shipment BL bac rose"
                 column(TotalQuantite; TotalQuantite)
                 {
                 }
-                column(Destinataire___Caption; Destinataire___CaptionLbl)
+                column(Destinataire_Caption; Destinataire___CaptionLbl)
                 {
                 }
-                column(Date_livraisonCaption; Date_livraisonCaptionLbl)
+                column(Date_livraison_Caption; Date_livraisonCaptionLbl)
                 {
                 }
-                column(Date_de_doc__Caption; Date_de_doc__CaptionLbl)
+                column(Date_de_doc_Caption; Date_de_doc__CaptionLbl)
                 {
                 }
-                column(Lieu__Caption; Lieu__CaptionLbl)
+                column(Lieu_Caption; Lieu__CaptionLbl)
                 {
                 }
-                column(Emplacement__Caption; Emplacement__CaptionLbl)
+                column(Emplacement_Caption; Emplacement__CaptionLbl)
                 {
                 }
-                column(Commande_n____Caption; Commande_n____CaptionLbl)
+                column(Commande_n_Caption; Commande_n____CaptionLbl)
                 {
                 }
-                column(N__de_vehicule__Caption; N__de_véhicule__CaptionLbl)
+                column(N_de_véhicule_Caption; N__de_véhicule__CaptionLbl)
                 {
                 }
-                column(Navire__Caption; Navire__CaptionLbl)
+                column(Navire_Caption; Navire__CaptionLbl)
                 {
                 }
-                column(Armateur__Caption; Armateur__CaptionLbl)
+                column(Armateur_Caption; Armateur__CaptionLbl)
                 {
                 }
-                column(Destinataire___Caption_Control1000000043; Destinataire___Caption_Control1000000043Lbl)
+                column(Transporteur_Caption; Transporteur___CaptionLbl)
                 {
                 }
-                column(Transporteur___Caption; Transporteur___CaptionLbl)
+                column(Expéditeur_Caption; Expéditeur___CaptionLbl)
                 {
                 }
-                column(Expediteur___Caption; Expéditeur___CaptionLbl)
+                column(Référence_commande_Caption; Référence_commande__CaptionLbl)
                 {
                 }
-                column(Référence_commande__Caption; Référence_commande__CaptionLbl)
-                {
-                }
-                column(N__de_document___Caption; N__de_document___CaptionLbl)
+                column(N_de_document_Caption; N__de_document___CaptionLbl)
                 {
                 }
                 column(Poids_net_ligneCaption; Poids_net_ligneCaptionLbl)
@@ -165,7 +162,7 @@ report 50025 "Sales - Shipment BL bac rose"
                 column(Code_articleCaption; Code_articleCaptionLbl)
                 {
                 }
-                column(N__de_ligneCaption; N__de_ligneCaptionLbl)
+                column(N_de_ligneCaption; N__de_ligneCaptionLbl)
                 {
                 }
                 column(Heure_livraisonCaption; Heure_livraisonCaptionLbl)
@@ -177,16 +174,7 @@ report 50025 "Sales - Shipment BL bac rose"
                 column(VisaCaption; VisaCaptionLbl)
                 {
                 }
-                column(EmptyStringCaption; EmptyStringCaptionLbl)
-                {
-                }
-                column(EmptyStringCaption_Control1000000023; EmptyStringCaption_Control1000000023Lbl)
-                {
-                }
                 column(A_Calais_leCaption; A_Calais_leCaptionLbl)
-                {
-                }
-                column(EmptyStringCaption_Control1000000014; EmptyStringCaption_Control1000000014Lbl)
                 {
                 }
                 column(TOTAL_Poids_netCaption; TOTAL_Poids_netCaptionLbl)
@@ -205,19 +193,25 @@ report 50025 "Sales - Shipment BL bac rose"
                     {
                         DataItemLinkReference = "Sales Shipment Header";
                         DataItemTableView = SORTING("Document No.", "Location Code", "PWD Shelf/Bin No.");
-                        column(Entrepot_______LocationFilter_BoucleMag_Number______DesAFD_____LocationName_BoucleMag_Number_; 'Entrepot : ' + LocationFilter[BoucleMag.Number] + ' ' + DesAFD + ' ' + LocationName[BoucleMag.Number])
+                        column(Sales_Shipment_Line_No; "Sales Shipment Line"."No.")
                         {
                         }
-                        column(Sales_Shipment_Line__Unit_of_Measure_Code_; "Unit of Measure Code")
+                        column(Sales_Shipment_Line_Shelf_Bin_No; "PWD Shelf/Bin No.")
+                        {
+                        }
+                        column(Sales_Shipment_Line_Location_Code; "Location Code")
+                        {
+                        }
+                        column(EntrepotLocationFilter; 'Entrepot : ' + LocationFilter[BoucleMag.Number] + ' ' + DesAFD + ' ' + LocationName[BoucleMag.Number])
+                        {
+                        }
+                        column(Sales_Shipment_Line_Unit_of_Measure_Code; "Unit of Measure Code")
                         {
                         }
                         column(Sales_Shipment_Line_Quantity; Quantity)
                         {
                         }
-                        column(Description__Description_2_; Description + "Description 2")
-                        {
-                        }
-                        column(Sales_Shipment_Line__No__; "No.")
+                        column(Description_Description_2; Description + "Description 2")
                         {
                         }
                         column(NumLigne; NumLigne)
@@ -229,16 +223,27 @@ report 50025 "Sales - Shipment BL bac rose"
                         column(TextDLC_SF; TextDLC_SF)
                         {
                         }
+                        column(Type; Type)
+                        {
+                        }
                         column(Sales_Shipment_Line_Description; Description)
                         {
                         }
-                        column(Sales_Shipment_Line_Document_No_; "Document No.")
+                        column(Sales_Shipment_Line_Document_No; "Document No.")
                         {
                         }
-                        column(Sales_Shipment_Line_Line_No_; "Line No.")
+                        column(Sales_Shipment_Line_Line_No; "Line No.")
                         {
                         }
-
+                        column(PrintMag; PrintMag)
+                        {
+                        }
+                        column(NewBinNo; NewBinNo)
+                        {
+                        }
+                        column(FinLigne; FinLigne)
+                        {
+                        }
                         trigger OnAfterGetRecord()
                         var
                             ItemTrackingMgt: Codeunit "Item Tracking Management";
@@ -253,10 +258,9 @@ report 50025 "Sales - Shipment BL bac rose"
                             END;
                             CodeDEpotEntete := "Sales Shipment Line"."Location Code";
                             CodeSeaFrance := '';
-                            IF "Sales Shipment Header"."Shortcut Dimension 1 Code" = 'SEAFRANCE' THEN BEGIN
+                            IF "Sales Shipment Header"."Shortcut Dimension 1 Code" = 'SEAFRANCE' THEN
                                 IF Type = Type::Item THEN
                                     IF Item.GET("No.") THEN CodeSeaFrance := Item."PWD SEAF Code";
-                            END;
                             IF LocationFilter[BoucleMag.Number] <> 'CML|1' THEN BEGIN
                                 IF LocationFilter[BoucleMag.Number] = '9HCEE' THEN BEGIN
                                     IF Item."PWD No. sommier hors CEE" <> '' THEN
@@ -264,9 +268,8 @@ report 50025 "Sales - Shipment BL bac rose"
                                         CodeSommier := Item."PWD Base Customs No.";
                                 END ELSE
                                     CodeSommier := Item."PWD Base Customs No.";
-                            END ELSE BEGIN
+                            END ELSE
                                 CodeSommier := '';
-                            END;
                             CLEAR(TextDLC);
                             ItemEntryRelation.SETCURRENTKEY("Source ID", "Source Type");
                             ItemEntryRelation.SETRANGE("Source Type", DATABASE::"Sales Shipment Line");
@@ -275,12 +278,12 @@ report 50025 "Sales - Shipment BL bac rose"
                             ItemEntryRelation.SETRANGE("Source Batch Name", '');
                             ItemEntryRelation.SETRANGE("Source Prod. Order Line", 0);
                             ItemEntryRelation.SETRANGE("Source Ref. No.", "Line No.");
-                            IF ItemEntryRelation.FIND('-') THEN BEGIN
+                            IF ItemEntryRelation.FIND('-') THEN
                                 REPEAT
                                     ItemLedgEntry.GET(ItemEntryRelation."Item Entry No.");
                                     TextDLC := 'DLC : ' + FORMAT(ItemLedgEntry."Expiration Date");
-                                UNTIL ItemEntryRelation.NEXT() = 0;
-                            END ELSE
+                                UNTIL ItemEntryRelation.NEXT() = 0
+                            ELSE
                                 CLEAR(TextDLC);
                             NombreLigne := NombreLigne - 1;
                             IF NombreLigne = 0 THEN FinLigne := TRUE;
@@ -291,6 +294,16 @@ report 50025 "Sales - Shipment BL bac rose"
 
                             TotalPoidsNet := TotalPoidsNet + "Sales Shipment Line".Quantity * "Sales Shipment Line"."Net Weight";
                             TotalQuantite := TotalQuantite + "Sales Shipment Line".Quantity;
+
+                            IF BoucleMag.Number <> TestBoucle
+                               THEN BEGIN
+                                PrintMag := TRUE;
+                                TestBoucle := BoucleMag.Number;
+                            END ELSE
+                                PrintMag := FALSE;
+
+                            IF COPYSTR("Sales Shipment Line"."Location Code", 1, 1) = '7' THEN
+                                TextDLC_SF := TextDLC;
                         end;
 
                         trigger OnPreDataItem()
@@ -321,7 +334,7 @@ report 50025 "Sales - Shipment BL bac rose"
 
                 trigger OnAfterGetRecord()
                 begin
-                    CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");
+                    CurrReport.LANGUAGE := Language.GetLanguageIdOrDefault("Language Code");
                     IF NOT Call.GET("Sales Shipment Header"."PWD Call No.") THEN Call.INIT();
 
                     IF RespCenter.GET("Responsibility Center") THEN BEGIN
@@ -332,7 +345,6 @@ report 50025 "Sales - Shipment BL bac rose"
                         CompanyInfo.GET();
                         FormatAddr.Company(CompanyAddr, CompanyInfo);
                         CompanyInfo.CALCFIELDS("PWD Logo AVITA facture", "PWD Logo ISSA");
-
                     END;
 
                     DimSetEntry1.SETRANGE("Dimension Set ID", "Sales Shipment Header"."Dimension Set ID");
@@ -349,8 +361,8 @@ report 50025 "Sales - Shipment BL bac rose"
                     ELSE
                         ReferenceText := FIELDCAPTION("Your Reference");
                     FormatAddr.SalesShptShipTo(ShipToAddr, "Sales Shipment Header");
-
-                    FormatAddr.SalesShptBillTo(CustAddr, "Sales Shipment Header");
+                    //ToDo
+                    //FormatAddr.SalesShptBillTo(CustAddr, "Sales Shipment Header");
                     ShowCustAddr := "Bill-to Customer No." <> "Sell-to Customer No.";
                     FOR i := 1 TO ARRAYLEN(CustAddr) DO
                         IF CustAddr[i] <> ShipToAddr[i] THEN
@@ -360,9 +372,8 @@ report 50025 "Sales - Shipment BL bac rose"
                         IF NOT CurrReport.PREVIEW THEN
                             SegManagement.LogDocument(
                           5, "No.", 0, 0, DATABASE::Customer, "Sell-to Customer No.", "Salesperson Code", '', "Posting Description", '');
-                    IF NOT ShippingAgent.GET("Sales Shipment Header"."Shipping Agent Code") THEN BEGIN
+                    IF NOT ShippingAgent.GET("Sales Shipment Header"."Shipping Agent Code") THEN
                         ShippingAgent.Name := '';
-                    END;
                     SalesShipLine.SETCURRENTKEY("Document No.", "Location Code");
                     SalesShipLine.SETRANGE("Document No.", "Sales Shipment Header"."No.");
                     SalesShipLine.SETRANGE(Type, SalesShipLine.Type::Item);
@@ -387,25 +398,18 @@ report 50025 "Sales - Shipment BL bac rose"
                     REPEAT
                         Item.GET(SalesShipLine."No.");
                         IF ItemFamily.GET(ItemFamily.Type::Item, ItemFamily."Group Type"::Family, '', Item."PWD Family") THEN BEGIN
-                            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Alcool THEN BEGIN
+                            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Alcool THEN
                                 IF Item."PWD Alcool %" <> 0 THEN BEGIN
-                                    IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN BEGIN
+                                    IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN
                                         QtéAlcoolTotal += SalesShipLine."Net Weight" * SalesShipLine."Quantity (Base)" / 100;
-                                    END;
-                                    IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net x °Alcool" THEN BEGIN
+                                    IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net x °Alcool" THEN
                                         QtéAlcoolTotal += SalesShipLine."Net Weight" * SalesShipLine."Quantity (Base)" * Item."PWD Alcool %" / 100;
-                                    END;
                                 END;
-
-                            END;
-                            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN BEGIN
-                                IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN BEGIN
+                            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN
+                                IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN
                                     QtéTabacTotal += SalesShipLine."Net Weight" * SalesShipLine."Quantity (Base)";
-                                END;
-                            END;
                         END;
                     UNTIL SalesShipLine.NEXT() = 0;
-
 
                     CLEAR(LocationFilter);
                     CLEAR(LocationName);
@@ -473,7 +477,6 @@ report 50025 "Sales - Shipment BL bac rose"
 
     requestpage
     {
-
         layout
         {
         }
@@ -509,7 +512,6 @@ report 50025 "Sales - Shipment BL bac rose"
         Item: Record Item;
         ItemEntryRelation: Record "Item Entry Relation";
         ItemLedgEntry: Record "Item Ledger Entry";
-        Language: Record Language;
         Location: Record Location;
         Call: Record "PWD Call";
         ItemFamily: Record "PWD Family & Sub Family";
@@ -520,6 +522,7 @@ report 50025 "Sales - Shipment BL bac rose"
         ShippingAgent: Record "Shipping Agent";
         UserSetup: record "User Setup";
         FormatAddr: Codeunit "Format Address";
+        Language: Codeunit Language;
         SegManagement: Codeunit SegManagement;
         FinLigne: Boolean;
         LogInteraction: Boolean;
@@ -551,12 +554,9 @@ report 50025 "Sales - Shipment BL bac rose"
         Date_de_doc__CaptionLbl: Label 'Date de doc.:';
         Date_livraisonCaptionLbl: Label 'Date livraison';
         "DésignationCaptionLbl": Label 'Désignation';
-        Destinataire___Caption_Control1000000043Lbl: Label 'Destinataire : ';
         Destinataire___CaptionLbl: Label 'Destinataire : ';
         Emplacement__CaptionLbl: Label 'Emplacement :';
-        EmptyStringCaption_Control1000000014Lbl: Label ' : ';
-        EmptyStringCaption_Control1000000023Lbl: Label ' : ';
-        EmptyStringCaptionLbl: Label ' : ';
+
         "Expéditeur___CaptionLbl": Label 'Expéditeur : ';
         Heure_livraisonCaptionLbl: Label 'Heure livraison';
         Lieu__CaptionLbl: Label 'Lieu :';
@@ -573,7 +573,7 @@ report 50025 "Sales - Shipment BL bac rose"
         "TOTAL_QuantitéCaptionLbl": Label 'TOTAL Quantité';
         Transporteur___CaptionLbl: Label 'Transporteur : ';
         "UnitéCaptionLbl": Label 'Unité';
-        VisaCaptionLbl: Label 'Visa';
+        VisaCaptionLbl: Label 'Visa : ';
         SalesPersonText: Text[20];
         LOC1: Text[30];
         LOC2: Text[30];
@@ -583,7 +583,6 @@ report 50025 "Sales - Shipment BL bac rose"
         TextDLC_SF: Text[30];
         Titre: Text[30];
         CompanyAddr: array[8] of Text[50];
-        CustAddr: array[8] of Text[50];
         ShipToAddr: array[8] of Text[50];
         LocationName: array[20] of Text[60];
         TextFooter1: Text[80];
@@ -591,10 +590,13 @@ report 50025 "Sales - Shipment BL bac rose"
         TextFooter3: Text[80];
         TextFooter4: Text[80];
         TextLineFooter: array[5] of Text[80];
+        CustAddr: array[8] of Text[100];
+        TestBoucle: integer;
+        PrintMag: boolean;
+        DELIVERY_NOTE: label 'BON DE LIVRAISON';
 
     procedure InitLogInteraction()
     begin
         LogInteraction := SegManagement.FindInteractTmplCode(5) <> '';
     end;
 }
-

@@ -9,7 +9,7 @@ page 50064 "PWD Modify Item Ledger Entries"
     Permissions = TableData "Item Ledger Entry" = rm;
     SourceTable = "Item Ledger Entry";
     SourceTableView = SORTING("Item No.", Positive, "Completely Invoiced", "Last Invoice Date", "Location Code", "Variant Code");
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -156,8 +156,10 @@ page 50064 "PWD Modify Item Ledger Entries"
                 action("A&xe analytique")
                 {
                     Caption = 'Dimensions';
+                    //ToDo
+                    /*
                     RunObject = Page "Ledger Entry Dimensions";
-                    RunPageLink = "Table ID" = CONST(32), "Entry No." = FIELD("Entry No.");
+                    RunPageLink = "Table ID" = CONST(32), "Entry No." = FIELD("Entry No.");*/
                     ShortCutKey = 'Shift+Ctrl+D';
                     ApplicationArea = All;
                 }
@@ -233,11 +235,9 @@ page 50064 "PWD Modify Item Ledger Entries"
         }
     }
 
-
     procedure GetCaption(): Text[250]
     var
         ObjTransl: Record "Object Translation";
-        CurrOrderNo: Code[20];
         ItemNo: Code[20];
         SourceTableName: Text[100];
     begin
@@ -248,13 +248,13 @@ page 50064 "PWD Modify Item Ledger Entries"
                     SourceTableName := ObjTransl.TranslateObject(ObjTransl."Object Type"::Table, 27);
                     EXIT(STRSUBSTNO('%1 %2', SourceTableName, ItemNo));
                 END;
-            Rec.GETFILTER("Prod. Order No.") <> '':
-                IF Rec.GETRANGEMIN("Prod. Order No.") = Rec.GETRANGEMAX("Prod. Order No.") THEN BEGIN
-                    CurrOrderNo := Rec.GETRANGEMIN("Prod. Order No.");
-                    SourceTableName := ObjTransl.TranslateObject(ObjTransl."Object Type"::Table, 5405);
-                    EXIT(STRSUBSTNO('%1 %2', SourceTableName, CurrOrderNo));
-                END;
+        //ToDo
+        /*Rec.GETFILTER("Prod. Order No.") <> '':
+            IF Rec.GETRANGEMIN("Prod. Order No.") = Rec.GETRANGEMAX("Prod. Order No.") THEN BEGIN
+                CurrOrderNo := Rec.GETRANGEMIN("Prod. Order No.");
+                SourceTableName := ObjTransl.TranslateObject(ObjTransl."Object Type"::Table, 5405);
+                EXIT(STRSUBSTNO('%1 %2', SourceTableName, CurrOrderNo));
+            END;*/
         END;
     end;
 }
-

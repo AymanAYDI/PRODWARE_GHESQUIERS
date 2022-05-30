@@ -623,4 +623,3 @@ table 50014 "PWD EcrArt/fournisseur Tempo"
     begin
     end;
 }
-

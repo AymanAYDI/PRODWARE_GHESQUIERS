@@ -54,4 +54,3 @@ page 60000 "PWD Test Chiffres vers lettres"
         nombre: Decimal;
         NombreText: array[3] of Text[100];
 }
-

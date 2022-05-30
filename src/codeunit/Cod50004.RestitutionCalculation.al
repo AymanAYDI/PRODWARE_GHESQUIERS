@@ -1,6 +1,5 @@
 codeunit 50004 "PWD Restitution Calculation"
 {
-
     trigger OnRun()
     begin
     end;
@@ -14,10 +13,8 @@ codeunit 50004 "PWD Restitution Calculation"
         RecResRestCalc: Record "Result Restitution Calculation";
         SalesShipmentLine: Record "Sales Shipment Line";
 
-
     procedure CallShipmentHeader(SalesShipmentHeader: Record "Sales Shipment Header"; Datefilter1: Date; Datefilter2: Date)
     var
-        PWDFunctionMgt: Codeunit "PWD Function Mgt";
         QtyPer: Decimal;
         QtyPerSpecif: Decimal;
     begin
@@ -43,8 +40,9 @@ codeunit 50004 "PWD Restitution Calculation"
                                         RecRestCalc.SETCURRENTKEY("Restitution Code", "Valid Until");
                                         RecRestCalc.SETRANGE(RecRestCalc."Restitution Code", RecItem."PWD Restitution Key");
                                         RecRestCalc.SETFILTER(RecRestCalc."Valid Until", '%1..%2', Datefilter1, Datefilter2);
-                                        QtyPer := PWDFunctionMgt.GetQtyPerFromUnitToUnit(RecItem,
-                                        SalesShipmentLine."Unit of Measure Code", RecItem."Base Unit of Measure");
+                                        //ToDo
+                                        //QtyPer := PWDFunctionMgt.GetQtyPerFromUnitToUnit(RecItem,
+                                        //SalesShipmentLine."Unit of Measure Code", RecItem."Base Unit of Measure");
                                         IF RecRestCalc.FIND('+') THEN BEGIN
                                             QtyPerSpecif := QtyPer * SalesShipmentLine.Quantity;
                                             RecResRestCalc."Restitution Quantity" := QtyPerSpecif / RecRestCalc.Quantity;
@@ -61,4 +59,3 @@ codeunit 50004 "PWD Restitution Calculation"
     begin
     end;
 }
-

@@ -1,8 +1,8 @@
 report 50053 "PWD Palmares des articles"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './rdl/Palmaresdesarticles.rdl';
-
+    RDLCLayout = './src/report/rdl/Palmaresdesarticles.rdl';
+    UsageCategory = None;
     dataset
     {
         dataitem("Item Ledger Entry"; "Item Ledger Entry")
@@ -251,7 +251,6 @@ report 50053 "PWD Palmares des articles"
 
     requestpage
     {
-
         layout
         {
         }
@@ -293,4 +292,3 @@ report 50053 "PWD Palmares des articles"
         VarMaxPriceCaptionLbl: Label 'Montant Plancher';
         DateFilter: Text[30];
 }
-

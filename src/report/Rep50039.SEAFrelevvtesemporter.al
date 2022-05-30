@@ -1,30 +1,9 @@
 report 50039 "SEAF : relevé vtes à emporter"
 {
-    // //>> 03/08/2011 SU-DADE cf appel TI056815
-    // //   VAE - OnAfterGetRecord()
-    // //   VAECrMemoLine - OnAfterGetRecord()
-    // //<< 03/08/2011 SU-DADE cf appel TI056815
-    // 
-    // //>>MODIF HL
-    // TI170895 DO.GEPO 03/07/2013 : modify VAE - OnAfterGetRecord()
-    // 
-    // //>> 03/02/2016 SU-DADE cf appel TI312622
-    // //   VAE - OnAfterGetRecord()
-    // //   VAECrMemoLine - OnAfterGetRecord()
-    // //<< 03/02/2016 SU-DADE cf appel TI312622
-    // 
-    // //>> 01/07/2016 SU-DADE cf appel TI333205
-    // //   VAE - OnAfterGetRecord()
-    // //   VAECrMemoLine - OnAfterGetRecord()
-    // //<< 01/07/2016 SU-DADE cf appel TI333205
-    // 
-    // //>> 07/05/2018 SU-DADE cf appel TI414520
-    // //   VAE - OnAfterGetRecord()
-    // //   VAECrMemoLine - OnAfterGetRecord()
-    // //<< 07/05/2018 SU-DADE cf appel TI414520
     DefaultLayout = RDLC;
-    RDLCLayout = './rdl/SEAFrelevévtesàemporter.rdl';
-
+    RDLCLayout = './src/report/rdl/SEAFrelevévtesàemporter.rdl';
+    ApplicationArea = all;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {
@@ -41,7 +20,7 @@ report 50039 "SEAF : relevé vtes à emporter"
             column(au_; 'au')
             {
             }
-            column(Page___FORMAT_CurrReport_PAGENO_; 'Page ' + FORMAT(CurrReport.PAGENO()))
+            column(Page___FORMAT_CurrReport_PAGENO_; 'Page ')
             {
             }
             column(NetWeight; NetWeight)
@@ -167,7 +146,6 @@ report 50039 "SEAF : relevé vtes à emporter"
                 StartDate := GETRANGEMIN("Posting Date");
                 EndDate := GETRANGEMAX("Posting Date");
 
-
                 IF NOT (BlankDSA) THEN SETFILTER("PWD DSA No.", '<>%1', '');
             end;
         }
@@ -255,7 +233,6 @@ report 50039 "SEAF : relevé vtes à emporter"
                        ("No." <> 'DTERREA') THEN
                         //<< 07/05/2018 SU-DADE cf appel TI414520
 
-
                         LineAmount := Quantity * Item."PWD Customs Price" ELSE
                         IF "PWD Valeur douane (correction)" <> 0 THEN
                             LineAmount := Quantity * "PWD Valeur douane (correction)" ELSE
@@ -276,7 +253,6 @@ report 50039 "SEAF : relevé vtes à emporter"
 
                 SETRANGE("Posting Date", StartDate, EndDate);
 
-
                 //CurrReport.CREATETOTALS(NetWeight, LineAmount);
             end;
         }
@@ -284,7 +260,6 @@ report 50039 "SEAF : relevé vtes à emporter"
 
     requestpage
     {
-
         layout
         {
         }
@@ -327,4 +302,3 @@ report 50039 "SEAF : relevé vtes à emporter"
         VALEURCaptionLbl: Label 'VALEUR';
         "Ventes_à_emporterCaptionLbl": Label 'Ventes à emporter';
 }
-

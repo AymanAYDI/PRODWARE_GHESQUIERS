@@ -1,18 +1,9 @@
 report 50067 "PWD Purch Order AVITA"
 {
-    // C2A_001 C2A.AMI 16.10.07  - Ajout champ réf. Fourn, Désignation ENU, Code famille sur les lignes achat in RoundLoop/OnAfterGetRecord
-    // 
-    // --------------------------------------------
-    // Prodware - www.prodware.com
-    // --------------------------------------------
-    // >>GUE-RE1.00:DO 14/04/2011 :
-    //   - compilation
-    // --------------------------------------------
     DefaultLayout = RDLC;
-    RDLCLayout = './PurchOrderAVITA.rdlc';
-
+    RDLCLayout = './src/report/rdl/PurchOrderAVITA.rdl';
     Caption = 'Order';
-
+UsageCategory = None;
     dataset
     {
         dataitem("Purchase Header"; "Purchase Header")
@@ -97,7 +88,7 @@ report 50067 "PWD Purch Order AVITA"
                     column(CompanyInfo__Ship_to_Address_2_; CompanyInfo."Ship-to Address 2")
                     {
                     }
-                    column(FORMAT__Purchase_Header___Document_Date__0_4_; FORMAT("Purchase Header"."Document Date", 0, 4))
+                    column(Purchase_Header___Document_Date_; FORMAT("Purchase Header"."Document Date", 0, 4))
                     {
                     }
                     column(ShipToAddr_4_; CompanyInfo."Ship-to Post Code" + '  ' + CompanyInfo."Ship-to City")
@@ -106,16 +97,19 @@ report 50067 "PWD Purch Order AVITA"
                     column(Purchase_Header___No__; "Purchase Header"."No.")
                     {
                     }
-                    column(Page___FORMAT_CurrReport_PAGENO_; 'Page ' + FORMAT(CurrReport.PAGENO()))
+                    column(Page___FORMAT_CurrReport_PAGENO_; 'Page ')
                     {
                     }
-                    column(FORMAT__Purchase_Header___Requested_Receipt_Date__0_4_; FORMAT("Purchase Header"."Requested Receipt Date", 0, 4))
+                    column(Purchase_Header___Requested_Receipt_Date__; FORMAT("Purchase Header"."Requested Receipt Date", 0, 4))
                     {
                     }
                     column(CompanyInfo__Logo_AVITA_facture_; CompanyInfo."PWD Logo AVITA facture")
                     {
                     }
                     column(UserTable_Name; 'UserTable.Name')
+                    {
+                    }
+                    column(User_Name; user."Full Name")
                     {
                     }
                     column(Purchase_Header___Buy_from_Contact_; "Purchase Header"."Buy-from Contact")
@@ -397,6 +391,18 @@ report 50067 "PWD Purch Order AVITA"
                         column(RoundLoop_Number; Number)
                         {
                         }
+                        column(ShowRow; ShowRow)
+                        {
+                        }
+                        column(ShowRectangle4; ShowRectangle4)
+                        {
+                        }
+                        column(ShowRectangle5; ShowRectangle5)
+                        {
+                        }
+                        column(ShowRectangle6; ShowRectangle6)
+                        {
+                        }
                         dataitem(DimensionLoop2; Integer)
                         {
                             DataItemTableView = SORTING(Number)
@@ -470,22 +476,39 @@ report 50067 "PWD Purch Order AVITA"
                                     Translation := Item.Description;
                                 END ELSE
                                     Translation := '';
-
                             END;
                             CLEAR(RéfFournisseur);
                             CLEAR(DescriptionENU);
 
                             ItemVend.RESET();
                             ItemVend.SETCURRENTKEY("Vendor No.", "Item No.");
-                            IF ItemVend.GET("Purchase Line"."Buy-from Vendor No.", "Purchase Line"."No.") THEN BEGIN
+                            IF ItemVend.GET("Purchase Line"."Buy-from Vendor No.", "Purchase Line"."No.") THEN
                                 RéfFournisseur := ItemVend."Vendor Item No.";
-                            END;
 
                             IF ItemTranslation.GET("Purchase Line"."No.", '', 'ENU') THEN
                                 DescriptionENU := ItemTranslation.Description;
 
                             IF DescriptionENU = '' THEN
                                 DescriptionENU := PurchLine."Description 2";
+
+                            if PurchLine."Inv. Discount Amount" <> 0 then
+                                ShowRow := true
+                            else
+                                ShowRow := false;
+
+                            if ("Purchase Header"."Prices Including VAT" = false) and (VATAmount <> 0) then
+                                ShowRectangle4 := true
+                            else
+                                ShowRectangle4 := false;
+
+                            if (VATDiscountAmount <> 0) AND (VATAmount <> 0) AND "Purchase Header"."Prices Including VAT" AND ("Purchase Header"."VAT Base Discount %" <> 0) then
+                                ShowRectangle5 := true
+                            else
+                                ShowRectangle5 := false;
+                            if ("Purchase Header"."Prices Including VAT" AND (VATAmount <> 0)) then
+                                ShowRectangle6 := true
+                            else
+                                ShowRectangle6 := false;
                         end;
 
                         trigger OnPostDataItem()
@@ -592,7 +615,7 @@ report 50067 "PWD Purch Order AVITA"
             var
                 FromPurchLine: Record "Purchase Line";
             begin
-                CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");
+                CurrReport.LANGUAGE := Language.GetLanguageIdOrDefault("Language Code");
 
                 IF RespCenter.GET("Responsibility Center") THEN BEGIN
                     FormatAddr.RespCenter(CompanyAddr, RespCenter);
@@ -658,7 +681,6 @@ report 50067 "PWD Purch Order AVITA"
                     END;
                 END;
 
-
                 PurchLineDDE.SETRANGE("Document Type", "Purchase Header"."Document Type");
                 PurchLineDDE.SETRANGE("Document No.", "Purchase Header"."No.");
                 IF NOT PurchLineDDE.FIND('-') THEN
@@ -672,22 +694,18 @@ report 50067 "PWD Purch Order AVITA"
                         IF FromPurchLine."Sales Order No." <> '' THEN SalesOrderNo := FromPurchLine."Sales Order No.";
                         IF FromPurchLine."Special Order Sales No." <> '' THEN SalesOrderNo := FromPurchLine."Special Order Sales No.";
                         CLEAR(ShipName);
-                        IF ShowInternalInfo THEN BEGIN
+                        IF ShowInternalInfo THEN
                             IF NOT SalesHeader.GET(SalesHeader."Document Type"::Order, FromPurchLine."Special Order Sales No.") THEN
                                 SalesHeader.INIT()
-                            ELSE BEGIN
+                            ELSE
                                 ShipName := 'Navire : ' + SalesHeader."Sell-to Customer Name";
-                            END;
-                        END;
                     UNTIL FromPurchLine.NEXT() = 0;
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -708,11 +726,14 @@ report 50067 "PWD Purch Order AVITA"
 
     trigger OnPreReport()
     begin
-        IF USERID <> '' THEN
+        IF USERID() <> '' THEN
             IF NOT UserTable.GET(USERID) THEN;
+        IF UserSecurityId() <> '' THEN
+            IF NOT User.GET(UserSecurityId()) THEN;
     end;
 
     var
+
         CompanyInfo: Record "Company Information";
         DocDim1: Record "Dimension Set Entry";
         DocDim2: Record "Dimension Set Entry";
@@ -720,7 +741,6 @@ report 50067 "PWD Purch Order AVITA"
         Item: Record Item;
         ItemTranslation: Record "Item Translation";
         ItemVend: Record "Item Vendor";
-        Language: Record Language;
         PaymentTerms: Record "Payment Terms";
         PurchLine: Record "Purchase Line" temporary;
         PurchLineDDE: Record "Purchase Line";
@@ -728,10 +748,12 @@ report 50067 "PWD Purch Order AVITA"
         SalesHeader: Record "Sales Header";
         SalesPurchPerson: Record "Salesperson/Purchaser";
         ShipmentMethod: Record "Shipment Method";
+        User: record User;
         UserTable: Record "User Setup";
         VATAmountLine: Record "VAT Amount Line" temporary;
         ArchiveManagement: Codeunit ArchiveManagement;
         FormatAddr: Codeunit "Format Address";
+        Language: Codeunit Language;
         PurchCountPrinted: Codeunit "Purch.Header-Printed";
         PurchPost: Codeunit "Purch.-Post";
         SegManagement: Codeunit SegManagement;
@@ -740,6 +762,10 @@ report 50067 "PWD Purch Order AVITA"
         LogInteraction: Boolean;
         MoreLines: Boolean;
         ShowInternalInfo: Boolean;
+        ShowRectangle4: Boolean;
+        ShowRectangle5: Boolean;
+        ShowRectangle6: Boolean;
+        ShowRow: Boolean;
         SalesOrderNo: Code[20];
         TotalAmountInclVAT: Decimal;
         VATAmount: Decimal;

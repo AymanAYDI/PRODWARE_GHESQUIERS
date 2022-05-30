@@ -1,19 +1,10 @@
 page 50018 "PWD List Export COALA"
 {
-    // ---------------------------------------------------------------------------------------------------
-    // Prodware - www.prodware.fr
-    // 
-    // ---------------------------------------------------------------------------------------------------
-    // 
-    // //>>GHES1.02
-    // P3346_0011 DO.SOBI 12/01/12  : -  Export COALA
-    // 
-    // ---------------------------------------------------------------------------------------------------
-
     PageType = List;
     SourceTable = "PWD Export COALA";
     SourceTableView = SORTING("Entry No.") ORDER(Descending) WHERE("Export COALA Succes" = CONST(true));
-
+    ApplicationArea = all;
+    UsageCategory = Lists;
     layout
     {
         area(content)
@@ -73,4 +64,3 @@ page 50018 "PWD List Export COALA"
         Rec.FINDFIRST();
     end;
 }
-

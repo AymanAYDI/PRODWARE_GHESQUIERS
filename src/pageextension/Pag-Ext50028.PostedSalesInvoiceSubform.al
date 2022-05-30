@@ -8,7 +8,6 @@ pageextension 50028 "PWD PostedSalesInvoiceSubform" extends "Posted Sales Invoic
             {
                 ApplicationArea = All;
             }
-
         }
         addafter(Description)
         {
@@ -16,7 +15,6 @@ pageextension 50028 "PWD PostedSalesInvoiceSubform" extends "Posted Sales Invoic
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

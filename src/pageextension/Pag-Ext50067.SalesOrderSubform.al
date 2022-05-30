@@ -293,8 +293,8 @@ pageextension 50067 "PWD SalesOrderSubform" extends "Sales Order Subform"
     BEGIN
         IF (Rec.Type = Rec.Type::Item) AND (Item.GET(Rec."No.")) THEN BEGIN
             Item.CALCFIELDS(Comment);
-            IF Item.Comment = TRUE THEN BEGIN
-            END;
+            IF Item.Comment = TRUE THEN
+                ;
         END;
     END;
 
@@ -356,9 +356,8 @@ pageextension 50067 "PWD SalesOrderSubform" extends "Sales Order Subform"
         IF Rec."Unit Price" * (1 - (Rec."Line Discount %" / 100)) < Rec."Unit Cost" * CoefPrixUnitaire THEN BEGIN
             Rec."PWD KPI" := RecLKPIRulesSetup.KPI;
             Rec.CALCFIELDS(Rec."PWD KPI");
-        END ELSE BEGIN
+        END ELSE
             CLEAR(Rec."PWD KPI");
-        END;
     END;
 
     var

@@ -84,7 +84,6 @@ table 70041 "PWD Object Membership"
         Text1000000003: Label 'Delete unknown objects';
         Text1000000004: Label '%1 new objects inserted in the list.';
 
-
     procedure UpdMembership()
     var
         AllObj: Record AllObj;
@@ -180,4 +179,3 @@ table 70041 "PWD Object Membership"
             MESSAGE(Text1000000004, ObjectNo);
     end;
 }
-

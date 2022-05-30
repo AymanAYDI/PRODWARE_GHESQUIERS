@@ -25,4 +25,3 @@ tableextension 60021 "PWD GeneralLedgerSetup" extends "General Ledger Setup"
         }
     }
 }
-

@@ -13,4 +13,3 @@ tableextension 60009 "PWD ItemTranslation" extends "Item Translation"
             END;
     end;
 }
-

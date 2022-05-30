@@ -7,7 +7,7 @@ page 50053 "PWD Feuille saisie prestation"
     PageType = Card;
     SaveValues = true;
     SourceTable = "Item Journal Line";
-
+UsageCategory = None;
     layout
     {
         area(content)
@@ -402,10 +402,11 @@ page 50053 "PWD Feuille saisie prestation"
             {
                 Caption = '&Line';
                 action("A&xe analytique")
-                { //ToDo
+                {
                     Caption = 'Dimensions';
-                    RunObject = Page "Journal Line Dimensions";
-                    RunPageLink = "Table ID" = CONST(83), "Journal Template Name" = FIELD("Journal Template Name"), "Journal Batch Name" = FIELD("Journal Batch Name"), "Journal Line No." = FIELD("Line No.");
+                    RunObject = Page "Dimension Set Entries";
+                    //ToDo
+                    //RunPageLink = "Table ID" = CONST(83), "Journal Template Name" = FIELD("Journal Template Name"), "Journal Batch Name" = FIELD("Journal Batch Name"), "Journal Line No." = FIELD("Line No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                     ApplicationArea = All;
                 }
@@ -453,7 +454,8 @@ page 50053 "PWD Feuille saisie prestation"
 
                         trigger OnAction()
                         begin
-                            ItemAvailability(0);
+                            //ToDo
+                            //ItemAvailability(0);
                         end;
                     }
                     action(Variante)
@@ -463,7 +465,8 @@ page 50053 "PWD Feuille saisie prestation"
 
                         trigger OnAction()
                         begin
-                            ItemAvailability(1);
+                            //ToDo
+                            //ItemAvailability(1);
                         end;
                     }
                     action(Magasin)
@@ -473,7 +476,8 @@ page 50053 "PWD Feuille saisie prestation"
 
                         trigger OnAction()
                         begin
-                            ItemAvailability(2);
+                            //ToDo
+                            //ItemAvailability(2);
                         end;
                     }
                     action(Emplacement)
@@ -483,7 +487,8 @@ page 50053 "PWD Feuille saisie prestation"
 
                         trigger OnAction()
                         begin
-                            ItemAvailability(3);
+                            //ToDo
+                            //ItemAvailability(3);
                         end;
                     }
                 }
@@ -538,7 +543,8 @@ page 50053 "PWD Feuille saisie prestation"
                     begin
                         CurrPage.SETSELECTIONFILTER(ItemJnlLine);
                         ItemJnlLine.SETRANGE("Line No.");
-                        REPORT.RUNMODAL(REPORT::"Bon de commande prestation", TRUE, TRUE, ItemJnlLine);
+                        //ToDo
+                        //REPORT.RUNMODAL(REPORT::"Bon de commande prestation", TRUE, TRUE, ItemJnlLine);
                     end;
                 }
                 action("Avis de placement")
@@ -551,7 +557,8 @@ page 50053 "PWD Feuille saisie prestation"
                         InvSetup.GET();
                         ItemJnlBatch.GET(InvSetup."PWD Nom modele prestation", CurrentJnlBatchName);
                         ItemJnlBatch.SETRECFILTER();
-                        REPORT.RUNMODAL(REPORT::"Avis placement prestation", TRUE, TRUE, ItemJnlBatch);
+                        //ToDo
+                        //REPORT.RUNMODAL(REPORT::"Avis placement prestation", TRUE, TRUE, ItemJnlBatch);
                     end;
                 }
             }
@@ -663,15 +670,15 @@ page 50053 "PWD Feuille saisie prestation"
         Scellement: Text[50];
         VendorName: Text[50];
 
-
     procedure MAJ()
     var
         Cust: Record Customer;
         ItemJnlBatch: Record "Item Journal Batch";
         Presta: Record "PWD Prestations";
         Vendor: Record Vendor;
+        PWDFunctionMgt: Codeunit "PWD Function Mgt";
     begin
-        ItemJnlMgt.MAJPrest(CurrentJnlBatchName, VendorNo, CustNo, TypePresta);
+        PWDFunctionMgt.MAJPrest(CurrentJnlBatchName, VendorNo, CustNo, TypePresta);
         IF Vendor.GET(VendorNo) THEN VendorName := Vendor.Name ELSE VendorName := '';
         IF Cust.GET(CustNo) THEN CustName := Cust.Name ELSE CustName := '';
         IF Presta.GET(TypePresta) THEN PrestaName := Presta.Designation ELSE PrestaName := '';
@@ -685,7 +692,6 @@ page 50053 "PWD Feuille saisie prestation"
             PJ4 := ItemJnlBatch."PWD Attachment 4";
         END;
     end;
-
 
     procedure GetJnlBatch()
     begin
@@ -753,4 +759,3 @@ page 50053 "PWD Feuille saisie prestation"
         ItemJnlMgt.GetItem(Rec."Item No.", ItemDescription);
     end;
 }
-

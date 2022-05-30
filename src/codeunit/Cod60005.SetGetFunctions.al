@@ -3,9 +3,10 @@ codeunit 60005 "PWD Set/Get Functions"
     SingleInstance = true;
 
     var
+        MemLineDiscount: Decimal;
+        MemUnitPrice: Decimal;
         GboolSkipLoc: Boolean;
         Processing: Boolean;
-        vconf: Boolean;
         CountryCode: Code[10];
         OriginLotNo: Code[20];
         StockingAdviceNo: Code[20];
@@ -15,15 +16,25 @@ codeunit 60005 "PWD Set/Get Functions"
         ButchExpirationDate2: Date;
         GenRef: Text[100];
 
-    //---TAB36---
-    procedure Setconf(confirmation: Boolean)
+    //---TAB37---
+    procedure SetMemLineDiscount(NewMemLineDiscount: Decimal)
     begin
-        vconf := confirmation;
+        MemLineDiscount := NewMemLineDiscount;
     end;
 
-    procedure Getconf(): Boolean
+    procedure GetMemLineDiscount(): Decimal
     begin
-        exit(vconf);
+        exit(MemLineDiscount);
+    end;
+
+    procedure SetMemUnitPrice(NewMemUnitPrice: Decimal)
+    begin
+        MemUnitPrice := NewMemUnitPrice;
+    end;
+
+    procedure GetMemUnitPrice(): Decimal
+    begin
+        exit(MemUnitPrice);
     end;
 
     //cdu414
@@ -82,7 +93,6 @@ codeunit 60005 "PWD Set/Get Functions"
     BEGIN
         exit(ButchExpirationDate);
     END;
-
 
     PROCEDURE SetButcheryOriginLot(OriginLotNoFill: Code[20]);
     BEGIN

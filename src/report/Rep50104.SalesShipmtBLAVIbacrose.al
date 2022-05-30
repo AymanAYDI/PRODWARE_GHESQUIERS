@@ -1,11 +1,9 @@
 report 50104 "Sales - Shipmt BLAVI bac rose"
 {
-
     DefaultLayout = RDLC;
-    RDLCLayout = './rdl/SalesShipmtBLAVIbacrose.rdlc';
-
+    RDLCLayout = './src/report/rdl/SalesShipmtBLAVIbacrose.rdl';
     Caption = 'Sales - Shipment BLAVI bac rose';
-
+    UsageCategory = None;
     dataset
     {
         dataitem(copyLoop; Integer)
@@ -32,6 +30,9 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                 {
                 }
                 column(Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_City_; "Sales Shipment Header"."Ship-to City")
+                {
+                }
+                column(OutputNo; OutputNo)
                 {
                 }
                 column(ShipToAddr_1_; ShipToAddr[1])
@@ -109,7 +110,7 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                 column(TotalQuantite; TotalQuantite)
                 {
                 }
-                column("Identité__Caption"; Identité__CaptionLbl)
+                column(Identité__Caption; Identité__CaptionLbl)
                 {
                 }
                 column(Destinataire___Caption; Destinataire___CaptionLbl)
@@ -142,7 +143,7 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                 column(Transporteur___Caption; Transporteur___CaptionLbl)
                 {
                 }
-                column("Expéditeur___Caption"; Expéditeur___CaptionLbl)
+                column(Expéditeur___Caption; Expéditeur___CaptionLbl)
                 {
                 }
                 column("Référence_commande__Caption"; Référence_commande__CaptionLbl)
@@ -172,7 +173,7 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                 column(Heure_livraisonCaption; Heure_livraisonCaptionLbl)
                 {
                 }
-                column(Convention_d_Avitaillement___du_25_01_2008___________________________________________Bureau_de_Boulogne_s_MerCaption; Convention_d_Avitaillement___du_25_01_2008___________________________________________Bureau_de_Boulogne_s_MerCaptionLbl)
+                column(Convention_d_Avitaillement_du_25_01_2008_Bureau_de_Boulogne_s_MerCaption; Convention_d_Avitaillement___du_25_01_2008___________________________________________Bureau_de_Boulogne_s_MerCaptionLbl)
                 {
                 }
                 column(N__accises_FR000074E0019Caption; N__accises_FR000074E0019CaptionLbl)
@@ -227,6 +228,9 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                         column(Sales_Shipment_Line_Quantity; Quantity)
                         {
                         }
+                        column(Sales_Shipment_Line_Location_Code; "Location Code")
+                        {
+                        }
                         column(Description__Description_2_; Description + "Description 2")
                         {
                         }
@@ -254,10 +258,35 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                         column(Sales_Shipment_Line_Line_No_; "Line No.")
                         {
                         }
-
+                        column(PrintMag; PrintMag)
+                        {
+                        }
+                        column(Type; Type)
+                        {
+                        }
+                        column(CodeDEpotEntete; CodeDEpotEntete)
+                        {
+                        }
+                        column(CodeSeaFrance; CodeSeaFrance)
+                        {
+                        }
+                        column(FinLigne; FinLigne)
+                        {
+                        }
+                        column(CodeSommier; CodeSommier)
+                        {
+                        }
+                        column(showRow; showRow)
+                        {
+                        }
+                        column(DesAFD; DesAFD)
+                        {
+                        }
+                        column(NumDSA; NumDSA)
+                        {
+                        }
                         trigger OnAfterGetRecord()
                         var
-                            ItemTrackingMgt: Codeunit "Item Tracking Management";
                         begin
 
                             DimSetEntry2.SETRANGE("Dimension Set ID", "Sales Shipment Line"."Dimension Set ID");
@@ -271,11 +300,9 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
 
                             CodeDEpotEntete := "Sales Shipment Line"."Location Code";
                             CodeSeaFrance := '';
-                            IF "Sales Shipment Header"."Shortcut Dimension 1 Code" = 'SEAFRANCE' THEN BEGIN
+                            IF "Sales Shipment Header"."Shortcut Dimension 1 Code" = 'SEAFRANCE' THEN
                                 IF Type = Type::Item THEN
                                     IF Item.GET("No.") THEN CodeSeaFrance := Item."PWD SEAF Code";
-                            END;
-
                             IF LocationFilter[BoucleMag.Number] <> 'CML|1' THEN BEGIN
                                 IF LocationFilter[BoucleMag.Number] = '9HCEE' THEN BEGIN
                                     IF Item."PWD No. sommier hors CEE" <> '' THEN
@@ -283,9 +310,8 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                                         CodeSommier := Item."PWD Base Customs No.";
                                 END ELSE
                                     CodeSommier := Item."PWD Base Customs No.";
-                            END ELSE BEGIN
+                            END ELSE
                                 CodeSommier := '';
-                            END;
                             CLEAR(TextDLC);
                             ItemEntryRelation.SETCURRENTKEY("Source ID", "Source Type");
                             ItemEntryRelation.SETRANGE("Source Type", DATABASE::"Sales Shipment Line");
@@ -294,12 +320,12 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                             ItemEntryRelation.SETRANGE("Source Batch Name", '');
                             ItemEntryRelation.SETRANGE("Source Prod. Order Line", 0);
                             ItemEntryRelation.SETRANGE("Source Ref. No.", "Line No.");
-                            IF ItemEntryRelation.FIND('-') THEN BEGIN
+                            IF ItemEntryRelation.FIND('-') THEN
                                 REPEAT
                                     ItemLedgEntry.GET(ItemEntryRelation."Item Entry No.");
                                     TextDLC := 'DLC : ' + FORMAT(ItemLedgEntry."Expiration Date");
-                                UNTIL ItemEntryRelation.NEXT() = 0;
-                            END ELSE
+                                UNTIL ItemEntryRelation.NEXT() = 0
+                            ELSE
                                 CLEAR(TextDLC);
                             NombreLigne := NombreLigne - 1;
                             IF NombreLigne = 0 THEN FinLigne := TRUE;
@@ -309,6 +335,19 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                             TotalQuantite := TotalQuantite + "Sales Shipment Line".Quantity;
                             IF Type = Type::Item THEN
                                 IF NOT ItemTrans.GET("No.", '', 'ENU') THEN ItemTrans.INIT();
+
+                            IF BoucleMag.Number <> TestBoucle
+                               THEN BEGIN
+                                PrintMag := TRUE;
+                                TestBoucle := BoucleMag.Number;
+                            END ELSE
+                                PrintMag := FALSE;
+                            IF COPYSTR("Sales Shipment Line"."Location Code", 1, 1) = '7' THEN
+                                TextDLC_SF := TextDLC;
+                            if ("Sales Shipment Line".Type = "Sales Shipment Line".Type::Resource) and (Quantity <> 0) then
+                                showRow := true
+                            else
+                                showRow := false;
                         end;
 
                         trigger OnPreDataItem()
@@ -339,8 +378,7 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
 
                 trigger OnAfterGetRecord()
                 begin
-                    //ToDo
-                    CurrReport.LANGUAGE := Language.GetLanguageID("Language Code");
+                    CurrReport.LANGUAGE := Language.GetLanguageIdOrDefault("Language Code");
                     IF NOT Call.GET("Sales Shipment Header"."PWD Call No.") THEN Call.INIT();
 
                     IF RespCenter.GET("Responsibility Center") THEN BEGIN
@@ -351,7 +389,6 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                         CompanyInfo.GET();
                         FormatAddr.Company(CompanyAddr, CompanyInfo);
                         CompanyInfo.CALCFIELDS("PWD Logo AVITA facture", "PWD Logo ISSA");
-
                     END;
 
                     DimSetEntry1.SETRANGE("Dimension Set ID", "Sales Shipment Header"."Dimension Set ID");
@@ -367,8 +404,8 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                     ELSE
                         ReferenceText := FIELDCAPTION("Your Reference");
                     FormatAddr.SalesShptShipTo(ShipToAddr, "Sales Shipment Header");
-
-                    FormatAddr.SalesShptBillTo(CustAddr, "Sales Shipment Header");
+                    //ToDo vérifier
+                    FormatAddr.SalesShptBillTo(CustAddr, ShipToAddr, "Sales Shipment Header");
                     ShowCustAddr := "Bill-to Customer No." <> "Sell-to Customer No.";
                     FOR i := 1 TO ARRAYLEN(CustAddr) DO
                         IF CustAddr[i] <> ShipToAddr[i] THEN
@@ -377,9 +414,8 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                     IF LogInteraction THEN
                         IF NOT CurrReport.PREVIEW THEN
                             SegManagement.LogDocument(5, "No.", 0, 0, DATABASE::Customer, "Sell-to Customer No.", "Salesperson Code", '', "Posting Description", '');
-                    IF NOT ShippingAgent.GET("Sales Shipment Header"."Shipping Agent Code") THEN BEGIN
+                    IF NOT ShippingAgent.GET("Sales Shipment Header"."Shipping Agent Code") THEN
                         ShippingAgent.Name := '';
-                    END;
                     SalesShipLine.SETCURRENTKEY("Document No.", "Location Code");
                     SalesShipLine.SETRANGE("Document No.", "Sales Shipment Header"."No.");
                     SalesShipLine.SETRANGE(Type, SalesShipLine.Type::Item);
@@ -404,26 +440,18 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                     REPEAT
                         Item.GET(SalesShipLine."No.");
                         IF ItemFamily.GET(ItemFamily.Type::Item, ItemFamily."Group Type"::Family, '', Item."PWD Family") THEN BEGIN
-                            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Alcool THEN BEGIN
+                            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Alcool THEN
                                 IF Item."PWD Alcool %" <> 0 THEN BEGIN
-                                    IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN BEGIN
+                                    IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN
                                         QtéAlcoolTotal += SalesShipLine."Net Weight" * SalesShipLine."Quantity (Base)" / 100;
-                                    END;
-                                    IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net x °Alcool" THEN BEGIN
+                                    IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net x °Alcool" THEN
                                         QtéAlcoolTotal += SalesShipLine."Net Weight" * SalesShipLine."Quantity (Base)" * Item."PWD Alcool %" / 100;
-                                    END;
                                 END;
-
-                            END;
-                            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN BEGIN
-                                IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN BEGIN
+                            IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN
+                                IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN
                                     QtéTabacTotal += SalesShipLine."Net Weight" * SalesShipLine."Quantity (Base)";
-                                END;
-                            END;
                         END;
                     UNTIL SalesShipLine.NEXT() = 0;
-
-
                     CLEAR(LocationFilter);
                     CLEAR(LocationName);
                     LocationFilter[1] := 'CML|1';
@@ -474,6 +502,8 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                 END;
 
                 CLEAR(NumLigne);
+                if Number > 1 then
+                    OutputNo += 1;
             end;
 
             trigger OnPreDataItem()
@@ -483,13 +513,13 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                 TextLineFooter[3] := 'EXEMPLAIRE A RETOURNER AU BUREAU DOUANE DE DUNKERQUE PORT OUEST 59279 LOON PLAGE';
                 TextLineFooter[4] := 'EXEMPLAIRE A REMETTRE A BORD - STEWARD''S RECEIPT';
                 TextLineFooter[5] := 'DUPLICATA A NOUS RETOURNER SIGNE - DUPLICATA TO BE RETURNED DULY SIGNED';
+                OutputNo := 1;
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -510,7 +540,6 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
         DepotSpecial := '8';
         If UserSetup.Get() then
             UserSetup.CALCFIELDS("PWD Signing");
-
     end;
 
     var
@@ -521,7 +550,6 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
         ItemEntryRelation: Record "Item Entry Relation";
         ItemLedgEntry: Record "Item Ledger Entry";
         ItemTrans: Record "Item Translation";
-        Language: Record Language;
         Location: Record Location;
         Call: Record "PWD Call";
         ItemFamily: Record "PWD Family & Sub Family";
@@ -532,10 +560,13 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
         ShippingAgent: Record "Shipping Agent";
         UserSetup: record "User Setup";
         FormatAddr: Codeunit "Format Address";
+        Language: Codeunit Language;
         SegManagement: Codeunit SegManagement;
         FinLigne: Boolean;
         LogInteraction: Boolean;
+        PrintMag: Boolean;
         ShowCustAddr: Boolean;
+        showRow: boolean;
         DepotSpecial: Code[10];
         DesAFD: Code[10];
         LastLocation: Code[10];
@@ -552,7 +583,9 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
         NbLigneTotal: Integer;
         NombreLigne: Integer;
         NumLigne: Integer;
+        TestBoucle: Integer;
         TotalLocation: Integer;
+        OutputNo: Integer;
         A_Calais_leCaptionLbl: Label 'A Calais le';
         "Arrété_àCaptionLbl": Label 'Arrété à';
         Bonded_Allowance_40g_tobacco_or_cigarettes_5cl_wine_or_beer_or_aperitive_with_wine_10cl_spirits_per_day_at_sea_per_pLbl: Label 'L''exonération des droits et taxes est conditionnée par la mise à bord effective immédiate des marchandises pour consommation à bord. A défaut, les droits et taxes sont dûs.';
@@ -581,6 +614,7 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
         Poids_net_ligneCaptionLbl: Label 'Poids net net weight ';
         "QuantitéCaptionLbl": Label 'Quantité';
         Quantités_autorisées_40g_tabac_ou_cigarettes_5cl_vin_ou_bière_ou_apéritif_à_base_de_vin10_cl_spiritueux_par_personneLbl: Label 'Bonded allowance / Quantités autorisées : 40 g tabac ou cigarettes + 5 cl vin bière ou apéritif à base de vin + 10 cl spiritueux par personne majeure embarquée et par jour de mer';
+
         "Référence_commande__CaptionLbl": Label 'Référence commande :';
         Text000: Label 'Salesperson';
         TOTAL_Poids_netCaptionLbl: Label 'TOTAL Poids net';
@@ -597,7 +631,6 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
         TextDLC_SF: Text[30];
         Titre: Text[30];
         CompanyAddr: array[8] of Text[50];
-        CustAddr: array[8] of Text[50];
         ShipToAddr: array[8] of Text[50];
         LocationName: array[20] of Text[60];
         TextFooter1: Text[80];
@@ -605,6 +638,7 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
         TextFooter3: Text[80];
         TextFooter4: Text[80];
         TextLineFooter: array[5] of Text[80];
+        CustAddr: array[8] of Text[100];
 
     procedure InitLogInteraction()
     begin

@@ -5,7 +5,7 @@ report 50007 "Generation Purchase Order -TrB"
 
     Caption = 'Generation Purchase Order';
     ProcessingOnly = true;
-
+    UsageCategory = None;
     dataset
     {
         dataitem("Sales Header"; "Sales Header")
@@ -74,7 +74,6 @@ report 50007 "Generation Purchase Order -TrB"
                     Window.UPDATE(4, "Purchase Line"."Document No.");
                     SLEEP(500);
 
-
                     IF MemoNumachat <> "Purchase Line"."Document No." THEN BEGIN
                         MemoNumachat := "Purchase Line"."Document No.";
 
@@ -116,7 +115,6 @@ report 50007 "Generation Purchase Order -TrB"
                         END;
                     UNTIL PurchQuoteLine.NEXT() = 0;
 
-
                 //----------------------------------------------------------------------------//
                 //*** Vérifie que toute les lignes des commande d'achat correspondent à la même cde de vente.
                 //----------------------------------------------------------------------------//
@@ -155,7 +153,6 @@ report 50007 "Generation Purchase Order -TrB"
 
     requestpage
     {
-
         layout
         {
         }
@@ -168,7 +165,6 @@ report 50007 "Generation Purchase Order -TrB"
     labels
     {
     }
-
 
     var
         ItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)";
@@ -194,7 +190,6 @@ report 50007 "Generation Purchase Order -TrB"
     begin
         PurchQuoteLine.RESET();
 
-
         rec.TESTFIELD("Document Type", rec."Document Type"::Quote);
 
         PurchOrderHeader := rec;
@@ -218,7 +213,6 @@ report 50007 "Generation Purchase Order -TrB"
         PurchQuoteLine.SETRANGE("Document Type", rec."Document Type");
         PurchQuoteLine.SETRANGE("Document No.", rec."No.");
 
-
         IF PurchQuoteLine.FIND('-') THEN
             REPEAT
                 PurchOrderLine := PurchQuoteLine;
@@ -239,7 +233,6 @@ report 50007 "Generation Purchase Order -TrB"
                 SalesOrderLine."PWD Trad. Br Order Purch. Line No." := PurchOrderLine."Line No.";
                 SalesOrderLine.MODIFY();
             //************************************//
-
             UNTIL PurchQuoteLine.NEXT() = 0;
 
         PurchCommentLine.SETRANGE("Document Type", rec."Document Type");
@@ -282,4 +275,3 @@ report 50007 "Generation Purchase Order -TrB"
         PurchQuoteLine.DELETEALL();
     end;
 }
-

@@ -78,4 +78,3 @@ table 50010 "PWD Tarifs prestation"
     {
     }
 }
-

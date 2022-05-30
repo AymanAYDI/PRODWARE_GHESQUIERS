@@ -30,4 +30,3 @@ tableextension 60061 "PWD ReturnReceiptHeader" extends "Return Receipt Header"
         }
     }
 }
-

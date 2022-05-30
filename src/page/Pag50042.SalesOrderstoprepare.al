@@ -3,7 +3,7 @@ page 50042 "PWD Sales Orders to prepare"
     Editable = true;
     PageType = List;
     SourceTable = "Sales Header";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -638,4 +638,3 @@ page 50042 "PWD Sales Orders to prepare"
         END;
     end;
 }
-

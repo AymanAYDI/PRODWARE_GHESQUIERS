@@ -9,7 +9,6 @@ pageextension 50077 "PWD PhysInventoryJournal" extends "Phys. Inventory Journal"
                 Visible = false;
                 ApplicationArea = All;
             }
-
         }
         addafter("Item No.")
         {

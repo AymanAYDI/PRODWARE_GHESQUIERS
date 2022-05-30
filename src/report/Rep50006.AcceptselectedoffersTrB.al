@@ -5,7 +5,7 @@ report 50006 "Accept selected offers -TrB"
 
     Caption = 'Accept selected offers';
     ProcessingOnly = true;
-
+    UsageCategory = None;
     dataset
     {
         dataitem("Sales Header"; "Sales Header")
@@ -68,4 +68,3 @@ report 50006 "Accept selected offers -TrB"
         Text1000000003: Label 'To many vendor reply selected %1 %2 %3 \Item %4';
         Text1000000004: Label 'Accept vendors offers ?';
 }
-

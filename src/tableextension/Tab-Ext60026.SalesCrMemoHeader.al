@@ -1,6 +1,5 @@
 tableextension 60026 "PWD SalesCrMemoHeader" extends "Sales Cr.Memo Header"
 {
-
     fields
     {
         field(50000; "PWD Call No."; Code[10])
@@ -102,4 +101,3 @@ tableextension 60026 "PWD SalesCrMemoHeader" extends "Sales Cr.Memo Header"
         }
     }
 }
-

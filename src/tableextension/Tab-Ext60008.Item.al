@@ -395,4 +395,3 @@ tableextension 60008 "PWD Item" extends Item
             DefaultTranslation := Description;
     end;
 }
-

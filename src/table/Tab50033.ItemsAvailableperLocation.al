@@ -98,4 +98,3 @@ table 50033 "Items Available per Location"
         LocationPriority: Record "PWD Location Priority";
         CallType: Code[20];
 }
-

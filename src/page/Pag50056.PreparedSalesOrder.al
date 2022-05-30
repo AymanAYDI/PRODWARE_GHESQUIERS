@@ -5,6 +5,8 @@ page 50056 "PWD Prepared Sales Order"
     RefreshOnActivate = true;
     SourceTable = "Sales Header";
     SourceTableView = WHERE("Document Type" = FILTER(Order), "PWD Preparation Status" = FILTER(>= Prepared));
+    ApplicationArea = all;
+    UsageCategory = Tasks;
 
     layout
     {
@@ -109,13 +111,13 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     ApplicationArea = All;
 
-                    trigger OnValidate()
+                    /*trigger OnValidate()
                     begin
                         Memberof.SETRANGE(Memberof."User ID", USERID);
                         Memberof.SETRANGE(Memberof."Role ID", 'SUPER');
                         IF NOT Memberof.FIND('-') THEN
                             ERROR(Text1000000004);
-                    end;
+                    end;*/
                 }
                 field(Status; Rec.Status)
                 {
@@ -398,44 +400,44 @@ page 50056 "PWD Prepared Sales Order"
                     ApplicationArea = All;
                 }
             }
-            group(BizTalk)
-            {
-                Caption = 'BizTalk';
-                field("BizTalk Sales Order"; "BizTalk Sales Order")
-                {
-                    Editable = false;
-                    ApplicationArea = All;
-                }
-                field("Date Received"; "Date Received")
-                {
-                    Editable = false;
-                    ApplicationArea = All;
-                }
-                field("Time Received"; "Time Received")
-                {
-                    Editable = false;
-                    ApplicationArea = All;
-                }
-                field("Customer Order No."; "Customer Order No.")
-                {
-                    ApplicationArea = All;
-                }
-                field("BizTalk Sales Order Cnfmn."; "BizTalk Sales Order Cnfmn.")
-                {
-                    Editable = false;
-                    ApplicationArea = All;
-                }
-                field("Date Sent"; "Date Sent")
-                {
-                    Editable = false;
-                    ApplicationArea = All;
-                }
-                field("Time Sent"; "Time Sent")
-                {
-                    Editable = false;
-                    ApplicationArea = All;
-                }
-            }
+            /* group(BizTalk)
+             {
+                 Caption = 'BizTalk';
+                 field("BizTalk Sales Order"; "BizTalk Sales Order")
+                 {
+                     Editable = false;
+                     ApplicationArea = All;
+                 }
+                 field("Date Received"; "Date Received")
+                 {
+                     Editable = false;
+                     ApplicationArea = All;
+                 }
+                 field("Time Received"; "Time Received")
+                 {
+                     Editable = false;
+                     ApplicationArea = All;
+                 }
+                 field("Customer Order No."; "Customer Order No.")
+                 {
+                     ApplicationArea = All;
+                 }
+                 field("BizTalk Sales Order Cnfmn."; "BizTalk Sales Order Cnfmn.")
+                 {
+                     Editable = false;
+                     ApplicationArea = All;
+                 }
+                 field("Date Sent"; "Date Sent")
+                 {
+                     Editable = false;
+                     ApplicationArea = All;
+                 }
+                 field("Time Sent"; "Time Sent")
+                 {
+                     Editable = false;
+                     ApplicationArea = All;
+                 }
+             }*/
         }
     }
 
@@ -636,8 +638,9 @@ page 50056 "PWD Prepared Sales Order"
                 action("A&xe analytique")
                 {
                     Caption = 'Dimensions';
-                    RunObject = Page "Document Dimensions";
-                    RunPageLink = "Table ID" = CONST(36), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0);
+                    //ToDo
+                    //RunObject = Page "Document Dimensions";
+                    //RunPageLink = "Table ID" = CONST(36), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0);
                     ApplicationArea = All;
                 }
                 separator(Action120)
@@ -793,10 +796,10 @@ page 50056 "PWD Prepared Sales Order"
 
                     trigger OnAction()
                     var
-                        //ToDo
-                        BizTalkManagement: Codeunit "BizTalkManagement";
+                    //ToDo
+                    //BizTalkManagement: Codeunit "BizTalkManagement";
                     begin
-                        BizTalkManagement.SendSalesOrderConf(Rec);
+                        // BizTalkManagement.SendSalesOrderConf(Rec);
                     end;
                 }
                 separator(Action1000000000)
@@ -833,8 +836,8 @@ page 50056 "PWD Prepared Sales Order"
                     begin
                         IF Rec."PWD Preparation in process" = FALSE THEN MESSAGE(Text1000000002);
                         CurrPage.SETSELECTIONFILTER(SalesHeader);
-                        REPORT.RUN(REPORT::"Picking List Unit Price Null", TRUE, TRUE, SalesHeader);
-                        //***//
+                        //ToDo
+                        //REPORT.RUN(REPORT::"Picking List Unit Price Null", TRUE, TRUE, SalesHeader);
                         REPORT.RUN(REPORT::"Picking List", TRUE, TRUE, SalesHeader);
                     end;
                 }
@@ -901,7 +904,8 @@ page 50056 "PWD Prepared Sales Order"
 
                 trigger OnAction()
                 begin
-                    CurrPage.SalesLines.PAGE.ItemAvailability(2);
+                    //ToDo
+                    //CurrPage.SalesLines.PAGE.ItemAvailability(2);
                 end;
             }
             action("&Imprimer")
@@ -966,7 +970,8 @@ page 50056 "PWD Prepared Sales Order"
     end;
 
     var
-        Memberof: Record 2000000003;
+        //ToDo
+        //Memberof: Record 2000000003;
         SalesSetup: Record "Sales & Receivables Setup";
         SalesHeader: Record "Sales Header";
         PurchRRec: Record "Sales Shipment Header";
@@ -979,7 +984,6 @@ page 50056 "PWD Prepared Sales Order"
         ReportPrint: Codeunit "Test Report-Print";
         UserMgt: Codeunit "User Setup Management";
         Text000: Label 'Unable to execute this function while in view only mode.';
-        Text1000000004: Label 'You are not allowed to modify this field !';
         DateLastPurchR: Text[30];
 
     procedure UpdateAllowed(): Boolean
@@ -1014,4 +1018,3 @@ page 50056 "PWD Prepared Sales Order"
         CurrPage.SalesLines.PAGE.UpdateForm(TRUE);
     end;
 }
-

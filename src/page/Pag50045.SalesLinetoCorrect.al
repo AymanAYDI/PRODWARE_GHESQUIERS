@@ -7,7 +7,7 @@ page 50045 "PWD Sales Line to Correct"
     MultipleNewLines = true;
     PageType = List;
     SourceTable = "Sales Line";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -472,18 +472,15 @@ page 50045 "PWD Sales Line to Correct"
         ShortcutDimCode: array[8] of Code[20];
         Text19027551: Label 'Sales Lines to modify';
 
-
     procedure ApproveCalcInvDisc()
     begin
         CODEUNIT.RUN(CODEUNIT::"Sales-Disc. (Yes/No)", Rec);
     end;
 
-
     procedure CalcInvDisc()
     begin
         CODEUNIT.RUN(CODEUNIT::"Sales-Calc. Discount", Rec);
     end;
-
 
     procedure ExplodeBOM()
     begin
@@ -491,7 +488,6 @@ page 50045 "PWD Sales Line to Correct"
         CODEUNIT.RUN(CODEUNIT::"Sales-Explode BOM", Rec);
         CurrPage.UPDATE();
     end;
-
 
     procedure OpenPurchOrderForm()
     var
@@ -504,7 +500,6 @@ page 50045 "PWD Sales Line to Correct"
         PurchOrder.RUN();
     end;
 
-
     procedure OpenSpecialPurchOrderForm()
     var
         PurchHeader: Record "Purchase Header";
@@ -516,7 +511,6 @@ page 50045 "PWD Sales Line to Correct"
         PurchOrder.RUN();
     end;
 
-
     procedure InsertExtendedText(Unconditionally: Boolean)
     begin
         IF TransferExtendedText.SalesCheckIfAnyExtText(Rec, Unconditionally) THEN BEGIN
@@ -527,49 +521,42 @@ page 50045 "PWD Sales Line to Correct"
             UpdateForm(TRUE);
     end;
 
-
     procedure ShowReservation()
     begin
         Rec.FIND();
         Rec.ShowReservation();
     end;
 
-
     procedure ItemAvailability(AvailabilityType: Option Date,Variant,Location,Bin)
     begin
-        Rec.ItemAvailability(AvailabilityType);
+        //ToDo
+        //Rec.ItemAvailability(AvailabilityType);
     end;
-
 
     procedure ShowReservationEntries()
     begin
         Rec.ShowReservationEntries(TRUE);
     end;
 
-
     procedure ShowDimensions()
     begin
         Rec.ShowDimensions();
     end;
-
 
     procedure ShowItemSub()
     begin
         Rec.ShowItemSub();
     end;
 
-
     procedure ShowNonstockItems()
     begin
         Rec.ShowNonstock();
     end;
 
-
     procedure OpenItemTrackingLines()
     begin
         Rec.OpenItemTrackingLines();
     end;
-
 
     procedure ShowTracking()
     var
@@ -579,25 +566,21 @@ page 50045 "PWD Sales Line to Correct"
         TrackingForm.RUNMODAL();
     end;
 
-
     procedure ItemChargeAssgnt()
     begin
         Rec.ShowItemChargeAssgnt();
     end;
-
 
     procedure UpdateForm(SetSaveRecord: Boolean)
     begin
         CurrPage.UPDATE(SetSaveRecord);
     end;
 
-
     procedure ShowPrices()
     begin
         SalesHeader.GET(Rec."Document Type", Rec."Document No.");
         SalesPriceCalcMgt.GetSalesLinePrice(SalesHeader, Rec);
     end;
-
 
     procedure ShowLineDisc()
     begin
@@ -620,7 +603,8 @@ page 50045 "PWD Sales Line to Correct"
             CustomsCertif.GET(DocTemplateCode);
             CLEAR(HealthCertifWordMngt);
             CurrPage.SETSELECTIONFILTER(SalesLine);
-            HealthCertifWordMngt.Merge(SalesLine, CustomsCertif, CustomsCertif."No.");
+            //ToDo
+            //HealthCertifWordMngt.Merge(SalesLine, CustomsCertif, CustomsCertif."No.");
         END;
     end;
 
@@ -657,4 +641,3 @@ page 50045 "PWD Sales Line to Correct"
         END;
     end;
 }
-

@@ -156,7 +156,6 @@ pageextension 50071 "PWD PostedSalesShptSubform" extends "Posted Sales Shpt. Sub
             {
                 ApplicationArea = All;
             }
-
         }
     }
     PROCEDURE PrintHealthCertificate();
@@ -181,9 +180,8 @@ pageextension 50071 "PWD PostedSalesShptSubform" extends "Posted Sales Shpt. Sub
 
     PROCEDURE DescriptionOnFormat();
     BEGIN
-        IF (Rec.Type = Rec.Type::Item) AND (Item.GET(Rec."No.")) THEN BEGIN
+        IF (Rec.Type = Rec.Type::Item) AND (Item.GET(Rec."No.")) THEN
             Item.CALCFIELDS(Comment);
-        END;
     END;
 
     trigger OnModifyRecord(): Boolean

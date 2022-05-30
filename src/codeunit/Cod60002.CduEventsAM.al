@@ -79,7 +79,6 @@ codeunit 60002 "PWD CduEvents AM"
             IF RecCust.GET(RecCall.Ship) THEN
                 IF RecCust."Bill-to Customer No." = '' THEN
                     ERROR(CstG001);
-
     end;
     //--Page46--
     [EventSubscriber(ObjectType::Page, Page::"Sales Order Subform", 'OnAfterValidateEvent', 'Unit Price', false, false)]
@@ -98,7 +97,6 @@ codeunit 60002 "PWD CduEvents AM"
         SalesOrderSubform.DescriptionOnFormat();
         SalesOrderSubform.UnitPriceOnFormat();
         SalesOrderSubform.UpdateKPI();
-
     end;
 
     [EventSubscriber(ObjectType::Page, Page::"Sales Order Subform", 'OnInsertRecordEvent', '', false, false)]
@@ -348,21 +346,13 @@ codeunit 60002 "PWD CduEvents AM"
         CduFunctiontMgt.TestDocumentAvita(SalesHeader);
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Sales Document", 'OnBeforeReopenSalesDoc', '', false, false)]
-    local procedure CDU414_OnBeforeReopenSalesDocEvent(var SalesHeader: Record "Sales Header"; PreviewMode: Boolean; var IsHandled: Boolean)
-    var
-        CduFunctiontMgt: Codeunit "PWD Function Mgt";
-    begin
-        CduFunctiontMgt.GetPassWord();
-    end;
-
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Sales Document", 'OnReopenOnBeforeSalesHeaderModify', '', false, false)]
     local procedure CDU414_OnReopenOnBeforeSalesHeaderModifyEvent(var SalesHeader: Record "Sales Header")
     begin
         IF SalesHeader."PWD Preparation Status" = SalesHeader."PWD Preparation Status"::"Ready to prepare" THEN
             SalesHeader."PWD Preparation Status" := SalesHeader."PWD Preparation Status"::" ";
     end;
-    //---CDU333--- 
+    //---CDU333---
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Req. Wksh.-Make Order", 'OnInsertPurchOrderLineOnAfterTransferFromReqLineToPurchLine', '', false, false)]
     local procedure CDU333_OnInsertPurchOrderLineOnAfterTransferFromReqLineToPurchLine(var PurchOrderLine: Record "Purchase Line"; RequisitionLine: Record "Requisition Line")
     var
@@ -378,7 +368,7 @@ codeunit 60002 "PWD CduEvents AM"
     begin
         CduFunctiontMgt.FCT_CDU333OnAfterInsertPurchOrderLine(PurchOrderLine);
     end;
-    //---CDU5703--- 
+    //---CDU5703---
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Catalog Item Management", 'OnCreateNewItemOnBeforeItemInsert', '', false, false)]
     local procedure CDU5703_OnCreateNewItemOnBeforeItemInsert(var Item: Record Item; NonstockItem: Record "Nonstock Item")
     var
@@ -414,5 +404,26 @@ codeunit 60002 "PWD CduEvents AM"
                         ERROR(Text1000000002, SalesLine."Line No.");
                 end;
         end;
+    end;
+    //Table83
+    [EventSubscriber(ObjectType::Table, DataBase::"Item Journal Line", 'OnAfterSetupNewLine', '', false, false)]
+    local procedure OnAfterSetupNewLine(var ItemJournalLine: Record "Item Journal Line"; var LastItemJournalLine: Record "Item Journal Line"; ItemJournalTemplate: Record "Item Journal Template"; ItemJnlBatch: Record "Item Journal Batch")
+    var
+        InvSetup: Record "Inventory Setup";
+        UserMgt: Codeunit "User Setup Management";
+    begin
+        InvSetup.GET;
+        IF InvSetup."PWD Nom modele prestation" = ItemJournalLine."Journal Template Name" THEN BEGIN
+            CASE ItemJournalLine."Entry Type" OF
+                ItemJournalLine."Entry Type"::Purchase:
+                    ItemJournalLine."Location Code" := UserMgt.GetLocation(1, '', UserMgt.GetPurchasesFilter);
+                ItemJournalLine."Entry Type"::Sale:
+                    ItemJournalLine."Location Code" := UserMgt.GetLocation(0, '', UserMgt.GetSalesFilter);
+            end;
+            ItemJournalLine."Entry Type" := ItemJournalLine."Entry Type"::"Positive Adjmt.";
+            ItemJournalLine."PWD Code prestation" := ItemJnlBatch."PWD Code préstation";
+            ItemJournalLine."PWD Code fournisseur" := ItemJnlBatch."PWD Code fournisseur";
+            ItemJournalLine."PWD Code client" := ItemJnlBatch."PWD Code client";
+        END;
     end;
 }

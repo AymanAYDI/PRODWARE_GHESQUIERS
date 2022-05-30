@@ -18,8 +18,7 @@ codeunit 50013 "PWD delete ligne anomalie"
             ReleaseSales.RUN(SalesHeader);
         END;
         CLEAR(ReleaseSales);
-        SalesHeader.GET("Document Type", "Document No.");
+        SalesHeader.GET(Rec."Document Type", Rec."Document No.");
         ReleaseSales.RUN(SalesHeader2);
     end;
 }
-

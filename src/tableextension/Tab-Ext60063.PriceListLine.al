@@ -45,4 +45,3 @@ tableextension 60063 "PWD PriceListLine" extends "Price List Line"
         }
     }
 }
-

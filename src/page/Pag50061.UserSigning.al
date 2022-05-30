@@ -5,7 +5,8 @@ page 50061 "PWD User Signing"
     InsertAllowed = false;
     PageType = Card;
     SourceTable = "User";
-
+    ApplicationArea = All;
+    UsageCategory = Tasks;
     layout
     {
         area(content)
@@ -84,4 +85,3 @@ page 50061 "PWD User Signing"
         Text001: Label 'Do you want to replace the existing picture?';
         Text002: Label 'Do you want to delete the picture?';*/
 }
-

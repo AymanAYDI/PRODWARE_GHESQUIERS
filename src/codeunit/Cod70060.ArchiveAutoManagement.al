@@ -12,7 +12,6 @@ codeunit 70060 "PWD ArchiveAutoManagement"
     var
         Ok: Boolean;
 
-
     procedure StoreSalesDocument(SalesHeader: Record "Sales Header")
     var
         SalesHeaderArchive: Record "PWD Archived Sales Header";
@@ -59,7 +58,6 @@ codeunit 70060 "PWD ArchiveAutoManagement"
                   SalesLine."Line No.", SalesHeader."Doc. No. Occurrence", SalesLineArchive."Version No.");
             UNTIL SalesLine.NEXT() = 0;
     end;
-
 
     procedure StorePurchDocument(PurchHeader: Record "Purchase Header")
     var
@@ -108,7 +106,6 @@ codeunit 70060 "PWD ArchiveAutoManagement"
             UNTIL PurchLine.NEXT() = 0;
     end;
 
-
     procedure GetNextOccurrenceNo(TableId: Integer; DocType: Option Quote,"Order",Invoice,"Credit Memo","Blanket Order","Return Order"; DocNo: Code[20]): Integer
     var
         PurchHeaderArchive: Record "PWD Archived Purchase Header";
@@ -137,7 +134,6 @@ codeunit 70060 "PWD ArchiveAutoManagement"
                 END;
         END;
     end;
-
 
     procedure GetNextVersionNo(TableId: Integer; DocType: Option Quote,"Order",Invoice,"Credit Memo","Blanket Order","Return Order"; DocNo: Code[20]; DocNoOccurrence: Integer): Integer
     var
@@ -170,7 +166,6 @@ codeunit 70060 "PWD ArchiveAutoManagement"
         END;
     end;
 
-
     procedure StoreDocDim(TableId: Integer; DocType: Option; DocNo: Code[20]; LineNo: Integer; DocNoOccurrence: Integer; VersionNo: Integer)
     var
     // DocDim: Record "PWD Document Dimension";
@@ -192,7 +187,5 @@ codeunit 70060 "PWD ArchiveAutoManagement"
             DocDimArchive.INSERT;
           UNTIL DocDim.NEXT = 0;
         */
-
     end;
 }
-

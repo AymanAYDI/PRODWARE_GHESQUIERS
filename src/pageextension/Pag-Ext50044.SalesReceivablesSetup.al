@@ -52,7 +52,6 @@ pageextension 50044 "PWD SalesReceivablesSetup" extends "Sales & Receivables Set
                     {
                         ApplicationArea = All;
                     }
-
                 }
             }
             group("PWD Customs")
@@ -85,7 +84,6 @@ pageextension 50044 "PWD SalesReceivablesSetup" extends "Sales & Receivables Set
                     {
                         ApplicationArea = All;
                     }
-
                 }
                 group("PWD T1")
                 {
@@ -111,7 +109,6 @@ pageextension 50044 "PWD SalesReceivablesSetup" extends "Sales & Receivables Set
                         ApplicationArea = all;
                     }
                 }
-
             }
         }
     }

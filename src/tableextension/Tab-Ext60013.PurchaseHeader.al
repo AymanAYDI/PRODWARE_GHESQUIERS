@@ -82,4 +82,3 @@ tableextension 60013 "PWD PurchaseHeader" extends "Purchase Header"
         }
     }
 }
-

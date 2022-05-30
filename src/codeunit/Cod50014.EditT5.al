@@ -9,7 +9,7 @@ codeunit 50014 "PWD Edit T5"
         CLEAR(CustomsLine);
         CustomsLine.SETCURRENTKEY("Document Type", "Document No.", "Location Code");
         CustomsLine.SETRANGE("Document Type", CustomsLine."Document Type"::"S.Shipment");
-        CustomsLine.SETRANGE("Document No.", "No.");
+        CustomsLine.SETRANGE("Document No.", Rec."No.");
         CustomsLine.SETRANGE("Customs Document Type", CustomsLine."Customs Document Type"::T5);
         IF NOT CustomsLine.FIND('-') THEN BEGIN
             CLEAR(Locationlist);
@@ -17,7 +17,7 @@ codeunit 50014 "PWD Edit T5"
             CLEAR(CustomsLine);
             SalesShipmentLine.RESET();
             SalesShipmentLine.SETCURRENTKEY("Document No.", Type, "Location Code", "PWD Cle (restitution)");
-            SalesShipmentLine.SETRANGE("Document No.", "No.");
+            SalesShipmentLine.SETRANGE("Document No.", Rec."No.");
             SalesShipmentLine.SETRANGE(Type, SalesShipmentLine.Type::Item);
             SalesShipmentLine.SETFILTER("Location Code", '3|5|6');
             SalesShipmentLine.SETFILTER("PWD Cle (restitution)", '<>%1', '');
@@ -39,7 +39,7 @@ codeunit 50014 "PWD Edit T5"
                         CustomsLine.INIT();
                         CustomsLine."Entry No." := NextLineNo;
                         CustomsLine."Document Type" := CustomsLine."Document Type"::"S.Shipment";
-                        CustomsLine."Document No." := "No.";
+                        CustomsLine."Document No." := Rec."No.";
                         CustomsLine."Customs Document Type" := CustomsLine."Customs Document Type"::T5;
                         CustomsLine."Location Code" := SalesShipmentLine."Location Code";
                         CustomsLine."Cle (restitution)" := SalesShipmentLine."PWD Cle (restitution)";
@@ -53,7 +53,7 @@ codeunit 50014 "PWD Edit T5"
 
         SalesShipmentLine.RESET();
         SalesShipmentLine.SETCURRENTKEY("Document No.", Type, "Location Code", "PWD Cle (restitution)");
-        SalesShipmentLine.SETRANGE("Document No.", "No.");
+        SalesShipmentLine.SETRANGE("Document No.", Rec."No.");
         SalesShipmentLine.SETRANGE(Type, SalesShipmentLine.Type::Item);
         SalesShipmentLine.SETFILTER("Location Code", '3|5|6');
         SalesShipmentLine.SETFILTER("PWD Cle (restitution)", '<>%1', '');
@@ -71,7 +71,7 @@ codeunit 50014 "PWD Edit T5"
         FOR j := 1 TO 50 DO BEGIN
             SalesShipmentLine.RESET();
             SalesShipmentLine.SETCURRENTKEY("Document No.", Type, "Location Code", "PWD Cle (restitution)");
-            SalesShipmentLine.SETRANGE("Document No.", "No.");
+            SalesShipmentLine.SETRANGE("Document No.", Rec."No.");
             SalesShipmentLine.SETRANGE(Type, SalesShipmentLine.Type::Item);
             SalesShipmentLine.SETRANGE("Location Code", Locationlist[j]);
             SalesShipmentLine.SETRANGE("PWD Cle (restitution)", CleRestitList[j]);
@@ -89,7 +89,7 @@ codeunit 50014 "PWD Edit T5"
                 CLEAR(CustomsLine);
                 CustomsLine.SETCURRENTKEY("Document Type", "Document No.", "Customs Document Type", "Location Code", "Cle (restitution)");
                 CustomsLine.SETRANGE("Document Type", CustomsLine."Document Type"::"S.Shipment");
-                CustomsLine.SETRANGE("Document No.", "No.");
+                CustomsLine.SETRANGE("Document No.", Rec."No.");
                 CustomsLine.SETRANGE("Customs Document Type", CustomsLine."Customs Document Type"::T5);
                 CustomsLine.SETRANGE("Location Code", Locationlist[j]);
                 CustomsLine.SETRANGE("Cle (restitution)", CleRestitList[j]);
@@ -104,7 +104,7 @@ codeunit 50014 "PWD Edit T5"
         CLEAR(CustomsLine);
         CustomsLine.SETCURRENTKEY("Document Type", "Document No.", "Location Code");
         CustomsLine.SETRANGE("Document Type", CustomsLine."Document Type"::"S.Shipment");
-        CustomsLine.SETRANGE("Document No.", "No.");
+        CustomsLine.SETRANGE("Document No.", Rec."No.");
         FOR i := 1 TO 50 DO BEGIN
             j := 0;
             CustomsLine.SETRANGE("Location Code", Locationlist[i]);
@@ -136,7 +136,6 @@ codeunit 50014 "PWD Edit T5"
         j: Integer;
         NextLineNo: Integer;
 
-
     procedure NumberT5(SalesShipHeader: Record "Sales Shipment Header")
     var
         NoSeriesMngt: Codeunit NoSeriesManagement;
@@ -165,4 +164,3 @@ codeunit 50014 "PWD Edit T5"
             UNTIL CustomsLine.NEXT() = 0;
     end;
 }
-

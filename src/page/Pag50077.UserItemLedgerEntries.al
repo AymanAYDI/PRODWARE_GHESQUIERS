@@ -4,7 +4,7 @@ page 50077 "PWD User Item Ledger Entries"
     Editable = false;
     PageType = List;
     SourceTable = "Item Ledger Entry";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -115,7 +115,6 @@ page 50077 "PWD User Item Ledger Entries"
     {
     }
 
-
     procedure Fct_ProhibitDisplay()
     var
         CstL001: Label 'Access denied.';
@@ -123,4 +122,3 @@ page 50077 "PWD User Item Ledger Entries"
         ERROR(CstL001);
     end;
 }
-

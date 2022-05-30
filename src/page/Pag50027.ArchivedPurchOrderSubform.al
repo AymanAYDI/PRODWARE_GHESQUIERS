@@ -3,7 +3,7 @@ page 50027 "Archived Purch. Order Subform"
     Caption = 'Archived Purch. Order Subform';
     PageType = ListPart;
     SourceTable = "PWD Archived Purchase Line";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -258,16 +258,13 @@ page 50027 "Archived Purch. Order Subform"
         }
     }
 
-
     procedure _ShowDimensions()
     begin
         Rec.ShowDimensions();
     end;
-
 
     procedure ShowDimensions()
     begin
         Rec.ShowDimensions();
     end;
 }
-

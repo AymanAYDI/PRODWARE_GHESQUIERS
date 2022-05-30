@@ -6,33 +6,28 @@ codeunit 60001 "PWD Function Mgt"
     //---TAB36---
     procedure FctT36_OnBeforeSalesLineInsert_SalesHeader(var SalesLine: Record "Sales Line"; var SalesLineTmp: Record "Sales Line" temporary; SalesHeader: Record "Sales Header")
     var
-        PWDSetGetFunctions: Codeunit "PWD Set/Get Functions";
+        vconf: Boolean;
+        CstG004: Label 'Voulez vous garder les valeurs actuelles des lignes';
+
     begin
-        if (SalesLineTmp."No." <> '') and (PWDSetGetFunctions.Getconf()) then BEGIN
+        vconf := CONFIRM(CstG004, TRUE);
+        if (SalesLineTmp."No." <> '') and vconf then BEGIN
             SalesLine.VALIDATE(SalesLine."Unit Price", SalesLineTmp."Unit Price");
             SalesLine.VALIDATE(SalesLine."Line Discount %", SalesLineTmp."Line Discount %");
-            //C2A JRA DDT 16105 Validate Client factur‚ >>>>
             SalesLine.VALIDATE(SalesLine.Description, SalesLineTmp.Description);
             SalesLine.VALIDATE(SalesLine."Description 2", SalesLineTmp."Description 2");
             SalesLine.VALIDATE(SalesLine."PWD Designation ENU", SalesLineTmp."PWD Designation ENU");
-            //>>CF TI238802
             IF SalesLineTmp.Type <> SalesLineTmp.Type::Resource THEN
-                //<<CF TI238802
                 SalesLine.VALIDATE(SalesLine."Purchasing Code", SalesLineTmp."Purchasing Code");
-            //>>CF TI238802
             IF SalesLineTmp.Type <> SalesLineTmp.Type::Resource THEN
-                //<<CF TI238802
                 SalesLine.VALIDATE(SalesLine."PWD Order Trading brand", SalesLineTmp."PWD Order Trading brand");
             SalesLine.VALIDATE(SalesLine."Special Order", SalesLineTmp."Special Order");
             SalesLine.VALIDATE(SalesLine."Special Order Purchase No.", SalesLineTmp."Special Order Purchase No.");
             SalesLine.VALIDATE(SalesLine."Unit Cost (LCY)", SalesLineTmp."Unit Cost (LCY)");
-            //C2A JRA DDT 16105 Validate Client factur‚ <<<<
-            //>>P3346_0011 RO.LALE REGIE
             SalesLine.VALIDATE(SalesLine."Location Code", SalesLineTmp."Location Code");
             SalesLine.VALIDATE(SalesLine."PWD Vendor No.", SalesLineTmp."PWD Vendor No.");
             SalesLine.VALIDATE(SalesLine."Unit Price", SalesLineTmp."Unit Price");
             SalesLine.VALIDATE(SalesLine."Line Discount %", SalesLineTmp."Line Discount %");
-            //<<P3346_0011 RO.LALE REGIE
         END;
     end;
 
@@ -51,7 +46,6 @@ codeunit 60001 "PWD Function Mgt"
         end;
     end;
 
-
     //---TAB37---
     procedure FctT37_OnBeforeModifyEvent_SalesLine(var Rec: Record "Sales Line"; var xRec: Record "Sales Line"; RunTrigger: Boolean)
     var
@@ -61,23 +55,24 @@ codeunit 60001 "PWD Function Mgt"
         Text1000000007: label 'You can''t modify the line if the order has already been prepared';
     begin
         SalesSetup.GET();
-        Rec.GetSalesHeader();
+        //Rec.GetSalesHeader();
+        SalesHeader.GET(Rec."Document Type", Rec."Document No.");
         //Memberof.SETRANGE(Memberof."User ID", USERID);
-        Memberof.SETRANGE(Memberof."Role ID", USERID);//TODO à vérifier
-        IF Memberof.FIND('-') THEN
-            IF Memberof."Role ID" <> SalesSetup."PWD Sales Order User Group" THEN
+        Memberof.SETRANGE("User Security ID", UserSecurityId());
+        Memberof.SetFilter("Role ID", '<>%1', SalesSetup."PWD Sales Order User Group");//Code amélioré
+        IF Memberof.FindFirst() THEN
+            //IF Memberof."Role ID" <> SalesSetup."PWD Sales Order User Group" THEN
                 IF SalesHeader."PWD Order Prepared" = TRUE THEN
-                    IF Rec."Location Code" <> '' THEN
-                        IF (Rec."Location Code" <> xRec."Location Code") OR
-                           (Rec.Quantity <> xRec.Quantity) OR
-                           (Rec."Qty. to Ship" <> xRec."Qty. to Ship")
-                           THEN
-                            ERROR(Text1000000007);
+                IF Rec."Location Code" <> '' THEN
+                    IF (Rec."Location Code" <> xRec."Location Code") OR
+                       (Rec.Quantity <> xRec.Quantity) OR
+                       (Rec."Qty. to Ship" <> xRec."Qty. to Ship")
+                       THEN
+                        ERROR(Text1000000007);
     end;
 
     procedure FctT37_OnCopyFromItemOnAfterCheck_SalesLine(var SalesLine: Record "Sales Line"; Item: Record Item)
     var
-        Currency: Record Currency;
         Familly: Record "PWD Family & Sub Family";
         SalesHeader: Record "Sales Header";
     begin
@@ -100,8 +95,7 @@ codeunit 60001 "PWD Function Mgt"
         SalesLine."PWD Origin Certified" := Item."PWD Origin Certified";
         SalesLine."PWD Manifest" := Item."PWD Manifest";
         SalesLine."PWD Manifest Category" := Item."PWD Manifest Category";
-        //TODO A vérifier GetSalesHeader
-        SalesLine.GetSalesHeader(SalesHeader, Currency);
+        SalesHeader.Get(SalesLine."Document Type", SalesLine."Document No.");
         IF SalesHeader."Document Date" <> 0D THEN
             SalesLine."PWD Document Date" := SalesHeader."Document Date";
         SalesLine."PWD Code ventilation article" := Item."PWD Ventilation code";
@@ -116,7 +110,6 @@ codeunit 60001 "PWD Function Mgt"
             IF Familly.GET(Familly.Type::Item, Familly."Group Type"::Family, '', Item."PWD Family (Sea France)") THEN
                 SalesLine."PWD Provision/materiel" := Familly."Provision/materiel";
 
-
         IF Item."PWD Trading Brand" THEN SalesLine.VALIDATE("Purchasing Code", 'CONTREMARK');
         SalesLine.VALIDATE("PWD Butchery", Item."PWD Butchery");
         SalesLine.VALIDATE("PWD National Add. Code", Item."PWD National Add. Code");
@@ -127,7 +120,6 @@ codeunit 60001 "PWD Function Mgt"
         ELSE
             IF SalesLine."PWD Provision/materiel" = SalesLine."PWD Provision/materiel"::Materiel THEN
                 SalesLine."PWD DCG Tariff No." := '9930 99 00 00 00Z';
-
     end;
 
     procedure FctT37_OnAfterCopyFromItem_SalesLine(var SalesLine: Record "Sales Line"; Item: Record Item; CurrentFieldNo: Integer)
@@ -146,7 +138,7 @@ codeunit 60001 "PWD Function Mgt"
             IF Item.Comment = TRUE THEN BEGIN
                 ItemComment.SETRANGE("Table Name", ItemComment."Table Name"::Item);
                 ItemComment.SETRANGE("No.", Item."No.");
-                IF ItemComment.FIND('-') THEN BEGIN
+                IF ItemComment.FindFirst() THEN BEGIN
                     PageComment.SETTABLEVIEW(ItemComment);
                     PageComment.EDITABLE(FALSE);
                     PageComment.LOOKUPMODE(TRUE);
@@ -158,13 +150,12 @@ codeunit 60001 "PWD Function Mgt"
 
     procedure FctT37_OnValidateNoOnAfterUpdateUnitPrice_SalesLine(var SalesLine: Record "Sales Line"; xSalesLine: Record "Sales Line"; var TempSalesLine: Record "Sales Line" temporary)
     var
-        Currency: Record Currency;
         Cust: record Customer;
         Item: Record Item;
         SalesHeader: record "Sales Header";
     begin
-        //TODO A vérifier GetSalesHeader
-        SalesLine.GetSalesHeader(SalesHeader, Currency);
+        //SalesLine.GetSalesHeader(SalesHeader, Currency);
+        SalesHeader.GET(SalesLine."Document Type", SalesLine."Document No.");
         SalesLine."PWD DSA No." := SalesHeader."PWD DSA No.";
         IF Item.GET(SalesLine."No.") THEN
             IF Cust.GET(SalesHeader."Sell-to Customer No.") THEN BEGIN
@@ -197,23 +188,21 @@ codeunit 60001 "PWD Function Mgt"
 
         RecSalesHeader.SETRANGE(RecSalesHeader."Document Type", Rec."Document Type");
         RecSalesHeader.SETRANGE(RecSalesHeader."No.", Rec."Document No.");
-        IF RecSalesHeader.FIND('-') THEN BEGIN
-            RecLocPriority.SETCURRENTKEY("PWD Call Type Code", "PWD Location priority"); //gte
-            RecLocPriority.ASCENDING(TRUE); //gte
+        IF RecSalesHeader.FindFirst() THEN BEGIN
+            RecLocPriority.SETCURRENTKEY("PWD Call Type Code", "PWD Location priority");
+            RecLocPriority.ASCENDING(TRUE);
             RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", RecSalesHeader."PWD Call Type");
             RecLocPriority.SETRANGE(RecLocPriority."PWD Location code", Rec."Location Code"); //GTE test sur sales header
 
-            IF NOT RecLocPriority.FIND('-') AND (Rec."Location Code" <> '') THEN
+            IF NOT RecLocPriority.FindFirst() AND (Rec."Location Code" <> '') THEN
                 ERROR(Text1000000005, Rec."Location Code");
-        END //ELSE BEGIN //TODO le code ONValidate std est mis sous le ELSE ?
+        END
     end;
 
     procedure FctT37_OnValidateQuantityOnBeforeSalesLineVerifyChange_SalesLine(var SalesLine: Record "Sales Line"; StatusCheckSuspended: Boolean; var IsHandled: Boolean)
     var
-        Currency: Record Currency;
         SalesHeader: record "Sales Header";
-        MemLineDiscount: Decimal;  //TODO Vérifier Variable Globale
-        MemUnitPrice: Decimal;  //TODO Vérifier Variable Globale
+        SetGetFunctions: codeunit "PWD Set/Get Functions";
     begin
         IF NOT StatusCheckSuspended THEN
             SalesLine.VerifChange();
@@ -221,9 +210,8 @@ codeunit 60001 "PWD Function Mgt"
         IF SalesLine."Document Type".AsInteger() > 0 THEN
             SalesLine.CheckavailforPriorityLocation(SalesLine.FIELDNO(Quantity), SalesLine, FALSE);
         SalesLine."PWD Adjmt Prepared Qty" := SalesLine.Quantity - SalesLine."PWD Prepared Quantity";
-        //TODO A vérifier GetSalesHeader
-        SalesLine.GetSalesHeader(SalesHeader, Currency);
         //SalesLine.GetSalesHeader;
+        SalesHeader.GET(SalesLine."Document Type", SalesLine."Document No.");
         IF SalesHeader."PWD Order Prepared" = TRUE THEN BEGIN
             SalesHeader.CALCFIELDS(SalesHeader."PWD Order to adjust");
             IF SalesHeader."PWD Order to adjust" = FALSE THEN BEGIN
@@ -237,12 +225,16 @@ codeunit 60001 "PWD Function Mgt"
             END;
         END;
 
-        IF MemLineDiscount <> 0 THEN BEGIN
-            SalesLine."Line Discount %" := MemLineDiscount;
+        //IF MemLineDiscount <> 0 THEN BEGIN
+        IF SetGetFunctions.GetMemLineDiscount() <> 0 THEN BEGIN
+            //SalesLine."Line Discount %" := MemLineDiscount;
+            SalesLine."Line Discount %" := SetGetFunctions.GetMemLineDiscount();
             SalesLine.MODIFY();
         END;
-        IF (MemUnitPrice <> 0) AND (SalesLine."Unit Price" <> MemUnitPrice) THEN BEGIN
-            SalesLine.VALIDATE("Unit Price", MemUnitPrice);
+        //IF (MemUnitPrice <> 0) AND (SalesLine."Unit Price" <> MemUnitPrice) THEN BEGIN
+        IF (SetGetFunctions.GetMemUnitPrice() <> 0) AND (SalesLine."Unit Price" <> SetGetFunctions.GetMemUnitPrice()) THEN BEGIN
+            //SalesLine.VALIDATE("Unit Price", MemUnitPrice);
+            SalesLine.VALIDATE("Unit Price", SetGetFunctions.GetMemUnitPrice());
             SalesLine.MODIFY();
         END;
         IF SalesLine.Type = SalesLine.Type::Item THEN
@@ -255,6 +247,7 @@ codeunit 60001 "PWD Function Mgt"
     procedure FctT37_OnBeforeGetUnitCost_SalesLine(var SalesLine: Record "Sales Line"; var IsHandled: Boolean)
     var
         Item: Record Item;
+        //SalesPriceOld: Record "Sales Price";//TODO Utiliser "Price List Line" ou "Sales Price"
         SalesPrice: Record "Price List Line";
         UOMMgt: Codeunit "Unit of Measure Management";
     begin
@@ -264,9 +257,9 @@ codeunit 60001 "PWD Function Mgt"
         SalesLine.GetItem(Item);
         SalesPrice.SETRANGE("Asset No.", Item."No.");
         SalesPrice.SETRANGE("Source Type", SalesPrice."Source Type"::"All Customers");
-        SalesPrice.SETFILTER("Sales Code", '%1', ''); //TODO Correspendand en "Price List Line"
+        SalesPrice.SETFILTER("Source No.", '%1', '');
 
-        IF SalesPrice.FIND('-') THEN BEGIN
+        IF SalesPrice.FindFirst() THEN BEGIN
             IF ((SalesPrice."Starting Date" = 0D) OR (SalesPrice."Starting Date" <= WORKDATE())) AND
                ((SalesPrice."Ending Date" = 0D) OR (SalesPrice."Ending Date" >= WORKDATE())) THEN BEGIN
                 SalesLine."PWD Specific Cost" := TRUE;
@@ -298,7 +291,7 @@ codeunit 60001 "PWD Function Mgt"
                 AppTenders.SETRANGE("Document Type", PurchaseLine."PWD Sales Type Doc Appeal tenders");
                 AppTenders.SETRANGE("Document No.", PurchaseLine."PWD Sales No. Appeal Tenders");
                 AppTenders.SETRANGE("Line No. document", PurchaseLine."PWD Sales Line No. Appeal Tenders");
-                IF AppTenders.FIND('-') THEN
+                IF AppTenders.FindSet() THEN
                     AppTenders.DELETEALL();
             END;
 
@@ -312,11 +305,9 @@ codeunit 60001 "PWD Function Mgt"
                 AppTenders.SETRANGE("Document Type", PurchaseLine."PWD Sales Type Doc Appeal tenders");
                 AppTenders.SETRANGE("Document No.", PurchaseLine."PWD Sales No. Appeal Tenders");
                 AppTenders.SETRANGE("Line No. document", PurchaseLine."PWD Sales Line No. Appeal Tenders");
-                IF AppTenders.FIND('-') THEN
+                IF AppTenders.FindSet() THEN
                     AppTenders.DELETEALL();
             END;
-
-
         END;
     end;
 
@@ -354,7 +345,7 @@ codeunit 60001 "PWD Function Mgt"
             SalesLineSpeciale.RESET();
             SalesLineSpeciale.SETRANGE("Document No.", PurchaseLine."Special Order Sales No.");
             SalesLineSpeciale.SETRANGE("Line No.", PurchaseLine."Special Order Sales Line No.");
-            IF SalesLineSpeciale.FIND('-') THEN BEGIN
+            IF SalesLineSpeciale.FindFirst() THEN BEGIN
                 SalesLineSpeciale.SuspendStatusCheck(TRUE);
                 SalesLineSpeciale.VALIDATE(Quantity, PurchaseLine.Quantity);
                 SalesLineSpeciale.SuspendStatusCheck(FALSE);
@@ -366,7 +357,7 @@ codeunit 60001 "PWD Function Mgt"
             SalesLineSpeciale.SETRANGE("Document Type", PurchaseLine."PWD Sales Type Doc Appeal tenders");
             SalesLineSpeciale.SETRANGE("Document No.", PurchaseLine."PWD Sales No. Appeal Tenders");
             SalesLineSpeciale.SETRANGE("Line No.", PurchaseLine."PWD Sales Line No. Appeal Tenders");
-            IF SalesLineSpeciale.FIND('-') THEN BEGIN
+            IF SalesLineSpeciale.FindFirst() THEN BEGIN
                 SalesLineSpeciale.SuspendStatusCheck(TRUE);
                 SalesLineSpeciale.VALIDATE(Quantity, PurchaseLine.Quantity);
                 SalesLineSpeciale.SuspendStatusCheck(FALSE);
@@ -383,7 +374,7 @@ codeunit 60001 "PWD Function Mgt"
             SalesLineSpeciale.RESET();
             SalesLineSpeciale.SETRANGE("Document No.", PurchaseLine."Special Order Sales No.");
             SalesLineSpeciale.SETRANGE("Line No.", PurchaseLine."Special Order Sales Line No.");
-            IF SalesLineSpeciale.FIND('-') THEN BEGIN
+            IF SalesLineSpeciale.FINDFirst() THEN BEGIN
                 SalesLineSpeciale.SuspendStatusCheck(TRUE);
                 SalesLineSpeciale.VALIDATE("Qty. to Ship", PurchaseLine."Qty. to Receive");
                 SalesLineSpeciale.SuspendStatusCheck(FALSE);
@@ -395,7 +386,7 @@ codeunit 60001 "PWD Function Mgt"
             SalesLineSpeciale.SETRANGE("Document Type", PurchaseLine."PWD Sales Type Doc Appeal tenders");
             SalesLineSpeciale.SETRANGE("Document No.", PurchaseLine."PWD Sales No. Appeal Tenders");
             SalesLineSpeciale.SETRANGE("Line No.", PurchaseLine."PWD Sales Line No. Appeal Tenders");
-            IF SalesLineSpeciale.FIND('-') THEN BEGIN
+            IF SalesLineSpeciale.FINDFirst() THEN BEGIN
                 SalesLineSpeciale.SuspendStatusCheck(TRUE);
                 SalesLineSpeciale.VALIDATE("Qty. to Ship", PurchaseLine."Qty. to Receive");
                 SalesLineSpeciale.SuspendStatusCheck(FALSE);
@@ -403,7 +394,99 @@ codeunit 60001 "PWD Function Mgt"
             END;
         END;
     end;
-    //---CDU23--
+
+    //---CDU22---
+    procedure FctCDU22_OnAfterInitItemLedgEntry_ItemJnlPostLine(var NewItemLedgEntry: Record "Item Ledger Entry"; var ItemJnlLine: Record "Item Journal Line"; var ItemLedgEntryNo: Integer)
+    begin
+        NewItemLedgEntry."PWD Montant douane" := ItemJnlLine."PWD Montant douane";
+        NewItemLedgEntry."PWD Notice Series No." := ItemJnlLine."PWD Notice Series No.";
+        NewItemLedgEntry."PWD Origin" := ItemJnlLine."PWD Origin";
+        NewItemLedgEntry."PWD Cetificate Transit No." := ItemJnlLine."PWD Cetificate Transit No.";
+        NewItemLedgEntry."PWD Origin Lot No." := ItemJnlLine."PWD Origin Lot No.";
+        NewItemLedgEntry."PWD Meat Family" := ItemJnlLine."PWD Meat Family";
+        NewItemLedgEntry."PWD Meat Type" := ItemJnlLine."PWD Meat Type";
+        NewItemLedgEntry."PWD COM 7 No." := ItemJnlLine."PWD COM7 No.";
+
+        NewItemLedgEntry."PWD Code prestation" := ItemJnlLine."PWD Code prestation";
+        NewItemLedgEntry."PWD Code fournisseur" := ItemJnlLine."PWD Code fournisseur";
+        NewItemLedgEntry."PWD Code client" := ItemJnlLine."PWD Code client";
+        NewItemLedgEntry."PWD Family Code" := ItemJnlLine."PWD Family Code";
+        NewItemLedgEntry."PWD Nb. unite" := ItemJnlLine."PWD Nb. unite";
+        NewItemLedgEntry."PWD Comments" := ItemJnlLine."PWD Comments";
+
+        NewItemLedgEntry."PWD Gross Weight" := ItemJnlLine."PWD Gross Weight";
+        NewItemLedgEntry."PWD Net Weight" := ItemJnlLine."PWD Net Weight";
+
+        NewItemLedgEntry."PWD Seafrance Order No." := ItemJnlLine."PWD Seafrance Order No.";
+        NewItemLedgEntry."PWD Seafrance Order Line No." := ItemJnlLine."PWD Seafrance Order Line No.";
+
+        NewItemLedgEntry."PWD Seafrance Quantity" := ItemJnlLine."PWD Seafrance Quantity";
+    end;
+
+    PROCEDURE TestExpirationDate(ItemJnlLine: Record 83);
+    VAR
+        Item: Record 27;
+        Text1000000000: Label 'Expiration date is required for item %1';
+    BEGIN
+        Item.GET(ItemJnlLine."Item No.");
+        IF Item."PWD Butchery" THEN
+            IF ItemJnlLine."Expiration Date" = 0D THEN ERROR(Text1000000000, Item."No.");
+    END;
+
+    PROCEDURE InsertInventoryPerLocation(JournalLine: Record 83);
+    VAR
+        InventoryPerLocation: Record 50033;
+        Quantitytoadjust: Decimal;
+    BEGIN
+        IF JournalLine."Entry Type" <> JournalLine."Entry Type"::Transfer THEN BEGIN
+            IF JournalLine."Entry Type" IN
+               [JournalLine."Entry Type"::Sale,
+                JournalLine."Entry Type"::"Negative Adjmt.",
+                JournalLine."Entry Type"::Consumption] THEN
+                Quantitytoadjust := -JournalLine."Quantity (Base)" ELSE
+                Quantitytoadjust := JournalLine."Quantity (Base)";
+            IF JournalLine."Location Code" <> '' THEN
+                IF InventoryPerLocation.GET(JournalLine."Item No.", JournalLine."Location Code") THEN BEGIN
+                    InventoryPerLocation."Available Inventory" += Quantitytoadjust;
+                    InventoryPerLocation.VALIDATE("Available Inventory");
+                    InventoryPerLocation.MODIFY();
+                END ELSE BEGIN
+                    InventoryPerLocation.INIT();
+                    InventoryPerLocation.VALIDATE("Item No.", JournalLine."Item No.");
+                    InventoryPerLocation.VALIDATE("Location Code", JournalLine."Location Code");
+                    InventoryPerLocation.VALIDATE("Available Inventory", Quantitytoadjust);
+                    InventoryPerLocation.INSERT();
+                END;
+        END ELSE BEGIN
+            IF JournalLine."New Location Code" <> '' THEN
+                IF InventoryPerLocation.GET(JournalLine."Item No.", JournalLine."New Location Code") THEN BEGIN
+                    InventoryPerLocation."Available Inventory" += JournalLine."Quantity (Base)";
+                    InventoryPerLocation.VALIDATE("Available Inventory");
+                    InventoryPerLocation.MODIFY();
+                END ELSE BEGIN
+                    InventoryPerLocation.INIT();
+                    InventoryPerLocation.VALIDATE("Item No.", JournalLine."Item No.");
+                    InventoryPerLocation.VALIDATE("Location Code", JournalLine."New Location Code");
+                    InventoryPerLocation.VALIDATE("Available Inventory", JournalLine."Quantity (Base)");
+                    InventoryPerLocation.INSERT();
+                END;
+            IF JournalLine."Location Code" <> '' THEN
+                IF InventoryPerLocation.GET(JournalLine."Item No.", JournalLine."Location Code") THEN BEGIN
+                    InventoryPerLocation."Available Inventory" += -JournalLine."Quantity (Base)";
+                    InventoryPerLocation.VALIDATE("Available Inventory");
+                    InventoryPerLocation.MODIFY();
+                END ELSE BEGIN
+                    InventoryPerLocation.INIT();
+                    InventoryPerLocation.VALIDATE("Item No.", JournalLine."Item No.");
+                    InventoryPerLocation.VALIDATE("Location Code", JournalLine."Location Code");
+                    InventoryPerLocation."Available Inventory" := -JournalLine."Quantity (Base)";
+                    InventoryPerLocation.VALIDATE("Available Inventory");
+                    InventoryPerLocation.INSERT();
+                END;
+        END;
+    END;
+
+    //---CDU23---
     PROCEDURE CtrlButchery(VAR ItemJnlLine: Record "Item Journal Line");
     VAR
         Item: Record Item;
@@ -425,13 +508,12 @@ codeunit 60001 "PWD Function Mgt"
         Text1000000004: Label 'You can''t have many lot no for a butchery item. Line %1 Item %2.';
         Text1000000016: Label 'Inbound an Outbaound quantity must be equal.';
         Text1000000017: Label 'Butchery Family must all be the same for document %1.';
-        Text1000000018: Label 'There can ba only ONE item for type Entry in document %1.';
     BEGIN
         ItemJnlLineCtrl.SETRANGE("Journal Template Name", ItemJnlLine."Journal Template Name");
         ItemJnlLineCtrl.SETRANGE("Journal Batch Name", ItemJnlLine."Journal Batch Name");
         ItemJnlLineCtrl.SETRANGE("PWD Butchery", TRUE);
         MemoDocNo := '';
-        IF ItemJnlLineCtrl.FIND('-') THEN
+        IF ItemJnlLineCtrl.FindSet() THEN
             REPEAT
                 //*** controle du type d'article  - si aticle boucherie : 1 seul lot
                 IF Item.GET(ItemJnlLineCtrl."Item No.") THEN
@@ -465,7 +547,7 @@ codeunit 60001 "PWD Function Mgt"
                             QuantityInput := 0;
                             QuantityOutput := 0;
                             InverseControlItemInput := FALSE;
-                            IF ItemJnlLineCtrl2.FIND('-') THEN BEGIN
+                            IF ItemJnlLineCtrl2.FindSet() THEN BEGIN
                                 REPEAT
                                     Item2.GET(ItemJnlLineCtrl2."Item No.");
 
@@ -490,7 +572,6 @@ codeunit 60001 "PWD Function Mgt"
                                         QuantityInput := QuantityInput + ItemJnlLineCtrl2.Quantity;
                                     END ELSE
                                         QuantityOutput := QuantityOutput + ItemJnlLineCtrl2.Quantity;
-
                                 UNTIL ItemJnlLineCtrl2.NEXT() = 0;
 
                                 IF CtrlFamily = FALSE THEN
@@ -505,12 +586,11 @@ codeunit 60001 "PWD Function Mgt"
                                 END;
                             END;
                         END;
-
                     END;
             UNTIL ItemJnlLineCtrl.NEXT() = 0;
 
         //*** MAJ du champ nø lot origine
-        IF ItemJnlLine.FIND('-') THEN BEGIN
+        IF ItemJnlLine.FindSet() THEN BEGIN
             MemoDocNo := '';
             REPEAT
                 IF MemoDocNo <> ItemJnlLineCtrl."Document No." THEN BEGIN
@@ -523,7 +603,7 @@ codeunit 60001 "PWD Function Mgt"
                     ItemJnlLineCtrl2.SETRANGE("Document No.", ItemJnlLineCtrl."Document No.");
                     NbLineDoc := ItemJnlLineCtrl2.COUNT;
                     //--- Recherche de l'article de type Entr‚e
-                    IF ItemJnlLineCtrl2.FIND('-') THEN
+                    IF ItemJnlLineCtrl2.FindSet() THEN
                         REPEAT
                             Item2.GET(ItemJnlLineCtrl2."Item No.");
                             IF Item2."PWD Meat Type" = Item2."PWD Meat Type"::"Entrée" THEN BEGIN
@@ -536,11 +616,11 @@ codeunit 60001 "PWD Function Mgt"
                                 ReservEntry.SETRANGE("Source ID", ItemJnlLineCtrl2."Journal Template Name");      //  ARTICLE
                                 ReservEntry.SETRANGE("Source Batch Name", ItemJnlLineCtrl."Journal Batch Name"); //  DEFAUT
                                 ReservEntry.SETRANGE("Source Ref. No.", ItemJnlLineCtrl."Line No.");             //  20000
-                                IF ReservEntry.FIND('-') THEN
+                                IF ReservEntry.FINDFirst() THEN
                                     LotNoOrigin := ItemJnlLineCtrl2."Lot No.";
                             END;
                         UNTIL ItemJnlLineCtrl2.NEXT() = 0;
-                    IF ItemJnlLineCtrl2.FIND('-') THEN
+                    IF ItemJnlLineCtrl2.FindSet() THEN
                         REPEAT
                             Item2.GET(ItemJnlLineCtrl2."Item No.");
                             IF Item2."PWD Meat Type" <> Item2."PWD Meat Type"::"Entrée" THEN BEGIN
@@ -550,16 +630,81 @@ codeunit 60001 "PWD Function Mgt"
                                 ReservEntry.SETRANGE("Source ID", ItemJnlLineCtrl2."Journal Template Name");
                                 ReservEntry.SETRANGE("Source Batch Name", ItemJnlLineCtrl."Journal Batch Name");
                                 ReservEntry.SETRANGE("Source Ref. No.", ItemJnlLineCtrl."Line No.");
-
                             END;
                         UNTIL ItemJnlLineCtrl2.NEXT() = 0;
                 END;
             UNTIL ItemJnlLineCtrl.NEXT() = 0;
         END;
     END;
-    //--CDU81--
-    PROCEDURE ControlProfit()
+
+    //---CDU80---
+    procedure FctCDU80_OnBeforeCalcInvoice_SalesPost(SalesHeader: Record "Sales Header"; TempSalesLineGlobal: Record "Sales Line" temporary; var NewInvoice: Boolean; var IsHandled: Boolean)
+    var
+        SalesLineCtrl: Record "Sales Line";
+        Text1000000003: Label 'Trading Brand. \Line %1 : Shipped quantity (%2) can''t be superior than receipted quantity (%3)';
+        Text1000000004: Label 'Trading Brand. \Line %1 : Invoiced quantity (%2) can''t be superior than receipted quantity (%3)';
+    begin
+        SalesLineCtrl.RESET();
+        SalesLineCtrl.SETRANGE("Document Type", SalesHeader."Document Type");
+        SalesLineCtrl.SETRANGE("Document No.", SalesHeader."No.");
+        SalesLineCtrl.SETRANGE("PWD Trading Brand", TRUE);
+        IF SalesLineCtrl.FIND('-') THEN
+            REPEAT
+                SalesLineCtrl.CALCFIELDS("PWD Quantity Receipted Purch.");
+                IF (SalesLineCtrl."Qty. to Ship" + SalesLineCtrl."Quantity Shipped") > SalesLineCtrl."PWD Quantity Receipted Purch." THEN
+                    ERROR(Text1000000003, SalesLineCtrl."Line No.", SalesLineCtrl."Qty. to Ship" + SalesLineCtrl."Quantity Shipped",
+                       SalesLineCtrl."PWD Quantity Receipted Purch.");
+                IF (SalesLineCtrl."Qty. to Invoice" + SalesLineCtrl."Quantity Invoiced") > SalesLineCtrl."PWD Quantity Receipted Purch."
+      THEN
+                    ERROR(Text1000000004, SalesLineCtrl."Line No.", SalesLineCtrl."Qty. to Invoice" + SalesLineCtrl."Quantity Invoiced",
+                       SalesLineCtrl."PWD Quantity Receipted Purch.");
+            UNTIL SalesLineCtrl.NEXT() = 0;
+    end;
+
+    PROCEDURE CalcAvailability(SalesHeader: Record "Sales Header");
     VAR
+        Item: Record Item;
+        RecLSalesLine: Record "Sales Line";
+        ToSalesLine2: Record "Sales Line";
+        DecLOtherLineQty: Decimal;
+        Text1000000002: Label 'Le stock de l''article %1 dans le magasin %2 est insuffisant pour couvrir la demande de la ligne %3 du document %4.';
+    BEGIN
+        ToSalesLine2.RESET();
+        ToSalesLine2.SETRANGE("Document Type", SalesHeader."Document Type");
+        ToSalesLine2.SETRANGE("Document No.", SalesHeader."No.");
+        ToSalesLine2.SETRANGE(Type, ToSalesLine2.Type::Item);
+        ToSalesLine2.SETFILTER("Qty. to Ship", '<>0');
+        ToSalesLine2.SETFILTER("Location Code", '<>%1', '');
+        IF ToSalesLine2.FindSet() THEN
+            REPEAT
+                Item.RESET();
+                Item.GET(ToSalesLine2."No.");
+                Item.SETFILTER("Location Filter", ToSalesLine2."Location Code");
+                Item.CALCFIELDS(Inventory);
+                DecLOtherLineQty := 0;
+                RecLSalesLine.RESET();
+                RecLSalesLine.SETRANGE("Document Type", SalesHeader."Document Type");
+                RecLSalesLine.SETRANGE("Document No.", SalesHeader."No.");
+                RecLSalesLine.SETRANGE(Type, RecLSalesLine.Type::Item);
+                RecLSalesLine.SETRANGE("No.", ToSalesLine2."No.");
+                RecLSalesLine.SETFILTER("Qty. to Ship", '<>0');
+                RecLSalesLine.SETRANGE("Location Code", ToSalesLine2."Location Code");
+                RecLSalesLine.SETFILTER("Line No.", '<%1', ToSalesLine2."Line No.");
+                IF RecLSalesLine.FindSet() THEN
+                    REPEAT
+                        DecLOtherLineQty += RecLSalesLine."Qty. to Ship (Base)";
+                    UNTIL RecLSalesLine.NEXT() = 0;
+                IF Item.Inventory - (ToSalesLine2."Qty. to Ship (Base)" + DecLOtherLineQty) < 0 THEN
+                    ERROR(STRSUBSTNO(Text1000000002, ToSalesLine2."No.", ToSalesLine2."Location Code", ToSalesLine2."Line No.",
+                                     ToSalesLine2."Document No."));
+            UNTIL ToSalesLine2.NEXT() = 0;
+    END;
+
+    //--CDU81--
+    //TODO 2 Fcts existent aussi dans CDU82
+    /*PROCEDURE ControlProfit(var SalesHeader: Record "Sales Header")
+    VAR
+        MemberOf: Record "Access Control";
         CurrExchRate: Record "Currency Exchange Rate";
         Cust: Record Customer;
         GenLedSetUp: Record "General Ledger Setup";
@@ -573,11 +718,12 @@ codeunit 60001 "PWD Function Mgt"
         CreditLimitLCYExpendedPct: Decimal;
         ProfitLCY: Decimal;
         ProfitPct: Decimal;
-        //  MemberOf : Record 2000000003;
         TotalAdjCostLCY: Decimal;
         TotalAmount1: Decimal;
         TotalAmount2: Decimal;
         VATAmount: Decimal;
+        Text1000000000: Label 'Profit (%1 %3) is inferior than Discount profit (%2 %3) \Would you like to post the document ?';
+        Text1000000001: Label 'Profit (%1 %3) is inferior than Discount profit (%2 %3).';
         VATAmountText: Text[30];
     BEGIN
         CLEAR(SalesLine);
@@ -652,30 +798,29 @@ codeunit 60001 "PWD Function Mgt"
         ELSE
             ProfitPct := ROUND(100 * ProfitLCY / TotalSalesLineLCY.Amount, 0.01);
 
-
         //*** Controle de la marge / marge escompt‚e client
         GenLedSetUp.GET();
         IF Cust."Discount Profit %" > ProfitPct THEN
             ;
         //*** Recherche si userid appartient au role direction
-        /* MemberOf.SETRANGE("User ID",USERID);
-         MemberOf.SETRANGE("Role ID",GenLedSetUp."Direction Role ID");
-         IF MemberOf.FIND('-') THEN BEGIN
-            IF CONFIRM(Text1000000000,TRUE,ProfitPct,Cust."Discount Profit %",'%') = FALSE THEN
-               ERROR(Text1000000001,ProfitPct,Cust."Discount Profit %",'%');
-         END ELSE BEGIN
-            ERROR(Text1000000001,ProfitPct,Cust."Discount Profit %",'%');
-    END;*/
+        MemberOf.SETRANGE("User Security ID", UserSecurityId());
+        MemberOf.SETRANGE("Role ID", GenLedSetUp."PWD Direction Role ID");
+        IF MemberOf.FINDFirst() THEN BEGIN
+            IF CONFIRM(Text1000000000, TRUE, ProfitPct, Cust."Discount Profit %", '%') = FALSE THEN
+                ERROR(Text1000000001, ProfitPct, Cust."Discount Profit %", '%');
+        END ELSE
+            ERROR(Text1000000001, ProfitPct, Cust."Discount Profit %", '%');
     END;
 
     PROCEDURE CtrlUnitPrice()
     VAR
+        MemberOf: Record "Access Control";
         Currency: Record Currency;
         CurrExchRate: Record "Currency Exchange Rate";
         Item: Record Item;
         Location: Record Location;
+        SalesHeader: Record "Sales Header";  
         SalesLineCtrl: Record "Sales Line";
-        //MemberOf : Record 2000000003;
         Avertissement: Boolean;
         BottomPrice: Decimal;
         CstG001: Label 'Document %1 Ligne %2 Article %3 \Le prix unitaire de vente (%4) est inferieur au prix plancher (%5) \Continuer';
@@ -683,19 +828,18 @@ codeunit 60001 "PWD Function Mgt"
         CstG003: Label 'Document %1 Ligne %2 Article %3 \Le prix unitaire de vente (%4) est inferieur au prix plancher (%5)';
 
     BEGIN
-        //>>MIGRATION2009R2
-        /* MemberOf.SETRANGE("User ID",USERID);
-         MemberOf.SETRANGE("Role ID",'DIRECTION');
-         IF MemberOf.FIND('-') THEN
+        MemberOf.SETRANGE("User Security ID", UserSecurityId());
+        MemberOf.SETRANGE("Role ID", 'DIRECTION');
+        IF MemberOf.FINDFirst() THEN
             Avertissement := TRUE
-         ELSE
+        ELSE
             Avertissement := FALSE;
-   */
+
         SalesLineCtrl.RESET();
         SalesLineCtrl.SETRANGE("Document Type", SalesHeader."Document Type");
         SalesLineCtrl.SETRANGE("Document No.", SalesHeader."No.");
         SalesLineCtrl.SETRANGE(Type, SalesLineCtrl.Type::Item);
-        IF SalesLineCtrl.FIND('-') THEN
+        IF SalesLineCtrl.FindSet() THEN
             REPEAT
 
                 //*** Controle prix unitaire > prix plancher de l'article
@@ -727,7 +871,7 @@ codeunit 60001 "PWD Function Mgt"
                                            SalesLineCtrl."Unit Price", BottomPrice);
                     END;
             UNTIL SalesLineCtrl.NEXT() = 0;
-    END;
+    END;*/
 
     //---CDU82---
     PROCEDURE ControlProfit(var SalesHeader: Record "Sales Header");
@@ -826,14 +970,13 @@ codeunit 60001 "PWD Function Mgt"
         ELSE
             ProfitPct := ROUND(100 * ProfitLCY / TotalSalesLineLCY.Amount, 0.01);
 
-
         //*** Controle de la marge / marge escomptée client
         GenLedSetUp.GET();
         IF Cust."Discount Profit %" > ProfitPct THEN BEGIN
             //*** Recherche si userid appartient au role direction
-            MemberOf.SETRANGE("User ID", USERID);
+            MemberOf.SETRANGE("User Security ID", UserSecurityId());
             MemberOf.SETRANGE("Role ID", GenLedSetUp."PWD Direction Role ID");
-            IF MemberOf.FIND('-') THEN BEGIN
+            IF MemberOf.FindFirst() THEN BEGIN
                 IF CONFIRM(Text1000000000, TRUE, ProfitPct, Cust."Discount Profit %", '%') = FALSE THEN
                     ERROR(Text1000000001, ProfitPct, Cust."Discount Profit %", '%');
             END ELSE
@@ -855,9 +998,9 @@ codeunit 60001 "PWD Function Mgt"
         CstG002: label 'Document %1 Ligne %2 Article %3 \Le prix unitaire de vente (%4) est inferieur au prix plancher (%5)';
         CstG003: label 'Document %1 Ligne %2 Article %3 \Le prix unitaire de vente (%4) est inferieur au prix plancher (%5) \Continuer ';
     BEGIN
-        MemberOf.SETRANGE("User ID", USERID);
+        MemberOf.SETRANGE("User Security ID", UserSecurityId());
         MemberOf.SETRANGE("Role ID", 'DIRECTION');
-        IF MemberOf.FIND('-') THEN
+        IF MemberOf.FindFirst() THEN
             Avertissement := TRUE
         ELSE
             Avertissement := FALSE;
@@ -866,7 +1009,7 @@ codeunit 60001 "PWD Function Mgt"
         SalesLineCtrl.SETRANGE("Document Type", SalesHeader."Document Type");
         SalesLineCtrl.SETRANGE("Document No.", SalesHeader."No.");
         SalesLineCtrl.SETRANGE(Type, SalesLineCtrl.Type::Item);
-        IF SalesLineCtrl.FIND('-') THEN
+        IF SalesLineCtrl.FINDSet() THEN
             REPEAT
                 //*** Controle prix unitaire > prix plancher de l'article
                 IF Item.GET(SalesLineCtrl."No.") THEN
@@ -912,14 +1055,13 @@ codeunit 60001 "PWD Function Mgt"
             AppTenders.SETRANGE("Document Type", SalesQuoteLine."Document Type");
             AppTenders.SETRANGE("Document No.", SalesQuoteLine."Document No.");
             AppTenders.SETRANGE("Line No. document", SalesQuoteLine."Line No.");
-            AppTenders.FIND('-');
+            AppTenders.FindSet();
             REPEAT
                 AppTendersOrder := AppTenders;
                 AppTendersOrder."Document Type" := SalesOrderHeader."Document Type";
                 AppTendersOrder."Document No." := SalesOrderHeader."No.";
                 AppTendersOrder."Line No. document" := SalesOrderLine."Line No.";
                 AppTendersOrder.INSERT();
-
             UNTIL AppTenders.NEXT() = 0;
         END;
         IF SalesQuoteLine."PWD Nb Purchase Quote" > 0 THEN BEGIN
@@ -928,7 +1070,7 @@ codeunit 60001 "PWD Function Mgt"
                 PurchQuoteLine.SETRANGE("PWD Sales Type Doc Appeal tenders", SalesQuoteLine."Document Type".AsInteger());
                 PurchQuoteLine.SETRANGE("PWD Sales No. Appeal Tenders", SalesQuoteLine."Document No.");
                 PurchQuoteLine.SETRANGE("PWD Sales Line No. Appeal Tenders", SalesQuoteLine."Line No.");
-                PurchQuoteLine.FIND('-');
+                PurchQuoteLine.FindFirst();
                 PurchQuoteLine."PWD Sales Type Doc Appeal tenders" := SalesOrderHeader."Document Type".AsInteger();
                 PurchQuoteLine."PWD Sales No. Appeal Tenders" := SalesOrderHeader."No.";
                 PurchQuoteLine."PWD Sales Line No. Appeal Tenders" := SalesOrderLine."Line No.";
@@ -937,6 +1079,25 @@ codeunit 60001 "PWD Function Mgt"
             END;
         END;
     end;
+
+    //---CDU90---
+    PROCEDURE AllReceive(ReceivePurchHeader: Record "Purchase Header"): Boolean;
+    VAR
+        FromPurchLine: Record "Purchase Line";
+    BEGIN
+        CLEAR(FromPurchLine);
+        FromPurchLine.SETRANGE("Document Type", ReceivePurchHeader."Document Type");
+        FromPurchLine.SETRANGE("Document No.", ReceivePurchHeader."No.");
+        FromPurchLine.SETFILTER(Type, '<>%1', 0);
+        IF FromPurchLine.FIND('-') THEN BEGIN
+            REPEAT
+                IF FromPurchLine.Quantity <> FromPurchLine."Quantity Received" THEN EXIT(FALSE);
+            UNTIL FromPurchLine.NEXT() = 0;
+            EXIT(TRUE);
+        END
+        ELSE
+            EXIT(FALSE);
+    END;
 
     //---CDU 229---
     PROCEDURE PrintT5(SalesShipmentHeader: Record "Sales Shipment Header");
@@ -950,7 +1111,7 @@ codeunit 60001 "PWD Function Mgt"
         ReportSelection.SETRANGE(Usage, ReportSelection.Usage::T5);
         ReportSelection.SETFILTER("Report ID", '<>0');
         ReportSelection.ASCENDING := FALSE;
-        ReportSelection.FIND('-');
+        ReportSelection.FindSet();
         REPEAT
             REPORT.RUN(ReportSelection."Report ID", TRUE, FALSE, SalesShipmentHeader);
         UNTIL ReportSelection.NEXT() = 0;
@@ -966,13 +1127,13 @@ codeunit 60001 "PWD Function Mgt"
         CLEAR(ShipmentLine);
         ShipmentLine.SETRANGE("Document No.", SalesShipmentHeader."No.");
         ShipmentLine.SETFILTER("Location Code", '6|9|9HCEE');
-        IF NOT ShipmentLine.FIND('-') THEN ERROR(Text1000000057);
+        IF NOT ShipmentLine.FindFirst() THEN ERROR(Text1000000057);
 
         SalesShipmentHeader.SETRECFILTER();
         ReportSelection.SETRANGE(Usage, ReportSelection.Usage::T1);
         ReportSelection.SETFILTER("Report ID", '<>0');
         ReportSelection.ASCENDING := FALSE;
-        ReportSelection.FIND('-');
+        ReportSelection.FindSet();
         REPEAT
             REPORT.RUN(ReportSelection."Report ID", TRUE, FALSE, SalesShipmentHeader);
         UNTIL ReportSelection.NEXT() = 0;
@@ -988,14 +1149,13 @@ codeunit 60001 "PWD Function Mgt"
         CLEAR(ShipmentLine);
         ShipmentLine.SETRANGE("Document No.", SalesShipmentHeader."No.");
         ShipmentLine.SETFILTER("Location Code", '8|9');
-        IF NOT ShipmentLine.FIND('-') THEN ERROR(Text1000000057);
-
+        IF NOT ShipmentLine.FindFirst() THEN ERROR(Text1000000057);
 
         SalesShipmentHeader.SETRECFILTER();
         ReportSelection.SETRANGE(Usage, ReportSelection.Usage::TM);
         ReportSelection.SETFILTER("Report ID", '<>0');
         ReportSelection.ASCENDING := FALSE;
-        ReportSelection.FIND('-');
+        ReportSelection.FindSet();
         REPEAT
             REPORT.RUN(ReportSelection."Report ID", TRUE, FALSE, SalesShipmentHeader);
         UNTIL ReportSelection.NEXT() = 0;
@@ -1004,7 +1164,7 @@ codeunit 60001 "PWD Function Mgt"
     PROCEDURE PrintEX1(SalesShipmentHeader: Record "Sales Shipment Header");
     VAR
         SalesShptLine: Record "Sales Shipment Line";
-        ReportEX1: Report 50087;
+        //ReportEX1: Report 50087;   //TODO
         i: Integer;
         Text1000000057: Label 'Pas de document à imprimer.';
         LocationList: ARRAY[10, 2] OF Text[30];
@@ -1013,8 +1173,7 @@ codeunit 60001 "PWD Function Mgt"
         CLEAR(SalesShptLine);
         SalesShptLine.SETRANGE("Document No.", SalesShipmentHeader."No.");
         SalesShptLine.SETFILTER("Location Code", '3|5|CML|1');
-        IF NOT SalesShptLine.FIND('-') THEN ERROR(Text1000000057);
-
+        IF NOT SalesShptLine.FindFirst() THEN ERROR(Text1000000057);
 
         SalesShipmentHeader.SETRECFILTER();
 
@@ -1031,21 +1190,21 @@ codeunit 60001 "PWD Function Mgt"
             SalesShptLine.SETCURRENTKEY("Document No.", "Location Code");
             SalesShptLine.SETRANGE("Document No.", SalesShipmentHeader."No.");
             SalesShptLine.SETFILTER("Location Code", LocationList[i] [1]);
-            IF SalesShptLine.FIND('-') THEN BEGIN
+            IF SalesShptLine.FindFirst() THEN
                 NumberEx3(SalesShipmentHeader, LocationList[i] [1], 5);
-                CLEAR(ReportEX1);
-                ReportEX1.SetLocationFilter(LocationList[i] [1], LocationList[i] [2]);
-                SalesShipmentHeader.SETFILTER("PWD Location Filter", LocationList[i] [1]);
-                ReportEX1.SETTABLEVIEW(SalesShipmentHeader);
-                ReportEX1.RUN;
-            END;
+            /*     //TODO
+            CLEAR(ReportEX1);
+            ReportEX1.SetLocationFilter(LocationList[i] [1], LocationList[i] [2]);
+            SalesShipmentHeader.SETFILTER("PWD Location Filter", LocationList[i] [1]);
+            ReportEX1.SETTABLEVIEW(SalesShipmentHeader);
+            ReportEX1.RUN;*/
         END;
     END;
 
     PROCEDURE PrintEX9(SalesShipmentHeader: Record "Sales Shipment Header");
     VAR
         SalesShptLine: Record "Sales Shipment Line";
-        ReportEX9: Report 50088;
+        //ReportEX9: Report 50088;  //TODO
         i: Integer;
         Text1000000057: Label 'Pas de document à imprimer.';
         LocationList: ARRAY[10, 2] OF Text[30];
@@ -1054,7 +1213,7 @@ codeunit 60001 "PWD Function Mgt"
         CLEAR(SalesShptLine);
         SalesShptLine.SETRANGE("Document No.", SalesShipmentHeader."No.");
         SalesShptLine.SETFILTER("Location Code", '3|5|CML|1');
-        IF NOT SalesShptLine.FIND('-') THEN ERROR(Text1000000057);
+        IF NOT SalesShptLine.FindFirst() THEN ERROR(Text1000000057);
 
         SalesShipmentHeader.SETRECFILTER();
         LocationList[1] [1] := '5';
@@ -1070,21 +1229,21 @@ codeunit 60001 "PWD Function Mgt"
             SalesShptLine.SETCURRENTKEY("Document No.", "Location Code");
             SalesShptLine.SETRANGE("Document No.", SalesShipmentHeader."No.");
             SalesShptLine.SETFILTER("Location Code", LocationList[i] [1]);
-            IF SalesShptLine.FIND('-') THEN BEGIN
+            IF SalesShptLine.FindFirst() THEN
                 NumberEx3(SalesShipmentHeader, LocationList[i] [1], 7);
-                CLEAR(ReportEX9);
-                ReportEX9.SetLocationFilter(LocationList[i] [1], LocationList[i] [2]);
-                SalesShipmentHeader.SETFILTER("PWD Location Filter", LocationList[i] [1]);
-                ReportEX9.SETTABLEVIEW(SalesShipmentHeader);
-                ReportEX9.RUN;
-            END;
+            /*   //TODO
+            CLEAR(ReportEX9);
+            ReportEX9.SetLocationFilter(LocationList[i] [1], LocationList[i] [2]);
+            SalesShipmentHeader.SETFILTER("PWD Location Filter", LocationList[i] [1]);
+            ReportEX9.SETTABLEVIEW(SalesShipmentHeader);
+            ReportEX9.RUN;*/
         END;
     END;
 
     PROCEDURE PrintCOM9(SalesShipmentHeader: Record "Sales Shipment Header");
     VAR
         SalesShptLine: Record "Sales Shipment Line";
-        ReportCOM9: Report 50089;
+        //ReportCOM9: Report 50089;  //TODO
         i: Integer;
         Text1000000057: Label 'Pas de document à imprimer.';
         LocationList: ARRAY[10, 2] OF Text[30];
@@ -1093,7 +1252,7 @@ codeunit 60001 "PWD Function Mgt"
         CLEAR(SalesShptLine);
         SalesShptLine.SETRANGE("Document No.", SalesShipmentHeader."No.");
         SalesShptLine.SETFILTER("Location Code", '3|5|CML|1');
-        IF NOT SalesShptLine.FIND('-') THEN ERROR(Text1000000057);
+        IF NOT SalesShptLine.FindFirst() THEN ERROR(Text1000000057);
 
         SalesShipmentHeader.SETRECFILTER();
         LocationList[1] [1] := '5';
@@ -1109,14 +1268,14 @@ codeunit 60001 "PWD Function Mgt"
             SalesShptLine.SETCURRENTKEY("Document No.", "Location Code");
             SalesShptLine.SETRANGE("Document No.", SalesShipmentHeader."No.");
             SalesShptLine.SETFILTER("Location Code", LocationList[i] [1]);
-            IF SalesShptLine.FIND('-') THEN BEGIN
+            IF SalesShptLine.FindFirst() THEN
                 NumberEx3(SalesShipmentHeader, LocationList[i] [1], 6);
-                CLEAR(ReportCOM9);
-                ReportCOM9.SetLocationFilter(LocationList[i] [1], LocationList[i] [2]);
-                SalesShipmentHeader.SETFILTER("PWD Location Filter", LocationList[i] [1]);
-                ReportCOM9.SETTABLEVIEW(SalesShipmentHeader);
-                ReportCOM9.RUN;
-            END;
+            /*           //TODO
+            CLEAR(ReportCOM9);
+            ReportCOM9.SetLocationFilter(LocationList[i] [1], LocationList[i] [2]);
+            SalesShipmentHeader.SETFILTER("PWD Location Filter", LocationList[i] [1]);
+            ReportCOM9.SETTABLEVIEW(SalesShipmentHeader);
+            ReportCOM9.RUN;*/
         END;
     END;
 
@@ -1131,7 +1290,7 @@ codeunit 60001 "PWD Function Mgt"
         ReportSelection.SETRANGE(Usage, ReportSelection.Usage::COM7);
         ReportSelection.SETFILTER("Report ID", '<>0');
         ReportSelection.ASCENDING := FALSE;
-        ReportSelection.FIND('-');
+        ReportSelection.FindSet();
         REPEAT
             REPORT.RUN(ReportSelection."Report ID", TRUE, FALSE, PurchReceiptHeader);
         UNTIL ReportSelection.NEXT() = 0;
@@ -1144,7 +1303,7 @@ codeunit 60001 "PWD Function Mgt"
     BEGIN
         CLEAR(LoadingList);
         LoadingList.SETRANGE("Sales Ship. No.", SalesShipmentHeader."No.");
-        IF NOT LoadingList.FIND('-') THEN ERROR(Text1000000002, SalesShipmentHeader."No.");
+        IF NOT LoadingList.FindFirst() THEN ERROR(Text1000000002, SalesShipmentHeader."No.");
     END;
 
     PROCEDURE NumberEx3(SalesShipHeader: Record "Sales Shipment Header"; FromLocationCode: Code[20]; Ex3DocType: Option " ","T5","T1","TM","COM7","EX1","COM9","EX9");
@@ -1161,8 +1320,7 @@ codeunit 60001 "PWD Function Mgt"
         CustomsLine.SETRANGE("Document No.", SalesShipHeader."No.");
         CustomsLine.SETRANGE("Customs Document Type", Ex3DocType);
         CustomsLine.SETRANGE("Location Filter", FromLocationCode);
-        IF CustomsLine.FIND('-') THEN EXIT;
-
+        IF CustomsLine.FindFirst() THEN EXIT;
 
         //** Insérer ligne doc douane
         SalesSetup.GET();
@@ -1212,7 +1370,7 @@ codeunit 60001 "PWD Function Mgt"
         CustomsLine.SETRANGE("Document Type", CustomsLine."Document Type"::"S.Shipment");
         CustomsLine.SETRANGE("Document No.", SalesShipHeader."No.");
         CustomsLine.SETFILTER("Customs Document Type", 'EX1|COM9|EX9');
-        IF CustomsLine.FIND('-') THEN MESSAGE(CstG001);
+        IF CustomsLine.FindFirst() THEN MESSAGE(CstG001);
     END;
 
     //---CDU240---
@@ -1261,13 +1419,13 @@ codeunit 60001 "PWD Function Mgt"
         ItemSalesLine.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
         ItemSalesLine.SETRANGE("Location Filter", LocationCode);
         ItemSalesLine.SETRANGE("PWD Preparation Filter", SalesLine."PWD Preparation in Process");
-        IF ItemSalesLine.FIND('-') THEN
+        IF ItemSalesLine.FindFirst() THEN
             ItemSalesLine.CALCFIELDS("Qty. on Sales Order");
 
         Item.SETRANGE("No.", SalesLine."No.");
         Item.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
         Item.SETRANGE(Item."Location Filter", LocationCode);
-        IF Item.FIND('-') THEN BEGIN
+        IF Item.FindFirst() THEN BEGIN
             Item.CALCFIELDS(
               "Qty. on Purch. Order",
               "Qty. on Service Order",
@@ -1449,7 +1607,7 @@ codeunit 60001 "PWD Function Mgt"
                 BEGIN
                     AddrArray[ContLineNo] := Contact;
                     //TODO: GeneratePostCodeCity Fonction local dans le codeunit "Format Address"
-                    "Format Address" "Format Address" "Format Address" City(AddrArray[PostCodeCityLineNo], AddrArray[CountyLineNo], City, PostCode, County, Country);
+                    GeneratePostCodeCity(AddrArray[PostCodeCityLineNo], AddrArray[CountyLineNo], City, PostCode, County, Country);
                     AddrArray[CountryLineNo] := Country.Name;
                     COMPRESSARRAY(AddrArray);
                 END;
@@ -1490,6 +1648,65 @@ codeunit 60001 "PWD Function Mgt"
         //<<SOBI
     END;
 
+    local procedure GeneratePostCodeCity(var PostCodeCityText: Text[100]; var CountyText: Text[50]; City: Text[50]; PostCode: Code[20]; County: Text[50]; Country: Record "Country/Region")
+    var
+        OverMaxStrLen: Integer;
+        DummyString: Text;
+    begin
+        DummyString := '';
+        OverMaxStrLen := MaxStrLen(PostCodeCityText);
+        if OverMaxStrLen < MaxStrLen(DummyString) then
+            OverMaxStrLen += 1;
+
+        case Country."Address Format" of
+            Country."Address Format"::"Post Code+City":
+                begin
+                    if PostCode <> '' then
+                        PostCodeCityText := DelStr(PostCode + ' ' + City, OverMaxStrLen)
+                    else
+                        PostCodeCityText := City;
+                    CountyText := County;
+                end;
+            Country."Address Format"::"City+County+Post Code":
+
+                if (County <> '') and (PostCode <> '') then
+                    PostCodeCityText :=
+                      DelStr(City, MaxStrLen(PostCodeCityText) - StrLen(PostCode) - StrLen(County) - 3) +
+                      ', ' + County + ' ' + PostCode
+                else
+                    if PostCode = '' then begin
+                        PostCodeCityText := City;
+                        CountyText := County;
+                    end else
+                        if (County = '') and (PostCode <> '') then
+                            PostCodeCityText := DelStr(City, MaxStrLen(PostCodeCityText) - StrLen(PostCode) - 1) + ', ' + PostCode;
+            Country."Address Format"::"City+Post Code":
+                begin
+                    if PostCode <> '' then
+                        PostCodeCityText := DelStr(City, MaxStrLen(PostCodeCityText) - StrLen(PostCode) - 1) + ', ' + PostCode
+                    else
+                        PostCodeCityText := City;
+                    CountyText := County;
+                end;
+            Country."Address Format"::"Blank Line+Post Code+City":
+                begin
+                    if PostCode <> '' then
+                        PostCodeCityText := DelStr(PostCode + ' ' + City, OverMaxStrLen)
+                    else
+                        PostCodeCityText := City;
+                    CountyText := County;
+                end;
+            Country."Address Format"::"Post Code+City/County", Country."Address Format"::"County/Post Code+City":
+                begin
+                    if PostCode <> '' then
+                        PostCodeCityText := DelStr(PostCode + ' ' + City, OverMaxStrLen)
+                    else
+                        PostCodeCityText := City;
+                    CountyText := County;
+                end;
+        end;
+    end;
+
     //---CDU391---
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Shipment Header - Edit", 'OnBeforeSalesShptHeaderModify', '', false, false)]
     local procedure FctOnBeforeSalesShptHeaderModify_ShipmentHeaderEdit(var SalesShptHeader: Record "Sales Shipment Header"; FromSalesShptHeader: Record "Sales Shipment Header")
@@ -1501,8 +1718,7 @@ codeunit 60001 "PWD Function Mgt"
     //---CDU414---
     procedure FCT_CDU414OnBeforeReleaseSalesDocEvent(var SalesHeader: Record "Sales Header")
     var
-        //TODO : Record Member of n'existe pas
-        UserRole: Record "Member Of";
+        UserRole: Record "Access Control";
         SetGetFunction: Codeunit "PWD Set/Get Functions";
     begin
         IF SalesHeader."PWD Preparation Status" = SalesHeader."PWD Preparation Status"::" " THEN
@@ -1539,15 +1755,13 @@ codeunit 60001 "PWD Function Mgt"
     VAR
         Item: Record "Sales Line";
         SalesLine: Record "Sales Line";
-        Txt1000000003: Label 'La marge sur la ligne %1 (article %2) doit être au minimum de %3 %4.';
         Txt1000000004: Label 'Les poids doivent être renseignés sur la ligne %1 .';
-        Txt1000000005: Label 'Le prix doit être renseignés sur la ligne %1 .';
     begin
         TestDocProfit(SalesHeader);
         SalesLine.SETRANGE("Document Type", SalesHeader."Document Type");
         SalesLine.SETRANGE("Document No.", SalesHeader."No.");
         SalesLine.SETRANGE(Type, 2);
-        IF SalesLine.FIND('-') THEN
+        IF SalesLine.FindSet() THEN
             REPEAT
                 //Contole marge article
                 Item.GET(SalesLine."No.");
@@ -1563,7 +1777,6 @@ codeunit 60001 "PWD Function Mgt"
     procedure TestDocProfit(VAR Rec: Record "Sales Header");
     VAR
         Cust: Record Customer;
-        SalesSetup: Record "Sales & Receivables Setup";
         SalesLine: Record "Sales Line";
         TempSalesLine: Record "Sales Line" TEMPORARY;
         TotalSalesLine: ARRAY[3] OF Record "Sales Line";
@@ -1572,11 +1785,6 @@ codeunit 60001 "PWD Function Mgt"
         TempVATAmountLine2: Record "VAT Amount Line" TEMPORARY;
         TempVATAmountLine3: Record "VAT Amount Line" TEMPORARY;
         SalesPost: Codeunit "Sales-Post";
-        AllowInvDisc: Boolean;
-        AllowVATDifference: Boolean;
-        SubformIsEditable: Boolean;
-        SubformIsReady: Boolean;
-        PrevNo: Code[20];
         CreditLimitLCYExpendedPct: Decimal;
         DecLTotalAdjCostLCY: Decimal;
         ProfitLCY: ARRAY[3] OF Decimal;
@@ -1586,8 +1794,6 @@ codeunit 60001 "PWD Function Mgt"
         VATAmount: ARRAY[3] OF Decimal;
         i: Integer;
         Text1000000004: Label 'La marge sur la commande %1 doit être au minimum de  %2 %3.';
-        ActiveTab: Option General,Invoicing,Shipping;
-        PrevTab: Option General,Invoicing,Shipping;
         VATAmountText: ARRAY[3] OF Text[30];
     BEGIN
         CLEAR(SalesLine);
@@ -1644,20 +1850,9 @@ codeunit 60001 "PWD Function Mgt"
         IF ProfitPct[1] < Cust."Discount Profit %" THEN MESSAGE(Text1000000004, Rec."No.", Cust."Discount Profit %", '%');
     END;
 
-    procedure GetPassWord();
-    VAR
-        //TODO : Record Member of n'existe pas
-        UserRole: Record "Member Of";
-        SalesSetup: Record "Sales & Receivables Setup";
-        Password: Text[30];
-    BEGIN
-        //IF NOT UserRole.GET (USERID,'DIRECTION') THEN ERROR (Text1000000001);
-    END;
-
     procedure SalesHeaderCheckError(SalesHeader: Record "Sales Header");
     VAR
         CustCheckCreditLimit: Page "PWD Check Credit Limit Release";
-        OK: Boolean;
         Text000: Label 'The update has been interrupted to respect the warning.', Comment = 'FRA="La mise à jour a été interrompue pour respecter l''alerte."';
     BEGIN
         IF CustCheckCreditLimit.SalesHeaderShowWarning(SalesHeader) THEN BEGIN
@@ -1947,7 +2142,7 @@ codeunit 60001 "PWD Function Mgt"
         IF LotNo <> '' THEN
             ItemLedgEntry.SETRANGE("Lot No.", LotNo);
 
-        IF ItemLedgEntry.FIND('-') THEN
+        IF ItemLedgEntry.FindSet() THEN
             REPEAT
                 IF (ItemLedgEntry."Serial No." <> '') OR (ItemLedgEntry."Lot No." <> '') THEN BEGIN
                     TempItemLedgEntry := ItemLedgEntry;
@@ -1971,7 +2166,7 @@ codeunit 60001 "PWD Function Mgt"
 
         ToPurchPrice.RESET();
         ToPurchPrice.DELETEALL();
-        IF FromPurchPrice.FIND('-') THEN
+        IF FromPurchPrice.FindSet() THEN
             REPEAT
                 IF FromPurchPrice."Direct Unit Cost" <> 0 THEN BEGIN
                     ToPurchPrice := FromPurchPrice;
@@ -1995,7 +2190,7 @@ codeunit 60001 "PWD Function Mgt"
             IF Item.GET(ItemNo) THEN BEGIN
                 FindItemPurchPrice(
                   TempPurchPrice, ItemNo, OrderDate, ShowAll);
-                EXIT(TempPurchPrice.FIND('-'));
+                EXIT(TempPurchPrice.FindFirst());
             END;
         EXIT(FALSE);
     end;
@@ -2050,7 +2245,6 @@ codeunit 60001 "PWD Function Mgt"
         PWDSetGetFunctions.SetButchery2(0D);
     END;
 
-
     //---CDU99000832---
     PROCEDURE CodePaysOrigin(Salesline2: Record "Sales Line"; VAR OriginArea2: Code[10]);
     BEGIN
@@ -2072,7 +2266,7 @@ codeunit 60001 "PWD Function Mgt"
             ItemJnlLine.SetReservationFilters(ReservEntry); //TODO: Vérifier Code adapté
             ReservEntry.SETRANGE("Serial No.");
             ReservEntry.SETRANGE("Lot No.");
-            IF NOT ReservEntry.FIND('-') THEN
+            IF NOT ReservEntry.FindFirst() THEN
                 ERROR(Text006, ItemJnlLine.FIELDCAPTION("Operation No."), ItemJnlLine."Operation No.");
         END;
         //InitTrackingSpecification(ItemJnlLine,TrackingSpecification);
@@ -2087,15 +2281,7 @@ codeunit 60001 "PWD Function Mgt"
         ItemTrackingLines.RUNMODAL();
     END;
 
-
     //------
-    procedure GetQtyPerFromUnitToUnit(Item2: Record Item; FromUnit: Code[10]; ToUnit: Code[10]): Decimal
-    var
-    begin
-        IF GetQtyPerUnitOfMeasure(Item2, ToUnit) <> 0 THEN
-            EXIT(GetQtyPerUnitOfMeasure(Item2, FromUnit) / GetQtyPerUnitOfMeasure(Item2, ToUnit));
-    end;
-
     procedure GetQtyPerUnitOfMeasure(Item: Record Item; UnitOfMeasureCode: Code[10]): Decimal
     var
         ItemUnitofMeasure: Record "Item Unit of Measure";
@@ -2111,7 +2297,6 @@ codeunit 60001 "PWD Function Mgt"
         EXIT(ItemUnitOfMeasure."Qty. per Unit of Measure");
     end;
 
-
     //--Page508--
     PROCEDURE UnitPriceOnFormat();
     var
@@ -2121,5 +2306,4 @@ codeunit 60001 "PWD Function Mgt"
         ParamsVente.GET();
         CoefPrixUnitaire := ParamsVente."PWD Coef Controle prix unitaire";
     END;
-
 }

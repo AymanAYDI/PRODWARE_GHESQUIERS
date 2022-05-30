@@ -1183,4 +1183,3 @@ table 70063 "PWD Archived Purchase Line"
             "Document Type".AsInteger(), "Document No.", "Doc. No. Occurrence", "Version No.", "Line No.");
     end;
 }
-

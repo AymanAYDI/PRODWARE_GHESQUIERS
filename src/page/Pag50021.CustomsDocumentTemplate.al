@@ -4,7 +4,7 @@ page 50021 "PWD Customs Document Template"
     Editable = false;
     PageType = List;
     SourceTable = "PWD Customs Documents Template";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -40,4 +40,3 @@ page 50021 "PWD Customs Document Template"
     {
     }
 }
-

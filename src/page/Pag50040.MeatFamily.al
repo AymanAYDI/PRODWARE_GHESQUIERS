@@ -3,6 +3,7 @@ page 50040 "PWD Meat Family"
     Caption = 'Meat Family';
     PageType = List;
     SourceTable = "PWD Meat Family";
+    UsageCategory = None;
 
     layout
     {
@@ -31,4 +32,3 @@ page 50040 "PWD Meat Family"
     {
     }
 }
-

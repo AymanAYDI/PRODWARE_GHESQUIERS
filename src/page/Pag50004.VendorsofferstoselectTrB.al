@@ -3,7 +3,7 @@ page 50004 "Vendors offers to select -TrB"
     Caption = 'Vendors offers to select';
     PageType = Card;
     SourceTable = "Sales Line";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -11,17 +11,17 @@ page 50004 "Vendors offers to select -TrB"
             group(Control1000000010)
             {
                 ShowCaption = false;
-                field("STRSUBSTNO(Text1000000002,""Document No."")"; STRSUBSTNO(Text1000000002, Rec."Document No."))
+                field("Substr Document No."; STRSUBSTNO(Text1000000002, Rec."Document No."))
                 {
                     ApplicationArea = all;
                     Editable = false;
                 }
-                field("STRSUBSTNO(Text1000000004,SalesHeader.""Salesperson Code"")"; STRSUBSTNO(Text1000000004, SalesHeader."Salesperson Code"))
+                field("STRSUBSTNO_SalesHeader_Salesperson Code"; STRSUBSTNO(Text1000000004, SalesHeader."Salesperson Code"))
                 {
                     ApplicationArea = all;
                     Editable = false;
                 }
-                field("STRSUBSTNO(Text1000000001,Cust.""No."")"; STRSUBSTNO(Text1000000001, Cust."No."))
+                field("STRSUBSTNOText1000000001_Cust_No."; STRSUBSTNO(Text1000000001, Cust."No."))
                 {
                     ApplicationArea = all;
                     Editable = false;
@@ -159,4 +159,3 @@ page 50004 "Vendors offers to select -TrB"
             DescriptionEmphasize := TRUE;
     end;
 }
-

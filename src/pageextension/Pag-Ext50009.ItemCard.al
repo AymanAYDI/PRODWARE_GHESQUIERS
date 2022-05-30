@@ -285,10 +285,6 @@ pageextension 50009 "PWD ItemCard" extends "Item Card"
                 {
                     ApplicationArea = All;
                 }
-
-
-
-
             }
         }
     }

@@ -15,7 +15,6 @@ pageextension 50059 "PWD ItemTrackingEntries" extends "Item Tracking Entries"
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

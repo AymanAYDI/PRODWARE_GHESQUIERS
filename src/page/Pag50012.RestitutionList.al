@@ -4,6 +4,7 @@ page 50012 "PWD Restitution List"
     DelayedInsert = true;
     PageType = List;
     SourceTable = "PWD Item Restitution";
+    UsageCategory = None;
 
     layout
     {
@@ -68,4 +69,3 @@ page 50012 "PWD Restitution List"
         }
     }
 }
-

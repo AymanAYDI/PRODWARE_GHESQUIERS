@@ -1,13 +1,9 @@
 report 50041 "PWD Fiche Anomalie"
 {
-    // 01.02.2006   C2A(LLE)   cf CDVS004032
-    //                         Modif the last section footer from dataitem Sales Header to SalesLineAnomalie
-    //                         and modif Sorting Key of dataitem SalesLineAnomalie
     DefaultLayout = RDLC;
-    RDLCLayout = './rdl/FicheAnomalie.rdl';
-
+    RDLCLayout = './src/report/rdl/FicheAnomalie.rdl';
     Caption = 'Missing items List';
-
+    UsageCategory = None;
     dataset
     {
         dataitem("Sales Header"; "Sales Header")
@@ -184,7 +180,6 @@ report 50041 "PWD Fiche Anomalie"
 
     requestpage
     {
-
         layout
         {
         }
@@ -222,4 +217,3 @@ report 50041 "PWD Fiche Anomalie"
         CompanyAddr: array[8] of Text[50];
         ShipToAddr: array[8] of Text[50];
 }
-

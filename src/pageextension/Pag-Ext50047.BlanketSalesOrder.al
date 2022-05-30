@@ -48,7 +48,6 @@ pageextension 50047 "PWD BlanketSalesOrder" extends "Blanket Sales Order"
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

@@ -47,4 +47,3 @@ table 50004 "PWD RateRestitutionCalculation"
     {
     }
 }
-

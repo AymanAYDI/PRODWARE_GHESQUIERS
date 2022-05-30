@@ -16,7 +16,6 @@ pageextension 50046 "PWD InventorySetup" extends "Inventory Setup"
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

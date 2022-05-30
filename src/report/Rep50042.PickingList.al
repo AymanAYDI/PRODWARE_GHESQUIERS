@@ -1,9 +1,9 @@
 report 50042 "PWD Picking List"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './rdl/PickingList.rdlc';
-
+    RDLCLayout = './src/report/rdl/PickingList.rdlc';
     Caption = 'Picking List';
+    UsageCategory = None;
 
     dataset
     {
@@ -270,10 +270,9 @@ report 50042 "PWD Picking List"
                     trigger OnAfterGetRecord()
                     begin
                         BooShowDLC := TRUE;
-                        IF CallType.GET("Sales Header"."PWD Call Type") THEN BEGIN
+                        IF CallType.GET("Sales Header"."PWD Call Type") THEN
                             IF CallType."Ne pas imprimer DLC sur BP" = TRUE THEN
                                 BooShowDLC := FALSE;
-                        END;
                     end;
                 }
                 dataitem(InfoTrading; Integer)
@@ -370,7 +369,7 @@ report 50042 "PWD Picking List"
                     END;
                     IF NOT SKU.GET("Sales Line"."Location Code", "Sales Line"."No.", "Sales Line"."Variant Code") THEN
                         SKU.INIT();
-                    IF Type = Type::Item THEN BEGIN
+                    IF Type = Type::Item THEN
                         IF Item.GET("Sales Line"."No.") THEN BEGIN
                             IF (BinCode <> Item."Shelf No.") AND (LocationCode = "Sales Line"."Location Code") THEN BEGIN
                                 IF CallType.GET("Sales Header"."PWD Call Type") THEN BEGIN
@@ -388,7 +387,6 @@ report 50042 "PWD Picking List"
                             BinCode := Item."Shelf No.";
                             RefFournisseur := Item."Vendor Item No.";
                         END;
-                    END;
                     RecGReservEntry.RESET();
                     RecGReservEntry.SETRANGE("Item No.", "No.");
                     IF NOT RecGReservEntry.FINDSET() THEN
@@ -419,7 +417,8 @@ report 50042 "PWD Picking List"
             begin
                 CompanyInfo.GET();
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
-                FormatAddr.SalesHeaderShipTo(ShipToAddr, "Sales Header");
+                //ToDo
+                //FormatAddr.SalesHeaderShipTo(ShipToAddr, "Sales Header");
                 IF NOT call.GET("Sales Header"."PWD Call No.") THEN call.INIT();
                 IF NOT Recarea.GET(call.Area) THEN Recarea.INIT();
                 IF NOT CallType2.GET("Sales Header"."PWD Call Type") THEN BEGIN
@@ -432,7 +431,6 @@ report 50042 "PWD Picking List"
 
     requestpage
     {
-
         layout
         {
         }
@@ -499,4 +497,3 @@ report 50042 "PWD Picking List"
         CompanyAddr: array[8] of Text[50];
         ShipToAddr: array[8] of Text[50];
 }
-

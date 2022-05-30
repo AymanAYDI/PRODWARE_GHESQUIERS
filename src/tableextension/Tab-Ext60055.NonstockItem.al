@@ -38,4 +38,3 @@ tableextension 60055 "PWD NonstockItem" extends "Nonstock Item"
         }
     }
 }
-

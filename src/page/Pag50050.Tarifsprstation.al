@@ -3,7 +3,7 @@ page 50050 "PWD Tarifs préstation"
     DelayedInsert = true;
     PageType = List;
     SourceTable = "PWD Tarifs prestation";
-
+UsageCategory = None;
     layout
     {
         area(content)
@@ -56,4 +56,3 @@ page 50050 "PWD Tarifs préstation"
         Rec."Date de debut" := xRec."Date de debut";
     end;
 }
-

@@ -124,4 +124,3 @@ table 50013 "PWD Tarifs prestation M2"
     var
         Item: Record Item;
 }
-

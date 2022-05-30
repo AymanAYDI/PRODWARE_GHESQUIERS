@@ -1,6 +1,5 @@
 page 50059 "PWD Sales Orders to prepare V2"
 {
-
     Caption = 'Sales Orders to prepare';
     DeleteAllowed = false;
     Editable = true;
@@ -8,7 +7,8 @@ page 50059 "PWD Sales Orders to prepare V2"
     PageType = List;
     SourceTable = "Sales Header";
     SourceTableView = SORTING("Document Type", "No.") ORDER(Ascending) WHERE("Document Type" = FILTER(Order), Status = FILTER(Released));
-
+    ApplicationArea = all;
+    UsageCategory = lists;
     layout
     {
         area(content)
@@ -121,7 +121,6 @@ page 50059 "PWD Sales Orders to prepare V2"
                             IF NOT LRecSalesLines.ISEMPTY THEN
                                 REPORT.RUN(Report::"PWD Fiche Anomalie", TRUE, TRUE, SalesHeader);
                         END;
-
                     end;
                 }
             }
@@ -465,7 +464,6 @@ page 50059 "PWD Sales Orders to prepare V2"
         END;
     end;
 
-
     procedure InsertNewLine(FromLocationCode: Code[20]; FromQty: Decimal; NewLineNo: Integer)
     begin
         CLEAR(NewSalesLine);
@@ -488,9 +486,10 @@ page 50059 "PWD Sales Orders to prepare V2"
         NewSalesLine.VALIDATE(NewSalesLine."Unit Price", MemUnitPrice);
         NewSalesLine.MODIFY(TRUE);
         CLEAR(DimMgt);
-        DimMgt.InsertDocDim(
-          DATABASE::"Sales Line", NewSalesLine."Document Type", NewSalesLine."Document No.", NewSalesLine."Line No.",
-          NewSalesLine."Shortcut Dimension 1 Code", NewSalesLine."Shortcut Dimension 2 Code");
+        //ToDo
+        /* DimMgt.InsertDocDim(
+           DATABASE::"Sales Line", NewSalesLine."Document Type", NewSalesLine."Document No.", NewSalesLine."Line No.",
+           NewSalesLine."Shortcut Dimension 1 Code", NewSalesLine."Shortcut Dimension 2 Code");*/
     end;
 
     procedure InsertNewLineNull(FromLocationCode: Code[20]; FromQty: Decimal; NewLineNo: Integer)
@@ -517,9 +516,10 @@ page 50059 "PWD Sales Orders to prepare V2"
         NewSalesLine.VALIDATE(NewSalesLine."Unit Price", MemUnitPrice);
         NewSalesLine.MODIFY(TRUE);
         CLEAR(DimMgt);
-        DimMgt.InsertDocDim(
-          DATABASE::"Sales Line", NewSalesLine."Document Type", NewSalesLine."Document No.", NewSalesLine."Line No.",
-          NewSalesLine."Shortcut Dimension 1 Code", NewSalesLine."Shortcut Dimension 2 Code");
+        //ToDo
+        /*DimMgt.InsertDocDim(
+           DATABASE::"Sales Line", NewSalesLine."Document Type", NewSalesLine."Document No.", NewSalesLine."Line No.",
+           NewSalesLine."Shortcut Dimension 1 Code", NewSalesLine."Shortcut Dimension 2 Code");*/
     end;
 
     local procedure NoOnFormat()
@@ -541,4 +541,3 @@ page 50059 "PWD Sales Orders to prepare V2"
             CLEAR(Rec."PWD KPI");
     end;
 }
-

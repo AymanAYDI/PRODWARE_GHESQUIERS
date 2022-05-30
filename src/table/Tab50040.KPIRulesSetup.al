@@ -51,4 +51,3 @@ table 50040 "PWD KPI Rules Setup"
     {
     }
 }
-

@@ -44,4 +44,3 @@ table 50003 "PWD Russian translate"
     {
     }
 }
-

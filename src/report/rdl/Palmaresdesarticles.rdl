@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,295 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="DateFilter">
-          <DataField>DateFilter</DataField>
-        </Field>
-        <Field Name="SalesAmount">
-          <DataField>SalesAmount</DataField>
-        </Field>
-        <Field Name="SalesAmountFormat">
-          <DataField>SalesAmountFormat</DataField>
-        </Field>
-        <Field Name="FORMAT_TODAY_0_4__Control1000000002">
-          <DataField>FORMAT_TODAY_0_4__Control1000000002</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO_Control1000000004">
-          <DataField>CurrReport_PAGENO_Control1000000004</DataField>
-        </Field>
-        <Field Name="USERID_Control1000000006">
-          <DataField>USERID_Control1000000006</DataField>
-        </Field>
-        <Field Name="SelectAmount">
-          <DataField>SelectAmount</DataField>
-        </Field>
-        <Field Name="SelectAmountFormat">
-          <DataField>SelectAmountFormat</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Item_No__">
-          <DataField>Item_Ledger_Entry__Item_No__</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Source_No__">
-          <DataField>Item_Ledger_Entry__Source_No__</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Item_No___Control1000000014">
-          <DataField>Item_Ledger_Entry__Item_No___Control1000000014</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Source_No___Control1000000017">
-          <DataField>Item_Ledger_Entry__Source_No___Control1000000017</DataField>
-        </Field>
-        <Field Name="ABS_Quantity_">
-          <DataField>ABS_Quantity_</DataField>
-        </Field>
-        <Field Name="ABS_Quantity_Format">
-          <DataField>ABS_Quantity_Format</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual__">
-          <DataField>Item_Ledger_Entry__Sales_Amount__Actual__</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual__Format">
-          <DataField>Item_Ledger_Entry__Sales_Amount__Actual__Format</DataField>
-        </Field>
-        <Field Name="PercCATotal">
-          <DataField>PercCATotal</DataField>
-        </Field>
-        <Field Name="PercCATotalFormat">
-          <DataField>PercCATotalFormat</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000033">
-          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000033</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000033Format">
-          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000033Format</DataField>
-        </Field>
-        <Field Name="ABS_Quantity__Control1000000034">
-          <DataField>ABS_Quantity__Control1000000034</DataField>
-        </Field>
-        <Field Name="ABS_Quantity__Control1000000034Format">
-          <DataField>ABS_Quantity__Control1000000034Format</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Source_No___Control1000000035">
-          <DataField>Item_Ledger_Entry__Source_No___Control1000000035</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Item_No___Control1000000036">
-          <DataField>Item_Ledger_Entry__Item_No___Control1000000036</DataField>
-        </Field>
-        <Field Name="TotalFor___FIELDCAPTION__Item_No___">
-          <DataField>TotalFor___FIELDCAPTION__Item_No___</DataField>
-        </Field>
-        <Field Name="PercCATotal_Control1000000032">
-          <DataField>PercCATotal_Control1000000032</DataField>
-        </Field>
-        <Field Name="PercCATotal_Control1000000032Format">
-          <DataField>PercCATotal_Control1000000032Format</DataField>
-        </Field>
-        <Field Name="PercCATotal_Control1000000031">
-          <DataField>PercCATotal_Control1000000031</DataField>
-        </Field>
-        <Field Name="PercCATotal_Control1000000031Format">
-          <DataField>PercCATotal_Control1000000031Format</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000028">
-          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000028</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000028Format">
-          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000028Format</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Source_No___Control1000000039">
-          <DataField>Item_Ledger_Entry__Source_No___Control1000000039</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Item_No___Control1000000038">
-          <DataField>Item_Ledger_Entry__Item_No___Control1000000038</DataField>
-        </Field>
-        <Field Name="TotalFor___FIELDCAPTION__Source_No___">
-          <DataField>TotalFor___FIELDCAPTION__Source_No___</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000013">
-          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000013</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000013Format">
-          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000013Format</DataField>
-        </Field>
-        <Field Name="ABS_Quantity__Control1000000016">
-          <DataField>ABS_Quantity__Control1000000016</DataField>
-        </Field>
-        <Field Name="ABS_Quantity__Control1000000016Format">
-          <DataField>ABS_Quantity__Control1000000016Format</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Item_No___Control1000000022">
-          <DataField>Item_Ledger_Entry__Item_No___Control1000000022</DataField>
-        </Field>
-        <Field Name="PercCATotal_Control1000000030">
-          <DataField>PercCATotal_Control1000000030</DataField>
-        </Field>
-        <Field Name="PercCATotal_Control1000000030Format">
-          <DataField>PercCATotal_Control1000000030Format</DataField>
-        </Field>
-        <Field Name="VarMaxPrice">
-          <DataField>VarMaxPrice</DataField>
-        </Field>
-        <Field Name="VarMaxPriceFormat">
-          <DataField>VarMaxPriceFormat</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry_Description">
-          <DataField>Item_Ledger_Entry_Description</DataField>
-        </Field>
-        <Field Name="ProfitN">
-          <DataField>ProfitN</DataField>
-        </Field>
-        <Field Name="ProfitNFormat">
-          <DataField>ProfitNFormat</DataField>
-        </Field>
-        <Field Name="PercentProfitN">
-          <DataField>PercentProfitN</DataField>
-        </Field>
-        <Field Name="PercentProfitNFormat">
-          <DataField>PercentProfitNFormat</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Source_No___Control1000000045">
-          <DataField>Item_Ledger_Entry__Source_No___Control1000000045</DataField>
-        </Field>
-        <Field Name="PercCATotal_Control1000000046">
-          <DataField>PercCATotal_Control1000000046</DataField>
-        </Field>
-        <Field Name="PercCATotal_Control1000000046Format">
-          <DataField>PercCATotal_Control1000000046Format</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000047">
-          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000047</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000047Format">
-          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000047Format</DataField>
-        </Field>
-        <Field Name="VarMaxPrice_Control1000000043">
-          <DataField>VarMaxPrice_Control1000000043</DataField>
-        </Field>
-        <Field Name="VarMaxPrice_Control1000000043Format">
-          <DataField>VarMaxPrice_Control1000000043Format</DataField>
-        </Field>
-        <Field Name="ProfitN_Control1000000019">
-          <DataField>ProfitN_Control1000000019</DataField>
-        </Field>
-        <Field Name="ProfitN_Control1000000019Format">
-          <DataField>ProfitN_Control1000000019Format</DataField>
-        </Field>
-        <Field Name="PercentProfitN_Control1000000050">
-          <DataField>PercentProfitN_Control1000000050</DataField>
-        </Field>
-        <Field Name="PercentProfitN_Control1000000050Format">
-          <DataField>PercentProfitN_Control1000000050Format</DataField>
-        </Field>
-        <Field Name="PercCATotal_Control1000000041">
-          <DataField>PercCATotal_Control1000000041</DataField>
-        </Field>
-        <Field Name="PercCATotal_Control1000000041Format">
-          <DataField>PercCATotal_Control1000000041Format</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000042">
-          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000042</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000042Format">
-          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000042Format</DataField>
-        </Field>
-        <Field Name="VarMaxPrice_Control1000000044">
-          <DataField>VarMaxPrice_Control1000000044</DataField>
-        </Field>
-        <Field Name="VarMaxPrice_Control1000000044Format">
-          <DataField>VarMaxPrice_Control1000000044Format</DataField>
-        </Field>
-        <Field Name="ProfitN_Control1000000027">
-          <DataField>ProfitN_Control1000000027</DataField>
-        </Field>
-        <Field Name="ProfitN_Control1000000027Format">
-          <DataField>ProfitN_Control1000000027Format</DataField>
-        </Field>
-        <Field Name="PercentProfitN_Control1000000051">
-          <DataField>PercentProfitN_Control1000000051</DataField>
-        </Field>
-        <Field Name="PercentProfitN_Control1000000051Format">
-          <DataField>PercentProfitN_Control1000000051Format</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="DateFilterCaption">
-          <DataField>DateFilterCaption</DataField>
-        </Field>
-        <Field Name="Shéma_DirecteurCaption">
-          <DataField>Shéma_DirecteurCaption</DataField>
-        </Field>
-        <Field Name="TABLEAUX_DE_BORD_ET_INDICATEURS_DE_PERFORMANCESCaption">
-          <DataField>TABLEAUX_DE_BORD_ET_INDICATEURS_DE_PERFORMANCESCaption</DataField>
-        </Field>
-        <Field Name="SAS_AVITACaption">
-          <DataField>SAS_AVITACaption</DataField>
-        </Field>
-        <Field Name="Palmares_des_articles_dont_le_montant_de_vente_est___àCaption">
-          <DataField>Palmares_des_articles_dont_le_montant_de_vente_est___àCaption</DataField>
-        </Field>
-        <Field Name="Direction_et_CommerciauxCaption">
-          <DataField>Direction_et_CommerciauxCaption</DataField>
-        </Field>
-        <Field Name="Périodicité___HebdomadaireCaption">
-          <DataField>Périodicité___HebdomadaireCaption</DataField>
-        </Field>
-        <Field Name="Item_Ledger_EntryCaption">
-          <DataField>Item_Ledger_EntryCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO_Control1000000004Caption">
-          <DataField>CurrReport_PAGENO_Control1000000004Caption</DataField>
-        </Field>
-        <Field Name="SelectAmountCaption">
-          <DataField>SelectAmountCaption</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Item_No___Control1000000014Caption">
-          <DataField>Item_Ledger_Entry__Item_No___Control1000000014Caption</DataField>
-        </Field>
-        <Field Name="QuantitéCaption">
-          <DataField>QuantitéCaption</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual__Caption">
-          <DataField>Item_Ledger_Entry__Sales_Amount__Actual__Caption</DataField>
-        </Field>
-        <Field Name="CA_TotalCaption">
-          <DataField>CA_TotalCaption</DataField>
-        </Field>
-        <Field Name="VarMaxPriceCaption">
-          <DataField>VarMaxPriceCaption</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry_DescriptionCaption">
-          <DataField>Item_Ledger_Entry_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Item_No__Caption">
-          <DataField>Item_Ledger_Entry__Item_No__Caption</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry__Source_No__Caption">
-          <DataField>Item_Ledger_Entry__Source_No__Caption</DataField>
-        </Field>
-        <Field Name="Item_Ledger_Entry_Entry_No_">
-          <DataField>Item_Ledger_Entry_Entry_No_</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -3722,4 +3433,287 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Invalid</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="DateFilter">
+          <DataField>DateFilter</DataField>
+        </Field>
+        <Field Name="SalesAmount">
+          <DataField>SalesAmount</DataField>
+        </Field>
+        <Field Name="SalesAmountFormat">
+          <DataField>SalesAmountFormat</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4__Control1000000002">
+          <DataField>FORMAT_TODAY_0_4__Control1000000002</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="USERID_Control1000000006">
+          <DataField>USERID_Control1000000006</DataField>
+        </Field>
+        <Field Name="SelectAmount">
+          <DataField>SelectAmount</DataField>
+        </Field>
+        <Field Name="SelectAmountFormat">
+          <DataField>SelectAmountFormat</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Item_No__">
+          <DataField>Item_Ledger_Entry__Item_No__</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Source_No__">
+          <DataField>Item_Ledger_Entry__Source_No__</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Item_No___Control1000000014">
+          <DataField>Item_Ledger_Entry__Item_No___Control1000000014</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Source_No___Control1000000017">
+          <DataField>Item_Ledger_Entry__Source_No___Control1000000017</DataField>
+        </Field>
+        <Field Name="ABS_Quantity_">
+          <DataField>ABS_Quantity_</DataField>
+        </Field>
+        <Field Name="ABS_Quantity_Format">
+          <DataField>ABS_Quantity_Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual__">
+          <DataField>Item_Ledger_Entry__Sales_Amount__Actual__</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual__Format">
+          <DataField>Item_Ledger_Entry__Sales_Amount__Actual__Format</DataField>
+        </Field>
+        <Field Name="PercCATotal">
+          <DataField>PercCATotal</DataField>
+        </Field>
+        <Field Name="PercCATotalFormat">
+          <DataField>PercCATotalFormat</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000033">
+          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000033</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000033Format">
+          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000033Format</DataField>
+        </Field>
+        <Field Name="ABS_Quantity__Control1000000034">
+          <DataField>ABS_Quantity__Control1000000034</DataField>
+        </Field>
+        <Field Name="ABS_Quantity__Control1000000034Format">
+          <DataField>ABS_Quantity__Control1000000034Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Source_No___Control1000000035">
+          <DataField>Item_Ledger_Entry__Source_No___Control1000000035</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Item_No___Control1000000036">
+          <DataField>Item_Ledger_Entry__Item_No___Control1000000036</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION__Item_No___">
+          <DataField>TotalFor___FIELDCAPTION__Item_No___</DataField>
+        </Field>
+        <Field Name="PercCATotal_Control1000000032">
+          <DataField>PercCATotal_Control1000000032</DataField>
+        </Field>
+        <Field Name="PercCATotal_Control1000000032Format">
+          <DataField>PercCATotal_Control1000000032Format</DataField>
+        </Field>
+        <Field Name="PercCATotal_Control1000000031">
+          <DataField>PercCATotal_Control1000000031</DataField>
+        </Field>
+        <Field Name="PercCATotal_Control1000000031Format">
+          <DataField>PercCATotal_Control1000000031Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000028">
+          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000028</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000028Format">
+          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000028Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Source_No___Control1000000039">
+          <DataField>Item_Ledger_Entry__Source_No___Control1000000039</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Item_No___Control1000000038">
+          <DataField>Item_Ledger_Entry__Item_No___Control1000000038</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION__Source_No___">
+          <DataField>TotalFor___FIELDCAPTION__Source_No___</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000013">
+          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000013</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000013Format">
+          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000013Format</DataField>
+        </Field>
+        <Field Name="ABS_Quantity__Control1000000016">
+          <DataField>ABS_Quantity__Control1000000016</DataField>
+        </Field>
+        <Field Name="ABS_Quantity__Control1000000016Format">
+          <DataField>ABS_Quantity__Control1000000016Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Item_No___Control1000000022">
+          <DataField>Item_Ledger_Entry__Item_No___Control1000000022</DataField>
+        </Field>
+        <Field Name="PercCATotal_Control1000000030">
+          <DataField>PercCATotal_Control1000000030</DataField>
+        </Field>
+        <Field Name="PercCATotal_Control1000000030Format">
+          <DataField>PercCATotal_Control1000000030Format</DataField>
+        </Field>
+        <Field Name="VarMaxPrice">
+          <DataField>VarMaxPrice</DataField>
+        </Field>
+        <Field Name="VarMaxPriceFormat">
+          <DataField>VarMaxPriceFormat</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_Description">
+          <DataField>Item_Ledger_Entry_Description</DataField>
+        </Field>
+        <Field Name="ProfitN">
+          <DataField>ProfitN</DataField>
+        </Field>
+        <Field Name="ProfitNFormat">
+          <DataField>ProfitNFormat</DataField>
+        </Field>
+        <Field Name="PercentProfitN">
+          <DataField>PercentProfitN</DataField>
+        </Field>
+        <Field Name="PercentProfitNFormat">
+          <DataField>PercentProfitNFormat</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Source_No___Control1000000045">
+          <DataField>Item_Ledger_Entry__Source_No___Control1000000045</DataField>
+        </Field>
+        <Field Name="PercCATotal_Control1000000046">
+          <DataField>PercCATotal_Control1000000046</DataField>
+        </Field>
+        <Field Name="PercCATotal_Control1000000046Format">
+          <DataField>PercCATotal_Control1000000046Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000047">
+          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000047</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000047Format">
+          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000047Format</DataField>
+        </Field>
+        <Field Name="VarMaxPrice_Control1000000043">
+          <DataField>VarMaxPrice_Control1000000043</DataField>
+        </Field>
+        <Field Name="VarMaxPrice_Control1000000043Format">
+          <DataField>VarMaxPrice_Control1000000043Format</DataField>
+        </Field>
+        <Field Name="ProfitN_Control1000000019">
+          <DataField>ProfitN_Control1000000019</DataField>
+        </Field>
+        <Field Name="ProfitN_Control1000000019Format">
+          <DataField>ProfitN_Control1000000019Format</DataField>
+        </Field>
+        <Field Name="PercentProfitN_Control1000000050">
+          <DataField>PercentProfitN_Control1000000050</DataField>
+        </Field>
+        <Field Name="PercentProfitN_Control1000000050Format">
+          <DataField>PercentProfitN_Control1000000050Format</DataField>
+        </Field>
+        <Field Name="PercCATotal_Control1000000041">
+          <DataField>PercCATotal_Control1000000041</DataField>
+        </Field>
+        <Field Name="PercCATotal_Control1000000041Format">
+          <DataField>PercCATotal_Control1000000041Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000042">
+          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000042</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual___Control1000000042Format">
+          <DataField>Item_Ledger_Entry__Sales_Amount__Actual___Control1000000042Format</DataField>
+        </Field>
+        <Field Name="VarMaxPrice_Control1000000044">
+          <DataField>VarMaxPrice_Control1000000044</DataField>
+        </Field>
+        <Field Name="VarMaxPrice_Control1000000044Format">
+          <DataField>VarMaxPrice_Control1000000044Format</DataField>
+        </Field>
+        <Field Name="ProfitN_Control1000000027">
+          <DataField>ProfitN_Control1000000027</DataField>
+        </Field>
+        <Field Name="ProfitN_Control1000000027Format">
+          <DataField>ProfitN_Control1000000027Format</DataField>
+        </Field>
+        <Field Name="PercentProfitN_Control1000000051">
+          <DataField>PercentProfitN_Control1000000051</DataField>
+        </Field>
+        <Field Name="PercentProfitN_Control1000000051Format">
+          <DataField>PercentProfitN_Control1000000051Format</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="DateFilterCaption">
+          <DataField>DateFilterCaption</DataField>
+        </Field>
+        <Field Name="Shéma_DirecteurCaption">
+          <DataField>Shéma_DirecteurCaption</DataField>
+        </Field>
+        <Field Name="TABLEAUX_DE_BORD_ET_INDICATEURS_DE_PERFORMANCESCaption">
+          <DataField>TABLEAUX_DE_BORD_ET_INDICATEURS_DE_PERFORMANCESCaption</DataField>
+        </Field>
+        <Field Name="SAS_AVITACaption">
+          <DataField>SAS_AVITACaption</DataField>
+        </Field>
+        <Field Name="Palmares_des_articles_dont_le_montant_de_vente_est___àCaption">
+          <DataField>Palmares_des_articles_dont_le_montant_de_vente_est___àCaption</DataField>
+        </Field>
+        <Field Name="Direction_et_CommerciauxCaption">
+          <DataField>Direction_et_CommerciauxCaption</DataField>
+        </Field>
+        <Field Name="Périodicité___HebdomadaireCaption">
+          <DataField>Périodicité___HebdomadaireCaption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_EntryCaption">
+          <DataField>Item_Ledger_EntryCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO_Control1000000004Caption">
+          <DataField>CurrReport_PAGENO_Control1000000004Caption</DataField>
+        </Field>
+        <Field Name="SelectAmountCaption">
+          <DataField>SelectAmountCaption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Item_No___Control1000000014Caption">
+          <DataField>Item_Ledger_Entry__Item_No___Control1000000014Caption</DataField>
+        </Field>
+        <Field Name="QuantitéCaption">
+          <DataField>QuantitéCaption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Sales_Amount__Actual__Caption">
+          <DataField>Item_Ledger_Entry__Sales_Amount__Actual__Caption</DataField>
+        </Field>
+        <Field Name="CA_TotalCaption">
+          <DataField>CA_TotalCaption</DataField>
+        </Field>
+        <Field Name="VarMaxPriceCaption">
+          <DataField>VarMaxPriceCaption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_DescriptionCaption">
+          <DataField>Item_Ledger_Entry_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Item_No__Caption">
+          <DataField>Item_Ledger_Entry__Item_No__Caption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Source_No__Caption">
+          <DataField>Item_Ledger_Entry__Source_No__Caption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_Entry_No_">
+          <DataField>Item_Ledger_Entry_Entry_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

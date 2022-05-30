@@ -1,6 +1,5 @@
 codeunit 50020 "PWD Justif Solde"
 {
-
     trigger OnRun()
     begin
     end;
@@ -9,13 +8,11 @@ codeunit 50020 "PWD Justif Solde"
         CltEcritures_Lues: Record "Cust. Ledger Entry";
         FrsEcritures_Lues: Record "Vendor Ledger Entry";
 
-
     procedure "CltEcritureNonSoldée"(var CltEcriture: Record "Cust. Ledger Entry"; Date_Arrete: Date) RET: Boolean
     begin
 
         IF CltEcritures_Lues.GET(CltEcriture."Entry No.") THEN
             CltEcritures_Lues.MARK := TRUE;
-
 
         // Si l'écriture est postérieure à la date d'arrete alors elle ne l'était pas
         // lors de la date d'arrete
@@ -42,13 +39,11 @@ codeunit 50020 "PWD Justif Solde"
         EXIT(FALSE);
     end;
 
-
     procedure "FrsEcritureNonSoldée"(var FrsEcriture: Record "Vendor Ledger Entry"; Date_Arrete: Date) RET: Boolean
     begin
 
         IF FrsEcritures_Lues.GET(FrsEcriture."Entry No.") THEN
             FrsEcritures_Lues.MARK := TRUE;
-
 
         // Si l'écriture est postérieure à la date d'arrete alors elle ne l'était pas
         // lors de la date d'arrete
@@ -75,4 +70,3 @@ codeunit 50020 "PWD Justif Solde"
         EXIT(FALSE);
     end;
 }
-

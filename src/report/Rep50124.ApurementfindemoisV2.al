@@ -1,10 +1,10 @@
 report 50124 "PWD Apurement fin de mois V2"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './rdl/ApurementfindemoisV2.rdlc';
-
+    RDLCLayout = './src/report/rdl/ApurementfindemoisV2.rdl';
     Caption = 'Inventory Valuation ';
-
+    ApplicationArea = all;
+    UsageCategory = ReportsAndAnalysis;
     dataset
     {
         dataitem(Item; Item)
@@ -15,7 +15,7 @@ report 50124 "PWD Apurement fin de mois V2"
             column(FORMAT_TODAY_0_4_; FORMAT(TODAY, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PAGENO())
+            column(CurrReport_PAGENO; '')
             {
             }
             column(USERID; USERID)
@@ -151,7 +151,12 @@ report 50124 "PWD Apurement fin de mois V2"
                 dataitem("Value Entry"; "Value Entry")
                 {
                     DataItemTableView = SORTING("Item Ledger Entry No.");
-
+                    column(ValueOfRcdIncreases; ValueOfRcdIncreases)
+                    {
+                    }
+                    column(ValueOfQtyOnHand; ValueOfQtyOnHand)
+                    {
+                    }
                     trigger OnAfterGetRecord()
                     begin
                         IF (EndDate <> 0D) AND ("Posting Date" > EndDate) THEN
@@ -178,27 +183,26 @@ report 50124 "PWD Apurement fin de mois V2"
                             IF methodeAT = 3 THEN InvoicedQty := "Invoiced Quantity" * Item."Net Weight";
 
                         END ELSE
-                            IF ("Item Ledger Entry Type" IN
-                               ["Item Ledger Entry Type"::Purchase,
-                                "Item Ledger Entry Type"::"Positive Adjmt.",
-                                "Item Ledger Entry Type"::Output])
-                            THEN BEGIN
-                                ValueOfRcdIncreases := "Cost Amount (Expected)";
-                                ValueOfInvIncreases := "Cost Amount (Actual)";
-                                InvIncreases := "Invoiced Quantity";
-                                IF methodeAT = 1 THEN InvIncreases := "Invoiced Quantity" * Item."Net Weight" / 100;
-                                IF methodeAT = 2 THEN InvIncreases := "Invoiced Quantity" * Item."Net Weight" / 100;
-                                IF methodeAT = 3 THEN InvIncreases := "Invoiced Quantity" * Item."Net Weight";
+                        IF ("Item Ledger Entry Type" IN
+                           ["Item Ledger Entry Type"::Purchase,
+                            "Item Ledger Entry Type"::"Positive Adjmt.",
+                            "Item Ledger Entry Type"::Output])
+                        THEN BEGIN
+                            ValueOfRcdIncreases := "Cost Amount (Expected)";
+                            ValueOfInvIncreases := "Cost Amount (Actual)";
+                            InvIncreases := "Invoiced Quantity";
+                            IF methodeAT = 1 THEN InvIncreases := "Invoiced Quantity" * Item."Net Weight" / 100;
+                            IF methodeAT = 2 THEN InvIncreases := "Invoiced Quantity" * Item."Net Weight" / 100;
+                            IF methodeAT = 3 THEN InvIncreases := "Invoiced Quantity" * Item."Net Weight";
 
-                            END ELSE BEGIN
-                                CostOfShipDecreases := -"Cost Amount (Expected)";
-                                CostOfInvDecreases := -"Cost Amount (Actual)";
-                                InvDecreases := -"Invoiced Quantity";
-                                IF methodeAT = 1 THEN InvDecreases := -"Invoiced Quantity" * Item."Net Weight" / 100;
-                                IF methodeAT = 2 THEN InvDecreases := -"Invoiced Quantity" * Item."Net Weight" / 100;
-                                IF methodeAT = 3 THEN InvDecreases := -"Invoiced Quantity" * Item."Net Weight";
-
-                            END;
+                        END ELSE BEGIN
+                            CostOfShipDecreases := -"Cost Amount (Expected)";
+                            CostOfInvDecreases := -"Cost Amount (Actual)";
+                            InvDecreases := -"Invoiced Quantity";
+                            IF methodeAT = 1 THEN InvDecreases := -"Invoiced Quantity" * Item."Net Weight" / 100;
+                            IF methodeAT = 2 THEN InvDecreases := -"Invoiced Quantity" * Item."Net Weight" / 100;
+                            IF methodeAT = 3 THEN InvDecreases := -"Invoiced Quantity" * Item."Net Weight";
+                        END;
 
                         IF "Expected Cost" THEN BEGIN
                             CostPostedToGL := "Cost Posted to G/L";
@@ -226,10 +230,6 @@ report 50124 "PWD Apurement fin de mois V2"
                         SETFILTER("Location Code", Item.GETFILTER("Location Filter"));
                         SETFILTER("Global Dimension 1 Code", Item.GETFILTER("Global Dimension 1 Filter"));
                         SETFILTER("Global Dimension 2 Code", Item.GETFILTER("Global Dimension 2 Filter"));
-                        CurrReport.CREATETOTALS(InvoicedQty, InvIncreases, InvDecreases, "Invoiced Quantity");
-                        CurrReport.CREATETOTALS(
-                          ValueOfQtyOnHand, ValueOfRcdIncreases, CostOfShipDecreases, CostPostedToGL, ExpCostPostedToGL,
-                          ValueOfInvoicedQty, ValueOfInvIncreases, CostOfInvDecreases, "Cost Amount (Actual)", InvCostPostedToGL);
                     end;
                 }
 
@@ -241,7 +241,7 @@ report 50124 "PWD Apurement fin de mois V2"
                     ShipDecreases := 0;
                     IF "Posting Date" < StartDate THEN
                         QtyOnHand := Quantity
-                    ELSE BEGIN
+                    ELSE
                         IF ("Entry Type" IN
                            ["Entry Type"::Purchase,
                             "Entry Type"::"Positive Adjmt.",
@@ -250,7 +250,6 @@ report 50124 "PWD Apurement fin de mois V2"
                             RcdIncreases := Quantity
                         ELSE
                             ShipDecreases := -Quantity;
-                    END;
                     QttValorisedEndPeriod := "Invoiced Quantity";
 
                     IF methodeAT = 1 THEN QttValorisedEndPeriod := "Invoiced Quantity" * Item."Net Weight" / 100;
@@ -273,19 +272,12 @@ report 50124 "PWD Apurement fin de mois V2"
                     SETFILTER("Global Dimension 2 Code", Item.GETFILTER("Global Dimension 2 Filter"));
                     IF EndDate <> 0D THEN
                         SETRANGE("Posting Date", 0D, EndDate);
-                    CurrReport.CREATETOTALS(QtyOnHand, RcdIncreases, ShipDecreases, Quantity, InvoicedQty, InvIncreases,
-                      InvDecreases, "Invoiced Quantity", Quantity);
-                    CurrReport.CREATETOTALS(
-                      ValueOfQtyOnHand, ValueOfRcdIncreases, CostOfShipDecreases, CostPostedToGL, ExpCostPostedToGL,
-                      ValueOfInvoicedQty, ValueOfInvIncreases, CostOfInvDecreases, "Value Entry"."Cost Amount (Actual)",
-                      InvCostPostedToGL);
-                    CurrReport.CREATETOTALS(QttValorisedEndPeriod, ValueInAmountEndPeriod);
                 end;
             }
 
             trigger OnAfterGetRecord()
             begin
-                IF ToutTypeFamille = FALSE THEN BEGIN
+                IF ToutTypeFamille = FALSE THEN
                     IF (Item."PWD Family" = '') AND (Item."PWD Family (Sea France)" = '') THEN
                         CurrReport.SKIP()
                     ELSE
@@ -296,8 +288,6 @@ report 50124 "PWD Apurement fin de mois V2"
                         END ELSE
                             IF ItemFamille.GET(ItemFamille.Type::Item, ItemFamille."Group Type"::Family, '', Item."PWD Family (Sea France)") THEN
                                 IF ItemFamille."Type famille" = ItemFamille."Type famille"::" " THEN CurrReport.SKIP();
-
-                END;
                 InvandShipDiffer := FALSE;
                 methodeAT := 0;
                 IF ItemFamille.GET(ItemFamille.Type::Item, ItemFamille."Group Type"::Family, '', Item."PWD Family") THEN BEGIN
@@ -327,14 +317,6 @@ report 50124 "PWD Apurement fin de mois V2"
             trigger OnPreDataItem()
             begin
                 ItemFilter := Item.GETFILTERS;
-
-                CurrReport.CREATETOTALS(QtyOnHand, RcdIncreases, ShipDecreases, "Item Ledger Entry".Quantity, "Item Ledger Entry"."Invoiced Quantity");
-                CurrReport.CREATETOTALS(InvoicedQty, InvIncreases, InvDecreases);
-                CurrReport.CREATETOTALS(
-                  ValueOfQtyOnHand, ValueOfRcdIncreases, CostOfShipDecreases, CostPostedToGL, ExpCostPostedToGL);
-                CurrReport.CREATETOTALS(
-                  ValueOfInvoicedQty, ValueOfInvIncreases, CostOfInvDecreases,
-                  "Value Entry"."Cost Amount (Actual)", InvCostPostedToGL, QttValorisedEndPeriod, ValueInAmountEndPeriod);
                 InfoSoc.GET();
             end;
         }
@@ -342,7 +324,6 @@ report 50124 "PWD Apurement fin de mois V2"
 
     requestpage
     {
-
         layout
         {
         }
@@ -423,4 +404,3 @@ report 50124 "PWD Apurement fin de mois V2"
           (InvoicedQty + InvIncreases - InvDecreases));
     end;
 }
-

@@ -2,6 +2,7 @@ report 50022 "PWD Export Microsoft Excel"
 {
     Caption = 'PWD Export Microsoft Excel';
     ProcessingOnly = true;
+    UsageCategory = None;
     dataset
     {
         dataitem("Sales Header"; "Sales Header")
@@ -630,9 +631,12 @@ report 50022 "PWD Export Microsoft Excel"
             column(YourReference; "Your Reference")
             {
             }
+            //ToDo
+            /*
             trigger OnPreDataItem()
             begin
-                CREATE(AppExcel);
+                //ToDo
+                //CREATE(AppExcel);
                 AppExcel.Visible := TRUE;
             end;
 
@@ -641,7 +645,8 @@ report 50022 "PWD Export Microsoft Excel"
 
                 SalesSetup.GET();
                 Purchline.SETCURRENTKEY("Document Type", "Document No.", "Line No.");
-                Purchline.SETRANGE("PWD Sales Type Doc Appeal tenders", "Document Type");
+                //ToDo
+                //Purchline.SETRANGE("PWD Sales Type Doc Appeal tenders", "Document Type");
                 Purchline.SETRANGE("PWD Sales No. Appeal Tenders", "No.");
                 AppExcel.Workbooks.Add;
                 IF Purchline.FIND('-') THEN BEGIN
@@ -693,6 +698,8 @@ report 50022 "PWD Export Microsoft Excel"
                     AppExcel.Cells.Select;
                     AppExcel.Cells.EntireColumn.AutoFit;
                     AppExcel.Range('A6').Select;
+                    //ToDo
+                    /*
                     FileBat.CREATE('c:\Start.bat');
                     FileBat.TEXTMODE := TRUE;
                     FileBat.WRITEMODE := TRUE;
@@ -705,11 +712,13 @@ report 50022 "PWD Export Microsoft Excel"
                     SLEEP(1000);
                     CommandProcessor := 'c:\start.bat';
                     DosArgumentII := FORMAT(Purchline."Buy-from Vendor No.") + FORMAT(Purchline."Document No.");
-                    SHELL(CommandProcessor);
+                    //ToDo
+                    //SHELL(CommandProcessor);
                     SLEEP(2000);
                     AppExcel.ActiveWorkbook._SaveAs(SalesSetup."PWD Path xls File Export" + '\' + DosArgumentII + '\' +
                       FORMAT(Purchline."Buy-from Vendor No.") + FORMAT(Purchline."Document No."));
-                    ERASE('c:\start.bat');
+                    //ToDo
+                    //ERASE('c:\start.bat');
                     Purchline.SETRANGE("Document No.");
                     Docno := Purchline."Document No.";
                     REPEAT
@@ -762,6 +771,8 @@ report 50022 "PWD Export Microsoft Excel"
                             AppExcel.Cells.Select;
                             AppExcel.Cells.EntireColumn.AutoFit;
                             AppExcel.Range('A6').Select;
+                            //ToDo
+                            /*
                             FileBat.CREATE('c:\Start.bat');
                             FileBat.TEXTMODE := TRUE;
                             FileBat.WRITEMODE := TRUE;
@@ -770,18 +781,21 @@ report 50022 "PWD Export Microsoft Excel"
                             FileBat.WRITE := 'md ' +
                             '"' + SalesSetup."PWD Path xls File Export" + '\' + FORMAT(Purchline."Buy-from Vendor No.") + FORMAT(Purchline."Document No.") + '"';
                             FileBat.CLOSE;
+
                             SLEEP(1000);
                             SLEEP(1000);
                             CommandProcessor := 'c:\start.bat';
                             DosArgumentII := FORMAT(Purchline."Buy-from Vendor No.") + FORMAT(Purchline."Document No.");
-                            SHELL(CommandProcessor);
+                            //ToDo
+                            //SHELL(CommandProcessor);
                             SLEEP(2000);
 
                             AppExcel.ActiveWorkbook._SaveAs(SalesSetup."PWD Path xls File Export" + '\' + DosArgumentII + '\' +
                               FORMAT(Purchline."Buy-from Vendor No.") + FORMAT(Purchline."Document No."));
                             Purchline.SETRANGE("Document No.");
                             Docno := Purchline."Document No.";
-                            ERASE('c:\start.bat');
+                            //ToDo
+                            //ERASE('c:\start.bat');
                         END;
                     UNTIL Purchline.NEXT() = 0;
                 END;
@@ -791,7 +805,7 @@ report 50022 "PWD Export Microsoft Excel"
             trigger OnPostDataItem()
             begin
                 AppExcel.Quit;
-            end;
+            end;*/
         }
     }
     requestpage
@@ -813,14 +827,5 @@ report 50022 "PWD Export Microsoft Excel"
         }
     }
     var
-        cont: Record Contact;
-        Purchline: Record "Purchase Line";
-        Purchline2: Record "Purchase Line";
-        SalesSetup: Record "Sales & Receivables Setup";
-        AppExcel: automation;
-        Docno: code[20];
-        FileBat: file;
-        CommandProcessor: Text[100];
-        DosArgumentII: Text[100];
-
+    //AppExcel : DotNet 
 }

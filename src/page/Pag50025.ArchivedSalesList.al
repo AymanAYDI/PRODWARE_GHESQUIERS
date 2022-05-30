@@ -1,19 +1,12 @@
 page 50025 "PWD Archived Sales List"
 {
-    // --------------------------------------------------------------------------------------------------------
-    // Prodware - www.prodware.fr
-    // --------------------------------------------------------------------------------------------------------
-    // 
-    // //>>MODIF HL
-    // TI058903.001 DO.ALMI 25/08/11  : - Add CardFormID Archived Sales Order - New
-    // --------------------------------------------------------------------------------------------------------
-
     Caption = 'Archived Sales List';
     CardPageID = "PWD Archived Sales Order";
     Editable = false;
     PageType = List;
     SourceTable = "PWD Archived Sales Header";
-
+    ApplicationArea = all;
+    UsageCategory = History;
     layout
     {
         area(content)
@@ -147,4 +140,3 @@ page 50025 "PWD Archived Sales List"
         }
     }
 }
-

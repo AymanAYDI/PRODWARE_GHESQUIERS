@@ -1,19 +1,10 @@
 page 50073 "Seatfance Sales Orders List"
 {
-    // -------------------------------------------------
-    // Prodware - www.prodware.fr
-    // -------------------------------------------------
-    // //>>GHES1.01
-    // FED_ADV_20090827_IMP_CDEVENTE_V2 :SOBI 19/10/2009 - SALES ORDER SEAFRANCE
-    //                                                     Create
-    // 
-    //  >>GHE1.00:DO 18/07/2011 :
-    //    - type --> List
-
     Caption = 'WEB Sales Orders List';
     PageType = List;
     SourceTable = "PWD Seafrance Sales Header";
-
+    ApplicationArea = all;
+    UsageCategory = Lists;
     layout
     {
         area(content)
@@ -89,4 +80,3 @@ page 50073 "Seatfance Sales Orders List"
         }
     }
 }
-

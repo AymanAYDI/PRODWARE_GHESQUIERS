@@ -9,7 +9,7 @@ page 50078 "PWD User Item Tracking Entries"
     PageType = List;
     SaveValues = true;
     SourceTable = "Item Ledger Entry";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -146,4 +146,3 @@ page 50078 "PWD User Item Tracking Entries"
         ERROR(CstL001);
     end;
 }
-

@@ -3,7 +3,6 @@ report 50127 "PWD CIEL Data Calcul"
     Caption = 'CIEL Data Calcul';
     ProcessingOnly = true;
     UseRequestPage = true;
-
     dataset
     {
         dataitem("Personal Caption"; "PWD Personal Caption")
@@ -52,7 +51,6 @@ report 50127 "PWD CIEL Data Calcul"
                                     IF IntGmethodeAT = 1 THEN DecGOutputInvQty := -"Invoiced Quantity" * Item."Net Weight" / 100;
                                     IF IntGmethodeAT = 2 THEN DecGOutputInvQty := -"Invoiced Quantity" * Item."Net Weight" / 100;
                                     IF IntGmethodeAT = 3 THEN DecGOutputInvQty := -"Invoiced Quantity" * Item."Net Weight";
-
                                 END;
 
                             DecGQtyAcquitRight += DecGStartInvQty;
@@ -129,7 +127,6 @@ report 50127 "PWD CIEL Data Calcul"
                                     IF IntGmethodeAT = 1 THEN DecGOutputInvQty := -"Invoiced Quantity" * Item."Net Weight" / 100;
                                     IF IntGmethodeAT = 2 THEN DecGOutputInvQty := -"Invoiced Quantity" * Item."Net Weight" / 100;
                                     IF IntGmethodeAT = 3 THEN DecGOutputInvQty := -"Invoiced Quantity" * Item."Net Weight";
-
                                 END;
 
                             DecGQtySuspendRight += DecGStartInvQty;
@@ -239,7 +236,6 @@ report 50127 "PWD CIEL Data Calcul"
                         RecGCIELData."Other Item Production" := 0;
                         RecGCIELData."Distil Wine Lees" := 0;
                         RecGCIELData.INSERT();
-
                     END;
 
                     IF (DecGQtySuspendRight <> 0) OR
@@ -305,7 +301,6 @@ report 50127 "PWD CIEL Data Calcul"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -401,4 +396,3 @@ report 50127 "PWD CIEL Data Calcul"
         TxtGAcquitRightLocation: Text[100];
         TxtGSuspendRightLocation: Text[100];
 }
-

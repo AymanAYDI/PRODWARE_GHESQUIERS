@@ -39,7 +39,7 @@ tableextension 60049 "PWD Contact" extends Contact
         //*** Recherche de la société
         //*** MAJ du BusinessInitiator dans les fiches contacts
         ContUpd.SETRANGE("Company No.", "Company No.");
-        IF ContUpd.FIND('-') THEN
+        IF ContUpd.FindSet() THEN
             REPEAT
                 IF ContUpd."No." <> "No." THEN BEGIN
                     ContUpd."PWD Business Initiator" := "PWD Business Initiator";
@@ -52,7 +52,7 @@ tableextension 60049 "PWD Contact" extends Contact
         ContBusRelUpd.SETCURRENTKEY("Link to Table", "Contact No.");
         ContBusRelUpd.SETRANGE("Link to Table", ContBusRel."Link to Table"::Customer);
         ContBusRelUpd.SETRANGE("Contact No.", "Company No.");
-        IF ContBusRelUpd.FIND('-') THEN BEGIN
+        IF ContBusRelUpd.FindFirst() THEN BEGIN
             IF CustUpd.GET(ContBusRelUpd."No.") THEN
                 CustUpd."PWD Business Initiator" := "PWD Business Initiator";
             CustUpd."PWD Payback Commission Rate" := "PWD Payback Commission Rate";
@@ -63,4 +63,3 @@ tableextension 60049 "PWD Contact" extends Contact
     var
         ContBusRel: Record "Contact Business Relation";
 }
-

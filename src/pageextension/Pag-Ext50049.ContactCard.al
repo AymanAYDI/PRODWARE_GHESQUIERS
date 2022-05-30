@@ -14,7 +14,6 @@ pageextension 50049 "PWD ContactCard" extends "Contact Card"
                 field("PWD Payback Commission Rate"; Rec."PWD Payback Commission Rate")
                 {
                     applicationarea = all;
-
                 }
             }
         }

@@ -137,7 +137,7 @@ table 50001 "PWD Call"
             //This property is currently not supported
             //TestTableRelation = false;
             //The property 'ValidateTableRelation' can only be set if the property 'TableRelation' is set
-            //ValidateTableRelation = false;            
+            //ValidateTableRelation = false;
         }
         field(16; "Area"; Code[10])
         {
@@ -253,10 +253,9 @@ table 50001 "PWD Call"
             Caption = 'Commentaire 5';
             DataClassification = CustomerContent;
         }
-        field(60006; "DSA 13"; Option)
+        field(60006; "DSA 13"; Enum "PWD Call DSA 13")
         {
             Caption = 'DSA 13';
-            OptionMembers = "Valeur Facture","Valeur Douane";
             DataClassification = CustomerContent;
         }
     }
@@ -325,4 +324,3 @@ table 50001 "PWD Call"
             CLEAR(CountryNo);
     end;
 }
-

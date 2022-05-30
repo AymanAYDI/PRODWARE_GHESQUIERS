@@ -85,6 +85,8 @@ page 90002 "Req. Worksheet/Vendor detail"
                     ApplicationArea = All;
 
                     trigger OnAssistEdit()
+                    var
+                        ChangeExchangeRate: Page "Change Exchange Rate";
                     begin
                         ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WORKDATE());
                         IF ChangeExchangeRate.RUNMODAL = ACTION::OK THEN
@@ -298,4 +300,3 @@ page 90002 "Req. Worksheet/Vendor detail"
         BuyFromVendorName: Text[30];
         Description2: Text[30];
 }
-

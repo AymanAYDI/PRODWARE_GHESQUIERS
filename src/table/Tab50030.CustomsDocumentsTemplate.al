@@ -99,23 +99,13 @@ table 50030 "PWD Customs Documents Template"
         RMSetup: Record "Marketing Setup";
         Text001: Label 'Replace existing attachment?';
         Text002: Label 'The attachment is empty.';
-        Text003: Label 'Attachment is already in use on this machine.';
-        Text004: Label 'When you have saved your document, click Yes to import the document.';
-        Text005: Label 'Export Attachment';
-        Text006: Label 'Import Attachment';
-        Text007: Label 'All Files (*.*)|*.*';
-        Text008: Label 'Error during copying file.';
         Text009: Label 'Do you want to remove %1?';
         Text010: Label 'External file could not be removed.';
         Text013: Label 'Only Microsoft Word documents can be printed.';
         Text014: Label 'Only Microsoft Word documents can be faxed.';
 
-
     procedure OpenAttachment(Caption: Text[260]; IsTemporary: Boolean)
     var
-        WordManagement: Codeunit "Customs Sales Doc WordMngt";
-        ShipWordManagement: Codeunit "Customs Shipmt Doc WordMngt";
-        AttachmentManagement: Codeunit "PWD Customs Doc AttachmentMngt";
         FileName: Text[260];
     begin
         IF "Storage Type" = "Storage Type"::Embedded THEN BEGIN
@@ -125,7 +115,8 @@ table 50030 "PWD Customs Documents Template"
         END;
 
         FileName := ConstFilename();
-        IF EXISTS(FileName) THEN
+        //ToDo
+        /*IF EXISTS(FileName) THEN
             IF NOT DeleteFile(FileName) THEN
                 ERROR(Text003);
         ExportAttachment(FileName);
@@ -144,14 +135,14 @@ table 50030 "PWD Customs Documents Template"
             END ELSE
                 SLEEP(10000);
         END;
-
+*/
         DeleteFile(FileName);
     end;
 
-
     procedure ExportAttachment(ExportToFile: Text[260]): Boolean
     var
-        CommonDialogMgt: Codeunit "Common Dialog Management";
+        //ToDo
+        //CommonDialogMgt: Codeunit "Common Dialog Management";
         FileFilter: Text[260];
         FileName: Text[260];
     begin
@@ -165,11 +156,12 @@ table 50030 "PWD Customs Documents Template"
                         RMSetup.TESTFIELD("Attachment Storage Location");
                     CALCFIELDS(Attachment);
                     IF Attachment.HASVALUE THEN BEGIN
-                        IF ExportToFile = '' THEN BEGIN
-                            FileFilter := UPPERCASE("File Extension") + ' ';
-                            FileFilter := FileFilter + '(*.' + "File Extension" + ')|*.' + "File Extension";
-                            FileName := CommonDialogMgt.OpenFile(Text005, '', 4, FileFilter, 1);
-                        END ELSE
+                        IF ExportToFile = '' THEN
+                            FileFilter := UPPERCASE("File Extension") + ' '
+                        //ToDo
+                        //FileFilter := FileFilter + '(*.' + "File Extension" + ')|*.' + "File Extension";
+                        //FileName := CommonDialogMgt.OpenFile(Text005, '', 4, FileFilter, 1);
+                        ELSE
                             FileName := ExportToFile;
                         IF FileName <> '' THEN BEGIN
                             Attachment.EXPORT(FileName);
@@ -186,38 +178,41 @@ table 50030 "PWD Customs Documents Template"
                        RMSetup."Attachment Storage Type"::"Disk File"
                     THEN
                         RMSetup.TESTFIELD("Attachment Storage Location");
-                    IF ExportToFile = '' THEN BEGIN
-                        FileFilter := UPPERCASE("File Extension") + ' ';
-                        FileFilter := FileFilter + '(*.' + "File Extension" + ')|*.' + "File Extension";
-                        FileName := CommonDialogMgt.OpenFile(Text005, '', 4, FileFilter, 1);
-                    END ELSE
+                    IF ExportToFile = '' THEN
+                        //ToDo
+                        //FileFilter := UPPERCASE("File Extension") + ' ';
+                        FileFilter := FileFilter + '(*.' + "File Extension" + ')|*.' + "File Extension"
+                    //ToDo
+                    //FileName := CommonDialogMgt.OpenFile(Text005, '', 4, FileFilter, 1);
+                    ELSE
                         FileName := ExportToFile;
-                    IF FileName <> '' THEN BEGIN
-                        IF FILE.COPY(ConstDiskFileName(), FileName) THEN
-                            EXIT(TRUE)
-                        ELSE
-                            EXIT(FALSE);
-                    END ELSE
-                        EXIT(FALSE)
+                    IF FileName <> '' THEN
+                        ;
+                    //ToDo
+                    /*IF FILE.COPY(ConstDiskFileName(), FileName) THEN
+                        EXIT(TRUE)
+                    ELSE
+                        EXIT(FALSE);
+                END ELSE
+                    EXIT(FALSE)*/
                 END;
-        END;
+        end;
     end;
-
 
     procedure ImportAttachment(ImportFromFile: Text[260]; IsTemporary: Boolean): Boolean
     var
-        CommonDialogMgt: Codeunit "Common Dialog Management";
-        AttachmentManagement: Codeunit "PWD Customs Doc AttachmentMngt";
         FileName: Text[260];
     begin
         IF IsTemporary THEN BEGIN
             IF ImportFromFile = '' THEN
-                FileName := CommonDialogMgt.OpenFile(Text006, ImportFromFile, 4, Text007, 0)
-            ELSE
+                //ToDo
+                //FileName := CommonDialogMgt.OpenFile(Text006, ImportFromFile, 4, Text007, 0)
+                //ELSE
                 FileName := ImportFromFile;
             IF FileName <> '' THEN BEGIN
                 Attachment.IMPORT(FileName);
-                "File Extension" := UPPERCASE(AttachmentManagement.FileExtension(FileName));
+                //ToDo
+                //"File Extension" := UPPERCASE(AttachmentManagement.FileExtension(FileName));
                 EXIT(TRUE)
             END ELSE
                 EXIT(FALSE);
@@ -229,8 +224,9 @@ table 50030 "PWD Customs Documents Template"
             RMSetup.TESTFIELD("Attachment Storage Location");
 
         IF ImportFromFile = '' THEN
-            FileName := CommonDialogMgt.OpenFile(Text006, '', 4, Text007, 0)
-        ELSE
+            //ToDo
+            //FileName := CommonDialogMgt.OpenFile(Text006, '', 4, Text007, 0)
+            //ELSE
             FileName := ImportFromFile;
 
         IF FileName <> '' THEN BEGIN
@@ -238,8 +234,9 @@ table 50030 "PWD Customs Documents Template"
                 "Storage Pointer" := RMSetup."Attachment Storage Location";
             IF RMSetup."Attachment Storage Type" =
               RMSetup."Attachment Storage Type"::"Disk File"
-            THEN BEGIN
-                IF NOT FILE.COPY(FileName, ConstDiskFileName()) THEN
+            THEN
+                //ToDo
+                /*IF NOT FILE.COPY(FileName, ConstDiskFileName()) THEN
                     ERROR(
                       Text008);
                 "File Extension" := UPPERCASE(AttachmentManagement.FileExtension(FileName));
@@ -249,14 +246,12 @@ table 50030 "PWD Customs Documents Template"
             END ELSE BEGIN
                 Attachment.IMPORT(FileName);
                 "File Extension" := UPPERCASE(AttachmentManagement.FileExtension(FileName));
-                "Storage Type" := "Storage Type"::Embedded;
+                "Storage Type" := "Storage Type"::Embedded;*/
                 IF MODIFY(TRUE) THEN;
-            END;
             EXIT(TRUE);
         END ELSE
             EXIT(FALSE);
     end;
-
 
     procedure RemoveAttachment(Prompt: Boolean) DeleteOK: Boolean
     var
@@ -278,7 +273,6 @@ table 50030 "PWD Customs Documents Template"
             DeleteOK := TRUE;
         END;
     end;
-
 
     procedure WizSaveAttachment()
     var
@@ -309,24 +303,21 @@ table 50030 "PWD Customs Documents Template"
         Rec := Attachment2;
     end;
 
-
     procedure DeleteFile(FileName: Text[260]): Boolean
-    var
-        I: Integer;
     begin
         IF FileName = '' THEN
             EXIT(FALSE);
+        //ToDo
+        /*
+                IF NOT EXISTS(FileName) THEN
+                    EXIT(TRUE);
 
-        IF NOT EXISTS(FileName) THEN
-            EXIT(TRUE);
-
-        REPEAT
-            SLEEP(250);
-            I := I + 1;
-        UNTIL ERASE(FileName) OR (I = 25);
-        EXIT(NOT EXISTS(FileName));
+                REPEAT
+                    SLEEP(250);
+                    I := I + 1;
+                UNTIL ERASE(FileName) OR (I = 25);
+                EXIT(NOT EXISTS(FileName));*/
     end;
-
 
     procedure ConstFilename() FileName: Text[260]
     var
@@ -337,19 +328,17 @@ table 50030 "PWD Customs Documents Template"
             IF I <> 0 THEN
                 DocNo := FORMAT(I);
             //todo
-            //FileName := ENVIRON('TEMP') + Text012 + DocNo + '.' + "File Extension";
+            /*FileName := ENVIRON('TEMP') + Text012 + DocNo + '.' + "File Extension";
             IF NOT EXISTS(FileName) THEN
-                EXIT;
+                EXIT;*/
             I := I + 1;
         UNTIL I = 999;
     end;
-
 
     procedure ConstDiskFileName() DiskFileName: Text[260]
     begin
         DiskFileName := "Storage Pointer" + '\' + FORMAT("No.") + '.';
     end;
-
 
     procedure CheckCorrespondenceType(CorrespondenceType: Option " ","Hard Copy","E-Mail",Fax) ErrorText: Text[80]
     begin
@@ -365,13 +354,9 @@ table 50030 "PWD Customs Documents Template"
         END;
     end;
 
-
     procedure CreateAttachment()
     var
         Attachment: Record "PWD Customs Documents Template";
-        WordManagement: Codeunit "Customs Sales Doc WordMngt";
-        ShipWordManagement: Codeunit "Customs Shipmt Doc WordMngt";
-        AttachmentManagement: Codeunit "PWD Customs Doc AttachmentMngt";
     begin
         IF "Attachment No." <> 0 THEN BEGIN
             IF Attachment.GET("Attachment No.") THEN
@@ -379,13 +364,13 @@ table 50030 "PWD Customs Documents Template"
             IF NOT CONFIRM(Text001, FALSE) THEN
                 EXIT;
         END;
+        //ToDo
+        /*
+                IF AttachmentManagement.UseComServer('DOC', TRUE) THEN;
 
-        IF AttachmentManagement.UseComServer('DOC', TRUE) THEN;
-
-        IF "Based On" = "Based On"::Sales THEN
-            WordManagement.CreateWordAttachment("No." + ' ' + Description, "No.") ELSE
-            IF "Based On" = "Based On"::Shipment THEN
-                ShipWordManagement.CreateWordAttachment("No." + ' ' + Description, "No.");
+                IF "Based On" = "Based On"::Sales THEN
+                    WordManagement.CreateWordAttachment("No." + ' ' + Description, "No.") ELSE
+                    IF "Based On" = "Based On"::Shipment THEN
+                        ShipWordManagement.CreateWordAttachment("No." + ' ' + Description, "No.");*/
     end;
 }
-

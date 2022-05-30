@@ -530,7 +530,6 @@ table 50017 "PWD Seafrance Sales Line"
             Caption = 'Blanket Order No.';
             TableRelation = "Sales Header"."No." WHERE("Document Type" = CONST("Blanket Order"));
             DataClassification = CustomerContent;
-
         }
         field(98; "Blanket Order Line No."; Integer)
         {
@@ -1515,4 +1514,3 @@ table 50017 "PWD Seafrance Sales Line"
                 ERROR(CstL004);
     end;
 }
-

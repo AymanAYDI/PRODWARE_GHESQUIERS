@@ -40,6 +40,8 @@ codeunit 60000 "PWD Events"
     local procedure T36_OnAfterOnInsert_SalesHeader(var SalesHeader: Record "Sales Header")
     begin
         SalesHeader."PWD User Id" := USERID;
+
+        SalesHeader."Doc. No. Occurrence" := 0;
     end;
 
     [EventSubscriber(ObjectType::Table, DataBase::"Sales Header", 'OnCopySelltoCustomerAddressFieldsFromCustomerOnAfterAssignRespCenter', '', false, false)]
@@ -136,18 +138,6 @@ codeunit 60000 "PWD Events"
         SalesHeader.TestField("Shipping No.", '');
     end;
 
-    [EventSubscriber(ObjectType::Table, DataBase::"Sales Header", 'OnBeforeRecreateSalesLines', '', false, false)]
-    local procedure T36_OnBeforeRecreateSalesLines_SalesHeader(var SalesHeader: Record "Sales Header")
-    var
-        PWDSetGetFunctions: Codeunit "PWD Set/Get Functions";
-        vconf: Boolean;
-        CstG004: Label 'Voulez vous garder les valeurs actuelles des lignes';
-
-    begin
-        vconf := CONFIRM(CstG004, TRUE);
-        PWDSetGetFunctions.Setconf(vconf);
-    end;
-
     [EventSubscriber(ObjectType::Table, DataBase::"Sales Header", 'OnBeforeSalesLineInsert', '', false, false)]
     local procedure T36_OnBeforeSalesLineInsert_SalesHeader(var SalesLine: Record "Sales Line"; var TempSalesLine: Record "Sales Line" temporary; SalesHeader: Record "Sales Header")
     var
@@ -181,7 +171,7 @@ codeunit 60000 "PWD Events"
             exit;
         if Rec.IsTemporary then
             exit;
-        Rec.GetSalesHeader();
+        SalesHeader.GET(Rec."Document Type", Rec."Document No.");
         IF SalesHeader."PWD Order Prepared" = TRUE THEN
             ERROR(Text1000000006);
     end;
@@ -262,10 +252,10 @@ codeunit 60000 "PWD Events"
         SalesLine."PWD User Id" := SalesHeader."PWD User Id";
         SalesLine."PWD Document Date" := SalesHeader."Document Date";
         SalesLine."Posting Date" := SalesHeader."Posting Date";
-        //SalesLine.GetCallCust;  //TODO à vérifier "GetCallCust" est spec local
-        IF SalesLine."PWD Call No." <> '' THEN
+        IF SalesLine."PWD Call No." <> '' THEN begin
             RecCall.GET(SalesLine."PWD Call No.");
-        SalesLine."PWD Monthly Code" := RecCall."Monthly Code";
+            SalesLine."PWD Monthly Code" := RecCall."Monthly Code";
+        end;
     end;
 
     [EventSubscriber(ObjectType::Table, DataBase::"Sales Line", 'OnAfterInitHeaderDefaults', '', false, false)]
@@ -278,7 +268,7 @@ codeunit 60000 "PWD Events"
             SalesLine.GetItem(Item);
             IF (Item."PWD Trading Brand" = TRUE) OR (Item."PWD Butchery" = TRUE) OR (SalesLine."Special Order Purchase No." <> '') THEN BEGIN
                 SalesLine.VALIDATE("Location Code", SalesHeader."Location Code");
-                IF SalesLine.GetSKU(SKU) THEN //TODO à vérifier
+                IF SalesLine.GetSKU(SKU) THEN
                     SalesLine.VALIDATE("Unit Cost (LCY)", SKU."Unit Cost");
             END;
         END;
@@ -326,11 +316,14 @@ codeunit 60000 "PWD Events"
     [EventSubscriber(ObjectType::Table, DataBase::"Sales Line", 'OnValidateQuantityOnBeforeCheckAssocPurchOrder', '', false, false)]
     local procedure T37_OnValidateQuantityOnBeforeCheckAssocPurchOrder_SalesLine(var SalesLine: Record "Sales Line")
     var
-        MemLineDiscount: Decimal;  //TODO Vérifier Variable Globale
-        MemUnitPrice: Decimal;  //TODO Vérifier Variable Globale
+        SetGetFunctions: codeunit "PWD Set/Get Functions";
+        MemLineDiscount: Decimal;
+        MemUnitPrice: Decimal;
     begin
         MemLineDiscount := SalesLine."Line Discount %";
+        SetGetFunctions.SetMemLineDiscount(MemLineDiscount);
         MemUnitPrice := SalesLine."Unit Price";
+        SetGetFunctions.SetMemUnitPrice(MemUnitPrice);
     end;
 
     [EventSubscriber(ObjectType::Table, DataBase::"Sales Line", 'OnValidateQuantityOnBeforeCheckReceiptOrderStatus', '', false, false)]
@@ -357,14 +350,13 @@ codeunit 60000 "PWD Events"
     [EventSubscriber(ObjectType::Table, DataBase::"Sales Line", 'OnBeforeValidateEvent', 'Unit Price', false, false)]
     local procedure T37_OnBeforeValidateEvent_SalesLine_UnitPrice(var Rec: Record "Sales Line"; var xRec: Record "Sales Line"; CurrFieldNo: Integer)
     var
-        Currency: Record Currency;
         SalesHeader: Record "Sales Header";
         HeaderWasReleased: Boolean;
 
     begin
         IF CurrFieldNo = Rec.FIELDNO("Unit Price") THEN BEGIN
-            Rec.GetSalesHeader(SalesHeader, Currency);//TODO A vérifier GetSalesHeader
             //Rec.GetSalesHeader;
+            SalesHeader.GET(Rec."Document Type", Rec."Document No.");
             IF SalesHeader.Status = SalesHeader.Status::Released THEN BEGIN
                 HeaderWasReleased := TRUE;
                 Rec.SuspendStatusCheck(TRUE);
@@ -674,9 +666,161 @@ codeunit 60000 "PWD Events"
 
     //---CDU21---
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Check Line", 'OnBeforeCheckEmptyQuantity', '', false, false)]
-    local procedure OnBeforeCheckEmptyQuantity_ItemJnlCheckLine(ItemJnlLine: Record "Item Journal Line"; var IsHandled: Boolean)
+    local procedure CDU21_OnBeforeCheckEmptyQuantity_ItemJnlCheckLine(ItemJnlLine: Record "Item Journal Line"; var IsHandled: Boolean)
     begin
         IsHandled := true;
+    end;
+
+    //---CDU22---
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforeRunWithCheck', '', false, false)]
+    local procedure CDU22_OnBeforeRunWithCheck_ItemJnlPostLine(var ItemJournalLine: Record "Item Journal Line"; CalledFromAdjustment: Boolean; CalledFromInvtPutawayPick: Boolean; CalledFromApplicationWorksheet: Boolean; PostponeReservationHandling: Boolean; var IsHandled: Boolean)
+    var
+        FunctionsMgt: Codeunit "PWD Function Mgt";
+    begin
+        FunctionsMgt.InsertInventoryPerLocation(ItemJournalLine);
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnCodeOnBeforeCheckItemTracking', '', false, false)]
+    local procedure CDU22_OnCodeOnBeforeCheckItemTracking_ItemJnlPostLine(var ItemJnlLine: Record "Item Journal Line"; DisableItemTracking: Boolean; var IsHandled: Boolean; var TempTrackingSpecification: Record "Tracking Specification"; var ItemTrackingSetup: Record "Item Tracking Setup")
+    var
+        ItemJnlPostLine: Codeunit "Item Jnl.-Post Line";
+        FunctionsMgt: Codeunit "PWD Function Mgt";
+    begin
+        IsHandled := true;  //TODO  à vérifier
+        if ItemTrackingSetup.TrackingRequired() and (ItemJnlLine."Quantity (Base)" <> 0) and
+            (ItemJnlLine."Value Entry Type" = ItemJnlLine."Value Entry Type"::"Direct Cost") and
+            not DisableItemTracking and not ItemJnlLine.Adjustment and
+            not ItemJnlLine.Subcontracting and not ItemJnlLine.IsAssemblyResourceConsumpLine()
+        then begin
+            ItemJnlPostLine.CheckItemTracking();
+            FunctionsMgt.TestExpirationDate(ItemJnlLine);
+        end;
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforeCheckRunItemValuePosting', '', false, false)]
+    local procedure CDU22_OnBeforeCheckRunItemValuePosting_ItemJnlPostLine(var ItemJournalLine: Record "Item Journal Line"; var IsHandled: Boolean)
+    var
+        RecLInventorySetup: Record "Inventory Setup";
+        ItemJnlPostLine: codeunit "Item Jnl.-Post Line";
+    begin
+        IsHandled := true;  //TODO  à vérifier
+        RecLInventorySetup.GET();
+        IF RecLInventorySetup."PWD Nom modele prestation" = ItemJournalLine."Journal Template Name" THEN
+            ItemJnlPostLine.ItemValuePosting()
+        ELSE
+            if ((ItemJournalLine.Quantity <> 0) or (ItemJournalLine."Invoiced Quantity" <> 0)) and
+                not (ItemJournalLine.Adjustment and (ItemJournalLine.Amount = 0) and (ItemJournalLine."Amount (ACY)" = 0))
+            then
+                ItemJnlPostLine.ItemValuePosting();
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnItemQtyPostingOnAfterCalcInsertItemLedgEntryNeeded', '', false, false)]
+    local procedure CDU22_OnItemQtyPostingOnAfterCalcInsertItemLedgEntryNeeded_ItemJnlPostLine(var ItemJournalLine: Record "Item Journal Line"; var InsertItemLedgEntryNeeded: Boolean)
+    var
+        RecLInventorySetup: Record "Inventory Setup";
+    begin
+        //TODO  à vérifier
+        RecLInventorySetup.GET();
+        InsertItemLedgEntryNeeded := ((RecLInventorySetup."PWD Nom modele prestation" = ItemJournalLine."Journal Template Name") AND (NOT ItemJournalLine."Phys. Inventory")) OR ((NOT ItemJournalLine."Phys. Inventory") OR (ItemJournalLine.Quantity <> 0));
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterInitItemLedgEntry', '', false, false)]
+    local procedure CDU22_OnAfterInitItemLedgEntry_ItemJnlPostLine(var NewItemLedgEntry: Record "Item Ledger Entry"; var ItemJournalLine: Record "Item Journal Line"; var ItemLedgEntryNo: Integer)
+    var
+        FunctionsMgt: Codeunit "PWD Function Mgt";
+    begin
+        FunctionsMgt.FctCDU22_OnAfterInitItemLedgEntry_ItemJnlPostLine(NewItemLedgEntry, ItemJournalLine, ItemLedgEntryNo);
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnInsertItemRegOnBeforeItemRegInsert', '', false, false)]
+    local procedure CDU22_OnInsertItemRegOnBeforeItemRegInsert_ItemJnlPostLine(var ItemRegister: Record "Item Register"; var ItemJournalLine: Record "Item Journal Line")
+    var
+        RecLInventorySetup: Record "Inventory Setup";
+    begin
+        RecLInventorySetup.GET();
+        IF ItemJournalLine."Journal Template Name" = RecLInventorySetup."PWD Nom modele prestation" THEN
+            ItemRegister."PWD Generate Export File" := TRUE;
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnInitValueEntryOnAfterAssignFields', '', false, false)]
+    local procedure CDU22_OnInitValueEntryOnAfterAssignFields_ItemJnlPostLine(var ValueEntry: Record "Value Entry"; ItemLedgEntry: Record "Item Ledger Entry"; ItemJnlLine: Record "Item Journal Line")
+    begin
+        ValueEntry."PWD Code prestation" := ItemJnlLine."PWD Code prestation";
+        ValueEntry."PWD Code fournisseur" := ItemJnlLine."PWD Code fournisseur";
+        ValueEntry."PWD Code client" := ItemJnlLine."PWD Code client";
+        ValueEntry."PWD Family Code" := ItemJnlLine."PWD Family Code";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforeInsertSetupTempSplitItemJnlLine', '', false, false)]
+    local procedure CDU22_OnBeforeInsertSetupTempSplitItemJnlLine_ItemJnlPostLine(var TempTrackingSpecification: Record "Tracking Specification" temporary; var TempItemJournalLine: Record "Item Journal Line" temporary; var PostItemJnlLine: Boolean; var ItemJournalLine2: Record "Item Journal Line"; SignFactor: Integer; FloatingFactor: Decimal)
+    begin
+        TempItemJournalLine."PWD Notice Series No." := TempTrackingSpecification."PWD Stocking Advice No.";
+        TempItemJournalLine."PWD Origin" := TempTrackingSpecification."PWD Country Origin";
+        TempItemJournalLine."PWD Cetificate Transit No." := TempTrackingSpecification."PWD Certificate Transit No.";
+        TempItemJournalLine."PWD Origin Lot No." := TempTrackingSpecification."PWD Origin Lot No.";
+        TempItemJournalLine."PWD Meat Family" := TempTrackingSpecification."PWD Meat Family";
+        TempItemJournalLine."PWD Meat Type" := TempTrackingSpecification."PWD Meat Type";
+    end;
+
+
+    //---CDU80---
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeCheckMandatoryHeaderFields', '', false, false)]
+    local procedure CDU80_OnBeforeCheckMandatoryHeaderFields_SalesPost(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean)
+    var
+        FunctionsMgt: Codeunit "PWD Function Mgt";
+    begin
+        FunctionsMgt.CalcAvailability(SalesHeader);
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterCheckMandatoryFields', '', false, false)]
+    local procedure CDU80_OnAfterCheckMandatoryFields_SalesPost(var SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean)
+    begin
+        IF SalesHeader."Document Type" = SalesHeader."Document Type"::Order THEN
+            SalesHeader.TESTFIELD("PWD Preparation Status", SalesHeader."PWD Preparation Status"::"Ready to ship");
+
+
+        IF SalesHeader."Document Type" = SalesHeader."Document Type"::Order THEN
+            SalesHeader.TESTFIELD("PWD Preparation in process", TRUE);
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeCalcInvoice', '', false, false)]
+    local procedure CDU80_OnBeforeCalcInvoice_SalesPost(SalesHeader: Record "Sales Header"; TempSalesLineGlobal: Record "Sales Line" temporary; var NewInvoice: Boolean; var IsHandled: Boolean)
+    var
+        FunctionsMgt: Codeunit "PWD Function Mgt";
+    begin
+        FunctionsMgt.FctCDU80_OnBeforeCalcInvoice_SalesPost(SalesHeader, TempSalesLineGlobal, NewInvoice, IsHandled);
+    end;
+
+    //---CDU81---
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post (Yes/No)", 'OnBeforeConfirmSalesPost', '', false, false)]
+    local procedure CDU81_OnBeforeConfirmSalesPost_SalesPostYesNo(var SalesHeader: Record "Sales Header"; var HideDialog: Boolean; var IsHandled: Boolean; var DefaultOption: Integer; var PostAndSend: Boolean)
+    var
+        PWDFunctionsMgt: Codeunit "PWD Function Mgt";
+    begin
+        IF (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) OR (SalesHeader."Document Type" = SalesHeader."Document Type"::Invoice) THEN
+            PWDFunctionsMgt.ControlProfit(SalesHeader);
+        PWDFunctionsMgt.CtrlUnitPrice(SalesHeader);
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post (Yes/No)", 'OnConfirmPostOnBeforeSetSelection', '', false, false)]
+    local procedure CDU81_OnConfirmPostOnBeforeSetSelection_SalesPostYesNo(var SalesHeader: Record "Sales Header")
+    var
+        SalesLine: Record "Sales Line";
+        Text1000000002: Label 'The order cannot be validated because the ordered quantity on Sales Line %1 doesn''t match the prepared quantity.';
+    begin
+        case SalesHeader."Document Type" of
+            SalesHeader."Document Type"::Order:
+                begin
+                    SalesLine.RESET();
+                    SalesLine.SETRANGE(SalesLine."Document Type", SalesHeader."Document Type");
+                    SalesLine.SETRANGE(SalesLine."Document No.", SalesHeader."No.");
+                    SalesLine.SETFILTER(SalesLine."PWD Adjmt Prepared Qty", '<>%1', 0);
+                    SalesLine.SETFILTER(SalesLine."PWD Butchery", '=%1', FALSE);
+                    SalesLine.SETFILTER(SalesLine."PWD Trading Brand", '=%1', FALSE);
+                    IF SalesLine.FindFirst() THEN
+                        ERROR(Text1000000002, SalesLine."Line No.");
+                end;
+        end;
     end;
 
     //---CDU82---
@@ -721,8 +865,11 @@ codeunit 60000 "PWD Events"
     end;
 
     //---CDU90---
+    //TODO à vérifier cet event
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnAfterInsertPostedHeaders', '', false, false)]
     local procedure CDU90_OnAfterInsertPostedHeaders_PurchPost(var PurchaseHeader: Record "Purchase Header"; var PurchRcptHeader: Record "Purch. Rcpt. Header"; var PurchInvHeader: Record "Purch. Inv. Header"; var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr."; var ReturnShptHeader: Record "Return Shipment Header"; var PurchSetup: Record "Purchases & Payables Setup")
+    var
+        GenRef: Text[100];
     begin
         if PurchaseHeader.Invoice then
             if PurchaseHeader."Document Type" in [PurchaseHeader."Document Type"::Order, PurchaseHeader."Document Type"::Invoice] then
@@ -730,6 +877,52 @@ codeunit 60000 "PWD Events"
             else
                 GenRef := PurchaseHeader."PWD Reference";
     end;
+
+    [EventSubscriber(ObjectType::Table, DataBase::"Gen. Journal Line", 'OnAfterCopyGenJnlLineFromPurchHeader', '', false, false)]
+    local procedure TAB81_OnAfterCopyGenJnlLineFromPurchHeader_GenJournalLine(PurchaseHeader: Record "Purchase Header"; var GenJournalLine: Record "Gen. Journal Line")
+    begin
+        GenJournalLine."PWD Reference" := PurchaseHeader."PWD Reference";
+    end;
+
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnBeforeDeleteApprovalEntries', '', false, false)]
+    local procedure CDU90_OnBeforeDeleteApprovalEntries_PurchPost(var PurchaseHeader: Record "Purchase Header"; var IsHandled: Boolean)
+    var
+        AutoArchiveManagement: Codeunit "PWD ArchiveAutoManagement";
+    begin
+        AutoArchiveManagement.StorePurchDocument(PurchaseHeader);
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnAfterFinalizePosting', '', false, false)]
+    local procedure CDU90_OnAfterFinalizePosting_PurchPost(var PurchHeader: Record "Purchase Header"; var PurchRcptHeader: Record "Purch. Rcpt. Header"; var PurchInvHeader: Record "Purch. Inv. Header"; var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr."; var ReturnShptHeader: Record "Return Shipment Header"; var GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; PreviewMode: Boolean; CommitIsSupressed: Boolean)
+    var
+        FunctionsMgt: Codeunit "PWD Function Mgt";
+    begin
+        IF (PurchHeader."Document Type" IN [PurchHeader."Document Type"::Order]) AND (NOT PurchHeader.Invoice) THEN BEGIN
+            PurchHeader."PWD Reception OK" := FunctionsMgt.AllReceive(PurchHeader);
+            PurchHeader.MODIFY();
+        END;
+    end;
+
+    [EventSubscriber(ObjectType::Table, DataBase::"Item Journal Line", 'OnAfterCopyItemJnlLineFromPurchLine', '', false, false)]
+    local procedure TAB83_OnAfterCopyItemJnlLineFromPurchLine_ItemJournalLine(var ItemJnlLine: Record "Item Journal Line"; PurchLine: Record "Purchase Line")
+    var
+        PurchaseHeader: record "Purchase Header";
+    begin
+        PurchaseHeader.Get(PurchLine."Document Type", PurchLine."Document No.");  //TODO à vérifier
+        ItemJnlLine."PWD Reference" := PurchaseHeader."PWD Reference";
+
+        ItemJnlLine."PWD Notice Series No." := PurchaseHeader."PWD Notice Series No.";  //TODO à vérifier
+        ItemJnlLine."PWD Origin" := PurchLine."PWD Origin";
+        ItemJnlLine."PWD Cetificate Transit No." := PurchLine."PWD Cetificate Transit No.";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnBeforePostItemChargePerOrder', '', false, false)]
+    local procedure CDU90_OnBeforePostItemChargePerOrder_PurchPost(var PurchHeader: Record "Purchase Header"; var PurchLine: Record "Purchase Line"; var ItemJnlLine2: Record "Item Journal Line"; var ItemChargePurchLine: Record "Purchase Line"; var TempTrackingSpecificationChargeAssmt: Record "Tracking Specification" temporary; CommitIsSupressed: Boolean; var TempItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)" temporary)
+    begin
+        ItemJnlLine2."PWD Reference" := PurchHeader."PWD Reference";
+    end;
+
 
     //---CDU92---
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post + Print", 'OnBeforePrintReceive', '', false, false)]
@@ -788,4 +981,21 @@ codeunit 60000 "PWD Events"
         PWDFunctionsMgt."FctOnCreateEntryOnBeforeSurplusCondition_CDU99000830"(ReservEntry, QtyToHandleAndInvoiceIsSet);
     end;
 
+    //---REP698---
+    [EventSubscriber(ObjectType::Report, report::"Get Sales Orders", 'OnInsertReqWkshLineOnBeforeValidateUoM', '', false, false)]
+    local procedure REP698_OnInsertReqWkshLineOnBeforeValidateUoM_GetSalesOrders(var ReqLine: Record "Requisition Line"; SalesLine: Record "Sales Line"; SpecOrder: Integer)
+    begin
+        ReqLine.VALIDATE(Description, SalesLine.Description);
+        ReqLine.VALIDATE("Description 2", SalesLine."Description 2");
+    end;
+
+    [EventSubscriber(ObjectType::Report, report::"Get Sales Orders", 'OnBeforeInsertReqWkshLine', '', false, false)]
+    local procedure REP698_OnBeforeInsertReqWkshLine_GetSalesOrders(var ReqLine: Record "Requisition Line"; SalesLine: Record "Sales Line"; SpecOrder: Integer)
+    begin
+        ReqLine.Description := SalesLine.Description;
+        IF SalesLine."PWD Specific Cost" OR SalesLine."Special Order" THEN BEGIN
+            ReqLine."Direct Unit Cost" := SalesLine."Unit Cost";
+            ReqLine."PWD Specific cost" := TRUE;
+        END;
+    end;
 }

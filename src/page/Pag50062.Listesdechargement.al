@@ -4,7 +4,7 @@ page 50062 "PWD Listes de chargement"
     InsertAllowed = false;
     PageType = List;
     SourceTable = "PWD Listes de chargement";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -64,4 +64,3 @@ page 50062 "PWD Listes de chargement"
     {
     }
 }
-

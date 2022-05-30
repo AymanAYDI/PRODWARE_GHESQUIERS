@@ -2,7 +2,6 @@ pageextension 50015 "PWD SalesInvoice" extends "Sales Invoice"
 {
     layout
     {
-
         addafter("Sell-to Contact No.")
         {
             field("PWD Call Type"; Rec."PWD Call Type")
@@ -70,5 +69,4 @@ pageextension 50015 "PWD SalesInvoice" extends "Sales Invoice"
             }
         }
     }
-
 }

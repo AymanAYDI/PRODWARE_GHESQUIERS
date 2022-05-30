@@ -1,16 +1,9 @@
 report 50074 "PWD Inventaire pour la douane"
 {
-    // ------------------------------------------------------------------------------------------------------------------------------------
-    // www.prodware.fr
-    // ------------------------------------------------------------------------------------------------------------------------------------
-    // 
-    // //>> MODIF HL
-    // TI105367 DO.GEPO 01/06/2012 : MODIf Design and add field description 2 in section
-    // 
-    // ------------------------------------------------------------------------------------------------------------------------------------
     DefaultLayout = RDLC;
-    RDLCLayout = './rdl/Inventairepourladouane.rdl';
-
+    RDLCLayout = './src/report/rdl/Inventairepourladouane.rdl';
+    ApplicationArea = all;
+    UsageCategory = ReportsAndAnalysis;
 
     dataset
     {
@@ -26,6 +19,12 @@ report 50074 "PWD Inventaire pour la douane"
             column(Item_Item__Qty__on_Sales_Order_; Item."Qty. on Sales Order")
             {
             }
+            column(PWD_Family; "PWD Family")
+            {
+            }
+            column(PWD_Sub_Family; "PWD Sub Family")
+            {
+            }
             column(Item_Inventory; Inventory)
             {
                 DecimalPlaces = 3 : 3;
@@ -33,7 +32,7 @@ report 50074 "PWD Inventaire pour la douane"
             column(Item_Description; Description)
             {
             }
-            column(Item__No__; "No.")
+            column(Item__No; "No.")
             {
             }
             column(LocationFilter; LocationFilter)
@@ -91,4 +90,3 @@ report 50074 "PWD Inventaire pour la douane"
         PhysiqueCaptionLbl: Label 'Physique';
         LocationFilter: Text[30];
 }
-

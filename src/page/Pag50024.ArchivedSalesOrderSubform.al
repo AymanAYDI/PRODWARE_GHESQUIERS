@@ -1,16 +1,9 @@
 page 50024 "Archived Sales Order Subform"
 {
-    // -------------------------------------------------
-    // Prodware - www.prodware.fr
-    // -------------------------------------------------
-    // 
-    // //>>SOBI
-    // P3346_0015 RO.LALE REGIE 23/02/2015 : - add field Vendor No.
-
     Caption = 'Archived Sales Order Subform';
     PageType = ListPart;
     SourceTable = "PWD Archived Sales Line";
-
+UsageCategory = None;
     layout
     {
         area(content)
@@ -289,23 +282,19 @@ page 50024 "Archived Sales Order Subform"
                         //This functionality was copied from page #50023. Unsupported part was commented. Please check it.
                         /*CurrPage.SalesLinesArchive.FORM.*/
                         _ShowDimensions();
-
                     end;
                 }
             }
         }
     }
 
-
     procedure _ShowDimensions()
     begin
         Rec.ShowDimensions();
     end;
-
 
     procedure ShowDimensions()
     begin
         Rec.ShowDimensions();
     end;
 }
-

@@ -6,7 +6,7 @@ page 50011 "PWD Calls List"
     PageType = List;
     SourceTable = "PWD Call";
     SourceTableView = ORDER(Descending);
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -130,4 +130,3 @@ page 50011 "PWD Calls List"
         }
     }
 }
-

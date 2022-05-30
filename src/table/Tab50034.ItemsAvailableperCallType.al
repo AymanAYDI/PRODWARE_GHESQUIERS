@@ -99,10 +99,8 @@ table 50034 "Items Available per Call Type"
         Item: Record Item;
         Location: Record Location;
 
-
     procedure UpdateProjectedBalance()
     begin
         "Projected Balance" := "Available Inventory" + "Qty. on Purch. Order" - "Qty. on Sales Order";
     end;
 }
-

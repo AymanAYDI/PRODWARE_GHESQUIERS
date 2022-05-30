@@ -1,7 +1,5 @@
 table 50009 "PWD Prestations"
 {
-    // 03.11.2004    C2A.LLE    Add Option Entree/Sortie in field  Type de préstation
-
     DrillDownPageID = "PWD Liste préstations";
     LookupPageID = "PWD Liste préstations";
     DataClassification = CustomerContent;
@@ -18,10 +16,9 @@ table 50009 "PWD Prestations"
             Caption = 'Designation';
             DataClassification = CustomerContent;
         }
-        field(30; "Type de prestation"; Option)
+        field(30; "Type de prestation"; Enum "PWD Prestations Type")
         {
             Caption = 'Type de prestation';
-            OptionMembers = "Entrée",Sortie,"Entrée/Sortie";
             DataClassification = CustomerContent;
         }
     }
@@ -34,4 +31,3 @@ table 50009 "PWD Prestations"
         }
     }
 }
-

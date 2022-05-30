@@ -16,4 +16,3 @@ tableextension 60041 "PWD ShippingAgent" extends "Shipping Agent"
         }
     }
 }
-

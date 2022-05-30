@@ -2,7 +2,6 @@ tableextension 60010 "PWD ItemLedgerEntry" extends "Item Ledger Entry"
 {
     fields
     {
-
         field(50000; "PWD Notice Series No."; Code[20])
         {
             Caption = 'Notice Series No.';
@@ -201,4 +200,3 @@ tableextension 60010 "PWD ItemLedgerEntry" extends "Item Ledger Entry"
         }
     }
 }
-

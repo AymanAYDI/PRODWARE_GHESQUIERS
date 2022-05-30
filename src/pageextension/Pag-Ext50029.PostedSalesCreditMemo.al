@@ -41,7 +41,6 @@ pageextension 50029 "PWD PostedSalesCreditMemo" extends "Posted Sales Credit Mem
             {
                 ApplicationArea = All;
             }
-
         }
     }
 }

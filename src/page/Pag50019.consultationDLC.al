@@ -4,6 +4,7 @@ page 50019 "PWD consultation DLC"
     PageType = List;
     SourceTable = "Item Ledger Entry";
     SourceTableView = SORTING("Item No.", "Variant Code", "Drop Shipment", "Location Code", "Posting Date") WHERE("Expiration Date" = FILTER(<> ''), "Remaining Quantity" = FILTER(<> 0));
+    UsageCategory = None;
 
     layout
     {
@@ -44,4 +45,3 @@ page 50019 "PWD consultation DLC"
     {
     }
 }
-

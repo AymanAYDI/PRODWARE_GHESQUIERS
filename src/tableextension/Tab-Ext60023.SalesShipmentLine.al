@@ -1,8 +1,6 @@
 tableextension 60023 "PWD SalesShipmentLine" extends "Sales Shipment Line"
 {
-
     LookupPageID = "Posted Sales Shipment Lines";
-
 
     fields
     {
@@ -283,4 +281,3 @@ tableextension 60023 "PWD SalesShipmentLine" extends "Sales Shipment Line"
         }
     }
 }
-

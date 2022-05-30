@@ -8,7 +8,6 @@ pageextension 50060 "PWD ItemTrackingLines" extends "Item Tracking Lines"
             {
                 ApplicationArea = All;
             }
-
         }
         addbefore(Source)
         {
@@ -68,7 +67,6 @@ pageextension 50060 "PWD ItemTrackingLines" extends "Item Tracking Lines"
             {
                 ApplicationArea = All;
             }
-
         }
     }
     trigger OnOpenPage()
@@ -112,5 +110,4 @@ pageextension 50060 "PWD ItemTrackingLines" extends "Item Tracking Lines"
             Rec."PWD Country Origin" := OriginButcheryEntry."PWD Country Origin";
         END;
     END;
-
 }

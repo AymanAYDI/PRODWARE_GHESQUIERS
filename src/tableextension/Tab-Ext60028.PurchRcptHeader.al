@@ -102,7 +102,7 @@ tableextension 60028 "PWD PurchRcptHeader" extends "Purch. Rcpt. Header"
 
     procedure PrintDS()
     begin
-        REPORT.RUNMODAL(REPORT::"Déclaration sommaire", TRUE, TRUE, Rec);
+        //ToDo
+        //REPORT.RUNMODAL(REPORT::"Déclaration sommaire", TRUE, TRUE, Rec);
     end;
 }
-

@@ -3,7 +3,7 @@ page 50047 "Disponibilités Art. / Magasin"
     Editable = false;
     PageType = List;
     SourceTable = "Items Available per Location";
-
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -35,4 +35,3 @@ page 50047 "Disponibilités Art. / Magasin"
         }
     }
 }
-

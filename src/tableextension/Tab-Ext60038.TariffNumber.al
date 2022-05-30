@@ -1,6 +1,5 @@
 tableextension 60038 "PWD TariffNumber" extends "Tariff Number"
 {
-
     fields
     {
         field(50000; "PWD Relative Comment"; Text[80])
@@ -25,4 +24,3 @@ tableextension 60038 "PWD TariffNumber" extends "Tariff Number"
         }
     }
 }
-
