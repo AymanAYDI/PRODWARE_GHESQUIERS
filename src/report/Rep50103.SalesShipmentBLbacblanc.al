@@ -98,7 +98,7 @@ report 50103 "Sales - Shipment BL bac blanc"
                 column(TotalPoidsNet; TotalPoidsNet)
                 {
                 }
-                column(articles_sur_le_BL_n_________Sales_Shipment_Line___Document_No__; 'articles sur le BL n° : ' + "Sales Shipment Line"."Document No.")
+                column(articles_sur_le_BL_n_________Sales_Shipment_Line___Document_No__; 'articles sur le BL n° : ' + SalesShipLine."Document No.")
                 {
                 }
                 column(NbLigneTotal; NbLigneTotal)
@@ -216,7 +216,8 @@ report 50103 "Sales - Shipment BL bac blanc"
                         column(Sales_Shipment_Line_Quantity; Quantity)
                         {
                         }
-                        column(Sales_Shipment_Line_Shelf_Bin_No;"PWD Shelf/Bin No."){
+                        column(Sales_Shipment_Line_Shelf_Bin_No; "PWD Shelf/Bin No.")
+                        {
                         }
                         column(Description__Description_2_; Description + "Description 2")
                         {

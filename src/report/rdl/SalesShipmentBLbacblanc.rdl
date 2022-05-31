@@ -11,265 +11,6 @@
       <rd:DataSourceID>e819d749-4c14-4061-afe0-c0d66076dd2c</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="BON_DE_LIVRAISON_">
-          <DataField>BON_DE_LIVRAISON_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header__Sales_Shipment_Header__Reference">
-          <DataField>Sales_Shipment_Header__Sales_Shipment_Header__Reference</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header__Sales_Shipment_Header___Bill_to_Customer_No__">
-          <DataField>Sales_Shipment_Header__Sales_Shipment_Header___Bill_to_Customer_No__</DataField>
-        </Field>
-        <Field Name="Titre">
-          <DataField>Titre</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header__Promised_Delivery_Date_">
-          <DataField>Sales_Shipment_Header__Promised_Delivery_Date_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header__Sales_Shipment_Header___Order_No__">
-          <DataField>Sales_Shipment_Header__Sales_Shipment_Header___Order_No__</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header___Sales_Shipment_Header___Posting_Date_">
-          <DataField>Sales_Shipment_Header___Sales_Shipment_Header___Posting_Date_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_City_">
-          <DataField>Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_City_</DataField>
-        </Field>
-        <Field Name="ShipToAddr_1_">
-          <DataField>ShipToAddr_1_</DataField>
-        </Field>
-        <Field Name="ShippingAgent_Name">
-          <DataField>ShippingAgent_Name</DataField>
-        </Field>
-        <Field Name="CompanyAddr_2_">
-          <DataField>CompanyAddr_2_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_3_">
-          <DataField>CompanyAddr_3_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_4_">
-          <DataField>CompanyAddr_4_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_5_">
-          <DataField>CompanyAddr_5_</DataField>
-        </Field>
-        <Field Name="Tel_______CompanyInfo__Phone_No__">
-          <DataField>Tel_______CompanyInfo__Phone_No__</DataField>
-        </Field>
-        <Field Name="E_Mail_______CompanyInfo__E_Mail_">
-          <DataField>E_Mail_______CompanyInfo__E_Mail_</DataField>
-        </Field>
-        <Field Name="au_Capital_de___CompanyInfo__Stock_Capital_">
-          <DataField>au_Capital_de___CompanyInfo__Stock_Capital_</DataField>
-        </Field>
-        <Field Name="Fax_______CompanyInfo__Fax_No__">
-          <DataField>Fax_______CompanyInfo__Fax_No__</DataField>
-        </Field>
-        <Field Name="N__id__intracom_____CompanyInfo__VAT_Registration_No__">
-          <DataField>N__id__intracom_____CompanyInfo__VAT_Registration_No__</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header__Sales_Shipment_Header___Bill_to_Name_">
-          <DataField>Sales_Shipment_Header__Sales_Shipment_Header___Bill_to_Name_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_1_">
-          <DataField>CompanyAddr_1_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header__Sales_Shipment_Header___No__">
-          <DataField>Sales_Shipment_Header__Sales_Shipment_Header___No__</DataField>
-        </Field>
-        <Field Name="CompanyInfo__Logo_AVITA_facture_">
-          <DataField>CompanyInfo__Logo_AVITA_facture_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_Address_">
-          <DataField>Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_Address_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header___Sales_Shipment_Header___Delivry_time_">
-          <DataField>Sales_Shipment_Header___Sales_Shipment_Header___Delivry_time_</DataField>
-        </Field>
-        <Field Name="ADMIS_ET_RECONNU_CONFORME_LE_">
-          <DataField>ADMIS_ET_RECONNU_CONFORME_LE_</DataField>
-        </Field>
-        <Field Name="FORMAT___Sales_Shipment_Header___Posting_Date__0_4_">
-          <DataField>FORMAT___Sales_Shipment_Header___Posting_Date__0_4_</DataField>
-        </Field>
-        <Field Name="TotalPoidsNet">
-          <DataField>TotalPoidsNet</DataField>
-        </Field>
-        <Field Name="TotalPoidsNetFormat">
-          <DataField>TotalPoidsNetFormat</DataField>
-        </Field>
-        <Field Name="articles_sur_le_BL_n_________Sales_Shipment_Line___Document_No__">
-          <DataField>articles_sur_le_BL_n_________Sales_Shipment_Line___Document_No__</DataField>
-        </Field>
-        <Field Name="NbLigneTotal">
-          <DataField>NbLigneTotal</DataField>
-        </Field>
-        <Field Name="TotalQuantite">
-          <DataField>TotalQuantite</DataField>
-        </Field>
-        <Field Name="TotalQuantiteFormat">
-          <DataField>TotalQuantiteFormat</DataField>
-        </Field>
-        <Field Name="Destinataire___Caption">
-          <DataField>Destinataire___Caption</DataField>
-        </Field>
-        <Field Name="Date_livraisonCaption">
-          <DataField>Date_livraisonCaption</DataField>
-        </Field>
-        <Field Name="Date_de_doc__Caption">
-          <DataField>Date_de_doc__Caption</DataField>
-        </Field>
-        <Field Name="Lieu__Caption">
-          <DataField>Lieu__Caption</DataField>
-        </Field>
-        <Field Name="Emplacement__Caption">
-          <DataField>Emplacement__Caption</DataField>
-        </Field>
-        <Field Name="Commande_n____Caption">
-          <DataField>Commande_n____Caption</DataField>
-        </Field>
-        <Field Name="N__de_véhicule__Caption">
-          <DataField>N__de_véhicule__Caption</DataField>
-        </Field>
-        <Field Name="Navire__Caption">
-          <DataField>Navire__Caption</DataField>
-        </Field>
-        <Field Name="Armateur__Caption">
-          <DataField>Armateur__Caption</DataField>
-        </Field>
-        <Field Name="Destinataire___Caption_Control1000000043">
-          <DataField>Destinataire___Caption_Control1000000043</DataField>
-        </Field>
-        <Field Name="Transporteur___Caption">
-          <DataField>Transporteur___Caption</DataField>
-        </Field>
-        <Field Name="Expéditeur___Caption">
-          <DataField>Expéditeur___Caption</DataField>
-        </Field>
-        <Field Name="Référence_commande__Caption">
-          <DataField>Référence_commande__Caption</DataField>
-        </Field>
-        <Field Name="N__de_document___Caption">
-          <DataField>N__de_document___Caption</DataField>
-        </Field>
-        <Field Name="Poids_net_ligneCaption">
-          <DataField>Poids_net_ligneCaption</DataField>
-        </Field>
-        <Field Name="QuantitéCaption">
-          <DataField>QuantitéCaption</DataField>
-        </Field>
-        <Field Name="UnitéCaption">
-          <DataField>UnitéCaption</DataField>
-        </Field>
-        <Field Name="DésignationCaption">
-          <DataField>DésignationCaption</DataField>
-        </Field>
-        <Field Name="Code_articleCaption">
-          <DataField>Code_articleCaption</DataField>
-        </Field>
-        <Field Name="N__de_ligneCaption">
-          <DataField>N__de_ligneCaption</DataField>
-        </Field>
-        <Field Name="Heure_livraisonCaption">
-          <DataField>Heure_livraisonCaption</DataField>
-        </Field>
-        <Field Name="Caption">
-          <DataField>Caption</DataField>
-        </Field>
-        <Field Name="Par_procurationCaption">
-          <DataField>Par_procurationCaption</DataField>
-        </Field>
-        <Field Name="VisaCaption">
-          <DataField>VisaCaption</DataField>
-        </Field>
-        <Field Name="EmptyStringCaption">
-          <DataField>EmptyStringCaption</DataField>
-        </Field>
-        <Field Name="EmptyStringCaption_Control1000000023">
-          <DataField>EmptyStringCaption_Control1000000023</DataField>
-        </Field>
-        <Field Name="A_Calais_leCaption">
-          <DataField>A_Calais_leCaption</DataField>
-        </Field>
-        <Field Name="EmptyStringCaption_Control1000000014">
-          <DataField>EmptyStringCaption_Control1000000014</DataField>
-        </Field>
-        <Field Name="TOTAL_Poids_netCaption">
-          <DataField>TOTAL_Poids_netCaption</DataField>
-        </Field>
-        <Field Name="Arrété_àCaption">
-          <DataField>Arrété_àCaption</DataField>
-        </Field>
-        <Field Name="TOTAL_QuantitéCaption">
-          <DataField>TOTAL_QuantitéCaption</DataField>
-        </Field>
-        <Field Name="Entrepot_______LocationFilter_BoucleMag_Number______LocationName_BoucleMag_Number_">
-          <DataField>Entrepot_______LocationFilter_BoucleMag_Number______LocationName_BoucleMag_Number_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line__Unit_of_Measure_Code_">
-          <DataField>Sales_Shipment_Line__Unit_of_Measure_Code_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Quantity">
-          <DataField>Sales_Shipment_Line_Quantity</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_QuantityFormat">
-          <DataField>Sales_Shipment_Line_QuantityFormat</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Shelf_Bin_No">
-          <DataField>Sales_Shipment_Line_Shelf_Bin_No</DataField>
-        </Field>
-        <Field Name="Description__Description_2_">
-          <DataField>Description__Description_2_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line__No__">
-          <DataField>Sales_Shipment_Line__No__</DataField>
-        </Field>
-        <Field Name="NumLigne">
-          <DataField>NumLigne</DataField>
-        </Field>
-        <Field Name="Net_Weight__Quantity">
-          <DataField>Net_Weight__Quantity</DataField>
-        </Field>
-        <Field Name="Net_Weight__QuantityFormat">
-          <DataField>Net_Weight__QuantityFormat</DataField>
-        </Field>
-        <Field Name="TextDLC_SF">
-          <DataField>TextDLC_SF</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Description">
-          <DataField>Sales_Shipment_Line_Description</DataField>
-        </Field>
-        <Field Name="Type_">
-          <DataField>Type_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header___Call_Type_">
-          <DataField>Sales_Shipment_Header___Call_Type_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line___Location_Code_">
-          <DataField>Sales_Shipment_Line___Location_Code_</DataField>
-        </Field>
-        <Field Name="TextDLC_">
-          <DataField>TextDLC_</DataField>
-        </Field>
-        <Field Name="Item__Vendor_Item_No__">
-          <DataField>Item__Vendor_Item_No__</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Document_No_">
-          <DataField>Sales_Shipment_Line_Document_No_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Line_No_">
-          <DataField>Sales_Shipment_Line_Line_No_</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -283,7 +24,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>2.4333cm</Height>
+                  <Height>2.39838cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -758,7 +499,7 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                     </TablixCells>
                                   </TablixRow>
                                   <TablixRow>
-                                    <Height>0.63492cm</Height>
+                                    <Height>0.6cm</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
@@ -790,131 +531,15 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <ColSpan>3</ColSpan>
+                                          <ColSpan>7</ColSpan>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell />
                                       <TablixCell />
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="textbox31">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style />
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>textbox31</rd:DefaultName>
-                                            <ZIndex>68</ZIndex>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="textbox13">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style />
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>textbox13</rd:DefaultName>
-                                            <ZIndex>67</ZIndex>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="textbox14">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style />
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>textbox14</rd:DefaultName>
-                                            <ZIndex>66</ZIndex>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="textbox70">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style />
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>textbox70</rd:DefaultName>
-                                            <ZIndex>65</ZIndex>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
+                                      <TablixCell />
+                                      <TablixCell />
+                                      <TablixCell />
+                                      <TablixCell />
                                     </TablixCells>
                                   </TablixRow>
                                   <TablixRow>
@@ -942,18 +567,13 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                             <ZIndex>63</ZIndex>
                                             <Style>
                                               <Border>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
                                               <TopBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
                                               <LeftBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1002,16 +622,11 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <BottomBorder>
+                                              <RightBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
+                                              </RightBorder>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>0.105cm</PaddingLeft>
                                               <PaddingRight>0.105cm</PaddingRight>
@@ -1048,16 +663,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>0.105cm</PaddingLeft>
                                               <PaddingRight>0.21cm</PaddingRight>
@@ -1097,16 +702,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
                                               <RightBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1150,16 +745,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
                                               <RightBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1204,16 +789,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
                                               <RightBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1258,11 +833,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
                                               <LeftBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1374,7 +944,7 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=IIf(Fields!Type_.Value&lt;&gt;"","",Fields!Sales_Shipment_Line_Description.Value)</Value>
+                                                    <Value>=Fields!Sales_Shipment_Line_Description.Value</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                     </Style>
@@ -1434,11 +1004,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
                                               <RightBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1618,6 +1183,9 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                     </SortExpressions>
                                     <TablixMembers>
                                       <TablixMember>
+                                        <KeepWithGroup>After</KeepWithGroup>
+                                      </TablixMember>
+                                      <TablixMember>
                                         <Group Name="Sales_Shipment_Line">
                                           <GroupExpressions>
                                             <GroupExpression>=Fields!Sales_Shipment_Line_Document_No_.Value</GroupExpression>
@@ -1636,12 +1204,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                         <TablixMembers>
                                           <TablixMember>
                                             <Visibility>
-                                              <Hidden>=reportItems!textbox12.value=""</Hidden>
-                                            </Visibility>
-                                            <KeepTogether>true</KeepTogether>
-                                          </TablixMember>
-                                          <TablixMember>
-                                            <Visibility>
                                               <Hidden>=(ReportItems!Sales_Shipment_Line__No__.Value="" and Fields!Description__Description_2_.Value="") OR (ReportItems!Sales_Shipment_Line__No__.Value&lt;&gt;"" and Fields!Sales_Shipment_Line_Quantity.Value=0)
 OR (Fields!NumLigne.Value = 0)</Hidden>
                                             </Visibility>
@@ -1658,8 +1220,8 @@ OR (Fields!NumLigne.Value = 0)</Hidden>
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Height>2.4333cm</Height>
-                              <Width>19.40229cm</Width>
+                              <Height>2.39838cm</Height>
+                              <Width>19.40228cm</Width>
                               <ZIndex>4</ZIndex>
                               <Style>
                                 <Border>
@@ -1702,18 +1264,18 @@ OR (Fields!NumLigne.Value = 0)</Hidden>
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
-            <Height>2.4333cm</Height>
+            <Height>2.39838cm</Height>
             <Width>19.40229cm</Width>
             <Style />
           </Tablix>
         </ReportItems>
-        <Height>2.4333cm</Height>
+        <Height>2.39838cm</Height>
         <Style />
       </Body>
       <Width>19.40229cm</Width>
       <Page>
         <PageHeader>
-          <Height>6.49028cm</Height>
+          <Height>7.46395cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2923,7 +2485,6 @@ OR (Fields!NumLigne.Value = 0)</Hidden>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
             <Line Name="line1">
-              <Top>0cm</Top>
               <Height>0cm</Height>
               <Width>19.36508cm</Width>
               <Style>
@@ -2949,7 +2510,6 @@ OR (Fields!NumLigne.Value = 0)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Height>0.63492cm</Height>
               <Width>1.5873cm</Width>
               <ZIndex>1</ZIndex>
@@ -2978,7 +2538,6 @@ OR (Fields!NumLigne.Value = 0)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Left>1.37566cm</Left>
               <Height>0.63492cm</Height>
               <Width>0.95238cm</Width>
@@ -3004,7 +2563,6 @@ OR (Fields!NumLigne.Value = 0)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Left>2.32804cm</Left>
               <Height>0.63492cm</Height>
               <Width>7.19577cm</Width>
@@ -3379,12 +2937,6 @@ OR (Fields!NumLigne.Value = 0)</Hidden>
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>
 Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
@@ -3556,4 +3108,263 @@ End Function</Code>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>a046badc-9f7a-4189-b9fd-a3413bf51ee0</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="BON_DE_LIVRAISON_">
+          <DataField>BON_DE_LIVRAISON_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header__Sales_Shipment_Header__Reference">
+          <DataField>Sales_Shipment_Header__Sales_Shipment_Header__Reference</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header__Sales_Shipment_Header___Bill_to_Customer_No__">
+          <DataField>Sales_Shipment_Header__Sales_Shipment_Header___Bill_to_Customer_No__</DataField>
+        </Field>
+        <Field Name="Titre">
+          <DataField>Titre</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header__Promised_Delivery_Date_">
+          <DataField>Sales_Shipment_Header__Promised_Delivery_Date_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header__Sales_Shipment_Header___Order_No__">
+          <DataField>Sales_Shipment_Header__Sales_Shipment_Header___Order_No__</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header___Sales_Shipment_Header___Posting_Date_">
+          <DataField>Sales_Shipment_Header___Sales_Shipment_Header___Posting_Date_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_City_">
+          <DataField>Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_City_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_1_">
+          <DataField>ShipToAddr_1_</DataField>
+        </Field>
+        <Field Name="ShippingAgent_Name">
+          <DataField>ShippingAgent_Name</DataField>
+        </Field>
+        <Field Name="CompanyAddr_2_">
+          <DataField>CompanyAddr_2_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_3_">
+          <DataField>CompanyAddr_3_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_4_">
+          <DataField>CompanyAddr_4_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_5_">
+          <DataField>CompanyAddr_5_</DataField>
+        </Field>
+        <Field Name="Tel_______CompanyInfo__Phone_No__">
+          <DataField>Tel_______CompanyInfo__Phone_No__</DataField>
+        </Field>
+        <Field Name="E_Mail_______CompanyInfo__E_Mail_">
+          <DataField>E_Mail_______CompanyInfo__E_Mail_</DataField>
+        </Field>
+        <Field Name="au_Capital_de___CompanyInfo__Stock_Capital_">
+          <DataField>au_Capital_de___CompanyInfo__Stock_Capital_</DataField>
+        </Field>
+        <Field Name="Fax_______CompanyInfo__Fax_No__">
+          <DataField>Fax_______CompanyInfo__Fax_No__</DataField>
+        </Field>
+        <Field Name="N__id__intracom_____CompanyInfo__VAT_Registration_No__">
+          <DataField>N__id__intracom_____CompanyInfo__VAT_Registration_No__</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header__Sales_Shipment_Header___Bill_to_Name_">
+          <DataField>Sales_Shipment_Header__Sales_Shipment_Header___Bill_to_Name_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_1_">
+          <DataField>CompanyAddr_1_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header__Sales_Shipment_Header___No__">
+          <DataField>Sales_Shipment_Header__Sales_Shipment_Header___No__</DataField>
+        </Field>
+        <Field Name="CompanyInfo__Logo_AVITA_facture_">
+          <DataField>CompanyInfo__Logo_AVITA_facture_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_Address_">
+          <DataField>Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_Address_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header___Sales_Shipment_Header___Delivry_time_">
+          <DataField>Sales_Shipment_Header___Sales_Shipment_Header___Delivry_time_</DataField>
+        </Field>
+        <Field Name="ADMIS_ET_RECONNU_CONFORME_LE_">
+          <DataField>ADMIS_ET_RECONNU_CONFORME_LE_</DataField>
+        </Field>
+        <Field Name="FORMAT___Sales_Shipment_Header___Posting_Date__0_4_">
+          <DataField>FORMAT___Sales_Shipment_Header___Posting_Date__0_4_</DataField>
+        </Field>
+        <Field Name="TotalPoidsNet">
+          <DataField>TotalPoidsNet</DataField>
+        </Field>
+        <Field Name="TotalPoidsNetFormat">
+          <DataField>TotalPoidsNetFormat</DataField>
+        </Field>
+        <Field Name="articles_sur_le_BL_n_________Sales_Shipment_Line___Document_No__">
+          <DataField>articles_sur_le_BL_n_________Sales_Shipment_Line___Document_No__</DataField>
+        </Field>
+        <Field Name="NbLigneTotal">
+          <DataField>NbLigneTotal</DataField>
+        </Field>
+        <Field Name="TotalQuantite">
+          <DataField>TotalQuantite</DataField>
+        </Field>
+        <Field Name="TotalQuantiteFormat">
+          <DataField>TotalQuantiteFormat</DataField>
+        </Field>
+        <Field Name="Destinataire___Caption">
+          <DataField>Destinataire___Caption</DataField>
+        </Field>
+        <Field Name="Date_livraisonCaption">
+          <DataField>Date_livraisonCaption</DataField>
+        </Field>
+        <Field Name="Date_de_doc__Caption">
+          <DataField>Date_de_doc__Caption</DataField>
+        </Field>
+        <Field Name="Lieu__Caption">
+          <DataField>Lieu__Caption</DataField>
+        </Field>
+        <Field Name="Emplacement__Caption">
+          <DataField>Emplacement__Caption</DataField>
+        </Field>
+        <Field Name="Commande_n____Caption">
+          <DataField>Commande_n____Caption</DataField>
+        </Field>
+        <Field Name="N__de_véhicule__Caption">
+          <DataField>N__de_véhicule__Caption</DataField>
+        </Field>
+        <Field Name="Navire__Caption">
+          <DataField>Navire__Caption</DataField>
+        </Field>
+        <Field Name="Armateur__Caption">
+          <DataField>Armateur__Caption</DataField>
+        </Field>
+        <Field Name="Destinataire___Caption_Control1000000043">
+          <DataField>Destinataire___Caption_Control1000000043</DataField>
+        </Field>
+        <Field Name="Transporteur___Caption">
+          <DataField>Transporteur___Caption</DataField>
+        </Field>
+        <Field Name="Expéditeur___Caption">
+          <DataField>Expéditeur___Caption</DataField>
+        </Field>
+        <Field Name="Référence_commande__Caption">
+          <DataField>Référence_commande__Caption</DataField>
+        </Field>
+        <Field Name="N__de_document___Caption">
+          <DataField>N__de_document___Caption</DataField>
+        </Field>
+        <Field Name="Poids_net_ligneCaption">
+          <DataField>Poids_net_ligneCaption</DataField>
+        </Field>
+        <Field Name="QuantitéCaption">
+          <DataField>QuantitéCaption</DataField>
+        </Field>
+        <Field Name="UnitéCaption">
+          <DataField>UnitéCaption</DataField>
+        </Field>
+        <Field Name="DésignationCaption">
+          <DataField>DésignationCaption</DataField>
+        </Field>
+        <Field Name="Code_articleCaption">
+          <DataField>Code_articleCaption</DataField>
+        </Field>
+        <Field Name="N__de_ligneCaption">
+          <DataField>N__de_ligneCaption</DataField>
+        </Field>
+        <Field Name="Heure_livraisonCaption">
+          <DataField>Heure_livraisonCaption</DataField>
+        </Field>
+        <Field Name="Caption">
+          <DataField>Caption</DataField>
+        </Field>
+        <Field Name="Par_procurationCaption">
+          <DataField>Par_procurationCaption</DataField>
+        </Field>
+        <Field Name="VisaCaption">
+          <DataField>VisaCaption</DataField>
+        </Field>
+        <Field Name="EmptyStringCaption">
+          <DataField>EmptyStringCaption</DataField>
+        </Field>
+        <Field Name="EmptyStringCaption_Control1000000023">
+          <DataField>EmptyStringCaption_Control1000000023</DataField>
+        </Field>
+        <Field Name="A_Calais_leCaption">
+          <DataField>A_Calais_leCaption</DataField>
+        </Field>
+        <Field Name="EmptyStringCaption_Control1000000014">
+          <DataField>EmptyStringCaption_Control1000000014</DataField>
+        </Field>
+        <Field Name="TOTAL_Poids_netCaption">
+          <DataField>TOTAL_Poids_netCaption</DataField>
+        </Field>
+        <Field Name="Arrété_àCaption">
+          <DataField>Arrété_àCaption</DataField>
+        </Field>
+        <Field Name="TOTAL_QuantitéCaption">
+          <DataField>TOTAL_QuantitéCaption</DataField>
+        </Field>
+        <Field Name="Entrepot_______LocationFilter_BoucleMag_Number______LocationName_BoucleMag_Number_">
+          <DataField>Entrepot_______LocationFilter_BoucleMag_Number______LocationName_BoucleMag_Number_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line__Unit_of_Measure_Code_">
+          <DataField>Sales_Shipment_Line__Unit_of_Measure_Code_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Quantity">
+          <DataField>Sales_Shipment_Line_Quantity</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_QuantityFormat">
+          <DataField>Sales_Shipment_Line_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Shelf_Bin_No">
+          <DataField>Sales_Shipment_Line_Shelf_Bin_No</DataField>
+        </Field>
+        <Field Name="Description__Description_2_">
+          <DataField>Description__Description_2_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line__No__">
+          <DataField>Sales_Shipment_Line__No__</DataField>
+        </Field>
+        <Field Name="NumLigne">
+          <DataField>NumLigne</DataField>
+        </Field>
+        <Field Name="Net_Weight__Quantity">
+          <DataField>Net_Weight__Quantity</DataField>
+        </Field>
+        <Field Name="Net_Weight__QuantityFormat">
+          <DataField>Net_Weight__QuantityFormat</DataField>
+        </Field>
+        <Field Name="TextDLC_SF">
+          <DataField>TextDLC_SF</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Description">
+          <DataField>Sales_Shipment_Line_Description</DataField>
+        </Field>
+        <Field Name="Type_">
+          <DataField>Type_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header___Call_Type_">
+          <DataField>Sales_Shipment_Header___Call_Type_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line___Location_Code_">
+          <DataField>Sales_Shipment_Line___Location_Code_</DataField>
+        </Field>
+        <Field Name="TextDLC_">
+          <DataField>TextDLC_</DataField>
+        </Field>
+        <Field Name="Item__Vendor_Item_No__">
+          <DataField>Item__Vendor_Item_No__</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Document_No_">
+          <DataField>Sales_Shipment_Line_Document_No_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Line_No_">
+          <DataField>Sales_Shipment_Line_Line_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

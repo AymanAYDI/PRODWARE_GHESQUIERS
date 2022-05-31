@@ -3,7 +3,7 @@ report 50106 "Sales - Shipmt BLAVI bac blanc"
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/SalesShipmtBLAVIbacblanc.rdl';
     Caption = 'Sales - Shipment BLAVI bac blanc';
-UsageCategory = None;
+    UsageCategory = None;
     dataset
     {
         dataitem(copyLoop; Integer)
@@ -14,22 +14,22 @@ UsageCategory = None;
                 DataItemTableView = SORTING("No.");
                 RequestFilterFields = "No.", "Sell-to Customer No.", "No. Printed";
                 RequestFilterHeading = 'Posted Sales Shipment';
-                column(Sales_Shipment_Header__Sales_Shipment_Header__Reference; "Sales Shipment Header"."PWD Reference")
+                column(SalesShipmentHeader_Reference; "Sales Shipment Header"."PWD Reference")
                 {
                 }
-                column(Sales_Shipment_Header__Sales_Shipment_Header___Bill_to_Customer_No__; "Sales Shipment Header"."Bill-to Customer No.")
+                column(SalesShipmentHeader_BilltoCustomerNo; "Sales Shipment Header"."Bill-to Customer No.")
                 {
                 }
-                column(Sales_Shipment_Header__Promised_Delivery_Date_; "Promised Delivery Date")
+                column(SalesShipmentHeader_PromisedDeliveryDate; "Promised Delivery Date")
                 {
                 }
-                column(Sales_Shipment_Header__Sales_Shipment_Header___Order_No__; "Sales Shipment Header"."Order No.")
+                column(SalesShipmentHeader_OrderNo; "Sales Shipment Header"."Order No.")
                 {
                 }
-                column(Sales_Shipment_Header___Sales_Shipment_Header___Posting_Date_; "Sales Shipment Header"."Posting Date")
+                column(SalesShipmentHeader_PostingDate; "Sales Shipment Header"."Posting Date")
                 {
                 }
-                column(Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_City_; "Sales Shipment Header"."Ship-to City")
+                column(SalesShipmentHeader_ShiptoCity; "Sales Shipment Header"."Ship-to City")
                 {
                 }
                 column(ShipToAddr_1_; ShipToAddr[1])
@@ -47,28 +47,28 @@ UsageCategory = None;
                 column(CompanyAddr_4_; CompanyAddr[4])
                 {
                 }
-                column(Tel_______CompanyInfo__Phone_No__; 'Tel : ' + CompanyInfo."Phone No.")
+                column(CompanyInfo_PhoneNo; 'Tel : ' + CompanyInfo."Phone No.")
                 {
                 }
-                column(E_Mail_______CompanyInfo__E_Mail_; 'E-Mail : ' + CompanyInfo."E-Mail")
+                column(EMail_CompanyInfo; 'E-Mail : ' + CompanyInfo."E-Mail")
                 {
                 }
                 column(au_Capital_de___CompanyInfo__Stock_Capital_; 'au Capital de ' + CompanyInfo."Stock Capital")
                 {
                 }
-                column(Fax_______CompanyInfo__Fax_No__; 'Fax : ' + CompanyInfo."Fax No.")
+                column(CompanyInfo_FaxNo; 'Fax : ' + CompanyInfo."Fax No.")
                 {
                 }
-                column(N__id__intracom_____CompanyInfo__VAT_Registration_No__; 'N° id. intracom : ' + CompanyInfo."VAT Registration No.")
+                column(CompanyInfo_VAT_RegistrationNo; 'N° id. intracom : ' + CompanyInfo."VAT Registration No.")
                 {
                 }
-                column(Sales_Shipment_Header__Sales_Shipment_Header___Bill_to_Name_; "Sales Shipment Header"."Bill-to Name")
+                column(SalesShipmentHeader_BillToName; "Sales Shipment Header"."Bill-to Name")
                 {
                 }
                 column(CompanyAddr_1_; CompanyAddr[1])
                 {
                 }
-                column(Sales_Shipment_Header__Sales_Shipment_Header___No__; "Sales Shipment Header"."No.")
+                column(SalesShipmentHeader_No; "Sales Shipment Header"."No.")
                 {
                 }
                 column(CompanyInfo__Logo_AVITA_facture_; CompanyInfo."PWD Logo AVITA facture")
@@ -77,28 +77,28 @@ UsageCategory = None;
                 column(BON_DE_LIVRAISON_AVITAILLEMENT_; 'BON DE LIVRAISON A L AVITAILLEMENT - DELIVERY NOTE')
                 {
                 }
-                column(Sales_Shipment_Header___Sales_Shipment_Header___Delivry_time_; "Sales Shipment Header"."PWD Delivry time")
+                column(SalesShipmentHeader_DelivryTime; "Sales Shipment Header"."PWD Delivry time")
                 {
                 }
-                column(Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_Address_; "Sales Shipment Header"."Ship-to Address")
+                column(SalesShipmentHeader_ShipToAddress; "Sales Shipment Header"."Ship-to Address")
                 {
                 }
                 column(Titre; Titre)
                 {
                 }
-                column(Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_Address_2_; "Sales Shipment Header"."Ship-to Address 2")
+                column(SalesShipmentHeader_ShipToAddress2; "Sales Shipment Header"."Ship-to Address 2")
                 {
                 }
-                column(ADMIS_ET_RECONNU_CONFORME_LE_; 'ADMIS ET RECONNU CONFORME LE')
+                column(ADMIS_ET_RECONNU_CONFORME_LE_Caption; 'ADMIS ET RECONNU CONFORME LE')
                 {
                 }
-                column(FORMAT___Sales_Shipment_Header___Posting_Date__0_4_; FORMAT("Sales Shipment Header"."Posting Date", 0, 4))
+                column(SalesShipmentHeader__PostingDate; FORMAT("Sales Shipment Header"."Posting Date", 0, 4))
                 {
                 }
                 column(TotalPoidsNet; TotalPoidsNet)
                 {
                 }
-                column(articles_sur_le_BL_n_________Sales_Shipment_Line___Document_No__; 'articles sur le BL n° : ' + "Sales Shipment Line"."Document No.")
+                column(SalesShipmentLine_DocumentNo; 'articles sur le BL n° : ' + "Sales Shipment Line"."Document No.")
                 {
                 }
                 column(NbLigneTotal; NbLigneTotal)
@@ -107,13 +107,13 @@ UsageCategory = None;
                 column(TotalQuantite; TotalQuantite)
                 {
                 }
-                column(Destinataire___Caption; Destinataire___CaptionLbl)
+                column(Destinataire_Caption; Destinataire_Caption)
                 {
                 }
                 column(Date_livraisonCaption; Date_livraisonCaptionLbl)
                 {
                 }
-                column(Date_de_doc__Caption; Date_de_doc__CaptionLbl)
+                column(Date_Doc_Caption; Date_Doc_Caption)
                 {
                 }
                 column(Lieu__Caption; Lieu__CaptionLbl)
@@ -122,31 +122,28 @@ UsageCategory = None;
                 column("Identité__Caption"; Identité__CaptionLbl)
                 {
                 }
-                column(Commande_n____Caption; Commande_n____CaptionLbl)
+                column(NCommande_Caption; NCommande_Caption)
                 {
                 }
-                column("N__de_véhicule__Caption"; N__de_véhicule__CaptionLbl)
+                column(N_véhicule_Caption; N_véhicule_Caption)
                 {
                 }
-                column(Navire__Caption; Navire__CaptionLbl)
+                column(Navire_Caption; Navire_Caption)
                 {
                 }
-                column(Client__Caption; Client__CaptionLbl)
+                column(Client_Caption; Client_Caption)
                 {
                 }
-                column(Destinataire___Caption_Control1000000043; Destinataire___Caption_Control1000000043Lbl)
+                column(Transporteur_Caption; Transporteur_Caption)
                 {
                 }
-                column(Transporteur___Caption; Transporteur___CaptionLbl)
+                column(Expéditeur___Caption; Expéditeur___CaptionLbl)
                 {
                 }
-                column("Expéditeur___Caption"; Expéditeur___CaptionLbl)
+                column(Référence_commande__Caption; Référence_commande__CaptionLbl)
                 {
                 }
-                column("Référence_commande__Caption"; Référence_commande__CaptionLbl)
-                {
-                }
-                column(N__de_document___Caption; N__de_document___CaptionLbl)
+                column(NDocument_Caption; NDocument_Caption)
                 {
                 }
                 column(Poids_net_ligneCaption; Poids_net_ligneCaptionLbl)
@@ -170,10 +167,10 @@ UsageCategory = None;
                 column(Heure_livraisonCaption; Heure_livraisonCaptionLbl)
                 {
                 }
-                column(Convention_d_Avitaillement___du_25_01_2008_________________________________________Bureau_de_Boulogne_S_MerCaption; Convention_d_Avitaillement___du_25_01_2008_________________________________________Bureau_de_Boulogne_S_MerCaptionLbl)
+                column(Convention_d_Avitaillement_Caption; Convention_d_Avitaillement_Caption)
                 {
                 }
-                column(N__accises_FR000074E0019Caption; N__accises_FR000074E0019CaptionLbl)
+                column(N_accises_Caption; N_accises_Caption)
                 {
                 }
                 column(Caption; CaptionLbl)
@@ -185,16 +182,7 @@ UsageCategory = None;
                 column(VisaCaption; VisaCaptionLbl)
                 {
                 }
-                column(EmptyStringCaption; EmptyStringCaptionLbl)
-                {
-                }
-                column(EmptyStringCaption_Control1000000023; EmptyStringCaption_Control1000000023Lbl)
-                {
-                }
                 column(A_Calais_leCaption; A_Calais_leCaptionLbl)
-                {
-                }
-                column(EmptyStringCaption_Control1000000014; EmptyStringCaption_Control1000000014Lbl)
                 {
                 }
                 column(TOTAL_Poids_netCaption; TOTAL_Poids_netCaptionLbl)
@@ -206,10 +194,10 @@ UsageCategory = None;
                 column("TOTAL_QuantitéCaption"; TOTAL_QuantitéCaptionLbl)
                 {
                 }
-                column(DataItem1000000091; Quantités_autorisées_40g_tabac_ou_cigarettes_5cl_vin_ou_bière_ou_apéritif_à_base_de_vin_10cl_spiritueux_par_personneLbl)
+                column(Quantités_autorisées_Caption; Quantités_autorisées_Caption)
                 {
                 }
-                column(DataItem1000000092; Bonded_Allowance_40g_tobacco_or_cigarettes_5cl_wine_or_beer_or_aperitive_with_wine_10cl_spirits_per_day_at_sea_per_pLbl)
+                column(Bonded_Allowance_Caption; Bonded_Allowance_Caption)
                 {
                 }
                 dataitem(BoucleMag; Integer)
@@ -219,7 +207,7 @@ UsageCategory = None;
                     {
                         DataItemLinkReference = "Sales Shipment Header";
                         DataItemTableView = SORTING("Document No.", "Location Code");
-                        column(Entrepot_______LocationFilter_BoucleMag_Number______DesAFD_____LocationName_BoucleMag_Number_; 'Entrepot : ' + LocationFilter[BoucleMag.Number] + ' ' + DesAFD + ' ' + LocationName[BoucleMag.Number])
+                        column(EntrepotLocationFiltercaption; 'Entrepot : ' + LocationFilter[BoucleMag.Number] + ' ' + DesAFD + ' ' + LocationName[BoucleMag.Number])
                         {
                         }
                         column(Sales_Shipment_Line__Unit_of_Measure_Code_; "Unit of Measure Code")
@@ -231,13 +219,13 @@ UsageCategory = None;
                         column(Description__Description_2_; Description + "Description 2")
                         {
                         }
-                        column(Sales_Shipment_Line__No__; "No.")
+                        column(SalesShipmentLine_No; "No.")
                         {
                         }
                         column(NumLigne; NumLigne)
                         {
                         }
-                        column(Net_Weight__Quantity; "Net Weight" * Quantity)
+                        column(NetWeightQuantity; "Net Weight" * Quantity)
                         {
                         }
                         column(TextDLC_SF; TextDLC_SF)
@@ -258,16 +246,16 @@ UsageCategory = None;
                         column(Sales_Shipment_Header___Call_Type_; "Sales Shipment Header"."PWD Call Type")
                         {
                         }
-                        column(Sales_Shipment_Line___Location_Code_; "Sales Shipment Line"."Location Code")
+                        column(SalesShipmentLine_LocationCode; "Sales Shipment Line"."Location Code")
                         {
                         }
                         column(Sales_Shipment_Line_TypeCaption; FIELDCAPTION(Type))
                         {
                         }
-                        column(Sales_Shipment_Line_Document_No_; "Document No.")
+                        column(SalesShipmentLine_Document_No; "Document No.")
                         {
                         }
-                        column(Sales_Shipment_Line_Line_No_; "Line No.")
+                        column(SalesShipmentLine_LineNo; "Line No.")
                         {
                         }
                         column(ShowCustAddr; ShowCustAddr)
@@ -588,38 +576,34 @@ UsageCategory = None;
         TotalLocation: Integer;
         A_Calais_leCaptionLbl: Label 'A Calais le';
         "Arrété_àCaptionLbl": Label 'Arrété à';
-        Bonded_Allowance_40g_tobacco_or_cigarettes_5cl_wine_or_beer_or_aperitive_with_wine_10cl_spirits_per_day_at_sea_per_pLbl: Label 'L''exonération des droits et taxes est conditionnée par la mise à bord effective immédiate des marchandises pour consommation à bord. A défaut, les droits et taxes sont dûs.';
+        Bonded_Allowance_Caption: Label 'L''exonération des droits et taxes est conditionnée par la mise à bord effective immédiate des marchandises pour consommation à bord. A défaut, les droits et taxes sont dûs.';
         CaptionLbl: Label 'S.A.S. GHESQUIERS JPG';
-        Client__CaptionLbl: Label 'Client :';
+        Client_Caption: Label 'Client :';
         Code_articleCaptionLbl: Label 'Code article';
-        Commande_n____CaptionLbl: Label 'Commande n° :    ';
-        Convention_d_Avitaillement___du_25_01_2008_________________________________________Bureau_de_Boulogne_S_MerCaptionLbl: Label 'Convention Avitaillement 25/01/08                                        Bureau Boulogne/Mer FR000630              Bureau CI Calais FR000740';
-        Date_de_doc__CaptionLbl: Label 'Date de doc.:';
+        NCommande_Caption: Label 'Commande n° :    ';
+        Convention_d_Avitaillement_Caption: Label 'Convention Avitaillement 25/01/08                                        Bureau Boulogne/Mer FR000630              Bureau CI Calais FR000740';
+        Date_Doc_Caption: Label 'Date de doc.:';
         Date_livraisonCaptionLbl: Label 'Date livraison';
         "DésignationCaptionLbl": Label 'Désignation';
-        Destinataire___Caption_Control1000000043Lbl: Label 'Destinataire : ';
-        Destinataire___CaptionLbl: Label 'Destinataire : ';
-        EmptyStringCaption_Control1000000014Lbl: Label ' : ';
-        EmptyStringCaption_Control1000000023Lbl: Label ' : ';
-        EmptyStringCaptionLbl: Label ' : ';
+        Destinataire_Caption: Label 'Destinataire : ';
         "Expéditeur___CaptionLbl": Label 'Expéditeur : ';
         Heure_livraisonCaptionLbl: Label 'Heure livraison';
         "Identité__CaptionLbl": Label 'Pavillon';
         Lieu__CaptionLbl: Label 'Lieu :';
-        N__accises_FR000074E0019CaptionLbl: Label 'N° accises FR012074E1077';
-        N__de_document___CaptionLbl: Label 'N° de document : ';
+        N_accises_Caption: Label 'N° accises FR012074E1077';
+        NDocument_Caption: Label 'N° de document : ';
         N__de_ligneCaptionLbl: Label 'N° de ligne';
-        "N__de_véhicule__CaptionLbl": Label 'N° de véhicule :';
-        Navire__CaptionLbl: Label 'Navire :';
+        N_véhicule_Caption: Label 'N° de véhicule :';
+        Navire_Caption: Label 'Navire :';
         Par_procurationCaptionLbl: Label 'Par procuration';
         Poids_net_ligneCaptionLbl: Label 'Poids net net weight ';
         "QuantitéCaptionLbl": Label 'Quantité';
-        Quantités_autorisées_40g_tabac_ou_cigarettes_5cl_vin_ou_bière_ou_apéritif_à_base_de_vin_10cl_spiritueux_par_personneLbl: Label 'Bonded allowance / Quantités autorisées : 40 g tabac ou cigarettes + 5 cl vin bière ou apéritif à base de vin + 10 cl spiritueux par personne majeure embarquée et par jour de mer';
+        Quantités_autorisées_Caption: Label 'Bonded allowance / Quantités autorisées : 40 g tabac ou cigarettes + 5 cl vin bière ou apéritif à base de vin + 10 cl spiritueux par personne majeure embarquée et par jour de mer';
         "Référence_commande__CaptionLbl": Label 'Référence commande :';
         Text000: Label 'Salesperson';
         TOTAL_Poids_netCaptionLbl: Label 'TOTAL Poids net';
         "TOTAL_QuantitéCaptionLbl": Label 'TOTAL Quantité';
-        Transporteur___CaptionLbl: Label 'Transporteur : ';
+        Transporteur_Caption: Label 'Transporteur : ';
         "UnitéCaptionLbl": Label 'Unité';
         VisaCaptionLbl: Label 'Visa';
         SalesPersonText: Text[20];
