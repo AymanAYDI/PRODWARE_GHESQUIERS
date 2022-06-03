@@ -246,19 +246,11 @@ report 50115 "PWD Evaluation stock SAS Ghes"
                 {
                     DecimalPlaces = 0 : 5;
                 }
-                column(ShipDecreases; ShipDecreases)
-                {
-                    DecimalPlaces = 0 : 5;
-                }
                 column(ValueOfQtyOnHand_ValueOfRcdIncreases_CostOfShipDecreases; ValueOfQtyOnHand + ValueOfRcdIncreases - CostOfShipDecreases)
                 {
                     AutoFormatType = 1;
                 }
                 column(CostOfShipDecreases; CostOfShipDecreases)
-                {
-                    AutoFormatType = 1;
-                }
-                column(ValueOfRcdIncreases; ValueOfRcdIncreases)
                 {
                     AutoFormatType = 1;
                 }
@@ -456,7 +448,7 @@ report 50115 "PWD Evaluation stock SAS Ghes"
         InvDecreases_CaptionLbl: Label 'Decreases (LCY)';
         Inventory_Valuation____Tariff_No_CaptionLbl: Label 'Inventory Valuation  / Tariff No.';
         InvIncreases_Control38CaptionLbl: Label 'Increases (LCY)';
-        Item_Description_____Item__Description_2_CaptionLbl: Label 'Label';
+        Item_Description_CaptionLbl: Label 'Label';
         QuantityCaption_Control40Lbl: Label 'Quantity';
         QuantityCaption_Control58Lbl: Label 'Quantity';
         QuantityCaption_Control1000000019Lbl: Label 'Quantity';

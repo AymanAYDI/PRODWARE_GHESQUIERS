@@ -574,7 +574,6 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
         NbLigneTotal: Integer;
         NombreLigne: Integer;
         NumLigne: Integer;
-        OutputNo: Integer;
         TestBoucle: Integer;
         TotalLocation: Integer;
         OutputNo: Integer;

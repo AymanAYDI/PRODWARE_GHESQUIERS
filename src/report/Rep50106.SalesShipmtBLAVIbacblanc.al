@@ -291,39 +291,6 @@ report 50106 "Sales - Shipmt BLAVI bac blanc"
                         column(TestBoucle; TestBoucle)
                         {
                         }
-                        column(ShowCustAddr; ShowCustAddr)
-                        {
-                        }
-                        column(CodeDEpotEntete; CodeDEpotEntete)
-                        {
-                        }
-                        column(CodeSeaFrance; CodeSeaFrance)
-                        {
-                        }
-                        column(CodeSommier; CodeSommier)
-                        {
-                        }
-                        column(FinLigne; FinLigne)
-                        {
-                        }
-                        column(NumDSA; NumDSA)
-                        {
-                        }
-                        column(DepotSpecial; DepotSpecial)
-                        {
-                        }
-                        column(QtéAlcoolTotal; QtéAlcoolTotal)
-                        {
-                        }
-                        column(QtéTabacTotal; QtéTabacTotal)
-                        {
-                        }
-                        column(PrintMag; PrintMag)
-                        {
-                        }
-                        column(TestBoucle; TestBoucle)
-                        {
-                        }
                         trigger OnAfterGetRecord()
                         var
                         begin

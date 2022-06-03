@@ -3,8 +3,6 @@ codeunit 60005 "PWD Set/Get Functions"
     SingleInstance = true;
 
     var
-        MemLineDiscount: Decimal;
-        MemUnitPrice: Decimal;
         GboolSkipLoc: Boolean;
         Processing: Boolean;
         CountryCode: Code[10];
