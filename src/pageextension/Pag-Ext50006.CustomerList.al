@@ -25,7 +25,7 @@ pageextension 50006 "PWD CustomerList" extends "Customer List"
                     RecLCustomer.RESET();
                     RecLCustomer.SETCURRENTKEY("PWD Group In EMail");
                     RecLCustomer.SETRANGE("PWD Group In EMail", TRUE);
-                    IF RecLCustomer.FINDFIRST() THEN
+                    IF RecLCustomer.Find() THEN
                         REPEAT
                             IF RecLCustomer."E-Mail" <> '' THEN
                                 IF TxtGAddressList = '' THEN
@@ -306,7 +306,7 @@ pageextension 50006 "PWD CustomerList" extends "Customer List"
         RecLCustomer.RESET();
         RecLCustomer.SETCURRENTKEY("PWD Group In EMail");
         RecLCustomer.SETRANGE("PWD Group In EMail", TRUE);
-        IF RecLCustomer.FINDFIRST() THEN
+        IF RecLCustomer.FIND() THEN
             REPEAT
                 RecLCustomer2.GET(RecLCustomer."No.");
                 RecLCustomer2."PWD Group In EMail" := FALSE;
@@ -323,7 +323,7 @@ pageextension 50006 "PWD CustomerList" extends "Customer List"
         RecLCustomer.RESET();
         RecLCustomer.SETCURRENTKEY("PWD Group In EMail");
         RecLCustomer.SETRANGE("PWD Group In EMail", TRUE);
-        IF RecLCustomer.FINDFIRST() THEN
+        IF RecLCustomer.FIND() THEN
             REPEAT
                 RecLCustomer2.GET(RecLCustomer."No.");
                 RecLCustomer2."PWD Group In EMail" := FALSE;

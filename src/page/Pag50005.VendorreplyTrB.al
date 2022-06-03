@@ -6,7 +6,7 @@ page 50005 "PWD Vendor reply -TrB"
     PageType = ListPart;
     SourceTable = "Purchase Line";
     SourceTableView = WHERE("Document Type" = CONST(Quote));
-UsageCategory = None;
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -91,11 +91,11 @@ UsageCategory = None;
                 {
                     ApplicationArea = all;
                 }
-                field("Lead Time Calculation Import"; Rec."PWD Lead Time Calculation Import")
+                field("Lead Time Calculation Import"; Rec."PWD LeadTimeCalculationImport")
                 {
                     ApplicationArea = all;
                 }
-                field(Control1000000012; Rec."PWD Lead Time Calculation Import")
+                field(Control1000000012; Rec."PWD LeadTimeCalculationImport")
                 {
                     ApplicationArea = all;
                 }

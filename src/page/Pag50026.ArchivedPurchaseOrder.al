@@ -275,6 +275,7 @@ page 50026 "PWD Archived Purchase Order"
                     RunObject = Page "PWD Archived Purchase List";
                     RunPageMode = Edit;
                     ShortCutKey = 'F5';
+                    Image = Card;
                 }
                 action("<Action130>")
                 {
@@ -284,6 +285,7 @@ page 50026 "PWD Archived Purchase Order"
                     RunPageLink = "No." = FIELD("Buy-from Vendor No.");
                     RunPageMode = Edit;
                     ShortCutKey = 'Shift+F5';
+                    Image = Card;
                 }
                 action("<Action119>")
                 {
@@ -294,11 +296,13 @@ page 50026 "PWD Archived Purchase Order"
                     RunObject = Page "Vendor Card";
                     RunPageLink = "No." = FIELD("Buy-from Vendor No.");
                     ShortCutKey = 'Shift+F5';
+                    Image = Card;
                 }
                 action("Axes analytiques")
                 {
                     ApplicationArea = all;
                     Caption = 'Dimensions';
+                    Image = Dimensions;
                     //ToDo
                     /*
                     RunObject = Page "Document Dimensions Archive";
@@ -313,11 +317,12 @@ page 50026 "PWD Archived Purchase Order"
                 {
                     ApplicationArea = all;
                     Caption = 'Dimensions';
+                    Image = Dimensions;
                     //ToDo
                     /*
-                    RunObject = Page "Document Dimensions Archive";
-                    RunPageLink = "Table ID" = CONST(38), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0), "Doc. No. Occurrence" = FIELD("Doc. No. Occurrence"), "Version No." = FIELD("Version No.");
-                */
+                                        RunObject = Page "Document Dimensions Archive";
+                                        RunPageLink = "Table ID" = CONST(38), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0), "Doc. No. Occurrence" = FIELD("Doc. No. Occurrence"), "Version No." = FIELD("Version No.");
+                                    */
                 }
             }
         }

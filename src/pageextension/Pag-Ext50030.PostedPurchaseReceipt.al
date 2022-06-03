@@ -75,6 +75,7 @@ pageextension 50030 "PWD PostedPurchaseReceipt" extends "Posted Purchase Receipt
                 ApplicationArea = all;
                 Caption = 'Lignes COM7';
                 RunObject = Page "PWD Lignes Doc Douane";
+                Image = AllLines;
                 RunPageLink = "Document Type" = CONST("P.Receipt"),
                                   "Document No." = FIELD("No."),
                                   "Customs Document Type" = CONST(COM7);
@@ -92,6 +93,7 @@ pageextension 50030 "PWD PostedPurchaseReceipt" extends "Posted Purchase Receipt
                 Action("PWD Imprimer")
                 {
                     Caption = 'Imprimer...';
+                    Image = Print;
                     ApplicationArea = All;
                     Trigger OnAction()
                     BEGIN
@@ -103,7 +105,7 @@ pageextension 50030 "PWD PostedPurchaseReceipt" extends "Posted Purchase Receipt
                 {
                     Caption = 'Avis de placement';
                     ApplicationArea = All;
-
+                    Image = Print;
                     Trigger OnAction()
                     BEGIN
                         CurrPage.SETSELECTIONFILTER(PurchRcptHeader);
@@ -114,6 +116,7 @@ pageextension 50030 "PWD PostedPurchaseReceipt" extends "Posted Purchase Receipt
                 {
                     Caption = 'COM 7';
                     ApplicationArea = All;
+                    Image = Print;
                     Trigger OnAction()
                     Var
                         PWDCduFunctionMgt: Codeunit "PWD Function Mgt";
@@ -126,6 +129,7 @@ pageextension 50030 "PWD PostedPurchaseReceipt" extends "Posted Purchase Receipt
                 {
                     ApplicationArea = all;
                     Caption = 'Statement Summary';
+                    Image = Print;
                     Trigger OnAction()
                     BEGIN
                         CurrPage.SETSELECTIONFILTER(PurchRcptHeader);

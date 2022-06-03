@@ -4,7 +4,7 @@ pageextension 50046 "PWD InventorySetup" extends "Inventory Setup"
     {
         addafter("Inbound Whse. Handling Time")
         {
-            field("PWD Default Translation Language"; Rec."PWD Default Translation Language")
+            field("PWD Default Translation Language"; Rec."PWD Default Transl. Lang.")
             {
                 ApplicationArea = All;
             }

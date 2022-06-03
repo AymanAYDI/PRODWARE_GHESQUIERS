@@ -89,7 +89,6 @@ table 50017 "PWD Seafrance Sales Line"
 
             trigger OnValidate()
             var
-                CheckDateConflict: Codeunit "Reservation-Check Date Confl.";
             begin
             end;
         }
@@ -222,7 +221,6 @@ table 50017 "PWD Seafrance Sales Line"
 
             trigger OnValidate()
             var
-                ItemLedgEntry: Record "Item Ledger Entry";
             begin
             end;
         }
@@ -299,7 +297,6 @@ table 50017 "PWD Seafrance Sales Line"
 
             trigger OnValidate()
             var
-                Currency2: Record Currency;
             begin
             end;
         }
@@ -320,7 +317,6 @@ table 50017 "PWD Seafrance Sales Line"
 
             trigger OnValidate()
             var
-                Currency2: Record Currency;
             begin
             end;
         }
@@ -506,17 +502,6 @@ table 50017 "PWD Seafrance Sales Line"
             FieldClass = FlowField;
 
             trigger OnValidate()
-            var
-                PurchaseHeader_v: Record "Purchase Header";
-                PurchaseLine_v: Record "Purchase Line";
-                ReservEntry2_v: Record "Reservation Entry";
-                ReservEntry_v: Record "Reservation Entry";
-                Found: Boolean;
-                MatrixOrderNo: array[10] of Code[20];
-                MatrixOrderQty: array[10] of Decimal;
-                i: Integer;
-                MatrixIndex: Integer;
-                MatrixOrderLineNo: array[10] of Integer;
             begin
             end;
         }
@@ -536,8 +521,6 @@ table 50017 "PWD Seafrance Sales Line"
             Caption = 'Blanket Order Line No.';
             TableRelation = "Sales Line"."Line No." WHERE("Document Type" = CONST("Blanket Order"), "Document No." = FIELD("Blanket Order No."));
             DataClassification = CustomerContent;
-            //This property is currently not supported
-            //TestTableRelation = false;
         }
         field(99; "VAT Base Amount"; Decimal)
         {
@@ -623,7 +606,6 @@ table 50017 "PWD Seafrance Sales Line"
 
             trigger OnValidate()
             var
-                UnitOfMeasureTranslation: Record "Unit of Measure Translation";
             begin
             end;
         }
@@ -1195,7 +1177,7 @@ table 50017 "PWD Seafrance Sales Line"
         }
         field(55011; "Nb Purchase Quote"; Integer)
         {
-            CalcFormula = Count("Purchase Line" WHERE("PWD Sales Type Doc Appeal tenders" = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("Document No."), "PWD Sales Line No. Appeal Tenders" = FIELD("Line No."), "Document Type" = CONST(Quote)));
+            CalcFormula = Count("Purchase Line" WHERE("PWD SalesTypeDocAppealTend." = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("Document No."), "PWD SalesLineNoAppealTenders" = FIELD("Line No."), "Document Type" = CONST(Quote)));
             Caption = 'Nb Purchase Quote';
             Description = 'Contremarque';
             Editable = false;
@@ -1231,7 +1213,7 @@ table 50017 "PWD Seafrance Sales Line"
         field(55021; "Quantity Receipted Purch."; Decimal)
         {
             BlankZero = true;
-            CalcFormula = Sum("Purch. Rcpt. Line".Quantity WHERE("PWD Sales Type Doc Appeal tenders" = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("Document No."), "PWD Sales Line No. Appeal Tenders" = FIELD("Line No.")));
+            CalcFormula = Sum("Purch. Rcpt. Line".Quantity WHERE("PWD SalesTypeDocAppealTend" = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("Document No."), "PWD SalesLineNoAppealTenders" = FIELD("Line No.")));
             Caption = 'Quantity Receipted Purch.';
             Description = 'Contremarque';
             Editable = false;

@@ -1,10 +1,10 @@
 page 50023 "PWD Archived Sales Order"
 {
-     Caption = 'Archived Sales Order';
+    Caption = 'Archived Sales Order';
     Editable = false;
     PageType = Card;
     SourceTable = "PWD Archived Sales Header";
-UsageCategory = None;
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -303,11 +303,13 @@ UsageCategory = None;
                     RunObject = Page "Customer Card";
                     RunPageLink = "No." = FIELD("Sell-to Customer No.");
                     ShortCutKey = 'Shift+F5';
+                    Image = Card;
                 }
                 action("Axes analytiques")
                 {
                     ApplicationArea = all;
                     Caption = 'Dimensions';
+                    Image = Dimensions;
                     //ToDo
                     /*
                      RunObject = Page "Document Dimensions Archive";

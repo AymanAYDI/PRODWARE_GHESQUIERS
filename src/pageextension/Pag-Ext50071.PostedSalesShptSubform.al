@@ -145,7 +145,7 @@ pageextension 50071 "PWD PostedSalesShptSubform" extends "Posted Sales Shpt. Sub
             {
                 ApplicationArea = All;
             }
-            field("Valeur douane (correction)"; Rec."Valeur douane (correction)")
+            field("Valeur douane (correction)"; Rec."PWD Valeur douane (correction)")
             {
                 ApplicationArea = All;
             }

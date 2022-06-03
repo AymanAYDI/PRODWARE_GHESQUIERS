@@ -3,7 +3,7 @@ page 50050 "PWD Tarifs préstation"
     DelayedInsert = true;
     PageType = List;
     SourceTable = "PWD Tarifs prestation";
-UsageCategory = None;
+    UsageCategory = None;
     layout
     {
         area(content)

@@ -41,6 +41,6 @@ pageextension 50018 "PWD SalesInvoiceSubform" extends "Sales Invoice Subform"
         CoefPrixUnitaire: Decimal;
     BEGIN
         ParamsVente.GET();
-        CoefPrixUnitaire := ParamsVente."PWD Coef Controle prix unitaire";
+        CoefPrixUnitaire := ParamsVente."PWD Coef Ctrl Prix Unit";
     END;
 }

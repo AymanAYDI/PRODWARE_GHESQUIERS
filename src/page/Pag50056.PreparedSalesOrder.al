@@ -453,6 +453,7 @@ page 50056 "PWD Prepared Sales Order"
                     Caption = 'Article de &contremarque';
                     ShortCutKey = 'F7';
                     ApplicationArea = All;
+                    Image = Item;
 
                     trigger OnAction()
                     var
@@ -486,10 +487,11 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = 'Génération des demandes de prix';
                     ApplicationArea = All;
+                    Image = Price;
 
                     trigger OnAction()
                     begin
-                        CreatePurchQuote.InitDocument(Rec."Document Type", Rec."No.");
+                        CreatePurchQuote.InitDocument(Rec."Document Type".AsInteger(), Rec."No.");
                         CreatePurchQuote.RUN();
                     end;
                 }
@@ -497,10 +499,11 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = 'Export demandes de prix au format Excel';
                     ApplicationArea = All;
+                    Image = ExportToExcel;
 
                     trigger OnAction()
                     begin
-                        CreatePurchQuote.InitDocument(Rec."Document Type", Rec."No.");
+                        CreatePurchQuote.InitDocument(Rec."Document Type".AsInteger(), Rec."No.");
                         CreatePurchQuote.RUN();
                         Rec.SETRECFILTER();
                         REPORT.RUNMODAL(Report::"PWD Export Microsoft Excel", FALSE, FALSE, Rec);
@@ -511,6 +514,7 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = 'Import demandes de prix depuis Excel';
                     ApplicationArea = All;
+                    Image = ImportExcel;
 
                     trigger OnAction()
                     begin
@@ -542,6 +546,7 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = 'Acceptation des offres';
                     ApplicationArea = All;
+                    Image = Approve;
 
                     trigger OnAction()
                     var
@@ -559,6 +564,7 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = 'Création des tarifs fruits et légumes';
                     ApplicationArea = All;
+                    Image = CreateDocument;
 
                     trigger OnAction()
                     begin
@@ -574,6 +580,7 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = 'Génération  des commandes d''achat';
                     ApplicationArea = All;
+                    Image = Purchase;
 
                     trigger OnAction()
                     var
@@ -593,6 +600,7 @@ page 50056 "PWD Prepared Sales Order"
                     Caption = 'Statistics';
                     ShortCutKey = 'F9';
                     ApplicationArea = All;
+                    Image = Statistics;
 
                     trigger OnAction()
                     begin
@@ -611,6 +619,7 @@ page 50056 "PWD Prepared Sales Order"
                     RunPageLink = "No." = FIELD("Sell-to Customer No.");
                     ShortCutKey = 'Shift+F5';
                     ApplicationArea = All;
+                    Image = Card;
                 }
                 action("Co&mmentaires")
                 {
@@ -618,6 +627,7 @@ page 50056 "PWD Prepared Sales Order"
                     RunObject = Page "Sales Comment Sheet";
                     RunPageLink = "Document Type" = FIELD("Document Type"), "No." = FIELD("No.");
                     ApplicationArea = All;
+                    Image = Comment;
                 }
                 action("Li&vraisons")
                 {
@@ -626,6 +636,8 @@ page 50056 "PWD Prepared Sales Order"
                     RunPageLink = "Order No." = FIELD("No.");
                     RunPageView = SORTING("Order No.");
                     ApplicationArea = All;
+                    Image = PostedShipment;
+
                 }
                 action("F&actures")
                 {
@@ -634,10 +646,12 @@ page 50056 "PWD Prepared Sales Order"
                     RunPageLink = "Order No." = FIELD("No.");
                     RunPageView = SORTING("Order No.");
                     ApplicationArea = All;
+                    Image = Invoice;
                 }
                 action("A&xe analytique")
                 {
                     Caption = 'Dimensions';
+                    Image = Dimensions;
                     //ToDo
                     //RunObject = Page "Document Dimensions";
                     //RunPageLink = "Table ID" = CONST(36), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0);
@@ -650,6 +664,7 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = 'Planning';
                     ApplicationArea = All;
+                    Image = Planning;
 
                     trigger OnAction()
                     var
@@ -666,6 +681,7 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = '&Imprimer certificat';
                     ApplicationArea = All;
+                    Image = Print;
 
                     trigger OnAction()
                     begin
@@ -681,6 +697,7 @@ page 50056 "PWD Prepared Sales Order"
                     Caption = 'Copy Document';
                     Ellipsis = true;
                     ApplicationArea = All;
+                    Image = CopyDocument;
 
                     trigger OnAction()
                     begin
@@ -693,6 +710,7 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = 'Archi&ve Document';
                     ApplicationArea = All;
+                    Image = Archive;
 
                     trigger OnAction()
                     begin
@@ -705,6 +723,7 @@ page 50056 "PWD Prepared Sales Order"
                     Caption = 'Move Negative Lines';
                     Ellipsis = true;
                     ApplicationArea = All;
+                    Image = MoveNegativeLines;
 
                     trigger OnAction()
                     begin
@@ -718,6 +737,7 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = 'Nonstoc&k Items';
                     ApplicationArea = All;
+                    Image = NonStockItem;
 
                     trigger OnAction()
                     begin
@@ -732,6 +752,7 @@ page 50056 "PWD Prepared Sales Order"
                     Caption = 'Order &Promising';
                     Visible = false;
                     ApplicationArea = All;
+                    Image = OrderPromising;
 
                     trigger OnAction()
                     var
@@ -752,11 +773,13 @@ page 50056 "PWD Prepared Sales Order"
                         RunPageLink = "Source Type" = CONST(37), "Source Subtype" = FIELD("Document Type"), "Source No." = FIELD("No.");
                         RunPageView = SORTING("Source Type", "Source Subtype", "Source No.", "Source Line No.");
                         ApplicationArea = All;
+                        Image = ShipmentLines;
                     }
                     action("Créer expédition")
                     {
                         Caption = 'Create Shipment';
                         ApplicationArea = All;
+                        Image = NewShipment;
 
                         trigger OnAction()
                         var
@@ -772,11 +795,13 @@ page 50056 "PWD Prepared Sales Order"
                     RunObject = Codeunit "Release Sales Document";
                     ShortCutKey = 'Ctrl+F11';
                     ApplicationArea = All;
+                    Image = ReleaseDoc;
                 }
                 action("R&ouvrir")
                 {
                     Caption = 'Re&open';
                     ApplicationArea = All;
+                    Image = ReOpen;
 
                     trigger OnAction()
                     var
@@ -793,6 +818,7 @@ page 50056 "PWD Prepared Sales Order"
                     Caption = '&Send BizTalk Sales Order Cnfmn.';
                     Visible = false;
                     ApplicationArea = All;
+                    Image = SendConfirmation;
 
                     trigger OnAction()
                     var
@@ -828,6 +854,7 @@ page 50056 "PWD Prepared Sales Order"
                     Caption = 'Imprimer BP';
                     Visible = false;
                     ApplicationArea = All;
+                    Image = Print;
 
                     trigger OnAction()
                     var
@@ -850,6 +877,7 @@ page 50056 "PWD Prepared Sales Order"
                     Caption = 'Test Report';
                     Ellipsis = true;
                     ApplicationArea = All;
+                    Image = TestReport;
 
                     trigger OnAction()
                     begin
@@ -862,6 +890,7 @@ page 50056 "PWD Prepared Sales Order"
                     Ellipsis = true;
                     ShortCutKey = 'F11';
                     ApplicationArea = All;
+                    Image = Post;
 
                     trigger OnAction()
                     begin
@@ -878,12 +907,14 @@ page 50056 "PWD Prepared Sales Order"
                     RunObject = Codeunit "Sales-Post + Print";
                     ShortCutKey = 'Shift+F11';
                     ApplicationArea = All;
+                    Image = PostPrint;
                 }
                 action("Valider par l&ot")
                 {
                     Caption = 'Post &Batch';
                     Ellipsis = true;
                     ApplicationArea = All;
+                    Image = PostBatch;
 
                     trigger OnAction()
                     begin
@@ -901,6 +932,7 @@ page 50056 "PWD Prepared Sales Order"
                 Promoted = true;
                 PromotedCategory = Process;
                 ApplicationArea = All;
+                Image = ItemAvailability;
 
                 trigger OnAction()
                 begin
@@ -915,6 +947,7 @@ page 50056 "PWD Prepared Sales Order"
                 Promoted = true;
                 PromotedCategory = Process;
                 ApplicationArea = All;
+                Image = Print;
 
                 trigger OnAction()
                 begin

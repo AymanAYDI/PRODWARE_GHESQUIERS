@@ -53,7 +53,7 @@ tableextension 60036 "PWD ItemJournalBatch" extends "Item Journal Batch"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(50008; "PWD First Purch. Ord. Seafrance No"; Code[30])
+        field(50008; "PWD First Purch Ord. Seaf. No"; Code[30])
         {
             CalcFormula = Lookup("Item Journal Line"."PWD Seafrance Order No." WHERE("Journal Template Name" = FIELD("Journal Template Name"), "Journal Batch Name" = FIELD(Name)));
             Caption = 'First document of journal';

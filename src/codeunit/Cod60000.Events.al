@@ -47,7 +47,7 @@ codeunit 60000 "PWD Events"
     [EventSubscriber(ObjectType::Table, DataBase::"Sales Header", 'OnCopySelltoCustomerAddressFieldsFromCustomerOnAfterAssignRespCenter', '', false, false)]
     local procedure T36_OnCopySelltoCustomerAddressFieldsFromCustomerOnAfterAssignRespCenter_SalesHeader(var SalesHeader: Record "Sales Header"; Customer: Record Customer; CallingFieldNo: Integer)
     begin
-        SalesHeader."PWD Discount Profit %" := Customer."Discount Profit %";
+        SalesHeader."PWD Discount Profit %" := Customer."PWD Discount Profit %";
     end;
 
 
@@ -618,7 +618,7 @@ codeunit 60000 "PWD Events"
         IF RecGCustomer.GET(Rec."Sell-to Customer No.") THEN BEGIN
             RecGCountry.RESET();
             RecGCountry.SETFILTER("PWD Flag", RecGCustomer."PWD Flag");
-            IF RecGCountry.FIND('-') THEN
+            IF RecGCountry.FindFirst() THEN
                 Rec.VALIDATE("PWD Monthly Code", RecGCountry."PWD Monthly Code");
         END;
     end;
@@ -649,7 +649,7 @@ codeunit 60000 "PWD Events"
         IF RecGCustomer.GET(Rec."Sell-to Customer No.") THEN BEGIN
             RecGCountry.RESET();
             RecGCountry.SETFILTER("PWD Flag", RecGCustomer."PWD Flag");
-            IF RecGCountry.FIND('-') THEN
+            IF RecGCountry.FindFirst() THEN
                 Rec.VALIDATE(Rec."PWD Monthly Code", RecGCountry."PWD Monthly Code");
         END;
     end;
@@ -789,6 +789,13 @@ codeunit 60000 "PWD Events"
         FunctionsMgt: Codeunit "PWD Function Mgt";
     begin
         FunctionsMgt.FctCDU80_OnBeforeCalcInvoice_SalesPost(SalesHeader, TempSalesLineGlobal, NewInvoice, IsHandled);
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeSalesShptHeaderInsert', '', false, false)]
+    local procedure CDU80_OnBeforeSalesShptHeaderInsert_SalesPost(var SalesShptHeader: Record "Sales Shipment Header"; SalesHeader: Record "Sales Header"; CommitIsSuppressed: Boolean; var IsHandled: Boolean; var TempWhseRcptHeader: Record "Warehouse Receipt Header" temporary; WhseReceive: Boolean; var TempWhseShptHeader: Record "Warehouse Shipment Header" temporary; WhseShip: Boolean; InvtPickPutaway: Boolean)
+    begin
+        IF SalesShptHeader."PWD Seafrance Order No." <> '' THEN
+            SalesShptHeader."PWD Generate Export File" := TRUE;
     end;
 
     //---CDU81---

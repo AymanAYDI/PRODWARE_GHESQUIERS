@@ -74,7 +74,7 @@ tableextension 60024 "PWD SalesInvoiceHeader" extends "Sales Invoice Header"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(55050; "PWD Presta Facturable par fourniss"; Boolean)
+        field(55050; "PWD Presta. Factur. Fourni."; Boolean)
         {
             Caption = 'Presta Facturable par fourniss';
             Description = 'PW2009';

@@ -343,8 +343,8 @@ report 50127 "PWD CIEL Data Calcul"
 
             RecGCompanyInformation.GET();
 
-            TxtGAcquitRightLocation := RecGCompanyInformation."PWD Location Rights Acquit Filter";
-            TxtGSuspendRightLocation := RecGCompanyInformation."PWD Loc. Rights Suspended Filter";
+            TxtGAcquitRightLocation := RecGCompanyInformation."PWD LocationRightAcquitFilter";
+            TxtGSuspendRightLocation := RecGCompanyInformation."PWD Loc.RightSuspendedFilter";
         end;
     }
 

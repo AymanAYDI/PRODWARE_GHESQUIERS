@@ -80,9 +80,10 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
         {
             action("PWD Item no stocks")
             {
-                Caption = 'Article non stock‚s';
+                Caption = 'Article non stockés';
                 RunObject = Page "Catalog Item List";
                 ApplicationArea = all;
+                Image = NonStockItem;
             }
         }
         addafter(Print)
@@ -91,6 +92,7 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
             {
                 ApplicationArea = all;
                 Caption = 'Filing Reason';
+                Image = Delete;
                 trigger OnAction()
                 BEGIN
                     Rec.TESTFIELD("PWD Filing Reason");
@@ -104,6 +106,7 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
                 ApplicationArea = all;
                 Promoted = true;
                 PromotedCategory = Process;
+                Image = Calculate;
                 trigger OnAction()
                 VAR
                     RecLSalesHeader: Record "Sales Header";
@@ -135,6 +138,7 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
                 {
                     ApplicationArea = all;
                     Caption = 'Article de Contremarque';
+                    Image = Item;
                     trigger OnAction()
                     VAR
                         FromSalesLine: Record "Sales Line";
@@ -155,17 +159,18 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
                 action("PWD Selection des fournisseurs interroger")
                 {
                     ApplicationArea = all;
-                    Caption = 'S‚lection des fournisseurs … interroger';
+                    Caption = 'Sélection des fournisseurs à interroger';
                     RunObject = Page "Appeal for tenders/Vendor -TrB";
                     RunPageLink = "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No.");
                 }
                 action("PWD Generation des demandes de prix")
                 {
                     ApplicationArea = all;
-                    Caption = 'G‚n‚ration des demandes de prix';
+                    Caption = 'Génération des demandes de prix';
+                    Image = Price;
                     TRIGGER OnAction()
                     BEGIN
-                        CreatePurchQuote.InitDocument(Rec."Document Type", Rec."No.");
+                        CreatePurchQuote.InitDocument(Rec."Document Type".AsInteger(), Rec."No.");
                         CreatePurchQuote.RUN();
                     END;
                 }
@@ -173,9 +178,10 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
                 {
                     ApplicationArea = all;
                     Caption = 'Export demandes de prix au format Excel';
+                    Image = ExportToExcel;
                     trigger OnAction()
                     BEGIN
-                        CreatePurchQuote.InitDocument(Rec."Document Type", Rec."No.");
+                        CreatePurchQuote.InitDocument(Rec."Document Type".AsInteger(), Rec."No.");
                         CreatePurchQuote.RUN();
                         Rec.SETRECFILTER();
                         REPORT.RUNMODAL(Report::"PWD Export Microsoft Excel", FALSE, FALSE, Rec);
@@ -186,6 +192,7 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
                 {
                     ApplicationArea = all;
                     Caption = 'Import demande de prix depuis Excel';
+                    Image = ImportExcel;
                     trigger OnAction()
                     BEGIN
                         Rec.SETRECFILTER();
@@ -196,7 +203,7 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
                 action("PWD Selection des  offres fournisseurs")
                 {
                     ApplicationArea = all;
-                    Caption = 'S‚lection des  offres fournisseurs';
+                    Caption = 'Sélection des  offres fournisseurs';
                     trigger OnAction()
                     VAR
                         SalesLine: Record "Sales Line";
@@ -212,6 +219,7 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
                 {
                     ApplicationArea = all;
                     Caption = 'Acceptation des offres';
+                    Image=PrintReport;
                     trigger OnAction()
                     VAR
                         SalesHeader: Record "Sales Header";

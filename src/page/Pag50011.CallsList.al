@@ -121,6 +121,7 @@ page 50011 "PWD Calls List"
             action(Fiche)
             {
                 Caption = 'Fiche';
+                Image = Card;
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Page "PWD Call";

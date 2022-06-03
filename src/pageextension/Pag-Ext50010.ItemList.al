@@ -126,7 +126,7 @@ pageextension 50010 "PWD ItemList" extends "Item List"
             {
                 ApplicationArea = All;
             }
-            field("ISSA Code (Old Version)"; Rec."ISSA Code (Old Version)")
+            field("ISSA Code (Old Version)"; Rec."PWD ISSA Code (Old Version)")
             {
                 ApplicationArea = All;
             }
@@ -144,6 +144,7 @@ pageextension 50010 "PWD ItemList" extends "Item List"
             action("PWD Evaluation stock")
             {
                 Caption = 'Evaluation stock';
+                Image = Evaluate;
                 RunObject = Report "PWD Evaluation stock SAS Ghes";
                 ApplicationArea = all;
             }
@@ -151,43 +152,50 @@ pageextension 50010 "PWD ItemList" extends "Item List"
             {
                 ApplicationArea = All;
                 Caption = 'Apurement fin de mois';
+                Image = PrintReport;
                 RunObject = Report "PWD Apurement fin de mois";
             }
             action("PWD Inventaire pour la douane")
             {
                 ApplicationArea = all;
                 Caption = 'Inventaire pour la douane';
+                Image = PrintReport;
                 RunObject = Report "PWD Inventaire pour la douane";
             }
             action("Avita : Stock par lot")
             {
                 ApplicationArea = All;
                 Caption = 'Avita : Stock par lot';
+                Image = PrintReport;
                 //ToDo
                 //RunObject = Report 50073;
             }
-            action("Relev‚ de douane")
+            action("Relevé de douane")
             {
                 ApplicationArea = all;
-                caption = 'Relev‚ de douane';
+                caption = 'Relevé de douane';
+                Image = PrintReport;
                 RunObject = Report "PWD Relevé de douane";
             }
-            action("SEAF : relev‚ vtes … emporter")
+            action("SEAF : relevé vtes à emporter")
             {
                 ApplicationArea = all;
-                caption = 'SEAF : relev‚ vtes … emporter';
+                caption = 'SEAF : relevé vtes à emporter';
+                Image = PrintReport;
                 RunObject = Report "SEAF : relevé vtes à emporter";
             }
             action("PWD Generation Purchase Order-TrB")
             {
                 ApplicationArea = all;
                 caption = 'Generation Purchase Order -TrB';
+                Image = PrintReport;
                 RunObject = Report "Generation Purchase Order -TrB";
             }
-            action("Relev‚ des Sorties Export 2")
+            action("Relevé des Sorties Export 2")
             {
                 ApplicationArea = all;
-                caption = 'Relev‚ des Sorties Export 2';
+                caption = 'Relevé des Sorties Export 2';
+                Image = PrintReport;
                 RunObject = Report "Relevé des Sorties Export 2";
             }
         }

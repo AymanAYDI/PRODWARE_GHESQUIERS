@@ -175,16 +175,14 @@ report 50126 "Validate And Print Sales Order"
         ELSE
             ProfitPct := ROUND(100 * ProfitLCY / TotalSalesLineLCY.Amount, 0.01);
         GenLedSetUp.GET();
-        IF Cust."Discount Profit %" > ProfitPct THEN BEGIN
+        IF Cust."PWD Discount Profit %" > ProfitPct THEN
             //*** Recherche si userid appartient au role direction
             //TODO MemberOf.SETRANGE("User ID",USERID);
-            MemberOf.SETRANGE("Role ID", GenLedSetUp."PWD Direction Role ID");
-            IF MemberOf.FIND('-') THEN BEGIN
-                IF CONFIRM(Text1000000000, TRUE, ProfitPct, Cust."Discount Profit %", '%') = FALSE THEN
-                    ERROR(Text1000000001, ProfitPct, Cust."Discount Profit %", '%');
+            IF MemberOf.Get(GenLedSetUp."PWD Direction Role ID") THEN BEGIN
+                IF CONFIRM(Text1000000000, TRUE, ProfitPct, Cust."PWD Discount Profit %", '%') = FALSE THEN
+                    ERROR(Text1000000001, ProfitPct, Cust."PWD Discount Profit %", '%');
             END ELSE
-                ERROR(Text1000000001, ProfitPct, Cust."Discount Profit %", '%');
-        END;
+                ERROR(Text1000000001, ProfitPct, Cust."PWD Discount Profit %", '%');
     end;
 
     local procedure "Code"()

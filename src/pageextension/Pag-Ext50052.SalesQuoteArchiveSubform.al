@@ -2,7 +2,7 @@ pageextension 50052 "PWD SalesQuoteArchiveSubform" extends "Sales Quote Archive 
 {
     layout
     {
-        addafter("Cross-Reference No.")
+        addbefore("Item Reference No.")
         {
             field("PWD Line No."; Rec."Line No.")
             {

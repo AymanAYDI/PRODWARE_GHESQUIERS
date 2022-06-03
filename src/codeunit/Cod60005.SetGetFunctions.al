@@ -3,8 +3,6 @@ codeunit 60005 "PWD Set/Get Functions"
     SingleInstance = true;
 
     var
-        MemLineDiscount: Decimal;
-        MemUnitPrice: Decimal;
         GboolSkipLoc: Boolean;
         Processing: Boolean;
         CountryCode: Code[10];
@@ -14,6 +12,8 @@ codeunit 60005 "PWD Set/Get Functions"
         CertifTransNo: Code[30];
         ButchExpirationDate: Date;
         ButchExpirationDate2: Date;
+        MemLineDiscount: Decimal;
+        MemUnitPrice: Decimal;
         GenRef: Text[100];
 
     //---TAB37---

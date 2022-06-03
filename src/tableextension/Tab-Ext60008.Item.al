@@ -80,7 +80,7 @@ tableextension 60008 "PWD Item" extends Item
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(50012; "ISSA Code (Old Version)"; Code[10])
+        field(50012; "PWD ISSA Code (Old Version)"; Code[10])
         {
             Caption = 'ISSA Code (Old Version)';
             Description = 'PW2009';
@@ -221,7 +221,7 @@ tableextension 60008 "PWD Item" extends Item
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(55004; "PWD Health Certificate Required"; Boolean)
+        field(55004; "PWD Health Certif Required"; Boolean)
         {
             Caption = 'Health Certificate Required';
             Description = 'PW2009';
@@ -385,10 +385,10 @@ tableextension 60008 "PWD Item" extends Item
         ItemTranslation: Record "Item Translation";
     begin
         InvSetup.GET();
-        IF InvSetup."PWD Default Translation Language" <> '' THEN BEGIN
+        IF InvSetup."PWD Default Transl. Lang." <> '' THEN BEGIN
             ItemTranslation.SETRANGE("Item No.", "No.");
-            ItemTranslation.SETRANGE("Language Code", InvSetup."PWD Default Translation Language");
-            IF ItemTranslation.FIND('-') THEN
+            ItemTranslation.SETRANGE("Language Code", InvSetup."PWD Default Transl. Lang.");
+            IF ItemTranslation.FindFirst() THEN
                 DefaultTranslation := ItemTranslation.Description ELSE
                 DefaultTranslation := Description;
         END ELSE

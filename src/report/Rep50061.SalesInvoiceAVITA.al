@@ -193,7 +193,7 @@ report 50061 "PWD Sales - Invoice AVITA"
                         column(N__de_commande_____Sales_Invoice_Header___Order_No__; 'N° de commande ' + "Sales Invoice Header"."Order No.")
                         {
                         }
-                        column(STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__; STRSUBSTNO(Text005, FORMAT(CurrReport.PAGENO())))
+                        column(STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__; Text005)
                         {
                         }
                         column(Vos_ref___; 'Vos ref :')
@@ -585,7 +585,6 @@ report 50061 "PWD Sales - Invoice AVITA"
                         var
                             BooLFind: Boolean;
                             j: Integer;
-                            "------ SOBI ------": Integer;
                         begin
                             IF (Type = Type::"G/L Account") AND (NOT ShowInternalInfo) THEN
                                 "No." := '';
@@ -668,7 +667,6 @@ report 50061 "PWD Sales - Invoice AVITA"
                             IF NOT MoreLines THEN
                                 CurrReport.BREAK();
                             SETRANGE("Line No.", 0, "Line No.");
-                            CurrReport.CREATETOTALS("Line Amount", Amount, "Amount Including VAT", "Inv. Discount Amount");
                         end;
                     }
                     dataitem(Total; Integer)
@@ -694,8 +692,6 @@ report 50061 "PWD Sales - Invoice AVITA"
                         IF ISSERVICETIER THEN
                             OutputNo += 1;
                     END;
-
-                    CurrReport.PAGENO := 1;
                 end;
 
                 trigger OnPostDataItem()
@@ -915,7 +911,6 @@ report 50061 "PWD Sales - Invoice AVITA"
         Continue: Boolean;
         IncludeShptNo: Boolean;
         LogInteraction: Boolean;
-        [InDataSet]
         LogInteractionEnable: Boolean;
         MoreLines: Boolean;
         ShowInternalInfo: Boolean;

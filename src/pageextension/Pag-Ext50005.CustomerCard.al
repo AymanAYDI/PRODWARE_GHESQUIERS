@@ -145,7 +145,7 @@ pageextension 50005 "PWD CustomerCard" extends "Customer Card"
                 {
                     ApplicationArea = All;
                 }
-                field("Discount Profit %"; Rec."Discount Profit %")
+                field("Discount Profit %"; Rec."PWD Discount Profit %")
                 {
                     ApplicationArea = All;
                 }
@@ -161,7 +161,7 @@ pageextension 50005 "PWD CustomerCard" extends "Customer Card"
                 {
                     ApplicationArea = All;
                 }
-                field("PWD Health Certificate Required"; Rec."PWD Health Certificate Required")
+                field("PWD Health Certificate Required"; Rec."PWD Health Certif Required")
                 {
                     ApplicationArea = All;
                 }

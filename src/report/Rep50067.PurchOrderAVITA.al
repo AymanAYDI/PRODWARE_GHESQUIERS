@@ -3,7 +3,7 @@ report 50067 "PWD Purch Order AVITA"
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/PurchOrderAVITA.rdl';
     Caption = 'Order';
-UsageCategory = None;
+    UsageCategory = None;
     dataset
     {
         dataitem("Purchase Header"; "Purchase Header")
@@ -527,7 +527,6 @@ UsageCategory = None;
                                 CurrReport.BREAK();
                             PurchLine.SETRANGE("Line No.", 0, PurchLine."Line No.");
                             SETRANGE(Number, 1, PurchLine.COUNT);
-                            CurrReport.CREATETOTALS(PurchLine."Line Amount", PurchLine."Inv. Discount Amount");
                         end;
                     }
                     dataitem(VATCounter; Integer)
@@ -544,9 +543,6 @@ UsageCategory = None;
                             IF VATAmount = 0 THEN
                                 CurrReport.BREAK();
                             SETRANGE(Number, 1, VATAmountLine.COUNT);
-                            CurrReport.CREATETOTALS(
-                              VATAmountLine."Line Amount", VATAmountLine."Inv. Disc. Base Amount",
-                              VATAmountLine."Invoice Discount Amount", VATAmountLine."VAT Base", VATAmountLine."VAT Amount");
                         end;
                     }
                     dataitem(Total; Integer)
@@ -591,10 +587,8 @@ UsageCategory = None;
                     VATDiscountAmount :=
                       VATAmountLine.GetTotalVATDiscount("Purchase Header"."Currency Code", "Purchase Header"."Prices Including VAT");
                     TotalAmountInclVAT := VATAmountLine.GetTotalAmountInclVAT();
-
                     IF Number > 1 THEN
                         CopyText := Text003;
-                    CurrReport.PAGENO := 1;
                 end;
 
                 trigger OnPostDataItem()

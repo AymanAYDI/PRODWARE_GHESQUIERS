@@ -105,12 +105,14 @@ page 50078 "PWD User Item Tracking Entries"
                 {
                     Caption = 'Serial No. Information Card';
                     RunObject = Page "Serial No. Information Card";
+                    Image = Card;
                     RunPageLink = "Item No." = FIELD("Item No."), "Variant Code" = FIELD("Variant Code"), "Serial No." = FIELD("Serial No.");
                     ApplicationArea = All;
                 }
                 action("F&iche information n° lot")
                 {
                     Caption = 'Lot No. Information Card';
+                    Image = Card;
                     RunObject = Page "Lot No. Information Card";
                     RunPageLink = "Item No." = FIELD("Item No."), "Variant Code" = FIELD("Variant Code"), "Lot No." = FIELD("Lot No.");
                     ApplicationArea = All;
@@ -126,6 +128,7 @@ page 50078 "PWD User Item Tracking Entries"
                 PromotedCategory = Process;
                 Visible = false;
                 ApplicationArea = All;
+                Image = Navigate;
 
                 trigger OnAction()
                 begin

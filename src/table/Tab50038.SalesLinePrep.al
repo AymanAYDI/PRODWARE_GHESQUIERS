@@ -64,7 +64,6 @@ table 50038 "PWD Sales Line Prep"
 
             trigger OnValidate()
             var
-                CheckDateConflict: Codeunit "Reservation-Check Date Confl.";
             begin
             end;
         }
@@ -195,13 +194,11 @@ table 50038 "PWD Sales Line Prep"
 
             trigger OnLookup()
             var
-                ItemLedgEntry: Record "Item Ledger Entry";
             begin
             end;
 
             trigger OnValidate()
             var
-                ItemLedgEntry: Record "Item Ledger Entry";
             begin
             end;
         }
@@ -278,7 +275,6 @@ table 50038 "PWD Sales Line Prep"
 
             trigger OnValidate()
             var
-                Currency2: Record Currency;
             begin
             end;
         }
@@ -299,7 +295,6 @@ table 50038 "PWD Sales Line Prep"
 
             trigger OnValidate()
             var
-                Currency2: Record Currency;
             begin
             end;
         }
@@ -1145,7 +1140,7 @@ table 50038 "PWD Sales Line Prep"
         }
         field(55011; "Nb Purchase Quote"; Integer)
         {
-            CalcFormula = Count("Purchase Line" WHERE("PWD Sales Type Doc Appeal tenders" = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("Document No."), "PWD Sales Line No. Appeal Tenders" = FIELD("Line No."), "Document Type" = CONST(Quote)));
+            CalcFormula = Count("Purchase Line" WHERE("PWD SalesTypeDocAppealTend." = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("Document No."), "PWD SalesLineNoAppealTenders" = FIELD("Line No."), "Document Type" = CONST(Quote)));
             Caption = 'Nb Purchase Quote';
             Description = 'PW2009';
             Editable = false;
@@ -1182,7 +1177,7 @@ table 50038 "PWD Sales Line Prep"
         field(55021; "Quantity Receipted Purch."; Decimal)
         {
             BlankZero = true;
-            CalcFormula = Sum("Purch. Rcpt. Line".Quantity WHERE("PWD Sales Type Doc Appeal tenders" = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("Document No."), "PWD Sales Line No. Appeal Tenders" = FIELD("Line No.")));
+            CalcFormula = Sum("Purch. Rcpt. Line".Quantity WHERE("PWD SalesTypeDocAppealTend" = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("Document No."), "PWD SalesLineNoAppealTenders" = FIELD("Line No.")));
             Caption = 'Quantity Receipted Purch.';
             Description = 'PW2009';
             Editable = false;

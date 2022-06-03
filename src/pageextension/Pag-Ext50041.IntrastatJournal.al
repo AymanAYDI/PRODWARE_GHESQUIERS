@@ -43,7 +43,7 @@ pageextension 50041 "PWD IntrastatJournal" extends "Intrastat Journal"
         GetItemEntries2: Report "Get Item Ledger Entries SPE";
         DecGTotalAmount: Decimal;
 
-    LOCAL PROCEDURE OnAfterGetCurrRecord();
+    LOCAL PROCEDURE FctOnAfterGetCurrRecord();
     VAR
         TempIntrastatJnlLine: Record "Intrastat Jnl. Line";
     BEGIN

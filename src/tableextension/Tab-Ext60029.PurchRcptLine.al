@@ -45,7 +45,7 @@ tableextension 60029 "PWD PurchRcptLine" extends "Purch. Rcpt. Line"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(55000; "PWD Sales Type Doc Appeal tenders"; Enum "PWD Sales TypeDocAppealtenders")
+        field(55000; "PWD SalesTypeDocAppealTend"; Enum "PWD Sales TypeDocAppealtenders")
         {
             Caption = 'Sales Type Doc Appeal tenders';
             Description = 'PW2009';
@@ -57,7 +57,7 @@ tableextension 60029 "PWD PurchRcptLine" extends "Purch. Rcpt. Line"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(55002; "PWD Sales Line No. Appeal Tenders"; Integer)
+        field(55002; "PWD SalesLineNoAppealTenders"; Integer)
         {
             Caption = 'Sales Line No. Appeal Tenders';
             Description = 'PW2009';
@@ -85,7 +85,7 @@ tableextension 60029 "PWD PurchRcptLine" extends "Purch. Rcpt. Line"
     }
     keys
     {
-        key(Key50000; "PWD Sales Type Doc Appeal tenders", "PWD Sales No. Appeal Tenders", "PWD Sales Line No. Appeal Tenders")
+        key(Key50000; "PWD SalesTypeDocAppealTend", "PWD Sales No. Appeal Tenders", "PWD SalesLineNoAppealTenders")
         {
             //SumIndexFields = Quantity;
         }

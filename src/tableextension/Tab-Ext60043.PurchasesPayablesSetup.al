@@ -27,14 +27,14 @@ tableextension 60043 "PWD PurchasesPayablesSetup" extends "Purchases & Payables 
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(50004; "PWD Souche declaration sommaire"; Code[10])
+        field(50004; "PWD Souche Declar. Sommaire"; Code[10])
         {
             Caption = 'Souche déclaration sommaire';
             Description = 'PW2009';
             TableRelation = "No. Series";
             DataClassification = CustomerContent;
         }
-        field(50005; "PWD Fournisseur fruits et legumes"; Code[20])
+        field(50005; "PWD Fournis. Fruit/Legume"; Code[20])
         {
             Caption = 'Fournisseur fruits et légumes';
             Description = 'PW2009';

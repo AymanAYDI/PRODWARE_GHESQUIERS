@@ -1,105 +1,5 @@
 tableextension 60012 "PWD SalesLine" extends "Sales Line"
 {
-    // ------------------------------------------------------------------------------------------------------------------------------------
-    // Prodware : www.prodware.fr
-    // ------------------------------------------------------------------------------------------------------------------------------------
-    //
-    // //>>MIGRATION2009R2
-    //
-    // ------------------------------------------------------------------------------------------------------------------------------------
-    //
-    // *** Contremarque - C2A
-    // 03.11.2004    C2A.LLE AddNewFields
-    //                  70010 Methode de Calcul (prestation)
-    //                  70011 Référence Calcul (prestation)
-    // 15.11.2004    C2A.LLE AddNewFields
-    //                  70012 N°DOC saisie presta
-    //                  70013 Code prestation
-    // 06.07.2005    C2A(LLE) modify C/AL code in trigger Prepared Quantity - OnValidate()
-    // 01.02.2006    C2A(LLE) cf CDVS004032
-    //                        add key Vendor No.,Shelf/Bin No.,Location Code
-    // 20.02.06      C2A(LLE) add new fields cf commande CDVN001047
-    //                        70015 - preparation to recalculate
-    //                        70016 - loc. Code for prepa to recalc.
-    //
-    // 20.06.06     C2A(LLE)   Modif in trigger Quantity - OnValidate() cf appel 12377
-    // 07/06/07     C2A(LLE)   cf appel NAV0016498  suite livraison dev de JRA modif in trigger
-    //                                 GetUnitCost()
-    // 08/06/07     C2A(LLE)   cf appel NAV0016498  suite livraison dev au client modif in trigger
-    //                                 GetUnitCost()
-    // 19/06/07     C2A(LLE)   cf appel NAV0016498  suite livraison dev au client modif in trigger
-    //                                 GetUnitCost()
-    // 04/07/07     C2A(LLE)   cf appel NAV0016773 ajout clé de tri utilisé dans le report 50042
-    //                                 Document Type,Document No.,Location Code,Shelf/Bin No.,SEAF Code
-    // 12/07/07     C2A(LLE)   cf appel NAV0016498 modif type Code SEAF et trigger
-    //                                 No. - OnValidate()
-    // 03/10/07     C2A(LE)    cf appel NAV0017476 ajout clé de tri
-    //                              Document Type,Document No.,Location Code,Shelf/Bin No.,Family Code,No.
-    //
-    // -------------------------------------------------
-    // Prodware - www.prodware.fr
-    // -------------------------------------------------
-    // //>>GHES1.01
-    // FED_ADV_20090827_IMP_CDEVENTE_V2 :SOBI 19/10/2009 - SALES ORDER SEAFRANCE
-    //                                                     Add Fields ID 50023 "New Item"
-    //                                                                ID 50024 "Seafrance Order Line No."
-    //
-    // //>>GHES1.02
-    // FED_ADV_20090827_IMP_CDEVENTE_V2_NEW_DEMANDE :SOBI 05/03/2010 - SALES ORDER SEAFRANCE (NEW DEMANDE)
-    //                                                     Add Fields ID 50053 "Coefficient SEAFRANCE"
-    //                                                                ID 50054 "Quantity SEAFRANCE"
-    //
-    // >>GHE-RE1.00:DO 08/04/2011 :
-    //   - Ajout d'indicateur
-    //   - Retrait commentaire
-    //
-    // >>GHE-RE1.00:DO 06/05/2011 :
-    //   - add field "newpage" for report 50042
-    //
-    // //>>MODIF HL
-    // TI062523.001 DO.ALMI 21/09/2011  : - Add condition item Nonstock function
-    //                                      CheckavailforPriorityLocation
-    //
-    // //>>GHES1.20
-    // P3346_0011 DO.ALMI SOBI 12/04/2012 : - Add new key "Document Type","Document No.","Location Code",Family,"No."
-    //
-    // //>>GHES1.30
-    // P3346_0011 DO.ALMI REGIE 22/08/2012:-  Add SEAF Code item to sales line
-    //                                        Create new field
-    //                                        "Item SEAF Code" Onvalidate,OnlookUp
-    //
-    // //>>SOBI
-    // P3346_0011 RO.LALE REGIE 11/07/2013 : - Modif Trigger Quantity - OnValidate()
-    //                                       - add function FctPushVendorAndUnitPriceItem
-    //
-    // //>>SOBI
-    // P3346_0015 RO.LALE REGIE 25/02/2015 : - Add Function FctSetHideMessage
-    //                                       - Add C/AL Global BooGHideMessage
-    //                                       - Modif C/AL Code in trigger CtrlUnitPrice()
-    //
-    // //>>NDBI (P25940_001)
-    // LALE.RO : 29/05/2018 : cf NDBI ID 258
-    //                     - MODIF C/AL Code in trigger No. - OnValidate()
-    //
-    // //>>NDBI (P25940_001)
-    // LALE.RO : 30/05/2018 : cf NDBI ID 580
-    //                       Add Fields 50031 - Item SEAF Code 2 - Code20
-    //                                  50032 - Item SEAF Code 3 - Code20
-    //                       Add C/AL Code in trigger  No. - OnValidate()
-    //
-    // //>> 14/10/2019 SU-DADE cf appel TI474110
-    // //   ctrlunitprice()
-    // //<< 14/10/2019 SU-DADE cf appel TI474110
-    //
-    // //>>NDBI (P27817_002)
-    // LALE.PA : 27/01/2021 : cf TDD_SAS GHESQUIERS JPG_Ajout champs_V1 suite TI521553
-    //                       Add Fields 50033 - SEAF Code 4 - Code20
-    //                                  50034 - SEAF Code 5 - Code20
-    //                       Add C/AL Code in trigger  No. - OnValidate()
-    //
-    //
-    // ------------------------------------------------------------------------------------------------------------------------------------
-
     fields
     {
         field(50000; "PWD Call No."; Code[10])
@@ -467,7 +367,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             InitValue = false;
             DataClassification = CustomerContent;
         }
-        field(55001; "Realised profit (LCY)"; Decimal)
+        field(55001; "PWD Realised profit (LCY)"; Decimal)
         {
             Caption = 'Realised profit (LCY)';
             Description = 'PW2009';
@@ -522,7 +422,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         }
         field(55011; "PWD Nb Purchase Quote"; Integer)
         {
-            CalcFormula = Count("Purchase Line" WHERE("PWD Sales Type Doc Appeal tenders" = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("Document No."), "PWD Sales Line No. Appeal Tenders" = FIELD("Line No."), "Document Type" = CONST(Quote)));
+            CalcFormula = Count("Purchase Line" WHERE("PWD SalesTypeDocAppealTend." = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("Document No."), "PWD SalesLineNoAppealTenders" = FIELD("Line No."), "Document Type" = CONST(Quote)));
             Caption = 'Nb Purchase Quote';
             Description = 'PW2009';
             Editable = false;
@@ -539,14 +439,14 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
                 GetItem(Item);
             end;
         }
-        field(55013; "PWD Trad. Brand Order Purch No."; Code[20])
+        field(55013; "PWD Trad.BrandOrderPurchNo."; Code[20])
         {
             Caption = 'Trad. Brand Order Purch No.';
             Description = 'PW2009';
             TableRelation = IF ("PWD Trading Brand" = CONST(true)) "Purchase Header"."No." WHERE("Document Type" = CONST(Order));
             DataClassification = CustomerContent;
         }
-        field(55014; "PWD Trad. Br Order Purch. Line No."; Integer)
+        field(55014; "PWD Trad.BrOrderPurch.LineNo."; Integer)
         {
             Caption = 'Trad. Br Order Purch. Line No.';
             Description = 'PW2009';
@@ -555,7 +455,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         field(55020; "PWD Quantity Ordered Purch."; Decimal)
         {
             BlankZero = true;
-            CalcFormula = Sum("Purchase Line".Quantity WHERE("Document Type" = CONST(Order), "Document No." = FIELD("PWD Trad. Brand Order Purch No."), "Line No." = FIELD("PWD Trad. Br Order Purch. Line No.")));
+            CalcFormula = Sum("Purchase Line".Quantity WHERE("Document Type" = CONST(Order), "Document No." = FIELD("PWD Trad.BrandOrderPurchNo."), "Line No." = FIELD("PWD Trad.BrOrderPurch.LineNo.")));
             Caption = 'Quantity Ordered Purch.';
             Description = 'PW2009';
             Editable = false;
@@ -564,7 +464,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         field(55021; "PWD Quantity Receipted Purch."; Decimal)
         {
             BlankZero = true;
-            CalcFormula = Sum("Purch. Rcpt. Line".Quantity WHERE("PWD Sales Type Doc Appeal tenders" = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("Document No."), "PWD Sales Line No. Appeal Tenders" = FIELD("Line No.")));
+            CalcFormula = Sum("Purch. Rcpt. Line".Quantity WHERE("PWD SalesTypeDocAppealTend" = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("Document No."), "PWD SalesLineNoAppealTenders" = FIELD("Line No.")));
             Caption = 'Quantity Receipted Purch.';
             Description = 'PW2009';
             Editable = false;
@@ -591,7 +491,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             Editable = false;
             DataClassification = CustomerContent;
         }
-        field(55027; "PWD Health Certificate Required"; Boolean)
+        field(55027; "PWD Health Certif. Required"; Boolean)
         {
             Caption = 'Health Certificate Required';
             Description = 'PW2009';
@@ -652,7 +552,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(55038; "PWD Inbound Whse. Handling Time"; DateFormula)
+        field(55038; "PWD InboundWhse.HandlingTime"; DateFormula)
         {
             Caption = 'Inbound Whse. Handling Time';
             Description = 'PW2009';
@@ -701,7 +601,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             Editable = false;
             FieldClass = FlowField;
         }
-        field(55046; "PWD Quantity Receipted Sp. Order"; Decimal)
+        field(55046; "PWD Qte. Receipted Sp.Order"; Decimal)
         {
             BlankZero = true;
             CalcFormula = Sum("Purch. Rcpt. Line".Quantity WHERE("Special Order Sales No." = FIELD("Document No."), "Special Order Sales Line No." = FIELD("Line No.")));
@@ -729,7 +629,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             Editable = false;
             DataClassification = CustomerContent;
         }
-        field(55050; "Cle (restitution)"; Code[20])
+        field(55050; "PWD Cle (restitution)"; Code[20])
         {
             Caption = 'Restitution Key';
             Description = 'PW2009';
@@ -762,24 +662,24 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             SubType = Bitmap;
             DataClassification = CustomerContent;
         }
-        field(70000; "Valeur douane (correction)"; Decimal)
+        field(70000; "PWD Valeur douane (correction)"; Decimal)
         {
             Caption = 'Valeur douane (correction)';
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(70010; "Methode de Calcul (prestation)"; Text[30])
+        field(70010; "PWD MethodeCalculPresta."; Text[30])
         {
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(70011; "Reference Calcul (prestation)"; Text[30])
+        field(70011; "PWD ReferenceCalculPresta."; Text[30])
         {
             Caption = 'Référence Calcul (prestation)';
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(70012; "PWD No. DOC saisie presta"; Code[20])
+        field(70012; "PWD No. DOC Saisie Presta"; Code[20])
         {
             Caption = 'N°DOC saisie presta';
             Description = 'PW2009';
@@ -797,13 +697,13 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(70015; "PWD preparation to recalculate"; Boolean)
+        field(70015; "PWD Preparation Recalculate"; Boolean)
         {
             Caption = 'préparation à re-calculer';
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(70016; "PWD loc. Code for prepa to recalc."; Code[10])
+        field(70016; "PWD Loc. Code Prepa Recalc."; Code[10])
         {
             Caption = 'Code mag. pour prépa recalc.';
             Description = 'PW2009';
@@ -912,10 +812,10 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         IF "PWD Nb Purchase Quote" <> 0 THEN
             ERROR(Text1000000001, "PWD Nb Purchase Quote");
 
-        PurchQuoteLine.SETCURRENTKEY("PWD Sales Type Doc Appeal tenders", "PWD Sales No. Appeal Tenders", "PWD Sales Line No. Appeal Tenders");
-        PurchQuoteLine.SETRANGE("PWD Sales Type Doc Appeal tenders", "Document Type".AsInteger());
+        PurchQuoteLine.SETCURRENTKEY("PWD SalesTypeDocAppealTend.", "PWD Sales No. Appeal Tenders", "PWD SalesLineNoAppealTenders");
+        PurchQuoteLine.SETRANGE("PWD SalesTypeDocAppealTend.", "Document Type".AsInteger());
         PurchQuoteLine.SETRANGE("PWD Sales No. Appeal Tenders", "Document No.");
-        PurchQuoteLine.SETRANGE("PWD Sales Line No. Appeal Tenders", "Line No.");
+        PurchQuoteLine.SETRANGE("PWD SalesLineNoAppealTenders", "Line No.");
 
         IF PurchQuoteLine.COUNT <> 0 THEN BEGIN
             PurchQuoteLine.FIND('-');
@@ -952,11 +852,11 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         IF AppTenders.FIND('-') THEN
             AppTenders.DELETEALL();
 
-        PurchQuoteLine.SETCURRENTKEY("PWD Sales Type Doc Appeal tenders", "PWD Sales No. Appeal Tenders", "PWD Sales Line No. Appeal Tenders");
+        PurchQuoteLine.SETCURRENTKEY("PWD SalesTypeDocAppealTend.", "PWD Sales No. Appeal Tenders", "PWD SalesLineNoAppealTenders");
 
-        PurchQuoteLine.SETRANGE("PWD Sales Type Doc Appeal tenders", From_salesLine."Document Type".AsInteger());
+        PurchQuoteLine.SETRANGE("PWD SalesTypeDocAppealTend.", From_salesLine."Document Type".AsInteger());
         PurchQuoteLine.SETRANGE("PWD Sales No. Appeal Tenders", From_salesLine."Document No.");
-        PurchQuoteLine.SETRANGE("PWD Sales Line No. Appeal Tenders", From_salesLine."Line No.");
+        PurchQuoteLine.SETRANGE("PWD SalesLineNoAppealTenders", From_salesLine."Line No.");
 
         IF PurchQuoteLine.COUNT <> 0 THEN BEGIN
             PurchQuoteLine.FIND('-');
@@ -1022,7 +922,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
     var
         GrossRequirement: Decimal;
         PlannedOrderReceipt: Decimal;
-        PlannedOrderReleases: Decimal;
+        //PlannedOrderReleases: Decimal;
         ScheduledReceipt: Decimal;
     begin
         GetItem(Item);
@@ -1039,7 +939,8 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         GrossRequirement := Item."Qty. on Sales Order";
         PlannedOrderReceipt := Item."Purch. Req. Receipt (Qty.)";
         ScheduledReceipt := Item."Qty. on Purch. Order";
-        PlannedOrderReleases := Item."Purch. Req. Release (Qty.)";
+        //ToDo Var Not Used
+        //PlannedOrderReleases := Item."Purch. Req. Release (Qty.)";
 
         EXIT(Item.Inventory + PlannedOrderReceipt + ScheduledReceipt - GrossRequirement);
     end;
@@ -1074,7 +975,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
     procedure CalcRealisedProfit()
     begin
         IF "Currency Code" = '' THEN BEGIN
-            "Realised profit (LCY)" := "Line Amount" - Quantity * "Unit Cost (LCY)";
+            "PWD Realised profit (LCY)" := "Line Amount" - Quantity * "Unit Cost (LCY)";
             IF "Line Amount" <> 0 THEN
                 "% de marge réalisé" := (("Line Amount" - Quantity * "Unit Cost (LCY)") / "Line Amount") * 100;
         END;

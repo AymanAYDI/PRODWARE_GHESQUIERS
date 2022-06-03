@@ -4,7 +4,7 @@ pageextension 50045 "PWD PurchasesPayablesSetup" extends "Purchases & Payables S
     {
         addafter("Archive Orders")
         {
-            field("PWD Fournisseur fruits et legumes"; Rec."PWD Fournisseur fruits et legumes")
+            field("PWD Fournisseur fruits et legumes"; Rec."PWD Fournis. Fruit/Legume")
             {
                 ApplicationArea = All;
             }
@@ -30,7 +30,7 @@ pageextension 50045 "PWD PurchasesPayablesSetup" extends "Purchases & Payables S
                 {
                     ApplicationArea = All;
                 }
-                field("PWD Souche declaration sommaire"; Rec."PWD Souche declaration sommaire")
+                field("PWD Souche declaration sommaire"; Rec."PWD Souche Declar. Sommaire")
                 {
                     ApplicationArea = All;
                 }

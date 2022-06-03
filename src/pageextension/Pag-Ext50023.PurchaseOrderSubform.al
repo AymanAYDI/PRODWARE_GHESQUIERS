@@ -97,7 +97,7 @@ pageextension 50023 "PWD PurchaseOrderSubform" extends "Purchase Order Subform"
         }
         addafter("ShortcutDimCode8")
         {
-            field("PWD Sales Type Doc Appeal tenders"; Rec."PWD Sales Type Doc Appeal tenders")
+            field("PWD Sales Type Doc Appeal tenders"; Rec."PWD SalesTypeDocAppealTend.")
             {
                 ApplicationArea = all;
             }

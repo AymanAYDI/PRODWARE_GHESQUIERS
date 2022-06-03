@@ -48,6 +48,7 @@ page 50020 "PWD Customs Documents Template"
                 {
                     ApplicationArea = all;
                     Caption = 'Open';
+                    Image = Open;
 
                     trigger OnAction()
                     var
@@ -60,6 +61,7 @@ page 50020 "PWD Customs Documents Template"
                     ApplicationArea = all;
                     Caption = 'Create';
                     Ellipsis = true;
+                    Image = Create;
 
                     trigger OnAction()
                     var
@@ -74,6 +76,7 @@ page 50020 "PWD Customs Documents Template"
                     Caption = 'Copy &from';
                     Ellipsis = true;
                     Visible = false;
+                    Image = Copy;
                     trigger OnAction()
                     var
                         InteractTemplLanguage: Record "Interaction Tmpl. Language";
@@ -95,6 +98,7 @@ page 50020 "PWD Customs Documents Template"
                     ApplicationArea = all;
                     Caption = 'Import';
                     Ellipsis = true;
+                    Image = Import;
                     trigger OnAction()
                     var
                     begin
@@ -108,6 +112,7 @@ page 50020 "PWD Customs Documents Template"
                     Caption = 'E&xport';
                     Ellipsis = true;
                     Visible = false;
+                    Image = Export;
 
                     trigger OnAction()
                     var
@@ -123,6 +128,7 @@ page 50020 "PWD Customs Documents Template"
                     Caption = 'Remove';
                     Ellipsis = true;
                     Visible = false;
+                    Image = RemoveLine;
                     trigger OnAction()
                     var
                         InteractTemplLanguage: Record "Interaction Tmpl. Language";

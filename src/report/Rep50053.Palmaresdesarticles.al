@@ -12,9 +12,6 @@ report 50053 "PWD Palmares des articles"
             column(FORMAT_TODAY_0_4_; FORMAT(TODAY, 0, 4))
             {
             }
-            // column(CurrReport_PAGENO; CurrReport.PAGENO())
-            // {
-            // }
             column(USERID; USERID)
             {
             }
@@ -24,16 +21,7 @@ report 50053 "PWD Palmares des articles"
             column(SalesAmount; SalesAmount)
             {
             }
-            column(FORMAT_TODAY_0_4__Control1000000002; FORMAT(TODAY, 0, 4))
-            {
-            }
             column(COMPANYNAME; COMPANYNAME)
-            {
-            }
-            // column(CurrReport_PAGENO_Control1000000004; CurrReport.PAGENO())
-            // {
-            // }
-            column(USERID_Control1000000006; USERID)
             {
             }
             column(SelectAmount; SelectAmount)
@@ -45,12 +33,6 @@ report 50053 "PWD Palmares des articles"
             column(Item_Ledger_Entry__Source_No__; "Source No.")
             {
             }
-            column(Item_Ledger_Entry__Item_No___Control1000000014; "Item No.")
-            {
-            }
-            column(Item_Ledger_Entry__Source_No___Control1000000017; "Source No.")
-            {
-            }
             column(ABS_Quantity_; ABS(Quantity))
             {
             }
@@ -60,49 +42,10 @@ report 50053 "PWD Palmares des articles"
             column(PercCATotal; PercCATotal)
             {
             }
-            column(Item_Ledger_Entry__Sales_Amount__Actual___Control1000000033; "Sales Amount (Actual)")
-            {
-            }
-            column(ABS_Quantity__Control1000000034; ABS(Quantity))
-            {
-            }
-            column(Item_Ledger_Entry__Source_No___Control1000000035; "Source No.")
-            {
-            }
-            column(Item_Ledger_Entry__Item_No___Control1000000036; "Item No.")
-            {
-            }
             column(TotalFor___FIELDCAPTION__Item_No___; TotalFor + FIELDCAPTION("Item No."))
             {
             }
-            column(PercCATotal_Control1000000032; PercCATotal)
-            {
-            }
-            column(PercCATotal_Control1000000031; PercCATotal)
-            {
-            }
-            column(Item_Ledger_Entry__Sales_Amount__Actual___Control1000000028; "Sales Amount (Actual)")
-            {
-            }
-            column(Item_Ledger_Entry__Source_No___Control1000000039; "Source No.")
-            {
-            }
-            column(Item_Ledger_Entry__Item_No___Control1000000038; "Item No.")
-            {
-            }
             column(TotalFor___FIELDCAPTION__Source_No___; TotalFor + FIELDCAPTION("Source No."))
-            {
-            }
-            column(Item_Ledger_Entry__Sales_Amount__Actual___Control1000000013; "Sales Amount (Actual)")
-            {
-            }
-            column(ABS_Quantity__Control1000000016; ABS(Quantity))
-            {
-            }
-            column(Item_Ledger_Entry__Item_No___Control1000000022; "Item No.")
-            {
-            }
-            column(PercCATotal_Control1000000030; PercCATotal)
             {
             }
             column(VarMaxPrice; VarMaxPrice)
@@ -115,39 +58,6 @@ report 50053 "PWD Palmares des articles"
             {
             }
             column(PercentProfitN; PercentProfitN)
-            {
-            }
-            column(Item_Ledger_Entry__Source_No___Control1000000045; "Source No.")
-            {
-            }
-            column(PercCATotal_Control1000000046; PercCATotal)
-            {
-            }
-            column(Item_Ledger_Entry__Sales_Amount__Actual___Control1000000047; "Sales Amount (Actual)")
-            {
-            }
-            column(VarMaxPrice_Control1000000043; VarMaxPrice)
-            {
-            }
-            column(ProfitN_Control1000000019; ProfitN)
-            {
-            }
-            column(PercentProfitN_Control1000000050; PercentProfitN)
-            {
-            }
-            column(PercCATotal_Control1000000041; PercCATotal)
-            {
-            }
-            column(Item_Ledger_Entry__Sales_Amount__Actual___Control1000000042; "Sales Amount (Actual)")
-            {
-            }
-            column(VarMaxPrice_Control1000000044; VarMaxPrice)
-            {
-            }
-            column(ProfitN_Control1000000027; ProfitN)
-            {
-            }
-            column(PercentProfitN_Control1000000051; PercentProfitN)
             {
             }
             column(CurrReport_PAGENOCaption; CurrReport_PAGENOCaptionLbl)
@@ -177,13 +87,10 @@ report 50053 "PWD Palmares des articles"
             column(Item_Ledger_EntryCaption; Item_Ledger_EntryCaptionLbl)
             {
             }
-            column(CurrReport_PAGENO_Control1000000004Caption; CurrReport_PAGENO_Control1000000004CaptionLbl)
+            column(CurrReport_PAGENO_Caption; CurrReport_PAGENO_Control1000000004CaptionLbl)
             {
             }
             column(SelectAmountCaption; SelectAmountCaptionLbl)
-            {
-            }
-            column(Item_Ledger_Entry__Item_No___Control1000000014Caption; FIELDCAPTION("Item No."))
             {
             }
             column("QuantitéCaption"; QuantitéCaptionLbl)
@@ -227,10 +134,7 @@ report 50053 "PWD Palmares des articles"
                 DateFilter := GETFILTER("Posting Date");
                 IF SalesAmount <> 0 THEN
                     SETFILTER("Sales Amount (Actual)", '%1..', SalesAmount);
-                //CurrReport.CREATETOTALS(PercCATotal, ProfitN, PercentProfitN);
                 SETRANGE("Entry Type", "Entry Type"::Sale);
-
-                // TotalAmountPeriod
                 ItemLedgerEntry.SETRANGE("Entry Type", ItemLedgerEntry."Entry Type"::Sale);
                 IF DateFilter <> '' THEN
                     ItemLedgerEntry.SETFILTER("Posting Date", DateFilter);
@@ -267,6 +171,7 @@ report 50053 "PWD Palmares des articles"
     var
         RecItem: Record Item;
         ItemLedgerEntry: Record "Item Ledger Entry";
+        FooterPrinted: Boolean;
         PercCATotal: Decimal;
         PercentProfitN: Decimal;
         ProfitN: Decimal;

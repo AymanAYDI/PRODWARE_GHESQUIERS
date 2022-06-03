@@ -11,25 +11,28 @@ page 50009 "PWD Run Journal/Douane"
             {
                 ApplicationArea = all;
                 Caption = 'Run Journal';
+                Image = Journal;
                 Promoted = true;
                 PromotedCategory = Process;
-                RunObject = codeunit 50021;
+                RunObject = codeunit "PWD RunJournal";
             }
             action("Run Douane 1")
             {
                 ApplicationArea = all;
                 Caption = 'Run Journal';
+                Image = Journal;
                 Promoted = true;
                 PromotedCategory = Process;
-                RunObject = codeunit 50022;
+                RunObject = codeunit "PWD Run douane1";
             }
             action("Run Douane 2")
             {
                 ApplicationArea = all;
                 Caption = 'Run Journal';
+                Image = Journal;
                 Promoted = true;
                 PromotedCategory = Process;
-                RunObject = codeunit 50023;
+                RunObject = codeunit "PWD Run douane2";
             }
         }
     }

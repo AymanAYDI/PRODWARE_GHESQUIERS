@@ -7,7 +7,7 @@ page 50053 "PWD Feuille saisie prestation"
     PageType = Card;
     SaveValues = true;
     SourceTable = "Item Journal Line";
-UsageCategory = None;
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -80,7 +80,6 @@ UsageCategory = None;
                 }
                 field("Entry Type"; Rec."Entry Type")
                 {
-                    OptionCaption = 'Purchase,Sale,Positive Adjmt.,Negative Adjmt.';
                     ApplicationArea = All;
                 }
                 field("Document No."; Rec."Document No.")
@@ -354,7 +353,7 @@ UsageCategory = None;
                     ShowCaption = false;
                     ApplicationArea = All;
                 }
-                field(PJ1; PJ1)
+                field("Field_PJ1"; PJ1)
                 {
                     ApplicationArea = All;
 
@@ -363,7 +362,7 @@ UsageCategory = None;
                         PJ1OnAfterValidate();
                     end;
                 }
-                field(PJ2; PJ2)
+                field("Field_PJ2"; PJ2)
                 {
                     ApplicationArea = All;
 
@@ -372,7 +371,7 @@ UsageCategory = None;
                         PJ2OnAfterValidate();
                     end;
                 }
-                field(PJ3; PJ3)
+                field("Field_PJ3"; PJ3)
                 {
                     ApplicationArea = All;
 
@@ -381,7 +380,7 @@ UsageCategory = None;
                         PJ3OnAfterValidate();
                     end;
                 }
-                field(PJ4; PJ4)
+                field("Field_PJ4"; PJ4)
                 {
                     ApplicationArea = All;
 
@@ -409,6 +408,7 @@ UsageCategory = None;
                     //RunPageLink = "Table ID" = CONST(83), "Journal Template Name" = FIELD("Journal Template Name"), "Journal Batch Name" = FIELD("Journal Batch Name"), "Journal Line No." = FIELD("Line No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                     ApplicationArea = All;
+                    Image = Dimensions;
                 }
                 action("Lignes traçabilité")
                 {
@@ -417,6 +417,7 @@ UsageCategory = None;
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     ApplicationArea = All;
+                    Image = ItemTrackingLines;
 
                     trigger OnAction()
                     begin
@@ -434,6 +435,7 @@ UsageCategory = None;
                     RunPageLink = "No." = FIELD("Item No.");
                     ShortCutKey = 'Shift+F5';
                     ApplicationArea = All;
+                    Image = Card;
                 }
                 action(Ecritures)
                 {
@@ -442,14 +444,16 @@ UsageCategory = None;
                     RunPageLink = "Item No." = FIELD("Item No.");
                     RunPageView = SORTING("Item No.");
                     ShortCutKey = 'Ctrl+F5';
+                    Image = LedgerEntries;
                     ApplicationArea = All;
                 }
                 group("Disponibilité article par")
                 {
-                    Caption = 'Item Availability by';
+                    Image = ItemAvailability;
                     action("Période")
                     {
                         Caption = 'Period';
+                        Image = Period;
                         ApplicationArea = All;
 
                         trigger OnAction()
@@ -462,6 +466,7 @@ UsageCategory = None;
                     {
                         Caption = 'Variant';
                         ApplicationArea = All;
+                        Image = ItemVariant;
 
                         trigger OnAction()
                         begin
@@ -472,6 +477,7 @@ UsageCategory = None;
                     action(Magasin)
                     {
                         Caption = 'Location';
+                        Image = Bin;
                         ApplicationArea = All;
 
                         trigger OnAction()
@@ -483,6 +489,7 @@ UsageCategory = None;
                     action(Emplacement)
                     {
                         Caption = 'Bin';
+                        Image = Bin;
                         ApplicationArea = All;
 
                         trigger OnAction()
@@ -501,12 +508,14 @@ UsageCategory = None;
                     Caption = 'E&xplode BOM';
                     RunObject = Codeunit "Item Jnl.-Explode BOM";
                     ApplicationArea = All;
+                    Image = ExplodeBOM;
                 }
                 action("&Calculer ajustement magasin")
                 {
                     Caption = '&Calculate Whse. Adjustment';
                     Ellipsis = true;
                     ApplicationArea = All;
+                    Image = CalculateWarehouseAdjustment;
 
                     trigger OnAction()
                     begin
@@ -522,6 +531,7 @@ UsageCategory = None;
                 {
                     Caption = 'Mettre à jour Magasin/reservation';
                     ApplicationArea = All;
+                    Image = UpdateDescription;
 
                     trigger OnAction()
                     begin
@@ -536,6 +546,7 @@ UsageCategory = None;
                 {
                     Caption = 'Bon de commande';
                     ApplicationArea = All;
+                    Image = Purchase;
 
                     trigger OnAction()
                     var
@@ -551,6 +562,7 @@ UsageCategory = None;
                 {
                     Caption = 'Avis de placement';
                     ApplicationArea = All;
+                    Image = Report;
 
                     trigger OnAction()
                     begin
@@ -570,6 +582,7 @@ UsageCategory = None;
                     Caption = 'Test Report';
                     Ellipsis = true;
                     ApplicationArea = All;
+                    Image = TestReport;
 
                     trigger OnAction()
                     begin

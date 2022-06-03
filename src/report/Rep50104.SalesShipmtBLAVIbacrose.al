@@ -583,9 +583,9 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
         NbLigneTotal: Integer;
         NombreLigne: Integer;
         NumLigne: Integer;
+        OutputNo: Integer;
         TestBoucle: Integer;
         TotalLocation: Integer;
-        OutputNo: Integer;
         A_Calais_leCaptionLbl: Label 'A Calais le';
         "Arrété_àCaptionLbl": Label 'Arrété à';
         Bonded_Allowance_40g_tobacco_or_cigarettes_5cl_wine_or_beer_or_aperitive_with_wine_10cl_spirits_per_day_at_sea_per_pLbl: Label 'L''exonération des droits et taxes est conditionnée par la mise à bord effective immédiate des marchandises pour consommation à bord. A défaut, les droits et taxes sont dûs.';

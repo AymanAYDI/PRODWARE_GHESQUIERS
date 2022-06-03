@@ -71,6 +71,7 @@ page 50042 "PWD Sales Orders to prepare"
                 {
                     ApplicationArea = all;
                     Caption = 'Pick';
+                    Image = PickLines;
 
                     trigger OnAction()
                     begin
@@ -130,6 +131,7 @@ page 50042 "PWD Sales Orders to prepare"
                 {
                     Caption = 'Print Shipment Receipt';
                     ApplicationArea = all;
+                    Image = Print;
                     trigger OnAction()
                     begin
                         SalesHeader.RESET();
@@ -149,6 +151,7 @@ page 50042 "PWD Sales Orders to prepare"
                 {
                     ApplicationArea = all;
                     Caption = 'Update Qty to Prepare';
+                    Image= UpdateDescription;
 
                     trigger OnAction()
 
@@ -186,6 +189,7 @@ page 50042 "PWD Sales Orders to prepare"
                 PromotedCategory = Process;
                 Visible = true;
                 ApplicationArea = All;
+                Image = UpdateUnitCost;
 
                 trigger OnAction()
                 begin
@@ -218,6 +222,7 @@ page 50042 "PWD Sales Orders to prepare"
                 Promoted = true;
                 PromotedCategory = Process;
                 ApplicationArea = All;
+                Image = Print;
 
                 trigger OnAction()
                 begin
@@ -272,7 +277,7 @@ page 50042 "PWD Sales Orders to prepare"
         RecLocPriority.RESET();
         RecLocPriority.SETCURRENTKEY("PWD Call Type Code", "PWD Location priority");
         RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", SalesHeader."PWD Call Type");
-        IF RecLocPriority.FIND('-') THEN BEGIN
+        IF RecLocPriority.FindSet() THEN BEGIN
             REPEAT
                 TotalAvailableInventory := CalculateNeed();
                 IF TotalAvailableInventory > 0 THEN
@@ -280,7 +285,7 @@ page 50042 "PWD Sales Orders to prepare"
             UNTIL RecLocPriority.NEXT() = 0;
             IF TotalAvailableInventory < (InputQuantity / SalesLine."Qty. per Unit of Measure") THEN
                 UnavailableQty := (InputQuantity / SalesLine."Qty. per Unit of Measure") - PositiveRemainingQty;
-            RecLocPriority.FIND('-');
+            RecLocPriority.FindSet();
             REPEAT
                 AvailableInventory := CalculateNeed();
                 CumulatedInventory += CalculateNeed();
@@ -342,7 +347,7 @@ page 50042 "PWD Sales Orders to prepare"
         ReservEntry.SETRANGE("Source Subtype", SalesLine."Document Type");
         ReservEntry.SETRANGE("Source ID", SalesLine."Document No.");
         ReservEntry.SETRANGE("Source Ref. No.", SalesLine."Line No.");
-        IF NOT ReservEntry.FIND('-') THEN
+        IF NOT ReservEntry.FindSet() THEN
             InsertTrackingLines()
         ELSE BEGIN
             REPEAT
@@ -364,14 +369,14 @@ page 50042 "PWD Sales Orders to prepare"
         ItemSalesLine.SETRANGE("No.", SalesLine."No.");
         ItemSalesLine.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
         ItemSalesLine.SETRANGE("Location Filter", RecLocPriority."PWD Location code");
-        IF ItemSalesLine.FIND('-') THEN
+        IF ItemSalesLine.FindFirst() THEN
             ItemSalesLine.CALCFIELDS("Qty. on Sales Order");
 
         Item.RESET();
         Item.SETRANGE("No.", SalesLine."No.");
         Item.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
         Item.SETRANGE(Item."Location Filter", RecLocPriority."PWD Location code");
-        IF Item.FIND('-') THEN BEGIN
+        IF Item.FindFirst() THEN BEGIN
             Item.CALCFIELDS(
               "Qty. on Purch. Order",
               "Qty. on Sales Order",
@@ -413,8 +418,8 @@ page 50042 "PWD Sales Orders to prepare"
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Lot No.", '<>%1', '');
         ItemLedgerEntry.SETRANGE(ItemLedgerEntry.Positive, TRUE);
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Remaining Quantity", '<>%1', 0);
-        IF ItemLedgerEntry.FIND('-') THEN BEGIN
-            ReservEntryNo.FIND('+');
+        IF ItemLedgerEntry.FindSet() THEN BEGIN
+            ReservEntryNo.FindSet();
             EntryNo := ReservEntryNo."Entry No.";
             REPEAT
                 EntryNo += 1;
@@ -482,8 +487,8 @@ page 50042 "PWD Sales Orders to prepare"
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Lot No.", '<>%1', '');
         ItemLedgerEntry.SETRANGE(ItemLedgerEntry.Positive, TRUE);
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Remaining Quantity", '<>%1', 0);
-        IF ItemLedgerEntry.FIND('-') THEN BEGIN
-            ItemTrackingLines.FIND('+');
+        IF ItemLedgerEntry.FindSet() THEN BEGIN
+            ItemTrackingLines.FindSet();
             EntryNo := ItemTrackingLines."Entry No.";
             REPEAT
                 EntryNo += 1;
@@ -522,7 +527,7 @@ page 50042 "PWD Sales Orders to prepare"
         CommentSalesLine.SETRANGE(CommentSalesLine."Document No.", SalesLine."Document No.");
         CommentSalesLine.SETRANGE(CommentSalesLine.Type, CommentSalesLine.Type::" ");
         CommentSalesLine.SETRANGE(CommentSalesLine."PWD Linked Sales Line", SalesLine."Line No.");
-        IF CommentSalesLine.FIND('-') THEN BEGIN
+        IF CommentSalesLine.FindSet() THEN BEGIN
             i := 0;
             REPEAT
                 CommentSalesLine.MARK(TRUE);
@@ -553,7 +558,7 @@ page 50042 "PWD Sales Orders to prepare"
             ERROR(Text1000000009);
         IF SalesHeader.COUNT = 0 THEN
             ERROR(Text1000000010);
-        IF SalesHeader.FIND('-') THEN BEGIN
+        IF SalesHeader.FIND() THEN BEGIN
             IF SalesHeader."PWD Preparation in process" = FALSE THEN BEGIN
                 CLEAR(ReleaseSalesDoc);
                 ReleaseSalesDoc.Reopen(SalesHeader);
@@ -572,7 +577,7 @@ page 50042 "PWD Sales Orders to prepare"
                 SalesLine.SETRANGE("Special Order", FALSE);
                 SalesLine.SETRANGE("PWD Order Trading brand", FALSE);
                 SalesLine.SETRANGE("PWD Trading Brand", FALSE);
-                IF SalesLine.FIND('-') THEN
+                IF SalesLine.FindSet() THEN
                     REPEAT
                         IF ItemNo <> SalesLine."No." THEN BEGIN
                             SalesLineItem.SETCURRENTKEY("Document Type", "Document No.", "PWD Preparation in Process",
@@ -599,7 +604,7 @@ page 50042 "PWD Sales Orders to prepare"
                 SalesLine.SETRANGE(SalesLine."PWD Preparation in Process", FALSE);
                 SalesLine.SETRANGE(SalesLine.Type, SalesLine.Type::Item);
                 SalesLine.SETRANGE("PWD Trading Brand", FALSE);
-                IF SalesLine.FIND('-') THEN BEGIN
+                IF SalesLine.FindSet() THEN BEGIN
                     REPEAT
                         Item.GET(SalesLine."No.");
                         IF (Item."PWD Trading Brand" = FALSE) AND (Item."PWD Butchery" = FALSE) AND (SalesLine."PWD Countermark Location" = FALSE) THEN BEGIN
@@ -619,8 +624,8 @@ page 50042 "PWD Sales Orders to prepare"
                 SalesLine.SETRANGE(SalesLine."Document Type", SalesLine."Document Type"::Order);
                 SalesLine.SETRANGE(SalesLine."Document No.", SalesHeader."No.");
                 SalesLine.SETRANGE(SalesLine."PWD Preparation in Process", TRUE);
-                SalesLine.SETRANGE("PWD Trading Brand", FALSE); //GTE
-                IF SalesLine.FIND('-') THEN
+                SalesLine.SETRANGE("PWD Trading Brand", FALSE);
+                IF SalesLine.FindSet() THEN
                     REPEAT
                         Item.GET(SalesLine."No.");
                         IF (Item."PWD Trading Brand" = FALSE) AND (Item."PWD Butchery" = FALSE) AND (SalesLine."PWD Countermark Location" = FALSE) THEN

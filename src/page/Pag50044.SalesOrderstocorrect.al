@@ -61,6 +61,7 @@ page 50044 "PWD Sales Orders to correct"
                 Promoted = true;
                 PromotedCategory = Process;
                 ApplicationArea = All;
+                Image = UntrackedQuantity;
 
                 trigger OnAction()
                 begin
@@ -70,7 +71,7 @@ page 50044 "PWD Sales Orders to correct"
                         ERROR(Text1000000009);
                     IF SalesHeader.COUNT = 0 THEN
                         ERROR(Text1000000010);
-                    IF SalesHeader.FIND('-') THEN
+                    IF SalesHeader.FIND() THEN
                         IF SalesHeader."PWD Preparation in process" = FALSE THEN
                             MESSAGE(Text1000000013, SalesHeader."No.") ELSE BEGIN
                             CLEAR(FormSalesLinetoCorrect);
@@ -168,7 +169,7 @@ page 50044 "PWD Sales Orders to correct"
         ReservEntry.SETRANGE("Source Subtype", SalesLine."Document Type");
         ReservEntry.SETRANGE("Source ID", SalesLine."Document No.");
         ReservEntry.SETRANGE("Source Ref. No.", SalesLine."Line No.");
-        IF NOT ReservEntry.FIND('-') THEN
+        IF NOT ReservEntry.FindFirst() THEN
             InsertTrackingLines()
         ELSE BEGIN
             REPEAT
@@ -191,14 +192,14 @@ page 50044 "PWD Sales Orders to correct"
         ItemSalesLine.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
         ItemSalesLine.SETRANGE("Location Filter", RecLocPriority."PWD Location code");
         ItemSalesLine.SETRANGE("PWD Preparation Filter", SalesLine."PWD Preparation in Process");
-        IF ItemSalesLine.FIND('-') THEN
+        IF ItemSalesLine.FindFirst() THEN
             ItemSalesLine.CALCFIELDS("Qty. on Sales Order");
 
         Item.RESET();
         Item.SETRANGE("No.", SalesLine."No.");
         Item.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
         Item.SETRANGE(Item."Location Filter", RecLocPriority."PWD Location code");
-        IF Item.FIND('-') THEN BEGIN
+        IF Item.FindFirst() THEN BEGIN
             Item.CALCFIELDS(
               "Qty. on Purch. Order",
               "Qty. on Service Order",
@@ -256,8 +257,8 @@ page 50044 "PWD Sales Orders to correct"
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Lot No.", '<>%1', '');
         ItemLedgerEntry.SETRANGE(ItemLedgerEntry.Positive, TRUE);
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Remaining Quantity", '<>%1', 0);
-        IF ItemLedgerEntry.FIND('-') THEN BEGIN
-            ReservEntryNo.FIND('+');
+        IF ItemLedgerEntry.FIND() THEN BEGIN
+            ReservEntryNo.FIND();
             EntryNo := ReservEntryNo."Entry No.";
             REPEAT
                 EntryNo += 1;
@@ -294,7 +295,7 @@ page 50044 "PWD Sales Orders to correct"
         ItemTrackingLines.SETRANGE(ItemTrackingLines."Source Subtype", SalesLine."Document Type");
         ItemTrackingLines.SETRANGE(ItemTrackingLines."Source ID", SalesLine."Document No.");
         ItemTrackingLines.SETRANGE(ItemTrackingLines."Source Ref. No.", SalesLine."Line No.");
-        IF NOT ItemTrackingLines.FIND('-') THEN
+        IF NOT ItemTrackingLines.FindSet() THEN
             InsertTrackingLines()
         ELSE BEGIN
             REPEAT
@@ -307,7 +308,6 @@ page 50044 "PWD Sales Orders to correct"
     procedure InsertTrackingLines2()
     var
         ItemLedgerEntry: Record "Item Ledger Entry";
-        ItemTrackingLines: Record "Tracking Specification";
         CumulatedRemainingQty: Decimal;
         Difference: Decimal;
         InsertedTrackingQty: Decimal;
@@ -323,8 +323,8 @@ page 50044 "PWD Sales Orders to correct"
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Lot No.", '<>%1', '');
         ItemLedgerEntry.SETRANGE(ItemLedgerEntry.Positive, TRUE);
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Remaining Quantity", '<>%1', 0);
-        IF ItemLedgerEntry.FIND('-') THEN BEGIN
-            ItemTrackingLines.FIND('+');
+        IF ItemLedgerEntry.FindSet() THEN BEGIN
+            ItemTrackingLines.FIND();
             EntryNo := ItemTrackingLines."Entry No.";
             REPEAT
                 EntryNo += 1;

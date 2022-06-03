@@ -29,7 +29,7 @@ codeunit 70040 "PWD GlobalSecurityManagement"
                 Window.OPEN('#1###################');
                 UserRole.RESET();
                 UserRole.SETFILTER("Role ID", '<>SUPER&<>TOUS');
-                IF UserRole.FIND('-') THEN
+                IF UserRole.FindFirst() THEN
                     REPEAT
                         Window.UPDATE(1, UserRole."Role ID");
                         ResetUserTableDataPermissions(UserRole);
@@ -42,7 +42,7 @@ codeunit 70040 "PWD GlobalSecurityManagement"
                 Window.OPEN('#1###################');
                 Permission.RESET();
                 Permission.SETFILTER("Role ID", '<>SUPER&<>TOUS');
-                IF Permission.FIND('-') THEN
+                IF Permission.FindFirst() THEN
                     REPEAT
                         Window.UPDATE(1, Permission."Role ID");
                         IF NOT AllObj.GET(Permission."Object Type", Permission."Object ID") THEN
@@ -103,6 +103,7 @@ codeunit 70040 "PWD GlobalSecurityManagement"
 
     procedure SetExecuteIndirect(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
     begin
+        Permission.INIT();
         Permission."Role ID" := RoleID;
         Permission."Object Type" := ObjectType;
         Permission."Object ID" := ObjectID;
@@ -117,6 +118,7 @@ codeunit 70040 "PWD GlobalSecurityManagement"
     procedure SetExecuteYes(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
 
     begin
+        Permission.INIT();
         Permission."Role ID" := RoleID;
         Permission."Object Type" := ObjectType;
         Permission."Object ID" := ObjectID;
@@ -132,6 +134,7 @@ codeunit 70040 "PWD GlobalSecurityManagement"
     var
 
     begin
+        Permission.INIT();
         Permission."Role ID" := RoleID;
         Permission."Object Type" := ObjectType;
         Permission."Object ID" := ObjectID;
@@ -146,6 +149,7 @@ codeunit 70040 "PWD GlobalSecurityManagement"
     procedure SetIMDtoYes(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
     var
     begin
+        Permission.INIT();
         Permission."Role ID" := RoleID;
         Permission."Object Type" := ObjectType;
         Permission."Object ID" := ObjectID;
@@ -159,6 +163,7 @@ codeunit 70040 "PWD GlobalSecurityManagement"
 
     procedure SetREtoYes(RoleID: Code[20]; ObjectType: Option "Table Data","Table",Form,"Report",Dataport,"Codeunit",,,,,System; ObjectID: Integer)
     begin
+        Permission.INIT();
         Permission."Role ID" := RoleID;
         Permission."Object Type" := ObjectType;
         Permission."Object ID" := ObjectID;
@@ -177,7 +182,7 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         Window.OPEN(Text1000000004, RoleInput);
         Window.Update(1, RoleInput);
         Window.CLOSE();
-        ObjectMembership.FIND('-');
+        ObjectMembership.FindFirst();
         IF NOT UserRole.GET(RoleInput) THEN
             ERROR(Text1000000005, RoleInput)
         ELSE
@@ -185,33 +190,24 @@ codeunit 70040 "PWD GlobalSecurityManagement"
                 Permission."Role ID" := RoleInput;
                 Permission."Object Type" := ObjectMembership."Object Type";
                 Permission."Object ID" := ObjectMembership."Object ID";
-                //ToDo "if" inutil
                 IF NOT Permission.MODIFY() THEN BEGIN
+                    Permission.INIT();
                     Permission.INSERT();
-                    //Todo
                     if ValueInput then
                         Permission.Validate("Execute Permission", Permission."Execute Permission"::Yes)
                     else
                         Permission.Validate("Execute Permission", Permission."Execute Permission"::" ");
-                    //Permission.VALIDATE("Execute Allowed", ValueInput);
-                END ELSE
-                    if ValueInput then
-                        Permission.Validate("Execute Permission", Permission."Execute Permission"::Yes)
-                    else
-                        Permission.Validate("Execute Permission", Permission."Execute Permission"::" ");
-            // Permission.VALIDATE("Execute Allowed", ValueInput);
+                END;
             UNTIL ObjectMembership.NEXT() = 0;
     end;
 
     procedure ResetUserTableDataPermissions(SelUserRole: Record "Permission Set")
     var
-        AllObj: Record AllObj;
-        Permission: Record Permission;
     begin
         AllObj.RESET();
         AllObj.SETFILTER("Object Type", 'TableData');
         AllObj.SETFILTER("Object ID", '<2000000000');
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindSet() THEN
             REPEAT
                 IF STRPOS(UPPERCASE(AllObj."Object Name"), 'BUFFER') = 0 THEN
                     IF Permission.GET(SelUserRole."Role ID", AllObj."Object Type", AllObj."Object ID") THEN
@@ -220,7 +216,7 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         AllObj.RESET();
         AllObj.SETFILTER("Object Type", 'TableData');
         AllObj.SETFILTER("Object ID", '2000000002..2000000006|2000000053..2000000054|2000000203');
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindSet() THEN
             REPEAT
                 IF Permission.GET(SelUserRole."Role ID", AllObj."Object Type", AllObj."Object ID") THEN
                     Permission.DELETE();
@@ -230,50 +226,51 @@ codeunit 70040 "PWD GlobalSecurityManagement"
     procedure DeleteAllRoles()
     begin
         UserRole.SETFILTER("Role ID", '<>SUPER');
-        IF UserRole.FIND('-') THEN
+        IF UserRole.FindFirst() THEN
             UserRole.DELETEALL();
 
         Permission.SETFILTER("Role ID", '<>SUPER');
-        IF Permission.FIND('-') THEN
+        IF Permission.FindFirst() THEN
             Permission.DELETEALL();
     end;
 
     procedure DeleteRoleTOUS()
     begin
         UserRole.SETFILTER("Role ID", 'TOUS');
-        IF UserRole.FIND('-') THEN
+        IF UserRole.FindFirst() THEN
             UserRole.DELETEALL();
 
         Permission.SETFILTER("Role ID", 'TOUS');
-        IF Permission.FIND('-') THEN
+        IF Permission.FindFirst() THEN
             Permission.DELETEALL();
     end;
 
     procedure SetRoleTOUSProperties()
     begin
         Permission.RESET();
-        IF Permission.FIND('-') THEN
+        IF Permission.FindSet() THEN
             REPEAT
                 Permission.VALIDATE("Execute Permission");
                 Permission.MODIFY();
             UNTIL Permission.NEXT() = 0;
 
         IF NOT UserRole.GET('TOUS') THEN BEGIN
+            UserRole.Init();
             UserRole."Role ID" := 'TOUS';
             UserRole.Name := 'Tous les utilisateurs';
             UserRole.INSERT();
         END;
         UserRole.SETFILTER("Role ID", 'TOUS');
-        UserRole.FIND('-');
+        UserRole.FindFirst();
         //Set Permissions for TableData
         AllObj.RESET();
         AllObj.SETRANGE("Object Type", AllObj."Object Type"::TableData);
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindFirst() THEN
             SetREtoYesIMDtoInd(UserRole."Role ID", AllObj."Object Type", 0);
         //Set Permissions for 'Buffer' Table Data
         AllObj.RESET();
         AllObj.SETRANGE("Object Type", AllObj."Object Type"::TableData);
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindFirst() THEN
             REPEAT
                 IF STRPOS(UPPERCASE(AllObj."Object Name"), 'BUFFER') <> 0 THEN
                     SetIMDtoYes(UserRole."Role ID", AllObj."Object Type", AllObj."Object ID");
@@ -281,28 +278,28 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         //Set Permissions for object 'Table'
         AllObj.RESET();
         AllObj.SETRANGE("Object Type", AllObj."Object Type"::Table);
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindFirst() THEN
             SetREtoYes(UserRole."Role ID", AllObj."Object Type", 0);
         //Set Permissions for objects 'Form' & 'Report'
         AllObj.RESET();
         AllObj.SETRANGE("Object Type", AllObj."Object Type"::Page);
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindFirst() THEN
             SetExecuteIndirect(UserRole."Role ID", AllObj."Object Type", 0);
         AllObj.SETRANGE("Object Type", AllObj."Object Type"::Report);
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindFirst() THEN
             SetExecuteIndirect(UserRole."Role ID", AllObj."Object Type", 0);
         //Set Permissions for objects 'Dataport' & 'Codeunit'
         AllObj.RESET();
         AllObj.SETRANGE("Object Type", AllObj."Object Type"::XMLport);
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindFirst() THEN
             SetMaximumPermission(UserRole."Role ID", AllObj."Object Type", 0);
         AllObj.SETRANGE("Object Type", AllObj."Object Type"::Codeunit);
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindFirst() THEN
             SetMaximumPermission(UserRole."Role ID", AllObj."Object Type", 0);
         //Set Permissions for 'Menu' forms
         AllObj.RESET();
         AllObj.SETRANGE("Object Type", AllObj."Object Type"::Page);
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindFirst() THEN
             REPEAT
                 //ToDo
                 IF STRPOS(UPPERCASE(AllObj."Object Name"), 'MENU') <> 0 THEN
@@ -311,7 +308,7 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         //Set Permissions for System Functions
         AllObj.RESET();
         AllObj.SETRANGE("Object Type", AllObj."Object Type"::System);
-        IF AllObj.FIND('-') THEN BEGIN
+        IF AllObj.FindFirst() THEN BEGIN
             SetMaximumPermission(UserRole."Role ID", AllObj."Object Type", 2510);
             SetMaximumPermission(UserRole."Role ID", AllObj."Object Type", 2520);
             SetMaximumPermission(UserRole."Role ID", AllObj."Object Type", 3220);
@@ -325,7 +322,7 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         AllObj.RESET();
         AllObj.SETRANGE("Object Type", AllObj."Object Type"::TableData);
         AllObj.SETFILTER("Object ID", '>=2000000000');
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindFirst() THEN
             REPEAT
                 IF NOT (AllObj."Object ID" IN [2000000002 .. 2000000006, 2000000053, 2000000054, 2000000058, 2000000203]) THEN
                     SetIMDtoYes(UserRole."Role ID", AllObj."Object Type", AllObj."Object ID");

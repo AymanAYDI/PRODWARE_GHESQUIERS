@@ -89,11 +89,10 @@ page 50072 "PWD Purchase Order Seafrance"
             group("Fonction&s")
             {
                 Caption = 'Function&s';
-                action("<Action1000000001>")
+                action("Controle Unitaire")
                 {
-                    Caption = 'Controle Unitaire';
+                    Caption = 'Contrôle  Unitaire';
                     ApplicationArea = All;
-
                     trigger OnAction()
                     begin
                         //>-> GHE-RE.1.00
@@ -105,7 +104,7 @@ page 50072 "PWD Purchase Order Seafrance"
                 {
                     Caption = 'Control the marked lines';
                     ApplicationArea = All;
-
+                    Image = AllLines;
                     trigger OnAction()
                     begin
                         //>>FED_ADV_20090909_IMP_CDEACHAT_V3 :SOBI
@@ -117,6 +116,7 @@ page 50072 "PWD Purchase Order Seafrance"
                 {
                     Caption = 'Insert the controlled lines into leaves';
                     ApplicationArea = All;
+                    Image = Insert;
 
                     trigger OnAction()
                     var
@@ -276,7 +276,7 @@ page 50072 "PWD Purchase Order Seafrance"
         RecLPurchaseOrderSeafrance.RESET();
         RecLPurchaseOrderSeafrance.SETCURRENTKEY(RecLPurchaseOrderSeafrance."Controlled line");
         RecLPurchaseOrderSeafrance.SETRANGE(RecLPurchaseOrderSeafrance."Controlled line", TRUE);
-        IF NOT RecLPurchaseOrderSeafrance.FIND('-') THEN
+        IF NOT RecLPurchaseOrderSeafrance.FindFirst() THEN
             ERROR(CstL010)
         ELSE BEGIN
             RecLInventorySetup.GET();
@@ -291,7 +291,7 @@ page 50072 "PWD Purchase Order Seafrance"
                 RecLItemJournalBatch.SETRANGE(RecLItemJournalBatch."PWD Code fournisseur", RecLPurchaseOrderSeafrance."Vendor No.");
                 RecLItemJournalBatch.SETRANGE(RecLItemJournalBatch."PWD Code préstation", RecLPurchaseOrderSeafrance."Encode Performance");
                 RecLItemJournalBatch.SETRANGE(RecLItemJournalBatch."PWD Code client", RecLPurchaseOrderSeafrance."Customer No.");
-                IF NOT RecLItemJournalBatch.FIND('-') THEN
+                IF NOT RecLItemJournalBatch.FindFirst() THEN
                     ERROR(CstL011, RecLPurchaseOrderSeafrance."Customer No.", RecLPurchaseOrderSeafrance."Vendor No.",
                           RecLPurchaseOrderSeafrance."Encode Performance")
                 ELSE BEGIN
@@ -299,11 +299,11 @@ page 50072 "PWD Purchase Order Seafrance"
                     RecLItemJournalLine.RESET();
                     RecLItemJournalLine.SETRANGE(RecLItemJournalLine."Journal Template Name", RecLInventorySetup."PWD Nom modele prestation");
                     RecLItemJournalLine.SETRANGE(RecLItemJournalLine."Journal Batch Name", RecLItemJournalBatch.Name);
-                    IF RecLItemJournalLine.FIND('-') THEN
+                    IF RecLItemJournalLine.FindFirst() THEN
                         IF RecLItemJournalLine."Item No." = '' THEN
                             RecLItemJournalLine.DELETE();
 
-                    IF NOT RecLItemJournalLine.FIND('+') THEN
+                    IF NOT RecLItemJournalLine.FindLast() THEN
                         IntLLineNumber := 10000
                     ELSE
                         IntLLineNumber := RecLItemJournalLine."Line No." + 10000;

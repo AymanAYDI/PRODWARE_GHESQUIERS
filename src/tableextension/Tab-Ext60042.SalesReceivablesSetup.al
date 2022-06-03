@@ -2,7 +2,7 @@ tableextension 60042 "PWD SalesReceivablesSetup" extends "Sales & Receivables Se
 {
     fields
     {
-        field(50000; "PWD Workbook for Russian Lables"; BLOB)
+        field(50000; "PWD Workbook Russian Labl"; BLOB)
         {
             Caption = 'Workbook for Russian Lables';
             Description = 'PW2009';
@@ -57,7 +57,7 @@ tableextension 60042 "PWD SalesReceivablesSetup" extends "Sales & Receivables Se
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(50009; "PWD Coef Controle prix unitaire"; Decimal)
+        field(50009; "PWD Coef Ctrl Prix Unit"; Decimal)
         {
             Caption = 'Coef Contrôle prix unitaire';
             Description = 'PW2009';

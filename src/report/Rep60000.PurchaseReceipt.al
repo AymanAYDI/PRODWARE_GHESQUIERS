@@ -23,7 +23,6 @@ report 60000 "PWD Purchase - Receipt"
                     column(STRSUBSTNO_Text002_CopyText_; STRSUBSTNO(Text002, CopyText))
                     {
                     }
-                    //column(STRSUBSTNO_Text003_FORMAT_CurrReport_PAGENO__; STRSUBSTNO(Text003, FORMAT(CurrReport.PAGENO())))
                     column(Text003; Text003)
                     {
                     }

@@ -118,6 +118,7 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
             {
                 ApplicationArea = All;
                 Caption = 'Classement sans suite';
+                Image = Delete;
                 trigger OnAction()
                 VAR
                     autoArchMngnt: Codeunit "PWD ArchiveAutoManagement";
@@ -152,6 +153,7 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
             {
                 ApplicationArea = All;
                 Caption = 'Demande d''achats';
+                Image = Purchase;
                 RunObject = Page "Req. Worksheet";
                 Promoted = true;
                 PromotedIsBig = true;
@@ -175,9 +177,6 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
                 PromotedIsBig = true;
                 ShortCutKey = 'F9';
                 trigger OnAction()
-                VAR
-                    SalesHeader: Record "Sales Header";
-                    ApprovalMgt: Codeunit "Export F/O Consolidation";
                 BEGIN
                     CLEAR(ValidatePurchaseOrder);
                     ValidatePurchaseOrder.InitRequete(Rec);
@@ -240,7 +239,7 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
     var
         DocumentNoVisibility: Codeunit DocumentNoVisibility;
     begin
-        DocNoVisible := DocumentNoVisibility.PurchaseDocumentNoIsVisible("Purchase Document Type"::Order, Rec."No.");
+        DocNoVisible := DocumentNoVisibility.PurchaseDocumentNoIsVisible("Purchase Document Type"::Order.AsInteger(), Rec."No.");
     end;
 
     Var

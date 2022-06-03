@@ -210,7 +210,7 @@ report 50112 "PWD Export COALA"
     var
         RecGCust: Record Customer;
         RecGCustomerPostingGroup: Record "Customer Posting Group";
-        ExcelBuf: Record "Excel Buffer" temporary;
+        TempExcelBuf: Record "Excel Buffer" temporary;
         GRecExportCoala: Record "PWD Export COALA";
         RecGSalesCrMemoHeader: Record "Sales Cr.Memo Header";
         RecGSalesInvoiceHeader: Record "Sales Invoice Header";
@@ -233,15 +233,15 @@ report 50112 "PWD Export COALA"
     begin
         //ToDo
         /*
-        ExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Document Date"), FALSE, '', FALSE, FALSE, TRUE, '');
-        ExcelBuf.AddColumn(FORMAT(Text000), FALSE, '', FALSE, FALSE, TRUE, '');
-        ExcelBuf.AddColumn(FORMAT(Text001), FALSE, '', FALSE, FALSE, TRUE, '');
-        ExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Document No."), FALSE, '', FALSE, FALSE, TRUE, '');
-        ExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION(Description), FALSE, '', FALSE, FALSE, TRUE, '');
-        ExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Debit Amount"), FALSE, '', FALSE, FALSE, TRUE, '');
-        ExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Credit Amount"), FALSE, '', FALSE, FALSE, TRUE, '');
-        ExcelBuf.AddColumn(FORMAT(Text002), FALSE, '', FALSE, FALSE, TRUE, '');
-        ExcelBuf.AddColumn(FORMAT(Text003), FALSE, '', FALSE, FALSE, TRUE, '');
+        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Document Date"), FALSE, '', FALSE, FALSE, TRUE, '');
+        TempExcelBuf.AddColumn(FORMAT(Text000), FALSE, '', FALSE, FALSE, TRUE, '');
+        TempExcelBuf.AddColumn(FORMAT(Text001), FALSE, '', FALSE, FALSE, TRUE, '');
+        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Document No."), FALSE, '', FALSE, FALSE, TRUE, '');
+        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION(Description), FALSE, '', FALSE, FALSE, TRUE, '');
+        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Debit Amount"), FALSE, '', FALSE, FALSE, TRUE, '');
+        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Credit Amount"), FALSE, '', FALSE, FALSE, TRUE, '');
+        TempExcelBuf.AddColumn(FORMAT(Text002), FALSE, '', FALSE, FALSE, TRUE, '');
+        TempExcelBuf.AddColumn(FORMAT(Text003), FALSE, '', FALSE, FALSE, TRUE, '');
         */
     end;
 
@@ -250,47 +250,47 @@ report 50112 "PWD Export COALA"
         BlankFiller: Text[250];
     begin
         BlankFiller := PADSTR(' ', MAXSTRLEN(BlankFiller), ' ');
-        ExcelBuf.NewRow();
+        TempExcelBuf.NewRow();
         //ToDo
         /*
-        ExcelBuf.AddColumn(
+        TempExcelBuf.AddColumn(
           "PWD Export COALA"."Document Date", FALSE, '', FALSE,
           FALSE, FALSE, '');
 
-        ExcelBuf.AddColumn(
+        TempExcelBuf.AddColumn(
           'vt', FALSE, '', FALSE,
           FALSE, FALSE, '');
 
         IF "PWD Export COALA"."G/L Account No. COALA" <> '' THEN
-            ExcelBuf.AddColumn(
+            TempExcelBuf.AddColumn(
               "PWD Export COALA"."G/L Account No. COALA", FALSE, '', FALSE,
               FALSE, FALSE, '')
         ELSE
-            ExcelBuf.AddColumn(
+            TempExcelBuf.AddColumn(
               "PWD Export COALA"."G/L Account No.", FALSE, '', FALSE,
               FALSE, FALSE, '');
 
-        ExcelBuf.AddColumn(
+        TempExcelBuf.AddColumn(
           "PWD Export COALA"."Document No.", FALSE, '', FALSE,
           FALSE, FALSE, '');
 
-        ExcelBuf.AddColumn(
+        TempExcelBuf.AddColumn(
           "PWD Export COALA".Description, FALSE, '', FALSE,
           FALSE, FALSE, '');
 
-        ExcelBuf.AddColumn(
+        TempExcelBuf.AddColumn(
           "PWD Export COALA"."Debit Amount", FALSE, '', FALSE,
           FALSE, FALSE, '');
 
-        ExcelBuf.AddColumn(
+        TempExcelBuf.AddColumn(
           "PWD Export COALA"."Credit Amount", FALSE, '', FALSE,
           FALSE, FALSE, '');
 
-        ExcelBuf.AddColumn(
+        TempExcelBuf.AddColumn(
           'E', FALSE, '', FALSE,
           FALSE, FALSE, '');
 
-        ExcelBuf.AddColumn(
+        TempExcelBuf.AddColumn(
           "G/L Entry"."Global Dimension 1 Code", FALSE, '', FALSE,
           FALSE, FALSE, '');
           */
@@ -299,9 +299,9 @@ report 50112 "PWD Export COALA"
     procedure CreateExcelbook()
     begin
         //ToDo
-        /*ExcelBuf.CreateBook;
-        ExcelBuf.CreateSheet(Text002, Text001, COMPANYNAME, USERID);
-        ExcelBuf.GiveUserControl;*/
+        /*TempExcelBuf.CreateBook;
+        TempExcelBuf.CreateSheet(Text002, Text001, COMPANYNAME, USERID);
+        TempExcelBuf.GiveUserControl;*/
         ERROR('');
     end;
 }

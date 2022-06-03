@@ -5,7 +5,7 @@ page 50043 "PWD Sales Lines to Prepare"
     PageType = List;
     SourceTable = "Sales Line";
     SourceTableView = SORTING("PWD Shelf/Bin No.", "Location Code") ORDER(Ascending);
-UsageCategory = None;
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -74,12 +74,13 @@ UsageCategory = None;
                 Promoted = true;
                 PromotedCategory = Process;
                 ApplicationArea = All;
+                Image = ItemAvailability;
 
                 trigger OnAction()
                 var
                     ItemAvailFormsMgt: Codeunit "Item Availability Forms Mgt";
                 begin
-                    ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec, ItemAvailFormsMgt.ByLocation)
+                    ItemAvailFormsMgt.ShowItemAvailFromSalesLine(Rec, ItemAvailFormsMgt.ByLocation())
                 end;
             }
         }

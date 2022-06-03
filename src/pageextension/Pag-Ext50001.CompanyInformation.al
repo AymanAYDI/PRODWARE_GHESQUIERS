@@ -31,11 +31,11 @@ pageextension 50001 "PWD CompanyInformation" extends "Company Information"
             {
                 Caption = 'Douane';
 
-                Field("PWD Location Rights Acquit Filter"; Rec."PWD Location Rights Acquit Filter")
+                Field("PWD Location Rights Acquit Filter"; Rec."PWD LocationRightAcquitFilter")
                 {
                     ApplicationArea = All;
                 }
-                Field("PWD Loc. Rights Suspended Filter"; Rec."PWD Loc. Rights Suspended Filter")
+                Field("PWD Loc. Rights Suspended Filter"; Rec."PWD Loc.RightSuspendedFilter")
                 {
                     ApplicationArea = All;
                 }

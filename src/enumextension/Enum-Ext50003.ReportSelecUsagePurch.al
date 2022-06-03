@@ -1,4 +1,4 @@
-enumextension 50003 "PWD Report Selection Usage Purchase" extends "Report Selection Usage Purchase"
+enumextension 50003 "PWD Report Selec.Usage Purch." extends "Report Selection Usage Purchase"
 {
     value(50000; "Notice Investment")
     {

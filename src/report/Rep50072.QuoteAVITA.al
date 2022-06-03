@@ -732,8 +732,8 @@ report 50072 "PWD Quote AVITA"
         LogInteraction: Boolean;
         MoreLines: Boolean;
         ShowInternalInfo: Boolean;
-        ShowShippingAddr: Boolean;
         ShowPaymentDisc: Boolean;
+        ShowShippingAddr: Boolean;
         ShowTotalExcl: boolean;
         TotalAmountInclVAT: Decimal;
         VATAmount: Decimal;

@@ -2,7 +2,7 @@ page 50022 "Choose Customs Doc Template"
 {
     Caption = 'Choose Customs Doc Template';
     PageType = Card;
-UsageCategory = None;
+    UsageCategory = None;
     layout
     {
         area(content)

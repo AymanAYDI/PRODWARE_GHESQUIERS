@@ -44,7 +44,7 @@ pageextension 50044 "PWD SalesReceivablesSetup" extends "Sales & Receivables Set
                     {
                         ApplicationArea = all;
                     }
-                    field("PWD Coef Controle prix unitaire"; Rec."PWD Coef Controle prix unitaire")
+                    field("PWD Coef Controle prix unitaire"; Rec."PWD Coef Ctrl Prix Unit")
                     {
                         ApplicationArea = all;
                     }

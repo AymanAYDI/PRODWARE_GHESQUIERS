@@ -362,6 +362,7 @@ page 50074 "PWD Seafrance Sales Order"
                 {
                     Caption = 'Contrôler la commande';
                     ApplicationArea = All;
+                    Image = ViewRegisteredOrder;
 
                     trigger OnAction()
                     begin
@@ -393,6 +394,7 @@ page 50074 "PWD Seafrance Sales Order"
                 {
                     Caption = 'Imprimer la commande';
                     ApplicationArea = All;
+                    Image = Print;
 
                     trigger OnAction()
                     var
@@ -522,7 +524,7 @@ page 50074 "PWD Seafrance Sales Order"
                 RecLocPriority.RESET();
                 RecLocPriority.SETCURRENTKEY(RecLocPriority."PWD Call Type Code", RecLocPriority."PWD Location priority");
                 RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", RecLSalesLine."PWD Call Type");
-                IF RecLocPriority.FIND('+') THEN
+                IF RecLocPriority.FindLast() THEN
                     RecLSalesLine."Location Code" := RecLocPriority."PWD Location code";
                 IF RecLSalesLine.Type <> RecLSalesLine.Type::" " THEN BEGIN
                     RecLSalesLine.VALIDATE("No.", RecLSeafranceSalesLine."No.");

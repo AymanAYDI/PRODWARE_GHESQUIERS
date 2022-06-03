@@ -183,26 +183,26 @@ report 50124 "PWD Apurement fin de mois V2"
                             IF methodeAT = 3 THEN InvoicedQty := "Invoiced Quantity" * Item."Net Weight";
 
                         END ELSE
-                        IF ("Item Ledger Entry Type" IN
-                           ["Item Ledger Entry Type"::Purchase,
-                            "Item Ledger Entry Type"::"Positive Adjmt.",
-                            "Item Ledger Entry Type"::Output])
-                        THEN BEGIN
-                            ValueOfRcdIncreases := "Cost Amount (Expected)";
-                            ValueOfInvIncreases := "Cost Amount (Actual)";
-                            InvIncreases := "Invoiced Quantity";
-                            IF methodeAT = 1 THEN InvIncreases := "Invoiced Quantity" * Item."Net Weight" / 100;
-                            IF methodeAT = 2 THEN InvIncreases := "Invoiced Quantity" * Item."Net Weight" / 100;
-                            IF methodeAT = 3 THEN InvIncreases := "Invoiced Quantity" * Item."Net Weight";
+                            IF ("Item Ledger Entry Type" IN
+                               ["Item Ledger Entry Type"::Purchase,
+                                "Item Ledger Entry Type"::"Positive Adjmt.",
+                                "Item Ledger Entry Type"::Output])
+                            THEN BEGIN
+                                ValueOfRcdIncreases := "Cost Amount (Expected)";
+                                ValueOfInvIncreases := "Cost Amount (Actual)";
+                                InvIncreases := "Invoiced Quantity";
+                                IF methodeAT = 1 THEN InvIncreases := "Invoiced Quantity" * Item."Net Weight" / 100;
+                                IF methodeAT = 2 THEN InvIncreases := "Invoiced Quantity" * Item."Net Weight" / 100;
+                                IF methodeAT = 3 THEN InvIncreases := "Invoiced Quantity" * Item."Net Weight";
 
-                        END ELSE BEGIN
-                            CostOfShipDecreases := -"Cost Amount (Expected)";
-                            CostOfInvDecreases := -"Cost Amount (Actual)";
-                            InvDecreases := -"Invoiced Quantity";
-                            IF methodeAT = 1 THEN InvDecreases := -"Invoiced Quantity" * Item."Net Weight" / 100;
-                            IF methodeAT = 2 THEN InvDecreases := -"Invoiced Quantity" * Item."Net Weight" / 100;
-                            IF methodeAT = 3 THEN InvDecreases := -"Invoiced Quantity" * Item."Net Weight";
-                        END;
+                            END ELSE BEGIN
+                                CostOfShipDecreases := -"Cost Amount (Expected)";
+                                CostOfInvDecreases := -"Cost Amount (Actual)";
+                                InvDecreases := -"Invoiced Quantity";
+                                IF methodeAT = 1 THEN InvDecreases := -"Invoiced Quantity" * Item."Net Weight" / 100;
+                                IF methodeAT = 2 THEN InvDecreases := -"Invoiced Quantity" * Item."Net Weight" / 100;
+                                IF methodeAT = 3 THEN InvDecreases := -"Invoiced Quantity" * Item."Net Weight";
+                            END;
 
                         IF "Expected Cost" THEN BEGIN
                             CostPostedToGL := "Cost Posted to G/L";

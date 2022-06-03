@@ -4,7 +4,7 @@ page 50039 "PWD Family & Sub Family"
     DelayedInsert = true;
     PageType = List;
     SourceTable = "PWD Family & Sub Family";
-UsageCategory = None;
+    UsageCategory = None;
     layout
     {
         area(content)

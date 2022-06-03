@@ -38,9 +38,6 @@ report 50041 "PWD Fiche Anomalie"
                 column(USERID; USERID)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PAGENO())
-                {
-                }
                 column(TIME; TIME)
                 {
                 }
@@ -89,13 +86,13 @@ report 50041 "PWD Fiche Anomalie"
                 column(parCaption; parCaptionLbl)
                 {
                 }
-                column("àCaption"; àCaptionLbl)
+                column(àCaption; àCaptionLbl)
                 {
                 }
                 column(CurrReport_PAGENOCaption; CurrReport_PAGENOCaptionLbl)
                 {
                 }
-                column("Edité_le_Caption"; Edité_le_CaptionLbl)
+                column(Edité_le_Caption; Edité_le_CaptionLbl)
                 {
                 }
                 column(ANOMALIES___STOCK_INSUFFISANTCaption; ANOMALIES___STOCK_INSUFFISANTCaptionLbl)
@@ -104,7 +101,7 @@ report 50041 "PWD Fiche Anomalie"
                 column(Nombre_de_colisCaption; Nombre_de_colisCaptionLbl)
                 {
                 }
-                column("Quantité_préparéeCaption"; Quantité_préparéeCaptionLbl)
+                column(Quantité_préparéeCaption; Quantité_préparéeCaptionLbl)
                 {
                 }
                 column(SalesLineAnomalie__Unit_of_Measure_Code_Caption; FIELDCAPTION("Unit of Measure Code"))
@@ -140,7 +137,7 @@ report 50041 "PWD Fiche Anomalie"
                 column(SalesLineAnomalie_Previous_Line_No; "PWD Previous Line No")
                 {
                 }
-                dataitem(CommentSalesLineAnomalie; 37)
+                dataitem(CommentSalesLineAnomalie; "Sales Line")
                 {
                     DataItemLink = "PWD Linked Sales Line" = FIELD("PWD Previous Line No"), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("Document No.");
                     DataItemTableView = SORTING("PWD Shelf/Bin No.", "Location Code") ORDER(Ascending) WHERE(Type = FILTER(' '));
@@ -171,7 +168,8 @@ report 50041 "PWD Fiche Anomalie"
             begin
                 CompanyInfo.GET();
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
-                //TODOFormatAddr.SalesHeaderShipTo(ShipToAddr, "Sales Header"); //Changement de param du fct
+                //ToDo a vérifier  FormatAddr.SalesHeaderShipTo(ShipToAddr, CompanyAddr, "Sales Header");
+                FormatAddr.SalesHeaderShipTo(ShipToAddr, CompanyAddr, "Sales Header");
                 IF NOT call.GET("Sales Header"."PWD Call No.") THEN call.INIT();
                 IF NOT Recarea.GET(call.Area) THEN Recarea.INIT();
             end;

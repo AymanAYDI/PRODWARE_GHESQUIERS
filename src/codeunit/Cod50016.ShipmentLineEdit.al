@@ -18,7 +18,7 @@ codeunit 50016 "PWD Shipment Line - Edit"
         SalesShptLine."PWD DCG Tariff No." := Rec."PWD DCG Tariff No.";
         SalesShptLine."PWD National Add. Code" := Rec."PWD National Add. Code";
         SalesShptLine."PWD Monthly Code" := Rec."PWD Monthly Code";
-        SalesShptLine."Valeur douane (correction)" := Rec."Valeur douane (correction)";
+        SalesShptLine."PWD Valeur douane (correction)" := Rec."PWD Valeur douane (correction)";
         SalesShptLine."PWD Provision/materiel" := Rec."PWD Provision/materiel";
         SalesShptLine.MODIFY();
         Rec := SalesShptLine;

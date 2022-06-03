@@ -161,6 +161,7 @@ page 50064 "PWD Modify Item Ledger Entries"
                     RunObject = Page "Ledger Entry Dimensions";
                     RunPageLink = "Table ID" = CONST(32), "Entry No." = FIELD("Entry No.");*/
                     ShortCutKey = 'Shift+Ctrl+D';
+                    Image= Dimensions;
                     ApplicationArea = All;
                 }
                 action("Ecritures &valeur")
@@ -171,6 +172,7 @@ page 50064 "PWD Modify Item Ledger Entries"
                     RunPageView = SORTING("Item Ledger Entry No.");
                     ShortCutKey = 'Ctrl+F5';
                     ApplicationArea = All;
+                    Image = ValueLedger;
                 }
             }
             group("&Lettrage")
@@ -180,6 +182,7 @@ page 50064 "PWD Modify Item Ledger Entries"
                 {
                     Caption = 'Applied E&ntries';
                     ApplicationArea = All;
+                    Image = ApplyEntries;
 
                     trigger OnAction()
                     begin
@@ -190,6 +193,7 @@ page 50064 "PWD Modify Item Ledger Entries"
                 {
                     Caption = 'Reservation Entries';
                     ApplicationArea = All;
+                    Image = ReservationLedger;
 
                     trigger OnAction()
                     begin
@@ -204,6 +208,7 @@ page 50064 "PWD Modify Item Ledger Entries"
                 {
                     Caption = 'Order &Tracking';
                     ApplicationArea = All;
+                    Image = OrderTracking;
 
                     trigger OnAction()
                     var
@@ -223,6 +228,7 @@ page 50064 "PWD Modify Item Ledger Entries"
                 Promoted = true;
                 PromotedCategory = Process;
                 ApplicationArea = All;
+                Image = Navigate;
 
                 trigger OnAction()
                 var

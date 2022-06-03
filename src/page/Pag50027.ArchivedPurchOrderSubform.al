@@ -249,20 +249,15 @@ page 50027 "Archived Purch. Order Subform"
                     Caption = 'Dimensions';
                     ShortCutKey = 'Shift+Ctrl+D';
                     ApplicationArea = All;
+                    Image = Dimensions;
                     trigger OnAction()
                     begin
-                        _ShowDimensions();
+                        Rec.ShowDimensions();
                     end;
                 }
             }
         }
     }
-
-    procedure _ShowDimensions()
-    begin
-        Rec.ShowDimensions();
-    end;
-
     procedure ShowDimensions()
     begin
         Rec.ShowDimensions();

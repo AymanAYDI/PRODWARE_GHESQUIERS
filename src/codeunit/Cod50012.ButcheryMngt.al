@@ -12,7 +12,7 @@ codeunit 50012 "PWD ButcheryMngt"
         ReservEntry.SETRANGE("Source ID", ItemJnlLine."Journal Template Name");
         ReservEntry.SETRANGE("Source Batch Name", ItemJnlLine."Journal Batch Name");
         ReservEntry.SETRANGE("Source Ref. No.", EntryLineNo);
-        IF ReservEntry.FIND('-') THEN
+        IF ReservEntry.FindFirst() THEN
             OriginButchEntry := ReservEntry
         ELSE
             OriginButchEntry.INIT();

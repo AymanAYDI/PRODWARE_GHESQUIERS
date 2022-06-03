@@ -579,6 +579,9 @@ report 50026 "Sales - Shipment AVITA - DAA"
                     column(PageLoop_Number; Number)
                     {
                     }
+                    column(NoOfCopies; NoOfCopies)
+                    {
+                    }
                     dataitem("Sales Shipment Line"; "Sales Shipment Line")
                     {
                         DataItemLink = "Document No." = FIELD("No.");

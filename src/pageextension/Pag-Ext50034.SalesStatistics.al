@@ -14,13 +14,13 @@ pageextension 50034 "PWD SalesStatistics" extends "Sales Statistics"
                     DecimalPlaces = 1 : 1;
                     Editable = FALSE;
                 }
-                field("PWD Discount Profit"; Cust."Discount Profit %")
+                field("PWD Discount Profit"; Cust."PWD Discount Profit %")
                 {
                     ApplicationArea = all;
                     Caption = 'Discount Profit %';
                     Editable = false;
                 }
-                field("Margin Profit"; ProfitPct - Cust."Discount Profit %")
+                field("Margin Profit"; ProfitPct - Cust."PWD Discount Profit %")
                 {
                     ApplicationArea = all;
                     Caption = 'Margin Profit %';
@@ -30,13 +30,13 @@ pageextension 50034 "PWD SalesStatistics" extends "Sales Statistics"
                     Caption = 'Profit (LCY)';
                     ApplicationArea = all;
                 }
-                field("Discount Profit (LCY)"; TotalSalesLineLCY.Amount * Cust."Discount Profit %" / 100)
+                field("Discount Profit (LCY)"; TotalSalesLineLCY.Amount * Cust."PWD Discount Profit %" / 100)
                 {
                     ApplicationArea = all;
                     Caption = 'Discount Profit (LCY)';
                     Editable = false;
                 }
-                field("Differencial Profit (LCY)"; ProfitLCY - (TotalSalesLineLCY.Amount * Cust."Discount Profit %" / 100))
+                field("Differencial Profit (LCY)"; ProfitLCY - (TotalSalesLineLCY.Amount * Cust."PWD Discount Profit %" / 100))
                 {
                     ApplicationArea = All;
                     Caption = 'Differencial Profit (LCY)';

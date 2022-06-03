@@ -1,4 +1,4 @@
-enumextension 50002 "PWD Report Selection Usage Sales" extends "Report Selection Usage Sales"
+enumextension 50002 "PWD ReportSelectionUsageSales" extends "Report Selection Usage Sales"
 {
     value(50000; T1)
     {

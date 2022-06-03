@@ -228,6 +228,7 @@ page 50041 "Sales Pr Fruits & Vegetables"
                 action("Tarif de la semaine")
                 {
                     Caption = 'Tarif de la semaine';
+                    Image = Price;
                     //ToDo
                     //RunObject = Report "Liste prix fruits et légumes";
                     ApplicationArea = All;

@@ -140,6 +140,7 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                 {
                     ApplicationArea = all;
                     Caption = 'Bon de livraison';
+                    Image = Print;
                     trigger OnAction()
                     BEGIN
                         SalesShptHeader := Rec;
@@ -152,6 +153,7 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                 {
                     Caption = 'Bon d''Avitaillement';
                     ApplicationArea = All;
+                    Image = Print;
                     trigger OnAction()
                     BEGIN
                         SalesShptHeader := Rec;
@@ -163,6 +165,7 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                 Action("PWD DAA")
                 {
                     Caption = 'DAA';
+                    Image = Print;
                     ApplicationArea = All;
                     trigger OnAction()
                     BEGIN
@@ -174,6 +177,7 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                 Action("PWD DSA")
                 {
                     Caption = 'DSA';
+                    Image = Print;
                     ApplicationArea = All;
                     trigger OnAction()
                     BEGIN
@@ -185,6 +189,7 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                 Action("PWD T5")
                 {
                     Caption = 'T5';
+                    Image = Print;
                     ApplicationArea = All;
                     trigger OnAction()
                     BEGIN
@@ -196,6 +201,7 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                 Action("PWD T1")
                 {
                     Caption = 'T1';
+                    Image = Print;
                     ApplicationArea = All;
                     trigger OnAction()
                     BEGIN
@@ -207,6 +213,7 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                 Action("PWD Certificat d'origine")
                 {
                     Caption = 'Certificat d''origine';
+                    Image = Print;
                     ApplicationArea = All;
                     Trigger OnAction()
                     begin
@@ -217,6 +224,7 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                 Action("Liste de chargement simple")
                 {
                     Caption = 'Liste de chargement simple';
+                    Image = Print;
                     ApplicationArea = All;
                     trigger OnAction()
                     BEGIN
@@ -227,6 +235,7 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                 action("PWD Liste de chargement/magasin")
                 {
                     Caption = 'Liste de chargement/magasin';
+                    Image = Print;
                     ApplicationArea = All;
                     Trigger OnAction()
                     BEGIN
@@ -237,6 +246,7 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                 Action("PWD Liste de chargement (TM)")
                 {
                     Caption = 'Liste de chargement (TM)';
+                    Image = Print;
                     ApplicationArea = All;
                     Trigger OnAction()
                     BEGIN
@@ -247,6 +257,7 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                 Action("PWD Mutation")
                 {
                     Caption = 'Mutation';
+                    Image = Print;
                     ApplicationArea = All;
                     Trigger OnAction()
                     BEGIN
@@ -257,6 +268,7 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                 Action("PWD TM")
                 {
                     Caption = 'TM';
+                    Image = Print;
                     ApplicationArea = All;
                     trigger OnAction()
                     BEGIN
@@ -268,6 +280,7 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                 Action("PWD ImpressionClassique")
                 {
                     Caption = 'Impression classique';
+                    Image = Print;
                     ApplicationArea = All;
                     trigger OnAction()
                     VAR
@@ -284,6 +297,7 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
             action("PWD Impression classique")
             {
                 Caption = 'Impression classique';
+                Image = Print;
                 ApplicationArea = All;
                 trigger OnAction()
                 VAR

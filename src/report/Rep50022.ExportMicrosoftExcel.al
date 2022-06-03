@@ -319,7 +319,7 @@ report 50022 "PWD Export Microsoft Excel"
             column(PWDPreparationinprocess; "PWD Preparation in process")
             {
             }
-            column(PWDPrestaFacturableparfourniss; "PWD Presta Facturable par fourniss")
+            column(PWDPrestaFacturableparfourniss; "PWD Presta Facturable Fourni.")
             {
             }
             column(PWDReadytoship; "PWD Ready to ship")

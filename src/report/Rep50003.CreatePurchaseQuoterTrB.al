@@ -1,8 +1,5 @@
 report 50003 "Create Purchase Quote r -TrB"
 {
-    // *** Contremarque - C2A
-    // Création des demandes de prix.
-
     Caption = 'Create Purchase Quote';
     ProcessingOnly = true;
     UseRequestPage = false;
@@ -16,7 +13,6 @@ report 50003 "Create Purchase Quote r -TrB"
 
             trigger OnAfterGetRecord()
             begin
-                //*** modif sca 300903
                 IF "PWD Appeal for Tenders".Exclude = FALSE THEN BEGIN
                     Window.UPDATE(1, "PWD Appeal for Tenders"."Document Type");
                     Window.UPDATE(2, "PWD Appeal for Tenders"."Document No.");
@@ -31,18 +27,14 @@ report 50003 "Create Purchase Quote r -TrB"
                             DocType := "PWD Appeal for Tenders"."Document Type".AsInteger();
                             DocNo := "PWD Appeal for Tenders"."Document No.";
                             VendorNo := "PWD Appeal for Tenders"."Vendor No.";
-                            ReqRecDate := "PWD Appeal for Tenders"."Requested Receipt Date";
+                            //ToDo Var Not Used 
+                            //ReqRecDate := "PWD Appeal for Tenders"."Requested Receipt Date";
                         END;
-                        //abu
                         IF NOT SalesLine.GET("Document Type", "Document No.", "Line No. document") THEN
                             SalesLine.INIT();
-                        //fin ajout
-
                         InsertPurchQuoteLine();
                     END;
                     "PWD Appeal for Tenders".DELETE();
-
-                    //*** Recherche si derniere ligne détail pour ce doc / ligne
                     AppTenders.SETRANGE("Document Type", "PWD Appeal for Tenders"."Document Type");
                     AppTenders.SETRANGE("Document No.", "PWD Appeal for Tenders"."Document No.");
                     AppTenders.SETRANGE("Line No. document", "PWD Appeal for Tenders"."Line No. document");
@@ -104,7 +96,7 @@ report 50003 "Create Purchase Quote r -TrB"
         DocNo: Code[20];
         FiltreNumdoc: Code[20];
         VendorNo: Code[20];
-        ReqRecDate: Date;
+        //ReqRecDate: Date;
         Window: Dialog;
         NextLineNo: Integer;
         Text1000000005: Label 'Sales document #1###### #2######\';
@@ -157,14 +149,12 @@ report 50003 "Create Purchase Quote r -TrB"
         PurchQuoteLine."Description 2" := "PWD Appeal for Tenders"."Description 2";
         Window.UPDATE(4, PurchQuoteLine."No.");
         PurchQuoteLine.VALIDATE(Quantity, "PWD Appeal for Tenders".Quantity);
-        //abu
         PurchQuoteLine.VALIDATE("Location Code", SalesLine."Location Code");
         PurchQuoteLine.Description := SalesLine.Description;
         PurchQuoteLine."Description 2" := SalesLine."Description 2";
-        //fin ajout
-        PurchQuoteLine."PWD Sales Type Doc Appeal tenders" := "PWD Appeal for Tenders"."Document Type".AsInteger();
+        PurchQuoteLine."PWD SalesTypeDocAppealTend." := "PWD Appeal for Tenders"."Document Type".AsInteger();
         PurchQuoteLine."PWD Sales No. Appeal Tenders" := "PWD Appeal for Tenders"."Document No.";
-        PurchQuoteLine."PWD Sales Line No. Appeal Tenders" := "PWD Appeal for Tenders"."Line No. document";
+        PurchQuoteLine."PWD SalesLineNoAppealTenders" := "PWD Appeal for Tenders"."Line No. document";
         PurchQuoteLine."Requested Receipt Date" := "PWD Appeal for Tenders"."Requested Receipt Date";
         PurchQuoteLine.INSERT();
     end;

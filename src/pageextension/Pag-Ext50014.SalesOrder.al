@@ -207,13 +207,15 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
             action("PWD Item no stocks")
             {
                 ApplicationArea = all;
-                Caption = 'Article non stock‚s';
+                Caption = 'Article non stockés';
                 RunObject = Page "Catalog Item List";
+                Image = NonStockItem;
             }
             action("PWD Print certificat")
             {
                 Caption = 'Imprimer Certificate';
                 ApplicationArea = all;
+                Image = Certificate;
                 trigger OnAction()
                 BEGIN
                     PrintCustomsCertificate();
@@ -229,6 +231,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
             {
                 Caption = 'Classement sans suite';
                 ApplicationArea = all;
+                Image = Delete;
                 Trigger OnAction()
                 VAR
                     AutoarchMngt: Codeunit "PWD ArchiveAutoManagement";
@@ -245,6 +248,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
             {
                 ApplicationArea = all;
                 Caption = 'Imprimer BP';
+                Image = Print;
                 Trigger OnAction()
                 BEGIN
                     IF Rec."PWD Preparation in process" = FALSE THEN MESSAGE(cstG004);
@@ -261,6 +265,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 Ellipsis = true;
                 Promoted = true;
                 PromotedCategory = Process;
+                Image = FilterLines;
                 Trigger OnAction()
                 BEGIN
                     FctLineFilters();
@@ -272,6 +277,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 Caption = 'Calculer PU';
                 Promoted = True;
                 PromotedCategory = Process;
+                Image = Calculate;
                 Trigger OnAction()
                 VAR
                     RecLSalesHeader: Record "Sales Header";
@@ -341,6 +347,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
             {
                 ApplicationArea = all;
                 Caption = 'Print';
+                Image = Print;
                 trigger OnAction()
                 var
                     DocPrint: Codeunit "Document-Print";
@@ -364,7 +371,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 action("PWD Sélection des fournisseur interroger")
                 {
                     ApplicationArea = all;
-                    Caption = 'S‚lection des fournisseurs … interroger';
+                    Caption = 'Sélection des fournisseurs à interroger';
                     RunObject = Page "Appeal for tenders/Vendor -TrB";
                     RunPageLink = "Document Type" = FIELD("Document Type"),
                                   "Document No." = FIELD("No.");
@@ -375,10 +382,11 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 action("PWD Generation des demandes de prix")
                 {
                     ApplicationArea = All;
-                    Caption = 'G‚n‚ration des demandes de prix';
+                    Caption = 'Génération des demandes de prix';
+                    Image = Price;
                     Trigger OnAction()
                     BEGIN
-                        CreatePurchQuote.InitDocument(Rec."Document Type", Rec."No.");
+                        CreatePurchQuote.InitDocument(Rec."Document Type".AsInteger(), Rec."No.");
                         CreatePurchQuote.RUN();
                     END;
                 }
@@ -386,9 +394,10 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 {
                     ApplicationArea = all;
                     Caption = 'Export demandes de prix au format Excel';
+                    Image = ExportToExcel;
                     Trigger OnAction()
                     BEGIN
-                        CreatePurchQuote.InitDocument(Rec."Document Type", Rec."No.");
+                        CreatePurchQuote.InitDocument(Rec."Document Type".AsInteger(), Rec."No.");
                         CreatePurchQuote.RUN();
                         Rec.SETRECFILTER();
                         REPORT.RUNMODAL(Report::"PWD Export Microsoft Excel", FALSE, FALSE, Rec);
@@ -399,6 +408,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 {
                     ApplicationArea = all;
                     Caption = 'Import demandes de prix depuis Excel';
+                    Image = ImportExcel;
                     Trigger OnAction()
                     BEGIN
                         Rec.SETRECFILTER();
@@ -410,7 +420,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 Action("PWD Sélection des  offres fournisseurs")
                 {
                     ApplicationArea = all;
-                    Caption = 'S‚lection des  offres fournisseurs';
+                    Caption = 'Sélection des offres fournisseurs';
                     Trigger OnAction()
                     VAR
                         SalesLine: Record "Sales Line";
@@ -438,6 +448,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 {
                     ApplicationArea = all;
                     Caption = 'Création des tarifs fruits et légumes';
+                    Image = CreateDocument;
                     Trigger OnAction()
                     BEGIN
                         SalesHeader := Rec;
@@ -449,7 +460,8 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 Action("PWD Génération  des commandes achat")
                 {
                     ApplicationArea = all;
-                    Caption = 'G‚n‚ration  des commandes d''achat';
+                    Caption = 'Génération  des commandes d''achat';
+                    Image = CreateDocument;
                     Trigger OnAction()
                     BEGIN
                         SalesHeader := Rec;
@@ -460,11 +472,12 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
             }
             group("PWD Disponibilité Art. Mag.")
             {
-                caption = 'Disponibilit‚ Art. Mag.';
-                action("Disponibilit‚ Art. Mag.")
+                caption = 'Disponibilité Art. Mag.';
+                action("Disponibilité Art. Mag.")
                 {
                     applicationArea = all;
-                    caption = 'Disponibilit‚ Art. Mag.';
+                    caption = 'Disponibilité Art. Mag.';
+                    Image = ItemAvailability;
                     Trigger OnAction()
                     BEGIN
                         //ToDo

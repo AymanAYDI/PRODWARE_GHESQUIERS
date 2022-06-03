@@ -1,7 +1,7 @@
 report 50042 "PWD Picking List"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/report/rdl/PickingList.rdlc';
+    RDLCLayout = './src/report/rdl/PickingList.rdl';
     Caption = 'Picking List';
     UsageCategory = None;
 
@@ -32,9 +32,6 @@ report 50042 "PWD Picking List"
                 column(FORMAT_TODAY_0_4_; FORMAT(TODAY, 0, 4))
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PAGENO())
-                {
-                }
                 column(call__Board_Location_; call."Board Location")
                 {
                 }
@@ -44,7 +41,7 @@ report 50042 "PWD Picking List"
                 column(Sales_Line__Requested_Delivery_Date_; "Requested Delivery Date")
                 {
                 }
-                column(STRSUBSTNO_Text000__Sales_Header___No____Sales_Header___Order_Date__; STRSUBSTNO(Text000, "Sales Header"."No.", "Sales Header"."Order Date"))
+                column(STRSUBSTNO_Text000_Sales_Header_No__Order_Date; STRSUBSTNO(Text000, "Sales Header"."No.", "Sales Header"."Order Date"))
                 {
                 }
                 column(Sales_Header__Reference; "Sales Header"."PWD Reference")
@@ -60,21 +57,6 @@ report 50042 "PWD Picking List"
                 {
                 }
                 column(Sales_Line__Family_Code_; "PWD Family Code")
-                {
-                }
-                column(Sales_Line__Location_Code__Control1000000008; "Location Code")
-                {
-                }
-                column(Sales_Line__Location_Code__Control1000000036; "Location Code")
-                {
-                }
-                column(Sales_Line__Family_Code__Control1000000041; "PWD Family Code")
-                {
-                }
-                column(Sales_Line__Location_Code__Control1000000019; "Location Code")
-                {
-                }
-                column(Sales_Line__Family_Code__Control1000000059; "PWD Family Code")
                 {
                 }
                 column(Sales_Line__No__; "No.")
@@ -156,10 +138,10 @@ report 50042 "PWD Picking List"
                 column(Commande_N_Caption; Commande_N_CaptionLbl)
                 {
                 }
-                column("Edité_le_Caption"; Edité_le_CaptionLbl)
+                column(Edité_le_Caption; Edité_le_CaptionLbl)
                 {
                 }
-                column("àCaption"; àCaptionLbl)
+                column(àCaption; àCaptionLbl)
                 {
                 }
                 column(parCaption; parCaptionLbl)
@@ -186,19 +168,10 @@ report 50042 "PWD Picking List"
                 column(Sales_Line__Location_Code_Caption; FIELDCAPTION("Location Code"))
                 {
                 }
+                column(ShowLocationHeader; ShowLocationHeader)
+                {
+                }
                 column(Sales_Line__Family_Code_Caption; FIELDCAPTION("PWD Family Code"))
-                {
-                }
-                column(Sales_Line__Location_Code__Control1000000008Caption; FIELDCAPTION("Location Code"))
-                {
-                }
-                column(Sales_Line__Location_Code__Control1000000036Caption; FIELDCAPTION("Location Code"))
-                {
-                }
-                column(Sales_Line__Family_Code__Control1000000041Caption; FIELDCAPTION("PWD Family Code"))
-                {
-                }
-                column(Sales_Line__Location_Code__Control1000000019Caption; FIELDCAPTION("Location Code"))
                 {
                 }
                 column(Code_familleCaption; Code_familleCaptionLbl)
@@ -286,7 +259,7 @@ report 50042 "PWD Picking List"
                     {
                         DecimalPlaces = 0 : 2;
                     }
-                    column("N__d_agréement__Caption"; N__d_agréement__CaptionLbl)
+                    column(N__d_agréement__Caption; N__d_agréement__CaptionLbl)
                     {
                     }
                     column(Marquage__Caption; Marquage__CaptionLbl)
@@ -417,8 +390,8 @@ report 50042 "PWD Picking List"
             begin
                 CompanyInfo.GET();
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
-                //ToDo
-                //FormatAddr.SalesHeaderShipTo(ShipToAddr, "Sales Header");
+                //ToDo a vérifier
+                FormatAddr.SalesHeaderShipTo(ShipToAddr, CompanyAddr, "Sales Header");
                 IF NOT call.GET("Sales Header"."PWD Call No.") THEN call.INIT();
                 IF NOT Recarea.GET(call.Area) THEN Recarea.INIT();
                 IF NOT CallType2.GET("Sales Header"."PWD Call Type") THEN BEGIN
@@ -481,7 +454,7 @@ report 50042 "PWD Picking List"
         "Livré_à__CaptionLbl": Label 'Livré à :';
         Lot_No_CaptionLbl: Label 'Label1000000076';
         Marquage__CaptionLbl: Label 'Marquage :';
-        "N__d_agréement__CaptionLbl": Label 'N° d''agréement :';
+        N__d_agréement__CaptionLbl: Label 'N° d''agréement :';
         parCaptionLbl: Label 'par';
         PICKING_LISTCaptionLbl: Label 'PICKING LIST';
         "Quantité_préparéeCaptionLbl": Label 'Quantité préparée';

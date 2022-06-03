@@ -15,11 +15,13 @@ codeunit 50004 "PWD Restitution Calculation"
 
     procedure CallShipmentHeader(SalesShipmentHeader: Record "Sales Shipment Header"; Datefilter1: Date; Datefilter2: Date)
     var
+        PWDFunctionMgt: codeunit "PWD Function Mgt";
         QtyPer: Decimal;
         QtyPerSpecif: Decimal;
     begin
+
         SalesShipmentLine.SETRANGE(SalesShipmentLine."Document No.", SalesShipmentHeader."No.");
-        IF SalesShipmentLine.FIND('-') THEN
+        IF SalesShipmentLine.FindFirst() THEN
             IF NOT RecResRestCalc.GET(SalesShipmentLine."Line No.", SalesShipmentLine."Document No.", SalesShipmentLine."No.") THEN
                 REPEAT
                     IF SalesShipmentLine."PWD DSA No." <> '0' THEN
@@ -27,6 +29,7 @@ codeunit 50004 "PWD Restitution Calculation"
                             IF RecLocation."PWD Restitution Location" = TRUE THEN
                                 IF RecItem.GET(SalesShipmentLine."No.") THEN
                                     IF RecItem."PWD Restitution Key" <> '' THEN BEGIN
+                                        RecResRestCalc.Init();
                                         RecResRestCalc."Shipment No." := SalesShipmentHeader."No.";
                                         RecResRestCalc."Line No." := SalesShipmentLine."Line No.";
                                         RecResRestCalc."Shipment Date" := SalesShipmentLine."Shipment Date";
@@ -40,10 +43,8 @@ codeunit 50004 "PWD Restitution Calculation"
                                         RecRestCalc.SETCURRENTKEY("Restitution Code", "Valid Until");
                                         RecRestCalc.SETRANGE(RecRestCalc."Restitution Code", RecItem."PWD Restitution Key");
                                         RecRestCalc.SETFILTER(RecRestCalc."Valid Until", '%1..%2', Datefilter1, Datefilter2);
-                                        //ToDo
-                                        //QtyPer := PWDFunctionMgt.GetQtyPerFromUnitToUnit(RecItem,
-                                        //SalesShipmentLine."Unit of Measure Code", RecItem."Base Unit of Measure");
-                                        IF RecRestCalc.FIND('+') THEN BEGIN
+                                        QtyPer := PWDFunctionMgt.GetQtyPerFromUnitToUnit(RecItem, SalesShipmentLine."Unit of Measure Code", RecItem."Base Unit of Measure");
+                                        IF RecRestCalc.FindLast() THEN BEGIN
                                             QtyPerSpecif := QtyPer * SalesShipmentLine.Quantity;
                                             RecResRestCalc."Restitution Quantity" := QtyPerSpecif / RecRestCalc.Quantity;
                                             RecResRestCalc."Restitution Unit" := RecRestCalc."Unit Code";

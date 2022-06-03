@@ -63,7 +63,7 @@ tableextension 60026 "PWD SalesCrMemoHeader" extends "Sales Cr.Memo Header"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(55050; "PWD Presta Facturable par fourniss"; Boolean)
+        field(55050; "PWD Presta Factur. Fourniss"; Boolean)
         {
             Caption = 'Presta Facturable par fourniss';
             Description = 'PW2009';

@@ -1,19 +1,5 @@
 tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
 {
-    // ------------------------------------------------------------------------------------------------------------------------------------
-    // Prodware : www.prodware.fr
-    // ------------------------------------------------------------------------------------------------------------------------------------
-    //
-    // //>>MIGRATION2009R2
-    //
-    // ------------------------------------------------------------------------------------------------------------------------------------
-    // *** Contremarque - C2A
-    // 12.07.2007    C2A(LLE) cf appel NAV0016854 AddNewFields
-    //                           70017 - Specific Cost
-    //                        Modif in trigger UpdateUnitCost()
-    // 19.07.2007    C2A(LLE) cf appel NAV0016904 Modif in trigger UpdateUnitCost()
-    //
-    // ------------------------------------------------------------------------------------------------------------------------------------
     fields
     {
         field(50001; "PWD Parcel Nb."; Decimal)
@@ -47,7 +33,7 @@ tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(55000; "PWD Sales Type Doc Appeal tenders"; Enum "PWD Sales TypeDocAppealtenders")
+        field(55000; "PWD SalesTypeDocAppealTend."; Enum "PWD Sales TypeDocAppealtenders")
         {
             Caption = 'Sales Type Doc Appeal tenders';
             Description = 'PW2009';
@@ -59,7 +45,7 @@ tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(55002; "PWD Sales Line No. Appeal Tenders"; Integer)
+        field(55002; "PWD SalesLineNoAppealTenders"; Integer)
         {
             Caption = 'Sales Line No. Appeal Tenders';
             Description = 'PW2009';
@@ -67,7 +53,7 @@ tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
         }
         field(55010; "PWD Appeal for tenders"; Integer)
         {
-            CalcFormula = Count("Sales Line" WHERE("Document Type" = FIELD("PWD Sales Type Doc Appeal tenders"), "Document No." = FIELD("PWD Sales No. Appeal Tenders"), "Line No." = FIELD("PWD Sales Line No. Appeal Tenders")));
+            CalcFormula = Count("Sales Line" WHERE("Document Type" = FIELD("PWD SalesTypeDocAppealTend."), "Document No." = FIELD("PWD Sales No. Appeal Tenders"), "Line No." = FIELD("PWD SalesLineNoAppealTenders")));
             Caption = 'Appeal for tenders';
             Description = 'PW2009';
             FieldClass = FlowField;
@@ -78,7 +64,7 @@ tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(55012; "PWD Lead Time Calculation Import"; Text[50])
+        field(55012; "PWD LeadTimeCalculationImport"; Text[50])
         {
             Caption = 'Délai de réappro. Import';
             Description = 'PW2009';
@@ -126,7 +112,7 @@ tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
     }
     keys
     {
-        key(Key50000; "PWD Sales Type Doc Appeal tenders", "PWD Sales No. Appeal Tenders", "PWD Sales Line No. Appeal Tenders")
+        key(Key50000; "PWD SalesTypeDocAppealTend.", "PWD Sales No. Appeal Tenders", "PWD SalesLineNoAppealTenders")
         {
         }
         key(Key50001; "Document No.", "Line No.")
@@ -201,7 +187,7 @@ tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
 
         //*** Recherche du document de vente Appeal Tenders
 
-        IF SalesLine.GET("PWD Sales Type Doc Appeal tenders", "PWD Sales No. Appeal Tenders", "PWD Sales Line No. Appeal Tenders") THEN BEGIN
+        IF SalesLine.GET("PWD SalesTypeDocAppealTend.", "PWD Sales No. Appeal Tenders", "PWD SalesLineNoAppealTenders") THEN BEGIN
             IF TypeWeight = 'G' THEN
                 SalesLine."Gross Weight" := Weight
             ELSE

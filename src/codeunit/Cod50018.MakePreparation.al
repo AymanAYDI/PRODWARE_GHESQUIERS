@@ -108,7 +108,6 @@ codeunit 50018 "PWD MakePreparation"
         ReleaseSalesDoc: Codeunit "Release Sales Document";
         LastLineNo: BigInteger;
         ItemNo: Code[20];
-        ItemNo2: Code[20];
         AvailableInventory: Decimal;
         CumulatedInventory: Decimal;
         QtytoSend: Decimal;
@@ -175,7 +174,6 @@ codeunit 50018 "PWD MakePreparation"
                     SalesLine2."PWD Previous Line No" := SalesLine."Line No.";
                     SalesLine2.INSERT(TRUE);
                     Qtyinserted := SalesLine2.Quantity;
-                    ItemNo2 := SalesLine2."No.";
                 END;
             UNTIL (RecLocPriority.NEXT() = 0) OR (InsertedSalesLineQty = InputQuantity);
             IF UnavailableQty > 0 THEN BEGIN

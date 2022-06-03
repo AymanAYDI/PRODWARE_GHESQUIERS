@@ -20,7 +20,7 @@ report 50039 "SEAF : relevé vtes à emporter"
             column(au_; 'au')
             {
             }
-            column(Page___FORMAT_CurrReport_PAGENO_; 'Page ')
+            column(Page_FORMAT_CurrReport_PAGENO_; 'Page ')
             {
             }
             column(NetWeight; NetWeight)
@@ -29,7 +29,7 @@ report 50039 "SEAF : relevé vtes à emporter"
             column(LineAmount; LineAmount)
             {
             }
-            column("Relevé_des_ventes_à_emporter___consommation_à_bord_du__Caption"; Relevé_des_ventes_à_emporter___consommation_à_bord_du__CaptionLbl)
+            column("Relevé_des_ventes_à_emporter_consommation_à_bord_du_Caption"; ReleveVentesEmporterConsommationBordLbl)
             {
             }
             column(CDSCaption; CDSCaptionLbl)
@@ -62,29 +62,31 @@ report 50039 "SEAF : relevé vtes à emporter"
             column(Sales_Shipment_Header_No_; "No.")
             {
             }
+
+
             dataitem(VAE; "Sales Shipment Line")
             {
                 DataItemLink = "Document No." = FIELD("No.");
                 DataItemTableView = SORTING("Document No.", "Location Code", "PWD Provision/materiel", "PWD National Add. Code") WHERE(Type = CONST(Item), Quantity = FILTER(<> 0));
-                column(V7_; '7')
+                column(V7Caption; V7CaptionLbL)
                 {
                 }
-                column(Sales_Shipment_Header___DSA_No__; "Sales Shipment Header"."PWD DSA No.")
+                column(Sales_Shipment_Header_DSA_No; "Sales Shipment Header"."PWD DSA No.")
                 {
                 }
-                column(Sales_Shipment_Header___Posting_Date_; "Sales Shipment Header"."Posting Date")
+                column(Sales_Shipment_Header_Posting_Date; "Sales Shipment Header"."Posting Date")
                 {
                 }
-                column(VAE__National_Add__Code_; "PWD National Add. Code")
+                column(Sales_Shipment_Line_National_Add_Code; "PWD National Add. Code")
                 {
                 }
-                column(NetWeight_Control1000000005; NetWeight)
+                column(Sales_Shipment_Line_NetWeight; NetWeight)
                 {
                 }
-                column(LineAmount_Control1000000004; LineAmount)
+                column(Sales_Shipment_Line_LineAmount; LineAmount)
                 {
                 }
-                column(VAE__Document_No__; "Document No.")
+                column(Sales_Shipment_Line_Document_No; "Document No.")
                 {
                 }
                 column(V1Caption; V1CaptionLbl)
@@ -122,8 +124,8 @@ report 50039 "SEAF : relevé vtes à emporter"
                        ("No." <> 'DTERREA') THEN
                         //<< 07/05/2018 SU-DADE cf appel TI414520
                         LineAmount := Quantity * Item."PWD Customs Price" ELSE
-                        IF "Valeur douane (correction)" <> 0 THEN
-                            LineAmount := Quantity * "Valeur douane (correction)" ELSE
+                        IF "PWD Valeur douane (correction)" <> 0 THEN
+                            LineAmount := Quantity * "PWD Valeur douane (correction)" ELSE
                             LineAmount := Quantity * "Unit Cost (LCY)";
                 end;
 
@@ -146,17 +148,17 @@ report 50039 "SEAF : relevé vtes à emporter"
                 StartDate := GETRANGEMIN("Posting Date");
                 EndDate := GETRANGEMAX("Posting Date");
 
-                IF NOT (BlankDSA) THEN SETFILTER("PWD DSA No.", '<>%1', '');
+                IF NOT (BlankDSA) THEN; //SETFILTER("PWD DSA No.", '<>%1', '');
             end;
         }
         dataitem(VAECrMemoHeader; "Sales Cr.Memo Header")
         {
             DataItemTableView = SORTING("Posting Date", "PWD DSA No.");
             RequestFilterFields = "No.", "Location Code";
-            column(NetWeight_Control1000000072; NetWeight)
+            column(NetWeight_; NetWeight)
             {
             }
-            column(LineAmount_Control1000000073; LineAmount)
+            column(LineAmount_; LineAmount)
             {
             }
             column(VAEWeight_VAECrMemoWeight; VAEWeight - VAECrMemoWeight)
@@ -165,13 +167,11 @@ report 50039 "SEAF : relevé vtes à emporter"
             column(VAEAmount_LineAmount; VAEAmount - LineAmount)
             {
             }
-            column("Avoirs_Ventes_à_emporterCaption"; Avoirs_Ventes_à_emporterCaptionLbl)
+
+            column(Total_Avoirs_Ventes_emporterCaption; TotalAvoirsVentesemporterCaptionLbl)
             {
             }
-            column("Total_Avoirs_Ventes_à_emporterCaption"; Total_Avoirs_Ventes_à_emporterCaptionLbl)
-            {
-            }
-            column("Total_Ventes_à_emporterCaption"; Total_Ventes_à_emporterCaptionLbl)
+            column(Total_Ventes_emporterCaption; Total_Ventes_emporterCaptionLbl)
             {
             }
             column(VAECrMemoHeader_No_; "No.")
@@ -181,28 +181,31 @@ report 50039 "SEAF : relevé vtes à emporter"
             {
                 DataItemLink = "Document No." = FIELD("No.");
                 DataItemTableView = SORTING("Document No.", "PWD National Add. Code") WHERE(Type = CONST(Item), Quantity = FILTER(<> 0));
-                column(VAECrMemoLine__Document_No__; "Document No.")
+                column(VAECrMemoLine_Document_No; "Document No.")
                 {
                 }
-                column(LineAmount_Control1000000059; LineAmount)
+                column(Avoirs_Ventes_à_emporterCaption; 'Avoirs Ventes à emporter')
                 {
                 }
-                column(NetWeight_Control1000000060; NetWeight)
+                column(VAECrMemoLine_LineAmount; LineAmount)
                 {
                 }
-                column(VAECrMemoLine__National_Add__Code_; "PWD National Add. Code")
+                column(VAECrMemoLine_NetWeight; NetWeight)
                 {
                 }
-                column(VAECrMemoHeader__Posting_Date_; VAECrMemoHeader."Posting Date")
+                column(VAECrMemoLine_National_Add_Code; "PWD National Add. Code")
                 {
                 }
-                column(VAECrMemoHeader__DSA_No__; VAECrMemoHeader."PWD DSA No.")
+                column(VAECrMemoHeader_Posting_Date; VAECrMemoHeader."Posting Date")
                 {
                 }
-                column(V7__Control1000000065; '7')
+                column(VAECrMemoHeader_DSA_No; VAECrMemoHeader."PWD DSA No.")
                 {
                 }
-                column(V1Caption_Control1000000064; V1Caption_Control1000000064Lbl)
+                column(V7_Lbl; V7CaptionLbL)
+                {
+                }
+                column(V1_Lbl; V1CaptionLbl)
                 {
                 }
                 column(VAECrMemoLine_Line_No_; "Line No.")
@@ -249,7 +252,7 @@ report 50039 "SEAF : relevé vtes à emporter"
 
             trigger OnPreDataItem()
             begin
-                IF NOT (BlankDSA) THEN SETFILTER("PWD DSA No.", '<>%1', '');
+                IF NOT (BlankDSA) THEN; // SETFILTER("PWD DSA No.", '<>%1', '');
 
                 SETRANGE("Posting Date", StartDate, EndDate);
 
@@ -275,7 +278,6 @@ report 50039 "SEAF : relevé vtes à emporter"
 
     var
         Item: Record Item;
-        BlankDSA: Boolean;
         EndDate: Date;
         StartDate: Date;
         AmountTotal: Decimal;
@@ -286,19 +288,20 @@ report 50039 "SEAF : relevé vtes à emporter"
         VAECrMemoAmount: Decimal;
         VAECrMemoWeight: Decimal;
         VAEWeight: Decimal;
-        "Avoirs_Ventes_à_emporterCaptionLbl": Label 'Avoirs Ventes à emporter';
+        BlankDSA: Boolean;
+        Avoirs_Ventes_à_emporterCaptionLbl: Label 'Avoirs Ventes à emporter';
         BLCaptionLbl: Label 'BL';
         Bon_de_livraisonCaptionLbl: Label 'Bon de livraison';
         CDSCaptionLbl: Label 'CDS';
         DATECaptionLbl: Label 'DATE';
         NDPCaptionLbl: Label 'NDP';
         POIDSCaptionLbl: Label 'POIDS';
-        "Relevé_des_ventes_à_emporter___consommation_à_bord_du__CaptionLbl": Label 'Relevé des ventes à emporter & consommation à bord du :';
-        "Total_Avoirs_Ventes_à_emporterCaptionLbl": Label 'Total Avoirs Ventes à emporter';
-        "Total_Ventes_à_emporterCaptionLbl": Label 'Total Ventes à emporter';
+        ReleveVentesEmporterConsommationBordLbl: Label 'Relevé des ventes à emporter & consommation à bord du :';
+        "TotalAvoirsVentesemporterCaptionLbl": Label 'Total Avoirs Ventes à emporter';
+        "Total_Ventes_emporterCaptionLbl": Label 'Total Ventes à emporter';
         TYPECaptionLbl: Label 'TYPE';
-        V1Caption_Control1000000064Lbl: Label '1';
         V1CaptionLbl: Label '1';
+        V7CaptionLbL: Label '7';
         VALEURCaptionLbl: Label 'VALEUR';
         "Ventes_à_emporterCaptionLbl": Label 'Ventes à emporter';
 }

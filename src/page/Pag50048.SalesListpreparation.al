@@ -161,6 +161,7 @@ page 50048 "PWD Sales List preparation"
                     Caption = 'Card';
                     ShortCutKey = 'Shift+F5';
                     ApplicationArea = All;
+                    Image = Card;
 
                     trigger OnAction()
                     begin

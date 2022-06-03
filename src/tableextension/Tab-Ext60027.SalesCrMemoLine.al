@@ -133,13 +133,13 @@ tableextension 60027 "PWD SalesCrMemoLine" extends "Sales Cr.Memo Line"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(70010; "PWD Methode de Calcul (prestation)"; Text[30])
+        field(70010; "PWD Methode Calcul Presta."; Text[30])
         {
             Caption = 'Methode de Calcul (prestation)';
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(70011; "PWD Reference Calcul (prestation)"; Text[30])
+        field(70011; "PWD Reference Calcul Presta."; Text[30])
         {
             Caption = 'Référence Calcul (prestation)';
             Description = 'PW2009';

@@ -86,7 +86,7 @@ pageextension 50067 "PWD SalesOrderSubform" extends "Sales Order Subform"
             {
                 ApplicationArea = All;
             }
-            field("Valeur douane (correction)"; Rec."Valeur douane (correction)")
+            field("Valeur douane (correction)"; Rec."PWD Valeur douane (correction)")
             {
                 ApplicationArea = All;
             }
@@ -197,7 +197,7 @@ pageextension 50067 "PWD SalesOrderSubform" extends "Sales Order Subform"
         }
         addafter("Shortcut Dimension 1 Code")
         {
-            field("PWD Health Certificate Required"; Rec."PWD Health Certificate Required")
+            field("PWD Health Certificate Required"; Rec."PWD Health Certif. Required")
             {
                 ApplicationArea = All;
             }
@@ -228,7 +228,7 @@ pageextension 50067 "PWD SalesOrderSubform" extends "Sales Order Subform"
             {
                 ApplicationArea = All;
             }
-            field("PWD Quantity Receipted Sp. Order"; Rec."PWD Quantity Receipted Sp. Order")
+            field("PWD Quantity Receipted Sp. Order"; Rec."PWD Qte. Receipted Sp.Order")
             {
                 ApplicationArea = All;
             }
@@ -301,7 +301,7 @@ pageextension 50067 "PWD SalesOrderSubform" extends "Sales Order Subform"
     PROCEDURE UnitPriceOnFormat()
     BEGIN
         ParamsVente.GET();
-        CoefPrixUnitaire := ParamsVente."PWD Coef Controle prix unitaire";
+        CoefPrixUnitaire := ParamsVente."PWD Coef Ctrl Prix Unit";
     END;
 
     PROCEDURE PrintHealthCertificate()
@@ -352,7 +352,7 @@ pageextension 50067 "PWD SalesOrderSubform" extends "Sales Order Subform"
         IF NOT RecLKPIRulesSetup.GET('', 1) THEN EXIT;
         RecLKPIRulesSetup.CALCFIELDS(RecLKPIRulesSetup.KPI);
         ParamsVente.GET();
-        CoefPrixUnitaire := ParamsVente."PWD Coef Controle prix unitaire";
+        CoefPrixUnitaire := ParamsVente."PWD Coef Ctrl Prix Unit";
         IF Rec."Unit Price" * (1 - (Rec."Line Discount %" / 100)) < Rec."Unit Cost" * CoefPrixUnitaire THEN BEGIN
             Rec."PWD KPI" := RecLKPIRulesSetup.KPI;
             Rec.CALCFIELDS(Rec."PWD KPI");

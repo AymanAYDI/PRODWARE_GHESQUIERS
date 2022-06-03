@@ -61,6 +61,7 @@ page 50012 "PWD Restitution List"
             {
                 ApplicationArea = all;
                 Caption = 'Mémo';
+                Image = Comment;
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Page "Comment Sheet";

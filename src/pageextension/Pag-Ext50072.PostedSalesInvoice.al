@@ -53,6 +53,7 @@ pageextension 50072 "PWD PostedSalesInvoice" extends "Posted Sales Invoice"
                 {
                     ApplicationArea = all;
                     caption = 'Impression classique';
+                    Image = Print;
                     Trigger OnAction()
                     BEGIN
                         SalesInvHeader.SETRANGE("No.", Rec."No.");
@@ -63,6 +64,7 @@ pageextension 50072 "PWD PostedSalesInvoice" extends "Posted Sales Invoice"
                 {
                     ApplicationArea = all;
                     caption = 'Imprimer Prestation M2';
+                    Image = Print;
                     trigger OnAction()
                     BEGIN
                         SalesInvHeader := Rec;

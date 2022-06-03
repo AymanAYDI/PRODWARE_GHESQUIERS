@@ -27,7 +27,7 @@ report 50047 "Màj Certificate Transit No."
     begin
         IF Recept <> '' THEN BEGIN
             RecRecept.SETFILTER(RecRecept."Document No.", Recept);
-            IF RecRecept.FIND('-') THEN
+            IF RecRecept.FindSet() THEN
                 REPEAT
                     RecRecept."PWD Cetificate Transit No." := NewCertif;
                     RecRecept.MODIFY();
@@ -37,7 +37,7 @@ report 50047 "Màj Certificate Transit No."
         END;
         IF Facture <> '' THEN BEGIN
             RecFacture.SETFILTER(RecFacture."Document No.", Facture);
-            IF RecFacture.FIND('-') THEN
+            IF RecFacture.FindSet() THEN
                 REPEAT
                     RecFacture."PWD Cetificate Transit No." := NewCertif;
                     RecFacture.MODIFY();

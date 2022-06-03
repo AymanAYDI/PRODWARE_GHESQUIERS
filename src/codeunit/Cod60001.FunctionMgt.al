@@ -89,7 +89,7 @@ codeunit 60001 "PWD Function Mgt"
         IF EVALUATE(SalesLine."PWD SEAF Code", Item."PWD SEAF Code") THEN;
 
         SalesLine."PWD Propriete Seafrance" := Item."PWD Propriete Seafrance";
-        SalesLine."Cle (restitution)" := Item."PWD Restitution Key";
+        SalesLine."PWD Cle (restitution)" := Item."PWD Restitution Key";
         SalesLine."PWD Family" := Item."PWD Family";
         SalesLine."PWD Code Continent" := Item."PWD Continental Code";
         SalesLine."PWD Origin Certified" := Item."PWD Origin Certified";
@@ -161,8 +161,8 @@ codeunit 60001 "PWD Function Mgt"
             IF Cust.GET(SalesHeader."Sell-to Customer No.") THEN BEGIN
                 IF (Item."PWD Origin Certified" = TRUE) AND (Cust."PWD Origin Certified" = TRUE) THEN
                     SalesLine."PWD Origin Certified" := TRUE;
-                IF (Item."PWD Health Certificate Required" = TRUE) AND (Cust."PWD Health Certificate Required" = TRUE) THEN
-                    SalesLine."PWD Health Certificate Required" := TRUE;
+                IF (Item."PWD Health Certif Required" = TRUE) AND (Cust."PWD Health Certif Required" = TRUE) THEN
+                    SalesLine."PWD Health Certif. Required" := TRUE;
                 IF (Item."PWD Conformity Certificate" = TRUE) AND (Cust."PWD Conformity Certificate" = TRUE) THEN
                     SalesLine."PWD Conformity Certificate" := TRUE;
                 IF (Item."PWD Technical Card" = TRUE) AND (Cust."PWD Technical Card" = TRUE) THEN
@@ -276,11 +276,11 @@ codeunit 60001 "PWD Function Mgt"
     var
         AppTenders: Record "PWD Appeal for Tenders";
     begin
-        IF (PurchaseLine."PWD Sales Line No. Appeal Tenders" <> 0) THEN BEGIN
+        IF (PurchaseLine."PWD SalesLineNoAppealTenders" <> 0) THEN BEGIN
             PurchaseLine.LOCKTABLE();
             SalesOrderLine.LOCKTABLE();
             SalesOrderLine.GET(
-              PurchaseLine."PWD Sales Type Doc Appeal tenders", PurchaseLine."PWD Sales No. Appeal Tenders", PurchaseLine."PWD Sales Line No. Appeal Tenders");
+              PurchaseLine."PWD SalesTypeDocAppealTend.", PurchaseLine."PWD Sales No. Appeal Tenders", PurchaseLine."PWD SalesLineNoAppealTenders");
 
             SalesOrderLine.CALCFIELDS("PWD Nb Purchase Quote");
             IF SalesOrderLine."PWD Nb Purchase Quote" = 1 THEN BEGIN
@@ -288,23 +288,23 @@ codeunit 60001 "PWD Function Mgt"
                 SalesOrderLine."PWD Order Trading brand" := FALSE;
                 SalesOrderLine.MODIFY();
 
-                AppTenders.SETRANGE("Document Type", PurchaseLine."PWD Sales Type Doc Appeal tenders");
+                AppTenders.SETRANGE("Document Type", PurchaseLine."PWD SalesTypeDocAppealTend.");
                 AppTenders.SETRANGE("Document No.", PurchaseLine."PWD Sales No. Appeal Tenders");
-                AppTenders.SETRANGE("Line No. document", PurchaseLine."PWD Sales Line No. Appeal Tenders");
+                AppTenders.SETRANGE("Line No. document", PurchaseLine."PWD SalesLineNoAppealTenders");
                 IF AppTenders.FindSet() THEN
                     AppTenders.DELETEALL();
             END;
 
             IF SalesOrderLine."PWD Order Trading brand" = TRUE THEN BEGIN
-                PurchaseLine."PWD Sales Type Doc Appeal tenders" := 0;
-                SalesOrderLine."PWD Trad. Brand Order Purch No." := '';
-                SalesOrderLine."PWD Trad. Br Order Purch. Line No." := 0;
+                PurchaseLine."PWD SalesTypeDocAppealTend." := 0;
+                SalesOrderLine."PWD Trad.BrandOrderPurchNo." := '';
+                SalesOrderLine."PWD Trad.BrOrderPurch.LineNo." := 0;
                 SalesOrderLine."PWD Trading Brand" := FALSE;
                 SalesOrderLine.MODIFY();
 
-                AppTenders.SETRANGE("Document Type", PurchaseLine."PWD Sales Type Doc Appeal tenders");
+                AppTenders.SETRANGE("Document Type", PurchaseLine."PWD SalesTypeDocAppealTend.");
                 AppTenders.SETRANGE("Document No.", PurchaseLine."PWD Sales No. Appeal Tenders");
-                AppTenders.SETRANGE("Line No. document", PurchaseLine."PWD Sales Line No. Appeal Tenders");
+                AppTenders.SETRANGE("Line No. document", PurchaseLine."PWD SalesLineNoAppealTenders");
                 IF AppTenders.FindSet() THEN
                     AppTenders.DELETEALL();
             END;
@@ -325,8 +325,8 @@ codeunit 60001 "PWD Function Mgt"
 
         PurchHeader.GET(Rec."Document Type", Rec."Document No.");
         IF Location.GET(Rec."Location Code") THEN BEGIN
-            IF Location."PWD Purch. Gen. Bus. Posting Group" <> '' THEN
-                Rec.VALIDATE("Gen. Bus. Posting Group", Location."PWD Purch. Gen. Bus. Posting Group")
+            IF Location."PWD PurchGenBusPostingGroup" <> '' THEN
+                Rec.VALIDATE("Gen. Bus. Posting Group", Location."PWD PurchGenBusPostingGroup")
             ELSE BEGIN
                 Rec.GetPurchHeader();
                 Rec.VALIDATE("Gen. Bus. Posting Group", PurchHeader."Gen. Bus. Posting Group");
@@ -354,9 +354,9 @@ codeunit 60001 "PWD Function Mgt"
         END;
         IF PurchaseLine."PWD Sales No. Appeal Tenders" <> '' THEN BEGIN
             SalesLineSpeciale.RESET();
-            SalesLineSpeciale.SETRANGE("Document Type", PurchaseLine."PWD Sales Type Doc Appeal tenders");
+            SalesLineSpeciale.SETRANGE("Document Type", PurchaseLine."PWD SalesTypeDocAppealTend.");
             SalesLineSpeciale.SETRANGE("Document No.", PurchaseLine."PWD Sales No. Appeal Tenders");
-            SalesLineSpeciale.SETRANGE("Line No.", PurchaseLine."PWD Sales Line No. Appeal Tenders");
+            SalesLineSpeciale.SETRANGE("Line No.", PurchaseLine."PWD SalesLineNoAppealTenders");
             IF SalesLineSpeciale.FindFirst() THEN BEGIN
                 SalesLineSpeciale.SuspendStatusCheck(TRUE);
                 SalesLineSpeciale.VALIDATE(Quantity, PurchaseLine.Quantity);
@@ -383,9 +383,9 @@ codeunit 60001 "PWD Function Mgt"
         END;
         IF PurchaseLine."PWD Sales No. Appeal Tenders" <> '' THEN BEGIN
             SalesLineSpeciale.RESET();
-            SalesLineSpeciale.SETRANGE("Document Type", PurchaseLine."PWD Sales Type Doc Appeal tenders");
+            SalesLineSpeciale.SETRANGE("Document Type", PurchaseLine."PWD SalesTypeDocAppealTend.");
             SalesLineSpeciale.SETRANGE("Document No.", PurchaseLine."PWD Sales No. Appeal Tenders");
-            SalesLineSpeciale.SETRANGE("Line No.", PurchaseLine."PWD Sales Line No. Appeal Tenders");
+            SalesLineSpeciale.SETRANGE("Line No.", PurchaseLine."PWD SalesLineNoAppealTenders");
             IF SalesLineSpeciale.FINDFirst() THEN BEGIN
                 SalesLineSpeciale.SuspendStatusCheck(TRUE);
                 SalesLineSpeciale.VALIDATE("Qty. to Ship", PurchaseLine."Qty. to Receive");
@@ -406,26 +406,22 @@ codeunit 60001 "PWD Function Mgt"
         NewItemLedgEntry."PWD Meat Family" := ItemJnlLine."PWD Meat Family";
         NewItemLedgEntry."PWD Meat Type" := ItemJnlLine."PWD Meat Type";
         NewItemLedgEntry."PWD COM 7 No." := ItemJnlLine."PWD COM7 No.";
-
         NewItemLedgEntry."PWD Code prestation" := ItemJnlLine."PWD Code prestation";
         NewItemLedgEntry."PWD Code fournisseur" := ItemJnlLine."PWD Code fournisseur";
         NewItemLedgEntry."PWD Code client" := ItemJnlLine."PWD Code client";
         NewItemLedgEntry."PWD Family Code" := ItemJnlLine."PWD Family Code";
         NewItemLedgEntry."PWD Nb. unite" := ItemJnlLine."PWD Nb. unite";
         NewItemLedgEntry."PWD Comments" := ItemJnlLine."PWD Comments";
-
         NewItemLedgEntry."PWD Gross Weight" := ItemJnlLine."PWD Gross Weight";
         NewItemLedgEntry."PWD Net Weight" := ItemJnlLine."PWD Net Weight";
-
         NewItemLedgEntry."PWD Seafrance Order No." := ItemJnlLine."PWD Seafrance Order No.";
         NewItemLedgEntry."PWD Seafrance Order Line No." := ItemJnlLine."PWD Seafrance Order Line No.";
-
         NewItemLedgEntry."PWD Seafrance Quantity" := ItemJnlLine."PWD Seafrance Quantity";
     end;
 
-    PROCEDURE TestExpirationDate(ItemJnlLine: Record 83);
+    PROCEDURE TestExpirationDate(ItemJnlLine: Record "Item Journal Line");
     VAR
-        Item: Record 27;
+        Item: Record Item;
         Text1000000000: Label 'Expiration date is required for item %1';
     BEGIN
         Item.GET(ItemJnlLine."Item No.");
@@ -433,9 +429,9 @@ codeunit 60001 "PWD Function Mgt"
             IF ItemJnlLine."Expiration Date" = 0D THEN ERROR(Text1000000000, Item."No.");
     END;
 
-    PROCEDURE InsertInventoryPerLocation(JournalLine: Record 83);
+    PROCEDURE InsertInventoryPerLocation(JournalLine: Record "Item Journal Line");
     VAR
-        InventoryPerLocation: Record 50033;
+        InventoryPerLocation: Record "Items Available per Location";
         Quantitytoadjust: Decimal;
     BEGIN
         IF JournalLine."Entry Type" <> JournalLine."Entry Type"::Transfer THEN BEGIN
@@ -972,15 +968,15 @@ codeunit 60001 "PWD Function Mgt"
 
         //*** Controle de la marge / marge escomptée client
         GenLedSetUp.GET();
-        IF Cust."Discount Profit %" > ProfitPct THEN BEGIN
+        IF Cust."PWD Discount Profit %" > ProfitPct THEN BEGIN
             //*** Recherche si userid appartient au role direction
             MemberOf.SETRANGE("User Security ID", UserSecurityId());
             MemberOf.SETRANGE("Role ID", GenLedSetUp."PWD Direction Role ID");
             IF MemberOf.FindFirst() THEN BEGIN
-                IF CONFIRM(Text1000000000, TRUE, ProfitPct, Cust."Discount Profit %", '%') = FALSE THEN
-                    ERROR(Text1000000001, ProfitPct, Cust."Discount Profit %", '%');
+                IF CONFIRM(Text1000000000, TRUE, ProfitPct, Cust."PWD Discount Profit %", '%') = FALSE THEN
+                    ERROR(Text1000000001, ProfitPct, Cust."PWD Discount Profit %", '%');
             END ELSE
-                ERROR(Text1000000001, ProfitPct, Cust."Discount Profit %", '%');
+                ERROR(Text1000000001, ProfitPct, Cust."PWD Discount Profit %", '%');
         END;
     END;
 
@@ -1065,15 +1061,15 @@ codeunit 60001 "PWD Function Mgt"
             UNTIL AppTenders.NEXT() = 0;
         END;
         IF SalesQuoteLine."PWD Nb Purchase Quote" > 0 THEN BEGIN
-            PurchQuoteLine.SETCURRENTKEY("PWD Sales Type Doc Appeal tenders", "PWD Sales No. Appeal Tenders", "PWD Sales Line No. Appeal Tenders");
+            PurchQuoteLine.SETCURRENTKEY("PWD SalesTypeDocAppealTend.", "PWD Sales No. Appeal Tenders", "PWD SalesLineNoAppealTenders");
             FOR i := 1 TO SalesQuoteLine."PWD Nb Purchase Quote" DO BEGIN
-                PurchQuoteLine.SETRANGE("PWD Sales Type Doc Appeal tenders", SalesQuoteLine."Document Type".AsInteger());
+                PurchQuoteLine.SETRANGE("PWD SalesTypeDocAppealTend.", SalesQuoteLine."Document Type".AsInteger());
                 PurchQuoteLine.SETRANGE("PWD Sales No. Appeal Tenders", SalesQuoteLine."Document No.");
-                PurchQuoteLine.SETRANGE("PWD Sales Line No. Appeal Tenders", SalesQuoteLine."Line No.");
+                PurchQuoteLine.SETRANGE("PWD SalesLineNoAppealTenders", SalesQuoteLine."Line No.");
                 PurchQuoteLine.FindFirst();
-                PurchQuoteLine."PWD Sales Type Doc Appeal tenders" := SalesOrderHeader."Document Type".AsInteger();
+                PurchQuoteLine."PWD SalesTypeDocAppealTend." := SalesOrderHeader."Document Type".AsInteger();
                 PurchQuoteLine."PWD Sales No. Appeal Tenders" := SalesOrderHeader."No.";
-                PurchQuoteLine."PWD Sales Line No. Appeal Tenders" := SalesOrderLine."Line No.";
+                PurchQuoteLine."PWD SalesLineNoAppealTenders" := SalesOrderLine."Line No.";
 
                 PurchQuoteLine.MODIFY();
             END;
@@ -1847,7 +1843,7 @@ codeunit 60001 "PWD Function Mgt"
         TempVATAmountLine2.MODIFYALL(Modified, FALSE);
         TempVATAmountLine3.MODIFYALL(Modified, FALSE);
         Cust.GET(Rec."Bill-to Customer No.");
-        IF ProfitPct[1] < Cust."Discount Profit %" THEN MESSAGE(Text1000000004, Rec."No.", Cust."Discount Profit %", '%');
+        IF ProfitPct[1] < Cust."PWD Discount Profit %" THEN MESSAGE(Text1000000004, Rec."No.", Cust."PWD Discount Profit %", '%');
     END;
 
     procedure SalesHeaderCheckError(SalesHeader: Record "Sales Header");
@@ -2304,6 +2300,6 @@ codeunit 60001 "PWD Function Mgt"
         CoefPrixUnitaire: Decimal;
     BEGIN
         ParamsVente.GET();
-        CoefPrixUnitaire := ParamsVente."PWD Coef Controle prix unitaire";
+        CoefPrixUnitaire := ParamsVente."PWD Coef Ctrl Prix Unit";
     END;
 }

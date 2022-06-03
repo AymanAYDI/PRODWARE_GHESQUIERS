@@ -76,6 +76,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
                 Promoted = true;
                 PromotedCategory = Process;
                 ApplicationArea = All;
+                Image = UpdateUnitCost;
 
                 trigger OnAction()
                 begin
@@ -85,7 +86,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
                         ERROR(Text1000000009);
                     IF SalesHeader.COUNT = 0 THEN
                         ERROR(Text1000000010);
-                    IF SalesHeader.FIND('-') THEN
+                    IF SalesHeader.FINDFirst() THEN
                         IF SalesHeader."PWD Preparation in process" = FALSE THEN
                             MESSAGE(Text1000000013, SalesHeader."No.") ELSE BEGIN
                             SalesLine.RESET();
@@ -108,6 +109,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
                 Promoted = true;
                 PromotedCategory = Process;
                 ApplicationArea = All;
+                Image= Print;
 
                 trigger OnAction()
                 begin
@@ -128,9 +130,9 @@ page 50063 "PWD Sales AVOIR to prepare V2"
         ReservEntry: Record "Reservation Entry";
         ReservEntryNo: Record "Reservation Entry";
         SalesHeader: Record "Sales Header";
-        NewSalesLine: Record "Sales Line" temporary;
         SalesLine: Record "Sales Line";
         SalesLineCreated: Record "Sales Line";
+        TempNewSalesLine: Record "Sales Line" temporary;
         DimMgt: Codeunit DimensionManagement;
         PWDSetGetFunctions: codeunit "PWD Set/Get Functions";
         ReleaseSalesDoc: Codeunit "Release Sales Document";
@@ -148,7 +150,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
 
     procedure MakePreparation()
     begin
-        NewSalesLine.DELETEALL();
+        TempNewSalesLine.DELETEALL();
         SalesHeader.RESET();
         CurrPage.SETSELECTIONFILTER(SalesHeader);
         IF SalesHeader.COUNT > 1 THEN
@@ -207,7 +209,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
         NewSalesLineNo: Integer;
         NextSalesLineNo: Integer;
     begin
-        NewSalesLine.DELETEALL();
+        TempNewSalesLine.DELETEALL();
         CLEAR(NextSalesLineNo);
         CLEAR(NextSalesLine);
         CLEAR(IncremLine);
@@ -219,13 +221,13 @@ page 50063 "PWD Sales AVOIR to prepare V2"
         NextSalesLine.SETRANGE(NextSalesLine."Document Type", SalesLine."Document Type");
         NextSalesLine.SETRANGE("Document No.", SalesLine."Document No.");
         NextSalesLine.SETFILTER("Line No.", '>%1', SalesLine."Line No.");
-        IF NextSalesLine.FIND('-') THEN
+        IF NextSalesLine.FindFirst() THEN
             NextSalesLineNo := NextSalesLine."Line No." ELSE
             NextSalesLineNo := SalesLine."Line No." + 10000;
         RecLocPriority.RESET();
         RecLocPriority.SETCURRENTKEY("PWD Call Type Code", "PWD Location priority");
         RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", SalesHeader."PWD Call Type");
-        IF RecLocPriority.FIND('-') THEN BEGIN
+        IF RecLocPriority.FindFirst() THEN BEGIN
             CLEAR(IncremLine);
             LocationsToCheck := RecLocPriority.COUNT + 1;
             IncremLine := ROUND(((NextSalesLineNo - SalesLine."Line No.") / LocationsToCheck), 1);
@@ -247,12 +249,12 @@ page 50063 "PWD Sales AVOIR to prepare V2"
                 InsertNewLineNull('', NewNeed, NewSalesLineNo);
             END;
         END;
-        NewSalesLine.RESET();
-        IF NewSalesLine.FIND('-') THEN
+        TempNewSalesLine.RESET();
+        IF TempNewSalesLine.FindFirst() THEN
             REPEAT
-                SalesLineCreated.TRANSFERFIELDS(NewSalesLine);
+                SalesLineCreated.TRANSFERFIELDS(TempNewSalesLine);
                 SalesLineCreated.INSERT();
-            UNTIL NewSalesLine.NEXT() = 0;
+            UNTIL TempNewSalesLine.NEXT() = 0;
         SalesLine.DELETE(TRUE);
     end;
 
@@ -265,7 +267,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
         ReservEntry.SETRANGE("Source Subtype", SalesLine."Document Type");
         ReservEntry.SETRANGE("Source ID", SalesLine."Document No.");
         ReservEntry.SETRANGE("Source Ref. No.", SalesLine."Line No.");
-        IF NOT ReservEntry.FIND('-') THEN
+        IF NOT ReservEntry.FindFirst() THEN
             InsertTrackingLines()
         ELSE BEGIN
             REPEAT
@@ -293,7 +295,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
         Item.SETRANGE("No.", SalesLine."No.");
         Item.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
         Item.SETRANGE(Item."Location Filter", RecLocPriority."PWD Location code");
-        IF Item.FIND('-') THEN BEGIN
+        IF Item.FindFirst() THEN BEGIN
             Item.CALCFIELDS(
               "Qty. on Purch. Order",
               "Qty. on Sales Order",
@@ -306,8 +308,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
               Item."Purch. Req. Receipt (Qty.)";
             ScheduledReceipt :=
               Item."Qty. on Purch. Order";
-            PlannedOrderReleases :=
-              Item."Purch. Req. Release (Qty.)";
+            PlannedOrderReleases := Item."Purch. Req. Release (Qty.)";
             EXIT(Item.Inventory + PlannedOrderReceipt + ScheduledReceipt - GrossRequirement);
         END;
     end;
@@ -367,54 +368,54 @@ page 50063 "PWD Sales AVOIR to prepare V2"
 
     procedure InsertNewLine(FromLocationCode: Code[20]; FromQty: Decimal; NewLineNo: Integer)
     begin
-        CLEAR(NewSalesLine);
-        NewSalesLine.TRANSFERFIELDS(SalesLine);
-        NewSalesLine."Line No." := NewLineNo;
-        NewSalesLine.INSERT(TRUE);
+        CLEAR(TempNewSalesLine);
+        TempNewSalesLine.TRANSFERFIELDS(SalesLine);
+        TempNewSalesLine."Line No." := NewLineNo;
+        TempNewSalesLine.INSERT(TRUE);
 
-        NewSalesLine.VALIDATE("Location Code", FromLocationCode);
-        NewSalesLine.Description := SalesLine.Description;
-        NewSalesLine."Description 2" := SalesLine."Description 2";
-        NewSalesLine.VALIDATE("Shortcut Dimension 1 Code");
-        NewSalesLine.VALIDATE("Shortcut Dimension 2 Code");
-        NewSalesLine.VALIDATE("Quantity (Base)", FromQty);
-        NewSalesLine.VALIDATE("PWD Prepared Quantity", NewSalesLine.Quantity);
+        TempNewSalesLine.VALIDATE("Location Code", FromLocationCode);
+        TempNewSalesLine.Description := SalesLine.Description;
+        TempNewSalesLine."Description 2" := SalesLine."Description 2";
+        TempNewSalesLine.VALIDATE("Shortcut Dimension 1 Code");
+        TempNewSalesLine.VALIDATE("Shortcut Dimension 2 Code");
+        TempNewSalesLine.VALIDATE("Quantity (Base)", FromQty);
+        TempNewSalesLine.VALIDATE("PWD Prepared Quantity", TempNewSalesLine.Quantity);
 
-        NewSalesLine.VALIDATE("PWD Prepared Quantity (Base)", NewSalesLine."Quantity (Base)");
-        NewSalesLine."PWD Preparation in Process" := TRUE;
+        TempNewSalesLine.VALIDATE("PWD Prepared Quantity (Base)", TempNewSalesLine."Quantity (Base)");
+        TempNewSalesLine."PWD Preparation in Process" := TRUE;
 
-        NewSalesLine.MODIFY(TRUE);
+        TempNewSalesLine.MODIFY(TRUE);
 
         CLEAR(DimMgt);
         //ToDo
         /* DimMgt.InsertDocDim(
-           DATABASE::"Sales Line", NewSalesLine."Document Type", NewSalesLine."Document No.", NewSalesLine."Line No.",
-           NewSalesLine."Shortcut Dimension 1 Code", NewSalesLine."Shortcut Dimension 2 Code");*/
+           DATABASE::"Sales Line", TempNewSalesLine."Document Type", TempNewSalesLine."Document No.", TempNewSalesLine."Line No.",
+           TempNewSalesLine."Shortcut Dimension 1 Code", TempNewSalesLine."Shortcut Dimension 2 Code");*/
     end;
 
     procedure InsertNewLineNull(FromLocationCode: Code[20]; FromQty: Decimal; NewLineNo: Integer)
     begin
-        CLEAR(NewSalesLine);
-        NewSalesLine.TRANSFERFIELDS(SalesLine);
-        NewSalesLine."Line No." := NewLineNo;
-        NewSalesLine.INSERT(TRUE);
+        CLEAR(TempNewSalesLine);
+        TempNewSalesLine.TRANSFERFIELDS(SalesLine);
+        TempNewSalesLine."Line No." := NewLineNo;
+        TempNewSalesLine.INSERT(TRUE);
 
-        NewSalesLine.VALIDATE("Location Code", FromLocationCode);
-        NewSalesLine.VALIDATE("Quantity (Base)", FromQty);
-        NewSalesLine.Description := SalesLine.Description;
-        NewSalesLine."Description 2" := SalesLine."Description 2";
-        NewSalesLine.VALIDATE("Shortcut Dimension 1 Code");
-        NewSalesLine.VALIDATE("Shortcut Dimension 2 Code");
+        TempNewSalesLine.VALIDATE("Location Code", FromLocationCode);
+        TempNewSalesLine.VALIDATE("Quantity (Base)", FromQty);
+        TempNewSalesLine.Description := SalesLine.Description;
+        TempNewSalesLine."Description 2" := SalesLine."Description 2";
+        TempNewSalesLine.VALIDATE("Shortcut Dimension 1 Code");
+        TempNewSalesLine.VALIDATE("Shortcut Dimension 2 Code");
 
-        NewSalesLine.VALIDATE("PWD Quantity to prepare", NewSalesLine.Quantity);
-        NewSalesLine.VALIDATE("Qty. to Ship", 0);
-        NewSalesLine."PWD Preparation in Process" := TRUE;
-        NewSalesLine.MODIFY(TRUE);
+        TempNewSalesLine.VALIDATE("PWD Quantity to prepare", TempNewSalesLine.Quantity);
+        TempNewSalesLine.VALIDATE("Qty. to Ship", 0);
+        TempNewSalesLine."PWD Preparation in Process" := TRUE;
+        TempNewSalesLine.MODIFY(TRUE);
         CLEAR(DimMgt);
         //ToDo
         /*DimMgt.InsertDocDim(
-          DATABASE::"Sales Line", NewSalesLine."Document Type", NewSalesLine."Document No.", NewSalesLine."Line No.",
-          NewSalesLine."Shortcut Dimension 1 Code", NewSalesLine."Shortcut Dimension 2 Code");*/
+          DATABASE::"Sales Line", TempNewSalesLine."Document Type", TempNewSalesLine."Document No.", TempNewSalesLine."Line No.",
+          TempNewSalesLine."Shortcut Dimension 1 Code", TempNewSalesLine."Shortcut Dimension 2 Code");*/
     end;
 
     local procedure NoOnFormat()

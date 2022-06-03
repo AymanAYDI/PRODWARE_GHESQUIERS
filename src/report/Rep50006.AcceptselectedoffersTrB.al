@@ -1,8 +1,5 @@
 report 50006 "Accept selected offers -TrB"
 {
-    // *** Contremarque - C2A
-    // Accepter les offres fournisseurs
-
     Caption = 'Accept selected offers';
     ProcessingOnly = true;
     UsageCategory = None;
@@ -21,10 +18,10 @@ report 50006 "Accept selected offers -TrB"
                     PuchQuoteHeader: Record "Purchase Header";
                     UnitCost: Decimal;
                 begin
-                    PurchQuoteLine.SETRANGE("PWD Sales Type Doc Appeal tenders", "Sales Line"."Document Type".AsInteger());
+                    PurchQuoteLine.SETRANGE("PWD SalesTypeDocAppealTend.", "Sales Line"."Document Type".AsInteger());
                     PurchQuoteLine.SETRANGE("PWD Sales No. Appeal Tenders", "Sales Line"."Document No.");
 
-                    PurchQuoteLine.SETRANGE("PWD Sales Line No. Appeal Tenders", "Sales Line"."Line No.");
+                    PurchQuoteLine.SETRANGE("PWD SalesLineNoAppealTenders", "Sales Line"."Line No.");
                     PurchQuoteLine.SETRANGE("PWD Selected Quote", TRUE);
                     NbRecord := PurchQuoteLine.COUNT;
 
@@ -58,7 +55,7 @@ report 50006 "Accept selected offers -TrB"
         IF NOT CONFIRM(Text1000000004, TRUE) = TRUE THEN
             CurrReport.QUIT();
 
-        PurchQuoteLine.SETCURRENTKEY("PWD Sales Type Doc Appeal tenders", "PWD Sales No. Appeal Tenders", "PWD Sales Line No. Appeal Tenders");
+        PurchQuoteLine.SETCURRENTKEY("PWD SalesTypeDocAppealTend.", "PWD Sales No. Appeal Tenders", "PWD SalesLineNoAppealTenders");
     end;
 
     var

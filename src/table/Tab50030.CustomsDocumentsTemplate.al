@@ -156,11 +156,12 @@ table 50030 "PWD Customs Documents Template"
                         RMSetup.TESTFIELD("Attachment Storage Location");
                     CALCFIELDS(Attachment);
                     IF Attachment.HASVALUE THEN BEGIN
-                        IF ExportToFile = '' THEN
-                            FileFilter := UPPERCASE("File Extension") + ' '
-                        //ToDo
-                        //FileFilter := FileFilter + '(*.' + "File Extension" + ')|*.' + "File Extension";
-                        //FileName := CommonDialogMgt.OpenFile(Text005, '', 4, FileFilter, 1);
+                        IF ExportToFile = '' THEN begin
+                            FileFilter := UPPERCASE("File Extension") + ' ';
+                            FileFilter := FileFilter + '(*.' + "File Extension" + ')|*.' + "File Extension";
+                            //ToDo
+                            // FileName := CommonDialogMgt.OpenFile(Text005, '', 4, FileFilter, 1);
+                        end
                         ELSE
                             FileName := ExportToFile;
                         IF FileName <> '' THEN BEGIN
@@ -178,12 +179,12 @@ table 50030 "PWD Customs Documents Template"
                        RMSetup."Attachment Storage Type"::"Disk File"
                     THEN
                         RMSetup.TESTFIELD("Attachment Storage Location");
-                    IF ExportToFile = '' THEN
+                    IF ExportToFile = '' THEN begin
+                        FileFilter := UPPERCASE("File Extension") + ' ';
+                        FileFilter := FileFilter + '(*.' + "File Extension" + ')|*.' + "File Extension";
                         //ToDo
-                        //FileFilter := UPPERCASE("File Extension") + ' ';
-                        FileFilter := FileFilter + '(*.' + "File Extension" + ')|*.' + "File Extension"
-                    //ToDo
-                    //FileName := CommonDialogMgt.OpenFile(Text005, '', 4, FileFilter, 1);
+                        //FileName := CommonDialogMgt.OpenFile(Text005, '', 4, FileFilter, 1);
+                    end
                     ELSE
                         FileName := ExportToFile;
                     IF FileName <> '' THEN
@@ -356,17 +357,17 @@ table 50030 "PWD Customs Documents Template"
 
     procedure CreateAttachment()
     var
-        Attachment: Record "PWD Customs Documents Template";
+        CustomsDocumentsTemplate: Record "PWD Customs Documents Template";
     begin
         IF "Attachment No." <> 0 THEN BEGIN
-            IF Attachment.GET("Attachment No.") THEN
-                Attachment.TESTFIELD("Read Only", FALSE);
+            IF CustomsDocumentsTemplate.GET("Attachment No.") THEN
+                CustomsDocumentsTemplate.TESTFIELD("Read Only", FALSE);
             IF NOT CONFIRM(Text001, FALSE) THEN
                 EXIT;
         END;
         //ToDo
         /*
-                IF AttachmentManagement.UseComServer('DOC', TRUE) THEN;
+                IF CustomsDocumentsTemplate.UseComServer('DOC', TRUE) THEN;
 
                 IF "Based On" = "Based On"::Sales THEN
                     WordManagement.CreateWordAttachment("No." + ' ' + Description, "No.") ELSE

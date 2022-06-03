@@ -53,13 +53,12 @@ pageextension 50032 "PWD PostedSalesInvoices" extends "Posted Sales Invoices"
                         SalesInvHeader.PrintRecords(TRUE);
                     END;
                 }
-                Action("Action1000000001")
+                Action(ImpressionClassique)
                 {
                     ApplicationArea = all;
                     Caption = 'Impression classique';
+                    Image = Print;
                     Trigger OnAction()
-                    VAR
-                        RecLSalesInvoiceHeader: Record "Sales Invoice Header";
                     BEGIN
                         SalesInvHeader.SETRANGE("No.", Rec."No.");
                         REPORT.RUN(50118, TRUE, TRUE, SalesInvHeader);
@@ -73,9 +72,8 @@ pageextension 50032 "PWD PostedSalesInvoices" extends "Posted Sales Invoices"
             {
                 ApplicationArea = all;
                 Caption = 'Impression classique';
+                Image = Print;
                 Trigger OnAction()
-                VAR
-                    RecLSalesInvoiceHeader: Record "Sales Invoice Header";
                 BEGIN
                     SalesInvHeader.SETRANGE("No.", Rec."No.");
                     REPORT.RUN(50118, TRUE, TRUE, SalesInvHeader);

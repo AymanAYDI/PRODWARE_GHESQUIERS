@@ -35,22 +35,22 @@ report 50043 "PWD Validate Sales Order"
             {
                 group(SalesInformation)
                 {
-                    field(PostingDate; PostingDate)
+                    field("Field_PostingDate"; PostingDate)
                     {
                         Applicationarea = all;
                         Caption = 'Date de comptabilisation';
                     }
-                    field(DocumentDate; DocumentDate)
+                    field("Field_DocumentDate"; DocumentDate)
                     {
                         Applicationarea = all;
                         Caption = 'Date de document';
                     }
-                    field(ToShip; ToShip)
+                    field("Field_ToShip"; ToShip)
                     {
                         Applicationarea = all;
                         Caption = 'Livrer';
                     }
-                    field(ToInvoice; ToInvoice)
+                    field("Field_ToInvoice"; ToInvoice)
                     {
                         Applicationarea = all;
                         Caption = 'Facturer';
@@ -90,7 +90,6 @@ report 50043 "PWD Validate Sales Order"
         Cust: Record Customer;
         GenLedSetUp: Record "General Ledger Setup";
         MemberOf: Record "Permission Set";
-        SalesLine: Record "Sales Line";
         TempSalesLine: Record "Sales Line" temporary;
         TotalSalesLine: Record "Sales Line";
         TotalSalesLineLCY: Record "Sales Line";
@@ -171,15 +170,15 @@ report 50043 "PWD Validate Sales Order"
         ELSE
             ProfitPct := ROUND(100 * ProfitLCY / TotalSalesLineLCY.Amount, 0.01);
         GenLedSetUp.GET();
-        IF Cust."Discount Profit %" > ProfitPct THEN BEGIN
+        IF Cust."PWD Discount Profit %" > ProfitPct THEN BEGIN
             //*** Recherche si userid appartient au role direction
             //TODO MemberOf.SETRANGE("User ID",USERID);
             MemberOf.SETRANGE("Role ID", GenLedSetUp."PWD Direction Role ID");
-            IF MemberOf.FIND('-') THEN BEGIN
-                IF CONFIRM(Text1000000000, TRUE, ProfitPct, Cust."Discount Profit %", '%') = FALSE THEN
-                    ERROR(Text1000000001, ProfitPct, Cust."Discount Profit %", '%');
+            IF MemberOf.FindFirst() THEN BEGIN
+                IF CONFIRM(Text1000000000, TRUE, ProfitPct, Cust."PWD Discount Profit %", '%') = FALSE THEN
+                    ERROR(Text1000000001, ProfitPct, Cust."PWD Discount Profit %", '%');
             END ELSE
-                ERROR(Text1000000001, ProfitPct, Cust."Discount Profit %", '%');
+                ERROR(Text1000000001, ProfitPct, Cust."PWD Discount Profit %", '%');
         END;
     end;
 
@@ -204,13 +203,7 @@ report 50043 "PWD Validate Sales Order"
                     SalesLine.SETFILTER(SalesLine."PWD Countermark Location", '=%1', FALSE);
                 END;
             SalesHeader."Document Type"::"Return Order":
-
                 ;
-            //Selection := STRMENU(Text002,3);
-            //IF Selection = 0 THEN
-            //  EXIT;
-            //Receive := Selection IN [1,3];
-            //Invoice := Selection IN [2,3];
             ELSE
                 IF NOT
                    CONFIRM(
@@ -227,7 +220,7 @@ report 50043 "PWD Validate Sales Order"
     begin
         PostingDate := WORKDATE();
         DocumentDate := WORKDATE();
-        DocType := SalesHeader1."Document Type";
+        DocType := SalesHeader1."Document Type".AsInteger();
         NumDocument := SalesHeader1."No.";
         ToInvoice := TRUE;
         ToShip := TRUE;

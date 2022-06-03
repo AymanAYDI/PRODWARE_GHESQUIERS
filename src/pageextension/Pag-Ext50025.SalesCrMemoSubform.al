@@ -2,7 +2,7 @@ pageextension 50025 "PWD SalesCrMemoSubform" extends "Sales Cr. Memo Subform"
 {
     layout
     {
-        addafter("Cross-Reference No.")
+        addbefore("Item Reference No.")
         {
             field("PWD Gross Weight"; Rec."Gross Weight")
             {
@@ -24,7 +24,7 @@ pageextension 50025 "PWD SalesCrMemoSubform" extends "Sales Cr. Memo Subform"
     PROCEDURE UnitPriceOnFormat()
     BEGIN
         ParamsVente.GET();
-        CoefPrixUnitaire := ParamsVente."PWD Coef Controle prix unitaire";
+        CoefPrixUnitaire := ParamsVente."PWD Coef Ctrl Prix Unit";
     END;
 
     var

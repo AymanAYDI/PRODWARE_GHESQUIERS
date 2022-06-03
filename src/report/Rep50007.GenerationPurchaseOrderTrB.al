@@ -21,10 +21,10 @@ report 50007 "Generation Purchase Order -TrB"
                     //*** Vérifie 1 ligne devis achat associée à chaque ligne vente.
                     //----------------------------------------------------------------------------//
                     PurchQuoteLine.RESET();
-                    PurchQuoteLine.SETRANGE("PWD Sales Type Doc Appeal tenders", "Sales Line"."Document Type".AsInteger());
+                    PurchQuoteLine.SETRANGE("PWD SalesTypeDocAppealTend.", "Sales Line"."Document Type".AsInteger());
                     PurchQuoteLine.SETRANGE("PWD Sales No. Appeal Tenders", "Sales Line"."Document No.");
 
-                    PurchQuoteLine.SETRANGE("PWD Sales Line No. Appeal Tenders", "Sales Line"."Line No.");
+                    PurchQuoteLine.SETRANGE("PWD SalesLineNoAppealTenders", "Sales Line"."Line No.");
                     PurchQuoteLine.SETRANGE("PWD Selected Quote", TRUE);
                     NbRecord := PurchQuoteLine.COUNT;
 
@@ -65,7 +65,7 @@ report 50007 "Generation Purchase Order -TrB"
             }
             dataitem("Purchase Line"; "Purchase Line")
             {
-                DataItemLink = "PWD Sales Type Doc Appeal tenders" = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("No.");
+                DataItemLink = "PWD SalesTypeDocAppealTend." = FIELD("Document Type"), "PWD Sales No. Appeal Tenders" = FIELD("No.");
                 DataItemTableView = SORTING("Document Type", "Document No.", "Line No.") WHERE("Document Type" = CONST(Quote));
 
                 trigger OnAfterGetRecord()
@@ -97,8 +97,8 @@ report 50007 "Generation Purchase Order -TrB"
                 //*** Supprime les lignes non sélectionnées
                 //----------------------------------------------------------------------------//
                 PurchQuoteLine.RESET();
-                PurchQuoteLine.SETCURRENTKEY("PWD Sales Type Doc Appeal tenders", "PWD Sales No. Appeal Tenders", "PWD Sales Line No. Appeal Tenders");
-                PurchQuoteLine.SETRANGE("PWD Sales Type Doc Appeal tenders", "Sales Header"."Document Type".AsInteger());
+                PurchQuoteLine.SETCURRENTKEY("PWD SalesTypeDocAppealTend.", "PWD Sales No. Appeal Tenders", "PWD SalesLineNoAppealTenders");
+                PurchQuoteLine.SETRANGE("PWD SalesTypeDocAppealTend.", "Sales Header"."Document Type".AsInteger());
                 PurchQuoteLine.SETRANGE("PWD Sales No. Appeal Tenders", "Sales Header"."No.");
                 PurchQuoteLine.SETRANGE("PWD Selected Quote", FALSE);
                 IF PurchQuoteLine.FIND('-') THEN
@@ -119,8 +119,8 @@ report 50007 "Generation Purchase Order -TrB"
                 //*** Vérifie que toute les lignes des commande d'achat correspondent à la même cde de vente.
                 //----------------------------------------------------------------------------//
                 PurchQuoteLine.RESET();
-                PurchQuoteLine.SETCURRENTKEY("PWD Sales Type Doc Appeal tenders", "PWD Sales No. Appeal Tenders", "PWD Sales Line No. Appeal Tenders");
-                PurchQuoteLine.SETRANGE("PWD Sales Type Doc Appeal tenders", "Sales Header"."Document Type".AsInteger());
+                PurchQuoteLine.SETCURRENTKEY("PWD SalesTypeDocAppealTend.", "PWD Sales No. Appeal Tenders", "PWD SalesLineNoAppealTenders");
+                PurchQuoteLine.SETRANGE("PWD SalesTypeDocAppealTend.", "Sales Header"."Document Type".AsInteger());
                 PurchQuoteLine.SETRANGE("PWD Sales No. Appeal Tenders", "Sales Header"."No.");
                 PurchQuoteLine.SETRANGE("PWD Selected Quote", TRUE);
 
@@ -224,22 +224,19 @@ report 50007 "Generation Purchase Order -TrB"
                 PurchOrderLine."Shortcut Dimension 1 Code" := PurchQuoteLine."Shortcut Dimension 1 Code";
                 PurchOrderLine."Shortcut Dimension 2 Code" := PurchQuoteLine."Shortcut Dimension 2 Code";
                 PurchOrderLine.INSERT();
-
-                //************************************//
-                SalesOrderLine.GET(PurchOrderLine."PWD Sales Type Doc Appeal tenders", PurchOrderLine."PWD Sales No. Appeal Tenders",
-                   PurchOrderLine."PWD Sales Line No. Appeal Tenders");
+                SalesOrderLine.GET(PurchOrderLine."PWD SalesTypeDocAppealTend.", PurchOrderLine."PWD Sales No. Appeal Tenders",
+                   PurchOrderLine."PWD SalesLineNoAppealTenders");
                 SalesOrderLine."PWD Order Trading brand" := TRUE;
-                SalesOrderLine."PWD Trad. Brand Order Purch No." := PurchOrderLine."Document No.";
-                SalesOrderLine."PWD Trad. Br Order Purch. Line No." := PurchOrderLine."Line No.";
+                SalesOrderLine."PWD Trad.BrandOrderPurchNo." := PurchOrderLine."Document No.";
+                SalesOrderLine."PWD Trad.BrOrderPurch.LineNo." := PurchOrderLine."Line No.";
                 SalesOrderLine.MODIFY();
-            //************************************//
             UNTIL PurchQuoteLine.NEXT() = 0;
 
         PurchCommentLine.SETRANGE("Document Type", rec."Document Type");
         PurchCommentLine.SETRANGE("No.", rec."No.");
         IF NOT PurchCommentLine.ISEMPTY THEN BEGIN
             PurchCommentLine.LOCKTABLE();
-            IF PurchCommentLine.FIND('-') THEN
+            IF PurchCommentLine.FindSet() THEN
                 REPEAT
                     OldPurchCommentLine := PurchCommentLine;
                     PurchCommentLine.DELETE();
@@ -254,7 +251,7 @@ report 50007 "Generation Purchase Order -TrB"
         ItemChargeAssgntPurch.SETRANGE("Document Type", rec."Document Type");
         ItemChargeAssgntPurch.SETRANGE("Document No.", rec."No.");
 
-        WHILE ItemChargeAssgntPurch.FIND('-') DO BEGIN
+        WHILE ItemChargeAssgntPurch.FindFirst() DO BEGIN
             ItemChargeAssgntPurch.DELETE();
             ItemChargeAssgntPurch."Document Type" := PurchOrderHeader."Document Type";
             ItemChargeAssgntPurch."Document No." := PurchOrderHeader."No.";
@@ -267,8 +264,6 @@ report 50007 "Generation Purchase Order -TrB"
             END;
             ItemChargeAssgntPurch.INSERT();
         END;
-
-        // FR01: Archive quote
         AutoArchiveManagement.StorePurchDocument(rec);
 
         Rec.DELETE();

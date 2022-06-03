@@ -1,7 +1,7 @@
 report 50016 "PWD Calcul PU=CU*coef"
 {
     ProcessingOnly = true;
-UsageCategory = None;
+    UsageCategory = None;
     dataset
     {
         dataitem("Sales Header"; "Sales Header")

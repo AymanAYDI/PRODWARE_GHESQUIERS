@@ -128,6 +128,7 @@ page 50025 "PWD Archived Sales List"
                 action(Fiche)
                 {
                     Caption = 'Card';
+                    Image = Card;
                     ShortCutKey = 'Shift+F5';
                     ApplicationArea = All;
 

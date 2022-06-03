@@ -11,6 +11,7 @@ pageextension 50019 "PWD PurchaseQuote" extends "Purchase Quote"
             {
                 ApplicationArea = all;
                 Caption = 'Classement sans suite';
+                Image = Delete;
                 trigger OnAction()
                 VAR
                     AutoarchMgnt: Codeunit "PWD ArchiveAutoManagement";

@@ -70,7 +70,7 @@ page 50065 "PWD Posted Sales Shpt. Lines"
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Valeur douane (correction)"; Rec."Valeur douane (correction)")
+                field("Valeur douane (correction)"; Rec."PWD Valeur douane (correction)")
                 {
                     BlankZero = true;
                     ApplicationArea = All;

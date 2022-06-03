@@ -135,6 +135,7 @@ page 50076 "PWD User Item List"
             action(Ecritures)
             {
                 Caption = 'Ledger';
+                Image= Ledger;
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Page "PWD User Item Ledger Entries";
@@ -148,6 +149,7 @@ page 50076 "PWD User Item List"
                 Promoted = true;
                 PromotedCategory = Process;
                 ApplicationArea = All;
+                Image = ItemTracing;
 
                 trigger OnAction()
                 var

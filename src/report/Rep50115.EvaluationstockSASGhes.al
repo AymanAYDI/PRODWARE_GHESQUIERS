@@ -345,24 +345,24 @@ report 50115 "PWD Evaluation stock SAS Ghes"
                         CostOfInvDecreases := 0;
                         InvDecreases := 0;
 
-                        IF("Posting Date" < StartDate) THEN BEGIN
+                        IF ("Posting Date" < StartDate) THEN BEGIN
                             ValueOfQtyOnHand := "Cost Amount (Expected)";
                             ValueOfInvoicedQty := "Cost Amount (Actual)";
                             InvoicedQty := "Invoiced Quantity";
                         END ELSE
-                        IF ("Item Ledger Entry Type" IN
-                           ["Item Ledger Entry Type"::Purchase,
-                            "Item Ledger Entry Type"::"Positive Adjmt.",
-                            "Item Ledger Entry Type"::Output])
-                        THEN BEGIN
-                            ValueOfRcdIncreases := "Cost Amount (Expected)";
-                            ValueOfInvIncreases := "Cost Amount (Actual)";
-                            InvIncreases := "Invoiced Quantity";
-                        END ELSE BEGIN
-                            CostOfShipDecreases := -"Cost Amount (Expected)";
-                            CostOfInvDecreases := -"Cost Amount (Actual)";
-                            InvDecreases := -"Invoiced Quantity";
-                        END;
+                            IF ("Item Ledger Entry Type" IN
+                               ["Item Ledger Entry Type"::Purchase,
+                                "Item Ledger Entry Type"::"Positive Adjmt.",
+                                "Item Ledger Entry Type"::Output])
+                            THEN BEGIN
+                                ValueOfRcdIncreases := "Cost Amount (Expected)";
+                                ValueOfInvIncreases := "Cost Amount (Actual)";
+                                InvIncreases := "Invoiced Quantity";
+                            END ELSE BEGIN
+                                CostOfShipDecreases := -"Cost Amount (Expected)";
+                                CostOfInvDecreases := -"Cost Amount (Actual)";
+                                InvDecreases := -"Invoiced Quantity";
+                            END;
 
                         IF "Expected Cost" THEN BEGIN
                             CostPostedToGL := "Cost Posted to G/L";

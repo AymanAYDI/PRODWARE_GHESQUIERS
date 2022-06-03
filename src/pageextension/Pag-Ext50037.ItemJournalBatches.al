@@ -19,7 +19,7 @@ pageextension 50037 "PWD ItemJournalBatches" extends "Item Journal Batches"
         }
         addafter("Reason Code")
         {
-            field("PWD First Purch. Ord. Seafrance No"; Rec."PWD First Purch. Ord. Seafrance No")
+            field("PWD First Purch. Ord. Seafrance No"; Rec."PWD First Purch Ord. Seaf. No")
             {
                 ApplicationArea = All;
             }

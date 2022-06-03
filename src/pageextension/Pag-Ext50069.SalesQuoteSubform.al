@@ -144,7 +144,7 @@ pageextension 50069 "PWD SalesQuoteSubform" extends "Sales Quote Subform"
     PROCEDURE UnitPriceOnFormat()
     BEGIN
         ParamsVente.GET();
-        CoefPrixUnitaire := ParamsVente."PWD Coef Controle prix unitaire";
+        CoefPrixUnitaire := ParamsVente."PWD Coef Ctrl Prix Unit";
     END;
 
     PROCEDURE UpdateKPI()
@@ -154,7 +154,7 @@ pageextension 50069 "PWD SalesQuoteSubform" extends "Sales Quote Subform"
         IF NOT RecLKPIRulesSetup.GET('', 1) THEN EXIT;
         RecLKPIRulesSetup.CALCFIELDS(RecLKPIRulesSetup.KPI);
         ParamsVente.GET();
-        CoefPrixUnitaire := ParamsVente."PWD Coef Controle prix unitaire";
+        CoefPrixUnitaire := ParamsVente."PWD Coef Ctrl Prix Unit";
         IF Rec."Unit Price" * (1 - (Rec."Line Discount %" / 100)) < Rec."Unit Cost" * CoefPrixUnitaire THEN BEGIN
             Rec."PWD KPI" := RecLKPIRulesSetup.KPI;
             Rec.CALCFIELDS(Rec."PWD KPI");

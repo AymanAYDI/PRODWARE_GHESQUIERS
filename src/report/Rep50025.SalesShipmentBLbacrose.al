@@ -244,9 +244,29 @@ report 50025 "Sales - Shipment BL bac rose"
                         column(FinLigne; FinLigne)
                         {
                         }
+                        column(CodeDEpotEntete; CodeDEpotEntete)
+                        {
+                        }
+                        column(CodeSeaFrance; CodeSeaFrance)
+                        {
+                        }
+                        column(CodeSommier; CodeSommier)
+                        {
+                        }
+                        column(NumDSA; NumDSA)
+                        {
+                        }
+                        column(ShowCustAddr; ShowCustAddr)
+                        {
+                        }
+                        column(QtéAlcoolTotal; QtéAlcoolTotal)
+                        {
+                        }
+                        column(QtéTabacTotal; QtéTabacTotal)
+                        {
+                        }
                         trigger OnAfterGetRecord()
                         var
-                            ItemTrackingMgt: Codeunit "Item Tracking Management";
                         begin
                             NewBinNo := FALSE;
                             DimSetEntry2.SETRANGE("Dimension Set ID", "Sales Shipment Line"."Dimension Set ID");
@@ -361,8 +381,7 @@ report 50025 "Sales - Shipment BL bac rose"
                     ELSE
                         ReferenceText := FIELDCAPTION("Your Reference");
                     FormatAddr.SalesShptShipTo(ShipToAddr, "Sales Shipment Header");
-                    //ToDo
-                    //FormatAddr.SalesShptBillTo(CustAddr, "Sales Shipment Header");
+                    FormatAddr.SalesShptBillTo(CustAddr, ShipToAddr, "Sales Shipment Header");
                     ShowCustAddr := "Bill-to Customer No." <> "Sell-to Customer No.";
                     FOR i := 1 TO ARRAYLEN(CustAddr) DO
                         IF CustAddr[i] <> ShipToAddr[i] THEN
@@ -381,7 +400,7 @@ report 50025 "Sales - Shipment BL bac rose"
                     SalesShipLine.SETFILTER(Quantity, '<>0');
                     NbLigneTotal := SalesShipLine.COUNT;
                     SalesShipLine.SETRANGE(Type);
-                    IF SalesShipLine.FIND('-') THEN
+                    IF SalesShipLine.FindFirst() THEN
                         CodeDEpotEntete := SalesShipLine."Location Code"
                     ELSE
                         CodeDEpotEntete := '';
@@ -498,7 +517,7 @@ report 50025 "Sales - Shipment BL bac rose"
     begin
         IF NOT CurrReport.USEREQUESTPAGE THEN
             InitLogInteraction();
-
+        //ToDo var inused
         DepotSpecial := '8';
 
         If UserSetup.Get() then
@@ -527,6 +546,7 @@ report 50025 "Sales - Shipment BL bac rose"
         FinLigne: Boolean;
         LogInteraction: Boolean;
         NewBinNo: Boolean;
+        PrintMag: boolean;
         ShowCustAddr: Boolean;
         DepotSpecial: Code[10];
         DesAFD: Code[10];
@@ -545,6 +565,7 @@ report 50025 "Sales - Shipment BL bac rose"
         NbLigneTotal: Integer;
         NombreLigne: Integer;
         NumLigne: Integer;
+        TestBoucle: integer;
         TotalLocation: Integer;
         A_Calais_leCaptionLbl: Label 'A Calais le';
         Armateur__CaptionLbl: Label 'Armateur :';
@@ -553,6 +574,7 @@ report 50025 "Sales - Shipment BL bac rose"
         Commande_n____CaptionLbl: Label 'Commande n° : ';
         Date_de_doc__CaptionLbl: Label 'Date de doc.:';
         Date_livraisonCaptionLbl: Label 'Date livraison';
+        DELIVERY_NOTE: label 'BON DE LIVRAISON';
         "DésignationCaptionLbl": Label 'Désignation';
         Destinataire___CaptionLbl: Label 'Destinataire : ';
         Emplacement__CaptionLbl: Label 'Emplacement :';
@@ -591,9 +613,6 @@ report 50025 "Sales - Shipment BL bac rose"
         TextFooter4: Text[80];
         TextLineFooter: array[5] of Text[80];
         CustAddr: array[8] of Text[100];
-        TestBoucle: integer;
-        PrintMag: boolean;
-        DELIVERY_NOTE: label 'BON DE LIVRAISON';
 
     procedure InitLogInteraction()
     begin

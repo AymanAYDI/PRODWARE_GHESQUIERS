@@ -6,8 +6,8 @@ codeunit 50024 "PWD Generation PDF Auto"
 
     var
         gRecPrinterSelection: Record "Printer Selection";
-        gTmpRecPrinterSelMod: Record "Printer Selection" temporary;
-        gTmpRecPrinterSelNew: Record "Printer Selection" temporary;
+        TempRecPrinterSelMod: Record "Printer Selection" temporary;
+        TempRecPrinterSelNew: Record "Printer Selection" temporary;
     //ToDo
     //BullZipPDF: DotNet ComPdfSettings;
     //BullZipPDFUtil: DotNet ComPdfUtil;
@@ -42,7 +42,7 @@ codeunit 50024 "PWD Generation PDF Auto"
         DeletePrinterSelection();
         IF NOT lRecCustomer.GET(lRecSalesHeader."Sell-to Customer No.") THEN
             lTxtEmail := lRecCustomer."E-Mail";
-        lRecCompanyInfo.FINDFIRST();
+        lRecCompanyInfo.Get();
         lTxtNewLine := fGetNewLine();
         //ToDo
         /*AddBodyline('Bonjour,');
@@ -107,7 +107,7 @@ codeunit 50024 "PWD Generation PDF Auto"
         DeletePrinterSelection();
         IF NOT lRecCustomer.GET(lRecSalesHeader."Sell-to Customer No.") THEN
             lTxtEMail := lRecCustomer."E-Mail";
-        lRecCompanyInfo.FINDFIRST();
+        lRecCompanyInfo.Get();
         lTxtNewLine := fGetNewLine();
         /*AddBodyline('Bonjour,');
         AddBodyline(lTxtNewLine);
@@ -171,7 +171,7 @@ codeunit 50024 "PWD Generation PDF Auto"
         DeletePrinterSelection();
         IF NOT lRecVendor.GET(lRecPurchaseHeader."Buy-from Vendor No.") THEN
             lTxtEmail := lRecVendor."E-Mail";
-        lRecCompanyInfo.FINDFIRST();
+        lRecCompanyInfo.Get();
         lTxtNewLine := fGetNewLine();
         /*AddBodyline('Bonjour,');
         AddBodyline(lTxtNewLine);
@@ -217,12 +217,12 @@ codeunit 50024 "PWD Generation PDF Auto"
 
     procedure SetPrinterSelection(pReportID: Integer)
     begin
-        gTmpRecPrinterSelNew.DELETEALL();
-        gTmpRecPrinterSelMod.DELETEALL();
+        TempRecPrinterSelNew.DELETEALL();
+        TempRecPrinterSelMod.DELETEALL();
         IF gRecPrinterSelection.GET(USERID, pReportID) THEN BEGIN
-            gTmpRecPrinterSelMod.INIT();
-            gTmpRecPrinterSelMod.TRANSFERFIELDS(gRecPrinterSelection);
-            gTmpRecPrinterSelMod.INSERT();
+            TempRecPrinterSelMod.INIT();
+            TempRecPrinterSelMod.TRANSFERFIELDS(gRecPrinterSelection);
+            TempRecPrinterSelMod.INSERT();
             gRecPrinterSelection."Printer Name" := 'Bullzip PDF Printer';
             gRecPrinterSelection.MODIFY();
         END ELSE BEGIN
@@ -231,22 +231,22 @@ codeunit 50024 "PWD Generation PDF Auto"
             gRecPrinterSelection."Report ID" := pReportID;
             gRecPrinterSelection."Printer Name" := 'Bullzip PDF Printer';
             gRecPrinterSelection.INSERT();
-            gTmpRecPrinterSelNew.INIT();
-            gTmpRecPrinterSelNew.TRANSFERFIELDS(gRecPrinterSelection);
-            gTmpRecPrinterSelNew.INSERT();
+            TempRecPrinterSelNew.INIT();
+            TempRecPrinterSelNew.TRANSFERFIELDS(gRecPrinterSelection);
+            TempRecPrinterSelNew.INSERT();
         END;
         COMMIT();
     end;
 
     procedure DeletePrinterSelection()
     begin
-        IF gTmpRecPrinterSelMod.FINDFIRST() THEN
-            IF gRecPrinterSelection.GET(gTmpRecPrinterSelMod."User ID", gTmpRecPrinterSelMod."Report ID") THEN BEGIN
-                gRecPrinterSelection."Printer Name" := gTmpRecPrinterSelMod."Printer Name";
+        IF TempRecPrinterSelMod.FINDFIRST() THEN
+            IF gRecPrinterSelection.GET(TempRecPrinterSelMod."User ID", TempRecPrinterSelMod."Report ID") THEN BEGIN
+                gRecPrinterSelection."Printer Name" := TempRecPrinterSelMod."Printer Name";
                 gRecPrinterSelection.MODIFY();
             END;
-        IF gTmpRecPrinterSelNew.FINDFIRST() THEN BEGIN
-            gRecPrinterSelection.GET(gTmpRecPrinterSelNew."User ID", gTmpRecPrinterSelNew."Report ID");
+        IF TempRecPrinterSelNew.FINDFIRST() THEN BEGIN
+            gRecPrinterSelection.GET(TempRecPrinterSelNew."User ID", TempRecPrinterSelNew."Report ID");
             gRecPrinterSelection.DELETE();
         END;
     end;

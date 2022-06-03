@@ -89,8 +89,8 @@ page 90002 "Req. Worksheet/Vendor detail"
                         ChangeExchangeRate: Page "Change Exchange Rate";
                     begin
                         ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WORKDATE());
-                        IF ChangeExchangeRate.RUNMODAL = ACTION::OK THEN
-                            Rec.VALIDATE("Currency Factor", ChangeExchangeRate.GetParameter);
+                        IF ChangeExchangeRate.RUNMODAL() = ACTION::OK THEN
+                            Rec.VALIDATE("Currency Factor", ChangeExchangeRate.GetParameter());
                         CLEAR(ChangeExchangeRate);
                     end;
                 }

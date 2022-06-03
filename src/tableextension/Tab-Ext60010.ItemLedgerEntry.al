@@ -67,7 +67,7 @@ tableextension 60010 "PWD ItemLedgerEntry" extends "Item Ledger Entry"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(50014; "PWD Date facturation prestation"; Date)
+        field(50014; "PWD Date Fact. Prestation"; Date)
         {
             Caption = 'Date facturation prestation';
             Description = 'PW2009';

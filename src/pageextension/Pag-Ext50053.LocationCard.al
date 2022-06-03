@@ -65,11 +65,11 @@ pageextension 50053 "PWD LocationCard" extends "Location Card"
                 {
                     ApplicationArea = All;
                 }
-                field("PWD Purch. Gen. Bus. Posting Group"; Rec."PWD Purch. Gen. Bus. Posting Group")
+                field("PWD Purch. Gen. Bus. Posting Group"; Rec."PWD PurchGenBusPostingGroup")
                 {
                     ApplicationArea = All;
                 }
-                field("PWD Sales Gen. Bus. Posting Group"; Rec."PWD Sales Gen. Bus. Posting Group")
+                field("PWD Sales Gen. Bus. Posting Group"; Rec."PWD SalesGenBusPostingGroup")
                 {
                     ApplicationArea = All;
                 }

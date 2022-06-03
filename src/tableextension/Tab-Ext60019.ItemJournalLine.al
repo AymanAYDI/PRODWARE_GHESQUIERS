@@ -188,7 +188,7 @@ tableextension 60019 "PWD ItemJournalLine" extends "Item Journal Line"
             ItemJnlLine.SETRANGE("Entry Type", ItemJnlLine."Entry Type"::"Negative Adjmt.");
             ItemJnlLine.SETFILTER("Line No.", '<%1', "Line No.");
 
-            IF ItemJnlLine.FIND('+') THEN "PWD Relative Entry Line No" := ItemJnlLine."Line No.";
+            IF ItemJnlLine.FindFirst() THEN "PWD Relative Entry Line No" := ItemJnlLine."Line No.";
         END;
     end;
 

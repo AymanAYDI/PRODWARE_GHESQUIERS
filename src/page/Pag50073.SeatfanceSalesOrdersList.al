@@ -71,6 +71,7 @@ page 50073 "Seatfance Sales Orders List"
                 action("&Fiche")
                 {
                     Caption = '&Fiche';
+                    Image = Card;
                     RunObject = Page "PWD Seafrance Sales Order";
                     RunPageLink = "Document Type" = FIELD("Document Type"), "No." = FIELD("No.");
                     ShortCutKey = 'Shift+F5';

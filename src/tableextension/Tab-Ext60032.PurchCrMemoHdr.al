@@ -72,7 +72,7 @@ tableextension 60032 "PWD PurchCrMemoHdr" extends "Purch. Cr. Memo Hdr."
             Caption = 'Time Received';
             DataClassification = CustomerContent;
         }
-        field(99008508; "PWD BizTalk Purchase Credit Memo"; Boolean)
+        field(99008508; "PWD BizTalk Purch Cr Memo"; Boolean)
         {
             Caption = 'BizTalk Purchase Credit Memo';
             DataClassification = CustomerContent;

@@ -11,76 +11,6 @@
       <rd:DataSourceID>69bac07d-7f5e-411e-be16-ffea2112d943</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="TODAY">
-          <DataField>TODAY</DataField>
-        </Field>
-        <Field Name="Item_Item__Qty__on_Sales_Order_">
-          <DataField>Item_Item__Qty__on_Sales_Order_</DataField>
-        </Field>
-        <Field Name="Item_Item__Qty__on_Sales_Order_Format">
-          <DataField>Item_Item__Qty__on_Sales_Order_Format</DataField>
-        </Field>
-        <Field Name="PWD_Family">
-          <DataField>PWD_Family</DataField>
-        </Field>
-        <Field Name="PWD_Sub_Family">
-          <DataField>PWD_Sub_Family</DataField>
-        </Field>
-        <Field Name="Item_Inventory">
-          <DataField>Item_Inventory</DataField>
-        </Field>
-        <Field Name="Item_InventoryFormat">
-          <DataField>Item_InventoryFormat</DataField>
-        </Field>
-        <Field Name="Item_Description">
-          <DataField>Item_Description</DataField>
-        </Field>
-        <Field Name="Item__No">
-          <DataField>Item__No</DataField>
-        </Field>
-        <Field Name="LocationFilter">
-          <DataField>LocationFilter</DataField>
-        </Field>
-        <Field Name="Item__Description_2_">
-          <DataField>Item__Description_2_</DataField>
-        </Field>
-        <Field Name="Etat_des_stocks_DouaneCaption">
-          <DataField>Etat_des_stocks_DouaneCaption</DataField>
-        </Field>
-        <Field Name="LocationFilterCaption">
-          <DataField>LocationFilterCaption</DataField>
-        </Field>
-        <Field Name="Item__No__Caption">
-          <DataField>Item__No__Caption</DataField>
-        </Field>
-        <Field Name="Item_InventoryCaption">
-          <DataField>Item_InventoryCaption</DataField>
-        </Field>
-        <Field Name="Item_DescriptionCaption">
-          <DataField>Item_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="Item_Item__Qty__on_Sales_Order_Caption">
-          <DataField>Item_Item__Qty__on_Sales_Order_Caption</DataField>
-        </Field>
-        <Field Name="PhysiqueCaption">
-          <DataField>PhysiqueCaption</DataField>
-        </Field>
-        <Field Name="Diff_Caption">
-          <DataField>Diff_Caption</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1054,12 +984,6 @@ Cstr(Fields!Etat_des_stocks_DouaneCaption.Value)
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -1123,4 +1047,74 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>7faa4232-4465-4388-8126-61d07a4f34d4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="TODAY">
+          <DataField>TODAY</DataField>
+        </Field>
+        <Field Name="Item_Item__Qty__on_Sales_Order_">
+          <DataField>Item_Item__Qty__on_Sales_Order_</DataField>
+        </Field>
+        <Field Name="Item_Item__Qty__on_Sales_Order_Format">
+          <DataField>Item_Item__Qty__on_Sales_Order_Format</DataField>
+        </Field>
+        <Field Name="PWD_Family">
+          <DataField>PWD_Family</DataField>
+        </Field>
+        <Field Name="PWD_Sub_Family">
+          <DataField>PWD_Sub_Family</DataField>
+        </Field>
+        <Field Name="Item_Inventory">
+          <DataField>Item_Inventory</DataField>
+        </Field>
+        <Field Name="Item_InventoryFormat">
+          <DataField>Item_InventoryFormat</DataField>
+        </Field>
+        <Field Name="Item_Description">
+          <DataField>Item_Description</DataField>
+        </Field>
+        <Field Name="Item__No">
+          <DataField>Item__No</DataField>
+        </Field>
+        <Field Name="LocationFilter">
+          <DataField>LocationFilter</DataField>
+        </Field>
+        <Field Name="Item__Description_2_">
+          <DataField>Item__Description_2_</DataField>
+        </Field>
+        <Field Name="Etat_des_stocks_DouaneCaption">
+          <DataField>Etat_des_stocks_DouaneCaption</DataField>
+        </Field>
+        <Field Name="LocationFilterCaption">
+          <DataField>LocationFilterCaption</DataField>
+        </Field>
+        <Field Name="Item__No__Caption">
+          <DataField>Item__No__Caption</DataField>
+        </Field>
+        <Field Name="Item_InventoryCaption">
+          <DataField>Item_InventoryCaption</DataField>
+        </Field>
+        <Field Name="Item_DescriptionCaption">
+          <DataField>Item_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Item_Item__Qty__on_Sales_Order_Caption">
+          <DataField>Item_Item__Qty__on_Sales_Order_Caption</DataField>
+        </Field>
+        <Field Name="PhysiqueCaption">
+          <DataField>PhysiqueCaption</DataField>
+        </Field>
+        <Field Name="Diff_Caption">
+          <DataField>Diff_Caption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

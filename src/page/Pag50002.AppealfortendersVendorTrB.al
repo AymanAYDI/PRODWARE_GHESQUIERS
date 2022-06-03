@@ -133,6 +133,7 @@ page 50002 "Appeal for tenders/Vendor -TrB"
                 {
                     Caption = 'Sales &Order';
                     ApplicationArea = all;
+                    Image = Card;
                     trigger OnAction()
                     begin
                         IF Rec."Document Type" = Rec."Document Type"::Quote THEN BEGIN
@@ -154,6 +155,7 @@ page 50002 "Appeal for tenders/Vendor -TrB"
                     Caption = 'Créer demande de prix';
                     RunObject = Report "Create Purchase Quote r -TrB";
                     Visible = false;
+                    Image = CreateDocument;
                 }
                 separator(Action1000000009)
                 {
@@ -162,10 +164,10 @@ page 50002 "Appeal for tenders/Vendor -TrB"
                 {
                     ApplicationArea = all;
                     Caption = 'Créer nouvelle demande d''achat';
+                    Image = CreateDocument;
 
                     trigger OnAction()
                     var
-                        ReqLine: Record "Requisition Line";
                     begin
                         AddNewLine(Rec);
                     end;
@@ -192,18 +194,12 @@ page 50002 "Appeal for tenders/Vendor -TrB"
         SalesHeader: Record "Sales Header";
         SalesOrder: Page "Sales Order";
         SalesQuote: Page "Sales Quote";
-        [InDataSet]
         "Description 2Emphasize": Boolean;
-        [InDataSet]
         DescriptionEmphasize: Boolean;
-        [InDataSet]
         "No.Emphasize": Boolean;
         ShowDetail: Boolean;
-        [InDataSet]
         "Description 2Indent": Integer;
-        [InDataSet]
         DescriptionIndent: Integer;
-        [InDataSet]
         "No.Indent": Integer;
         Text1000000000: Label 'New line added';
         BuyFromVendorName: Text[30];
@@ -214,12 +210,7 @@ page 50002 "Appeal for tenders/Vendor -TrB"
         AppTendersNew: Record "PWD Appeal for Tenders";
         NewLineNo: Integer;
     begin
-
-        AppTendersNew.SETRANGE("Document Type", AppTenders."Document Type");
-        AppTendersNew.SETRANGE("Document No.", AppTenders."Document No.");
-        AppTendersNew.SETRANGE("Line No. document", AppTenders."Line No. document");
-        AppTendersNew.GET(AppTenders."Document Type", AppTenders."Document No.", AppTenders."Line No. document", AppTenders."Line No.");
-        IF AppTendersNew.NEXT() <> 0 THEN
+        IF AppTendersNew.GET(AppTenders."Document Type", AppTenders."Document No.", AppTenders."Line No. document", AppTenders."Line No.") THEN
             NewLineNo := ROUND(((AppTendersNew."Line No." - AppTenders."Line No.") / 2) + AppTenders."Line No.", 1)
         ELSE
             NewLineNo := AppTenders."Line No." + 10000;
@@ -249,7 +240,7 @@ page 50002 "Appeal for tenders/Vendor -TrB"
 
     local procedure DescriptionOnFormat()
     begin
-
+        //ToDo var not used
         IF Rec.Detail = TRUE THEN
             DescriptionIndent := 500
         ELSE

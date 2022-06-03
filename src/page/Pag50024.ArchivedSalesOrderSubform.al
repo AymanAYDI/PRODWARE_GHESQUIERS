@@ -3,7 +3,7 @@ page 50024 "Archived Sales Order Subform"
     Caption = 'Archived Sales Order Subform';
     PageType = ListPart;
     SourceTable = "PWD Archived Sales Line";
-UsageCategory = None;
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -276,22 +276,16 @@ UsageCategory = None;
                     Caption = 'Dimensions';
                     ShortCutKey = 'Shift+Ctrl+D';
                     ApplicationArea = All;
+                    Image = Dimensions;
 
                     trigger OnAction()
                     begin
-                        //This functionality was copied from page #50023. Unsupported part was commented. Please check it.
-                        /*CurrPage.SalesLinesArchive.FORM.*/
-                        _ShowDimensions();
+                        Rec.ShowDimensions();
                     end;
                 }
             }
         }
     }
-
-    procedure _ShowDimensions()
-    begin
-        Rec.ShowDimensions();
-    end;
 
     procedure ShowDimensions()
     begin

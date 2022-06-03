@@ -34,13 +34,13 @@ tableextension 60017 "PWD CompanyInformation" extends "Company Information"
             SubType = Bitmap;
             DataClassification = CustomerContent;
         }
-        field(50005; "PWD Location Rights Acquit Filter"; Text[100])
+        field(50005; "PWD LocationRightAcquitFilter"; Text[100])
         {
             Caption = 'Location Rights Acquit Filter';
             Description = 'NDBI';
             DataClassification = CustomerContent;
         }
-        field(50006; "PWD Loc. Rights Suspended Filter"; Text[100])
+        field(50006; "PWD Loc.RightSuspendedFilter"; Text[100])
         {
             Caption = 'Location Rights Suspended Filter';
             Description = 'NDBI';

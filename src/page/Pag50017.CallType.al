@@ -62,6 +62,7 @@ page 50017 "PWD Call Type"
                 action("Magasins autorisés")
                 {
                     Caption = 'Magasins autorisés';
+                    Image = SetPriorities;
                     RunObject = Page "PWD Priority Location";
                     RunPageLink = "PWD Call Type Code" = FIELD(Code);
                     ApplicationArea = All;

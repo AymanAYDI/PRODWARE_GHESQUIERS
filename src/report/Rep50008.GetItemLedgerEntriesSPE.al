@@ -1,16 +1,5 @@
 report 50008 "Get Item Ledger Entries SPE"
 {
-    // --------------------------------------------
-    // Prodware - www.prodware.fr
-    // --------------------------------------------
-    // //>>SOBI
-    // P3346_0011 RO.LALE REGIE 11/07/2013 :
-    //    - Création report de traitement spécifique utilisé dans la feuille intracom (report repris du report standard 594).
-    //
-    // //>> 16/09/2013 SU-DADE cf appel TI180058
-    // //   InsertItemJnlLine()
-    // //<< 16/09/2013 SU-DADE cf appel TI180058
-
     Caption = 'Get Item Ledger Entries';
     Permissions = TableData "General Posting Setup" = imd;
     ProcessingOnly = true;
@@ -107,7 +96,7 @@ report 50008 "Get Item Ledger Entries SPE"
                     TotalCostAmtExpected := 0;
 
                     ValueEntry.SETRANGE("Item Ledger Entry No.", "Entry No.");
-                    IF ValueEntry.FIND('-') THEN
+                    IF ValueEntry.FindSet() THEN
                         REPEAT
                             TotalInvoicedQty := TotalInvoicedQty + ValueEntry."Invoiced Quantity";
                             IF NOT IntrastatJnlBatch."Amounts in Add. Currency" THEN BEGIN
@@ -227,23 +216,23 @@ report 50008 "Get Item Ledger Entries SPE"
                 group(Options)
                 {
                     Caption = 'Options';
-                    field(StartDate; StartDate)
+                    field("Field_StartDate"; StartDate)
                     {
                         Caption = 'Starting Date';
                         ApplicationArea = All;
                     }
-                    field(EndDate; EndDate)
+                    field("Field_EndDate"; EndDate)
                     {
                         Caption = 'Ending Date';
                         ApplicationArea = All;
                     }
-                    field(IndirectCostPctReq; IndirectCostPctReq)
+                    field("Field_IndirectCostPctReq"; IndirectCostPctReq)
                     {
                         Caption = 'Cost Regulation %';
                         DecimalPlaces = 0 : 5;
                         ApplicationArea = All;
                     }
-                    field(GroupEntries; GroupEntries)
+                    field("Field_GroupEntries"; GroupEntries)
                     {
                         Caption = 'Group Entries';
                         ToolTip = 'This option will group entries with the same Tariff No, Country/Region Code, Item No, Cust.VAT Registration No. This feature substract items returns from shipments. This is required in the French Intrastat reporting.';
@@ -452,7 +441,6 @@ report 50008 "Get Item Ledger Entries SPE"
     local procedure CalculateAverageCost(var AverageCost: Decimal; var AverageCostACY: Decimal): Boolean
     var
         ItemLedgEntry: Record "Item Ledger Entry";
-        ValueEntry: Record "Value Entry";
         AverageQty: Decimal;
     begin
         ItemLedgEntry.SETCURRENTKEY("Item No.", "Entry Type");

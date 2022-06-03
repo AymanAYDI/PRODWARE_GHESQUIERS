@@ -3,7 +3,7 @@ codeunit 60002 "PWD CduEvents AM"
     //--Page10--
 
     [EventSubscriber(ObjectType::Page, Page::"Countries/Regions", 'OnOpenPageEvent', '', false, false)]
-    procedure OnOpenPageEvent_CountriesRegions(var Rec: Record "Country/Region")
+    Local procedure OnOpenPageEvent_CountriesRegions(var Rec: Record "Country/Region")
     var
         PagCountriesRegions: Page "Countries/Regions";
     begin
@@ -400,7 +400,7 @@ codeunit 60002 "PWD CduEvents AM"
                     SalesLine.SETFILTER(SalesLine."PWD Adjmt Prepared Qty", '<>%1', 0);
                     SalesLine.SETFILTER(SalesLine."PWD Butchery", '=%1', FALSE);
                     SalesLine.SETFILTER(SalesLine."PWD Trading Brand", '=%1', FALSE);
-                    IF SalesLine.FIND('-') THEN
+                    IF SalesLine.FindFirst() THEN
                         ERROR(Text1000000002, SalesLine."Line No.");
                 end;
         end;
@@ -412,13 +412,13 @@ codeunit 60002 "PWD CduEvents AM"
         InvSetup: Record "Inventory Setup";
         UserMgt: Codeunit "User Setup Management";
     begin
-        InvSetup.GET;
+        InvSetup.GET();
         IF InvSetup."PWD Nom modele prestation" = ItemJournalLine."Journal Template Name" THEN BEGIN
             CASE ItemJournalLine."Entry Type" OF
                 ItemJournalLine."Entry Type"::Purchase:
-                    ItemJournalLine."Location Code" := UserMgt.GetLocation(1, '', UserMgt.GetPurchasesFilter);
+                    ItemJournalLine."Location Code" := UserMgt.GetLocation(1, '', UserMgt.GetPurchasesFilter());
                 ItemJournalLine."Entry Type"::Sale:
-                    ItemJournalLine."Location Code" := UserMgt.GetLocation(0, '', UserMgt.GetSalesFilter);
+                    ItemJournalLine."Location Code" := UserMgt.GetLocation(0, '', UserMgt.GetSalesFilter());
             end;
             ItemJournalLine."Entry Type" := ItemJournalLine."Entry Type"::"Positive Adjmt.";
             ItemJournalLine."PWD Code prestation" := ItemJnlBatch."PWD Code préstation";

@@ -3,7 +3,7 @@ report 50106 "Sales - Shipmt BLAVI bac blanc"
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/SalesShipmtBLAVIbacblanc.rdl';
     Caption = 'Sales - Shipment BLAVI bac blanc';
-UsageCategory = None;
+    UsageCategory = None;
     dataset
     {
         dataitem(copyLoop; Integer)

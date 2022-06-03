@@ -33,22 +33,22 @@ report 50044 "PWD Validate Purchase Order"
             {
                 group(Control1000000001)
                 {
-                    field(PostingDate; PostingDate)
+                    field("Field_PostingDate"; PostingDate)
                     {
                         Caption = 'Date de comptabilisation';
                         ApplicationArea = All;
                     }
-                    field(DocumentDate; DocumentDate)
+                    field("Field_DocumentDate"; DocumentDate)
                     {
                         Caption = 'Date de document';
                         ApplicationArea = All;
                     }
-                    field(ToReceive; ToReceive)
+                    field("Field_ToReceive"; ToReceive)
                     {
                         Caption = 'Receptionner';
                         ApplicationArea = All;
                     }
-                    field(ToInvoice; "PWD ToInvoice")
+                    field("Field_ToInvoice"; "PWD ToInvoice")
                     {
                         Caption = 'Facturer';
                         ApplicationArea = All;
@@ -95,29 +95,15 @@ report 50044 "PWD Validate Purchase Order"
     var
         GcduPuchPrint: Codeunit "Purch.-Post + Print";
     begin
-        //abu
         PurchHeader.VALIDATE("Posting Date", PostingDate);
         PurchHeader.VALIDATE("Document Date", DocumentDate);
         PurchHeader.Receive := ToReceive;
         PurchHeader.Invoice := "PWD ToInvoice";
-        // fin ajout
         CASE PurchHeader."Document Type" OF
             PurchHeader."Document Type"::Order:
-
                 ;
-            //Selection := STRMENU(Text000,3);
-            //IF Selection = 0 THEN
-            //  EXIT;
-            //Receive := Selection IN [1,3];
-            //Invoice := Selection IN [2,3];
             PurchHeader."Document Type"::"Return Order":
-
                 ;
-            //Selection := STRMENU(Text002,3);
-            //IF Selection = 0 THEN
-            //  EXIT;
-            //Ship := Selection IN [1,3];
-            //Invoice := Selection IN [2,3];
             ELSE
                 IF NOT
                    CONFIRM(
@@ -127,15 +113,12 @@ report 50044 "PWD Validate Purchase Order"
                     EXIT;
         END;
         PurchPost.RUN(PurchHeader);
-        //>-> GHE.1.10
         IF Gbool_Print THEN
             GcduPuchPrint.GetReport(PurchHeader);
-        //<-< GHE.1.10
     end;
 
     local procedure PrintReport(ReportUsage: Integer)
     begin
-        //C2APDE
         ReportSelection.RESET();
         ReportSelection.SETRANGE(Usage, ReportUsage);
         ReportSelection.FIND('-');
@@ -146,13 +129,10 @@ report 50044 "PWD Validate Purchase Order"
                     REPORT.RUN(ReportSelection."Report ID", TRUE, FALSE, PurchRcptHeader);
             END;
         UNTIL ReportSelection.NEXT() = 0;
-        //C2APDEEND
     end;
 
     procedure FctSetPrint()
     begin
-        //>-> GHE.1.10
         Gbool_Print := TRUE;
-        //<-< GHE.1.10
     end;
 }

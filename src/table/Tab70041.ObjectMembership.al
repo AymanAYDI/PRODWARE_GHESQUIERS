@@ -93,7 +93,7 @@ table 70041 "PWD Object Membership"
         LineNo: Integer;
         ObjectNo: Integer;
     begin
-        IF ObjectMembership.FIND('-') THEN
+        IF ObjectMembership.FindFirst() THEN
             IF ObjectMembership."No. of Objects" = AllObj.COUNT THEN
                 EXIT;
 

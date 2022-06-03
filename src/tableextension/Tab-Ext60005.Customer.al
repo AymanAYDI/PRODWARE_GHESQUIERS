@@ -142,7 +142,7 @@ tableextension 60005 "PWD Customer" extends Customer
                 UpDateBusinessInitiator();
             end;
         }
-        field(55010; "Discount Profit %"; Decimal)
+        field(55010; "PWD Discount Profit %"; Decimal)
         {
             Caption = 'Discount Profit %';
             Description = 'PW2009';
@@ -168,7 +168,7 @@ tableextension 60005 "PWD Customer" extends Customer
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(55014; "PWD Health Certificate Required"; Boolean)
+        field(55014; "PWD Health Certif Required"; Boolean)
         {
             Caption = 'Health Certificate Required';
             Description = 'PW2009';
@@ -231,11 +231,6 @@ tableextension 60005 "PWD Customer" extends Customer
         ContUpd: Record Contact;
         ContBusRelUpd: Record "Contact Business Relation";
     begin
-        //--------------------------------------------//
-        //*** Fonction C2A -  MAJ Busines initiator & Payback commissoin rate
-        //--------------------------------------------//
-
-        //*** MAJ du BusinessInitiator dans la fiche client
         ContBusRelUpd.SETCURRENTKEY("Link to Table", "No.");
         ContBusRelUpd.SETRANGE("Link to Table", ContBusRelUpd."Link to Table"::Customer);
         ContBusRelUpd.SETRANGE("No.", "No.");

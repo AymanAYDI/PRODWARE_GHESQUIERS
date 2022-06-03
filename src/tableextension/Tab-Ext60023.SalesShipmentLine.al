@@ -167,7 +167,7 @@ tableextension 60023 "PWD SalesShipmentLine" extends "Sales Shipment Line"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(55046; "PWD Quantity Receipted Sp. Order"; Decimal)
+        field(55046; "PWD Qte. Receip. Sp. Order"; Decimal)
         {
             Caption = 'Quantity Receipted Purch.';
             Description = 'PW2009';
@@ -218,19 +218,19 @@ tableextension 60023 "PWD SalesShipmentLine" extends "Sales Shipment Line"
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(70000; "Valeur douane (correction)"; Decimal)
+        field(70000; "PWD Valeur douane (correction)"; Decimal)
         {
             Caption = 'Valeur douane (correction)';
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(70010; "Methode de Calcul (prestation)"; Text[30])
+        field(70010; "PWD Methode Calcul Presta"; Text[30])
         {
             Caption = 'Methode de Calcul (prestation)';
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(70011; "Reference Calcul (prestation)"; Text[30])
+        field(70011; "PWD Reference Calcul Presta"; Text[30])
         {
             Caption = 'Référence Calcul (prestation)';
             Description = 'PW2009';

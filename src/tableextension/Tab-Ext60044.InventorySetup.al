@@ -2,7 +2,7 @@ tableextension 60044 "PWD InventorySetup" extends "Inventory Setup"
 {
     fields
     {
-        field(50000; "PWD Default Translation Language"; Code[10])
+        field(50000; "PWD Default Transl. Lang."; Code[10])
         {
             Caption = 'Default Translation Language';
             Description = 'PW2009';
@@ -11,7 +11,7 @@ tableextension 60044 "PWD InventorySetup" extends "Inventory Setup"
 
             trigger OnValidate()
             begin
-                UpdateTranslation("PWD Default Translation Language");
+                UpdateTranslation("PWD Default Transl. Lang.");
             end;
         }
         field(50001; "PWD Whse Responsible Role Id"; Code[20])
@@ -35,11 +35,11 @@ tableextension 60044 "PWD InventorySetup" extends "Inventory Setup"
         Item: Record Item;
         ItemTranslation: Record "Item Translation";
     begin
-        IF Item.FIND('-') THEN
+        IF Item.FindSet() THEN
             REPEAT
                 ItemTranslation.SETRANGE(ItemTranslation."Item No.", Item."No.");
                 ItemTranslation.SETRANGE("Language Code", LanguageCode);
-                IF ItemTranslation.FIND('-') THEN BEGIN
+                IF ItemTranslation.FindFirst() THEN BEGIN
                     Item."PWD Translation" := ItemTranslation.Description;
                     Item.MODIFY();
                 END;

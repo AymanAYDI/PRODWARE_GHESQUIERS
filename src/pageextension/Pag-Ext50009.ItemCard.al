@@ -148,7 +148,7 @@ pageextension 50009 "PWD ItemCard" extends "Item Card"
         }
         addafter("Use Cross-Docking")
         {
-            field("PWD Health Certificate Required"; Rec."PWD Health Certificate Required")
+            field("PWD Health Certificate Required"; Rec."PWD Health Certif Required")
             {
                 ApplicationArea = all;
             }
@@ -230,7 +230,7 @@ pageextension 50009 "PWD ItemCard" extends "Item Card"
                 {
                     ApplicationArea = All;
                 }
-                field("ISSA Code (Old Version)"; Rec."ISSA Code (Old Version)")
+                field("ISSA Code (Old Version)"; Rec."PWD ISSA Code (Old Version)")
                 {
                     ApplicationArea = All;
                 }

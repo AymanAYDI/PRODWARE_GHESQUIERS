@@ -84,14 +84,14 @@ tableextension 60003 "PWD Location" extends Location
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(50032; "PWD Purch. Gen. Bus. Posting Group"; Code[10])
+        field(50032; "PWD PurchGenBusPostingGroup"; Code[10])
         {
             Caption = 'Purch. Gen. Bus. Posting Group';
             Description = 'PW2009';
             TableRelation = "Gen. Business Posting Group";
             DataClassification = CustomerContent;
         }
-        field(50033; "PWD Sales Gen. Bus. Posting Group"; Code[10])
+        field(50033; "PWD SalesGenBusPostingGroup"; Code[10])
         {
             Caption = 'Sales Gen. Bus. Posting Group';
             Description = 'PW2009';

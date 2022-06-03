@@ -85,6 +85,7 @@ page 50060 "PWD Check Credit Limit Release"
                     RunObject = Page "Customer Card";
                     RunPageLink = "No." = FIELD("No."), "Date Filter" = FIELD("Date Filter"), "Global Dimension 1 Filter" = FIELD("Global Dimension 1 Filter"), "Global Dimension 2 Filter" = FIELD("Global Dimension 2 Filter");
                     ShortCutKey = 'Shift+F5';
+                    Image = Card;
                     ApplicationArea = All;
                 }
                 action(Statistiques)
@@ -93,6 +94,7 @@ page 50060 "PWD Check Credit Limit Release"
                     RunObject = Page "Customer Statistics";
                     RunPageLink = "No." = FIELD("No."), "Date Filter" = FIELD("Date Filter"), "Global Dimension 1 Filter" = FIELD("Global Dimension 1 Filter"), "Global Dimension 2 Filter" = FIELD("Global Dimension 2 Filter");
                     ShortCutKey = 'F9';
+                    Image = Statistics;
                     ApplicationArea = All;
                 }
             }
@@ -167,7 +169,7 @@ page 50060 "PWD Check Credit Limit Release"
         IF NOT (SalesHeader."Document Type" IN
                 [SalesHeader."Document Type"::Order, SalesHeader."Document Type"::"Return Order"])
         THEN
-            NewOrderAmountLCY := NewOrderAmountLCY + SalesLineAmount(SalesHeader."Document Type", SalesHeader."No.");
+            NewOrderAmountLCY := NewOrderAmountLCY + SalesLineAmount(SalesHeader."Document Type".AsInteger(), SalesHeader."No.");
         EXIT(ShowWarning(SalesHeader."Bill-to Customer No.", NewOrderAmountLCY, 0, TRUE));
     end;
 

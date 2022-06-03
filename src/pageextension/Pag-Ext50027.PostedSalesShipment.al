@@ -91,6 +91,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
             {
                 ApplicationArea = all;
                 Caption = 'Print Health Certificate';
+                Image = Certificate;
                 RunObject = Page "PWD Lignes Doc Douane";
                 RunPageLink = "Document Type" = CONST("S.Shipment"),
                                   "Document No." = FIELD("No."),
@@ -103,6 +104,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
             {
                 ApplicationArea = all;
                 Caption = 'lignes T5';
+                Image = AllLines;
                 RunObject = Page "PWD Lignes Doc Douane";
                 RunPageLink = "Document Type" = CONST("S.Shipment"),
                                   "Document No." = FIELD("No."),
@@ -119,6 +121,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
             Action("Loading List")
             {
                 Caption = 'Listes de chargement';
+                Image = ListPage;
                 RunObject = Page "PWD Listes de chargement";
                 RunPageLink = "Sales Ship. No." = FIELD("No.");
                 ApplicationArea = all;
@@ -133,6 +136,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                 {
                     ApplicationArea = all;
                     Caption = 'Delivery note';
+                    Image = PrintReport;
                     Trigger OnAction()
                     BEGIN
                         SalesShptHeader := Rec;
@@ -144,6 +148,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                 {
                     ApplicationArea = all;
                     Caption = 'Bon d''Avitaillement';//;
+                    Image = PrintReport;
                     Trigger OnAction()
                     BEGIN
                         SalesShptHeader := Rec;
@@ -156,6 +161,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                 {
                     ApplicationArea = all;
                     Caption = 'DAA';
+                    Image = PrintReport;
                     trigger OnAction()
                     BEGIN
                         SalesShptHeader := Rec;
@@ -166,6 +172,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                 Action("PWD DSA")
                 {
                     Caption = 'DSA';
+                    Image = PrintReport;
                     ApplicationArea = All;
                     Trigger OnAction()
                     BEGIN
@@ -178,6 +185,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                 {
                     Caption = 'T5';
                     ApplicationArea = All;
+                    Image = Print;
                     Trigger OnAction()
                     BEGIN
                         CurrPage.SETSELECTIONFILTER(SalesShptHeader);
@@ -189,6 +197,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                 {
                     Caption = 'T1';
                     ApplicationArea = All;
+                    Image = Print;
                     Trigger OnAction()
                     BEGIN
                         CurrPage.SETSELECTIONFILTER(SalesShptHeader);
@@ -200,6 +209,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                 {
                     ApplicationArea = all;
                     Caption = 'Certificat d''origine';
+                    Image = Certificate;
                     Trigger OnAction()
                     BEGIN
                         CurrPage.SETSELECTIONFILTER(SalesShptHeader);
@@ -209,6 +219,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                 Action("PWD Liste de chargement simple")
                 {
                     Caption = 'Liste de chargement simple';
+                    Image = Print;
                     ApplicationArea = All;
 
                     trigger OnAction()
@@ -220,6 +231,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                 Action("PWD Load/Store List")
                 {
                     Caption = 'Liste de chargement/magasin';
+                    Image = Print;
                     ApplicationArea = All;
 
                     Trigger OnAction()
@@ -232,6 +244,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                 {
                     Caption = 'Liste de chargement (TM)';
                     ApplicationArea = All;
+                    Image = Print;
                     Trigger OnAction()
                     BEGIN
                         CurrPage.SETSELECTIONFILTER(SalesShptHeader);
@@ -241,6 +254,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                 Action("PWD Mutation")
                 {
                     Caption = 'Mutation';
+                    Image = Print;
                     ApplicationArea = All;
                     trigger OnAction()
                     BEGIN
@@ -252,6 +266,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                 {
                     Caption = 'TM';
                     ApplicationArea = All;
+                    Image = Print;
                     Trigger OnAction()
                     BEGIN
                         CurrPage.SETSELECTIONFILTER(SalesShptHeader);
@@ -263,6 +278,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                 {
                     ApplicationArea = all;
                     Caption = 'Impression classique';
+                    Image = Print;
                     Trigger OnAction()
                     VAR
                         RepLShipmentHeader: Record "Sales Shipment Header";
@@ -277,6 +293,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                     Action(EX1)
                     {
                         Caption = 'EX1';
+                        Image = Print;
                         ApplicationArea = All;
                         Trigger OnAction()
                         BEGIN
@@ -289,6 +306,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                     {
                         Caption = 'COM9';
                         ApplicationArea = All;
+                        Image = Print;
                         Trigger OnAction()
                         BEGIN
                             CurrPage.SETSELECTIONFILTER(SalesShptHeader);
@@ -300,6 +318,7 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                     {
                         Caption = 'EX9';
                         ApplicationArea = All;
+                        Image = Print;
                         Trigger OnAction()
                         BEGIN
                             CurrPage.SETSELECTIONFILTER(SalesShptHeader);

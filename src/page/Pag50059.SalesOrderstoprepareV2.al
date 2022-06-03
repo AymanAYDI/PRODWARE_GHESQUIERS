@@ -91,6 +91,7 @@ page 50059 "PWD Sales Orders to prepare V2"
                 {
                     Caption = 'Calcul et édition BP';
                     ApplicationArea = All;
+                    Image = Calculate;
 
                     trigger OnAction()
                     begin
@@ -101,11 +102,11 @@ page 50059 "PWD Sales Orders to prepare V2"
                 {
                     Caption = 'Ré-édition BP';
                     ApplicationArea = All;
+                    Image= PrintReport;
 
                     trigger OnAction()
                     var
                         LRecSalesLines: Record "Sales Line";
-                        GRepPickingList: Report "Picking List";
                     begin
                         IF Rec."PWD Preparation Status" = 1 THEN
                             MESSAGE(Text1000000012)
@@ -134,6 +135,7 @@ page 50059 "PWD Sales Orders to prepare V2"
                 PromotedCategory = Process;
                 Visible = false;
                 ApplicationArea = All;
+                Image = Print;
 
                 trigger OnAction()
                 begin
@@ -146,6 +148,7 @@ page 50059 "PWD Sales Orders to prepare V2"
                 Promoted = true;
                 PromotedCategory = Process;
                 ApplicationArea = All;
+                Image = Print;
 
                 trigger OnAction()
                 begin
@@ -163,6 +166,7 @@ page 50059 "PWD Sales Orders to prepare V2"
                 Promoted = true;
                 PromotedCategory = Process;
                 ApplicationArea = All;
+                Image = UpdateUnitCost;
 
                 trigger OnAction()
                 begin
@@ -172,7 +176,7 @@ page 50059 "PWD Sales Orders to prepare V2"
                         ERROR(Text1000000009);
                     IF SalesHeader.COUNT = 0 THEN
                         ERROR(Text1000000010);
-                    IF SalesHeader.FIND('-') THEN
+                    IF SalesHeader.FindFirst() THEN
                         IF SalesHeader."PWD Preparation in process" = FALSE THEN
                             MESSAGE(Text1000000013, SalesHeader."No.") ELSE BEGIN
                             SalesLine.RESET();
@@ -236,7 +240,7 @@ page 50059 "PWD Sales Orders to prepare V2"
         IF SalesHeader.COUNT = 0 THEN
             ERROR(Text1000000010);
 
-        IF SalesHeader.FIND('-') THEN BEGIN
+        IF SalesHeader.FindFirst() THEN BEGIN
             CLEAR(ReleaseSalesDoc);
             PWDSetGetFunctions.InitRelease(TRUE);
             ReleaseSalesDoc.Reopen(SalesHeader);
@@ -244,8 +248,8 @@ page 50059 "PWD Sales Orders to prepare V2"
             SalesLine.SETRANGE(SalesLine."Document Type", SalesLine."Document Type"::Order);
             SalesLine.SETRANGE(SalesLine."Document No.", SalesHeader."No.");
             SalesLine.SETRANGE(Type, SalesLine.Type::Item);
-            SalesLine.SETRANGE("PWD preparation to recalculate", TRUE);
-            IF SalesLine.FIND('-') THEN
+            SalesLine.SETRANGE("PWD Preparation Recalculate", TRUE);
+            IF SalesLine.FindSet() THEN
                 REPEAT
                     SalesLine."PWD Preparation in Process" := FALSE;
                     SalesLine."Location Code" := MemLocationCode;
@@ -260,7 +264,7 @@ page 50059 "PWD Sales Orders to prepare V2"
             SalesLine.SETRANGE("PWD Order Trading brand", FALSE);
             SalesLine.SETRANGE("PWD Trading Brand", FALSE);
             SalesLine.SETRANGE("PWD Preparation in Process", FALSE);
-            IF SalesLine.FIND('-') THEN
+            IF SalesLine.FindFirst() THEN
                 REPEAT
                     MemLocationCode := SalesLine."Location Code";
                     BreakdownSalesLineQty(SalesLine."Qty. to Ship (Base)");
@@ -271,7 +275,7 @@ page 50059 "PWD Sales Orders to prepare V2"
             SalesLine.SETRANGE(SalesLine."Document No.", SalesHeader."No.");
             SalesLine.SETRANGE(SalesLine."PWD Preparation in Process", TRUE);
             SalesLine.SETRANGE("PWD Trading Brand", FALSE);
-            IF SalesLine.FIND('-') THEN
+            IF SalesLine.FindFirst() THEN
                 REPEAT
                     Item.GET(SalesLine."No.");
                     IF (Item."PWD Trading Brand" = FALSE) AND (Item."PWD Butchery" = FALSE) AND (SalesLine."PWD Countermark Location" = FALSE) THEN
@@ -307,13 +311,13 @@ page 50059 "PWD Sales Orders to prepare V2"
         NextSalesLine.SETRANGE(NextSalesLine."Document Type", SalesLine."Document Type");
         NextSalesLine.SETRANGE("Document No.", SalesLine."Document No.");
         NextSalesLine.SETFILTER("Line No.", '>%1', SalesLine."Line No.");
-        IF NextSalesLine.FIND('-') THEN
+        IF NextSalesLine.FindFirst() THEN
             NextSalesLineNo := NextSalesLine."Line No." ELSE
             NextSalesLineNo := SalesLine."Line No." + 10000;
         RecLocPriority.RESET();
         RecLocPriority.SETCURRENTKEY("PWD Call Type Code", "PWD Location priority");
         RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", SalesHeader."PWD Call Type");
-        IF RecLocPriority.FIND('-') THEN BEGIN
+        IF RecLocPriority.FindFirst() THEN BEGIN
             CLEAR(IncremLine);
             LocationsToCheck := RecLocPriority.COUNT + 1;
             IncremLine := ROUND(((NextSalesLineNo - SalesLine."Line No.") / LocationsToCheck), 1);
@@ -338,7 +342,7 @@ page 50059 "PWD Sales Orders to prepare V2"
         END;
         SalesLine.DELETE(TRUE);
         NewSalesLine.RESET();
-        IF NewSalesLine.FIND('-') THEN
+        IF NewSalesLine.FindFirst() THEN
             REPEAT
                 SalesLineCreated.TRANSFERFIELDS(NewSalesLine);
                 SalesLineCreated.INSERT();
@@ -354,7 +358,7 @@ page 50059 "PWD Sales Orders to prepare V2"
         ReservEntry.SETRANGE("Source Subtype", SalesLine."Document Type");
         ReservEntry.SETRANGE("Source ID", SalesLine."Document No.");
         ReservEntry.SETRANGE("Source Ref. No.", SalesLine."Line No.");
-        IF NOT ReservEntry.FIND('-') THEN
+        IF NOT ReservEntry.FindSet() THEN
             InsertTrackingLines()
         ELSE BEGIN
             REPEAT
@@ -376,14 +380,14 @@ page 50059 "PWD Sales Orders to prepare V2"
         ItemSalesLine.SETRANGE("No.", SalesLine."No.");
         ItemSalesLine.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
         ItemSalesLine.SETRANGE("Location Filter", RecLocPriority."PWD Location code");
-        IF ItemSalesLine.FIND('-') THEN
+        IF ItemSalesLine.FindFirst() THEN
             ItemSalesLine.CALCFIELDS("Qty. on Sales Order");
 
         Item.RESET();
         Item.SETRANGE("No.", SalesLine."No.");
         Item.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
         Item.SETRANGE(Item."Location Filter", RecLocPriority."PWD Location code");
-        IF Item.FIND('-') THEN BEGIN
+        IF Item.FindFirst() THEN BEGIN
             Item.CALCFIELDS(
               "Qty. on Purch. Order",
               "Qty. on Sales Order",
@@ -425,7 +429,7 @@ page 50059 "PWD Sales Orders to prepare V2"
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Lot No.", '<>%1', '');
         ItemLedgerEntry.SETRANGE(ItemLedgerEntry.Positive, TRUE);
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Remaining Quantity", '<>%1', 0);
-        IF ItemLedgerEntry.FIND('-') THEN BEGIN
+        IF ItemLedgerEntry.FindFirst() THEN BEGIN
             IF ReservEntryNo.FIND('+') THEN
                 EntryNo := ReservEntryNo."Entry No."
             ELSE
@@ -509,8 +513,8 @@ page 50059 "PWD Sales Orders to prepare V2"
         NewSalesLine.VALIDATE("PWD Quantity to prepare", NewSalesLine.Quantity);
         NewSalesLine.VALIDATE("Qty. to Ship", 0);
         NewSalesLine."PWD Preparation in Process" := TRUE;
-        NewSalesLine."PWD preparation to recalculate" := TRUE;
-        NewSalesLine."PWD loc. Code for prepa to recalc." := MemLocationCode;
+        NewSalesLine."PWD Preparation Recalculate" := TRUE;
+        NewSalesLine."PWD loc. Code Prepa Recalc." := MemLocationCode;
         NewSalesLine.MODIFY(TRUE);
         NewSalesLine.VALIDATE(NewSalesLine."Line Discount %", MemLineDiscount);
         NewSalesLine.VALIDATE(NewSalesLine."Unit Price", MemUnitPrice);
