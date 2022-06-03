@@ -92,16 +92,16 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                 column(Sales_Shipment_Header__Sales_Shipment_Header___Ship_to_Address_2_; "Sales Shipment Header"."Ship-to Address 2")
                 {
                 }
-                column(ADMIS_ET_RECONNU_CONFORME_LE_; 'ADMIS ET RECONNU CONFORME LE')
+                column(AdmisEtReconnu_Caption; 'ADMIS ET RECONNU CONFORME LE')
                 {
                 }
-                column(FORMAT___Sales_Shipment_Header___Posting_Date__0_4_; FORMAT("Sales Shipment Header"."Posting Date", 0, 4))
+                column(SalesShipmentHeader_PostingDate; FORMAT("Sales Shipment Header"."Posting Date", 0, 4))
                 {
                 }
                 column(TotalPoidsNet; TotalPoidsNet)
                 {
                 }
-                column(articles_sur_le_BL_n_________Sales_Shipment_Line___Document_No__; 'articles sur le BL n° : ' + "Sales Shipment Line"."Document No.")
+                column(articles_sur_le_BL_n_Sales_Shipment_Line_Document_No; 'articles sur le BL n° : ' + SalesShipLine."Document No.")
                 {
                 }
                 column(NbLigneTotal; NbLigneTotal)
@@ -155,13 +155,13 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                 column(Poids_net_ligneCaption; Poids_net_ligneCaptionLbl)
                 {
                 }
-                column("QuantitéCaption"; QuantitéCaptionLbl)
+                column(QuantitéCaption; QuantitéCaptionLbl)
                 {
                 }
-                column("UnitéCaption"; UnitéCaptionLbl)
+                column(UnitéCaption; UnitéCaptionLbl)
                 {
                 }
-                column("DésignationCaption"; DésignationCaptionLbl)
+                column(DésignationCaption; DésignationCaptionLbl)
                 {
                 }
                 column(Code_articleCaption; Code_articleCaptionLbl)
@@ -179,37 +179,28 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                 column(N__accises_FR000074E0019Caption; N__accises_FR000074E0019CaptionLbl)
                 {
                 }
-                column(Par_procurationCaption; Par_procurationCaptionLbl)
+                column(ParProcuration_Caption; Par_procurationCaptionLbl)
                 {
                 }
                 column(VisaCaption; VisaCaptionLbl)
                 {
                 }
-                column(EmptyStringCaption; EmptyStringCaptionLbl)
+                column(A_Calais_le_Caption; A_Calais_leCaptionLbl)
                 {
                 }
-                column(EmptyStringCaption_Control1000000023; EmptyStringCaption_Control1000000023Lbl)
+                column(TOTALPoidsNet_Caption; TOTAL_Poids_netCaptionLbl)
                 {
                 }
-                column(A_Calais_leCaption; A_Calais_leCaptionLbl)
+                column(Arrété_àCaption; Arrété_àCaptionLbl)
                 {
                 }
-                column(EmptyStringCaption_Control1000000014; EmptyStringCaption_Control1000000014Lbl)
+                column(TOTALQuantité_Caption; TOTAL_QuantitéCaptionLbl)
                 {
                 }
-                column(TOTAL_Poids_netCaption; TOTAL_Poids_netCaptionLbl)
+                column(Quantités_autorisées_Caption; Quantités_autorisées_40g_tabac_ou_cigarettes_5cl_vin_ou_bière_ou_apéritif_à_base_de_vin10_cl_spiritueux_par_personneLbl)
                 {
                 }
-                column("Arrété_àCaption"; Arrété_àCaptionLbl)
-                {
-                }
-                column("TOTAL_QuantitéCaption"; TOTAL_QuantitéCaptionLbl)
-                {
-                }
-                column(DataItem1000000052; Quantités_autorisées_40g_tabac_ou_cigarettes_5cl_vin_ou_bière_ou_apéritif_à_base_de_vin10_cl_spiritueux_par_personneLbl)
-                {
-                }
-                column(DataItem1000000092; Bonded_Allowance_40g_tobacco_or_cigarettes_5cl_wine_or_beer_or_aperitive_with_wine_10cl_spirits_per_day_at_sea_per_pLbl)
+                column(Bonded_Allowance_Caption; Bonded_Allowance_40g_tobacco_or_cigarettes_5cl_wine_or_beer_or_aperitive_with_wine_10cl_spirits_per_day_at_sea_per_pLbl)
                 {
                 }
                 dataitem(BoucleMag; Integer)
@@ -219,7 +210,7 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
                     {
                         DataItemLinkReference = "Sales Shipment Header";
                         DataItemTableView = SORTING("Document No.", "Location Code");
-                        column(Entrepot_______LocationFilter_BoucleMag_Number______LocationName_BoucleMag_Number_; 'Entrepot : ' + LocationFilter[BoucleMag.Number] + ' ' + LocationName[BoucleMag.Number])
+                        column(EntrepotLocationFilter_Caption; 'Entrepot : ' + LocationFilter[BoucleMag.Number] + ' ' + LocationName[BoucleMag.Number])
                         {
                         }
                         column(Sales_Shipment_Line__Unit_of_Measure_Code_; "Unit of Measure Code")
@@ -586,8 +577,9 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
         OutputNo: Integer;
         TestBoucle: Integer;
         TotalLocation: Integer;
-        A_Calais_leCaptionLbl: Label 'A Calais le';
-        "Arrété_àCaptionLbl": Label 'Arrété à';
+        OutputNo: Integer;
+        A_Calais_leCaptionLbl: Label 'A Calais le : ';
+        "Arrété_àCaptionLbl": Label 'Arrété à : ';
         Bonded_Allowance_40g_tobacco_or_cigarettes_5cl_wine_or_beer_or_aperitive_with_wine_10cl_spirits_per_day_at_sea_per_pLbl: Label 'L''exonération des droits et taxes est conditionnée par la mise à bord effective immédiate des marchandises pour consommation à bord. A défaut, les droits et taxes sont dûs.';
         Client__CaptionLbl: Label 'Client :';
         Code_articleCaptionLbl: Label 'Code article';
@@ -598,9 +590,6 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
         "DésignationCaptionLbl": Label 'Désignation';
         Destinataire___Caption_Control1000000043Lbl: Label 'Destinataire : ';
         Destinataire___CaptionLbl: Label 'Destinataire : ';
-        EmptyStringCaption_Control1000000014Lbl: Label ' : ';
-        EmptyStringCaption_Control1000000023Lbl: Label ' : ';
-        EmptyStringCaptionLbl: Label ' : ';
         "Expéditeur___CaptionLbl": Label 'Expéditeur : ';
         Heure_livraisonCaptionLbl: Label 'Heure livraison';
         "Identité__CaptionLbl": Label 'Identité :';
@@ -610,7 +599,7 @@ report 50104 "Sales - Shipmt BLAVI bac rose"
         N__de_ligneCaptionLbl: Label 'N° de ligne';
         "N__de_véhicule__CaptionLbl": Label 'N° de véhicule :';
         Navire__CaptionLbl: Label 'Navire :';
-        Par_procurationCaptionLbl: Label 'Par procuration';
+        Par_procurationCaptionLbl: Label 'Par procuration : ';
         Poids_net_ligneCaptionLbl: Label 'Poids net net weight ';
         "QuantitéCaptionLbl": Label 'Quantité';
         Quantités_autorisées_40g_tabac_ou_cigarettes_5cl_vin_ou_bière_ou_apéritif_à_base_de_vin10_cl_spiritueux_par_personneLbl: Label 'Bonded allowance / Quantités autorisées : 40 g tabac ou cigarettes + 5 cl vin bière ou apéritif à base de vin + 10 cl spiritueux par personne majeure embarquée et par jour de mer';

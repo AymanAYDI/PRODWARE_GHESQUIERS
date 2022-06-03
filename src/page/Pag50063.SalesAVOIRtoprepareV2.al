@@ -109,7 +109,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
                 Promoted = true;
                 PromotedCategory = Process;
                 ApplicationArea = All;
-                Image= Print;
+                Image = Print;
 
                 trigger OnAction()
                 begin

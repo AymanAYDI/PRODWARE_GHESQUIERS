@@ -545,8 +545,10 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value />
-                                                    <Style />
+                                                    <Value>=Code.BlankZero(Fields!NumLigne.Value)</Value>
+                                                    <Style>
+                                                      <FontSize>9pt</FontSize>
+                                                    </Style>
                                                   </TextRun>
                                                 </TextRuns>
                                                 <Style />
@@ -559,7 +561,7 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>None</Style>
                                               </Border>
                                               <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingRight>0.105cm</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
@@ -575,8 +577,10 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value />
-                                                    <Style />
+                                                    <Value>=Fields!Sales_Shipment_Line__No__.Value</Value>
+                                                    <Style>
+                                                      <FontSize>8pt</FontSize>
+                                                    </Style>
                                                   </TextRun>
                                                 </TextRuns>
                                                 <Style />
@@ -605,8 +609,10 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value />
-                                                    <Style />
+                                                    <Value>=Fields!Description__Description_2_.Value</Value>
+                                                    <Style>
+                                                      <FontSize>8pt</FontSize>
+                                                    </Style>
                                                   </TextRun>
                                                 </TextRuns>
                                                 <Style />
@@ -635,8 +641,10 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value />
-                                                    <Style />
+                                                    <Value>=Fields!TextDLC_SF.Value</Value>
+                                                    <Style>
+                                                      <FontSize>8pt</FontSize>
+                                                    </Style>
                                                   </TextRun>
                                                 </TextRuns>
                                                 <Style />
@@ -808,6 +816,11 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                           </Textbox>
                                         </CellContents>
                                       </TablixCell>
+                                    </TablixCells>
+                                  </TablixRow>
+                                  <TablixRow>
+                                    <Height>0.423cm</Height>
+                                    <TablixCells>
                                       <TablixCell>
                                         <CellContents>
                                           <Textbox Name="TextDLC_SF">
@@ -1008,7 +1021,7 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
-                                              </LeftBorder>
+                                              </BottomBorder>
                                               <RightBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1139,6 +1152,11 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </LeftBorder>
+                                              <RightBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </RightBorder>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>0.105cm</PaddingLeft>
                                               <PaddingRight>0.21cm</PaddingRight>

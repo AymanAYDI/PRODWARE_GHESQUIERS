@@ -98,7 +98,7 @@ report 50103 "Sales - Shipment BL bac blanc"
                 column(TotalPoidsNet; TotalPoidsNet)
                 {
                 }
-                column(articles_sur_le_BL_n_________Sales_Shipment_Line___Document_No__; 'articles sur le BL n° : ' + "Sales Shipment Line"."Document No.")
+                column(articles_sur_le_BL_n_________Sales_Shipment_Line___Document_No__; 'articles sur le BL n° : ' + SalesShipLine."Document No.")
                 {
                 }
                 column(NbLigneTotal; NbLigneTotal)

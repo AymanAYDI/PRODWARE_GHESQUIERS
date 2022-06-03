@@ -24,28 +24,19 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             column(InfoSoc_Name; InfoSoc.Name)
             {
             }
-            column(STRSUBSTNO___1___2__Item_TABLECAPTION_ItemFilter_; STRSUBSTNO('%1: %2', Item.TABLECAPTION, ItemFilter))
+            column(Item_TABLECAPTION; STRSUBSTNO('%1: %2', Item.TABLECAPTION, ItemFilter))
             {
             }
-            column(STRSUBSTNO_Text005_StartDateText_; STRSUBSTNO(Text005, StartDateText))
+            column(Text005_StartDateText_; STRSUBSTNO(Text005, StartDateText))
             {
             }
-            column(EmptyString; '')
-            {
-            }
-            column(EmptyString_Control46; '')
-            {
-            }
-            column(EmptyString_Control47; '')
-            {
-            }
-            column(STRSUBSTNO_Text005_FORMAT_EndDate__; STRSUBSTNO(Text005, FORMAT(EndDate)))
+            column(Text005_EndDate; STRSUBSTNO(Text005, FORMAT(EndDate)))
             {
             }
             column(EmptyString_Control57; '')
             {
             }
-            column(STRSUBSTNO_Text006__Tariff_No___TariffNumber__Description_2__; STRSUBSTNO(Text006, "Tariff No.", TariffNumber."PWD Description 2"))
+            column(Text006_TariffNumber_Description2; STRSUBSTNO(Text006, "Tariff No.", TariffNumber."PWD Description 2"))
             {
             }
             column(ValueOfInvoicedQty; ValueOfInvoicedQty)
@@ -60,15 +51,11 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             {
                 AutoFormatType = 1;
             }
-            column(Value_Entry___Cost_Amount__Actual__; "Value Entry"."Cost Amount (Actual)")
+            column(ValueEntry_CostAmountActual; "Value Entry"."Cost Amount (Actual)")
             {
             }
             column(STRSUBSTNO_Text007__Tariff_No___; STRSUBSTNO(Text007, "Tariff No."))
             {
-            }
-            column(InvIncreases; InvIncreases)
-            {
-                DecimalPlaces = 0 : 5;
             }
             column(InvDecreases; InvDecreases)
             {
@@ -81,11 +68,11 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             {
                 AutoFormatType = 1;
             }
-            column(CostOfShipDecreases; CostOfShipDecreases)
+            column(Item_CostOfShipDecreases; CostOfShipDecreases)
             {
                 AutoFormatType = 1;
             }
-            column(ValueOfQtyOnHand___ValueOfRcdIncreases___CostOfShipDecreases; ValueOfQtyOnHand + ValueOfRcdIncreases - CostOfShipDecreases)
+            column(ValueOfQtyOnHand_ValueOfRcdIncreases__CostOfShipDecreases; ValueOfQtyOnHand + ValueOfRcdIncreases - CostOfShipDecreases)
             {
                 AutoFormatType = 1;
             }
@@ -102,26 +89,12 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             column(STRSUBSTNO_Text009__Tariff_No___; STRSUBSTNO(Text009, "Tariff No."))
             {
             }
-            column(Value_Entry___Cost_Amount__Actual___Control80; "Value Entry"."Cost Amount (Actual)")
-            {
-            }
-            column(CostOfInvDecreases_Control82; CostOfInvDecreases)
-            {
-                AutoFormatType = 1;
-            }
-            column(ValueOfInvIncreases_Control83; ValueOfInvIncreases)
-            {
-                AutoFormatType = 1;
-            }
+
             column(ValueOfInvoicedQty_Control84; ValueOfInvoicedQty)
             {
                 AutoFormatType = 1;
             }
-            column(InvIncreases_Control1000000008; InvIncreases)
-            {
-                DecimalPlaces = 0 : 5;
-            }
-            column(InvDecreases_Control1000000010; InvDecreases)
+            column(InvIncreases; InvIncreases)
             {
                 DecimalPlaces = 0 : 5;
             }
@@ -151,28 +124,28 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             column(Item_Ledger_Entry__Quantity_Control1000000016; "Item Ledger Entry".Quantity)
             {
             }
-            column(Inventory_Valuation____Tariff_No_Caption; Inventory_Valuation____Tariff_No_CaptionLbl)
+            column(InventoryValuationTariff_No_Caption; Inventory_Valuation____Tariff_No_CaptionLbl)
             {
             }
-            column(CurrReport_PAGENOCaption; CurrReport_PAGENOCaptionLbl)
+            column(PAGECaptionLbl; PAGECaptionLbl)
             {
             }
             column(Text_Caption; This_report_includes_entries_that_have_been_posted_with_expected_costs_CaptionLbl)
             {
             }
-            column(Item_Ledger_Entry__Item_No__Caption; "Item Ledger Entry".FIELDCAPTION("Item No."))
+            column(ItemLedgerEntry_ItemNo_Caption; "Item Ledger Entry".FIELDCAPTION("Item No."))
             {
             }
-            column(Item_Description_____Item__Description_2_Caption; Item_Description_____Item__Description_2_CaptionLbl)
+            column(Item_Description_CaptionLbl; Item_Description_CaptionLbl)
             {
             }
-            column("Coût_unitaireCaption"; Coût_unitaireCaptionLbl)
+            column(Coût_unitaireCaption; Coût_unitaireCaptionLbl)
             {
             }
-            column(InvIncreases_Control38Caption; InvIncreases_Control38CaptionLbl)
+            column(InvIncreases_Caption; InvIncreases_Control38CaptionLbl)
             {
             }
-            column(InvDecreases_Control39Caption; InvDecreases_Control39CaptionLbl)
+            column(InvDecreases_Caption; InvDecreases_CaptionLbl)
             {
             }
             column(QuantityCaption; QuantityCaptionLbl)
@@ -184,21 +157,10 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             column(ValueCaption_Control32; ValueCaption_Control32Lbl)
             {
             }
-            column(QuantityCaption_Control40; QuantityCaption_Control40Lbl)
-            {
-            }
             column(ValueCaption_Control56; ValueCaption_Control56Lbl)
             {
             }
-            column(QuantityCaption_Control58; QuantityCaption_Control58Lbl)
-            {
-            }
-            column(QuantityCaption_Control1000000019; QuantityCaption_Control1000000019Lbl)
-            {
-            }
-            column(QuantityCaption_Control1000000020; QuantityCaption_Control1000000020Lbl)
-            {
-            }
+
             column(TotalCaption; TotalCaptionLbl)
             {
             }
@@ -266,7 +228,7 @@ report 50115 "PWD Evaluation stock SAS Ghes"
                 column(Item_Ledger_Entry__Invoiced_Quantity_; "Invoiced Quantity")
                 {
                 }
-                column("Coût_unitaire_Control1000000017"; Item."Qty. on Sales Order" + Item."PWD Qty. on Quote Order")
+                column(Quantity_Order; Item."Qty. on Sales Order" + Item."PWD Qty. on Quote Order")
                 {
                     DecimalPlaces = 0 : 2;
                 }
@@ -284,19 +246,19 @@ report 50115 "PWD Evaluation stock SAS Ghes"
                 {
                     DecimalPlaces = 0 : 5;
                 }
-                column(ShipDecreases_Control64; ShipDecreases)
+                column(ShipDecreases; ShipDecreases)
                 {
                     DecimalPlaces = 0 : 5;
                 }
-                column(ValueOfQtyOnHand___ValueOfRcdIncreases___CostOfShipDecreases_Control43; ValueOfQtyOnHand + ValueOfRcdIncreases - CostOfShipDecreases)
+                column(ValueOfQtyOnHand_ValueOfRcdIncreases_CostOfShipDecreases; ValueOfQtyOnHand + ValueOfRcdIncreases - CostOfShipDecreases)
                 {
                     AutoFormatType = 1;
                 }
-                column(CostOfShipDecreases_Control44; CostOfShipDecreases)
+                column(CostOfShipDecreases; CostOfShipDecreases)
                 {
                     AutoFormatType = 1;
                 }
-                column(ValueOfRcdIncreases__Control45; ValueOfRcdIncreases)
+                column(ValueOfRcdIncreases; ValueOfRcdIncreases)
                 {
                     AutoFormatType = 1;
                 }
@@ -486,12 +448,12 @@ report 50115 "PWD Evaluation stock SAS Ghes"
         ValueOfInvoicedQty: Decimal;
         ValueOfQtyOnHand: Decimal;
         ValueOfRcdIncreases: Decimal;
-        "Coût_unitaireCaptionLbl": Label 'Label10';
-        CurrReport_PAGENOCaptionLbl: Label 'Page';
+        "Coût_unitaireCaptionLbl": Label 'Coût unitaire';
+        PAGECaptionLbl: Label 'Page';
         Expected_Cost_Included_TotalCaptionLbl: Label 'Expected Cost Included Total';
         Expected_Cost_IncludedCaptionLbl: Label 'Expected Cost Included';
         Expected_Cost_TotalCaptionLbl: Label 'Expected Cost Total';
-        InvDecreases_Control39CaptionLbl: Label 'Decreases (LCY)';
+        InvDecreases_CaptionLbl: Label 'Decreases (LCY)';
         Inventory_Valuation____Tariff_No_CaptionLbl: Label 'Inventory Valuation  / Tariff No.';
         InvIncreases_Control38CaptionLbl: Label 'Increases (LCY)';
         Item_Description_____Item__Description_2_CaptionLbl: Label 'Label';
