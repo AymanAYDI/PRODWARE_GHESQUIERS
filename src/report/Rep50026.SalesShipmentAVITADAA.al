@@ -3,7 +3,7 @@ report 50026 "Sales - Shipment AVITA - DAA"
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/SalesShipmentAVITADAA.rdl';
     Caption = 'Sales - Shipment';
-
+    UsageCategory = None;
     dataset
     {
         dataitem("Sales Shipment Header"; "Sales Shipment Header")

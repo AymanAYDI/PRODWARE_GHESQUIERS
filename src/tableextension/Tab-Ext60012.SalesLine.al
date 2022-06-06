@@ -798,6 +798,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         PurchQuoteLine: Record "Purchase Line";
         PurchQuoteLine2: Record "Purchase Line";
         AppTenders: Record "PWD Appeal for Tenders";
+        DimMgt: Codeunit DimensionManagement;
     begin
 
         //------------------------------------------------------------------//
@@ -825,7 +826,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
                 PurchQuoteLine2.SETRANGE("Document No.", PurchQuoteLine."Document No.");
                 PurchQuoteLine.DELETE();
                 //ToDo
-                //DimMgt.DeleteDocDim(DATABASE::"Purchase Line", PurchQuoteLine."Document Type", PurchQuoteLine."Document No.",
+                //DimMgt.DeleteDefaultDim(DATABASE::"Purchase Line", PurchQuoteLine."Document No.");
                 // PurchQuoteLine."Line No.");
 
                 //*** si plus de ligne on supprime l'entete
@@ -922,7 +923,6 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
     var
         GrossRequirement: Decimal;
         PlannedOrderReceipt: Decimal;
-        //PlannedOrderReleases: Decimal;
         ScheduledReceipt: Decimal;
     begin
         GetItem(Item);
@@ -939,8 +939,6 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         GrossRequirement := Item."Qty. on Sales Order";
         PlannedOrderReceipt := Item."Purch. Req. Receipt (Qty.)";
         ScheduledReceipt := Item."Qty. on Purch. Order";
-        //ToDo Var Not Used
-        //PlannedOrderReleases := Item."Purch. Req. Release (Qty.)";
 
         EXIT(Item.Inventory + PlannedOrderReceipt + ScheduledReceipt - GrossRequirement);
     end;
@@ -948,6 +946,9 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
     procedure CtrlUnitPrice()
     var
         Location: Record Location;
+        SalesHeader: Record "Sales Header";
+        Currency: Record Currency;
+        CurrExchRate: Record "Currency Exchange Rate";
         BottomPrice: Decimal;
     begin
         //*** Controle prix unitaire > prix plancher de l'article
@@ -959,15 +960,15 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
                 IF Location.GET("Location Code") AND (Location."PWD Controle du prix plancher") THEN BEGIN
 
                     BottomPrice := Item."PWD Bottom Price";
-                    //ToDo
-                    /*IF SalesHeader."Currency Code" <> '' THEN
+                    GetSalesHeader(SalesHeader, Currency);
+                    IF SalesHeader."Currency Code" <> '' THEN
                         BottomPrice :=
-                         ROUND(
-                           CurrExchRate.ExchangeAmtLCYToFCY(
+                        ROUND(
+                            CurrExchRate.ExchangeAmtLCYToFCY(
                              GetDate(), SalesHeader."Currency Code",
                              BottomPrice, SalesHeader."Currency Factor"),
-                             Currency."Unit-Amount Rounding Precision");*/
-                    IF "Unit Price" < BottomPrice THEN
+                             Currency."Unit-Amount Rounding Precision");
+                    if "Unit Price" < BottomPrice then
                         MESSAGE(Text1000000023, "Unit Price", BottomPrice);
                 END;
     end;

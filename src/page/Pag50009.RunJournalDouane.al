@@ -15,6 +15,7 @@ page 50009 "PWD Run Journal/Douane"
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = codeunit "PWD RunJournal";
+                PromotedOnly = true;
             }
             action("Run Douane 1")
             {
@@ -24,6 +25,7 @@ page 50009 "PWD Run Journal/Douane"
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = codeunit "PWD Run douane1";
+                PromotedOnly = true;
             }
             action("Run Douane 2")
             {

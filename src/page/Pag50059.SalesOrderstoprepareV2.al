@@ -136,7 +136,7 @@ page 50059 "PWD Sales Orders to prepare V2"
                 Visible = false;
                 ApplicationArea = All;
                 Image = Print;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     MakePreparation();
@@ -149,7 +149,7 @@ page 50059 "PWD Sales Orders to prepare V2"
                 PromotedCategory = Process;
                 ApplicationArea = All;
                 Image = Print;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     IF Rec."PWD Preparation Status" = 1 THEN
@@ -167,7 +167,7 @@ page 50059 "PWD Sales Orders to prepare V2"
                 PromotedCategory = Process;
                 ApplicationArea = All;
                 Image = UpdateUnitCost;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     SalesHeader.RESET();

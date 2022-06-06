@@ -129,7 +129,7 @@ page 50078 "PWD User Item Tracking Entries"
                 Visible = false;
                 ApplicationArea = All;
                 Image = Navigate;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     Navigate.SetDoc(Rec."Posting Date", Rec."Document No.");

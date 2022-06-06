@@ -190,7 +190,7 @@ page 50042 "PWD Sales Orders to prepare"
                 Visible = true;
                 ApplicationArea = All;
                 Image = UpdateUnitCost;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     SalesHeader.RESET();

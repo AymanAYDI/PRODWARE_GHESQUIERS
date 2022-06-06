@@ -77,7 +77,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
                 PromotedCategory = Process;
                 ApplicationArea = All;
                 Image = UpdateUnitCost;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     SalesHeader.RESET();

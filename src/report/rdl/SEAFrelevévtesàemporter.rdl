@@ -11,175 +11,6 @@
       <rd:DataSourceID>76fa9b9a-bf33-493e-8717-ccbc6f8c013f</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="StartDate">
-          <DataField>StartDate</DataField>
-        </Field>
-        <Field Name="EndDate">
-          <DataField>EndDate</DataField>
-        </Field>
-        <Field Name="au_">
-          <DataField>au_</DataField>
-        </Field>
-        <Field Name="Page_FORMAT_CurrReport_PAGENO_">
-          <DataField>Page_FORMAT_CurrReport_PAGENO_</DataField>
-        </Field>
-        <Field Name="NetWeight">
-          <DataField>NetWeight</DataField>
-        </Field>
-        <Field Name="NetWeightFormat">
-          <DataField>NetWeightFormat</DataField>
-        </Field>
-        <Field Name="LineAmount">
-          <DataField>LineAmount</DataField>
-        </Field>
-        <Field Name="LineAmountFormat">
-          <DataField>LineAmountFormat</DataField>
-        </Field>
-        <Field Name="Relevé_des_ventes_à_emporter_consommation_à_bord_du_Caption">
-          <DataField>Relevé_des_ventes_à_emporter_consommation_à_bord_du_Caption</DataField>
-        </Field>
-        <Field Name="CDSCaption">
-          <DataField>CDSCaption</DataField>
-        </Field>
-        <Field Name="TYPECaption">
-          <DataField>TYPECaption</DataField>
-        </Field>
-        <Field Name="BLCaption">
-          <DataField>BLCaption</DataField>
-        </Field>
-        <Field Name="DATECaption">
-          <DataField>DATECaption</DataField>
-        </Field>
-        <Field Name="NDPCaption">
-          <DataField>NDPCaption</DataField>
-        </Field>
-        <Field Name="POIDSCaption">
-          <DataField>POIDSCaption</DataField>
-        </Field>
-        <Field Name="VALEURCaption">
-          <DataField>VALEURCaption</DataField>
-        </Field>
-        <Field Name="Bon_de_livraisonCaption">
-          <DataField>Bon_de_livraisonCaption</DataField>
-        </Field>
-        <Field Name="Ventes_à_emporterCaption">
-          <DataField>Ventes_à_emporterCaption</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_No_">
-          <DataField>Sales_Shipment_Header_No_</DataField>
-        </Field>
-        <Field Name="V7Caption">
-          <DataField>V7Caption</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_DSA_No">
-          <DataField>Sales_Shipment_Header_DSA_No</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_Posting_Date">
-          <DataField>Sales_Shipment_Header_Posting_Date</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_National_Add_Code">
-          <DataField>Sales_Shipment_Line_National_Add_Code</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_NetWeight">
-          <DataField>Sales_Shipment_Line_NetWeight</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_NetWeightFormat">
-          <DataField>Sales_Shipment_Line_NetWeightFormat</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_LineAmount">
-          <DataField>Sales_Shipment_Line_LineAmount</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_LineAmountFormat">
-          <DataField>Sales_Shipment_Line_LineAmountFormat</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Document_No">
-          <DataField>Sales_Shipment_Line_Document_No</DataField>
-        </Field>
-        <Field Name="V1Caption">
-          <DataField>V1Caption</DataField>
-        </Field>
-        <Field Name="VAE_Line_No_">
-          <DataField>VAE_Line_No_</DataField>
-        </Field>
-        <Field Name="NetWeight_">
-          <DataField>NetWeight_</DataField>
-        </Field>
-        <Field Name="NetWeight_Format">
-          <DataField>NetWeight_Format</DataField>
-        </Field>
-        <Field Name="LineAmount_">
-          <DataField>LineAmount_</DataField>
-        </Field>
-        <Field Name="LineAmount_Format">
-          <DataField>LineAmount_Format</DataField>
-        </Field>
-        <Field Name="VAEWeight_VAECrMemoWeight">
-          <DataField>VAEWeight_VAECrMemoWeight</DataField>
-        </Field>
-        <Field Name="VAEWeight_VAECrMemoWeightFormat">
-          <DataField>VAEWeight_VAECrMemoWeightFormat</DataField>
-        </Field>
-        <Field Name="VAEAmount_LineAmount">
-          <DataField>VAEAmount_LineAmount</DataField>
-        </Field>
-        <Field Name="VAEAmount_LineAmountFormat">
-          <DataField>VAEAmount_LineAmountFormat</DataField>
-        </Field>
-        <Field Name="Avoirs_Ventes_à_emporterCaption">
-          <DataField>Avoirs_Ventes_à_emporterCaption</DataField>
-        </Field>
-        <Field Name="Total_Avoirs_Ventes_emporterCaption">
-          <DataField>Total_Avoirs_Ventes_emporterCaption</DataField>
-        </Field>
-        <Field Name="Total_Ventes_emporterCaption">
-          <DataField>Total_Ventes_emporterCaption</DataField>
-        </Field>
-        <Field Name="VAECrMemoHeader_No_">
-          <DataField>VAECrMemoHeader_No_</DataField>
-        </Field>
-        <Field Name="VAECrMemoLine_Document_No">
-          <DataField>VAECrMemoLine_Document_No</DataField>
-        </Field>
-        <Field Name="VAECrMemoLine_LineAmount">
-          <DataField>VAECrMemoLine_LineAmount</DataField>
-        </Field>
-        <Field Name="VAECrMemoLine_LineAmountFormat">
-          <DataField>VAECrMemoLine_LineAmountFormat</DataField>
-        </Field>
-        <Field Name="VAECrMemoLine_NetWeight">
-          <DataField>VAECrMemoLine_NetWeight</DataField>
-        </Field>
-        <Field Name="VAECrMemoLine_NetWeightFormat">
-          <DataField>VAECrMemoLine_NetWeightFormat</DataField>
-        </Field>
-        <Field Name="VAECrMemoLine_National_Add_Code">
-          <DataField>VAECrMemoLine_National_Add_Code</DataField>
-        </Field>
-        <Field Name="VAECrMemoHeader_Posting_Date">
-          <DataField>VAECrMemoHeader_Posting_Date</DataField>
-        </Field>
-        <Field Name="VAECrMemoHeader_DSA_No">
-          <DataField>VAECrMemoHeader_DSA_No</DataField>
-        </Field>
-        <Field Name="V7_Lbl">
-          <DataField>V7_Lbl</DataField>
-        </Field>
-        <Field Name="V1_Lbl">
-          <DataField>V1_Lbl</DataField>
-        </Field>
-        <Field Name="VAECrMemoLine_Line_No_">
-          <DataField>VAECrMemoLine_Line_No_</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2318,12 +2149,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -2363,4 +2188,173 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>38aa1580-ecc1-49b9-bc39-934564676f70</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+        </Field>
+        <Field Name="au_">
+          <DataField>au_</DataField>
+        </Field>
+        <Field Name="Page_FORMAT_CurrReport_PAGENO_">
+          <DataField>Page_FORMAT_CurrReport_PAGENO_</DataField>
+        </Field>
+        <Field Name="NetWeight">
+          <DataField>NetWeight</DataField>
+        </Field>
+        <Field Name="NetWeightFormat">
+          <DataField>NetWeightFormat</DataField>
+        </Field>
+        <Field Name="LineAmount">
+          <DataField>LineAmount</DataField>
+        </Field>
+        <Field Name="LineAmountFormat">
+          <DataField>LineAmountFormat</DataField>
+        </Field>
+        <Field Name="Relevé_des_ventes_à_emporter_consommation_à_bord_du_Caption">
+          <DataField>Relevé_des_ventes_à_emporter_consommation_à_bord_du_Caption</DataField>
+        </Field>
+        <Field Name="CDSCaption">
+          <DataField>CDSCaption</DataField>
+        </Field>
+        <Field Name="TYPECaption">
+          <DataField>TYPECaption</DataField>
+        </Field>
+        <Field Name="BLCaption">
+          <DataField>BLCaption</DataField>
+        </Field>
+        <Field Name="DATECaption">
+          <DataField>DATECaption</DataField>
+        </Field>
+        <Field Name="NDPCaption">
+          <DataField>NDPCaption</DataField>
+        </Field>
+        <Field Name="POIDSCaption">
+          <DataField>POIDSCaption</DataField>
+        </Field>
+        <Field Name="VALEURCaption">
+          <DataField>VALEURCaption</DataField>
+        </Field>
+        <Field Name="Bon_de_livraisonCaption">
+          <DataField>Bon_de_livraisonCaption</DataField>
+        </Field>
+        <Field Name="Ventes_à_emporterCaption">
+          <DataField>Ventes_à_emporterCaption</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_No_">
+          <DataField>Sales_Shipment_Header_No_</DataField>
+        </Field>
+        <Field Name="V7Caption">
+          <DataField>V7Caption</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_DSA_No">
+          <DataField>Sales_Shipment_Header_DSA_No</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_Posting_Date">
+          <DataField>Sales_Shipment_Header_Posting_Date</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_National_Add_Code">
+          <DataField>Sales_Shipment_Line_National_Add_Code</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_NetWeight">
+          <DataField>Sales_Shipment_Line_NetWeight</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_NetWeightFormat">
+          <DataField>Sales_Shipment_Line_NetWeightFormat</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_LineAmount">
+          <DataField>Sales_Shipment_Line_LineAmount</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_LineAmountFormat">
+          <DataField>Sales_Shipment_Line_LineAmountFormat</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Document_No">
+          <DataField>Sales_Shipment_Line_Document_No</DataField>
+        </Field>
+        <Field Name="V1Caption">
+          <DataField>V1Caption</DataField>
+        </Field>
+        <Field Name="VAE_Line_No_">
+          <DataField>VAE_Line_No_</DataField>
+        </Field>
+        <Field Name="NetWeight_">
+          <DataField>NetWeight_</DataField>
+        </Field>
+        <Field Name="NetWeight_Format">
+          <DataField>NetWeight_Format</DataField>
+        </Field>
+        <Field Name="LineAmount_">
+          <DataField>LineAmount_</DataField>
+        </Field>
+        <Field Name="LineAmount_Format">
+          <DataField>LineAmount_Format</DataField>
+        </Field>
+        <Field Name="VAEWeight_VAECrMemoWeight">
+          <DataField>VAEWeight_VAECrMemoWeight</DataField>
+        </Field>
+        <Field Name="VAEWeight_VAECrMemoWeightFormat">
+          <DataField>VAEWeight_VAECrMemoWeightFormat</DataField>
+        </Field>
+        <Field Name="VAEAmount_LineAmount">
+          <DataField>VAEAmount_LineAmount</DataField>
+        </Field>
+        <Field Name="VAEAmount_LineAmountFormat">
+          <DataField>VAEAmount_LineAmountFormat</DataField>
+        </Field>
+        <Field Name="Total_Avoirs_Ventes_emporterCaption">
+          <DataField>Total_Avoirs_Ventes_emporterCaption</DataField>
+        </Field>
+        <Field Name="Total_Ventes_emporterCaption">
+          <DataField>Total_Ventes_emporterCaption</DataField>
+        </Field>
+        <Field Name="VAECrMemoHeader_No_">
+          <DataField>VAECrMemoHeader_No_</DataField>
+        </Field>
+        <Field Name="VAECrMemoLine_Document_No">
+          <DataField>VAECrMemoLine_Document_No</DataField>
+        </Field>
+        <Field Name="Avoirs_Ventes_à_emporterCaption">
+          <DataField>Avoirs_Ventes_à_emporterCaption</DataField>
+        </Field>
+        <Field Name="VAECrMemoLine_LineAmount">
+          <DataField>VAECrMemoLine_LineAmount</DataField>
+        </Field>
+        <Field Name="VAECrMemoLine_LineAmountFormat">
+          <DataField>VAECrMemoLine_LineAmountFormat</DataField>
+        </Field>
+        <Field Name="VAECrMemoLine_NetWeight">
+          <DataField>VAECrMemoLine_NetWeight</DataField>
+        </Field>
+        <Field Name="VAECrMemoLine_NetWeightFormat">
+          <DataField>VAECrMemoLine_NetWeightFormat</DataField>
+        </Field>
+        <Field Name="VAECrMemoLine_National_Add_Code">
+          <DataField>VAECrMemoLine_National_Add_Code</DataField>
+        </Field>
+        <Field Name="VAECrMemoHeader_Posting_Date">
+          <DataField>VAECrMemoHeader_Posting_Date</DataField>
+        </Field>
+        <Field Name="VAECrMemoHeader_DSA_No">
+          <DataField>VAECrMemoHeader_DSA_No</DataField>
+        </Field>
+        <Field Name="V7_Lbl">
+          <DataField>V7_Lbl</DataField>
+        </Field>
+        <Field Name="V1_Lbl">
+          <DataField>V1_Lbl</DataField>
+        </Field>
+        <Field Name="VAECrMemoLine_Line_No_">
+          <DataField>VAECrMemoLine_Line_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

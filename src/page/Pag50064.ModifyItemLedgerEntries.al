@@ -229,7 +229,7 @@ page 50064 "PWD Modify Item Ledger Entries"
                 PromotedCategory = Process;
                 ApplicationArea = All;
                 Image = Navigate;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 var
                     Navigate: Page Navigate;
