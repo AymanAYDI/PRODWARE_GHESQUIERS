@@ -372,6 +372,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 {
                     ApplicationArea = all;
                     Caption = 'Sélection des fournisseurs à interroger';
+                    Image = Action;
                     RunObject = Page "Appeal for tenders/Vendor -TrB";
                     RunPageLink = "Document Type" = FIELD("Document Type"),
                                   "Document No." = FIELD("No.");
@@ -421,6 +422,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 {
                     ApplicationArea = all;
                     Caption = 'Sélection des offres fournisseurs';
+                    Image = Action;
                     Trigger OnAction()
                     VAR
                         SalesLine: Record "Sales Line";
@@ -436,6 +438,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 {
                     ApplicationArea = all;
                     Caption = 'Acceptation des offres';
+                    Image = Completed;
                     Trigger OnAction()
                     BEGIN
                         SalesHeader := Rec;

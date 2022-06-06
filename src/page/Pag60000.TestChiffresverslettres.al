@@ -38,6 +38,7 @@ page 60000 "PWD Test Chiffres vers lettres"
             {
                 Promoted = true;
                 PromotedCategory = Process;
+                Image= Action;
                 ApplicationArea = All;
 
                 trigger OnAction()

@@ -177,7 +177,7 @@ report 50061 "PWD Sales - Invoice AVITA"
 
                         trigger OnPreDataItem()
                         begin
-                            IF NOT ShowInternalInfo THEN
+                            IF NOT ShowInternalInfoV THEN
                                 CurrReport.BREAK();
                         end;
                     }
@@ -540,7 +540,7 @@ report 50061 "PWD Sales - Invoice AVITA"
 
                             trigger OnPreDataItem()
                             begin
-                                IF NOT ShowInternalInfo THEN
+                                IF NOT ShowInternalInfoV THEN
                                     CurrReport.BREAK();
 
                                 DimSetEntry2.SETRANGE("Dimension Set ID", "Sales Invoice Line"."Dimension Set ID");
@@ -572,7 +572,7 @@ report 50061 "PWD Sales - Invoice AVITA"
 
                             trigger OnPreDataItem()
                             begin
-                                IF NOT IncludeShptNo THEN
+                                IF NOT IncludeShptNoV THEN
                                     CurrReport.BREAK();
 
                                 IF ShipmentInvoiced.COUNT < 1 THEN
@@ -586,7 +586,7 @@ report 50061 "PWD Sales - Invoice AVITA"
                             BooLFind: Boolean;
                             j: Integer;
                         begin
-                            IF (Type = Type::"G/L Account") AND (NOT ShowInternalInfo) THEN
+                            IF (Type = Type::"G/L Account") AND (NOT ShowInternalInfoV) THEN
                                 "No." := '';
                             VATAmountLine.INIT();
                             VATAmountLine."VAT Identifier" := "VAT Identifier";
@@ -600,16 +600,15 @@ report 50061 "PWD Sales - Invoice AVITA"
                                 VATAmountLine."Inv. Disc. Base Amount" := "Line Amount";
                             VATAmountLine."Invoice Discount Amount" := "Inv. Discount Amount";
                             VATAmountLine.InsertLine();
-                            IF IncludeShptNo THEN BEGIN
+                            IF IncludeShptNoV THEN BEGIN
                                 ShipmentInvoiced.RESET();
                                 ShipmentInvoiced.SETRANGE("Invoice No.", "Sales Invoice Line"."Document No.");
                                 ShipmentInvoiced.SETRANGE("Invoice Line No.", "Sales Invoice Line"."Line No.");
                             END;
                             IF Type = Type::Item THEN
                                 IF NOT ItemTrans.GET("No.", '', 'ENU') THEN ItemTrans.INIT();
-                            IF ISSERVICETIER THEN BEGIN
-                                ShowTypeNo := Type;
-                                ShowTypeNo1 := Type;
+                                ShowTypeNo := Type.AsInteger();
+                                ShowTypeNo1 := Type.AsInteger();
                                 IntGLineNo := "Sales Invoice Line"."Line No.";
                                 IF Type <> Type::Item THEN
                                     IntTriRTC := IntGTotalLocation + 1
@@ -651,7 +650,6 @@ report 50061 "PWD Sales - Invoice AVITA"
                                     RecGVatArrayBase[i] := VATAmountLine."VAT Base";
                                     RecGVatArrayAmount[i] := VATAmountLine."VAT Amount";
                                 END;
-                            END;
                             IF "Sales Invoice Line"."PWD Designation ENU" <> '' THEN
                                 GDescription := "Sales Invoice Line"."PWD Designation ENU"
                             ELSE
@@ -689,8 +687,7 @@ report 50061 "PWD Sales - Invoice AVITA"
                 begin
                     IF Number > 1 THEN BEGIN
                         CopyText := CopyText;
-                        IF ISSERVICETIER THEN
-                            OutputNo += 1;
+                        OutputNo += 1;
                     END;
                 end;
 
@@ -702,13 +699,12 @@ report 50061 "PWD Sales - Invoice AVITA"
 
                 trigger OnPreDataItem()
                 begin
-                    NoOfLoops := ABS(NoOfCopies) + Cust."Invoice Copies" + 1;
+                    NoOfLoops := ABS(NoOfCopiesV) + Cust."Invoice Copies" + 1;
                     IF NoOfLoops <= 0 THEN
                         NoOfLoops := 1;
                     CopyText := "Sales Invoice Header"."No." + ' DU ' + FORMAT("Sales Invoice Header"."Document Date");
                     SETRANGE(Number, 1, NoOfLoops);
-                    IF ISSERVICETIER THEN
-                        OutputNo := 1;
+                    OutputNo := 1;
                 end;
             }
 
@@ -779,7 +775,7 @@ report 50061 "PWD Sales - Invoice AVITA"
                     IF ShipToAddr[i] <> CustAddr[i] THEN
                         ShowShippingAddr := TRUE;
 
-                IF LogInteraction THEN
+                IF LogInteractionV THEN
                     IF NOT CurrReport.PREVIEW THEN
                         IF "Bill-to Contact No." <> '' THEN
                             SegManagement.LogDocument(
@@ -831,23 +827,23 @@ report 50061 "PWD Sales - Invoice AVITA"
                 group(Options)
                 {
                     Caption = 'Options';
-                    field(NoOfCopies; NoOfCopies)
+                    field(NoOfCopies; NoOfCopiesV)
                     {
                         Caption = 'No. of Copies';
                         ApplicationArea = All;
                     }
-                    field(ShowInternalInfo; ShowInternalInfo)
+                    field(ShowInternalInfo; ShowInternalInfoV)
                     {
                         Caption = 'Show Internal Information';
                         ApplicationArea = All;
                     }
-                    field(LogInteraction; LogInteraction)
+                    field(LogInteraction; LogInteractionV)
                     {
                         Caption = 'Log Interaction';
                         Enabled = LogInteractionEnable;
                         ApplicationArea = All;
                     }
-                    field(IncludeShptNo; IncludeShptNo)
+                    field(IncludeShptNo; IncludeShptNoV)
                     {
                         Caption = 'Inlude Shipment No.';
                         ApplicationArea = All;
@@ -868,7 +864,7 @@ report 50061 "PWD Sales - Invoice AVITA"
         trigger OnOpenPage()
         begin
             InitLogInteraction();
-            LogInteractionEnable := LogInteraction;
+            LogInteractionEnable := LogInteractionV;
         end;
     }
 
@@ -909,11 +905,11 @@ report 50061 "PWD Sales - Invoice AVITA"
         SalesInvCountPrinted: Codeunit "Sales Inv.-Printed";
         SegManagement: Codeunit SegManagement;
         Continue: Boolean;
-        IncludeShptNo: Boolean;
-        LogInteraction: Boolean;
+        IncludeShptNoV: Boolean;
+        LogInteractionV: Boolean;
         LogInteractionEnable: Boolean;
         MoreLines: Boolean;
-        ShowInternalInfo: Boolean;
+        ShowInternalInfoV: Boolean;
         ShowShippingAddr: Boolean;
         CodGLastLocation: Code[10];
         CodGVatArrayID: array[4] of Code[10];
@@ -928,7 +924,7 @@ report 50061 "PWD Sales - Invoice AVITA"
         IntGLineNo: Integer;
         IntGTotalLocation: Integer;
         IntTriRTC: Integer;
-        NoOfCopies: Integer;
+        NoOfCopiesV: Integer;
         NoOfLoops: Integer;
         NoShipmentNumLoop: Integer;
         OutputNo: Integer;
@@ -992,21 +988,21 @@ report 50061 "PWD Sales - Invoice AVITA"
 
     procedure InitLogInteraction()
     begin
-        LogInteraction := SegManagement.FindInteractTmplCode(4) <> '';
+        LogInteractionV := SegManagement.FindInteractTmplCode(4) <> '';
     end;
 
     procedure DisplayVAT()
     var
-        i: Integer;
+        j: Integer;
     begin
         IF VATAmountLine.GetTotalVATAmount() = 0 THEN
             EXIT;
-        FOR i := 1 TO VATAmountLine.COUNT DO BEGIN
-            VATAmountLine.GetLine(i);
-            VatArrayID[i] := VATAmountLine."VAT Identifier";
-            VatArrayRate[i] := VATAmountLine."VAT %";
-            VatArrayBase[i] := VATAmountLine."VAT Base";
-            VatArrayAmount[i] := VATAmountLine."VAT Amount";
+        FOR j := 1 TO VATAmountLine.COUNT DO BEGIN
+            VATAmountLine.GetLine(j);
+            VatArrayID[j] := VATAmountLine."VAT Identifier";
+            VatArrayRate[j] := VATAmountLine."VAT %";
+            VatArrayBase[j] := VATAmountLine."VAT Base";
+            VatArrayAmount[j] := VATAmountLine."VAT Amount";
         END;
     end;
 }

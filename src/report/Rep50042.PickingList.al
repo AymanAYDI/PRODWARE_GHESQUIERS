@@ -364,8 +364,7 @@ report 50042 "PWD Picking List"
                     RecGReservEntry.SETRANGE("Item No.", "No.");
                     IF NOT RecGReservEntry.FINDSET() THEN
                         RecGReservEntry."Lot No." := '';
-                    IF ISSERVICETIER THEN
-                        LocationCode := "Sales Line"."Location Code";
+                    LocationCode := "Sales Line"."Location Code";
 
                     IF Rec_CallType.GET("Sales Header"."PWD Call Type") THEN
                         IF NOT Rec_CallType."Tri sur code SEAF" THEN

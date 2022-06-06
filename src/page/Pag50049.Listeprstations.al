@@ -34,6 +34,7 @@ page 50049 "PWD Liste préstations"
             action("&Tarifs")
             {
                 Caption = '&Tarifs';
+                Image = Action;
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Page "PWD Tarifs préstation";

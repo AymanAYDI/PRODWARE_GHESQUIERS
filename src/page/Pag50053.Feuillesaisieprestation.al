@@ -641,7 +641,7 @@ page 50053 "PWD Feuille saisie prestation"
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        IF Rec."Entry Type" > Rec."Entry Type"::"Negative Adjmt." THEN
+        IF Rec."Entry Type".AsInteger() > Rec."Entry Type"::"Negative Adjmt.".AsInteger() THEN
             ERROR(Text000, Rec."Entry Type");
         Rec.TESTFIELD("Location Code");
     end;
@@ -686,7 +686,7 @@ page 50053 "PWD Feuille saisie prestation"
     procedure MAJ()
     var
         Cust: Record Customer;
-        ItemJnlBatch: Record "Item Journal Batch";
+        LItemJnlBatch: Record "Item Journal Batch";
         Presta: Record "PWD Prestations";
         Vendor: Record Vendor;
         PWDFunctionMgt: Codeunit "PWD Function Mgt";
@@ -696,13 +696,13 @@ page 50053 "PWD Feuille saisie prestation"
         IF Cust.GET(CustNo) THEN CustName := Cust.Name ELSE CustName := '';
         IF Presta.GET(TypePresta) THEN PrestaName := Presta.Designation ELSE PrestaName := '';
         InvSetup.GET();
-        IF NOT ItemJnlBatch.GET(InvSetup."PWD Nom modele prestation", CurrentJnlBatchName) THEN
-            ItemJnlBatch.INIT() ELSE BEGIN
-            Scellement := ItemJnlBatch."PWD Sealing";
-            PJ1 := ItemJnlBatch."PWD Attachment 1";
-            PJ2 := ItemJnlBatch."PWD Attachment 2";
-            PJ3 := ItemJnlBatch."PWD Attachment 3";
-            PJ4 := ItemJnlBatch."PWD Attachment 4";
+        IF NOT LItemJnlBatch.GET(InvSetup."PWD Nom modele prestation", CurrentJnlBatchName) THEN
+            LItemJnlBatch.INIT() ELSE BEGIN
+            Scellement := LItemJnlBatch."PWD Sealing";
+            PJ1 := LItemJnlBatch."PWD Attachment 1";
+            PJ2 := LItemJnlBatch."PWD Attachment 2";
+            PJ3 := LItemJnlBatch."PWD Attachment 3";
+            PJ4 := LItemJnlBatch."PWD Attachment 4";
         END;
     end;
 

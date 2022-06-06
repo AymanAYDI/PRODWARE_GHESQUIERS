@@ -92,6 +92,7 @@ page 50072 "PWD Purchase Order Seafrance"
                 action("Controle Unitaire")
                 {
                     Caption = 'Contrôle  Unitaire';
+                    Image = Action;
                     ApplicationArea = All;
                     trigger OnAction()
                     begin

@@ -375,6 +375,7 @@ page 50074 "PWD Seafrance Sales Order"
                 action("Intégrer la commande")
                 {
                     Caption = 'Intégrer la commande';
+                    Image = Action;
                     ApplicationArea = All;
 
                     trigger OnAction()

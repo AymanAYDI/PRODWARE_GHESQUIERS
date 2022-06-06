@@ -160,6 +160,7 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
                 {
                     ApplicationArea = all;
                     Caption = 'Sélection des fournisseurs à interroger';
+                    Image = Action;
                     RunObject = Page "Appeal for tenders/Vendor -TrB";
                     RunPageLink = "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No.");
                 }
@@ -204,6 +205,7 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
                 {
                     ApplicationArea = all;
                     Caption = 'Sélection des  offres fournisseurs';
+                    Image = Action;
                     trigger OnAction()
                     VAR
                         SalesLine: Record "Sales Line";
@@ -219,7 +221,7 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
                 {
                     ApplicationArea = all;
                     Caption = 'Acceptation des offres';
-                    Image=PrintReport;
+                    Image = PrintReport;
                     trigger OnAction()
                     VAR
                         SalesHeader: Record "Sales Header";

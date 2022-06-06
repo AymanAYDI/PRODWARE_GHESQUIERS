@@ -328,7 +328,7 @@ codeunit 50018 "PWD MakePreparation"
     procedure InsertTrackingLines2()
     var
         ItemLedgerEntry: Record "Item Ledger Entry";
-        ItemTrackingLines: Record "Tracking Specification";
+        ItemTrackingLinesL: Record "Tracking Specification";
         CumulatedRemainingQty: Decimal;
         Difference: Decimal;
         InsertedTrackingQty: Decimal;
@@ -345,29 +345,29 @@ codeunit 50018 "PWD MakePreparation"
         ItemLedgerEntry.SETRANGE(ItemLedgerEntry.Positive, TRUE);
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Remaining Quantity", '<>%1', 0);
         IF ItemLedgerEntry.FIND('-') THEN BEGIN
-            ItemTrackingLines.FIND('+');
-            EntryNo := ItemTrackingLines."Entry No.";
+            ItemTrackingLinesL.FIND('+');
+            EntryNo := ItemTrackingLinesL."Entry No.";
             REPEAT
                 EntryNo += 1;
                 CumulatedRemainingQty += ItemLedgerEntry."Remaining Quantity";
                 Difference := SalesLine."PWD Prepared Quantity (Base)" - InsertedTrackingQty;
                 IF (Difference <> 0) THEN BEGIN
-                    ItemTrackingLines.INIT();
-                    ItemTrackingLines.VALIDATE("Entry No.", EntryNo);
-                    ItemTrackingLines.VALIDATE("Item No.", ItemLedgerEntry."Item No.");
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."Location Code", SalesLine."Location Code");
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."Source Type", DATABASE::"Sales Line");
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."Source Subtype", SalesLine."Document Type");
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."Source ID", SalesLine."Document No.");
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."Source Ref. No.", SalesLine."Line No.");
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."Lot No.", ItemLedgerEntry."Lot No.");
+                    ItemTrackingLinesL.INIT();
+                    ItemTrackingLinesL.VALIDATE("Entry No.", EntryNo);
+                    ItemTrackingLinesL.VALIDATE("Item No.", ItemLedgerEntry."Item No.");
+                    ItemTrackingLinesL.VALIDATE(ItemTrackingLinesL."Location Code", SalesLine."Location Code");
+                    ItemTrackingLinesL.VALIDATE(ItemTrackingLinesL."Source Type", DATABASE::"Sales Line");
+                    ItemTrackingLinesL.VALIDATE(ItemTrackingLinesL."Source Subtype", SalesLine."Document Type");
+                    ItemTrackingLinesL.VALIDATE(ItemTrackingLinesL."Source ID", SalesLine."Document No.");
+                    ItemTrackingLinesL.VALIDATE(ItemTrackingLinesL."Source Ref. No.", SalesLine."Line No.");
+                    ItemTrackingLinesL.VALIDATE(ItemTrackingLinesL."Lot No.", ItemLedgerEntry."Lot No.");
                     IF CumulatedRemainingQty <= SalesLine."PWD Prepared Quantity (Base)" THEN
-                        ItemTrackingLines.VALIDATE(ItemTrackingLines."Quantity (Base)", ItemLedgerEntry."Remaining Quantity") ELSE
-                        ItemTrackingLines.VALIDATE(ItemTrackingLines."Quantity (Base)", Difference);
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."Creation Date", ItemLedgerEntry."Posting Date");
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."PWD Certificate Transit No.", ItemLedgerEntry."PWD Cetificate Transit No.");
-                    ItemTrackingLines.INSERT(TRUE);
-                    InsertedTrackingQty += ItemTrackingLines."Quantity (Base)";
+                        ItemTrackingLinesL.VALIDATE(ItemTrackingLinesL."Quantity (Base)", ItemLedgerEntry."Remaining Quantity") ELSE
+                        ItemTrackingLinesL.VALIDATE(ItemTrackingLinesL."Quantity (Base)", Difference);
+                    ItemTrackingLinesL.VALIDATE(ItemTrackingLinesL."Creation Date", ItemLedgerEntry."Posting Date");
+                    ItemTrackingLinesL.VALIDATE(ItemTrackingLinesL."PWD Certificate Transit No.", ItemLedgerEntry."PWD Cetificate Transit No.");
+                    ItemTrackingLinesL.INSERT(TRUE);
+                    InsertedTrackingQty += ItemTrackingLinesL."Quantity (Base)";
                 END;
             UNTIL (ItemLedgerEntry.NEXT() = 0) OR (InsertedTrackingQty = SalesLine."PWD Prepared Quantity (Base)")
         END;

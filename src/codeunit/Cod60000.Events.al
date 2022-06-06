@@ -798,6 +798,24 @@ codeunit 60000 "PWD Events"
             SalesShptHeader."PWD Generate Export File" := TRUE;
     end;
 
+    //TODO Vérifier l'event utilisé
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnPostSalesLineOnBeforeTestUnitOfMeasureCode', '', false, false)]
+    local procedure CDU80_OnBeforeSalesShptHeaderInsertOnPostSalesLineOnBeforeTestUnitOfMeasureCode_SalesPost(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; var TempSalesLineGlobal: Record "Sales Line" temporary)
+    var
+        Item: Record Item;
+        Location: Record Location;
+        Text1000000005: Label 'Le prix de l''article %1 (ligne %2) est inférieur au prix plancher (%3).';
+        Text1000000006: Label 'Le prix de l''article %1 (ligne %2) ne pas être nul.';
+    begin
+        IF Item.GET(SalesLine."No.") AND Location.GET(SalesLine."Location Code") THEN
+            IF (Location."PWD Controle du prix plancher" = TRUE) THEN BEGIN
+                IF (Item."PWD Bottom Price" <> 0) AND (SalesLine."Unit Price" < Item."PWD Bottom Price") THEN
+                    ERROR(STRSUBSTNO(Text1000000005, SalesLine."No.", SalesLine."Line No.", Item."PWD Bottom Price"));
+                IF (SalesLine."Unit Price" = 0) THEN
+                    ERROR(STRSUBSTNO(Text1000000006, SalesLine."No.", SalesLine."Line No."));
+            END;
+    end;
+
     //---CDU81---
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post (Yes/No)", 'OnBeforeConfirmSalesPost', '', false, false)]
     local procedure CDU81_OnBeforeConfirmSalesPost_SalesPostYesNo(var SalesHeader: Record "Sales Header"; var HideDialog: Boolean; var IsHandled: Boolean; var DefaultOption: Integer; var PostAndSend: Boolean)

@@ -174,7 +174,7 @@ report 50043 "PWD Validate Sales Order"
             //*** Recherche si userid appartient au role direction
             //TODO MemberOf.SETRANGE("User ID",USERID);
             MemberOf.SETRANGE("Role ID", GenLedSetUp."PWD Direction Role ID");
-            IF MemberOf.FindFirst() THEN BEGIN
+            IF not MemberOf.IsEmpty THEN BEGIN
                 IF CONFIRM(Text1000000000, TRUE, ProfitPct, Cust."PWD Discount Profit %", '%') = FALSE THEN
                     ERROR(Text1000000001, ProfitPct, Cust."PWD Discount Profit %", '%');
             END ELSE

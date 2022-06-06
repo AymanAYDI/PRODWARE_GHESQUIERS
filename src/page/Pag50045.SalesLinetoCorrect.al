@@ -591,7 +591,7 @@ page 50045 "PWD Sales Line to Correct"
     procedure PrintHealthCertificate()
     var
         CustomsCertif: Record "PWD Customs Documents Template";
-        SalesLine: Record "Sales Line";
+        LSalesLine: Record "Sales Line";
         HealthCertifWordMngt: Codeunit "PWD Customs Sales Doc WordMngt";
         AssignDocTemplateCode: Page "Choose Customs Doc Template";
         DocTemplateCode: Code[10];
@@ -602,7 +602,7 @@ page 50045 "PWD Sales Line to Correct"
             AssignDocTemplateCode.GetFields(DocTemplateCode);
             CustomsCertif.GET(DocTemplateCode);
             CLEAR(HealthCertifWordMngt);
-            CurrPage.SETSELECTIONFILTER(SalesLine);
+            CurrPage.SETSELECTIONFILTER(LSalesLine);
             //ToDo
             //HealthCertifWordMngt.Merge(SalesLine, CustomsCertif, CustomsCertif."No.");
         END;

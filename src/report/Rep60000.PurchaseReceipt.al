@@ -165,7 +165,7 @@ report 60000 "PWD Purchase - Receipt"
                         trigger OnPreDataItem()
                         begin
 
-                            IF NOT ShowInternalInfo THEN
+                            IF NOT ShowInternalInfoV THEN
                                 CurrReport.BREAK();
                         end;
                     }
@@ -318,14 +318,14 @@ report 60000 "PWD Purchase - Receipt"
                             trigger OnPreDataItem()
                             begin
 
-                                IF NOT ShowInternalInfo THEN
+                                IF NOT ShowInternalInfoV THEN
                                     CurrReport.BREAK();
                             end;
                         }
 
                         trigger OnAfterGetRecord()
                         begin
-                            IF (NOT ShowCorrectionLines) AND Correction THEN
+                            IF (NOT ShowCorrectionLinesV) AND Correction THEN
                                 CurrReport.SKIP();
                             //ToDo
                             //PostedDocDim2.SETRANGE("Table ID", DATABASE::"Purch. Rcpt. Line");
@@ -466,7 +466,7 @@ report 60000 "PWD Purchase - Receipt"
 
                 FormatAddr.PurchRcptPayTo(VendAddr, "Purch. Rcpt. Header");
 
-                IF LogInteraction THEN
+                IF LogInteractionV THEN
                     IF NOT CurrReport.PREVIEW THEN
                         SegManagement.LogDocument(
                           15, "No.", 0, 0, DATABASE::Vendor, "Buy-from Vendor No.", "Purchaser Code", '', "Posting Description", '');
@@ -491,18 +491,18 @@ report 60000 "PWD Purchase - Receipt"
                         Caption = 'No. of Copies';
                         ApplicationArea = All;
                     }
-                    field(ShowInternalInfo; ShowInternalInfo)
+                    field(ShowInternalInfo; ShowInternalInfoV)
                     {
                         Caption = 'Show Internal Information';
                         ApplicationArea = All;
                     }
-                    field(LogInteraction; LogInteraction)
+                    field(LogInteraction; LogInteractionV)
                     {
                         Caption = 'Log Interaction';
                         Enabled = LogInteractionEnable;
                         ApplicationArea = All;
                     }
-                    field(ShowCorrectionLines; ShowCorrectionLines)
+                    field(ShowCorrectionLines; ShowCorrectionLinesV)
                     {
                         Caption = 'Show Correction Lines';
                         ApplicationArea = All;
@@ -522,8 +522,8 @@ report 60000 "PWD Purchase - Receipt"
 
         trigger OnOpenPage()
         begin
-            LogInteraction := SegManagement.FindInteractTmplCode(15) <> '';
-            LogInteractionEnable := LogInteraction;
+            LogInteractionV := SegManagement.FindInteractTmplCode(15) <> '';
+            LogInteractionEnable := LogInteractionV;
         end;
     }
 
@@ -542,11 +542,11 @@ report 60000 "PWD Purchase - Receipt"
         RcptCountPrinted: Codeunit "Purch.Rcpt.-Printed";
         SegManagement: Codeunit SegManagement;
         Continue: Boolean;
-        LogInteraction: Boolean;
+        LogInteractionV: Boolean;
         LogInteractionEnable: Boolean;
         MoreLines: Boolean;
-        ShowCorrectionLines: Boolean;
-        ShowInternalInfo: Boolean;
+        ShowCorrectionLinesV: Boolean;
+        ShowInternalInfoV: Boolean;
         PoidsBrutLigne: Decimal;
         PoidsNetLigne: Decimal;
         PrixLigne: Decimal;

@@ -1,7 +1,7 @@
 codeunit 60001 "PWD Function Mgt"
 {
     var
-        TempPurchPrice: Record "Purchase Price";
+        PurchPrice: Record "Purchase Price";
 
     //---TAB36---
     procedure FctT36_OnBeforeSalesLineInsert_SalesHeader(var SalesLine: Record "Sales Line"; var SalesLineTmp: Record "Sales Line" temporary; SalesHeader: Record "Sales Header")
@@ -60,7 +60,7 @@ codeunit 60001 "PWD Function Mgt"
         //Memberof.SETRANGE(Memberof."User ID", USERID);
         Memberof.SETRANGE("User Security ID", UserSecurityId());
         Memberof.SetFilter("Role ID", '<>%1', SalesSetup."PWD Sales Order User Group");//Code amélioré
-        IF Memberof.FindFirst() THEN
+        IF Not Memberof.IsEmpty THEN
             //IF Memberof."Role ID" <> SalesSetup."PWD Sales Order User Group" THEN
                 IF SalesHeader."PWD Order Prepared" = TRUE THEN
                 IF Rec."Location Code" <> '' THEN
@@ -194,7 +194,7 @@ codeunit 60001 "PWD Function Mgt"
             RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", RecSalesHeader."PWD Call Type");
             RecLocPriority.SETRANGE(RecLocPriority."PWD Location code", Rec."Location Code"); //GTE test sur sales header
 
-            IF NOT RecLocPriority.FindFirst() AND (Rec."Location Code" <> '') THEN
+            IF RecLocPriority.IsEmpty() AND (Rec."Location Code" <> '') THEN
                 ERROR(Text1000000005, Rec."Location Code");
         END
     end;
@@ -275,6 +275,7 @@ codeunit 60001 "PWD Function Mgt"
     procedure FctOnBeforeUpdateSpecialSalesOrderLineFromOnDeleteT39(var PurchaseLine: Record "Purchase Line"; var SalesOrderLine: Record "Sales Line")
     var
         AppTenders: Record "PWD Appeal for Tenders";
+        SalesTypeDocAppealtenders: enum "PWD Sales TypeDocAppealtenders";
     begin
         IF (PurchaseLine."PWD SalesLineNoAppealTenders" <> 0) THEN BEGIN
             PurchaseLine.LOCKTABLE();
@@ -296,7 +297,7 @@ codeunit 60001 "PWD Function Mgt"
             END;
 
             IF SalesOrderLine."PWD Order Trading brand" = TRUE THEN BEGIN
-                PurchaseLine."PWD SalesTypeDocAppealTend." := 0;
+                PurchaseLine."PWD SalesTypeDocAppealTend." := SalesTypeDocAppealtenders::Quote;
                 SalesOrderLine."PWD Trad.BrandOrderPurchNo." := '';
                 SalesOrderLine."PWD Trad.BrOrderPurch.LineNo." := 0;
                 SalesOrderLine."PWD Trading Brand" := FALSE;
@@ -972,7 +973,7 @@ codeunit 60001 "PWD Function Mgt"
             //*** Recherche si userid appartient au role direction
             MemberOf.SETRANGE("User Security ID", UserSecurityId());
             MemberOf.SETRANGE("Role ID", GenLedSetUp."PWD Direction Role ID");
-            IF MemberOf.FindFirst() THEN BEGIN
+            IF Not MemberOf.IsEmpty THEN BEGIN
                 IF CONFIRM(Text1000000000, TRUE, ProfitPct, Cust."PWD Discount Profit %", '%') = FALSE THEN
                     ERROR(Text1000000001, ProfitPct, Cust."PWD Discount Profit %", '%');
             END ELSE
@@ -996,7 +997,7 @@ codeunit 60001 "PWD Function Mgt"
     BEGIN
         MemberOf.SETRANGE("User Security ID", UserSecurityId());
         MemberOf.SETRANGE("Role ID", 'DIRECTION');
-        IF MemberOf.FindFirst() THEN
+        IF Not MemberOf.IsEmpty THEN
             Avertissement := TRUE
         ELSE
             Avertissement := FALSE;
@@ -1123,7 +1124,7 @@ codeunit 60001 "PWD Function Mgt"
         CLEAR(ShipmentLine);
         ShipmentLine.SETRANGE("Document No.", SalesShipmentHeader."No.");
         ShipmentLine.SETFILTER("Location Code", '6|9|9HCEE');
-        IF NOT ShipmentLine.FindFirst() THEN ERROR(Text1000000057);
+        IF ShipmentLine.IsEmpty THEN ERROR(Text1000000057);
 
         SalesShipmentHeader.SETRECFILTER();
         ReportSelection.SETRANGE(Usage, ReportSelection.Usage::T1);
@@ -1145,7 +1146,7 @@ codeunit 60001 "PWD Function Mgt"
         CLEAR(ShipmentLine);
         ShipmentLine.SETRANGE("Document No.", SalesShipmentHeader."No.");
         ShipmentLine.SETFILTER("Location Code", '8|9');
-        IF NOT ShipmentLine.FindFirst() THEN ERROR(Text1000000057);
+        IF ShipmentLine.IsEmpty THEN ERROR(Text1000000057);
 
         SalesShipmentHeader.SETRECFILTER();
         ReportSelection.SETRANGE(Usage, ReportSelection.Usage::TM);
@@ -1186,7 +1187,7 @@ codeunit 60001 "PWD Function Mgt"
             SalesShptLine.SETCURRENTKEY("Document No.", "Location Code");
             SalesShptLine.SETRANGE("Document No.", SalesShipmentHeader."No.");
             SalesShptLine.SETFILTER("Location Code", LocationList[i] [1]);
-            IF SalesShptLine.FindFirst() THEN
+            IF Not SalesShptLine.IsEmpty THEN
                 NumberEx3(SalesShipmentHeader, LocationList[i] [1], 5);
             /*     //TODO
             CLEAR(ReportEX1);
@@ -1225,7 +1226,7 @@ codeunit 60001 "PWD Function Mgt"
             SalesShptLine.SETCURRENTKEY("Document No.", "Location Code");
             SalesShptLine.SETRANGE("Document No.", SalesShipmentHeader."No.");
             SalesShptLine.SETFILTER("Location Code", LocationList[i] [1]);
-            IF SalesShptLine.FindFirst() THEN
+            IF Not SalesShptLine.IsEmpty THEN
                 NumberEx3(SalesShipmentHeader, LocationList[i] [1], 7);
             /*   //TODO
             CLEAR(ReportEX9);
@@ -1264,7 +1265,7 @@ codeunit 60001 "PWD Function Mgt"
             SalesShptLine.SETCURRENTKEY("Document No.", "Location Code");
             SalesShptLine.SETRANGE("Document No.", SalesShipmentHeader."No.");
             SalesShptLine.SETFILTER("Location Code", LocationList[i] [1]);
-            IF SalesShptLine.FindFirst() THEN
+            IF not SalesShptLine.IsEmpty THEN
                 NumberEx3(SalesShipmentHeader, LocationList[i] [1], 6);
             /*           //TODO
             CLEAR(ReportCOM9);
@@ -1299,7 +1300,7 @@ codeunit 60001 "PWD Function Mgt"
     BEGIN
         CLEAR(LoadingList);
         LoadingList.SETRANGE("Sales Ship. No.", SalesShipmentHeader."No.");
-        IF NOT LoadingList.FindFirst() THEN ERROR(Text1000000002, SalesShipmentHeader."No.");
+        IF LoadingList.IsEmpty THEN ERROR(Text1000000002, SalesShipmentHeader."No.");
     END;
 
     PROCEDURE NumberEx3(SalesShipHeader: Record "Sales Shipment Header"; FromLocationCode: Code[20]; Ex3DocType: Option " ","T5","T1","TM","COM7","EX1","COM9","EX9");
@@ -1366,7 +1367,7 @@ codeunit 60001 "PWD Function Mgt"
         CustomsLine.SETRANGE("Document Type", CustomsLine."Document Type"::"S.Shipment");
         CustomsLine.SETRANGE("Document No.", SalesShipHeader."No.");
         CustomsLine.SETFILTER("Customs Document Type", 'EX1|COM9|EX9');
-        IF CustomsLine.FindFirst() THEN MESSAGE(CstG001);
+        IF Not CustomsLine.IsEmpty THEN MESSAGE(CstG001);
     END;
 
     //---CDU240---
@@ -2175,7 +2176,7 @@ codeunit 60001 "PWD Function Mgt"
     var
     begin
         IF ItemPurchLinePriceExists(ItemNo, OrderDate, ShowAll) THEN
-            EXIT(TempPurchPrice.COUNT);
+            EXIT(PurchPrice.COUNT);
     end;
 
     procedure ItemPurchLinePriceExists(ItemNo: Code[20]; OrderDate: date; ShowAll: Boolean): Boolean
@@ -2185,8 +2186,8 @@ codeunit 60001 "PWD Function Mgt"
         IF ItemNo <> '' THEN
             IF Item.GET(ItemNo) THEN BEGIN
                 FindItemPurchPrice(
-                  TempPurchPrice, ItemNo, OrderDate, ShowAll);
-                EXIT(TempPurchPrice.FindFirst());
+                  PurchPrice, ItemNo, OrderDate, ShowAll);
+                EXIT(PurchPrice.FindFirst());
             END;
         EXIT(FALSE);
     end;
@@ -2195,7 +2196,7 @@ codeunit 60001 "PWD Function Mgt"
     var
     begin
         ItemPurchLinePriceExists(ItemNo, OrderDate, TRUE);
-        IF Page.RUNMODAL(Page::"Get Purchase Price", TempPurchPrice) = ACTION::OK THEN;
+        IF Page.RUNMODAL(Page::"Get Purchase Price", PurchPrice) = ACTION::OK THEN;
     end;
 
     procedure CalcNoOfPurchasePrices(SalesLine: Record "Sales Line"): Integer
@@ -2262,7 +2263,7 @@ codeunit 60001 "PWD Function Mgt"
             ItemJnlLine.SetReservationFilters(ReservEntry); //TODO: Vérifier Code adapté
             ReservEntry.SETRANGE("Serial No.");
             ReservEntry.SETRANGE("Lot No.");
-            IF NOT ReservEntry.FindFirst() THEN
+            IF ReservEntry.IsEmpty THEN
                 ERROR(Text006, ItemJnlLine.FIELDCAPTION("Operation No."), ItemJnlLine."Operation No.");
         END;
         //InitTrackingSpecification(ItemJnlLine,TrackingSpecification);

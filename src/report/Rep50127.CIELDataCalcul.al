@@ -61,7 +61,7 @@ report 50127 "PWD CIEL Data Calcul"
                         trigger OnPreDataItem()
                         begin
                             SETRANGE("Item Ledger Entry No.", ItemLedgerEntryAcquitRight."Entry No.");
-                            SETFILTER("Location Code", TxtGAcquitRightLocation);
+                            SETFILTER("Location Code", TxtGAcquitRightLocationV);
                         end;
                     }
 
@@ -83,7 +83,7 @@ report 50127 "PWD CIEL Data Calcul"
                     begin
 
                         SETRANGE("Item No.", Item."No.");
-                        SETFILTER("Location Code", TxtGAcquitRightLocation);
+                        SETFILTER("Location Code", TxtGAcquitRightLocationV);
                         SETRANGE("Posting Date", 0D, DatGEndingDate);
 
                         IntGCounter := COUNT;
@@ -137,7 +137,7 @@ report 50127 "PWD CIEL Data Calcul"
                         trigger OnPreDataItem()
                         begin
                             SETRANGE("Item Ledger Entry No.", ItemLedgerEntrySuspendRight."Entry No.");
-                            SETFILTER("Location Code", TxtGSuspendRightLocation);
+                            SETFILTER("Location Code", TxtGSuspendRightLocationV);
                         end;
                     }
 
@@ -159,7 +159,7 @@ report 50127 "PWD CIEL Data Calcul"
                     begin
 
                         SETRANGE("Item No.", Item."No.");
-                        SETFILTER("Location Code", TxtGSuspendRightLocation);
+                        SETFILTER("Location Code", TxtGSuspendRightLocationV);
                         SETRANGE("Posting Date", 0D, DatGEndingDate);
 
                         IntGCounter := COUNT;
@@ -214,10 +214,10 @@ report 50127 "PWD CIEL Data Calcul"
                        (DecGOutputAcquitRight <> 0) OR
                        (DecGQtyEndPeriodAcquitRight <> 0) THEN BEGIN
                         RecGCIELData.INIT();
-                        RecGCIELData."Location Filter" := TxtGAcquitRightLocation;
+                        RecGCIELData."Location Filter" := TxtGAcquitRightLocationV;
                         RecGCIELData."Personnal Caption" := "Personal Caption".Name;
-                        RecGCIELData.Month := IntGMonth;
-                        RecGCIELData.Year := IntGyear;
+                        RecGCIELData.Month := IntGMonthV;
+                        RecGCIELData.Year := IntGyearV;
                         RecGCIELData."Right Type" := RecGCIELData."Right Type"::"Value acquittees";
                         RecGCIELData."Fiscal Caption" := "Personal Caption"."Fiscal Caption";
                         RecGCIELData."Rate Of Alcohol By Volume" := "Personal Caption"."Rate Of Alcohol By Volume";
@@ -243,10 +243,10 @@ report 50127 "PWD CIEL Data Calcul"
                        (DecGOutputSuspendRight <> 0) OR
                        (DecGQtyEndPeriodSuspendRight <> 0) THEN BEGIN
                         RecGCIELData.INIT();
-                        RecGCIELData."Location Filter" := TxtGSuspendRightLocation;
+                        RecGCIELData."Location Filter" := TxtGSuspendRightLocationV;
                         RecGCIELData."Personnal Caption" := "Personal Caption".Name;
-                        RecGCIELData.Month := IntGMonth;
-                        RecGCIELData.Year := IntGyear;
+                        RecGCIELData.Month := IntGMonthV;
+                        RecGCIELData.Year := IntGyearV;
                         RecGCIELData."Right Type" := RecGCIELData."Right Type"::"Value suspended";
                         RecGCIELData."Fiscal Caption" := "Personal Caption"."Fiscal Caption";
                         RecGCIELData."Rate Of Alcohol By Volume" := "Personal Caption"."Rate Of Alcohol By Volume";
@@ -308,22 +308,22 @@ report 50127 "PWD CIEL Data Calcul"
                 group("Options de Filtrage")
                 {
                     Caption = 'Options de Filtrage';
-                    field(IntGyear; IntGyear)
+                    field(IntGyear; IntGyearV)
                     {
                         Caption = 'Year';
                         ApplicationArea = All;
                     }
-                    field(IntGMonth; IntGMonth)
+                    field(IntGMonth; IntGMonthV)
                     {
                         Caption = 'Month';
                         ApplicationArea = All;
                     }
-                    field(TxtGAcquitRightLocation; TxtGAcquitRightLocation)
+                    field(TxtGAcquitRightLocation; TxtGAcquitRightLocationV)
                     {
                         Caption = 'Acquits Rights Location';
                         ApplicationArea = All;
                     }
-                    field(TxtGSuspendRightLocation; TxtGSuspendRightLocation)
+                    field(TxtGSuspendRightLocation; TxtGSuspendRightLocationV)
                     {
                         Caption = 'Suspended Rights Location';
                         ApplicationArea = All;
@@ -338,13 +338,13 @@ report 50127 "PWD CIEL Data Calcul"
 
         trigger OnOpenPage()
         begin
-            IntGyear := DATE2DMY(WORKDATE(), 3);
-            IntGMonth := DATE2DMY(WORKDATE(), 2);
+            IntGyearV := DATE2DMY(WORKDATE(), 3);
+            IntGMonthV := DATE2DMY(WORKDATE(), 2);
 
             RecGCompanyInformation.GET();
 
-            TxtGAcquitRightLocation := RecGCompanyInformation."PWD LocationRightAcquitFilter";
-            TxtGSuspendRightLocation := RecGCompanyInformation."PWD Loc.RightSuspendedFilter";
+            TxtGAcquitRightLocationV := RecGCompanyInformation."PWD LocationRightAcquitFilter";
+            TxtGSuspendRightLocationV := RecGCompanyInformation."PWD Loc.RightSuspendedFilter";
         end;
     }
 
@@ -354,16 +354,16 @@ report 50127 "PWD CIEL Data Calcul"
 
     trigger OnPreReport()
     begin
-        IF IntGyear = 0 THEN
+        IF IntGyearV = 0 THEN
             ERROR(CstG002);
-        IF (IntGMonth < 1) OR (IntGMonth > 12) THEN
+        IF (IntGMonthV < 1) OR (IntGMonthV > 12) THEN
             ERROR(CstG003);
 
-        DatGStartingDate := DMY2DATE(1, IntGMonth, IntGyear);
-        IF IntGMonth = 12 THEN
-            DatGEndingDate := CALCDATE('<-1D>', DMY2DATE(1, 1, IntGyear + 1))
+        DatGStartingDate := DMY2DATE(1, IntGMonthV, IntGyearV);
+        IF IntGMonthV = 12 THEN
+            DatGEndingDate := CALCDATE('<-1D>', DMY2DATE(1, 1, IntGyearV + 1))
         ELSE
-            DatGEndingDate := CALCDATE('<-1D>', DMY2DATE(1, IntGMonth + 1, IntGyear));
+            DatGEndingDate := CALCDATE('<-1D>', DMY2DATE(1, IntGMonthV + 1, IntGyearV));
     end;
 
     var
@@ -387,12 +387,12 @@ report 50127 "PWD CIEL Data Calcul"
         Bdialog: Dialog;
         IntGCounter: Integer;
         IntGmethodeAT: Integer;
-        IntGMonth: Integer;
-        IntGyear: Integer;
+        IntGMonthV: Integer;
+        IntGyearV: Integer;
         CstG001: Label 'Libellé personnalisé #1##########\Article #2##########\Ecriture droits acquits #3##########\Ecriture droits suspendus #4##########\';
         CstG002: Label 'You must specify a year';
         CstG003: Label 'You must specify a month';
         CstG004: Label 'Calcul finish !';
-        TxtGAcquitRightLocation: Text[100];
-        TxtGSuspendRightLocation: Text[100];
+        TxtGAcquitRightLocationV: Text[100];
+        TxtGSuspendRightLocationV: Text[100];
 }

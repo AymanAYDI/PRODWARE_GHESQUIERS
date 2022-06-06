@@ -16,9 +16,9 @@ report 50126 "Validate And Print Sales Order"
 
             trigger OnPreDataItem()
             begin
-                IF PostingDate = 0D THEN
+                IF PostingDateV = 0D THEN
                     ERROR(Text1000000003);
-                IF DocumentDate = 0D THEN
+                IF DocumentDateV = 0D THEN
                     ERROR(Text1000000004);
                 SalesHeader.SETRANGE(SalesHeader."Document Type", DocType);
                 SalesHeader.SETRANGE(SalesHeader."No.", NumDocument);
@@ -34,22 +34,22 @@ report 50126 "Validate And Print Sales Order"
             {
                 group(Invoice)
                 {
-                    field(PostingDate; PostingDate)
+                    field(PostingDate; PostingDateV)
                     {
                         Caption = 'Date de comptabilisation';
                         ApplicationArea = All;
                     }
-                    field(DocumentDate; DocumentDate)
+                    field(DocumentDate; DocumentDateV)
                     {
                         Caption = 'Date de document';
                         ApplicationArea = All;
                     }
-                    field(ToShip; ToShip)
+                    field(ToShip; ToShipV)
                     {
                         Caption = 'Livrer';
                         ApplicationArea = All;
                     }
-                    field(ToInvoice; ToInvoice)
+                    field(ToInvoice; ToInvoiceV)
                     {
                         Caption = 'Facturer';
                         ApplicationArea = All;
@@ -76,11 +76,11 @@ report 50126 "Validate And Print Sales Order"
         SalesLine: Record "Sales Line";
         SalesShptHeader: Record "Sales Shipment Header";
         SalesPost: Codeunit "Sales-Post";
-        ToInvoice: Boolean;
-        ToShip: Boolean;
+        ToInvoiceV: Boolean;
+        ToShipV: Boolean;
         NumDocument: Code[20];
-        DocumentDate: Date;
-        PostingDate: Date;
+        DocumentDateV: Date;
+        PostingDateV: Date;
         Text001: Label 'Do you want to post and print the %1?';
         Text1000000000: Label 'Profit (%1 %3) is inferior than Discount profit (%2 %3) \Would you like to post the document ?';
         Text1000000001: Label 'Profit (%1 %3) is inferior than Discount profit (%2 %3).';
@@ -94,7 +94,7 @@ report 50126 "Validate And Print Sales Order"
         Cust: Record Customer;
         GenLedSetUp: Record "General Ledger Setup";
         MemberOf: Record "Permission Set";
-        SalesLine: Record "Sales Line";
+        LSalesLine: Record "Sales Line";
         TempSalesLine: Record "Sales Line" temporary;
         TotalSalesLine: Record "Sales Line";
         TotalSalesLineLCY: Record "Sales Line";
@@ -107,7 +107,7 @@ report 50126 "Validate And Print Sales Order"
         TotalAmount2: Decimal;
         VATAmount: Decimal;
     begin
-        CLEAR(SalesLine);
+        CLEAR(LSalesLine);
         CLEAR(TotalSalesLine);
         CLEAR(TotalSalesLineLCY);
         CLEAR(SalesPost);
@@ -138,7 +138,7 @@ report 50126 "Validate And Print Sales Order"
                 ELSE
                     CreditLimitLCYExpendedPct := ROUND(Cust."Balance (LCY)" / Cust."Credit Limit (LCY)" * 10000, 1);
 
-        SalesLine.CalcVATAmountLines(1, SalesHeader, TempSalesLine, TempVATAmountLine);
+        LSalesLine.CalcVATAmountLines(1, SalesHeader, TempSalesLine, TempVATAmountLine);
         TempVATAmountLine.MODIFYALL(Modified, FALSE);
 
         TotalSalesLine."Inv. Discount Amount" := TempVATAmountLine.GetTotalInvDiscAmount();
@@ -190,11 +190,11 @@ report 50126 "Validate And Print Sales Order"
         IF (SalesHeader."Document Type" = SalesHeader."Document Type"::Order) OR (SalesHeader."Document Type" = SalesHeader."Document Type"::Invoice) THEN
             ControlProfit();
         CtrlUnitPrice();
-        SalesHeader.VALIDATE("Posting Date", PostingDate);
-        SalesHeader.VALIDATE("Document Date", DocumentDate);
+        SalesHeader.VALIDATE("Posting Date", PostingDateV);
+        SalesHeader.VALIDATE("Document Date", DocumentDateV);
         SalesHeader.VALIDATE("Document Date");
-        SalesHeader.Ship := ToShip;
-        SalesHeader.Invoice := ToInvoice;
+        SalesHeader.Ship := ToShipV;
+        SalesHeader.Invoice := ToInvoiceV;
         CASE SalesHeader."Document Type" OF
             SalesHeader."Document Type"::Order:
                 BEGIN
@@ -229,12 +229,12 @@ report 50126 "Validate And Print Sales Order"
 
     procedure InitRequete(SalesHeader1: Record "Sales Header")
     begin
-        PostingDate := WORKDATE();
-        DocumentDate := WORKDATE();
-        DocType := SalesHeader1."Document Type";
+        PostingDateV := WORKDATE();
+        DocumentDateV := WORKDATE();
+        DocType := SalesHeader1."Document Type".AsInteger();
         NumDocument := SalesHeader1."No.";
-        ToInvoice := TRUE;
-        ToShip := TRUE;
+        ToInvoiceV := TRUE;
+        ToShipV := TRUE;
     end;
 
     procedure CtrlUnitPrice()
@@ -291,12 +291,12 @@ report 50126 "Validate And Print Sales Order"
                     IF SalesHeader.Ship THEN BEGIN
                         SalesShptHeader."No." := SalesHeader."Last Shipping No.";
                         SalesShptHeader.SETRECFILTER();
-                        PrintReport(ReportSelection.Usage::"S.Shipment");
+                        PrintReport(ReportSelection.Usage::"S.Shipment".AsInteger());
                     END;
                     IF SalesHeader.Invoice THEN BEGIN
                         SalesInvHeader."No." := SalesHeader."Last Posting No.";
                         SalesInvHeader.SETRECFILTER();
-                        PrintReport(ReportSelection.Usage::"S.Invoice");
+                        PrintReport(ReportSelection.Usage::"S.Invoice".AsInteger());
                     END;
                 END;
             SalesHeader."Document Type"::Invoice:
@@ -306,19 +306,19 @@ report 50126 "Validate And Print Sales Order"
                     ELSE
                         SalesInvHeader."No." := SalesHeader."Last Posting No.";
                     SalesInvHeader.SETRECFILTER();
-                    PrintReport(ReportSelection.Usage::"S.Invoice");
+                    PrintReport(ReportSelection.Usage::"S.Invoice".AsInteger());
                 END;
             SalesHeader."Document Type"::"Return Order":
                 BEGIN
                     IF SalesHeader.Receive THEN BEGIN
                         ReturnRcptHeader."No." := SalesHeader."Last Return Receipt No.";
                         ReturnRcptHeader.SETRECFILTER();
-                        PrintReport(ReportSelection.Usage::"S.Ret.Rcpt.");
+                        PrintReport(ReportSelection.Usage::"S.Ret.Rcpt.".AsInteger());
                     END;
                     IF SalesHeader.Invoice THEN BEGIN
                         SalesCrMemoHeader."No." := SalesHeader."Last Posting No.";
                         SalesCrMemoHeader.SETRECFILTER();
-                        PrintReport(ReportSelection.Usage::"S.Cr.Memo");
+                        PrintReport(ReportSelection.Usage::"S.Cr.Memo".AsInteger());
                     END;
                 END;
             SalesHeader."Document Type"::"Credit Memo":
@@ -328,7 +328,7 @@ report 50126 "Validate And Print Sales Order"
                     ELSE
                         SalesCrMemoHeader."No." := SalesHeader."Last Posting No.";
                     SalesCrMemoHeader.SETRECFILTER();
-                    PrintReport(ReportSelection.Usage::"S.Cr.Memo");
+                    PrintReport(ReportSelection.Usage::"S.Cr.Memo".AsInteger());
                 END;
         END;
     end;
@@ -341,17 +341,17 @@ report 50126 "Validate And Print Sales Order"
         REPEAT
             ReportSelection.TESTFIELD("Report ID");
             CASE ReportUsage OF
-                ReportSelection.Usage::"SM.Invoice":
+                ReportSelection.Usage::"SM.Invoice".AsInteger():
                     REPORT.RUN(ReportSelection."Report ID", FALSE, FALSE, SalesInvHeader);
-                ReportSelection.Usage::"SM.Credit Memo":
+                ReportSelection.Usage::"SM.Credit Memo".AsInteger():
                     REPORT.RUN(ReportSelection."Report ID", FALSE, FALSE, SalesCrMemoHeader);
-                ReportSelection.Usage::"S.Invoice":
+                ReportSelection.Usage::"S.Invoice".AsInteger():
                     REPORT.RUN(ReportSelection."Report ID", FALSE, FALSE, SalesInvHeader);
-                ReportSelection.Usage::"S.Cr.Memo":
+                ReportSelection.Usage::"S.Cr.Memo".AsInteger():
                     REPORT.RUN(ReportSelection."Report ID", FALSE, FALSE, SalesCrMemoHeader);
-                ReportSelection.Usage::"S.Shipment":
+                ReportSelection.Usage::"S.Shipment".AsInteger():
                     REPORT.RUN(ReportSelection."Report ID", FALSE, FALSE, SalesShptHeader);
-                ReportSelection.Usage::"S.Ret.Rcpt.":
+                ReportSelection.Usage::"S.Ret.Rcpt.".AsInteger():
                     REPORT.RUN(ReportSelection."Report ID", FALSE, FALSE, ReturnRcptHeader);
             END;
         UNTIL ReportSelection.NEXT() = 0;

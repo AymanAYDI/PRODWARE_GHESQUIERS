@@ -378,7 +378,7 @@ report 50103 "Sales - Shipment BL bac blanc"
                         IF CustAddr[i] <> ShipToAddr[i] THEN
                             ShowCustAddr := TRUE;
 
-                    IF LogInteraction THEN
+                    IF LogInteractionV THEN
                         IF NOT CurrReport.PREVIEW THEN
                             SegManagement.LogDocument(
                             5, "No.", 0, 0, DATABASE::Customer, "Sell-to Customer No.", "Salesperson Code",
@@ -480,8 +480,9 @@ report 50103 "Sales - Shipment BL bac blanc"
                 END;
 
                 CLEAR(NumLigne);
-                if Number > 1 then
+                if Number > 1 then begin
                     OutputNo += 1;
+                end;
             end;
 
             trigger OnPreDataItem()
@@ -505,17 +506,17 @@ report 50103 "Sales - Shipment BL bac blanc"
                 group("Option")
                 {
                     Caption = 'Option';
-                    field(NoOfCopies; NoOfCopies)
+                    field(NoOfCopies; NoOfCopiesV)
                     {
                         ApplicationArea = all;
                         Caption = 'No. of Copies';
                     }
-                    field(ShowInternalInfo; ShowInternalInfo)
+                    field(ShowInternalInfo; ShowInternalInfoV)
                     {
                         ApplicationArea = all;
                         Caption = 'Show Internal Information';
                     }
-                    field(LogInteraction; LogInteraction)
+                    field(LogInteraction; LogInteractionV)
                     {
                         ApplicationArea = all;
                         Caption = 'Log Interaction';
@@ -567,11 +568,11 @@ report 50103 "Sales - Shipment BL bac blanc"
         Language: Codeunit Language;
         SegManagement: Codeunit SegManagement;
         FinLigne: Boolean;
-        LogInteraction: Boolean;
+        LogInteractionV: Boolean;
         NewBinNo: Boolean;
         ShowCorrectionLines: Boolean;
         ShowCustAddr: Boolean;
-        ShowInternalInfo: Boolean;
+        ShowInternalInfoV: Boolean;
         DepotSpecial: Code[10];
         DesAFD: Code[10];
         LastBinNo: Code[10];
@@ -588,7 +589,7 @@ report 50103 "Sales - Shipment BL bac blanc"
         j: Integer;
         NbLigneTotal: Integer;
         NombreLigne: Integer;
-        NoOfCopies: Integer;
+        NoOfCopiesV: Integer;
         NumLigne: Integer;
         OutputNo: Integer;
         TotalLocation: Integer;
@@ -644,6 +645,6 @@ report 50103 "Sales - Shipment BL bac blanc"
 
     procedure InitLogInteraction()
     begin
-        LogInteraction := SegManagement.FindInteractTmplCode(5) <> '';
+        LogInteractionV := SegManagement.FindInteractTmplCode(5) <> '';
     end;
 }

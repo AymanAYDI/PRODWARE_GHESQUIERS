@@ -477,6 +477,7 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = 'Sélection des fournisseurs à interroger';
                     RunObject = Page "Appeal for tenders/Vendor -TrB";
+                    Image = Action;
                     RunPageLink = "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No.");
                     ApplicationArea = All;
                 }
@@ -529,6 +530,7 @@ page 50056 "PWD Prepared Sales Order"
                 action("Sélection des  offres fournisseurs")
                 {
                     Caption = 'Sélection des  offres fournisseurs';
+                    Image = Action;
                     ApplicationArea = All;
 
                     trigger OnAction()
@@ -834,6 +836,7 @@ page 50056 "PWD Prepared Sales Order"
                 action("Classement sans suite")
                 {
                     Caption = 'Filing Reason';
+                    Image = Action;
                     Visible = false;
                     ApplicationArea = All;
 

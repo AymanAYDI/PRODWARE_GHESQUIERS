@@ -161,6 +161,7 @@ page 50028 "PWD Archived Purchase List"
                 {
                     ApplicationArea = All;
                     Caption = 'Card';
+                    Image = Card;
                     ShortCutKey = 'Shift+F5';
 
                     trigger OnAction()

@@ -265,8 +265,9 @@ pageextension 50067 "PWD SalesOrderSubform" extends "Sales Order Subform"
             action("PWD ExtraireCodeFournisseurEtCoutUnitaireDirect")
             {
                 ApplicationArea = All;
-                Caption = 'Extraire code Fournisseur et co–t unitaire direct';
+                Caption = 'Extraire code Fournisseur et coût unitaire direct';
                 ShortCutKey = 'Shift+Ctrl+F';
+                Image = Action;
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;

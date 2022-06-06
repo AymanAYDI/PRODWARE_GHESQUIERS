@@ -24,7 +24,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>2.4333cm</Height>
+                  <Height>2.39838cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -499,7 +499,7 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                     </TablixCells>
                                   </TablixRow>
                                   <TablixRow>
-                                    <Height>0.63492cm</Height>
+                                    <Height>0.6cm</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
@@ -531,139 +531,15 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <ColSpan>3</ColSpan>
+                                          <ColSpan>7</ColSpan>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell />
                                       <TablixCell />
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="textbox31">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Code.BlankZero(Fields!NumLigne.Value)</Value>
-                                                    <Style>
-                                                      <FontSize>9pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>textbox31</rd:DefaultName>
-                                            <ZIndex>68</ZIndex>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>0.105cm</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="textbox13">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Fields!Sales_Shipment_Line__No__.Value</Value>
-                                                    <Style>
-                                                      <FontSize>8pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>textbox13</rd:DefaultName>
-                                            <ZIndex>67</ZIndex>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="textbox14">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Fields!Description__Description_2_.Value</Value>
-                                                    <Style>
-                                                      <FontSize>8pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>textbox14</rd:DefaultName>
-                                            <ZIndex>66</ZIndex>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="textbox70">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Fields!TextDLC_SF.Value</Value>
-                                                    <Style>
-                                                      <FontSize>8pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>textbox70</rd:DefaultName>
-                                            <ZIndex>65</ZIndex>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
+                                      <TablixCell />
+                                      <TablixCell />
+                                      <TablixCell />
+                                      <TablixCell />
                                     </TablixCells>
                                   </TablixRow>
                                   <TablixRow>
@@ -691,18 +567,13 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                             <ZIndex>63</ZIndex>
                                             <Style>
                                               <Border>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
                                               <TopBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
                                               <LeftBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -751,16 +622,11 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <BottomBorder>
+                                              <RightBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
+                                              </RightBorder>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>0.105cm</PaddingLeft>
                                               <PaddingRight>0.105cm</PaddingRight>
@@ -797,16 +663,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>0.105cm</PaddingLeft>
                                               <PaddingRight>0.21cm</PaddingRight>
@@ -816,11 +672,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                           </Textbox>
                                         </CellContents>
                                       </TablixCell>
-                                    </TablixCells>
-                                  </TablixRow>
-                                  <TablixRow>
-                                    <Height>0.423cm</Height>
-                                    <TablixCells>
                                       <TablixCell>
                                         <CellContents>
                                           <Textbox Name="TextDLC_SF">
@@ -851,16 +702,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
                                               <RightBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -904,16 +745,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
                                               <RightBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -958,16 +789,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
                                               <RightBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1012,16 +833,11 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
                                               <LeftBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
-                                              </BottomBorder>
+                                              </LeftBorder>
                                               <RightBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1128,7 +944,7 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=IIf(Fields!Type_.Value&lt;&gt;"","",Fields!Sales_Shipment_Line_Description.Value)</Value>
+                                                    <Value>=Fields!Sales_Shipment_Line_Description.Value</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                     </Style>
@@ -1152,11 +968,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </LeftBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </RightBorder>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>0.105cm</PaddingLeft>
                                               <PaddingRight>0.21cm</PaddingRight>
@@ -1193,11 +1004,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
                                               <RightBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1377,6 +1183,9 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                     </SortExpressions>
                                     <TablixMembers>
                                       <TablixMember>
+                                        <KeepWithGroup>After</KeepWithGroup>
+                                      </TablixMember>
+                                      <TablixMember>
                                         <Group Name="Sales_Shipment_Line">
                                           <GroupExpressions>
                                             <GroupExpression>=Fields!Sales_Shipment_Line_Document_No_.Value</GroupExpression>
@@ -1395,12 +1204,6 @@ Cstr(Fields!BON_DE_LIVRAISON_.Value)
                                         <TablixMembers>
                                           <TablixMember>
                                             <Visibility>
-                                              <Hidden>=reportItems!textbox12.value=""</Hidden>
-                                            </Visibility>
-                                            <KeepTogether>true</KeepTogether>
-                                          </TablixMember>
-                                          <TablixMember>
-                                            <Visibility>
                                               <Hidden>=(ReportItems!Sales_Shipment_Line__No__.Value="" and Fields!Description__Description_2_.Value="") OR (ReportItems!Sales_Shipment_Line__No__.Value&lt;&gt;"" and Fields!Sales_Shipment_Line_Quantity.Value=0)
 OR (Fields!NumLigne.Value = 0)</Hidden>
                                             </Visibility>
@@ -1417,8 +1220,8 @@ OR (Fields!NumLigne.Value = 0)</Hidden>
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Height>2.4333cm</Height>
-                              <Width>19.40229cm</Width>
+                              <Height>2.39838cm</Height>
+                              <Width>19.40228cm</Width>
                               <ZIndex>4</ZIndex>
                               <Style>
                                 <Border>
@@ -1461,18 +1264,18 @@ OR (Fields!NumLigne.Value = 0)</Hidden>
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
-            <Height>2.4333cm</Height>
+            <Height>2.39838cm</Height>
             <Width>19.40229cm</Width>
             <Style />
           </Tablix>
         </ReportItems>
-        <Height>2.4333cm</Height>
+        <Height>2.39838cm</Height>
         <Style />
       </Body>
       <Width>19.40229cm</Width>
       <Page>
         <PageHeader>
-          <Height>6.49028cm</Height>
+          <Height>7.46395cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2682,7 +2485,6 @@ OR (Fields!NumLigne.Value = 0)</Hidden>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
             <Line Name="line1">
-              <Top>0cm</Top>
               <Height>0cm</Height>
               <Width>19.36508cm</Width>
               <Style>
@@ -2708,7 +2510,6 @@ OR (Fields!NumLigne.Value = 0)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Height>0.63492cm</Height>
               <Width>1.5873cm</Width>
               <ZIndex>1</ZIndex>
@@ -2737,7 +2538,6 @@ OR (Fields!NumLigne.Value = 0)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Left>1.37566cm</Left>
               <Height>0.63492cm</Height>
               <Width>0.95238cm</Width>
@@ -2763,7 +2563,6 @@ OR (Fields!NumLigne.Value = 0)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Left>2.32804cm</Left>
               <Height>0.63492cm</Height>
               <Width>7.19577cm</Width>

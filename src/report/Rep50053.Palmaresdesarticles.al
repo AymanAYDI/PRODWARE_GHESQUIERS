@@ -134,7 +134,10 @@ report 50053 "PWD Palmares des articles"
                 DateFilter := GETFILTER("Posting Date");
                 IF SalesAmount <> 0 THEN
                     SETFILTER("Sales Amount (Actual)", '%1..', SalesAmount);
+                //CurrReport.CREATETOTALS(PercCATotal, ProfitN, PercentProfitN);
                 SETRANGE("Entry Type", "Entry Type"::Sale);
+
+                // TotalAmountPeriod
                 ItemLedgerEntry.SETRANGE("Entry Type", ItemLedgerEntry."Entry Type"::Sale);
                 IF DateFilter <> '' THEN
                     ItemLedgerEntry.SETFILTER("Posting Date", DateFilter);
@@ -171,7 +174,6 @@ report 50053 "PWD Palmares des articles"
     var
         RecItem: Record Item;
         ItemLedgerEntry: Record "Item Ledger Entry";
-        FooterPrinted: Boolean;
         PercCATotal: Decimal;
         PercentProfitN: Decimal;
         ProfitN: Decimal;
@@ -196,4 +198,5 @@ report 50053 "PWD Palmares des articles"
         TotalFor: Label 'Total ';
         VarMaxPriceCaptionLbl: Label 'Montant Plancher';
         DateFilter: Text[30];
+    // FooterPrinted: Boolean;
 }
