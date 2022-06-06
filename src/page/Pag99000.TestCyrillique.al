@@ -29,7 +29,7 @@ page 99000 "PWD Test Cyrillique"
                 trigger OnAction()
                 begin
 
-                    //TODO
+                    //TODO: Automation
                     //CLEAR(Excel);
                     //CREATE(Excel);
                     /*
