@@ -45,13 +45,13 @@ pageextension 50041 "PWD IntrastatJournal" extends "Intrastat Journal"
 
     LOCAL PROCEDURE FctOnAfterGetCurrRecord();
     VAR
-        TempIntrastatJnlLine: Record "Intrastat Jnl. Line";
+        IntrastatJnlLine: Record "Intrastat Jnl. Line";
     BEGIN
         xRec := Rec;
         UpdateStatisticalValue();
-        TempIntrastatJnlLine.COPYFILTERS(Rec);
-        IF TempIntrastatJnlLine.CALCSUMS(Amount) THEN
-            DecGTotalAmount := TempIntrastatJnlLine.Amount
+        IntrastatJnlLine.COPYFILTERS(Rec);
+        IF IntrastatJnlLine.CALCSUMS(Amount) THEN
+            DecGTotalAmount := IntrastatJnlLine.Amount
     END;
 
     local procedure UpdateStatisticalValue()

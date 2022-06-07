@@ -1322,7 +1322,6 @@
 Cstr(Fields!Shéma_DirecteurCaption.Value) + Chr(177) + 
 Cstr(Fields!FORMAT_TODAY_0_4_.Value) + Chr(177) + 
 Cstr(Fields!CurrReport_PAGENO_Caption.Value) + Chr(177) +  
-Cstr(Fields!CurrReport_PAGENO.Value) + Chr(177) +
 Cstr(Fields!USERID.Value) + Chr(177) +  
 Cstr(Fields!DateFilterCaption.Value) + Chr(177) +  
 Cstr(Fields!DateFilter.Value) + Chr(177) +  
@@ -1353,7 +1352,7 @@ Cstr(Fields!Item_Ledger_Entry__Sales_Amount__Actual__.Value),1)</Hidden>
         <Height>2.63225cm</Height>
         <Style />
       </Body>
-      <Width>15.95925cm</Width>
+      <Width>15.94614cm</Width>
       <Page>
         <PageHeader>
           <Height>4.56967cm</Height>
@@ -1394,7 +1393,7 @@ Cstr(Fields!Item_Ledger_Entry__Sales_Amount__Actual__.Value),1)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(6,1)</Value>
+                      <Value>=Code.GetData(5,1)</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -1449,7 +1448,7 @@ Cstr(Fields!Item_Ledger_Entry__Sales_Amount__Actual__.Value),1)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(8,1)</Value>
+                      <Value>=Code.GetData(7,1)</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -1497,7 +1496,7 @@ Cstr(Fields!Item_Ledger_Entry__Sales_Amount__Actual__.Value),1)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(7,1)</Value>
+                      <Value>=Code.GetData(6,1)</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -1547,7 +1546,7 @@ Cstr(Fields!Item_Ledger_Entry__Sales_Amount__Actual__.Value),1)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(9,1)</Value>
+                      <Value>=Code.GetData(8,1)</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -1593,7 +1592,7 @@ Cstr(Fields!Item_Ledger_Entry__Sales_Amount__Actual__.Value),1)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(10,1)</Value>
+                      <Value>=Code.GetData(9,1)</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -1617,7 +1616,7 @@ Cstr(Fields!Item_Ledger_Entry__Sales_Amount__Actual__.Value),1)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(12,1)</Value>
+                      <Value>=Code.GetData(11,1)</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -1641,7 +1640,7 @@ Cstr(Fields!Item_Ledger_Entry__Sales_Amount__Actual__.Value),1)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(13,1)</Value>
+                      <Value>=Code.GetData(12,1)</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -1719,7 +1718,7 @@ Cstr(Fields!Item_Ledger_Entry__Sales_Amount__Actual__.Value),1)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(15,1)</Value>
+                      <Value>=Code.GetData(14,1)</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>
@@ -1742,7 +1741,7 @@ Cstr(Fields!Item_Ledger_Entry__Sales_Amount__Actual__.Value),1)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(16,1)</Value>
+                      <Value>=Code.GetData(15,1)</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                         <FontWeight>Bold</FontWeight>
@@ -1817,7 +1816,7 @@ Cstr(Fields!Item_Ledger_Entry__Sales_Amount__Actual__.Value),1)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(6,1)</Value>
+                      <Value>=Code.GetData(5,1)</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                       </Style>

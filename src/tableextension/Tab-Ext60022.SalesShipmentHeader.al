@@ -157,7 +157,7 @@ tableextension 60022 "PWD SalesShipmentHeader" extends "Sales Shipment Header"
         key(key10; "Posting Date")
         {
         }
-        //ToDo
+        //TODO
         /*
         key(Key11; "PWD DSA No.", "Posting Date")
         {
@@ -168,7 +168,7 @@ tableextension 60022 "PWD SalesShipmentHeader" extends "Sales Shipment Header"
     begin
 
         IF CustomsType = 'T5' THEN REPORT.RUNMODAL(REPORT::"PWD Calcul PU=CU*coef", TRUE, TRUE, Rec);
-        //ToDo
+        //TODO
         /*
                 IF CustomsType = 'CO' THEN REPORT.RUNMODAL(REPORT::"Certificat d'origine", TRUE, TRUE, Rec);
                 IF CustomsType = 'CHARGEMENT' THEN REPORT.RUNMODAL(REPORT::"Loading List", TRUE, TRUE, Rec);

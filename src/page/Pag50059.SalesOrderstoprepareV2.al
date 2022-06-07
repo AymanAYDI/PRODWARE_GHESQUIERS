@@ -102,7 +102,7 @@ page 50059 "PWD Sales Orders to prepare V2"
                 {
                     Caption = 'Ré-édition BP';
                     ApplicationArea = All;
-                    Image= PrintReport;
+                    Image = PrintReport;
 
                     trigger OnAction()
                     var
@@ -136,7 +136,7 @@ page 50059 "PWD Sales Orders to prepare V2"
                 Visible = false;
                 ApplicationArea = All;
                 Image = Print;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     MakePreparation();
@@ -149,7 +149,7 @@ page 50059 "PWD Sales Orders to prepare V2"
                 PromotedCategory = Process;
                 ApplicationArea = All;
                 Image = Print;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     IF Rec."PWD Preparation Status" = 1 THEN
@@ -167,7 +167,7 @@ page 50059 "PWD Sales Orders to prepare V2"
                 PromotedCategory = Process;
                 ApplicationArea = All;
                 Image = UpdateUnitCost;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     SalesHeader.RESET();
@@ -430,7 +430,7 @@ page 50059 "PWD Sales Orders to prepare V2"
         ItemLedgerEntry.SETRANGE(ItemLedgerEntry.Positive, TRUE);
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Remaining Quantity", '<>%1', 0);
         IF ItemLedgerEntry.FindFirst() THEN BEGIN
-            IF ReservEntryNo.FIND('+') THEN
+            IF ReservEntryNo.FindLast() THEN
                 EntryNo := ReservEntryNo."Entry No."
             ELSE
                 EntryNo := 0;
@@ -490,7 +490,7 @@ page 50059 "PWD Sales Orders to prepare V2"
         NewSalesLine.VALIDATE(NewSalesLine."Unit Price", MemUnitPrice);
         NewSalesLine.MODIFY(TRUE);
         CLEAR(DimMgt);
-        //ToDo
+        //TODO
         /* DimMgt.InsertDocDim(
            DATABASE::"Sales Line", NewSalesLine."Document Type", NewSalesLine."Document No.", NewSalesLine."Line No.",
            NewSalesLine."Shortcut Dimension 1 Code", NewSalesLine."Shortcut Dimension 2 Code");*/
@@ -520,7 +520,7 @@ page 50059 "PWD Sales Orders to prepare V2"
         NewSalesLine.VALIDATE(NewSalesLine."Unit Price", MemUnitPrice);
         NewSalesLine.MODIFY(TRUE);
         CLEAR(DimMgt);
-        //ToDo
+        //TODO
         /*DimMgt.InsertDocDim(
            DATABASE::"Sales Line", NewSalesLine."Document Type", NewSalesLine."Document No.", NewSalesLine."Line No.",
            NewSalesLine."Shortcut Dimension 1 Code", NewSalesLine."Shortcut Dimension 2 Code");*/

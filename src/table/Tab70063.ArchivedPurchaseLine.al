@@ -14,7 +14,7 @@ table 70063 "PWD Archived Purchase Line"
         }
         field(2; "Buy-from Vendor No."; Code[20])
         {
-            Caption = 'Buy-from Vendor No.'; //TODO Récuperer traduction FRA=N° preneur d'ordre
+            Caption = 'Buy-from Vendor No.';
             TableRelation = Vendor;
             DataClassification = CustomerContent;
         }
@@ -849,7 +849,7 @@ table 70063 "PWD Archived Purchase Line"
         }
         field(5709; "Item Category Code"; Code[20])
         {
-            Caption = 'Item Category Code'; //TODO Récuperer traduction FRA=Code catégorie
+            Caption = 'Item Category Code';
             TableRelation = "Item Category";
             DataClassification = CustomerContent;
         }

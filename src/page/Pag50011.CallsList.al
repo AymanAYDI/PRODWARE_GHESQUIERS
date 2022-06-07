@@ -127,6 +127,7 @@ page 50011 "PWD Calls List"
                 RunObject = Page "PWD Call";
                 ApplicationArea = all;
                 RunPageOnRec = true;
+                PromotedOnly = true;
             }
         }
     }

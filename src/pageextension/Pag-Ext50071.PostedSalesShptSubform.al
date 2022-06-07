@@ -173,7 +173,7 @@ pageextension 50071 "PWD PostedSalesShptSubform" extends "Posted Sales Shpt. Sub
             CustomsCertif.GET(DocTemplateCode);
             CLEAR(HealthCertifWordMngt);
             CurrPage.SETSELECTIONFILTER(ShipmentLine);
-            //ToDo
+            //TODO
             //HealthCertifWordMngt.Merge(ShipmentLine, CustomsCertif, CustomsCertif."No.");
         END;
     END;

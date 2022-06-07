@@ -142,6 +142,7 @@ page 50076 "PWD User Item List"
                 RunPageLink = "Item No." = FIELD("No.");
                 RunPageView = SORTING("Item No.");
                 ApplicationArea = All;
+                PromotedOnly = true;
             }
             action("Traçabilité")
             {

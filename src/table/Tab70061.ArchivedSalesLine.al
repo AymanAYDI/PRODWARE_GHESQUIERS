@@ -6,7 +6,7 @@ table 70061 "PWD Archived Sales Line"
     // P3346_0015 RO.LALE REGIE 23/02/2015 : - add field 55041 - Vendor No. - Code20
 
     Caption = 'Archived Sales Line';
-    //TODO Récupérer traduction FRA=Ligne vente archive    DataClassification = CustomerContent;
+    DataClassification = CustomerContent;
 
     fields
     {
@@ -795,7 +795,7 @@ table 70061 "PWD Archived Sales Line"
         }
         field(5709; "Item Category Code"; Code[20])
         {
-            Caption = 'Item Category Code'; //TODO  Récupérer traduction FRA=Code catégorie
+            Caption = 'Item Category Code';
             TableRelation = "Item Category";
             DataClassification = CustomerContent;
         }

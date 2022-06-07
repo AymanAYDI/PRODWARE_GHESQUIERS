@@ -364,8 +364,7 @@ report 50042 "PWD Picking List"
                     RecGReservEntry.SETRANGE("Item No.", "No.");
                     IF NOT RecGReservEntry.FINDSET() THEN
                         RecGReservEntry."Lot No." := '';
-                    IF ISSERVICETIER THEN
-                        LocationCode := "Sales Line"."Location Code";
+                    LocationCode := "Sales Line"."Location Code";
 
                     IF Rec_CallType.GET("Sales Header"."PWD Call Type") THEN
                         IF NOT Rec_CallType."Tri sur code SEAF" THEN
@@ -377,7 +376,7 @@ report 50042 "PWD Picking List"
                 trigger OnPreDataItem()
                 begin
                     LastFieldNo := FIELDNO("Bin Code");
-                    IF "Sales Line".FIND('-') THEN CodeMagasinMem := "Sales Line"."Location Code";
+                    IF "Sales Line".FindFirst() THEN CodeMagasinMem := "Sales Line"."Location Code";
                     IF Rec_CallType.GET("Sales Header"."PWD Call Type") THEN
                         IF Rec_CallType."Tri sur code SEAF" THEN
                             "Sales Line".SETCURRENTKEY("Document Type", "Document No.", "Location Code", "PWD Shelf/Bin No.", "PWD SEAF Code")
@@ -390,7 +389,7 @@ report 50042 "PWD Picking List"
             begin
                 CompanyInfo.GET();
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
-                //ToDo a vérifier
+                //TODO a vérifier
                 FormatAddr.SalesHeaderShipTo(ShipToAddr, CompanyAddr, "Sales Header");
                 IF NOT call.GET("Sales Header"."PWD Call No.") THEN call.INIT();
                 IF NOT Recarea.GET(call.Area) THEN Recarea.INIT();

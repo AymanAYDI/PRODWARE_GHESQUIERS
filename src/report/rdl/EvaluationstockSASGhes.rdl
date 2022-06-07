@@ -4653,29 +4653,20 @@ End Function
         <Field Name="InfoSoc_Name">
           <DataField>InfoSoc_Name</DataField>
         </Field>
-        <Field Name="STRSUBSTNO___1___2__Item_TABLECAPTION_ItemFilter_">
-          <DataField>STRSUBSTNO___1___2__Item_TABLECAPTION_ItemFilter_</DataField>
+        <Field Name="Item_TABLECAPTION">
+          <DataField>Item_TABLECAPTION</DataField>
         </Field>
-        <Field Name="STRSUBSTNO_Text005_StartDateText_">
-          <DataField>STRSUBSTNO_Text005_StartDateText_</DataField>
+        <Field Name="Text005_StartDateText_">
+          <DataField>Text005_StartDateText_</DataField>
         </Field>
-        <Field Name="EmptyString">
-          <DataField>EmptyString</DataField>
-        </Field>
-        <Field Name="EmptyString_Control46">
-          <DataField>EmptyString_Control46</DataField>
-        </Field>
-        <Field Name="EmptyString_Control47">
-          <DataField>EmptyString_Control47</DataField>
-        </Field>
-        <Field Name="STRSUBSTNO_Text005_FORMAT_EndDate__">
-          <DataField>STRSUBSTNO_Text005_FORMAT_EndDate__</DataField>
+        <Field Name="Text005_EndDate">
+          <DataField>Text005_EndDate</DataField>
         </Field>
         <Field Name="EmptyString_Control57">
           <DataField>EmptyString_Control57</DataField>
         </Field>
-        <Field Name="STRSUBSTNO_Text006__Tariff_No___TariffNumber__Description_2__">
-          <DataField>STRSUBSTNO_Text006__Tariff_No___TariffNumber__Description_2__</DataField>
+        <Field Name="Text006_TariffNumber_Description2">
+          <DataField>Text006_TariffNumber_Description2</DataField>
         </Field>
         <Field Name="ValueOfInvoicedQty">
           <DataField>ValueOfInvoicedQty</DataField>
@@ -4695,20 +4686,14 @@ End Function
         <Field Name="CostOfInvDecreasesFormat">
           <DataField>CostOfInvDecreasesFormat</DataField>
         </Field>
-        <Field Name="Value_Entry___Cost_Amount__Actual__">
-          <DataField>Value_Entry___Cost_Amount__Actual__</DataField>
+        <Field Name="ValueEntry_CostAmountActual">
+          <DataField>ValueEntry_CostAmountActual</DataField>
         </Field>
-        <Field Name="Value_Entry___Cost_Amount__Actual__Format">
-          <DataField>Value_Entry___Cost_Amount__Actual__Format</DataField>
+        <Field Name="ValueEntry_CostAmountActualFormat">
+          <DataField>ValueEntry_CostAmountActualFormat</DataField>
         </Field>
         <Field Name="STRSUBSTNO_Text007__Tariff_No___">
           <DataField>STRSUBSTNO_Text007__Tariff_No___</DataField>
-        </Field>
-        <Field Name="InvIncreases">
-          <DataField>InvIncreases</DataField>
-        </Field>
-        <Field Name="InvIncreasesFormat">
-          <DataField>InvIncreasesFormat</DataField>
         </Field>
         <Field Name="InvDecreases">
           <DataField>InvDecreases</DataField>
@@ -4728,17 +4713,17 @@ End Function
         <Field Name="ValueOfRcdIncreases_Format">
           <DataField>ValueOfRcdIncreases_Format</DataField>
         </Field>
-        <Field Name="CostOfShipDecreases">
-          <DataField>CostOfShipDecreases</DataField>
+        <Field Name="Item_CostOfShipDecreases">
+          <DataField>Item_CostOfShipDecreases</DataField>
         </Field>
-        <Field Name="CostOfShipDecreasesFormat">
-          <DataField>CostOfShipDecreasesFormat</DataField>
+        <Field Name="Item_CostOfShipDecreasesFormat">
+          <DataField>Item_CostOfShipDecreasesFormat</DataField>
         </Field>
-        <Field Name="ValueOfQtyOnHand___ValueOfRcdIncreases___CostOfShipDecreases">
-          <DataField>ValueOfQtyOnHand___ValueOfRcdIncreases___CostOfShipDecreases</DataField>
+        <Field Name="ValueOfQtyOnHand_ValueOfRcdIncreases__CostOfShipDecreases">
+          <DataField>ValueOfQtyOnHand_ValueOfRcdIncreases__CostOfShipDecreases</DataField>
         </Field>
-        <Field Name="ValueOfQtyOnHand___ValueOfRcdIncreases___CostOfShipDecreasesFormat">
-          <DataField>ValueOfQtyOnHand___ValueOfRcdIncreases___CostOfShipDecreasesFormat</DataField>
+        <Field Name="ValueOfQtyOnHand_ValueOfRcdIncreases__CostOfShipDecreasesFormat">
+          <DataField>ValueOfQtyOnHand_ValueOfRcdIncreases__CostOfShipDecreasesFormat</DataField>
         </Field>
         <Field Name="STRSUBSTNO_Text008__Tariff_No___">
           <DataField>STRSUBSTNO_Text008__Tariff_No___</DataField>
@@ -4758,41 +4743,17 @@ End Function
         <Field Name="STRSUBSTNO_Text009__Tariff_No___">
           <DataField>STRSUBSTNO_Text009__Tariff_No___</DataField>
         </Field>
-        <Field Name="Value_Entry___Cost_Amount__Actual___Control80">
-          <DataField>Value_Entry___Cost_Amount__Actual___Control80</DataField>
-        </Field>
-        <Field Name="Value_Entry___Cost_Amount__Actual___Control80Format">
-          <DataField>Value_Entry___Cost_Amount__Actual___Control80Format</DataField>
-        </Field>
-        <Field Name="CostOfInvDecreases_Control82">
-          <DataField>CostOfInvDecreases_Control82</DataField>
-        </Field>
-        <Field Name="CostOfInvDecreases_Control82Format">
-          <DataField>CostOfInvDecreases_Control82Format</DataField>
-        </Field>
-        <Field Name="ValueOfInvIncreases_Control83">
-          <DataField>ValueOfInvIncreases_Control83</DataField>
-        </Field>
-        <Field Name="ValueOfInvIncreases_Control83Format">
-          <DataField>ValueOfInvIncreases_Control83Format</DataField>
-        </Field>
         <Field Name="ValueOfInvoicedQty_Control84">
           <DataField>ValueOfInvoicedQty_Control84</DataField>
         </Field>
         <Field Name="ValueOfInvoicedQty_Control84Format">
           <DataField>ValueOfInvoicedQty_Control84Format</DataField>
         </Field>
-        <Field Name="InvIncreases_Control1000000008">
-          <DataField>InvIncreases_Control1000000008</DataField>
+        <Field Name="InvIncreases">
+          <DataField>InvIncreases</DataField>
         </Field>
-        <Field Name="InvIncreases_Control1000000008Format">
-          <DataField>InvIncreases_Control1000000008Format</DataField>
-        </Field>
-        <Field Name="InvDecreases_Control1000000010">
-          <DataField>InvDecreases_Control1000000010</DataField>
-        </Field>
-        <Field Name="InvDecreases_Control1000000010Format">
-          <DataField>InvDecreases_Control1000000010Format</DataField>
+        <Field Name="InvIncreasesFormat">
+          <DataField>InvIncreasesFormat</DataField>
         </Field>
         <Field Name="Item_Ledger_Entry_Invoiced_Quantity">
           <DataField>Item_Ledger_Entry_Invoiced_Quantity</DataField>
@@ -4836,29 +4797,29 @@ End Function
         <Field Name="Item_Ledger_Entry__Quantity_Control1000000016Format">
           <DataField>Item_Ledger_Entry__Quantity_Control1000000016Format</DataField>
         </Field>
-        <Field Name="Inventory_Valuation____Tariff_No_Caption">
-          <DataField>Inventory_Valuation____Tariff_No_Caption</DataField>
+        <Field Name="InventoryValuationTariff_No_Caption">
+          <DataField>InventoryValuationTariff_No_Caption</DataField>
         </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
+        <Field Name="PAGECaptionLbl">
+          <DataField>PAGECaptionLbl</DataField>
         </Field>
         <Field Name="Text_Caption">
           <DataField>Text_Caption</DataField>
         </Field>
-        <Field Name="Item_Ledger_Entry__Item_No__Caption">
-          <DataField>Item_Ledger_Entry__Item_No__Caption</DataField>
+        <Field Name="ItemLedgerEntry_ItemNo_Caption">
+          <DataField>ItemLedgerEntry_ItemNo_Caption</DataField>
         </Field>
-        <Field Name="Item_Description_____Item__Description_2_Caption">
-          <DataField>Item_Description_____Item__Description_2_Caption</DataField>
+        <Field Name="Item_Description_CaptionLbl">
+          <DataField>Item_Description_CaptionLbl</DataField>
         </Field>
         <Field Name="Coût_unitaireCaption">
           <DataField>Coût_unitaireCaption</DataField>
         </Field>
-        <Field Name="InvIncreases_Control38Caption">
-          <DataField>InvIncreases_Control38Caption</DataField>
+        <Field Name="InvIncreases_Caption">
+          <DataField>InvIncreases_Caption</DataField>
         </Field>
-        <Field Name="InvDecreases_Control39Caption">
-          <DataField>InvDecreases_Control39Caption</DataField>
+        <Field Name="InvDecreases_Caption">
+          <DataField>InvDecreases_Caption</DataField>
         </Field>
         <Field Name="QuantityCaption">
           <DataField>QuantityCaption</DataField>
@@ -4869,20 +4830,8 @@ End Function
         <Field Name="ValueCaption_Control32">
           <DataField>ValueCaption_Control32</DataField>
         </Field>
-        <Field Name="QuantityCaption_Control40">
-          <DataField>QuantityCaption_Control40</DataField>
-        </Field>
         <Field Name="ValueCaption_Control56">
           <DataField>ValueCaption_Control56</DataField>
-        </Field>
-        <Field Name="QuantityCaption_Control58">
-          <DataField>QuantityCaption_Control58</DataField>
-        </Field>
-        <Field Name="QuantityCaption_Control1000000019">
-          <DataField>QuantityCaption_Control1000000019</DataField>
-        </Field>
-        <Field Name="QuantityCaption_Control1000000020">
-          <DataField>QuantityCaption_Control1000000020</DataField>
         </Field>
         <Field Name="TotalCaption">
           <DataField>TotalCaption</DataField>
@@ -4965,11 +4914,11 @@ End Function
         <Field Name="Item_Ledger_Entry__Invoiced_Quantity_Format">
           <DataField>Item_Ledger_Entry__Invoiced_Quantity_Format</DataField>
         </Field>
-        <Field Name="Coût_unitaire_Control1000000017">
-          <DataField>Coût_unitaire_Control1000000017</DataField>
+        <Field Name="Quantity_Order">
+          <DataField>Quantity_Order</DataField>
         </Field>
-        <Field Name="Coût_unitaire_Control1000000017Format">
-          <DataField>Coût_unitaire_Control1000000017Format</DataField>
+        <Field Name="Quantity_OrderFormat">
+          <DataField>Quantity_OrderFormat</DataField>
         </Field>
         <Field Name="Item_Coût_unitaire">
           <DataField>Item_Coût_unitaire</DataField>
@@ -4995,29 +4944,17 @@ End Function
         <Field Name="RcdIncreasesFormat">
           <DataField>RcdIncreasesFormat</DataField>
         </Field>
-        <Field Name="ShipDecreases_Control64">
-          <DataField>ShipDecreases_Control64</DataField>
+        <Field Name="ValueOfQtyOnHand_ValueOfRcdIncreases_CostOfShipDecreases">
+          <DataField>ValueOfQtyOnHand_ValueOfRcdIncreases_CostOfShipDecreases</DataField>
         </Field>
-        <Field Name="ShipDecreases_Control64Format">
-          <DataField>ShipDecreases_Control64Format</DataField>
+        <Field Name="ValueOfQtyOnHand_ValueOfRcdIncreases_CostOfShipDecreasesFormat">
+          <DataField>ValueOfQtyOnHand_ValueOfRcdIncreases_CostOfShipDecreasesFormat</DataField>
         </Field>
-        <Field Name="ValueOfQtyOnHand___ValueOfRcdIncreases___CostOfShipDecreases_Control43">
-          <DataField>ValueOfQtyOnHand___ValueOfRcdIncreases___CostOfShipDecreases_Control43</DataField>
+        <Field Name="CostOfShipDecreases">
+          <DataField>CostOfShipDecreases</DataField>
         </Field>
-        <Field Name="ValueOfQtyOnHand___ValueOfRcdIncreases___CostOfShipDecreases_Control43Format">
-          <DataField>ValueOfQtyOnHand___ValueOfRcdIncreases___CostOfShipDecreases_Control43Format</DataField>
-        </Field>
-        <Field Name="CostOfShipDecreases_Control44">
-          <DataField>CostOfShipDecreases_Control44</DataField>
-        </Field>
-        <Field Name="CostOfShipDecreases_Control44Format">
-          <DataField>CostOfShipDecreases_Control44Format</DataField>
-        </Field>
-        <Field Name="ValueOfRcdIncreases__Control45">
-          <DataField>ValueOfRcdIncreases__Control45</DataField>
-        </Field>
-        <Field Name="ValueOfRcdIncreases__Control45Format">
-          <DataField>ValueOfRcdIncreases__Control45Format</DataField>
+        <Field Name="CostOfShipDecreasesFormat">
+          <DataField>CostOfShipDecreasesFormat</DataField>
         </Field>
         <Field Name="ValueOfQtyOnHand__Control50">
           <DataField>ValueOfQtyOnHand__Control50</DataField>

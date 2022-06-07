@@ -36,7 +36,7 @@ report 50007 "Generation Purchase Order -TrB"
                                  "Sales Line"."Document No.", "Sales Line"."Line No.", "Sales Line"."No.");
                     END ELSE BEGIN
                         //*** Recalcul du cout unitaire.
-                        PurchQuoteLine.FIND('-');
+                        PurchQuoteLine.FindFirst();
                         "Sales Line"."Unit Cost (LCY)" := PurchQuoteLine."Unit Cost (LCY)";
                         "Sales Line".VALIDATE("Unit Cost (LCY)");
                         "Sales Line".MODIFY();
@@ -45,11 +45,11 @@ report 50007 "Generation Purchase Order -TrB"
                     //----------------------------------------------------------------------------//
                     //*** Vérifie que toute les lignes de la commande d'achat correspondent à la même cde de vente.
                     //----------------------------------------------------------------------------//
-                    PurchQuoteLine.FIND('-');
+                    PurchQuoteLine.FindFirst();
 
                     PurchquoteLine2.SETRANGE("Document Type", PurchQuoteLine."Document Type");
                     PurchquoteLine2.SETRANGE("Document No.", PurchQuoteLine."Document No.");
-                    IF PurchQuoteLine.FIND('-') THEN
+                    IF PurchQuoteLine.FindSet() THEN
                         REPEAT
                             IF MemonumVente = '' THEN
                                 MemonumVente := PurchquoteLine2."PWD Sales No. Appeal Tenders";
@@ -101,7 +101,7 @@ report 50007 "Generation Purchase Order -TrB"
                 PurchQuoteLine.SETRANGE("PWD SalesTypeDocAppealTend.", "Sales Header"."Document Type".AsInteger());
                 PurchQuoteLine.SETRANGE("PWD Sales No. Appeal Tenders", "Sales Header"."No.");
                 PurchQuoteLine.SETRANGE("PWD Selected Quote", FALSE);
-                IF PurchQuoteLine.FIND('-') THEN
+                IF PurchQuoteLine.FindSet() THEN
                     REPEAT
                         PurchQuoteLine.DELETE(TRUE);
 
@@ -128,8 +128,8 @@ report 50007 "Generation Purchase Order -TrB"
                 PurchquoteLine2.SETRANGE("Document Type", PurchQuoteLine."Document Type");
                 PurchquoteLine2.SETRANGE("Document No.", PurchQuoteLine."Document No.");
 
-                IF PurchQuoteLine.FIND('-') THEN
-                    IF PurchquoteLine2.FIND('-') THEN
+                IF PurchQuoteLine.FindFirst() THEN
+                    IF PurchquoteLine2.FindSet() THEN
                         REPEAT
                             IF MemonumVente = '' THEN
                                 MemonumVente := PurchquoteLine2."PWD Sales No. Appeal Tenders";
@@ -213,7 +213,7 @@ report 50007 "Generation Purchase Order -TrB"
         PurchQuoteLine.SETRANGE("Document Type", rec."Document Type");
         PurchQuoteLine.SETRANGE("Document No.", rec."No.");
 
-        IF PurchQuoteLine.FIND('-') THEN
+        IF PurchQuoteLine.FindSet() THEN
             REPEAT
                 PurchOrderLine := PurchQuoteLine;
                 PurchOrderLine."Document Type" := PurchOrderHeader."Document Type";

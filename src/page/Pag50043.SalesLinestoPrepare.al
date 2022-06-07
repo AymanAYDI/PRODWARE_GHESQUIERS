@@ -75,7 +75,7 @@ page 50043 "PWD Sales Lines to Prepare"
                 PromotedCategory = Process;
                 ApplicationArea = All;
                 Image = ItemAvailability;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 var
                     ItemAvailFormsMgt: Codeunit "Item Availability Forms Mgt";
@@ -102,7 +102,7 @@ page 50043 "PWD Sales Lines to Prepare"
     begin
         SalesHeader.SETRANGE("Document Type", Rec."Document Type"::Order);
         SalesHeader.SETRANGE(SalesHeader."No.", OrderNo);
-        IF SalesHeader.FIND('-') THEN BEGIN
+        IF SalesHeader.FindFirst() THEN BEGIN
             CLEAR(ReleaseSalesDoc);
             PWDSetGetFunctions.InitRelease(TRUE);
             ReleaseSalesDoc.Reopen(SalesHeader);

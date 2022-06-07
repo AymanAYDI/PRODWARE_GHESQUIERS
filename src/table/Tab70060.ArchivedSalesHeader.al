@@ -222,7 +222,7 @@ table 70060 "PWD Archived Sales Header"
         field(36; "Allow Quantity Disc."; Boolean)
         {
             Caption = 'Allow Quantity Disc.';
-            //TODO Récupérer traduction FRA= Remise quantité autorisée            DataClassification = CustomerContent;
+            DataClassification = CustomerContent;
         }
         field(37; "Invoice Disc. Code"; Code[20])
         {
@@ -282,7 +282,7 @@ table 70060 "PWD Archived Sales Header"
         }
         field(56; "Job No."; Code[20])
         {
-            Caption = 'Job No.'; //TODO Récupérer traduction FRA=N° projet
+            Caption = 'Job No.';
             TableRelation = Job;
             DataClassification = CustomerContent;
         }
@@ -383,7 +383,7 @@ table 70060 "PWD Archived Sales Header"
         }
         field(78; "VAT Country Code"; Code[10])
         {
-            Caption = 'VAT Country Code'; //TODO Récupérer traduction FRA=Code pays TVA
+            Caption = 'VAT Country Code';
             TableRelation = "Country/Region";
             DataClassification = CustomerContent;
         }
@@ -438,7 +438,7 @@ table 70060 "PWD Archived Sales Header"
         }
         field(87; "Bill-to Country Code"; Code[10])
         {
-            Caption = 'Bill-to Country Code'; //TODO Récupérer traduction FRA=Code pays
+            Caption = 'Bill-to Country Code';
             TableRelation = "Country/Region";
             DataClassification = CustomerContent;
         }
@@ -459,7 +459,7 @@ table 70060 "PWD Archived Sales Header"
         }
         field(90; "Sell-to Country Code"; Code[10])
         {
-            Caption = 'Sell-to Country Code'; //TODO Récupérer traduction FRA=Code pays donneur d'ordre
+            Caption = 'Sell-to Country Code';
             TableRelation = "Country/Region";
             DataClassification = CustomerContent;
         }
@@ -595,8 +595,8 @@ table 70060 "PWD Archived Sales Header"
         }
         field(120; Status; Enum "Sales Document Status")
         {
-            Caption = 'Status';
-            //TODO Récupérer traduction FRA=Etat            DataClassification = CustomerContent;
+            Caption = 'Status';       
+             DataClassification = CustomerContent;
         }
         field(121; "Invoice Discount Calculation"; Option)
         {
@@ -745,7 +745,7 @@ table 70060 "PWD Archived Sales Header"
         field(5753; "Posting from Whse. Ref."; Integer)
         {
             Caption = 'Posting from Whse. Ref.';
-            //TODO Récupérer traduction FRA=Validation à partir réf. magasin            DataClassification = CustomerContent;
+            DataClassification = CustomerContent;
         }
         field(5754; "Location Filter"; Code[10])
         {

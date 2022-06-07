@@ -91,13 +91,13 @@ report 50112 "PWD Export COALA"
                     NumInt := 0;
                 IF NOT NewExport THEN BEGIN
                     SETRANGE("G/L Entry"."PWD Export COALA", TRUE);
-                    SETRANGE("G/L Entry"."PWD Export Date", StartingDate, EnddingDate);
+                    SETRANGE("G/L Entry"."PWD Export Date", StartingDateV, EnddingDate);
                 END ELSE BEGIN
                     SETRANGE("G/L Entry"."PWD Export COALA", FALSE);
-                    SETRANGE("G/L Entry"."Posting Date", StartingDate, EnddingDate);
+                    SETRANGE("G/L Entry"."Posting Date", StartingDateV, EnddingDate);
                 END;
-                IF SourceCode <> '' THEN
-                    SETRANGE("G/L Entry"."Source Code", SourceCode);
+                IF SourceCodeV <> '' THEN
+                    SETRANGE("G/L Entry"."Source Code", SourceCodeV);
             end;
         }
         dataitem("PWD Export COALA"; "PWD Export COALA")
@@ -105,7 +105,7 @@ report 50112 "PWD Export COALA"
             DataItemTableView = SORTING("Entry No.") WHERE("Export COALA Succes" = CONST(False));
             trigger OnAfterGetRecord()
             begin
-                IF PrintToExcel THEN
+                IF PrintToExcelV THEN
                     MakeExcelDataBody();
                 "Export COALA Succes" := TRUE;
                 MODIFY();
@@ -127,12 +127,12 @@ report 50112 "PWD Export COALA"
                 group(Options)
                 {
                     Caption = 'Options';
-                    field(PrintToExcel; PrintToExcel)
+                    field(PrintToExcel; PrintToExcelV)
                     {
                         Caption = 'Print to Excel';
                         ApplicationArea = All;
                     }
-                    field(SourceCode; SourceCode)
+                    field(SourceCode; SourceCodeV)
                     {
                         Caption = 'Code journal';
                         DrillDownPageID = "Source Codes";
@@ -144,13 +144,13 @@ report 50112 "PWD Export COALA"
                         Caption = 'Nouvel export';
                         ApplicationArea = All;
                     }
-                    field(StartingDate; StartingDate)
+                    field(StartingDate; StartingDateV)
                     {
                         Caption = 'Filtre date début';
                         ApplicationArea = All;
                         trigger OnValidate()
                         begin
-                            EnddingDate := StartingDate;
+                            EnddingDate := StartingDateV;
                         end;
                     }
                     field(EnndingDate; EnddingDate)
@@ -177,11 +177,11 @@ report 50112 "PWD Export COALA"
 
     trigger OnInitReport()
     begin
-        PrintToExcel := TRUE;
-        SourceCode := 'VENTES';
+        PrintToExcelV := TRUE;
+        SourceCodeV := 'VENTES';
         NewExport := FALSE;
         DateFilter := TODAY;
-        StartingDate := TODAY;
+        StartingDateV := TODAY;
         EnddingDate := TODAY;
     end;
 
@@ -189,7 +189,7 @@ report 50112 "PWD Export COALA"
     begin
         COMMIT();
 
-        IF PrintToExcel THEN
+        IF PrintToExcelV THEN
             CreateExcelbook();
     end;
 
@@ -197,10 +197,10 @@ report 50112 "PWD Export COALA"
     begin
         GLFilter := "G/L Entry".GETFILTERS;
         PeriodText := "G/L Entry".GETFILTER("Posting Date");
-        IF PrintToExcel THEN
+        IF PrintToExcelV THEN
             MakeExcelInfo();
 
-        IF StartingDate = 0D THEN
+        IF StartingDateV = 0D THEN
             ERROR('Veuillez saisir une date de début.');
 
         IF EnddingDate = 0D THEN
@@ -215,11 +215,11 @@ report 50112 "PWD Export COALA"
         RecGSalesCrMemoHeader: Record "Sales Cr.Memo Header";
         RecGSalesInvoiceHeader: Record "Sales Invoice Header";
         NewExport: Boolean;
-        PrintToExcel: Boolean;
-        SourceCode: Code[10];
+        PrintToExcelV: Boolean;
+        SourceCodeV: Code[10];
         DateFilter: Date;
         EnddingDate: Date;
-        StartingDate: Date;
+        StartingDateV: Date;
         NumInt: Integer;
         PeriodText: Text[30];
         GLFilter: Text[250];
@@ -231,7 +231,7 @@ report 50112 "PWD Export COALA"
 
     local procedure MakeExcelDataHeader()
     begin
-        //ToDo
+        //TODO
         /*
         TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Document Date"), FALSE, '', FALSE, FALSE, TRUE, '');
         TempExcelBuf.AddColumn(FORMAT(Text000), FALSE, '', FALSE, FALSE, TRUE, '');
@@ -251,7 +251,7 @@ report 50112 "PWD Export COALA"
     begin
         BlankFiller := PADSTR(' ', MAXSTRLEN(BlankFiller), ' ');
         TempExcelBuf.NewRow();
-        //ToDo
+        //TODO
         /*
         TempExcelBuf.AddColumn(
           "PWD Export COALA"."Document Date", FALSE, '', FALSE,
@@ -298,7 +298,7 @@ report 50112 "PWD Export COALA"
 
     procedure CreateExcelbook()
     begin
-        //ToDo
+        //TODO
         /*TempExcelBuf.CreateBook;
         TempExcelBuf.CreateSheet(Text002, Text001, COMPANYNAME, USERID);
         TempExcelBuf.GiveUserControl;*/

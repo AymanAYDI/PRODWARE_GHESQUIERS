@@ -19,7 +19,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>19.62517cm</Width>
+                  <Width>19.20184cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -2366,14 +2366,14 @@ Fields!CurrReport_PAGENOCaption.Value</Value>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
             <Height>9.76458cm</Height>
-            <Width>19.62517cm</Width>
+            <Width>19.20184cm</Width>
             <Style />
           </Tablix>
         </ReportItems>
         <Height>9.76458cm</Height>
         <Style />
       </Body>
-      <Width>19.64867cm</Width>
+      <Width>19.2865cm</Width>
       <Page>
         <PageHeader>
           <Height>5.52017cm</Height>
@@ -2842,7 +2842,7 @@ Fields!CurrReport_PAGENOCaption.Value</Value>
               <Top>0.846cm</Top>
               <Left>16.35cm</Left>
               <Height>0.49cm</Height>
-              <Width>3.27517cm</Width>
+              <Width>2.85184cm</Width>
               <ZIndex>17</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>

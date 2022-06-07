@@ -80,7 +80,7 @@ pageextension 50060 "PWD ItemTrackingLines" extends "Item Tracking Lines"
             PurchLine2.SETRANGE("Document Type", PurchLine2."Document Type"::Order);
             PurchLine2.SETRANGE("Document No.", Rec."Source ID");
             PurchLine2.SETRANGE("Line No.", Rec."Source Ref. No.");
-            IF PurchLine2.FIND('-') THEN
+            IF PurchLine2.FindFirst() THEN
                 Rec."PWD Country Origin" := PurchLine2."PWD Origin";
             Rec."PWD Certificate Transit No." := PurchLine2."PWD Cetificate Transit No.";
         END;

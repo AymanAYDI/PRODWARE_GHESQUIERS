@@ -121,7 +121,7 @@ report 50044 "PWD Validate Purchase Order"
     begin
         ReportSelection.RESET();
         ReportSelection.SETRANGE(Usage, ReportUsage);
-        ReportSelection.FIND('-');
+        ReportSelection.FindSet();
         REPEAT
             ReportSelection.TESTFIELD("Report ID");
             CASE ReportUsage OF

@@ -1,9 +1,9 @@
 report 50026 "Sales - Shipment AVITA - DAA"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './SalesShipmentAVITADAA.rdl';
+    RDLCLayout = './src/report/rdl/SalesShipmentAVITADAA.rdl';
     Caption = 'Sales - Shipment';
-
+    UsageCategory = None;
     dataset
     {
         dataitem("Sales Shipment Header"; "Sales Shipment Header")
@@ -579,9 +579,6 @@ report 50026 "Sales - Shipment AVITA - DAA"
                     column(PageLoop_Number; Number)
                     {
                     }
-                    column(NoOfCopies; NoOfCopies)
-                    {
-                    }
                     dataitem("Sales Shipment Line"; "Sales Shipment Line")
                     {
                         DataItemLink = "Document No." = FIELD("No.");
@@ -802,20 +799,37 @@ report 50026 "Sales - Shipment AVITA - DAA"
                         column(Sales_Shipment_Line_Line_No_; "Line No.")
                         {
                         }
-
+                        column(Sales_Shipment_Line_Location_Code_; "Location Code")
+                        {
+                        }
+                        column(Item_Tariff_No; Item."Tariff No.")
+                        {
+                        }
+                        column(Item_TAlcool; Item."PWD Alcool %")
+                        {
+                        }
+                        column(Sales_Shipment_Line_Type_; TypeOption)
+                        {
+                        }
                         trigger OnAfterGetRecord()
                         begin
+                            case "Sales Shipment Line".Type of
+                                "Sales Shipment Line".Type::" ":
+                                    TypeOption := '1';
+                                "Sales Shipment Line".Type::Item:
+                                    TypeOption := '2';
+                                else
+                                    TypeOption := '3';
+                            end;
                             IF NOT ShowCorrectionLines AND Correction THEN
                                 CurrReport.SKIP();
-
                             PostedDocDim2.SETRANGE("Dimension Set ID", "Sales Shipment Line"."Dimension Set ID");
-
                             IF "Sales Shipment Line".Type = "Sales Shipment Line".Type::Item THEN BEGIN
                                 NumLigne := NumLigne + 1;
                                 IF NOT Item.GET("Sales Shipment Line"."No.") THEN
                                     Item.INIT();
                             END;
-                            //ToDo var not used.
+                            //TODO var not used.
                             //CodeDEpotEntete := "Sales Shipment Line"."Location Code";
                             // Calcul total tabac alcool
                             QtéAlcool := 0;
@@ -881,6 +895,8 @@ report 50026 "Sales - Shipment AVITA - DAA"
                 }
 
                 trigger OnAfterGetRecord()
+                var
+                    CodeMag: Record Location;
                 begin
                     // ** RAZ
                     CLEAR(TotalPI);
@@ -892,6 +908,13 @@ report 50026 "Sales - Shipment AVITA - DAA"
                     CLEAR(TotalAlcoolPur);
                     CLEAR(TotalRhum);
 
+
+                    //BEGIN CodeMag   250505 Jra DAA C2A
+
+                    IF CodeMag.GET("Sales Shipment Header"."Location Code") THEN
+                        ContactMag := CodeMag.Contact;
+
+                    // END CodeMag  250505 Jra DAA C2A
                     IF Number > 1 THEN
                         CopyText := Text001;
                     NumCopie := ROUND(Number / 5, 1, '>');
@@ -977,13 +1000,13 @@ report 50026 "Sales - Shipment AVITA - DAA"
                 ELSE
                     ReferenceText := FIELDCAPTION("Your Reference");
                 FormatAddr.SalesShptShipTo(ShipToAddr, "Sales Shipment Header");
-                //ToDo a vérifier
+                //TODO a vérifier
                 FormatAddr.SalesShptBillTo(CustAddr, ShipToAddr, "Sales Shipment Header");
-                //ToDo Var not used
+                //TODO Var not used
                 //ShowCustAddr := "Bill-to Customer No." <> "Sell-to Customer No.";
                 FOR i := 1 TO ARRAYLEN(CustAddr) DO
                     IF CustAddr[i] <> ShipToAddr[i] THEN
-                        //ToDo Var not used
+                        //TODO Var not used
                         //ShowCustAddr := TRUE;
 
                         IF LogInteraction THEN
@@ -1003,11 +1026,11 @@ report 50026 "Sales - Shipment AVITA - DAA"
                 SalesShipLine.SETFILTER(Quantity, '<>0');
                 NbLigneTotal := SalesShipLine.COUNT;
                 SalesShipLine.SETRANGE(Type);
-                IF SalesShipLine.FIND('-') THEN;
-                //ToDo var not used.
+                IF SalesShipLine.FindFirst() THEN;
+                //TODO var not used.
                 //CodeDEpotEntete := SalesShipLine."Location Code"
                 //ELSE
-                //ToDo var not used.
+                //TODO var not used.
                 //CodeDEpotEntete := '';
 
                 NumLigne := 0;
@@ -1073,7 +1096,7 @@ report 50026 "Sales - Shipment AVITA - DAA"
     begin
         IF NOT CurrReport.USEREQUESTPAGE THEN
             InitLogInteraction();
-        //ToDo Var not used
+        //TODO Var not used
         //DepotSpecial := '8';
 
         IF USERID <> '' THEN
@@ -1103,13 +1126,13 @@ report 50026 "Sales - Shipment AVITA - DAA"
         SegManagement: Codeunit SegManagement;
         LogInteraction: Boolean;
         ShowCorrectionLines: Boolean;
-        //ToDo Var not used
+        //TODO Var not used
         //ShowCustAddr: Boolean;
-        BillToPostCode: Code[10];
-        //ToDo Var not used
+        BillToPostCode: Code[20];
+        //TODO Var not used
         //DepotSpecial: Code[10];
-        SellToPostCode: Code[10];
-        //ToDo var not used.
+        SellToPostCode: Code[20];
+        //TODO var not used.
         //CodeDEpotEntete: Code[20];
         "QtéAlcool": Decimal;
         "QtéAlcoolTotal": Decimal;
@@ -1229,7 +1252,7 @@ report 50026 "Sales - Shipment AVITA - DAA"
         TabacCaptionLbl: Label 'Tabac';
         Text000: Label 'Salesperson';
         Text001: Label 'COPY';
-        Text003: Label 'Page %1';
+        Text003: Label 'Page ';
         Transporteur___Caption_Control1000000300Lbl: Label 'Transporteur : ';
         Transporteur___CaptionLbl: Label 'Transporteur : ';
         "Unité_de_venteCaptionLbl": Label 'Unité de vente';
@@ -1305,6 +1328,7 @@ report 50026 "Sales - Shipment AVITA - DAA"
         TextExemplaire3: Text[100];
         TextExemplaire4: Text[100];
         TextExemplaire5: Text[100];
+        TypeOption: Text[1];
 
     procedure InitLogInteraction()
     begin

@@ -50,8 +50,6 @@ report 50008 "Get Item Ledger Entries SPE"
                                    ("Country/Region Code" = '')
                                 THEN
                                     CurrReport.SKIP();
-                                //IF "Transfer Order No." = '' THEN BEGIN
-                                //TODO Cde adapté selon nouveau std
                                 if ("Order Type" <> "Order Type"::Transfer) or ("Order No." = '') then begin
                                     Location.GET("Location Code");
                                     IF (Location."Country/Region Code" <> '') AND
@@ -59,8 +57,6 @@ report 50008 "Get Item Ledger Entries SPE"
                                     THEN
                                         CurrReport.SKIP();
                                 END ELSE BEGIN
-                                    //ItemLedgEntry.SETRANGE("Transfer Order No.", "Transfer Order No.");
-                                    //TODO Cde adapté selon nouveau std
                                     ItemLedgEntry.SetCurrentKey("Order Type", "Order No.");
                                     ItemLedgEntry.SetRange("Order Type", "Order Type"::Transfer);
                                     ItemLedgEntry.SetRange("Order No.", "Order No.");
@@ -266,7 +262,7 @@ report 50008 "Get Item Ledger Entries SPE"
 
     trigger OnInitReport()
     begin
-        CompanyInfo.FIND('-');
+        CompanyInfo.FindFirst();
         CLEAR("Item Ledger Entry");
     end;
 
@@ -282,7 +278,7 @@ report 50008 "Get Item Ledger Entries SPE"
         IF GroupEntries THEN BEGIN
             IntrastatJnlLine.RESET();
             IntrastatJnlLine2.RESET();
-            IF IntrastatJnlLine.FIND('-') THEN
+            IF IntrastatJnlLine.FindSet() THEN
                 REPEAT
                     IntrastatJnlLine2.SETRANGE("Item No.", IntrastatJnlLine."Item No.");
                     IntrastatJnlLine2.SETRANGE("Country/Region Code", IntrastatJnlLine."Country/Region Code");
@@ -295,7 +291,7 @@ report 50008 "Get Item Ledger Entries SPE"
                     StatisticalValue := 0;
                     FirstLine := TRUE;
 
-                    IF IntrastatJnlLine2.FIND('-') THEN
+                    IF IntrastatJnlLine2.FindSet() THEN
                         REPEAT
                             IF IntrastatJnlLine2.Type = IntrastatJnlLine2.Type::Shipment THEN BEGIN
                                 Amount := Amount + IntrastatJnlLine2.Amount;
@@ -338,7 +334,7 @@ report 50008 "Get Item Ledger Entries SPE"
         IntrastatJnlLine.SETRANGE("Journal Template Name", IntrastatJnlLine."Journal Template Name");
         IntrastatJnlLine.SETRANGE("Journal Batch Name", IntrastatJnlLine."Journal Batch Name");
         IntrastatJnlLine.LOCKTABLE();
-        IF IntrastatJnlLine.FIND('+') THEN;
+        IF IntrastatJnlLine.FindLast() THEN;
 
         GetGLSetup();
         IF IntrastatJnlBatch."Amounts in Add. Currency" THEN BEGIN

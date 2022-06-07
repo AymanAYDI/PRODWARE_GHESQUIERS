@@ -30,7 +30,8 @@ tableextension 60063 "PWD PriceListLine" extends "Price List Line"
                     "Unit Price" := ROUND("PWD Purch. Cost", 0.01, '<');
             end;
         }
-        //TODOfield(50002; "PWD Description"; Text[50]) //"Description" existe dans le STD
+        //TODO //"Description" existe dans le STD
+        // field(50002; "PWD Description"; Text[50])
         // {
         //     Caption = 'Description';
         //     Description = 'PW2009';

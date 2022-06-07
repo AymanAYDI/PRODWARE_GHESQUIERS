@@ -143,7 +143,7 @@ codeunit 60002 "PWD CduEvents AM"
     //--Page306--
     [EventSubscriber(ObjectType::Page, Page::"Report Selection - Sales", 'OnSetUsageFilterOnAfterSetFiltersByReportUsage', '', false, false)]
     local procedure OnSetUsageFilterOnAfterSetFiltersByReportUsage(var Rec: Record "Report Selections"; ReportUsage2: Option)
-    //ToDo
+    //TODO
     begin
         /*        CASE ReportUsage2 OF
                     ReportUsage2::T5:
@@ -203,7 +203,7 @@ codeunit 60002 "PWD CduEvents AM"
             SalesLine2.SETRANGE("Document No.", TrackingSpecification."Source ID");
             SalesLine2.SETRANGE("Line No.", TrackingSpecification."Source Ref. No.");
             SalesLine2.SETRANGE(SalesLine2."No.", TrackingSpecification."Item No.");
-            IF SalesLine2.FIND('-') THEN
+            IF SalesLine2.FindFirst() THEN
                 SalesLine2."PWD Origin Area" := TrackingSpecification."PWD Country Origin";
             SalesLine2."PWD Certificate Transit No." := TrackingSpecification."PWD Certificate Transit No.";
             SalesLine2.MODIFY();

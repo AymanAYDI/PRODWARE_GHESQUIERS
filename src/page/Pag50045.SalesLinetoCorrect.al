@@ -443,7 +443,7 @@ page 50045 "PWD Sales Line to Correct"
         SalesHeader.SETRANGE(SalesHeader.Status, SalesHeader.Status::Open);
         SalesHeader.SETRANGE(SalesHeader."PWD Preparation in process", TRUE);
         SalesHeader.SETRANGE(SalesHeader."PWD User Id", USERID);
-        IF SalesHeader.FIND('-') THEN
+        IF SalesHeader.FindSet() THEN
             REPEAT
                 ReleaseSalesDoc.RUN(SalesHeader);
             UNTIL SalesHeader.NEXT() = 0;
@@ -520,17 +520,20 @@ page 50045 "PWD Sales Line to Correct"
         IF TransferExtendedText.MakeUpdate() THEN
             UpdateForm(TRUE);
     end;
-
-    procedure ShowReservation()
-    begin
-        Rec.FIND();
-        Rec.ShowReservation();
-    end;
-
+    //TODO function unitil 
+    /*
+        procedure ShowReservation()
+        begin
+            Rec.FIND();
+            Rec.ShowReservation();
+        end;
+    */
     procedure ItemAvailability(AvailabilityType: Option Date,Variant,Location,Bin)
+    var
+        "ItemAvailabilityFormsMgt": Codeunit "Item Availability Forms Mgt";
     begin
-        //ToDo
-        //Rec.ItemAvailability(AvailabilityType);
+        //TODO verif
+        ItemAvailabilityFormsMgt.ShowItemAvailFromSalesLine(rec, AvailabilityType);
     end;
 
     procedure ShowReservationEntries()
@@ -538,24 +541,16 @@ page 50045 "PWD Sales Line to Correct"
         Rec.ShowReservationEntries(TRUE);
     end;
 
-    procedure ShowDimensions()
-    begin
-        Rec.ShowDimensions();
-    end;
-
-    procedure ShowItemSub()
-    begin
-        Rec.ShowItemSub();
-    end;
+    //TODO Function unitil 
+    /*
+        procedure ShowDimensions()
+        begin
+            Rec.ShowDimensions();
+        end;*/
 
     procedure ShowNonstockItems()
     begin
         Rec.ShowNonstock();
-    end;
-
-    procedure OpenItemTrackingLines()
-    begin
-        Rec.OpenItemTrackingLines();
     end;
 
     procedure ShowTracking()
@@ -591,7 +586,7 @@ page 50045 "PWD Sales Line to Correct"
     procedure PrintHealthCertificate()
     var
         CustomsCertif: Record "PWD Customs Documents Template";
-        SalesLine: Record "Sales Line";
+        LSalesLine: Record "Sales Line";
         HealthCertifWordMngt: Codeunit "PWD Customs Sales Doc WordMngt";
         AssignDocTemplateCode: Page "Choose Customs Doc Template";
         DocTemplateCode: Code[10];
@@ -602,8 +597,8 @@ page 50045 "PWD Sales Line to Correct"
             AssignDocTemplateCode.GetFields(DocTemplateCode);
             CustomsCertif.GET(DocTemplateCode);
             CLEAR(HealthCertifWordMngt);
-            CurrPage.SETSELECTIONFILTER(SalesLine);
-            //ToDo
+            CurrPage.SETSELECTIONFILTER(LSalesLine);
+            //TODO
             //HealthCertifWordMngt.Merge(SalesLine, CustomsCertif, CustomsCertif."No.");
         END;
     end;

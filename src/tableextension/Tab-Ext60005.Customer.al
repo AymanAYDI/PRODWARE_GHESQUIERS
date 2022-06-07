@@ -197,7 +197,6 @@ tableextension 60005 "PWD Customer" extends Customer
         {
             Caption = 'Acknowledgement';
             Description = 'PW2009';
-            //TODOOptionMembers = "AR par impression","AR par Fax","AR par Email"; //Récupérer la traduction
             DataClassification = CustomerContent;
         }
         field(55019; "PWD No. d accises"; Code[20])
@@ -234,11 +233,10 @@ tableextension 60005 "PWD Customer" extends Customer
         ContBusRelUpd.SETCURRENTKEY("Link to Table", "No.");
         ContBusRelUpd.SETRANGE("Link to Table", ContBusRelUpd."Link to Table"::Customer);
         ContBusRelUpd.SETRANGE("No.", "No.");
-        IF ContBusRelUpd.FIND('-') THEN
+        IF ContBusRelUpd.FindSet() THEN
             REPEAT
-
                 ContUpd.SETRANGE("Company No.", ContBusRelUpd."Contact No.");
-                IF ContUpd.FIND('-') THEN
+                IF ContUpd.FindSet() THEN
                     REPEAT
                         ContUpd."PWD Business Initiator" := "PWD Business Initiator";
                         ContUpd."PWD Payback Commission Rate" := "PWD Payback Commission Rate";

@@ -62,7 +62,7 @@ page 50044 "PWD Sales Orders to correct"
                 PromotedCategory = Process;
                 ApplicationArea = All;
                 Image = UntrackedQuantity;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     SalesHeader.RESET();
@@ -124,7 +124,7 @@ page 50044 "PWD Sales Orders to correct"
         CumulatedInventory := 0;
         RecLocPriority.RESET();
         RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", SalesHeader."PWD Call Type");
-        IF RecLocPriority.FIND('-') THEN BEGIN
+        IF RecLocPriority.FindSet() THEN BEGIN
             REPEAT
                 AvailableInventory := PWDFunctionMgt.CalculateNeed(SalesLine, RecLocPriority."PWD Location code");
                 CumulatedInventory += PWDFunctionMgt.CalculateNeed(SalesLine, RecLocPriority."PWD Location code");

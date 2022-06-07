@@ -81,7 +81,7 @@ page 50042 "PWD Sales Orders to prepare"
                             ERROR(Text1000000009);
                         IF SalesHeader.COUNT = 0 THEN
                             ERROR(Text1000000010);
-                        IF SalesHeader.FIND('-') THEN BEGIN
+                        IF SalesHeader.FindFirst() THEN BEGIN
                             SalesHeader.VALIDATE(SalesHeader.Status, SalesHeader.Status::Open);
                             SalesHeader.MODIFY();
                             LastLineNo := 0;
@@ -89,14 +89,14 @@ page 50042 "PWD Sales Orders to prepare"
                             SalesLine.SETRANGE(SalesLine."Document Type", SalesLine."Document Type"::Order);
                             SalesLine.SETRANGE(SalesLine."Document No.", SalesHeader."No.");
                             SalesLine.SETRANGE(SalesLine."PWD Preparation in Process", FALSE);
-                            IF SalesLine.FIND('+') THEN
+                            IF SalesLine.FindLast() THEN
                                 LastLineNo := SalesLine."Line No.";
                             SalesLine.RESET();
                             SalesLine.SETRANGE(SalesLine."Document Type", SalesLine."Document Type"::Order);
                             SalesLine.SETRANGE(SalesLine."Document No.", SalesHeader."No.");
                             SalesLine.SETRANGE(SalesLine."PWD Preparation in Process", FALSE);
                             SalesLine.SETRANGE(SalesLine.Type, SalesLine.Type::Item);
-                            IF SalesLine.FIND('-') THEN BEGIN
+                            IF SalesLine.FindSet() THEN BEGIN
                                 REPEAT
                                     Item.GET(SalesLine."No.");
                                     IF (Item."PWD Trading Brand" = FALSE) AND (Item."PWD Butchery" = FALSE) THEN BEGIN
@@ -115,7 +115,7 @@ page 50042 "PWD Sales Orders to prepare"
                             SalesLine.SETRANGE(SalesLine."Document Type", SalesLine."Document Type"::Order);
                             SalesLine.SETRANGE(SalesLine."Document No.", SalesHeader."No.");
                             SalesLine.SETRANGE(SalesLine."PWD Preparation in Process", TRUE);
-                            IF SalesLine.FIND('-') THEN
+                            IF SalesLine.FindSet() THEN
                                 REPEAT
                                     Item.GET(SalesLine."No.");
                                     IF (Item."PWD Trading Brand" = FALSE) AND (Item."PWD Butchery" = FALSE) THEN
@@ -141,7 +141,7 @@ page 50042 "PWD Sales Orders to prepare"
                         IF SalesHeader.COUNT = 0 THEN
                             ERROR(Text1000000010);
 
-                        IF SalesHeader.FIND('-') THEN
+                        IF SalesHeader.FindFirst() THEN
                             IF SalesHeader."PWD Preparation in process" = FALSE THEN
                                 MESSAGE(Text1000000012) ELSE
                                 REPORT.RUNMODAL(Report::"PWD Picking List", TRUE, TRUE, SalesHeader);
@@ -151,7 +151,7 @@ page 50042 "PWD Sales Orders to prepare"
                 {
                     ApplicationArea = all;
                     Caption = 'Update Qty to Prepare';
-                    Image= UpdateDescription;
+                    Image = UpdateDescription;
 
                     trigger OnAction()
 
@@ -162,7 +162,7 @@ page 50042 "PWD Sales Orders to prepare"
                             ERROR(Text1000000009);
                         IF SalesHeader.COUNT = 0 THEN
                             ERROR(Text1000000010);
-                        IF SalesHeader.FIND('-') THEN
+                        IF SalesHeader.FindFirst() THEN
                             IF SalesHeader."PWD Preparation in process" = FALSE THEN
                                 MESSAGE(Text1000000013, SalesHeader."No.") ELSE BEGIN
                                 SalesLine.RESET();
@@ -190,7 +190,7 @@ page 50042 "PWD Sales Orders to prepare"
                 Visible = true;
                 ApplicationArea = All;
                 Image = UpdateUnitCost;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     SalesHeader.RESET();
@@ -199,7 +199,7 @@ page 50042 "PWD Sales Orders to prepare"
                         ERROR(Text1000000009);
                     IF SalesHeader.COUNT = 0 THEN
                         ERROR(Text1000000010);
-                    IF SalesHeader.FIND('-') THEN
+                    IF SalesHeader.FindFirst() THEN
                         IF SalesHeader."PWD Preparation in process" = FALSE THEN
                             MESSAGE(Text1000000013, SalesHeader."No.") ELSE BEGIN
                             SalesLine.RESET();
@@ -247,7 +247,7 @@ page 50042 "PWD Sales Orders to prepare"
         FormSalesLinetoPrepare: Page "PWD Sales Lines to Prepare";
         LastLineNo: BigInteger;
         ItemNo: Code[20];
-        ItemNo2: Code[20];
+        //ItemNo2: Code[20];
         AvailableInventory: Decimal;
         CumulatedInventory: Decimal;
         QtytoSend: Decimal;
@@ -316,7 +316,8 @@ page 50042 "PWD Sales Orders to prepare"
                     SalesLine2."PWD Previous Line No" := SalesLine."Line No.";
                     SalesLine2.INSERT(TRUE);
                     Qtyinserted := SalesLine2.Quantity;
-                    ItemNo2 := SalesLine2."No.";
+                    //TODO Var Not used
+                    //ItemNo2 := SalesLine2."No.";
                 END;
             UNTIL (RecLocPriority.NEXT() = 0) OR (InsertedSalesLineQty = InputQuantity);
             IF UnavailableQty > 0 THEN BEGIN
@@ -458,7 +459,7 @@ page 50042 "PWD Sales Orders to prepare"
         ItemTrackingLines.SETRANGE(ItemTrackingLines."Source Subtype", SalesLine."Document Type");
         ItemTrackingLines.SETRANGE(ItemTrackingLines."Source ID", SalesLine."Document No.");
         ItemTrackingLines.SETRANGE(ItemTrackingLines."Source Ref. No.", SalesLine."Line No.");
-        IF NOT ItemTrackingLines.FIND('-') THEN
+        IF NOT ItemTrackingLines.FindFirst() THEN
             InsertTrackingLines()
         ELSE BEGIN
             REPEAT
@@ -471,7 +472,7 @@ page 50042 "PWD Sales Orders to prepare"
     procedure InsertTrackingLines2()
     var
         ItemLedgerEntry: Record "Item Ledger Entry";
-        ItemTrackingLines: Record "Tracking Specification";
+        LItemTrackingLines: Record "Tracking Specification";
         CumulatedRemainingQty: Decimal;
         Difference: Decimal;
         InsertedTrackingQty: Decimal;
@@ -488,29 +489,29 @@ page 50042 "PWD Sales Orders to prepare"
         ItemLedgerEntry.SETRANGE(ItemLedgerEntry.Positive, TRUE);
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Remaining Quantity", '<>%1', 0);
         IF ItemLedgerEntry.FindSet() THEN BEGIN
-            ItemTrackingLines.FindSet();
-            EntryNo := ItemTrackingLines."Entry No.";
+            LItemTrackingLines.FindSet();
+            EntryNo := LItemTrackingLines."Entry No.";
             REPEAT
                 EntryNo += 1;
                 CumulatedRemainingQty += ItemLedgerEntry."Remaining Quantity";
                 Difference := SalesLine."PWD Prepared Quantity (Base)" - InsertedTrackingQty;
                 IF (Difference <> 0) THEN BEGIN
-                    ItemTrackingLines.INIT();
-                    ItemTrackingLines.VALIDATE("Entry No.", EntryNo);
-                    ItemTrackingLines.VALIDATE("Item No.", ItemLedgerEntry."Item No.");
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."Location Code", SalesLine."Location Code");
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."Source Type", DATABASE::"Sales Line");
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."Source Subtype", SalesLine."Document Type");
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."Source ID", SalesLine."Document No.");
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."Source Ref. No.", SalesLine."Line No.");
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."Lot No.", ItemLedgerEntry."Lot No.");
+                    LItemTrackingLines.INIT();
+                    LItemTrackingLines.VALIDATE("Entry No.", EntryNo);
+                    LItemTrackingLines.VALIDATE("Item No.", ItemLedgerEntry."Item No.");
+                    LItemTrackingLines.VALIDATE(LItemTrackingLines."Location Code", SalesLine."Location Code");
+                    LItemTrackingLines.VALIDATE(LItemTrackingLines."Source Type", DATABASE::"Sales Line");
+                    LItemTrackingLines.VALIDATE(LItemTrackingLines."Source Subtype", SalesLine."Document Type");
+                    LItemTrackingLines.VALIDATE(LItemTrackingLines."Source ID", SalesLine."Document No.");
+                    LItemTrackingLines.VALIDATE(LItemTrackingLines."Source Ref. No.", SalesLine."Line No.");
+                    LItemTrackingLines.VALIDATE(LItemTrackingLines."Lot No.", ItemLedgerEntry."Lot No.");
                     IF CumulatedRemainingQty <= SalesLine."PWD Prepared Quantity (Base)" THEN
-                        ItemTrackingLines.VALIDATE(ItemTrackingLines."Quantity (Base)", ItemLedgerEntry."Remaining Quantity") ELSE
-                        ItemTrackingLines.VALIDATE(ItemTrackingLines."Quantity (Base)", Difference);
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."Creation Date", ItemLedgerEntry."Posting Date");
-                    ItemTrackingLines.VALIDATE(ItemTrackingLines."PWD Certificate Transit No.", ItemLedgerEntry."PWD Cetificate Transit No.");
-                    ItemTrackingLines.INSERT(TRUE);
-                    InsertedTrackingQty += ItemTrackingLines."Quantity (Base)";
+                        LItemTrackingLines.VALIDATE(LItemTrackingLines."Quantity (Base)", ItemLedgerEntry."Remaining Quantity") ELSE
+                        LItemTrackingLines.VALIDATE(LItemTrackingLines."Quantity (Base)", Difference);
+                    LItemTrackingLines.VALIDATE(LItemTrackingLines."Creation Date", ItemLedgerEntry."Posting Date");
+                    LItemTrackingLines.VALIDATE(LItemTrackingLines."PWD Certificate Transit No.", ItemLedgerEntry."PWD Cetificate Transit No.");
+                    LItemTrackingLines.INSERT(TRUE);
+                    InsertedTrackingQty += LItemTrackingLines."Quantity (Base)";
                 END;
             UNTIL (ItemLedgerEntry.NEXT() = 0) OR (InsertedTrackingQty = SalesLine."PWD Prepared Quantity (Base)")
         END;
@@ -568,7 +569,7 @@ page 50042 "PWD Sales Orders to prepare"
                 SalesLine.SETRANGE(SalesLine."Document Type", SalesLine."Document Type"::Order);
                 SalesLine.SETRANGE(SalesLine."Document No.", SalesHeader."No.");
                 SalesLine.SETRANGE(SalesLine."PWD Preparation in Process", FALSE);
-                IF SalesLine.FIND('+') THEN
+                IF SalesLine.FindLast() THEN
                     LastLineNo := SalesLine."Line No.";
                 SalesLine.RESET();
                 SalesLine.SETRANGE(SalesLine."Document Type", SalesLine."Document Type"::Order);

@@ -262,10 +262,11 @@ pageextension 50006 "PWD CustomerList" extends "Customer List"
                 field("PWD TxtGAddressList"; TxtGAddressList)
                 {
                     ApplicationArea = All;
+                    Caption = 'Adresse Mail';
                 }
             }
         }
-        //ToDo
+        //TODO
         /*modify(SalesHistSelltoFactBox)
         {
             Editable = false;

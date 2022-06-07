@@ -490,9 +490,6 @@ report 50022 "PWD Export Microsoft Excel"
             column(SelltoCustomerTemplCode; "Sell-to Customer Templ. Code")
             {
             }
-            column(SelltoCustomerTemplateCode; "Sell-to Customer Template Code")
-            {
-            }
             column(SelltoEMail; "Sell-to E-Mail")
             {
             }
@@ -631,11 +628,11 @@ report 50022 "PWD Export Microsoft Excel"
             column(YourReference; "Your Reference")
             {
             }
-            //ToDo
+            //TODO
             /*
             trigger OnPreDataItem()
             begin
-                //ToDo
+                //TODO
                 //CREATE(AppExcel);
                 AppExcel.Visible := TRUE;
             end;
@@ -645,11 +642,11 @@ report 50022 "PWD Export Microsoft Excel"
 
                 SalesSetup.GET();
                 Purchline.SETCURRENTKEY("Document Type", "Document No.", "Line No.");
-                //ToDo
+                //TODO
                 //Purchline.SETRANGE("PWD Sales Type Doc Appeal tenders", "Document Type");
                 Purchline.SETRANGE("PWD Sales No. Appeal Tenders", "No.");
                 AppExcel.Workbooks.Add;
-                IF Purchline.FIND('-') THEN BEGIN
+                IF Purchline.FindFirst() THEN BEGIN
                     Docno := Purchline."Document No.";
                     Docno := Purchline."Document No.";
                     Purchline.SETRANGE("Document No.", Docno);
@@ -677,7 +674,7 @@ report 50022 "PWD Export Microsoft Excel"
                     Purchline2.SETRANGE("Document No.", Purchline."Document No.");
                     Purchline2.SETRANGE("Document Type", Purchline."Document Type");
                     Purchline2.SETRANGE("Buy-from Vendor No.", Purchline."Buy-from Vendor No.");
-                    IF Purchline2.FIND('-') THEN BEGIN
+                    IF Purchline2.FindSet() THEN BEGIN
                         REPEAT
                             AppExcel.ActiveCell.Value := Purchline2."Line No.";
                             AppExcel.ActiveCell.Offset(0, 1).Value := Purchline2."No.";
@@ -698,7 +695,7 @@ report 50022 "PWD Export Microsoft Excel"
                     AppExcel.Cells.Select;
                     AppExcel.Cells.EntireColumn.AutoFit;
                     AppExcel.Range('A6').Select;
-                    //ToDo
+                    //TODO
                     /*
                     FileBat.CREATE('c:\Start.bat');
                     FileBat.TEXTMODE := TRUE;
@@ -712,12 +709,12 @@ report 50022 "PWD Export Microsoft Excel"
                     SLEEP(1000);
                     CommandProcessor := 'c:\start.bat';
                     DosArgumentII := FORMAT(Purchline."Buy-from Vendor No.") + FORMAT(Purchline."Document No.");
-                    //ToDo
+                    //TODO
                     //SHELL(CommandProcessor);
                     SLEEP(2000);
                     AppExcel.ActiveWorkbook._SaveAs(SalesSetup."PWD Path xls File Export" + '\' + DosArgumentII + '\' +
                       FORMAT(Purchline."Buy-from Vendor No.") + FORMAT(Purchline."Document No."));
-                    //ToDo
+                    //TODO
                     //ERASE('c:\start.bat');
                     Purchline.SETRANGE("Document No.");
                     Docno := Purchline."Document No.";
@@ -750,7 +747,7 @@ report 50022 "PWD Export Microsoft Excel"
                             Purchline2.SETRANGE("Document No.", Purchline."Document No.");
                             Purchline2.SETRANGE("Document Type", Purchline."Document Type");
                             Purchline2.SETRANGE("Buy-from Vendor No.", Purchline."Buy-from Vendor No.");
-                            IF Purchline2.FIND('-') THEN BEGIN
+                            IF Purchline2.FindSet() THEN BEGIN
                                 REPEAT
                                     AppExcel.ActiveCell.Value := Purchline2."Line No.";
                                     AppExcel.ActiveCell.Offset(0, 1).Value := Purchline2."No.";
@@ -771,7 +768,7 @@ report 50022 "PWD Export Microsoft Excel"
                             AppExcel.Cells.Select;
                             AppExcel.Cells.EntireColumn.AutoFit;
                             AppExcel.Range('A6').Select;
-                            //ToDo
+                            //TODO
                             /*
                             FileBat.CREATE('c:\Start.bat');
                             FileBat.TEXTMODE := TRUE;
@@ -786,7 +783,7 @@ report 50022 "PWD Export Microsoft Excel"
                             SLEEP(1000);
                             CommandProcessor := 'c:\start.bat';
                             DosArgumentII := FORMAT(Purchline."Buy-from Vendor No.") + FORMAT(Purchline."Document No.");
-                            //ToDo
+                            //TODO
                             //SHELL(CommandProcessor);
                             SLEEP(2000);
 
@@ -794,7 +791,7 @@ report 50022 "PWD Export Microsoft Excel"
                               FORMAT(Purchline."Buy-from Vendor No.") + FORMAT(Purchline."Document No."));
                             Purchline.SETRANGE("Document No.");
                             Docno := Purchline."Document No.";
-                            //ToDo
+                            //TODO
                             //ERASE('c:\start.bat');
                         END;
                     UNTIL Purchline.NEXT() = 0;

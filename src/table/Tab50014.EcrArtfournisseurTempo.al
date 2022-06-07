@@ -240,7 +240,7 @@ table 50014 "PWD EcrArt/fournisseur Tempo"
         field(5707; "Product Group Code"; Code[10])
         {
             Caption = 'Product Group Code';
-            //ToDo Product Groupe
+            //TODO Product Groupe
             TableRelation = "Product Group".Code WHERE("Item Category Code" = FIELD("Item Category Code"));
             DataClassification = CustomerContent;
         }

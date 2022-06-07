@@ -240,7 +240,7 @@ page 50002 "Appeal for tenders/Vendor -TrB"
 
     local procedure DescriptionOnFormat()
     begin
-        //ToDo var not used
+        //TODO var not used
         IF Rec.Detail = TRUE THEN
             DescriptionIndent := 500
         ELSE

@@ -310,7 +310,7 @@ page 50023 "PWD Archived Sales Order"
                     ApplicationArea = all;
                     Caption = 'Dimensions';
                     Image = Dimensions;
-                    //ToDo
+                    //TODO
                     /*
                      RunObject = Page "Document Dimensions Archive";
                      RunPageLink = "Table ID" = CONST(36), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0), "Doc. No. Occurrence" = FIELD("Doc. No. Occurrence"), "Version No." = FIELD("Version No.");

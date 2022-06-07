@@ -1,8 +1,14 @@
 report 50034 "Relevé des Sorties Export 2"
 {
+    // ---------------------------------------------------
+    // Prodware - www.prodware.fr
+    // --------------------------------------------------
+    //
+    // //>>GHE1.01
+    //    FED_010420088report50034_Ghesquiers:SOBI 23/04/08 : - changes
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/RelevédesSortiesExport2.rdl';
-
+    UsageCategory = None;
     Permissions = TableData "Sales Shipment Line" = rm,
                   TableData "Sales Cr.Memo Line" = rm;
 
@@ -12,12 +18,16 @@ report 50034 "Relevé des Sorties Export 2"
         {
             DataItemTableView = SORTING("PWD DSA No.", "Posting Date");
             RequestFilterFields = "Posting Date", "PWD Location Filter";
+            PrintOnlyIfDetail = true;
             column(GETFILTER___Posting_Date__; GETFILTER("Posting Date"))
             {
             }
             column(GETFILTER___Location_Filter__; GETFILTER("PWD Location Filter"))
             {
             }
+            // column(Page___FORMAT_CurrReport_PAGENO_; 'Page ' + FORMAT(CurrReport.PAGENO()))
+            // {
+            // }
             column(Page___FORMAT_CurrReport_PAGENO_; 'Page ')
             {
             }
@@ -36,9 +46,7 @@ report 50034 "Relevé des Sorties Export 2"
             column(TYPECaption; TYPECaptionLbl)
             {
             }
-            column(BLCaption; BLCaptionLbl)
-            {
-            }
+
             column(DATECaption; DATECaptionLbl)
             {
             }
@@ -57,29 +65,36 @@ report 50034 "Relevé des Sorties Export 2"
             column(MAGCaption; MAGCaptionLbl)
             {
             }
-            column(CUMULSCaption; CUMULSCaptionLbl)
-            {
-            }
+
             column(Sales_Shipment_Header_No_; "No.")
             {
             }
             column(Sales_Shipment_Header_Location_Filter; "PWD Location Filter")
             {
             }
+            column(Sales_Shipment_Header___Sell_to_Customer_No________Sales_Shipment_Header___No__; "Sell-to Customer No." + '/' + "No.")
+            {
+            }
+            column(Sales_Shipment_Header___DSA_No__; "Sales Shipment Header"."PWD DSA No.")
+            {
+            }
+            column(Sales_Shipment_Header___Posting_Date_; "Sales Shipment Header"."Posting Date")
+            {
+            }
+            column(BLCaption; BLCaptionLbl)
+            {
+            }
             dataitem("Sales Shipment Line"; "Sales Shipment Line")
             {
                 DataItemLink = "Document No." = FIELD("No."), "Location Code" = FIELD("PWD Location Filter");
                 DataItemTableView = SORTING("Document No.", "Location Code", "PWD Provision/materiel", "PWD National Add. Code") WHERE(Type = CONST(Item));
-                column(Sales_Shipment_Header___Sell_to_Customer_No________Sales_Shipment_Header___No__; "Sales Shipment Header"."Sell-to Customer No." + '/' + "Sales Shipment Header"."No.")
-                {
-                }
                 column(Sales_Shipment_Line__Line_Amount_; "PWD Line Amount")
                 {
                 }
-                column(NetWeight_Control1000000011; NetWeight)
+                column(CUMULSCaption; CUMULSCaptionLbl)
                 {
                 }
-                column(Sales_Shipment_Header___Posting_Date_; "Sales Shipment Header"."Posting Date")
+                column(NetWeight_Control1000000011; NetWeight)
                 {
                 }
                 column(CustType; CustType)
@@ -91,9 +106,6 @@ report 50034 "Relevé des Sorties Export 2"
                 column(Sales_Shipment_Line__Monthly_Code_; "PWD Monthly Code")
                 {
                 }
-                column(Sales_Shipment_Header___DSA_No__; "Sales Shipment Header"."PWD DSA No.")
-                {
-                }
                 column(CodeDouane; CodeDouane)
                 {
                 }
@@ -103,16 +115,21 @@ report 50034 "Relevé des Sorties Export 2"
                 column(Sales_Shipment_Line_Line_No_; "Line No.")
                 {
                 }
-                column(Sales_Shipment_Line_Provision_materiel; "Provision/materiel")
+                column(Sales_Shipment_Line_Provision_materiel; "PWD Provision/materiel")
                 {
                 }
-
+                column(Sales_Shipment_Line_Line_Amount; "PWD Line Amount")
+                {
+                }
                 trigger OnAfterGetRecord()
                 var
                     RecLCountry: Record "Country/Region";
                     RecLCustomer: Record Customer;
                 begin
+                    //C2A GTE 22 06 04
                     IF Quantity = 0 THEN CurrReport.SKIP();
+
+                    //>>FED_010420088report50034_Ghesquiers
                     CLEAR(CodGCodeMensuel);
                     IF RecLCustomer.GET("Sales Shipment Line"."Sell-to Customer No.") THEN BEGIN
                         RecLCountry.RESET();
@@ -120,6 +137,8 @@ report 50034 "Relevé des Sorties Export 2"
                         IF RecLCountry.FindFirst() THEN
                             CodGCodeMensuel := RecLCountry."PWD Monthly Code";
                     END;
+                    //<<FED_010420088report50034_Ghesquiers
+
                     Item.RESET();
                     IF NOT Item.GET("Sales Shipment Line"."No.") THEN Item.INIT();
 
@@ -150,6 +169,11 @@ report 50034 "Relevé des Sorties Export 2"
 
             trigger OnPreDataItem()
             begin
+                //CurrReport.CREATETOTALS ("Sales Shipment Line"."PWD Line Amount");
+                //CurrReport.CREATETOTALS(NetWeight);
+                //CurrReport.CREATETOTALS(DSACrMemoWeight,DSACrMemoAmount);
+                //CurrReport.CREATETOTALS(LineWeight,Lineamount);
+
                 LocationFilter := GETFILTER("PWD Location Filter");
                 DateFilter := GETFILTER("Posting Date");
                 DateMin := GETRANGEMIN("Posting Date");
@@ -161,6 +185,7 @@ report 50034 "Relevé des Sorties Export 2"
         dataitem("Sales Cr.Memo Header"; "Sales Cr.Memo Header")
         {
             DataItemTableView = SORTING("Posting Date", "PWD DSA No.");
+            PrintOnlyIfDetail = true;
             column(DateFilter; DateFilter)
             {
             }
@@ -197,13 +222,17 @@ report 50034 "Relevé des Sorties Export 2"
             column(Sales_Cr_Memo_Header_No_; "No.")
             {
             }
+            column(Sales_Cr_Memo_Header___Sell_to_Customer_No________Sales_Cr_Memo_Header___No__; "Sales Cr.Memo Header"."Sell-to Customer No." + '/' + "Sales Cr.Memo Header"."No.")
+            {
+            }
+            column(Sales_Cr_Memo_Header___Posting_Date_; "Sales Cr.Memo Header"."Posting Date")
+            {
+            }
             dataitem("Sales Cr.Memo Line"; "Sales Cr.Memo Line")
             {
                 DataItemLink = "Document No." = FIELD("No.");
                 DataItemTableView = SORTING("Document No.", "PWD Provision/materiel") WHERE(Type = CONST(Item));
-                column(Sales_Cr_Memo_Header___Sell_to_Customer_No________Sales_Cr_Memo_Header___No__; "Sales Cr.Memo Header"."Sell-to Customer No." + '/' + "Sales Cr.Memo Header"."No.")
-                {
-                }
+
                 column(Sales_Cr_Memo_Line__Sales_Cr_Memo_Line___Line_Amount_; "Sales Cr.Memo Line"."Line Amount")
                 {
                 }
@@ -213,9 +242,7 @@ report 50034 "Relevé des Sorties Export 2"
                 column(CodeDouane_Control1000000055; CodeDouane)
                 {
                 }
-                column(Sales_Cr_Memo_Header___Posting_Date_; "Sales Cr.Memo Header"."Posting Date")
-                {
-                }
+
                 column(CustType_Control1000000057; CustType)
                 {
                 }
@@ -231,7 +258,7 @@ report 50034 "Relevé des Sorties Export 2"
                 column(Sales_Cr_Memo_Line_Line_No_; "Line No.")
                 {
                 }
-                column(Sales_Cr_Memo_Line_Provision_materiel; "Provision/materiel")
+                column(Sales_Cr_Memo_Line_Provision_materiel; "PWD Provision/materiel")
                 {
                 }
 
@@ -240,7 +267,10 @@ report 50034 "Relevé des Sorties Export 2"
                     RecLCountry: Record "Country/Region";
                     RecLCustomer: Record Customer;
                 begin
+                    //C2A GTE 22 06 04
                     IF Quantity = 0 THEN CurrReport.SKIP();
+
+                    //>>FED_010420088report50034_Ghesquiers
                     CLEAR(CodGCodeMensuel);
                     IF RecLCustomer.GET("Sales Cr.Memo Line"."Sell-to Customer No.") THEN BEGIN
                         RecLCountry.RESET();
@@ -248,6 +278,7 @@ report 50034 "Relevé des Sorties Export 2"
                         IF RecLCountry.FindFirst() THEN
                             CodGCodeMensuel := RecLCountry."PWD Monthly Code";
                     END;
+                    //<<FED_010420088report50034_Ghesquiers
 
                     NetWeight := "Net Weight" * Quantity;
 
@@ -260,6 +291,15 @@ report 50034 "Relevé des Sorties Export 2"
                             "PWD DCG Tariff No." := '';
                     END;
 
+                    CASE "PWD Provision/materiel" OF
+                        "PWD Provision/materiel"::Provision:
+                            CodeDouane := Text001;
+                        "PWD Provision/materiel"::Materiel:
+                            CodeDouane := Text002;
+                        "PWD Provision/materiel"::" ":
+                            CodeDouane := '';
+                    END;
+
                     CrMemoWeight += NetWeight;
                 end;
 
@@ -267,6 +307,9 @@ report 50034 "Relevé des Sorties Export 2"
                 begin
                     SETFILTER("Location Code", LocationFilter);
                     SETRANGE(Type, "Sales Cr.Memo Line".Type::Item);
+
+                    // CurrReport.CREATETOTALS(NetWeight);
+                    // CurrReport.CREATETOTALS(Amount, "Line Amount");
                 end;
             }
 
@@ -363,7 +406,9 @@ report 50034 "Relevé des Sorties Export 2"
                 SalesShipHeader.GET(Cumul."Document No.");
                 IF NOT (SalesShipHeader."Posting Date" IN [DateMin .. DateMax]) THEN CurrReport.SKIP();
                 IF ((BlankDSA = FALSE) AND (SalesShipHeader."PWD DSA No." = '')) THEN CurrReport.SKIP();
+
                 NetWeight := "Net Weight" * Quantity;
+
                 IF ((CurrMonthly <> "PWD Monthly Code") OR ("PWD Provision/materiel" <> CurrPM) OR (CurrLoc <> "Location Code")) THEN BEGIN
                     i += 1;
                     CurrLoc := "Location Code";
@@ -371,7 +416,8 @@ report 50034 "Relevé des Sorties Export 2"
                     CurrPM := "PWD Provision/materiel";
                     FindCRMemoLines('', "PWD Provision/materiel", "PWD Monthly Code", TRUE, "Location Code");
                 END;
-                Lineamount := "PWD Line Amount";
+
+                Lineamount := "PWD Line Amount";//-DSACrMemoAmount;
             end;
 
             trigger OnPreDataItem()
@@ -386,7 +432,6 @@ report 50034 "Relevé des Sorties Export 2"
             end;
         }
     }
-
     requestpage
     {
         layout
@@ -456,6 +501,7 @@ report 50034 "Relevé des Sorties Export 2"
         DateFilter: Text[30];
         LocationFilter: Text[30];
 
+
     procedure FindCRMemoLines(FromDSANo: Code[20]; var FromPM: Option " ",Materiel,Provision; var FromCountry: Code[10]; RAZ: Boolean; var FromLoc: Code[10])
     var
         FromCRMemoHeader: Record "Sales Cr.Memo Header";
@@ -467,13 +513,15 @@ report 50034 "Relevé des Sorties Export 2"
         CLEAR(DSACrMemoAmount);
         DSACrMemoWeight := 0;
         DSACrMemoAmount := 0;
+
         FromCRMemoLines.SETCURRENTKEY("Document No.", "PWD Provision/materiel");
+
         FromCRMemoLines.SETFILTER("PWD Posting Date PW", DateFilter);
         FromCRMemoLines.SETRANGE(Type, FromCRMemoLines.Type::Item);
         FromCRMemoLines.SETRANGE("PWD Provision/materiel", Cumul."PWD Provision/materiel");
         FromCRMemoLines.SETRANGE("Location Code", Cumul."Location Code");
         FromCRMemoLines.SETRANGE("PWD Monthly Code", Cumul."PWD Monthly Code");
-        IF FromCRMemoLines.FIND('-') THEN
+        IF FromCRMemoLines.FindSet() THEN
             REPEAT
                 IF NOT BlankDSA THEN BEGIN
                     FromCRMemoHeader.GET(FromCRMemoLines."Document No.");

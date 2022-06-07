@@ -62,11 +62,11 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 ApplicationArea = All;
                 trigger OnValidate()
                 begin
-                    //ToDo
+                    //TODO
                     /*
                                         Memberof.SETRANGE(Memberof."User ID", USERID);
                                         Memberof.SETRANGE(Memberof."Role ID", CstG002);
-                                        IF NOT Memberof.FIND('-') THEN
+                                        IF NOT Memberof.FindFirst() THEN
                                             ERROR(cstG004);*/
                 end;
             }
@@ -253,7 +253,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 BEGIN
                     IF Rec."PWD Preparation in process" = FALSE THEN MESSAGE(cstG004);
                     CurrPage.SETSELECTIONFILTER(SalesHeader);
-                    //ToDo
+                    //TODO
                     //REPORT.RUN(REPORT::"Picking List Unit Price Null", TRUE, TRUE, SalesHeader);
                     REPORT.RUN(REPORT::"Picking List", TRUE, TRUE, SalesHeader);
                 END;
@@ -372,6 +372,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 {
                     ApplicationArea = all;
                     Caption = 'Sélection des fournisseurs à interroger';
+                    Image = Action;
                     RunObject = Page "Appeal for tenders/Vendor -TrB";
                     RunPageLink = "Document Type" = FIELD("Document Type"),
                                   "Document No." = FIELD("No.");
@@ -421,6 +422,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 {
                     ApplicationArea = all;
                     Caption = 'Sélection des offres fournisseurs';
+                    Image = Action;
                     Trigger OnAction()
                     VAR
                         SalesLine: Record "Sales Line";
@@ -436,6 +438,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 {
                     ApplicationArea = all;
                     Caption = 'Acceptation des offres';
+                    Image = Completed;
                     Trigger OnAction()
                     BEGIN
                         SalesHeader := Rec;
@@ -480,7 +483,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                     Image = ItemAvailability;
                     Trigger OnAction()
                     BEGIN
-                        //ToDo
+                        //TODO
                         //CurrPage.SalesLines.Page.ItemAvailability(2);
                     END;
                 }
@@ -497,18 +500,18 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
     BEGIN
         /* Member.SETRANGE("User ID",USERID);
          Member.SETRANGE("Role ID",'DIRECTION');
-         IF NOT Member.FIND('-') THEN BEGIN
+         IF NOT Member.FindFist() THEN BEGIN
             //Ctrl des lignes
             SalesLineCtrl.SETRANGE("Document Type","Document Type");
             SalesLineCtrl.SETRANGE("Document No.","No.");
             SalesLineCtrl.SETRANGE(Type,SalesLineCtrl.Type::Item);
             SalesLineCtrl.SETRANGE("Unit Price",0);
-            IF SalesLineCtrl.FIND('-') THEN REPEAT
+            IF SalesLineCtrl.FindFirst() THEN REPEAT
               IF (Location.GET(SalesLineCtrl."Location Code")) AND(Location."Controle du prix plancher") THEN
                ERROR(cstG005);
             UNTIL SalesLineCtrl.NEXT=0;
             SalesLineCtrl.SETRANGE("Unit Price");
-            IF SalesLineCtrl.FIND('-') THEN BEGIN
+            IF SalesLineCtrl.FindSet() THEN BEGIN
                REPEAT
 
                   //*** Controle prix unitaire > prix plancher de l'article
@@ -555,7 +558,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
         PurchRRec.RESET();
         PurchRRec.SETCURRENTKEY("Order No.", "Document Date");
         PurchRRec.SETRANGE("Order No.", Rec."No.");
-        IF PurchRRec.FIND('-') THEN
+        IF PurchRRec.FindFirst() THEN
             DateLastPurchR := FORMAT(PurchRRec."Document Date")
         ELSE
             DateLastPurchR := '';
@@ -566,7 +569,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
         PurchRRec.RESET();
         PurchRRec.SETCURRENTKEY(PurchRRec."Order No.", PurchRRec."Document Date");
         PurchRRec.SETRANGE(PurchRRec."Order No.", Rec."No.");
-        IF PurchRRec.FIND('-') THEN
+        IF PurchRRec.FindFirst() THEN
             DateLastPurchR := FORMAT(PurchRRec."Document Date")
         ELSE
             DateLastPurchR := '';
@@ -578,7 +581,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
     END;
 
     var
-        //ToDo
+        //TODO
         //Memberof: Record 2000000003;
         SalesHeader: Record "Sales Header";
         PurchRRec: Record "Sales Shipment Header";

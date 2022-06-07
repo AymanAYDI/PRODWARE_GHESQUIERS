@@ -115,7 +115,7 @@ page 50056 "PWD Prepared Sales Order"
                     begin
                         Memberof.SETRANGE(Memberof."User ID", USERID);
                         Memberof.SETRANGE(Memberof."Role ID", 'SUPER');
-                        IF NOT Memberof.FIND('-') THEN
+                        IF NOT Memberof.FindFirst() THEN
                             ERROR(Text1000000004);
                     end;*/
                 }
@@ -477,6 +477,7 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = 'Sélection des fournisseurs à interroger';
                     RunObject = Page "Appeal for tenders/Vendor -TrB";
+                    Image = Action;
                     RunPageLink = "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No.");
                     ApplicationArea = All;
                 }
@@ -529,6 +530,7 @@ page 50056 "PWD Prepared Sales Order"
                 action("Sélection des  offres fournisseurs")
                 {
                     Caption = 'Sélection des  offres fournisseurs';
+                    Image = Action;
                     ApplicationArea = All;
 
                     trigger OnAction()
@@ -652,10 +654,12 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = 'Dimensions';
                     Image = Dimensions;
-                    //ToDo
-                    //RunObject = Page "Document Dimensions";
-                    //RunPageLink = "Table ID" = CONST(36), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0);
                     ApplicationArea = All;
+                    trigger OnAction()
+                    begin
+                        Rec.ShowDocDim();
+                        CurrPage.SaveRecord();
+                    end;
                 }
                 separator(Action120)
                 {
@@ -823,7 +827,7 @@ page 50056 "PWD Prepared Sales Order"
                     trigger OnAction()
                     var
                     //ToDo
-                    //BizTalkManagement: Codeunit "BizTalkManagement";
+                    // BizTalkManagement: Codeunit "BizTalkManagement";
                     begin
                         // BizTalkManagement.SendSalesOrderConf(Rec);
                     end;
@@ -834,6 +838,7 @@ page 50056 "PWD Prepared Sales Order"
                 action("Classement sans suite")
                 {
                     Caption = 'Filing Reason';
+                    Image = Action;
                     Visible = false;
                     ApplicationArea = All;
 
@@ -863,7 +868,7 @@ page 50056 "PWD Prepared Sales Order"
                     begin
                         IF Rec."PWD Preparation in process" = FALSE THEN MESSAGE(Text1000000002);
                         CurrPage.SETSELECTIONFILTER(SalesHeader);
-                        //ToDo
+                        //TODO
                         //REPORT.RUN(REPORT::"Picking List Unit Price Null", TRUE, TRUE, SalesHeader);
                         REPORT.RUN(REPORT::"Picking List", TRUE, TRUE, SalesHeader);
                     end;
@@ -933,10 +938,17 @@ page 50056 "PWD Prepared Sales Order"
                 PromotedCategory = Process;
                 ApplicationArea = All;
                 Image = ItemAvailability;
-
+                PromotedOnly = true;
                 trigger OnAction()
+                var
+                    SalesLine: Record "Sales Line";
+                    ItemAvailabilityFormsMgt: Codeunit "Item Availability Forms Mgt";
                 begin
                     //ToDo
+                    SalesLine.SetRange("Document No.", Rec."No.");
+                    if SalesLine.FindSet() then
+                        ItemAvailabilityFormsMgt.ShowItemAvailFromSalesLine(SalesLine, 2);
+                    //TODO
                     //CurrPage.SalesLines.PAGE.ItemAvailability(2);
                 end;
             }
@@ -962,7 +974,7 @@ page 50056 "PWD Prepared Sales Order"
         PurchRRec.RESET();
         PurchRRec.SETCURRENTKEY("Order No.", "Document Date");
         PurchRRec.SETRANGE("Order No.", Rec."No.");
-        IF PurchRRec.FIND('-') THEN
+        IF PurchRRec.FindSet() THEN
             DateLastPurchR := FORMAT(PurchRRec."Document Date")
         ELSE
             DateLastPurchR := '';
@@ -996,14 +1008,14 @@ page 50056 "PWD Prepared Sales Order"
         PurchRRec.RESET();
         PurchRRec.SETCURRENTKEY("Order No.", "Document Date");
         PurchRRec.SETRANGE("Order No.", Rec."No.");
-        IF PurchRRec.FIND('-') THEN
+        IF PurchRRec.FindFirst() THEN
             DateLastPurchR := FORMAT(PurchRRec."Document Date")
         ELSE
             DateLastPurchR := '';
     end;
 
     var
-        //ToDo
+        //TODO
         //Memberof: Record 2000000003;
         SalesSetup: Record "Sales & Receivables Setup";
         SalesHeader: Record "Sales Header";

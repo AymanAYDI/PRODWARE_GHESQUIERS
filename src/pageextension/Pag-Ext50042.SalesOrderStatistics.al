@@ -7,7 +7,7 @@ pageextension 50042 "PWD SalesOrderStatistics" extends "Sales Order Statistics"
             group("PWD Profit")
             {
                 caption = 'Profit';
-                //ToDo
+                //TODO
                 /*
                                 field(CustDiscountProfit; Customer."Discount Profit %")
                                 {

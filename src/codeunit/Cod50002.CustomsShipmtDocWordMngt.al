@@ -138,7 +138,7 @@ codeunit 50002 "Customs Shipmt Doc WordMngt"
              WordHided := TRUE;
          END;
          Window.UPDATE(6, Text006);
-         IF ShipmentLine.FIND('-') THEN
+         IF ShipmentLine.FindSet() THEN
              REPEAT
                  ExecuteMerge(wrdApp, ShipmentLine, Attachement, TemplateCode);
              UNTIL ShipmentLine.NEXT() = 0;

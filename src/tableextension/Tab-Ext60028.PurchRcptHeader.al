@@ -81,7 +81,7 @@ tableextension 60028 "PWD PurchRcptHeader" extends "Purch. Rcpt. Header"
         PurchRcptHeader.COPY(Rec);
         ReportSelection.SETRANGE(Usage, ReportSelection.Usage::"Notice Investment");
         ReportSelection.SETFILTER("Report ID", '<>0');
-        ReportSelection.FIND('-');
+        ReportSelection.FindSet();
         REPEAT
             REPORT.RUNMODAL(ReportSelection."Report ID", ShowRequestForm, FALSE, PurchRcptHeader);
         UNTIL ReportSelection.NEXT() = 0;
@@ -94,7 +94,7 @@ tableextension 60028 "PWD PurchRcptHeader" extends "Purch. Rcpt. Header"
         PurchRcptHeader.COPY(Rec);
         ReportSelection.SETRANGE(Usage, ReportSelection.Usage::COM7);
         ReportSelection.SETFILTER("Report ID", '<>0');
-        ReportSelection.FIND('-');
+        ReportSelection.FindSet();
         REPEAT
             REPORT.RUNMODAL(ReportSelection."Report ID", ShowRequestForm, FALSE, PurchRcptHeader);
         UNTIL ReportSelection.NEXT() = 0;
@@ -102,7 +102,7 @@ tableextension 60028 "PWD PurchRcptHeader" extends "Purch. Rcpt. Header"
 
     procedure PrintDS()
     begin
-        //ToDo
+        //TODO
         //REPORT.RUNMODAL(REPORT::"Déclaration sommaire", TRUE, TRUE, Rec);
     end;
 }

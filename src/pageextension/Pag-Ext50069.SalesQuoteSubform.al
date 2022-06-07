@@ -130,7 +130,8 @@ pageextension 50069 "PWD SalesQuoteSubform" extends "Sales Quote Subform"
             action("PWD ExtraireCodeFournisseurEtCoutUnitaireDirect")
             {
                 ApplicationArea = all;
-                Caption = 'Extraire code &Fournisseur et cout unitaire direct';
+                Caption = 'Extraire code &Fournisseur et coût unitaire direct';
+                Image = Action;
                 Promoted = true;
                 PromotedIsBig = true;
                 PromotedCategory = Process;
