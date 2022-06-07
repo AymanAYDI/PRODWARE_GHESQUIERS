@@ -27,7 +27,7 @@ report 50128 "PWD Export CIEL"
     trigger OnPreReport()
     var
     begin
-        //ToDo
+        //TODO
         /*
                 IF ISSERVICETIER THEN
                     TxtGFilename := CduG3TierAutomationMgt.EnvironFileName('', '');
@@ -170,7 +170,7 @@ report 50128 "PWD Export CIEL"
 
         IF ISSERVICETIER THEN BEGIN
             TxtGToFile := STRSUBSTNO(CstG006, FORMAT(RecGCIELData.Month), FORMAT(RecGCIELData.Year));
-            //ToDo
+            //TODO
             IF NOT DOWNLOAD(TxtGFilename, CstG001, '', CstG002, TxtGToFile) THEN
                 ERROR(CstG007);
     END;
@@ -179,7 +179,7 @@ report 50128 "PWD Export CIEL"
     procedure AddElement(VAR XMLNode: Automation; NodeName: Text[250]; NodeText: Text[250]; NameSpace: Text[250])
     var
     begin
-        //ToDo
+        //TODO
         /*
                 NewChildNode := XMLNode.ownerDocument.createNode('element', NodeName, NameSpace);
                 IF ISCLEAR(NewChildNode) THEN

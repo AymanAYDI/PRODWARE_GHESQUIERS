@@ -231,7 +231,7 @@ codeunit 60003 "PWD Function Mgt AB"
         SalesLine.SETRANGE("Document Type", SalesHeader."Document Type");
         SalesLine.SETRANGE("Document No.", SalesHeader."No.");
         SalesLine.SETRANGE(Type, 2);
-        IF SalesLine.FIND('-') THEN begin
+        IF SalesLine.FindSet() THEN begin
             REPEAT
                 //Contole marge article
                 Item.GET(SalesLine."No.");

@@ -46,7 +46,7 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
                 LocationPriority.SETRANGE(LocationPriority."PWD Call Type Code", "PWD Call Type");
                 LocationPriority.SETCURRENTKEY("PWD Call Type Code", "PWD Location priority"); //gte
                 LocationPriority.ASCENDING(TRUE);
-                IF LocationPriority.FIND('-') THEN
+                IF LocationPriority.FindFirst() THEN
                     VALIDATE("Location Code", LocationPriority."PWD Location code");
                 IF (CallType.GET("PWD Call Type")) AND ("PWD Call Type" <> '') THEN BEGIN
                     CallType.TESTFIELD("Posting No. Series");
@@ -97,7 +97,7 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
                 SalesLine.RESET();
                 SalesLine.SETRANGE(SalesLine."Document Type", SalesLine."Document Type"::Order);
                 SalesLine.SETRANGE(SalesLine."Document No.", "No.");
-                IF SalesLine.FIND('-') THEN
+                IF SalesLine.FindSet() THEN
                     REPEAT
                         SalesLine."PWD Preparation in Process" := "PWD Preparation in process";
                         SalesLine.MODIFY();
@@ -122,7 +122,7 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
                 SalesLine.RESET();
                 SalesLine.SETRANGE(SalesLine."Document Type", SalesLine."Document Type"::Order);
                 SalesLine.SETRANGE(SalesLine."Document No.", "No.");
-                IF SalesLine.FIND('-') THEN
+                IF SalesLine.FindSet() THEN
                     REPEAT
                         SalesLine."PWD Order Line Prepared" := "PWD Order Prepared";
                         SalesLine.MODIFY();
@@ -297,7 +297,7 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
         SalesLineII.SETRANGE("Document Type", salesorderII."Document Type");
         SalesLineII.SETRANGE("Document No.", salesorderII."No.");
         SalesLineII.SETRANGE(SalesLineII.Type, SalesLineII.Type::Item);
-        IF (SalesLineII.FIND('-')) THEN BEGIN
+        IF (SalesLineII.FindFirst()) THEN BEGIN
             IF SalesLineII."Gross Weight" = 0 THEN
                 ERROR(CstG002);
             IF SalesLineII."Net Weight" = 0 THEN
@@ -326,7 +326,7 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
         FromSalesLine.SETRANGE("Document Type", "Document Type");
         FromSalesLine.SETRANGE("Document No.", "No.");
         FromSalesLine.SETRANGE(Type, FromSalesLine.Type::Item);
-        IF FromSalesLine.FIND('-') THEN
+        IF FromSalesLine.FindSet() THEN
             REPEAT
                 CLEAR(VolumeLigne);
                 CLEAR(PoidsLigne);

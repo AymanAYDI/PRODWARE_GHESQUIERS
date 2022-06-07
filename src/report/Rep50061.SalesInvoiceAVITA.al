@@ -149,7 +149,7 @@ report 50061 "PWD Sales - Invoice AVITA"
                         trigger OnAfterGetRecord()
                         begin
                             IF Number = 1 THEN BEGIN
-                                IF NOT DimSetEntry1.FIND('-') THEN
+                                IF NOT DimSetEntry1.FindFirst() THEN
                                     CurrReport.BREAK();
                             END ELSE
                                 IF NOT Continue THEN
@@ -512,7 +512,7 @@ report 50061 "PWD Sales - Invoice AVITA"
                             trigger OnAfterGetRecord()
                             begin
                                 IF Number = 1 THEN BEGIN
-                                    IF NOT DimSetEntry2.FIND('-') THEN
+                                    IF NOT DimSetEntry2.FindFirst() THEN
                                         CurrReport.BREAK();
                                 END ELSE
                                     IF NOT Continue THEN
@@ -555,7 +555,7 @@ report 50061 "PWD Sales - Invoice AVITA"
                                 CLEAR(NoShipmentDatas);
                                 NoShipmentNumLoop := 0;
                                 IF Number = 1 THEN BEGIN
-                                    ShipmentInvoiced.FIND('-');
+                                    ShipmentInvoiced.FindSet();
                                     NoShipmentText := Text007;
                                     REPEAT
                                         NoShipmentNumLoop := NoShipmentNumLoop + 1;
@@ -659,7 +659,7 @@ report 50061 "PWD Sales - Invoice AVITA"
                         trigger OnPreDataItem()
                         begin
                             VATAmountLine.DELETEALL();
-                            MoreLines := FIND('+');
+                            MoreLines := FindLast();
                             WHILE MoreLines AND (Description = '') AND ("No." = '') AND (Quantity = 0) AND (Amount = 0) DO
                                 MoreLines := NEXT(-1) <> 0;
                             IF NOT MoreLines THEN
@@ -794,7 +794,7 @@ report 50061 "PWD Sales - Invoice AVITA"
                 RecLSalesInvoiceLine.SETRANGE(Type, RecLSalesInvoiceLine.Type::Item);
                 RecLSalesInvoiceLine.SETFILTER("Location Code", '<>%1|%2|%3', 'CML', '1', '');
                 RecLSalesInvoiceLine.SETFILTER(Quantity, '<>0');
-                IF RecLSalesInvoiceLine.FIND('-') THEN
+                IF RecLSalesInvoiceLine.FindSet() THEN
                     REPEAT
                         IF ((RecLSalesInvoiceLine."Location Code" <> CodGLastLocation) AND
                            (RecLSalesInvoiceLine."Location Code" <> 'CML') AND

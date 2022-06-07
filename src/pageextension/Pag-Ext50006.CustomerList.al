@@ -266,7 +266,7 @@ pageextension 50006 "PWD CustomerList" extends "Customer List"
                 }
             }
         }
-        //ToDo
+        //TODO
         /*modify(SalesHistSelltoFactBox)
         {
             Editable = false;

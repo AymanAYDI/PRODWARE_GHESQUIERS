@@ -430,7 +430,7 @@ page 50074 "PWD Seafrance Sales Order"
         RecLSeafranceSalesLine.SETRANGE(RecLSeafranceSalesLine."Document Type", P_SeafranceSalesHeader."Document Type");
         RecLSeafranceSalesLine.SETRANGE(RecLSeafranceSalesLine."Document No.", P_SeafranceSalesHeader."No.");
         RecLSeafranceSalesLine.SETRANGE(RecLSeafranceSalesLine."Type", RecLSeafranceSalesLine."Type"::Item);
-        IF RecLSeafranceSalesLine.FIND('-') THEN BEGIN
+        IF RecLSeafranceSalesLine.FindSet() THEN BEGIN
             REPEAT
                 BoolCreateItem := FALSE;
                 IF NOT RecLItem.GET(RecLSeafranceSalesLine."No.") THEN
@@ -511,7 +511,7 @@ page 50074 "PWD Seafrance Sales Order"
         RecLSeafranceSalesLine.RESET();
         RecLSeafranceSalesLine.SETRANGE("Document Type", P_SeafranceSalesHeaderForLine."Document Type");
         RecLSeafranceSalesLine.SETRANGE("Document No.", P_SeafranceSalesHeaderForLine."No.");
-        IF RecLSeafranceSalesLine.FIND('-') THEN BEGIN
+        IF RecLSeafranceSalesLine.FindSet() THEN BEGIN
             REPEAT
                 RecLSalesLine.INIT();
                 IF RecLSalesLine.RECORDLEVELLOCKING THEN
@@ -562,7 +562,7 @@ page 50074 "PWD Seafrance Sales Order"
         RecLSeafranceSalesLine.SETRANGE(RecLSeafranceSalesLine."Document Type", P_SeafranceSalesHeader."Document Type");
         RecLSeafranceSalesLine.SETRANGE(RecLSeafranceSalesLine."Document No.", P_SeafranceSalesHeader."No.");
         RecLSeafranceSalesLine.SETRANGE(RecLSeafranceSalesLine.Type, RecLSeafranceSalesLine.Type::Item);
-        IF RecLSeafranceSalesLine.FIND('-') THEN
+        IF RecLSeafranceSalesLine.FindSet() THEN
             REPEAT
                 IF RecLSeafranceSalesLine."No." <> '' THEN BEGIN
                     RecLItem.GET(RecLSeafranceSalesLine."No.");

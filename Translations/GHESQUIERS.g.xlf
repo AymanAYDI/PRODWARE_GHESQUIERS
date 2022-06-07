@@ -9403,6 +9403,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Feuille saisie prestation - Control Net Weight - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3983946844 - Control 776104314 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PJ1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Feuille saisie prestation - Control Field_PJ1 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3983946844 - Control 3157981759 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PJ2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Feuille saisie prestation - Control Field_PJ2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3983946844 - Control 3795678376 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PJ3</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Feuille saisie prestation - Control Field_PJ3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3983946844 - Control 2689194165 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PJ4</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Feuille saisie prestation - Control Field_PJ4 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3983946844 - Control 4112877437 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Item Description</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9413,18 +9433,33 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Feuille saisie prestation - Control CurrentJnlBatchName - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3983946844 - Control 1190933466 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Feuille saisie prestation - Control CustName - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3983946844 - Control 3606806740 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Client</source>
+          <source>Customer</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Feuille saisie prestation - Control CustNo - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3983946844 - Control 1770674946 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prestation Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Feuille saisie prestation - Control PrestaName - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3983946844 - Control 192271675 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Prestation</source>
+          <source>Prestation Type</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Feuille saisie prestation - Control TypePresta - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3983946844 - Control 779730061 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Name</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Feuille saisie prestation - Control VendorName - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3983946844 - Control 1607295407 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Fournisseur</source>
+          <source>Vendor No</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Feuille saisie prestation - Control VendorNo - Property Caption</note>
         </trans-unit>
@@ -13918,10 +13953,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipmt BLAVI bac rose - ReportDataItem Sales Shipment Header - Property RequestFilterHeading</note>
         </trans-unit>
-        <trans-unit id="Report 1656491412 - NamedType 1919221334" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 1656491412 - NamedType 2407227523" size-unit="char" translate="yes" xml:space="preserve">
+          <source>au</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEAF : relevé vtes à emporter - NamedType Au_Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1656491412 - NamedType 2220950129" size-unit="char" translate="yes" xml:space="preserve">
           <source>Avoirs Ventes à emporter</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report SEAF : relevé vtes à emporter - NamedType Avoirs_Ventes_à_emporterCaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEAF : relevé vtes à emporter - NamedType AvoirsVentesEmporterCaption</note>
         </trans-unit>
         <trans-unit id="Report 1656491412 - NamedType 956283958" size-unit="char" translate="yes" xml:space="preserve">
           <source>BL</source>
@@ -13947,6 +13987,11 @@
           <source>NDP</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report SEAF : relevé vtes à emporter - NamedType NDPCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1656491412 - NamedType 3653912790" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEAF : relevé vtes à emporter - NamedType Page_Caption</note>
         </trans-unit>
         <trans-unit id="Report 1656491412 - NamedType 4185422127" size-unit="char" translate="yes" xml:space="preserve">
           <source>POIDS</source>
@@ -14097,6 +14142,11 @@
           <source>Email sur groupe de client</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD CustomerList - Control PWD EMail - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3622496239 - Control 1092259348 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2901867346">
+          <source>Adresse Mail</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD CustomerList - Control PWD TxtGAddressList - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3293917796 - Action 3363767224 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2600738069">
           <source>Extract with Filtering</source>
@@ -14522,6 +14572,11 @@
           <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseOrder - Control PWD NO. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 647356634 - Control 3446409637 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Date of last purchase receipt</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseOrder - Control PWD DateLastPurchR - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 647356634 - Control 3353953449 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
           <source>Stocking Advise</source>

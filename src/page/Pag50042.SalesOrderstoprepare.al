@@ -81,7 +81,7 @@ page 50042 "PWD Sales Orders to prepare"
                             ERROR(Text1000000009);
                         IF SalesHeader.COUNT = 0 THEN
                             ERROR(Text1000000010);
-                        IF SalesHeader.FIND('-') THEN BEGIN
+                        IF SalesHeader.FindFirst() THEN BEGIN
                             SalesHeader.VALIDATE(SalesHeader.Status, SalesHeader.Status::Open);
                             SalesHeader.MODIFY();
                             LastLineNo := 0;
@@ -89,14 +89,14 @@ page 50042 "PWD Sales Orders to prepare"
                             SalesLine.SETRANGE(SalesLine."Document Type", SalesLine."Document Type"::Order);
                             SalesLine.SETRANGE(SalesLine."Document No.", SalesHeader."No.");
                             SalesLine.SETRANGE(SalesLine."PWD Preparation in Process", FALSE);
-                            IF SalesLine.FIND('+') THEN
+                            IF SalesLine.FindLast() THEN
                                 LastLineNo := SalesLine."Line No.";
                             SalesLine.RESET();
                             SalesLine.SETRANGE(SalesLine."Document Type", SalesLine."Document Type"::Order);
                             SalesLine.SETRANGE(SalesLine."Document No.", SalesHeader."No.");
                             SalesLine.SETRANGE(SalesLine."PWD Preparation in Process", FALSE);
                             SalesLine.SETRANGE(SalesLine.Type, SalesLine.Type::Item);
-                            IF SalesLine.FIND('-') THEN BEGIN
+                            IF SalesLine.FindSet() THEN BEGIN
                                 REPEAT
                                     Item.GET(SalesLine."No.");
                                     IF (Item."PWD Trading Brand" = FALSE) AND (Item."PWD Butchery" = FALSE) THEN BEGIN
@@ -115,7 +115,7 @@ page 50042 "PWD Sales Orders to prepare"
                             SalesLine.SETRANGE(SalesLine."Document Type", SalesLine."Document Type"::Order);
                             SalesLine.SETRANGE(SalesLine."Document No.", SalesHeader."No.");
                             SalesLine.SETRANGE(SalesLine."PWD Preparation in Process", TRUE);
-                            IF SalesLine.FIND('-') THEN
+                            IF SalesLine.FindSet() THEN
                                 REPEAT
                                     Item.GET(SalesLine."No.");
                                     IF (Item."PWD Trading Brand" = FALSE) AND (Item."PWD Butchery" = FALSE) THEN
@@ -141,7 +141,7 @@ page 50042 "PWD Sales Orders to prepare"
                         IF SalesHeader.COUNT = 0 THEN
                             ERROR(Text1000000010);
 
-                        IF SalesHeader.FIND('-') THEN
+                        IF SalesHeader.FindFirst() THEN
                             IF SalesHeader."PWD Preparation in process" = FALSE THEN
                                 MESSAGE(Text1000000012) ELSE
                                 REPORT.RUNMODAL(Report::"PWD Picking List", TRUE, TRUE, SalesHeader);
@@ -162,7 +162,7 @@ page 50042 "PWD Sales Orders to prepare"
                             ERROR(Text1000000009);
                         IF SalesHeader.COUNT = 0 THEN
                             ERROR(Text1000000010);
-                        IF SalesHeader.FIND('-') THEN
+                        IF SalesHeader.FindFirst() THEN
                             IF SalesHeader."PWD Preparation in process" = FALSE THEN
                                 MESSAGE(Text1000000013, SalesHeader."No.") ELSE BEGIN
                                 SalesLine.RESET();
@@ -199,7 +199,7 @@ page 50042 "PWD Sales Orders to prepare"
                         ERROR(Text1000000009);
                     IF SalesHeader.COUNT = 0 THEN
                         ERROR(Text1000000010);
-                    IF SalesHeader.FIND('-') THEN
+                    IF SalesHeader.FindFirst() THEN
                         IF SalesHeader."PWD Preparation in process" = FALSE THEN
                             MESSAGE(Text1000000013, SalesHeader."No.") ELSE BEGIN
                             SalesLine.RESET();
@@ -247,7 +247,7 @@ page 50042 "PWD Sales Orders to prepare"
         FormSalesLinetoPrepare: Page "PWD Sales Lines to Prepare";
         LastLineNo: BigInteger;
         ItemNo: Code[20];
-        ItemNo2: Code[20];
+        //ItemNo2: Code[20];
         AvailableInventory: Decimal;
         CumulatedInventory: Decimal;
         QtytoSend: Decimal;
@@ -316,7 +316,8 @@ page 50042 "PWD Sales Orders to prepare"
                     SalesLine2."PWD Previous Line No" := SalesLine."Line No.";
                     SalesLine2.INSERT(TRUE);
                     Qtyinserted := SalesLine2.Quantity;
-                    ItemNo2 := SalesLine2."No.";
+                    //TODO Var Not used
+                    //ItemNo2 := SalesLine2."No.";
                 END;
             UNTIL (RecLocPriority.NEXT() = 0) OR (InsertedSalesLineQty = InputQuantity);
             IF UnavailableQty > 0 THEN BEGIN
@@ -458,7 +459,7 @@ page 50042 "PWD Sales Orders to prepare"
         ItemTrackingLines.SETRANGE(ItemTrackingLines."Source Subtype", SalesLine."Document Type");
         ItemTrackingLines.SETRANGE(ItemTrackingLines."Source ID", SalesLine."Document No.");
         ItemTrackingLines.SETRANGE(ItemTrackingLines."Source Ref. No.", SalesLine."Line No.");
-        IF NOT ItemTrackingLines.FIND('-') THEN
+        IF NOT ItemTrackingLines.FindFirst() THEN
             InsertTrackingLines()
         ELSE BEGIN
             REPEAT
@@ -568,7 +569,7 @@ page 50042 "PWD Sales Orders to prepare"
                 SalesLine.SETRANGE(SalesLine."Document Type", SalesLine."Document Type"::Order);
                 SalesLine.SETRANGE(SalesLine."Document No.", SalesHeader."No.");
                 SalesLine.SETRANGE(SalesLine."PWD Preparation in Process", FALSE);
-                IF SalesLine.FIND('+') THEN
+                IF SalesLine.FindLast() THEN
                     LastLineNo := SalesLine."Line No.";
                 SalesLine.RESET();
                 SalesLine.SETRANGE(SalesLine."Document Type", SalesLine."Document Type"::Order);

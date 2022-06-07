@@ -645,7 +645,7 @@ codeunit 60001 "PWD Function Mgt"
         SalesLineCtrl.SETRANGE("Document Type", SalesHeader."Document Type");
         SalesLineCtrl.SETRANGE("Document No.", SalesHeader."No.");
         SalesLineCtrl.SETRANGE("PWD Trading Brand", TRUE);
-        IF SalesLineCtrl.FIND('-') THEN
+        IF SalesLineCtrl.FindSet() THEN
             REPEAT
                 SalesLineCtrl.CALCFIELDS("PWD Quantity Receipted Purch.");
                 IF (SalesLineCtrl."Qty. to Ship" + SalesLineCtrl."Quantity Shipped") > SalesLineCtrl."PWD Quantity Receipted Purch." THEN
@@ -1086,7 +1086,7 @@ codeunit 60001 "PWD Function Mgt"
         FromPurchLine.SETRANGE("Document Type", ReceivePurchHeader."Document Type");
         FromPurchLine.SETRANGE("Document No.", ReceivePurchHeader."No.");
         FromPurchLine.SETFILTER(Type, '<>%1', 0);
-        IF FromPurchLine.FIND('-') THEN BEGIN
+        IF FromPurchLine.FindSet() THEN BEGIN
             REPEAT
                 IF FromPurchLine.Quantity <> FromPurchLine."Quantity Received" THEN EXIT(FALSE);
             UNTIL FromPurchLine.NEXT() = 0;
@@ -1322,7 +1322,7 @@ codeunit 60001 "PWD Function Mgt"
         //** Insérer ligne doc douane
         SalesSetup.GET();
         CLEAR(CustomsLine);
-        IF CustomsLine.FIND('+') THEN
+        IF CustomsLine.FindLast() THEN
             CustomsLine."Entry No." += 1 ELSE
             CustomsLine."Entry No." := 1;
         CustomsLine.INIT();
@@ -1428,7 +1428,7 @@ codeunit 60001 "PWD Function Mgt"
               "Qty. on Service Order",
               Inventory,
               "Scheduled Receipt (Qty.)",
-              "Scheduled Need (Qty.)",
+              "Qty. on Component Lines",
               "Planning Issues (Qty.)",
               "Planned Order Receipt (Qty.)",
               "FP Order Receipt (Qty.)",
@@ -1443,7 +1443,7 @@ codeunit 60001 "PWD Function Mgt"
               //Item."Qty. on Sales Order" +
               ItemSalesLine."Qty. on Sales Order" +
               Item."Qty. on Service Order" +
-              Item."Scheduled Need (Qty.)" +
+              Item."Qty. on Component Lines" +
               Item."Trans. Ord. Shipment (Qty.)" +
               Item."Planning Issues (Qty.)";
             PlannedOrderReceipt :=
@@ -1469,7 +1469,7 @@ codeunit 60001 "PWD Function Mgt"
     BEGIN
         OldItemNetChange := FALSE;
         OldsalesLine := SalesLine;
-        IF OldsalesLine.FIND() THEN // Find previous quantity
+        IF OldsalesLine.FindFirst() THEN // Find previous quantity
             IF (OldsalesLine."Document Type" = OldsalesLine."Document Type"::Order) AND
                (OldsalesLine."No." = SalesLine."No.") AND
                (OldsalesLine."Variant Code" = SalesLine."Variant Code") AND
@@ -1873,6 +1873,18 @@ codeunit 60001 "PWD Function Mgt"
                 ERROR(Text000);
         END;
     END;
+    //---CDU419---
+    procedure Path(Filename: Text[1024]) Path: Text[1024]
+    begin
+        Filename := DELCHR(Filename, '<');
+        Path := Filename;
+        WHILE STRPOS(Filename, '\') <> 0 DO
+            Filename := COPYSTR(Filename, STRPOS(Filename, '\') + 1);
+        IF STRLEN(Path) > STRLEN(Filename) THEN
+            EXIT(COPYSTR(Path, 1, STRLEN(Path) - STRLEN(Filename)))
+        ELSE
+            EXIT('');
+    end;
     //---CDU5063---
     PROCEDURE FctRestoreSalesQuoteDeleted(VAR SalesHeaderArchive: Record "Sales Header Archive")
     VAR
@@ -2030,7 +2042,7 @@ codeunit 60001 "PWD Function Mgt"
           "Purch. Req. Receipt (Qty.)", "Res. Qty. on Req. Line", "Planning Issues (Qty.)",
           "Qty. on Purch. Order", "Reserved Qty. on Purch. Orders",
           "Trans. Ord. Receipt (Qty.)", "Res. Qty. on Inbound Transfer",
-          "Scheduled Need (Qty.)", "Res. Qty. on Prod. Order Comp.",
+          "Qty. on Component Lines", "Res. Qty. on Prod. Order Comp.",
           "Qty. on Sales Order", "Reserved Qty. on Sales Orders",
           "Qty. on Service Order", "Res. Qty. on Service Orders",
           "Trans. Ord. Shipment (Qty.)", "Res. Qty. on Outbound Transfer");
@@ -2092,7 +2104,7 @@ codeunit 60001 "PWD Function Mgt"
           QtyOnSalesReturn;
 
         GrossRequirement :=
-          (Item."Scheduled Need (Qty.)" - Item."Res. Qty. on Prod. Order Comp.") +
+          (Item."Qty. on Component Lines" - Item."Res. Qty. on Prod. Order Comp.") +
           Item."Planning Issues (Qty.)" +
           (Item."PWD Qty. on Sales Order Prep" - Item."Reserved Qty. on Sales Orders") +
           (Item."Qty. on Service Order" - Item."Res. Qty. on Service Orders") +

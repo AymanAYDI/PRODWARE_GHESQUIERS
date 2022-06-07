@@ -8,7 +8,8 @@ codeunit 50024 "PWD Generation PDF Auto"
         gRecPrinterSelection: Record "Printer Selection";
         TempRecPrinterSelMod: Record "Printer Selection" temporary;
         TempRecPrinterSelNew: Record "Printer Selection" temporary;
-    //ToDo
+        FunctionMgt: codeunit "PWD Function Mgt";
+    //TODO
     //BullZipPDF: DotNet ComPdfSettings;
     //BullZipPDFUtil: DotNet ComPdfUtil;
 
@@ -22,13 +23,15 @@ codeunit 50024 "PWD Generation PDF Auto"
         lTxtEmail: Text[80];
         lTxtFileName: Text[1024];
         lTxtStatusFile: Text[1024];
+        lTxtClientFileName: Text[1024];
+
     begin
         lRecSalesHeader.SETRANGE("Document Type", lRecSalesHeader."Document Type"::Quote);
         lRecSalesHeader.SETRANGE("No.", pCodeDocumentNo);
         lRecSalesHeader.FINDFIRST();
-        //ToDo
-        //lTxtClientFileName := gCUThreeTierMgt.ClientTempFileName('', '');
-        //lTxtFileName := STRSUBSTNO('%1%2.pdf', gCUThreeTierMgt.Path(lTxtClientFileName), lRecSalesHeader."No.");
+        //TODO
+        //lTxtClientFileName := FileManagement.ClientTempFileName('', '');
+        lTxtFileName := STRSUBSTNO('%1%2.pdf', FunctionMgt.Path(lTxtClientFileName), lRecSalesHeader."No.");
         lTxtStatusFile := fInitBullZipPDF(lTxtFileName);
         lRecReportSelect.SETRANGE(Usage, lRecReportSelect.Usage::"S.Quote");
         IF NOT lRecReportSelect.FINDFIRST() THEN
@@ -44,7 +47,7 @@ codeunit 50024 "PWD Generation PDF Auto"
             lTxtEmail := lRecCustomer."E-Mail";
         lRecCompanyInfo.Get();
         lTxtNewLine := fGetNewLine();
-        //ToDo
+        //TODO
         /*AddBodyline('Bonjour,');
         AddBodyline(lTxtNewLine);
         AddBodyline('Suite à votre demande, veuillez trouver ci-joint notre devis.');
@@ -88,13 +91,14 @@ codeunit 50024 "PWD Generation PDF Auto"
         lTxtEMail: Text[80];
         lTxtFileName: Text[1024];
         lTxtStatusFile: Text[1024];
+        lTxtClientFileName: Text[1024];
     begin
         lRecSalesHeader.SETRANGE("Document Type", lRecSalesHeader."Document Type"::Order);
         lRecSalesHeader.SETRANGE("No.", pCodeDocumentNo);
         lRecSalesHeader.FINDFIRST();
-        //ToDo
+        //TODO
         //lTxtClientFileName := gCUThreeTierMgt.ClientTempFileName('', '');
-        //lTxtFileName := STRSUBSTNO('%1%2.pdf', gCUThreeTierMgt.Path(lTxtClientFileName), lRecSalesHeader."No.");
+        lTxtFileName := STRSUBSTNO('%1%2.pdf', FunctionMgt.Path(lTxtClientFileName), lRecSalesHeader."No.");
         lTxtStatusFile := fInitBullZipPDF(lTxtFileName);
         lRecReportSelect.SETRANGE(Usage, lRecReportSelect.Usage::"S.Order");
         IF NOT lRecReportSelect.FINDFIRST() THEN
@@ -152,13 +156,15 @@ codeunit 50024 "PWD Generation PDF Auto"
         lTxtEmail: Text[80];
         lTxtFileName: Text[1024];
         lTxtStatusFile: Text[1024];
+        lTxtClientFileName: Text[1024];
+
     begin
         lRecPurchaseHeader.SETRANGE("Document Type", lRecPurchaseHeader."Document Type"::Order);
         lRecPurchaseHeader.SETRANGE("No.", pCodeDocumentNo);
         lRecPurchaseHeader.FINDFIRST();
-        //ToDo
+        //TODO
         //lTxtClientFileName := gCUThreeTierMgt.ClientTempFileName('', '');
-        //lTxtFileName := STRSUBSTNO('%1%2.pdf', gCUThreeTierMgt.Path(lTxtClientFileName), lRecPurchaseHeader."No.");
+        lTxtFileName := STRSUBSTNO('%1%2.pdf', FunctionMgt.Path(lTxtClientFileName), lRecPurchaseHeader."No.");
         lTxtStatusFile := fInitBullZipPDF(lTxtFileName);
         lRecReportSelect.SETRANGE(Usage, lRecReportSelect.Usage::"P.Order");
         IF NOT lRecReportSelect.FINDFIRST() THEN
@@ -272,7 +278,7 @@ codeunit 50024 "PWD Generation PDF Auto"
 
     local procedure fWaitForFile(pTxtStatusFile: Text[1024])
     begin
-        //ToDo
+        //TODO
         /*IF BullZipPDFUtil.WaitForFile(pTxtStatusFile, 20000) THEN BEGIN
             IF BullZipPDFUtil.ReadIniString(pTxtStatusFile, 'Status', 'Errors', '') <> '0' THEN
                 ERROR('Erreur lors de la création du PDF. %1', BullZipPDFUtil.ReadIniString(pTxtStatusFile, 'Status', 'MessageText', ''));

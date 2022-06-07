@@ -25,7 +25,8 @@ codeunit 50017 "Item-Check Avail. Preparation"
         ItemSalesLine: Record Item;
         GrossRequirement: Decimal;
         PlannedOrderReceipt: Decimal;
-        PlannedOrderReleases: Decimal;
+        //TODO Var not used
+        //PlannedOrderReleases: Decimal;
         ScheduledReceipt: Decimal;
     begin
         ItemSalesLine.RESET();
@@ -33,19 +34,19 @@ codeunit 50017 "Item-Check Avail. Preparation"
         ItemSalesLine.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
         ItemSalesLine.SETRANGE("Location Filter", LocationCode);
         ItemSalesLine.SETRANGE("PWD Preparation Filter", SalesLine."PWD Preparation in Process");
-        IF ItemSalesLine.FIND('-') THEN
+        IF ItemSalesLine.FindFirst() THEN
             ItemSalesLine.CALCFIELDS("Qty. on Sales Order");
 
         Item.SETRANGE("No.", SalesLine."No.");
         Item.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
         Item.SETRANGE(Item."Location Filter", LocationCode);
-        IF Item.FIND('-') THEN BEGIN
+        IF Item.FindFirst() THEN BEGIN
             Item.CALCFIELDS(
               "Qty. on Purch. Order",
               "Qty. on Service Order",
               Inventory,
               "Scheduled Receipt (Qty.)",
-              "Scheduled Need (Qty.)",
+              "Qty. on Component Lines",
               "Planning Issues (Qty.)",
               "Planned Order Receipt (Qty.)",
               "FP Order Receipt (Qty.)",
@@ -59,7 +60,7 @@ codeunit 50017 "Item-Check Avail. Preparation"
             GrossRequirement :=
               ItemSalesLine."Qty. on Sales Order" +
               Item."Qty. on Service Order" +
-              Item."Scheduled Need (Qty.)" +
+              Item."Qty. on Component Lines" +
               Item."Trans. Ord. Shipment (Qty.)" +
               Item."Planning Issues (Qty.)";
             PlannedOrderReceipt :=
@@ -71,9 +72,10 @@ codeunit 50017 "Item-Check Avail. Preparation"
               Item."Qty. on Purch. Order" +
               Item."Qty. in Transit" +
               Item."Trans. Ord. Receipt (Qty.)";
-            PlannedOrderReleases :=
+            //TODO var not used
+            /*PlannedOrderReleases :=
               Item."Planned Order Release (Qty.)" +
-              Item."Purch. Req. Release (Qty.)";
+              Item."Purch. Req. Release (Qty.)";*/
 
             EXIT(Item.Inventory + PlannedOrderReceipt + ScheduledReceipt - GrossRequirement);
         END;

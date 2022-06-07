@@ -286,9 +286,4 @@ page 50024 "Archived Sales Order Subform"
             }
         }
     }
-
-    procedure ShowDimensions()
-    begin
-        Rec.ShowDimensions();
-    end;
 }

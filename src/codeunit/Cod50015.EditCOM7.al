@@ -10,7 +10,7 @@ codeunit 50015 "PWD Edit COM7"
         CustomsLine.SETRANGE("Document Type", CustomsLine."Document Type"::"P.Receipt");
         CustomsLine.SETRANGE("Document No.", Rec."No.");
         CustomsLine.SETRANGE("Customs Document Type", CustomsLine."Customs Document Type"::COM7);
-        IF NOT CustomsLine.FIND('-') THEN BEGIN
+        IF NOT CustomsLine.FindFirst() THEN BEGIN
             PurchReceiptLine.RESET();
             PurchReceiptLine.SETCURRENTKEY("Document No.", Type, "Location Code", "PWD Cle (restitution)");
             PurchReceiptLine.SETRANGE("Document No.", Rec."No.");
@@ -18,7 +18,7 @@ codeunit 50015 "PWD Edit COM7"
             PurchReceiptLine.SETFILTER("Location Code", '5');
             PurchReceiptLine.SETFILTER("PWD Cle (restitution)", '<>%1', '');
             PurchReceiptLine.SETFILTER(Quantity, '<>0');
-            IF PurchReceiptLine.FIND('-') THEN BEGIN
+            IF PurchReceiptLine.FindFirst() THEN BEGIN
                 CLEAR(CustomsLine);
                 REPEAT
                     IF CurrentCleRest <> PurchReceiptLine."PWD Cle (restitution)" THEN BEGIN
@@ -27,7 +27,7 @@ codeunit 50015 "PWD Edit COM7"
                         CleRestitList[i] := PurchReceiptLine."PWD Cle (restitution)";
                         CurrentCleRest := PurchReceiptLine."PWD Cle (restitution)";
                         CustomsLine.RESET();
-                        IF CustomsLine.FIND('+') THEN
+                        IF CustomsLine.FindLast() THEN
                             NextLineNo := CustomsLine."Entry No." + 1 ELSE
                             NextLineNo := 1;
                         IF CustomsLine.RECORDLEVELLOCKING THEN
@@ -59,7 +59,7 @@ codeunit 50015 "PWD Edit COM7"
         PurchReceiptLine.SETFILTER("Location Code", '5');
         PurchReceiptLine.SETFILTER("PWD Cle (restitution)", '<>%1', '');
         PurchReceiptLine.SETFILTER(Quantity, '<>0');
-        IF PurchReceiptLine.FIND('-') THEN BEGIN
+        IF PurchReceiptLine.FindSet() THEN BEGIN
             CLEAR(CustomsLine);
             REPEAT
                 IF CurrentCleRest <> PurchReceiptLine."PWD Cle (restitution)" THEN BEGIN
@@ -78,7 +78,7 @@ codeunit 50015 "PWD Edit COM7"
             PurchReceiptLine.SETRANGE("Location Code", Locationlist[j]);
             PurchReceiptLine.SETRANGE("PWD Cle (restitution)", CleRestitList[j]);
             PurchReceiptLine.SETFILTER(Quantity, '<>0');
-            IF PurchReceiptLine.FIND('-') THEN BEGIN
+            IF PurchReceiptLine.FindSet() THEN BEGIN
                 CLEAR(TotalGrossWeight);
                 CLEAR(TotalNetWeight);
                 CLEAR(TotalParcel);
@@ -95,7 +95,7 @@ codeunit 50015 "PWD Edit COM7"
                     CustomsLine.SETRANGE("Customs Document Type", CustomsLine."Customs Document Type"::COM7);
                     CustomsLine.SETRANGE("Location Code", Locationlist[j]);
                     CustomsLine.SETRANGE("Cle (restitution)", CleRestitList[j]);
-                    IF CustomsLine.FIND('-') THEN BEGIN
+                    IF CustomsLine.FindFirst() THEN BEGIN
                         CustomsLine."Gross Weight" := TotalGrossWeight;
                         CustomsLine."Net Weight" := TotalNetWeight;
                         CustomsLine."Parcel nb." := TotalParcel;
@@ -115,7 +115,7 @@ codeunit 50015 "PWD Edit COM7"
             CustomsLine.MODIFYALL("Total Line", CustomsLine.COUNT);
             CustomsLine.CALCSUMS("Parcel nb.");
             CustomsLine.MODIFYALL("Total Parcel", CustomsLine."Parcel nb.");
-            IF CustomsLine.FIND('-') THEN
+            IF CustomsLine.FindSet() THEN
                 REPEAT
                     j += 1;
                     CustomsLine."Line No." := j;

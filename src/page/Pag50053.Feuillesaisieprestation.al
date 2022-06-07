@@ -571,7 +571,7 @@ page 50053 "PWD Feuille saisie prestation"
                     begin
                         CurrPage.SETSELECTIONFILTER(ItemJnlLine);
                         ItemJnlLine.SETRANGE("Line No.");
-                        //ToDo
+                        //TODO
                         //REPORT.RUNMODAL(REPORT::"Bon de commande prestation", TRUE, TRUE, ItemJnlLine);
                     end;
                 }
@@ -586,7 +586,7 @@ page 50053 "PWD Feuille saisie prestation"
                         InvSetup.GET();
                         ItemJnlBatch.GET(InvSetup."PWD Nom modele prestation", CurrentJnlBatchName);
                         ItemJnlBatch.SETRECFILTER();
-                        //ToDo
+                        //TODO
                         //REPORT.RUNMODAL(REPORT::"Avis placement prestation", TRUE, TRUE, ItemJnlBatch);
                     end;
                 }
@@ -741,14 +741,14 @@ page 50053 "PWD Feuille saisie prestation"
         ReservEntry: Record "Reservation Entry";
     begin
         FromItemJnlLine.COPY(Rec);
-        FromItemJnlLine.FIND('-');
+        FromItemJnlLine.FindSet();
         REPEAT
             CLEAR(ReservEntry);
             ReservEntry.SETCURRENTKEY("Source ID", "Source Batch Name", "Source Ref. No.");
             ReservEntry.SETRANGE("Source ID", FromItemJnlLine."Journal Template Name");
             ReservEntry.SETRANGE("Source Batch Name", FromItemJnlLine."Journal Batch Name");
             ReservEntry.SETRANGE("Source Ref. No.", FromItemJnlLine."Line No.");
-            IF (ReservEntry.FIND('-')) AND (FromItemJnlLine."Location Code" <> ReservEntry."Location Code") THEN BEGIN
+            IF (ReservEntry.FindFirst()) AND (FromItemJnlLine."Location Code" <> ReservEntry."Location Code") THEN BEGIN
                 ReservEntry."Location Code" := FromItemJnlLine."Location Code";
                 ReservEntry.MODIFY();
             END;

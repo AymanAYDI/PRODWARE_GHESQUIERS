@@ -30,7 +30,7 @@ codeunit 50020 "PWD Justif Solde"
         // elle même pas soldée
         CltEcritures_Lues.SETCURRENTKEY("Closed by Entry No.");
         CltEcritures_Lues.SETRANGE("Closed by Entry No.", CltEcriture."Entry No.", CltEcriture."Entry No.");
-        IF CltEcritures_Lues.FIND('-') THEN
+        IF CltEcritures_Lues.FindSet() THEN
             REPEAT
                 IF (NOT CltEcritures_Lues.MARK()) THEN
                     IF (CltEcritureNonSoldée(CltEcritures_Lues, Date_Arrete)) THEN EXIT(TRUE);
@@ -61,7 +61,7 @@ codeunit 50020 "PWD Justif Solde"
         // elle même pas soldée
         FrsEcritures_Lues.SETCURRENTKEY("Closed by Entry No.");
         FrsEcritures_Lues.SETRANGE("Closed by Entry No.", FrsEcriture."Entry No.", FrsEcriture."Entry No.");
-        IF FrsEcritures_Lues.FIND('-') THEN
+        IF FrsEcritures_Lues.FindSet() THEN
             REPEAT
                 IF (NOT FrsEcritures_Lues.MARK()) THEN
                     IF (FrsEcritureNonSoldée(FrsEcritures_Lues, Date_Arrete)) THEN EXIT(TRUE);

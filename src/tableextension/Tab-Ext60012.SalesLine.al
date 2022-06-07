@@ -111,7 +111,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
                 RecLocPriority.SETCURRENTKEY(RecLocPriority."PWD Call Type Code", RecLocPriority."PWD Location priority");
                 RecLocPriority.ASCENDING(TRUE);
                 RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", "PWD Call Type");
-                IF RecLocPriority.FIND('-') THEN
+                IF RecLocPriority.FindFirst() THEN
                     VALIDATE("Location Code", RecLocPriority."PWD Location code");
             end;
         }
@@ -782,7 +782,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
 
     procedure UpdateTradingBrade(create: Boolean)
     begin
-        //ToDo
+        //TODO
         /*
         IF create = TRUE THEN
             GetSalesOrder.Create(Rec)
@@ -804,7 +804,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         AppTenders.SETRANGE("Document Type", "Document Type");
         AppTenders.SETRANGE("Document No.", "Document No.");
         AppTenders.SETRANGE("Line No. document", "Line No.");
-        IF AppTenders.FIND('-') THEN
+        IF AppTenders.FindFirst() THEN
             AppTenders.DELETEALL();
 
         CALCFIELDS("PWD Nb Purchase Quote");
@@ -817,16 +817,15 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         PurchQuoteLine.SETRANGE("PWD SalesLineNoAppealTenders", "Line No.");
 
         IF PurchQuoteLine.COUNT <> 0 THEN BEGIN
-            PurchQuoteLine.FIND('-');
+            PurchQuoteLine.FindSet();
             REPEAT
 
                 PurchQuoteLine2.SETRANGE("Document Type", PurchQuoteLine."Document Type");
                 PurchQuoteLine2.SETRANGE("Document No.", PurchQuoteLine."Document No.");
                 PurchQuoteLine.DELETE();
-                //ToDo
+                //TODO
                 //DimMgt.DeleteDefaultDim(DATABASE::"Purchase Line", PurchQuoteLine."Document No.");
                 // PurchQuoteLine."Line No.");
-
                 //*** si plus de ligne on supprime l'entete
                 IF PurchQuoteLine2.COUNT = 0 THEN BEGIN
                     PurchQuoteHeader.GET(PurchQuoteLine."Document Type", PurchQuoteLine."Document No.");
@@ -848,7 +847,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         AppTenders.SETRANGE("Document Type", "Document Type");
         AppTenders.SETRANGE("Document No.", "Document No.");
         AppTenders.SETRANGE("Line No. document", "Line No.");
-        IF AppTenders.FIND('-') THEN
+        IF AppTenders.FindFirst() THEN
             AppTenders.DELETEALL();
 
         PurchQuoteLine.SETCURRENTKEY("PWD SalesTypeDocAppealTend.", "PWD Sales No. Appeal Tenders", "PWD SalesLineNoAppealTenders");
@@ -858,7 +857,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         PurchQuoteLine.SETRANGE("PWD SalesLineNoAppealTenders", From_salesLine."Line No.");
 
         IF PurchQuoteLine.COUNT <> 0 THEN BEGIN
-            PurchQuoteLine.FIND('-');
+            PurchQuoteLine.FindSet();
             REPEAT
 
                 PurchQuoteLine2.SETRANGE("Document Type", PurchQuoteLine."Document Type");
@@ -896,7 +895,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             RecLocPriority.ASCENDING(TRUE); //gte
             SalesHeader.Get(Rec."Document Type", Rec."Document No.");
             RecLocPriority.SETRANGE(RecLocPriority."PWD Call Type Code", SalesHeader."PWD Call Type");
-            IF RecLocPriority.FIND('-') THEN BEGIN
+            IF RecLocPriority.FindSet() THEN BEGIN
                 REPEAT
                     AvailableInventory += CalculateNeed(RecLocPriority."PWD Location code", "Shipment Date");
                 UNTIL RecLocPriority.NEXT() = 0;
@@ -988,7 +987,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             LinkedtoCommentSalesLine.SETRANGE(LinkedtoCommentSalesLine."Document No.", "Document No.");
             LinkedtoCommentSalesLine.SETFILTER(LinkedtoCommentSalesLine.Type, '<>%1', LinkedtoCommentSalesLine.Type::" ");
             LinkedtoCommentSalesLine.SETFILTER(LinkedtoCommentSalesLine."Line No.", '<%1', "Line No.");
-            IF LinkedtoCommentSalesLine.FIND('+') THEN
+            IF LinkedtoCommentSalesLine.FindLast() THEN
                 EXIT(LinkedtoCommentSalesLine."Line No.");
         END ELSE
             "PWD Previous Line No" := "Line No.";
@@ -1004,14 +1003,14 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         RecLPurchasePrice.SETRANGE("Asset No.", "No.");
         IF PAGE.RUNMODAL(PAGE::"Price List Lines", RecLPurchasePrice) = ACTION::LookupOK THEN BEGIN
             VALIDATE("Unit Cost (LCY)", RecLPurchasePrice."Direct Unit Cost");
-            //ToDo
+            //TODO
             /*
-            VALIDATE("PWD Vendor No.", RecLPurchasePrice."Vendor No.");
-            MODIFY();
-            IF RecLItem.GET("No.") THEN BEGIN
-                RecLItem.VALIDATE("Vendor No.", RecLPurchasePrice."Vendor No.");
-                RecLItem.MODIFY();
-            END;*/
+                        VALIDATE("PWD Vendor No.", RecLPurchasePrice."Vendor No.");
+                        MODIFY();
+                        IF RecLItem.GET("No.") THEN BEGIN
+                            RecLItem.VALIDATE("Vendor No.", RecLPurchasePrice."Vendor No.");
+                            RecLItem.MODIFY();
+                        END;*/
         END;
     end;
 
@@ -1028,7 +1027,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         LinkedtoCommentSalesLine: Record "Sales Line";
         SetGetFunctions: codeunit "PWD Set/Get Functions";
 
-        //ToDo
+        //TODO
         //  GetSalesOrder: Report "Get Sales Orders/Vendor -TrB";
         BooGHideMessage: Boolean;
         MemLineDiscount: Decimal;

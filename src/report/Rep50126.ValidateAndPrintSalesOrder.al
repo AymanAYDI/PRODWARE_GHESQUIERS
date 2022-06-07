@@ -247,7 +247,7 @@ report 50126 "Validate And Print Sales Order"
         SalesLineCtrl.SETRANGE("Document Type", SalesHeader."Document Type");
         SalesLineCtrl.SETRANGE("Document No.", SalesHeader."No.");
         SalesLineCtrl.SETRANGE(Type, SalesLineCtrl.Type::Item);
-        IF SalesLineCtrl.FIND('-') THEN
+        IF SalesLineCtrl.FindSet() THEN
             REPEAT
                 IF Item.GET(SalesLineCtrl."No.") THEN BEGIN
                     BottomPrice := Item."PWD Bottom Price";

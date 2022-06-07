@@ -829,7 +829,7 @@ report 50026 "Sales - Shipment AVITA - DAA"
                                 IF NOT Item.GET("Sales Shipment Line"."No.") THEN
                                     Item.INIT();
                             END;
-                            //ToDo var not used.
+                            //TODO var not used.
                             //CodeDEpotEntete := "Sales Shipment Line"."Location Code";
                             // Calcul total tabac alcool
                             QtéAlcool := 0;
@@ -1000,13 +1000,13 @@ report 50026 "Sales - Shipment AVITA - DAA"
                 ELSE
                     ReferenceText := FIELDCAPTION("Your Reference");
                 FormatAddr.SalesShptShipTo(ShipToAddr, "Sales Shipment Header");
-                //ToDo a vérifier
+                //TODO a vérifier
                 FormatAddr.SalesShptBillTo(CustAddr, ShipToAddr, "Sales Shipment Header");
-                //ToDo Var not used
+                //TODO Var not used
                 //ShowCustAddr := "Bill-to Customer No." <> "Sell-to Customer No.";
                 FOR i := 1 TO ARRAYLEN(CustAddr) DO
                     IF CustAddr[i] <> ShipToAddr[i] THEN
-                        //ToDo Var not used
+                        //TODO Var not used
                         //ShowCustAddr := TRUE;
 
                         IF LogInteraction THEN
@@ -1026,11 +1026,11 @@ report 50026 "Sales - Shipment AVITA - DAA"
                 SalesShipLine.SETFILTER(Quantity, '<>0');
                 NbLigneTotal := SalesShipLine.COUNT;
                 SalesShipLine.SETRANGE(Type);
-                IF SalesShipLine.FIND('-') THEN;
-                //ToDo var not used.
+                IF SalesShipLine.FindFirst() THEN;
+                //TODO var not used.
                 //CodeDEpotEntete := SalesShipLine."Location Code"
                 //ELSE
-                //ToDo var not used.
+                //TODO var not used.
                 //CodeDEpotEntete := '';
 
                 NumLigne := 0;
@@ -1096,7 +1096,7 @@ report 50026 "Sales - Shipment AVITA - DAA"
     begin
         IF NOT CurrReport.USEREQUESTPAGE THEN
             InitLogInteraction();
-        //ToDo Var not used
+        //TODO Var not used
         //DepotSpecial := '8';
 
         IF USERID <> '' THEN
@@ -1126,13 +1126,13 @@ report 50026 "Sales - Shipment AVITA - DAA"
         SegManagement: Codeunit SegManagement;
         LogInteraction: Boolean;
         ShowCorrectionLines: Boolean;
-        //ToDo Var not used
+        //TODO Var not used
         //ShowCustAddr: Boolean;
         BillToPostCode: Code[20];
-        //ToDo Var not used
+        //TODO Var not used
         //DepotSpecial: Code[10];
         SellToPostCode: Code[20];
-        //ToDo var not used.
+        //TODO var not used.
         //CodeDEpotEntete: Code[20];
         "QtéAlcool": Decimal;
         "QtéAlcoolTotal": Decimal;

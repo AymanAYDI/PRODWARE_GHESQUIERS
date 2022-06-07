@@ -443,7 +443,7 @@ page 50045 "PWD Sales Line to Correct"
         SalesHeader.SETRANGE(SalesHeader.Status, SalesHeader.Status::Open);
         SalesHeader.SETRANGE(SalesHeader."PWD Preparation in process", TRUE);
         SalesHeader.SETRANGE(SalesHeader."PWD User Id", USERID);
-        IF SalesHeader.FIND('-') THEN
+        IF SalesHeader.FindSet() THEN
             REPEAT
                 ReleaseSalesDoc.RUN(SalesHeader);
             UNTIL SalesHeader.NEXT() = 0;
@@ -598,7 +598,7 @@ page 50045 "PWD Sales Line to Correct"
             CustomsCertif.GET(DocTemplateCode);
             CLEAR(HealthCertifWordMngt);
             CurrPage.SETSELECTIONFILTER(LSalesLine);
-            //ToDo
+            //TODO
             //HealthCertifWordMngt.Merge(SalesLine, CustomsCertif, CustomsCertif."No.");
         END;
     end;
