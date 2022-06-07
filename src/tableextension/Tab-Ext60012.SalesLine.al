@@ -127,8 +127,9 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
             DecimalPlaces = 0 : 5;
             Description = 'PW2009';
             DataClassification = CustomerContent;
-
             trigger OnValidate()
+            Var
+                UOMMgt: Codeunit "Unit of Measure Management";
             begin
                 // BEGIN 06-07-05 Ajout C2A(LLE) suite appel 8620  On mémorise "Unit Price" et "Line Discount %" car suite aux
                 // validate qui suivent les valeurs saisies se perdaient.
@@ -136,17 +137,14 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
                 SetGetFunctions.SetMemLineDiscount(MemLineDiscount);
                 MemUnitPrice := "Unit Price";
                 SetGetFunctions.SetMemUnitPrice(MemUnitPrice);
-                //ToDo  // "CalcBaseQty": fct local
-                //VALIDATE("PWD Prepared Quantity (Base)", CalcBaseQty("PWD Prepared Quantity", FieldCaption("PWD Prepared Quantity"), FieldCaption("PWD Prepared Quantity (Base)")));
-
+                VALIDATE("PWD Prepared Quantity (Base)", UOMMgt.CalcBaseQty("No.", "Variant Code", "Unit of Measure Code", "PWD Prepared Quantity", "Qty. per Unit of Measure", "Qty. Rounding Precision (Base)",
+                 FieldCaption("Qty. Rounding Precision"), FieldCaption("PWD Prepared Quantity"), FieldCaption("PWD Prepared Quantity (Base)")));
                 "PWD Adjmt Prepared Qty" := Quantity - "PWD Prepared Quantity";
-
                 IF CurrFieldNo = FIELDNO("PWD Prepared Quantity") THEN
                     IF "PWD Prepared Quantity" <= Quantity THEN
                         VALIDATE(Quantity, "PWD Prepared Quantity")
                     ELSE
                         ERROR(Text1000000026);
-
                 // BEGIN 06-07-05 Ajout C2A(LLE) suite appel 8620  On mémorise "Unit Price" et "Line Discount %" car suite aux
                 // validate qui suivent les valeurs saisies se perdaient.
                 //VALIDATE("Line Discount %", MemLineDiscount);

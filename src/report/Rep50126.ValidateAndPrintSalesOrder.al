@@ -205,15 +205,12 @@ report 50126 "Validate And Print Sales Order"
                     SalesLine.SETFILTER(SalesLine."PWD Butchery", '=%1', FALSE);
                     SalesLine.SETFILTER(SalesLine."PWD Countermark Location", '=%1', FALSE);
                 END;
-            SalesHeader."Document Type"::"Return Order":
-
-                ;
-            //ToDo
-            //Selection := STRMENU(Text002,3);
-            //IF Selection = 0 THEN
+            // SalesHeader."Document Type"::"Return Order":
+            // Selection := STRMENU(Text002,3);
+            // IF Selection = 0 THEN
             //  EXIT;
-            //Receive := Selection IN [1,3];
-            //Invoice := Selection IN [2,3];
+            // Receive := Selection IN [1,3];
+            // Invoice := Selection IN [2,3];
             ELSE
                 IF NOT
                    CONFIRM(

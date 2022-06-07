@@ -247,8 +247,8 @@ table 50030 "PWD Customs Documents Template"
             END ELSE BEGIN
                 Attachment.IMPORT(FileName);
                 "File Extension" := UPPERCASE(AttachmentManagement.FileExtension(FileName));
-                "Storage Type" := "Storage Type"::Embedded;*/
-                IF MODIFY(TRUE) THEN;
+                "Storage Type" := "Storage Type"::Embedded;
+                IF MODIFY(TRUE) THEN;*/
             EXIT(TRUE);
         END ELSE
             EXIT(FALSE);
@@ -308,7 +308,7 @@ table 50030 "PWD Customs Documents Template"
     begin
         IF FileName = '' THEN
             EXIT(FALSE);
-        //ToDo
+        //TODO la fonction exists ne fonctionne pas pour la version cloud
         /*
                 IF NOT EXISTS(FileName) THEN
                     EXIT(TRUE);
@@ -328,10 +328,10 @@ table 50030 "PWD Customs Documents Template"
         REPEAT
             IF I <> 0 THEN
                 DocNo := FORMAT(I);
-            //todo
-            /*FileName := ENVIRON('TEMP') + Text012 + DocNo + '.' + "File Extension";
-            IF NOT EXISTS(FileName) THEN
-                EXIT;*/
+            //TODO Fonction systeme ENVIRON n'existe pas pour la nouvelle version
+            // FileName := ENVIRON('TEMP') + Text012 + DocNo + '.' + "File Extension";
+            // IF NOT EXISTS(FileName) THEN
+            //     EXIT;
             I := I + 1;
         UNTIL I = 999;
     end;
@@ -358,6 +358,9 @@ table 50030 "PWD Customs Documents Template"
     procedure CreateAttachment()
     var
         CustomsDocumentsTemplate: Record "PWD Customs Documents Template";
+    // AttachmentManagement: Codeunit "PWD Customs Doc AttachmentMngt";
+    // WordManagement: Codeunit "PWD Customs Sales Doc WordMngt";
+    // ShipWordManagement: Codeunit "Customs Shipmt Doc WordMngt";
     begin
         IF "Attachment No." <> 0 THEN BEGIN
             IF CustomsDocumentsTemplate.GET("Attachment No.") THEN
@@ -366,12 +369,12 @@ table 50030 "PWD Customs Documents Template"
                 EXIT;
         END;
         //ToDo
-        /*
-                IF CustomsDocumentsTemplate.UseComServer('DOC', TRUE) THEN;
 
-                IF "Based On" = "Based On"::Sales THEN
-                    WordManagement.CreateWordAttachment("No." + ' ' + Description, "No.") ELSE
-                    IF "Based On" = "Based On"::Shipment THEN
-                        ShipWordManagement.CreateWordAttachment("No." + ' ' + Description, "No.");*/
+        // IF AttachmentManagement.UseComServer('DOC', TRUE) THEN;
+
+        // IF "Based On" = "Based On"::Sales THEN
+        //     WordManagement.CreateWordAttachment("No." + ' ' + Description, "No.") ELSE
+        //     IF "Based On" = "Based On"::Shipment THEN
+        //         ShipWordManagement.CreateWordAttachment("No." + ' ' + Description, "No.");
     end;
 }
