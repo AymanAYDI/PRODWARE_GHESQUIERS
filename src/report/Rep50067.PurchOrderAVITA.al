@@ -163,7 +163,7 @@ report 50067 "PWD Purch Order AVITA"
                         trigger OnAfterGetRecord()
                         begin
                             IF Number = 1 THEN BEGIN
-                                IF NOT DocDim1.FIND('-') THEN
+                                IF NOT DocDim1.FindFirst() THEN
                                     CurrReport.BREAK();
                             END ELSE
                                 IF NOT Continue THEN
@@ -411,7 +411,7 @@ report 50067 "PWD Purch Order AVITA"
                             trigger OnAfterGetRecord()
                             begin
                                 IF Number = 1 THEN BEGIN
-                                    IF NOT DocDim2.FIND('-') THEN
+                                    IF NOT DocDim2.FindFirst() THEN
                                         CurrReport.BREAK();
                                 END ELSE
                                     IF NOT Continue THEN
@@ -449,7 +449,7 @@ report 50067 "PWD Purch Order AVITA"
                         trigger OnAfterGetRecord()
                         begin
                             IF Number = 1 THEN
-                                PurchLine.FIND('-')
+                                PurchLine.FindFirst()
                             ELSE
                                 PurchLine.NEXT();
                             "Purchase Line" := PurchLine;
@@ -518,7 +518,7 @@ report 50067 "PWD Purch Order AVITA"
 
                         trigger OnPreDataItem()
                         begin
-                            MoreLines := PurchLine.FIND('+');
+                            MoreLines := PurchLine.FindLast();
                             WHILE MoreLines AND (PurchLine.Description = '') AND (PurchLine."Description 2" = '') AND
                                   (PurchLine."No." = '') AND (PurchLine.Quantity = 0) AND
                                   (PurchLine.Amount = 0) DO
@@ -677,13 +677,13 @@ report 50067 "PWD Purch Order AVITA"
 
                 PurchLineDDE.SETRANGE("Document Type", "Purchase Header"."Document Type");
                 PurchLineDDE.SETRANGE("Document No.", "Purchase Header"."No.");
-                IF NOT PurchLineDDE.FIND('-') THEN
+                IF NOT PurchLineDDE.FindFirst() THEN
                     PurchLineDDE.INIT();
 
                 CLEAR(SalesOrderNo);
                 FromPurchLine.SETRANGE("Document Type", "Document Type");
                 FromPurchLine.SETRANGE("Document No.", "No.");
-                IF FromPurchLine.FIND('-') THEN
+                IF FromPurchLine.FindSet() THEN
                     REPEAT
                         IF FromPurchLine."Sales Order No." <> '' THEN SalesOrderNo := FromPurchLine."Sales Order No.";
                         IF FromPurchLine."Special Order Sales No." <> '' THEN SalesOrderNo := FromPurchLine."Special Order Sales No.";

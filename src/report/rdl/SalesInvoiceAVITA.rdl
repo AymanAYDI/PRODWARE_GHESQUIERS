@@ -11,550 +11,6 @@
       <rd:DataSourceID>66355234-5193-4d97-ac44-75908837280b</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Sales_Invoice_Header_No_">
-          <DataField>Sales_Invoice_Header_No_</DataField>
-        </Field>
-        <Field Name="CustAddr_1_">
-          <DataField>CustAddr_1_</DataField>
-        </Field>
-        <Field Name="CustAddr_3_">
-          <DataField>CustAddr_3_</DataField>
-        </Field>
-        <Field Name="CustAddr_4_">
-          <DataField>CustAddr_4_</DataField>
-        </Field>
-        <Field Name="CustAddr_5_">
-          <DataField>CustAddr_5_</DataField>
-        </Field>
-        <Field Name="CustAddr_6_">
-          <DataField>CustAddr_6_</DataField>
-        </Field>
-        <Field Name="ShipToAddr_1_">
-          <DataField>ShipToAddr_1_</DataField>
-        </Field>
-        <Field Name="ShipToAddr_2_">
-          <DataField>ShipToAddr_2_</DataField>
-        </Field>
-        <Field Name="ShipToAddr_3_">
-          <DataField>ShipToAddr_3_</DataField>
-        </Field>
-        <Field Name="ShipToAddr_4_">
-          <DataField>ShipToAddr_4_</DataField>
-        </Field>
-        <Field Name="ShipToAddr_5_">
-          <DataField>ShipToAddr_5_</DataField>
-        </Field>
-        <Field Name="ShipToAddr_6_">
-          <DataField>ShipToAddr_6_</DataField>
-        </Field>
-        <Field Name="ShipToAddr_7_">
-          <DataField>ShipToAddr_7_</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Header___Bill_to_Customer_No__">
-          <DataField>Sales_Invoice_Header___Bill_to_Customer_No__</DataField>
-        </Field>
-        <Field Name="CompanyAddr_1_">
-          <DataField>CompanyAddr_1_</DataField>
-        </Field>
-        <Field Name="au_Capital_de___CompanyInfo__Stock_Capital_">
-          <DataField>au_Capital_de___CompanyInfo__Stock_Capital_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_2_">
-          <DataField>CompanyAddr_2_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_3_">
-          <DataField>CompanyAddr_3_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_4_">
-          <DataField>CompanyAddr_4_</DataField>
-        </Field>
-        <Field Name="Pays_Name">
-          <DataField>Pays_Name</DataField>
-        </Field>
-        <Field Name="Tel_______CompanyInfo__Phone_No__">
-          <DataField>Tel_______CompanyInfo__Phone_No__</DataField>
-        </Field>
-        <Field Name="Fax_______CompanyInfo__Fax_No__">
-          <DataField>Fax_______CompanyInfo__Fax_No__</DataField>
-        </Field>
-        <Field Name="E_Mail_______CompanyInfo__E_Mail_">
-          <DataField>E_Mail_______CompanyInfo__E_Mail_</DataField>
-        </Field>
-        <Field Name="N__TVA_____CompanyInfo__VAT_Registration_No__">
-          <DataField>N__TVA_____CompanyInfo__VAT_Registration_No__</DataField>
-        </Field>
-        <Field Name="CompanyInfo__Logo_AVITA_facture_">
-          <DataField>CompanyInfo__Logo_AVITA_facture_</DataField>
-        </Field>
-        <Field Name="Cust__VAT_Registration_No__">
-          <DataField>Cust__VAT_Registration_No__</DataField>
-        </Field>
-        <Field Name="RCS____CompanyInfo__Trade_Register_">
-          <DataField>RCS____CompanyInfo__Trade_Register_</DataField>
-        </Field>
-        <Field Name="N__Siret____CompanyInfo__Registration_No__">
-          <DataField>N__Siret____CompanyInfo__Registration_No__</DataField>
-        </Field>
-        <Field Name="CustAddr_2_">
-          <DataField>CustAddr_2_</DataField>
-        </Field>
-        <Field Name="OutputNo">
-          <DataField>OutputNo</DataField>
-        </Field>
-        <Field Name="CustAddr_7_">
-          <DataField>CustAddr_7_</DataField>
-        </Field>
-        <Field Name="CustAddr_8_">
-          <DataField>CustAddr_8_</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Header___Bill_to_Additional_name_">
-          <DataField>Sales_Invoice_Header___Bill_to_Additional_name_</DataField>
-        </Field>
-        <Field Name="TxtGC_O">
-          <DataField>TxtGC_O</DataField>
-        </Field>
-        <Field Name="CustMail4">
-          <DataField>CustMail4</DataField>
-        </Field>
-        <Field Name="ShipmentCaption">
-          <DataField>ShipmentCaption</DataField>
-        </Field>
-        <Field Name="InvoiceCaption">
-          <DataField>InvoiceCaption</DataField>
-        </Field>
-        <Field Name="CAPTAIN_AND_OWNER_S_OF_M_VCaption">
-          <DataField>CAPTAIN_AND_OWNER_S_OF_M_VCaption</DataField>
-        </Field>
-        <Field Name="InvoiceCaption_Control1000000064">
-          <DataField>InvoiceCaption_Control1000000064</DataField>
-        </Field>
-        <Field Name="InvoiceCaption_Control1000000075">
-          <DataField>InvoiceCaption_Control1000000075</DataField>
-        </Field>
-        <Field Name="PageLoop_Number">
-          <DataField>PageLoop_Number</DataField>
-        </Field>
-        <Field Name="STRSUBSTNO_Text004_CopyText_">
-          <DataField>STRSUBSTNO_Text004_CopyText_</DataField>
-        </Field>
-        <Field Name="N__de_commande_____Sales_Invoice_Header___Order_No__">
-          <DataField>N__de_commande_____Sales_Invoice_Header___Order_No__</DataField>
-        </Field>
-        <Field Name="STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__">
-          <DataField>STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__</DataField>
-        </Field>
-        <Field Name="Vos_ref___">
-          <DataField>Vos_ref___</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Header__Reference">
-          <DataField>Sales_Invoice_Header__Reference</DataField>
-        </Field>
-        <Field Name="REP________Sales_Invoice_Header___Salesperson_Code_">
-          <DataField>REP________Sales_Invoice_Header___Salesperson_Code_</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__Line_Amount_">
-          <DataField>Sales_Invoice_Line__Line_Amount_</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__Line_Amount_Format">
-          <DataField>Sales_Invoice_Line__Line_Amount_Format</DataField>
-        </Field>
-        <Field Name="SalesLine__Type_">
-          <DataField>SalesLine__Type_</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line_Description">
-          <DataField>Sales_Invoice_Line_Description</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__No__">
-          <DataField>Sales_Invoice_Line__No__</DataField>
-        </Field>
-        <Field Name="Description__Description_2_">
-          <DataField>Description__Description_2_</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line_Quantity">
-          <DataField>Sales_Invoice_Line_Quantity</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line_QuantityFormat">
-          <DataField>Sales_Invoice_Line_QuantityFormat</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__Unit_of_Measure_">
-          <DataField>Sales_Invoice_Line__Unit_of_Measure_</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__Unit_Price_">
-          <DataField>Sales_Invoice_Line__Unit_Price_</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__Unit_Price_Format">
-          <DataField>Sales_Invoice_Line__Unit_Price_Format</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__Line_Amount__Control70">
-          <DataField>Sales_Invoice_Line__Line_Amount__Control70</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__Line_Amount__Control70Format">
-          <DataField>Sales_Invoice_Line__Line_Amount__Control70Format</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__Line_Discount___">
-          <DataField>Sales_Invoice_Line__Line_Discount___</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__Line_Discount___Format">
-          <DataField>Sales_Invoice_Line__Line_Discount___Format</DataField>
-        </Field>
-        <Field Name="GDescription">
-          <DataField>GDescription</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__VAT_Identifier_">
-          <DataField>Sales_Invoice_Line__VAT_Identifier_</DataField>
-        </Field>
-        <Field Name="VAT__Prcnt_">
-          <DataField>VAT__Prcnt_</DataField>
-        </Field>
-        <Field Name="VAT__Prcnt_Format">
-          <DataField>VAT__Prcnt_Format</DataField>
-        </Field>
-        <Field Name="Amount_Including_VAT_">
-          <DataField>Amount_Including_VAT_</DataField>
-        </Field>
-        <Field Name="Amount_Including_VAT_Format">
-          <DataField>Amount_Including_VAT_Format</DataField>
-        </Field>
-        <Field Name="VAT_Base_Amount_">
-          <DataField>VAT_Base_Amount_</DataField>
-        </Field>
-        <Field Name="VAT_Base_Amount_Format">
-          <DataField>VAT_Base_Amount_Format</DataField>
-        </Field>
-        <Field Name="IntTriRTC">
-          <DataField>IntTriRTC</DataField>
-        </Field>
-        <Field Name="TxTGMentionEXO_">
-          <DataField>TxTGMentionEXO_</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line___Designation_ENU_">
-          <DataField>Sales_Invoice_Line___Designation_ENU_</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line___Description_2_">
-          <DataField>Sales_Invoice_Line___Description_2_</DataField>
-        </Field>
-        <Field Name="SalesLine__Type1_">
-          <DataField>SalesLine__Type1_</DataField>
-        </Field>
-        <Field Name="IntGLineNo">
-          <DataField>IntGLineNo</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__Line_Amount__Control86">
-          <DataField>Sales_Invoice_Line__Line_Amount__Control86</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__Line_Amount__Control86Format">
-          <DataField>Sales_Invoice_Line__Line_Amount__Control86Format</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line_Amount">
-          <DataField>Sales_Invoice_Line_Amount</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line_AmountFormat">
-          <DataField>Sales_Invoice_Line_AmountFormat</DataField>
-        </Field>
-        <Field Name="Amount_Including_VAT____Amount">
-          <DataField>Amount_Including_VAT____Amount</DataField>
-        </Field>
-        <Field Name="Amount_Including_VAT____AmountFormat">
-          <DataField>Amount_Including_VAT____AmountFormat</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__Amount_Including_VAT_">
-          <DataField>Sales_Invoice_Line__Amount_Including_VAT_</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__Amount_Including_VAT_Format">
-          <DataField>Sales_Invoice_Line__Amount_Including_VAT_Format</DataField>
-        </Field>
-        <Field Name="VATAmountLine_VATAmountText">
-          <DataField>VATAmountLine_VATAmountText</DataField>
-        </Field>
-        <Field Name="TotalExclVATText">
-          <DataField>TotalExclVATText</DataField>
-        </Field>
-        <Field Name="TotalInclVATText">
-          <DataField>TotalInclVATText</DataField>
-        </Field>
-        <Field Name="VatArrayID_1_">
-          <DataField>VatArrayID_1_</DataField>
-        </Field>
-        <Field Name="VatArrayID_2_">
-          <DataField>VatArrayID_2_</DataField>
-        </Field>
-        <Field Name="VatArrayID_3_">
-          <DataField>VatArrayID_3_</DataField>
-        </Field>
-        <Field Name="VatArrayID_4_">
-          <DataField>VatArrayID_4_</DataField>
-        </Field>
-        <Field Name="VatArrayRate_1_">
-          <DataField>VatArrayRate_1_</DataField>
-        </Field>
-        <Field Name="VatArrayRate_1_Format">
-          <DataField>VatArrayRate_1_Format</DataField>
-        </Field>
-        <Field Name="VatArrayBase_1_">
-          <DataField>VatArrayBase_1_</DataField>
-        </Field>
-        <Field Name="VatArrayBase_1_Format">
-          <DataField>VatArrayBase_1_Format</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_1_">
-          <DataField>VatArrayAmount_1_</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_1_Format">
-          <DataField>VatArrayAmount_1_Format</DataField>
-        </Field>
-        <Field Name="VatArrayRate_2_">
-          <DataField>VatArrayRate_2_</DataField>
-        </Field>
-        <Field Name="VatArrayRate_2_Format">
-          <DataField>VatArrayRate_2_Format</DataField>
-        </Field>
-        <Field Name="VatArrayRate_3_">
-          <DataField>VatArrayRate_3_</DataField>
-        </Field>
-        <Field Name="VatArrayRate_3_Format">
-          <DataField>VatArrayRate_3_Format</DataField>
-        </Field>
-        <Field Name="VatArrayRate_4_">
-          <DataField>VatArrayRate_4_</DataField>
-        </Field>
-        <Field Name="VatArrayRate_4_Format">
-          <DataField>VatArrayRate_4_Format</DataField>
-        </Field>
-        <Field Name="VatArrayBase_2_">
-          <DataField>VatArrayBase_2_</DataField>
-        </Field>
-        <Field Name="VatArrayBase_2_Format">
-          <DataField>VatArrayBase_2_Format</DataField>
-        </Field>
-        <Field Name="VatArrayBase_3_">
-          <DataField>VatArrayBase_3_</DataField>
-        </Field>
-        <Field Name="VatArrayBase_3_Format">
-          <DataField>VatArrayBase_3_Format</DataField>
-        </Field>
-        <Field Name="VatArrayBase_4_">
-          <DataField>VatArrayBase_4_</DataField>
-        </Field>
-        <Field Name="VatArrayBase_4_Format">
-          <DataField>VatArrayBase_4_Format</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_2_">
-          <DataField>VatArrayAmount_2_</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_2_Format">
-          <DataField>VatArrayAmount_2_Format</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_3_">
-          <DataField>VatArrayAmount_3_</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_3_Format">
-          <DataField>VatArrayAmount_3_Format</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_4_">
-          <DataField>VatArrayAmount_4_</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_4_Format">
-          <DataField>VatArrayAmount_4_Format</DataField>
-        </Field>
-        <Field Name="PaymentMethod_Description__________PaymentTerms_Description">
-          <DataField>PaymentMethod_Description__________PaymentTerms_Description</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Header___Due_Date_">
-          <DataField>Sales_Invoice_Header___Due_Date_</DataField>
-        </Field>
-        <Field Name="MentionEXO">
-          <DataField>MentionEXO</DataField>
-        </Field>
-        <Field Name="Banque_____CompanyInfo__Bank_Name_______Iban_____CompanyInfo__Bank_Branch_No___CompanyInfo__Bank_Account_No________Swift_code_____CompanyInfo__Payment_Routing_No__">
-          <DataField>Banque_____CompanyInfo__Bank_Name_______Iban_____CompanyInfo__Bank_Branch_No___CompanyInfo__Bank_Account_No________Swift_code_____CompanyInfo__Payment_Routing_No__</DataField>
-        </Field>
-        <Field Name="PaymentMethod_Description_">
-          <DataField>PaymentMethod_Description_</DataField>
-        </Field>
-        <Field Name="PaymentTerms_Description_">
-          <DataField>PaymentTerms_Description_</DataField>
-        </Field>
-        <Field Name="RecGVatArrayAmount_1">
-          <DataField>RecGVatArrayAmount_1</DataField>
-        </Field>
-        <Field Name="RecGVatArrayAmount_1Format">
-          <DataField>RecGVatArrayAmount_1Format</DataField>
-        </Field>
-        <Field Name="RecGVatArrayRate_4">
-          <DataField>RecGVatArrayRate_4</DataField>
-        </Field>
-        <Field Name="RecGVatArrayRate_4Format">
-          <DataField>RecGVatArrayRate_4Format</DataField>
-        </Field>
-        <Field Name="RecGVatArrayRate_3">
-          <DataField>RecGVatArrayRate_3</DataField>
-        </Field>
-        <Field Name="RecGVatArrayRate_3Format">
-          <DataField>RecGVatArrayRate_3Format</DataField>
-        </Field>
-        <Field Name="RecGVatArrayRate_2">
-          <DataField>RecGVatArrayRate_2</DataField>
-        </Field>
-        <Field Name="RecGVatArrayRate_2Format">
-          <DataField>RecGVatArrayRate_2Format</DataField>
-        </Field>
-        <Field Name="RecGVatArrayRate_1">
-          <DataField>RecGVatArrayRate_1</DataField>
-        </Field>
-        <Field Name="RecGVatArrayRate_1Format">
-          <DataField>RecGVatArrayRate_1Format</DataField>
-        </Field>
-        <Field Name="CodGVatArrayID_4">
-          <DataField>CodGVatArrayID_4</DataField>
-        </Field>
-        <Field Name="CodGVatArrayID_3">
-          <DataField>CodGVatArrayID_3</DataField>
-        </Field>
-        <Field Name="CodGVatArrayID_2">
-          <DataField>CodGVatArrayID_2</DataField>
-        </Field>
-        <Field Name="CodGVatArrayID_1">
-          <DataField>CodGVatArrayID_1</DataField>
-        </Field>
-        <Field Name="RecGVatArrayAmount_4">
-          <DataField>RecGVatArrayAmount_4</DataField>
-        </Field>
-        <Field Name="RecGVatArrayAmount_4Format">
-          <DataField>RecGVatArrayAmount_4Format</DataField>
-        </Field>
-        <Field Name="RecGVatArrayAmount_3">
-          <DataField>RecGVatArrayAmount_3</DataField>
-        </Field>
-        <Field Name="RecGVatArrayAmount_3Format">
-          <DataField>RecGVatArrayAmount_3Format</DataField>
-        </Field>
-        <Field Name="RecGVatArrayAmount_2">
-          <DataField>RecGVatArrayAmount_2</DataField>
-        </Field>
-        <Field Name="RecGVatArrayAmount_2Format">
-          <DataField>RecGVatArrayAmount_2Format</DataField>
-        </Field>
-        <Field Name="RecGVatArrayBase_4">
-          <DataField>RecGVatArrayBase_4</DataField>
-        </Field>
-        <Field Name="RecGVatArrayBase_4Format">
-          <DataField>RecGVatArrayBase_4Format</DataField>
-        </Field>
-        <Field Name="RecGVatArrayBase_3">
-          <DataField>RecGVatArrayBase_3</DataField>
-        </Field>
-        <Field Name="RecGVatArrayBase_3Format">
-          <DataField>RecGVatArrayBase_3Format</DataField>
-        </Field>
-        <Field Name="RecGVatArrayBase_2">
-          <DataField>RecGVatArrayBase_2</DataField>
-        </Field>
-        <Field Name="RecGVatArrayBase_2Format">
-          <DataField>RecGVatArrayBase_2Format</DataField>
-        </Field>
-        <Field Name="RecGVatArrayBase_1">
-          <DataField>RecGVatArrayBase_1</DataField>
-        </Field>
-        <Field Name="RecGVatArrayBase_1Format">
-          <DataField>RecGVatArrayBase_1Format</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__VAT_Identifier_Caption">
-          <DataField>Sales_Invoice_Line__VAT_Identifier_Caption</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__No__Caption">
-          <DataField>Sales_Invoice_Line__No__Caption</DataField>
-        </Field>
-        <Field Name="DésignationCaption">
-          <DataField>DésignationCaption</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line_QuantityCaption">
-          <DataField>Sales_Invoice_Line_QuantityCaption</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line__Unit_of_Measure_Caption">
-          <DataField>Sales_Invoice_Line__Unit_of_Measure_Caption</DataField>
-        </Field>
-        <Field Name="Unit_PriceCaption">
-          <DataField>Unit_PriceCaption</DataField>
-        </Field>
-        <Field Name="AmountCaption">
-          <DataField>AmountCaption</DataField>
-        </Field>
-        <Field Name="Unit_PriceCaption_Control1000000048">
-          <DataField>Unit_PriceCaption_Control1000000048</DataField>
-        </Field>
-        <Field Name="AmountCaption_Control1000000052">
-          <DataField>AmountCaption_Control1000000052</DataField>
-        </Field>
-        <Field Name="QuantityCaption">
-          <DataField>QuantityCaption</DataField>
-        </Field>
-        <Field Name="UnitCaption">
-          <DataField>UnitCaption</DataField>
-        </Field>
-        <Field Name="Remise_DiscountCaption">
-          <DataField>Remise_DiscountCaption</DataField>
-        </Field>
-        <Field Name="DescriptionCaption">
-          <DataField>DescriptionCaption</DataField>
-        </Field>
-        <Field Name="DiscountCaption">
-          <DataField>DiscountCaption</DataField>
-        </Field>
-        <Field Name="VAT_Identifier_Caption">
-          <DataField>VAT_Identifier_Caption</DataField>
-        </Field>
-        <Field Name="Identifier_Caption">
-          <DataField>Identifier_Caption</DataField>
-        </Field>
-        <Field Name="RemiseCaption">
-          <DataField>RemiseCaption</DataField>
-        </Field>
-        <Field Name="ContinuedCaption">
-          <DataField>ContinuedCaption</DataField>
-        </Field>
-        <Field Name="ContinuedCaption_Control85">
-          <DataField>ContinuedCaption_Control85</DataField>
-        </Field>
-        <Field Name="Conditions_de_paiement___Settlement___Caption">
-          <DataField>Conditions_de_paiement___Settlement___Caption</DataField>
-        </Field>
-        <Field Name="TauxCaption">
-          <DataField>TauxCaption</DataField>
-        </Field>
-        <Field Name="BaseCaption">
-          <DataField>BaseCaption</DataField>
-        </Field>
-        <Field Name="MontantCaption">
-          <DataField>MontantCaption</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Header___Due_Date_Caption">
-          <DataField>Sales_Invoice_Header___Due_Date_Caption</DataField>
-        </Field>
-        <Field Name="LA_MARCHANDISE_LIVREE_RESTE_NOTRE_PROPRIETE_JUSQU_AU_REGLEMENT_COMPLET_DE_LA_FACTURE__loi_80_335_PARUE_AU_J_O__DU_13_05_80_Caption">
-          <DataField>LA_MARCHANDISE_LIVREE_RESTE_NOTRE_PROPRIETE_JUSQU_AU_REGLEMENT_COMPLET_DE_LA_FACTURE__loi_80_335_PARUE_AU_J_O__DU_13_05_80_Caption</DataField>
-        </Field>
-        <Field Name="Aucun_escompte_ne_sera_accordé_en_cas_de_paiement_anticipé__Tout_retard_de_paiement_entraînera_des_pénalités_de_retard_représentant_1_5__du_montant_H_T__de_la_facture_par_mois_de_retard_Caption">
-          <DataField>Aucun_escompte_ne_sera_accordé_en_cas_de_paiement_anticipé__Tout_retard_de_paiement_entraînera_des_pénalités_de_retard_représentant_1_5__du_montant_H_T__de_la_facture_par_mois_de_retard_Caption</DataField>
-        </Field>
-        <Field Name="Textindemnitéforfaitaire_Caption">
-          <DataField>Textindemnitéforfaitaire_Caption</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line_Document_No_">
-          <DataField>Sales_Invoice_Line_Document_No_</DataField>
-        </Field>
-        <Field Name="Sales_Invoice_Line_Line_No_">
-          <DataField>Sales_Invoice_Line_Line_No_</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -7011,12 +6467,6 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Shared LineNbr as Integer
 Public PageNum as Integer = 1
 Shared VatNbr as Integer
@@ -7262,4 +6712,548 @@ WgA8WgA8WgA8WgA8WgA8WgA8WgA8WgA8WAA5WQA7rYGeAP/////////+/v////79/v79/v//////////
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>faab3f70-7abc-44dd-bc4d-f2eed9417fa5</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Sales_Invoice_Header_No_">
+          <DataField>Sales_Invoice_Header_No_</DataField>
+        </Field>
+        <Field Name="CustAddr_1_">
+          <DataField>CustAddr_1_</DataField>
+        </Field>
+        <Field Name="CustAddr_3_">
+          <DataField>CustAddr_3_</DataField>
+        </Field>
+        <Field Name="CustAddr_4_">
+          <DataField>CustAddr_4_</DataField>
+        </Field>
+        <Field Name="CustAddr_5_">
+          <DataField>CustAddr_5_</DataField>
+        </Field>
+        <Field Name="CustAddr_6_">
+          <DataField>CustAddr_6_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_1_">
+          <DataField>ShipToAddr_1_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_2_">
+          <DataField>ShipToAddr_2_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_3_">
+          <DataField>ShipToAddr_3_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_4_">
+          <DataField>ShipToAddr_4_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_5_">
+          <DataField>ShipToAddr_5_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_6_">
+          <DataField>ShipToAddr_6_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_7_">
+          <DataField>ShipToAddr_7_</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Header___Bill_to_Customer_No__">
+          <DataField>Sales_Invoice_Header___Bill_to_Customer_No__</DataField>
+        </Field>
+        <Field Name="CompanyAddr_1_">
+          <DataField>CompanyAddr_1_</DataField>
+        </Field>
+        <Field Name="au_Capital_de___CompanyInfo__Stock_Capital_">
+          <DataField>au_Capital_de___CompanyInfo__Stock_Capital_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_2_">
+          <DataField>CompanyAddr_2_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_3_">
+          <DataField>CompanyAddr_3_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_4_">
+          <DataField>CompanyAddr_4_</DataField>
+        </Field>
+        <Field Name="Pays_Name">
+          <DataField>Pays_Name</DataField>
+        </Field>
+        <Field Name="Tel_______CompanyInfo__Phone_No__">
+          <DataField>Tel_______CompanyInfo__Phone_No__</DataField>
+        </Field>
+        <Field Name="Fax_______CompanyInfo__Fax_No__">
+          <DataField>Fax_______CompanyInfo__Fax_No__</DataField>
+        </Field>
+        <Field Name="E_Mail_______CompanyInfo__E_Mail_">
+          <DataField>E_Mail_______CompanyInfo__E_Mail_</DataField>
+        </Field>
+        <Field Name="N__TVA_____CompanyInfo__VAT_Registration_No__">
+          <DataField>N__TVA_____CompanyInfo__VAT_Registration_No__</DataField>
+        </Field>
+        <Field Name="CompanyInfo__Logo_AVITA_facture_">
+          <DataField>CompanyInfo__Logo_AVITA_facture_</DataField>
+        </Field>
+        <Field Name="Cust__VAT_Registration_No__">
+          <DataField>Cust__VAT_Registration_No__</DataField>
+        </Field>
+        <Field Name="RCS____CompanyInfo__Trade_Register_">
+          <DataField>RCS____CompanyInfo__Trade_Register_</DataField>
+        </Field>
+        <Field Name="N__Siret____CompanyInfo__Registration_No__">
+          <DataField>N__Siret____CompanyInfo__Registration_No__</DataField>
+        </Field>
+        <Field Name="CustAddr_2_">
+          <DataField>CustAddr_2_</DataField>
+        </Field>
+        <Field Name="OutputNo">
+          <DataField>OutputNo</DataField>
+        </Field>
+        <Field Name="CustAddr_7_">
+          <DataField>CustAddr_7_</DataField>
+        </Field>
+        <Field Name="CustAddr_8_">
+          <DataField>CustAddr_8_</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Header___Bill_to_Additional_name_">
+          <DataField>Sales_Invoice_Header___Bill_to_Additional_name_</DataField>
+        </Field>
+        <Field Name="TxtGC_O">
+          <DataField>TxtGC_O</DataField>
+        </Field>
+        <Field Name="CustMail4">
+          <DataField>CustMail4</DataField>
+        </Field>
+        <Field Name="ShipmentCaption">
+          <DataField>ShipmentCaption</DataField>
+        </Field>
+        <Field Name="InvoiceCaption">
+          <DataField>InvoiceCaption</DataField>
+        </Field>
+        <Field Name="CAPTAIN_AND_OWNER_S_OF_M_VCaption">
+          <DataField>CAPTAIN_AND_OWNER_S_OF_M_VCaption</DataField>
+        </Field>
+        <Field Name="InvoiceCaption_Control1000000064">
+          <DataField>InvoiceCaption_Control1000000064</DataField>
+        </Field>
+        <Field Name="InvoiceCaption_Control1000000075">
+          <DataField>InvoiceCaption_Control1000000075</DataField>
+        </Field>
+        <Field Name="PageLoop_Number">
+          <DataField>PageLoop_Number</DataField>
+        </Field>
+        <Field Name="STRSUBSTNO_Text004_CopyText_">
+          <DataField>STRSUBSTNO_Text004_CopyText_</DataField>
+        </Field>
+        <Field Name="N__de_commande_____Sales_Invoice_Header___Order_No__">
+          <DataField>N__de_commande_____Sales_Invoice_Header___Order_No__</DataField>
+        </Field>
+        <Field Name="STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__">
+          <DataField>STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__</DataField>
+        </Field>
+        <Field Name="Vos_ref___">
+          <DataField>Vos_ref___</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Header__Reference">
+          <DataField>Sales_Invoice_Header__Reference</DataField>
+        </Field>
+        <Field Name="REP________Sales_Invoice_Header___Salesperson_Code_">
+          <DataField>REP________Sales_Invoice_Header___Salesperson_Code_</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__Line_Amount_">
+          <DataField>Sales_Invoice_Line__Line_Amount_</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__Line_Amount_Format">
+          <DataField>Sales_Invoice_Line__Line_Amount_Format</DataField>
+        </Field>
+        <Field Name="SalesLine__Type_">
+          <DataField>SalesLine__Type_</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line_Description">
+          <DataField>Sales_Invoice_Line_Description</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__No__">
+          <DataField>Sales_Invoice_Line__No__</DataField>
+        </Field>
+        <Field Name="Description__Description_2_">
+          <DataField>Description__Description_2_</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line_Quantity">
+          <DataField>Sales_Invoice_Line_Quantity</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line_QuantityFormat">
+          <DataField>Sales_Invoice_Line_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__Unit_of_Measure_">
+          <DataField>Sales_Invoice_Line__Unit_of_Measure_</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__Unit_Price_">
+          <DataField>Sales_Invoice_Line__Unit_Price_</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__Unit_Price_Format">
+          <DataField>Sales_Invoice_Line__Unit_Price_Format</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__Line_Amount__Control70">
+          <DataField>Sales_Invoice_Line__Line_Amount__Control70</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__Line_Amount__Control70Format">
+          <DataField>Sales_Invoice_Line__Line_Amount__Control70Format</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__Line_Discount___">
+          <DataField>Sales_Invoice_Line__Line_Discount___</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__Line_Discount___Format">
+          <DataField>Sales_Invoice_Line__Line_Discount___Format</DataField>
+        </Field>
+        <Field Name="GDescription">
+          <DataField>GDescription</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__VAT_Identifier_">
+          <DataField>Sales_Invoice_Line__VAT_Identifier_</DataField>
+        </Field>
+        <Field Name="VAT__Prcnt_">
+          <DataField>VAT__Prcnt_</DataField>
+        </Field>
+        <Field Name="VAT__Prcnt_Format">
+          <DataField>VAT__Prcnt_Format</DataField>
+        </Field>
+        <Field Name="Amount_Including_VAT_">
+          <DataField>Amount_Including_VAT_</DataField>
+        </Field>
+        <Field Name="Amount_Including_VAT_Format">
+          <DataField>Amount_Including_VAT_Format</DataField>
+        </Field>
+        <Field Name="VAT_Base_Amount_">
+          <DataField>VAT_Base_Amount_</DataField>
+        </Field>
+        <Field Name="VAT_Base_Amount_Format">
+          <DataField>VAT_Base_Amount_Format</DataField>
+        </Field>
+        <Field Name="IntTriRTC">
+          <DataField>IntTriRTC</DataField>
+        </Field>
+        <Field Name="TxTGMentionEXO_">
+          <DataField>TxTGMentionEXO_</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line___Designation_ENU_">
+          <DataField>Sales_Invoice_Line___Designation_ENU_</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line___Description_2_">
+          <DataField>Sales_Invoice_Line___Description_2_</DataField>
+        </Field>
+        <Field Name="SalesLine__Type1_">
+          <DataField>SalesLine__Type1_</DataField>
+        </Field>
+        <Field Name="IntGLineNo">
+          <DataField>IntGLineNo</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__Line_Amount__Control86">
+          <DataField>Sales_Invoice_Line__Line_Amount__Control86</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__Line_Amount__Control86Format">
+          <DataField>Sales_Invoice_Line__Line_Amount__Control86Format</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line_Amount">
+          <DataField>Sales_Invoice_Line_Amount</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line_AmountFormat">
+          <DataField>Sales_Invoice_Line_AmountFormat</DataField>
+        </Field>
+        <Field Name="Amount_Including_VAT____Amount">
+          <DataField>Amount_Including_VAT____Amount</DataField>
+        </Field>
+        <Field Name="Amount_Including_VAT____AmountFormat">
+          <DataField>Amount_Including_VAT____AmountFormat</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__Amount_Including_VAT_">
+          <DataField>Sales_Invoice_Line__Amount_Including_VAT_</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__Amount_Including_VAT_Format">
+          <DataField>Sales_Invoice_Line__Amount_Including_VAT_Format</DataField>
+        </Field>
+        <Field Name="VATAmountLine_VATAmountText">
+          <DataField>VATAmountLine_VATAmountText</DataField>
+        </Field>
+        <Field Name="TotalExclVATText">
+          <DataField>TotalExclVATText</DataField>
+        </Field>
+        <Field Name="TotalInclVATText">
+          <DataField>TotalInclVATText</DataField>
+        </Field>
+        <Field Name="VatArrayID_1_">
+          <DataField>VatArrayID_1_</DataField>
+        </Field>
+        <Field Name="VatArrayID_2_">
+          <DataField>VatArrayID_2_</DataField>
+        </Field>
+        <Field Name="VatArrayID_3_">
+          <DataField>VatArrayID_3_</DataField>
+        </Field>
+        <Field Name="VatArrayID_4_">
+          <DataField>VatArrayID_4_</DataField>
+        </Field>
+        <Field Name="VatArrayRate_1_">
+          <DataField>VatArrayRate_1_</DataField>
+        </Field>
+        <Field Name="VatArrayRate_1_Format">
+          <DataField>VatArrayRate_1_Format</DataField>
+        </Field>
+        <Field Name="VatArrayBase_1_">
+          <DataField>VatArrayBase_1_</DataField>
+        </Field>
+        <Field Name="VatArrayBase_1_Format">
+          <DataField>VatArrayBase_1_Format</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_1_">
+          <DataField>VatArrayAmount_1_</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_1_Format">
+          <DataField>VatArrayAmount_1_Format</DataField>
+        </Field>
+        <Field Name="VatArrayRate_2_">
+          <DataField>VatArrayRate_2_</DataField>
+        </Field>
+        <Field Name="VatArrayRate_2_Format">
+          <DataField>VatArrayRate_2_Format</DataField>
+        </Field>
+        <Field Name="VatArrayRate_3_">
+          <DataField>VatArrayRate_3_</DataField>
+        </Field>
+        <Field Name="VatArrayRate_3_Format">
+          <DataField>VatArrayRate_3_Format</DataField>
+        </Field>
+        <Field Name="VatArrayRate_4_">
+          <DataField>VatArrayRate_4_</DataField>
+        </Field>
+        <Field Name="VatArrayRate_4_Format">
+          <DataField>VatArrayRate_4_Format</DataField>
+        </Field>
+        <Field Name="VatArrayBase_2_">
+          <DataField>VatArrayBase_2_</DataField>
+        </Field>
+        <Field Name="VatArrayBase_2_Format">
+          <DataField>VatArrayBase_2_Format</DataField>
+        </Field>
+        <Field Name="VatArrayBase_3_">
+          <DataField>VatArrayBase_3_</DataField>
+        </Field>
+        <Field Name="VatArrayBase_3_Format">
+          <DataField>VatArrayBase_3_Format</DataField>
+        </Field>
+        <Field Name="VatArrayBase_4_">
+          <DataField>VatArrayBase_4_</DataField>
+        </Field>
+        <Field Name="VatArrayBase_4_Format">
+          <DataField>VatArrayBase_4_Format</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_2_">
+          <DataField>VatArrayAmount_2_</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_2_Format">
+          <DataField>VatArrayAmount_2_Format</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_3_">
+          <DataField>VatArrayAmount_3_</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_3_Format">
+          <DataField>VatArrayAmount_3_Format</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_4_">
+          <DataField>VatArrayAmount_4_</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_4_Format">
+          <DataField>VatArrayAmount_4_Format</DataField>
+        </Field>
+        <Field Name="PaymentMethod_Description__________PaymentTerms_Description">
+          <DataField>PaymentMethod_Description__________PaymentTerms_Description</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Header___Due_Date_">
+          <DataField>Sales_Invoice_Header___Due_Date_</DataField>
+        </Field>
+        <Field Name="MentionEXO">
+          <DataField>MentionEXO</DataField>
+        </Field>
+        <Field Name="DataItem1000000080">
+          <DataField>DataItem1000000080</DataField>
+        </Field>
+        <Field Name="PaymentMethod_Description_">
+          <DataField>PaymentMethod_Description_</DataField>
+        </Field>
+        <Field Name="PaymentTerms_Description_">
+          <DataField>PaymentTerms_Description_</DataField>
+        </Field>
+        <Field Name="RecGVatArrayAmount_1">
+          <DataField>RecGVatArrayAmount_1</DataField>
+        </Field>
+        <Field Name="RecGVatArrayAmount_1Format">
+          <DataField>RecGVatArrayAmount_1Format</DataField>
+        </Field>
+        <Field Name="RecGVatArrayRate_4">
+          <DataField>RecGVatArrayRate_4</DataField>
+        </Field>
+        <Field Name="RecGVatArrayRate_4Format">
+          <DataField>RecGVatArrayRate_4Format</DataField>
+        </Field>
+        <Field Name="RecGVatArrayRate_3">
+          <DataField>RecGVatArrayRate_3</DataField>
+        </Field>
+        <Field Name="RecGVatArrayRate_3Format">
+          <DataField>RecGVatArrayRate_3Format</DataField>
+        </Field>
+        <Field Name="RecGVatArrayRate_2">
+          <DataField>RecGVatArrayRate_2</DataField>
+        </Field>
+        <Field Name="RecGVatArrayRate_2Format">
+          <DataField>RecGVatArrayRate_2Format</DataField>
+        </Field>
+        <Field Name="RecGVatArrayRate_1">
+          <DataField>RecGVatArrayRate_1</DataField>
+        </Field>
+        <Field Name="RecGVatArrayRate_1Format">
+          <DataField>RecGVatArrayRate_1Format</DataField>
+        </Field>
+        <Field Name="CodGVatArrayID_4">
+          <DataField>CodGVatArrayID_4</DataField>
+        </Field>
+        <Field Name="CodGVatArrayID_3">
+          <DataField>CodGVatArrayID_3</DataField>
+        </Field>
+        <Field Name="CodGVatArrayID_2">
+          <DataField>CodGVatArrayID_2</DataField>
+        </Field>
+        <Field Name="CodGVatArrayID_1">
+          <DataField>CodGVatArrayID_1</DataField>
+        </Field>
+        <Field Name="RecGVatArrayAmount_4">
+          <DataField>RecGVatArrayAmount_4</DataField>
+        </Field>
+        <Field Name="RecGVatArrayAmount_4Format">
+          <DataField>RecGVatArrayAmount_4Format</DataField>
+        </Field>
+        <Field Name="RecGVatArrayAmount_3">
+          <DataField>RecGVatArrayAmount_3</DataField>
+        </Field>
+        <Field Name="RecGVatArrayAmount_3Format">
+          <DataField>RecGVatArrayAmount_3Format</DataField>
+        </Field>
+        <Field Name="RecGVatArrayAmount_2">
+          <DataField>RecGVatArrayAmount_2</DataField>
+        </Field>
+        <Field Name="RecGVatArrayAmount_2Format">
+          <DataField>RecGVatArrayAmount_2Format</DataField>
+        </Field>
+        <Field Name="RecGVatArrayBase_4">
+          <DataField>RecGVatArrayBase_4</DataField>
+        </Field>
+        <Field Name="RecGVatArrayBase_4Format">
+          <DataField>RecGVatArrayBase_4Format</DataField>
+        </Field>
+        <Field Name="RecGVatArrayBase_3">
+          <DataField>RecGVatArrayBase_3</DataField>
+        </Field>
+        <Field Name="RecGVatArrayBase_3Format">
+          <DataField>RecGVatArrayBase_3Format</DataField>
+        </Field>
+        <Field Name="RecGVatArrayBase_2">
+          <DataField>RecGVatArrayBase_2</DataField>
+        </Field>
+        <Field Name="RecGVatArrayBase_2Format">
+          <DataField>RecGVatArrayBase_2Format</DataField>
+        </Field>
+        <Field Name="RecGVatArrayBase_1">
+          <DataField>RecGVatArrayBase_1</DataField>
+        </Field>
+        <Field Name="RecGVatArrayBase_1Format">
+          <DataField>RecGVatArrayBase_1Format</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__VAT_Identifier_Caption">
+          <DataField>Sales_Invoice_Line__VAT_Identifier_Caption</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__No__Caption">
+          <DataField>Sales_Invoice_Line__No__Caption</DataField>
+        </Field>
+        <Field Name="DésignationCaption">
+          <DataField>DésignationCaption</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line_QuantityCaption">
+          <DataField>Sales_Invoice_Line_QuantityCaption</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line__Unit_of_Measure_Caption">
+          <DataField>Sales_Invoice_Line__Unit_of_Measure_Caption</DataField>
+        </Field>
+        <Field Name="Unit_PriceCaption">
+          <DataField>Unit_PriceCaption</DataField>
+        </Field>
+        <Field Name="AmountCaption">
+          <DataField>AmountCaption</DataField>
+        </Field>
+        <Field Name="Unit_PriceCaption_Control1000000048">
+          <DataField>Unit_PriceCaption_Control1000000048</DataField>
+        </Field>
+        <Field Name="AmountCaption_Control1000000052">
+          <DataField>AmountCaption_Control1000000052</DataField>
+        </Field>
+        <Field Name="QuantityCaption">
+          <DataField>QuantityCaption</DataField>
+        </Field>
+        <Field Name="UnitCaption">
+          <DataField>UnitCaption</DataField>
+        </Field>
+        <Field Name="Remise_DiscountCaption">
+          <DataField>Remise_DiscountCaption</DataField>
+        </Field>
+        <Field Name="DescriptionCaption">
+          <DataField>DescriptionCaption</DataField>
+        </Field>
+        <Field Name="DiscountCaption">
+          <DataField>DiscountCaption</DataField>
+        </Field>
+        <Field Name="VAT_Identifier_Caption">
+          <DataField>VAT_Identifier_Caption</DataField>
+        </Field>
+        <Field Name="Identifier_Caption">
+          <DataField>Identifier_Caption</DataField>
+        </Field>
+        <Field Name="RemiseCaption">
+          <DataField>RemiseCaption</DataField>
+        </Field>
+        <Field Name="ContinuedCaption">
+          <DataField>ContinuedCaption</DataField>
+        </Field>
+        <Field Name="ContinuedCaption_Control85">
+          <DataField>ContinuedCaption_Control85</DataField>
+        </Field>
+        <Field Name="Conditions_de_paiement___Settlement___Caption">
+          <DataField>Conditions_de_paiement___Settlement___Caption</DataField>
+        </Field>
+        <Field Name="TauxCaption">
+          <DataField>TauxCaption</DataField>
+        </Field>
+        <Field Name="BaseCaption">
+          <DataField>BaseCaption</DataField>
+        </Field>
+        <Field Name="MontantCaption">
+          <DataField>MontantCaption</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Header___Due_Date_Caption">
+          <DataField>Sales_Invoice_Header___Due_Date_Caption</DataField>
+        </Field>
+        <Field Name="DataItem1000000053">
+          <DataField>DataItem1000000053</DataField>
+        </Field>
+        <Field Name="DataItem1000000056">
+          <DataField>DataItem1000000056</DataField>
+        </Field>
+        <Field Name="Textindemnitéforfaitaire_Caption">
+          <DataField>Textindemnitéforfaitaire_Caption</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line_Document_No_">
+          <DataField>Sales_Invoice_Line_Document_No_</DataField>
+        </Field>
+        <Field Name="Sales_Invoice_Line_Line_No_">
+          <DataField>Sales_Invoice_Line_Line_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

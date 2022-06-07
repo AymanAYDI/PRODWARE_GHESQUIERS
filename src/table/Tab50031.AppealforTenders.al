@@ -78,7 +78,7 @@ table 50031 "PWD Appeal for Tenders"
                     ItemVend.INIT();
                     ItemVend.SETRANGE("Item No.", "No.");
                     ItemVend.SETRANGE("Vendor No.", "Vendor No.");
-                    IF NOT ItemVend.FIND('+') THEN BEGIN
+                    IF NOT ItemVend.FindLast() THEN BEGIN
                         ItemVend."Item No." := "No.";
                         ItemVend."Vendor No." := "Vendor No.";
                     END;

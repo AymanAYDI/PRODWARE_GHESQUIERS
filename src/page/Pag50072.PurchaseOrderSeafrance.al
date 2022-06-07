@@ -148,7 +148,7 @@ page 50072 "PWD Purchase Order Seafrance"
         RecLPurchOrderSeafrance.RESET();
         RecLPurchOrderSeafrance.SETCURRENTKEY(RecLPurchOrderSeafrance."Controlled line");
         RecLPurchOrderSeafrance.SETRANGE(RecLPurchOrderSeafrance."Controlled line", FALSE);
-        IF RecLPurchOrderSeafrance.FIND('-') THEN
+        IF RecLPurchOrderSeafrance.FindSet() THEN
             REPEAT
                 IF RecLItem.GET(RecLPurchOrderSeafrance."Item No.") THEN BEGIN
                     RecLPurchOrderSeafrance."Vendor No." := RecLItem."Vendor No.";
@@ -185,7 +185,7 @@ page 50072 "PWD Purchase Order Seafrance"
         Rec.RESET();
         CurrPage.SETSELECTIONFILTER(Rec);
         Rec.MARKEDONLY(TRUE);
-        IF Rec.FIND('-') THEN BEGIN
+        IF Rec.FindSet() THEN BEGIN
             REPEAT
                 Rec.CALCFIELDS("Vendor No.");
 
@@ -373,7 +373,7 @@ page 50072 "PWD Purchase Order Seafrance"
         //MARKEDONLY(TRUE);
         //<-< GHE-RE.1.00
 
-        IF Rec.FIND('-') THEN BEGIN
+        IF Rec.FindSet() THEN BEGIN
             REPEAT
                 Rec.CALCFIELDS("Vendor No.");
 

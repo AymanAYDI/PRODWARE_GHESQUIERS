@@ -34,7 +34,7 @@ table 50033 "Items Available per Location"
             trigger OnValidate()
             begin
                 LocationPriority.SETRANGE(LocationPriority."PWD Location code", "Location Code");
-                IF LocationPriority.FIND('-') THEN
+                IF LocationPriority.FindSet() THEN
                     REPEAT
                         IF CallType <> LocationPriority."PWD Call Type Code" THEN
                             IF NOT ItemAvailableperCallType.GET(LocationPriority."PWD Call Type Code", LocationPriority."PWD Location code", "Item No.") THEN BEGIN
@@ -51,12 +51,12 @@ table 50033 "Items Available per Location"
                         CallType := LocationPriority."PWD Call Type Code";
                     UNTIL LocationPriority.NEXT() = 0;
 
-                IF RecCallType.FIND('-') THEN
+                IF RecCallType.FindSet() THEN
                     REPEAT
                         ItemAvailableperCallType.RESET();
                         LocationPriority.RESET();
                         LocationPriority.SETRANGE(LocationPriority."PWD Call Type Code", RecCallType.Code);
-                        IF LocationPriority.FIND('-') THEN
+                        IF LocationPriority.FindSet() THEN
                             REPEAT
                                 IF NOT ItemAvailableperCallType.GET(RecCallType.Code, LocationPriority."PWD Location code", "Item No.") THEN BEGIN
                                     ItemAvailableperCallType.INIT();

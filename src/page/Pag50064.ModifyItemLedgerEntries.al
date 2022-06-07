@@ -156,12 +156,12 @@ page 50064 "PWD Modify Item Ledger Entries"
                 action("A&xe analytique")
                 {
                     Caption = 'Dimensions';
-                    //ToDo
+                    //TODO
                     /*
                     RunObject = Page "Ledger Entry Dimensions";
                     RunPageLink = "Table ID" = CONST(32), "Entry No." = FIELD("Entry No.");*/
                     ShortCutKey = 'Shift+Ctrl+D';
-                    Image= Dimensions;
+                    Image = Dimensions;
                     ApplicationArea = All;
                 }
                 action("Ecritures &valeur")
@@ -254,7 +254,7 @@ page 50064 "PWD Modify Item Ledger Entries"
                     SourceTableName := ObjTransl.TranslateObject(ObjTransl."Object Type"::Table, 27);
                     EXIT(STRSUBSTNO('%1 %2', SourceTableName, ItemNo));
                 END;
-        //ToDo
+        //TODO
         /*Rec.GETFILTER("Prod. Order No.") <> '':
             IF Rec.GETRANGEMIN("Prod. Order No.") = Rec.GETRANGEMAX("Prod. Order No.") THEN BEGIN
                 CurrOrderNo := Rec.GETRANGEMIN("Prod. Order No.");

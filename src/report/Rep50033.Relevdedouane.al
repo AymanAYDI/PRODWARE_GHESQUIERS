@@ -137,7 +137,7 @@ report 50033 "PWD Relevé de douane"
                     CLEAR(RemainingQty);
                     FindAppliedEntry(PreviousInventory);
                     TempItemEntry.SETCURRENTKEY("Item No.");
-                    IF TempItemEntry.FIND('-') THEN BEGIN
+                    IF TempItemEntry.FindFirst() THEN BEGIN
                         TempItemEntry.SETRANGE("Posting Date", 0D, StartDate - 1);
                         TempItemEntry.CALCSUMS(Quantity);
                         PreviousSalesQty := TempItemEntry.Quantity;
@@ -397,7 +397,7 @@ report 50033 "PWD Relevé de douane"
             ItemApplnEntry.SETRANGE("Inbound Item Entry No.", ItemLedgEntry."Entry No.");
             ItemApplnEntry.SETRANGE("Cost Application", TRUE);
             ItemApplnEntry.SETFILTER("Outbound Item Entry No.", '<>%1', 0);
-            IF ItemApplnEntry.FIND('-') THEN
+            IF ItemApplnEntry.FindSet() THEN
                 REPEAT
                     IF (ItemLedgEntry."Entry Type" <> ItemLedgEntry."Entry Type"::Transfer) OR
                        (ItemApplnEntry."Item Ledger Entry No." <> ItemLedgEntry."Entry No.")
@@ -408,7 +408,7 @@ report 50033 "PWD Relevé de douane"
             ItemApplnEntry.SETCURRENTKEY("Transferred-from Entry No.", "Cost Application");
             ItemApplnEntry.SETRANGE("Transferred-from Entry No.", ItemLedgEntry."Entry No.");
             ItemApplnEntry.SETRANGE("Cost Application", TRUE);
-            IF ItemApplnEntry.FIND('-') THEN
+            IF ItemApplnEntry.FindSet() THEN
                 REPEAT
                     InsertTempEntry(ItemApplnEntry."Item Ledger Entry No.", ItemApplnEntry.Quantity);
                 UNTIL ItemApplnEntry.NEXT() = 0;
@@ -418,7 +418,7 @@ report 50033 "PWD Relevé de douane"
             ItemApplnEntry.SETRANGE("Item Ledger Entry No.", ItemLedgEntry."Entry No.");
             ItemApplnEntry.SETRANGE("Outbound Item Entry No.", ItemLedgEntry."Entry No.");
             ItemApplnEntry.SETRANGE("Cost Application", TRUE);
-            IF ItemApplnEntry.FIND('-') THEN
+            IF ItemApplnEntry.FindSet() THEN
                 REPEAT
                     InsertTempEntry(ItemApplnEntry."Inbound Item Entry No.", -ItemApplnEntry.Quantity);
                 UNTIL ItemApplnEntry.NEXT() = 0;

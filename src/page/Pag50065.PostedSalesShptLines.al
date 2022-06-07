@@ -286,7 +286,7 @@ page 50065 "PWD Posted Sales Shpt. Lines"
             CustomsCertif.GET(DocTemplateCode);
             CLEAR(HealthCertifWordMngt);
             CurrPage.SETSELECTIONFILTER(ShipmentLine);
-            //ToDo
+            //TODO
             // HealthCertifWordMngt.Merge(ShipmentLine, CustomsCertif, CustomsCertif."No.");
         END;
     end;

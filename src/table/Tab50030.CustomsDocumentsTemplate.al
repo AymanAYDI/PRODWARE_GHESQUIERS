@@ -115,7 +115,7 @@ table 50030 "PWD Customs Documents Template"
         END;
 
         FileName := ConstFilename();
-        //ToDo
+        //TODO
         /*IF EXISTS(FileName) THEN
             IF NOT DeleteFile(FileName) THEN
                 ERROR(Text003);
@@ -141,7 +141,7 @@ table 50030 "PWD Customs Documents Template"
 
     procedure ExportAttachment(ExportToFile: Text[260]): Boolean
     var
-        //ToDo
+        //TODO
         //CommonDialogMgt: Codeunit "Common Dialog Management";
         FileFilter: Text[260];
         FileName: Text[260];
@@ -159,7 +159,7 @@ table 50030 "PWD Customs Documents Template"
                         IF ExportToFile = '' THEN begin
                             FileFilter := UPPERCASE("File Extension") + ' ';
                             FileFilter := FileFilter + '(*.' + "File Extension" + ')|*.' + "File Extension";
-                            //ToDo
+                            //TODO
                             // FileName := CommonDialogMgt.OpenFile(Text005, '', 4, FileFilter, 1);
                         end
                         ELSE
@@ -182,14 +182,14 @@ table 50030 "PWD Customs Documents Template"
                     IF ExportToFile = '' THEN begin
                         FileFilter := UPPERCASE("File Extension") + ' ';
                         FileFilter := FileFilter + '(*.' + "File Extension" + ')|*.' + "File Extension";
-                        //ToDo
+                        //TODO
                         //FileName := CommonDialogMgt.OpenFile(Text005, '', 4, FileFilter, 1);
                     end
                     ELSE
                         FileName := ExportToFile;
                     IF FileName <> '' THEN
                         ;
-                    //ToDo
+                    //TODO
                     /*IF FILE.COPY(ConstDiskFileName(), FileName) THEN
                         EXIT(TRUE)
                     ELSE
@@ -206,13 +206,13 @@ table 50030 "PWD Customs Documents Template"
     begin
         IF IsTemporary THEN BEGIN
             IF ImportFromFile = '' THEN
-                //ToDo
+                //TODO
                 //FileName := CommonDialogMgt.OpenFile(Text006, ImportFromFile, 4, Text007, 0)
                 //ELSE
                 FileName := ImportFromFile;
             IF FileName <> '' THEN BEGIN
                 Attachment.IMPORT(FileName);
-                //ToDo
+                //TODO
                 //"File Extension" := UPPERCASE(AttachmentManagement.FileExtension(FileName));
                 EXIT(TRUE)
             END ELSE
@@ -225,7 +225,7 @@ table 50030 "PWD Customs Documents Template"
             RMSetup.TESTFIELD("Attachment Storage Location");
 
         IF ImportFromFile = '' THEN
-            //ToDo
+            //TODO
             //FileName := CommonDialogMgt.OpenFile(Text006, '', 4, Text007, 0)
             //ELSE
             FileName := ImportFromFile;
@@ -236,7 +236,7 @@ table 50030 "PWD Customs Documents Template"
             IF RMSetup."Attachment Storage Type" =
               RMSetup."Attachment Storage Type"::"Disk File"
             THEN
-                //ToDo
+                //TODO
                 /*IF NOT FILE.COPY(FileName, ConstDiskFileName()) THEN
                     ERROR(
                       Text008);
@@ -308,7 +308,7 @@ table 50030 "PWD Customs Documents Template"
     begin
         IF FileName = '' THEN
             EXIT(FALSE);
-        //ToDo
+        //TODO
         /*
                 IF NOT EXISTS(FileName) THEN
                     EXIT(TRUE);
@@ -365,7 +365,7 @@ table 50030 "PWD Customs Documents Template"
             IF NOT CONFIRM(Text001, FALSE) THEN
                 EXIT;
         END;
-        //ToDo
+        //TODO
         /*
                 IF CustomsDocumentsTemplate.UseComServer('DOC', TRUE) THEN;
 

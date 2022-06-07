@@ -162,9 +162,6 @@ report 50034 "Relevé des Sorties Export 2"
 
                 trigger OnPreDataItem()
                 begin
-                    //CurrReport.CREATETOTALS(LineWeight,Lineamount);
-                    //CurrReport.CREATETOTALS(NetWeight,DSACrMemoWeight,DSACrMemoAmount);
-
                     CLEAR(CurrMonthly);
                     CLEAR(CurrPM);
                 end;
@@ -195,9 +192,6 @@ report 50034 "Relevé des Sorties Export 2"
             column(LocationFilter; LocationFilter)
             {
             }
-            // column(Page___FORMAT_CurrReport_PAGENO__Control1000000020; 'Page ' + FORMAT(CurrReport.PAGENO()))
-            // {
-            // }
             column(Page___FORMAT_CurrReport_PAGENO__Control1000000020; 'Page ')
             {
             }
@@ -324,9 +318,6 @@ report 50034 "Relevé des Sorties Export 2"
                 IF NOT (BlankDSA) THEN
                     SETFILTER("PWD DSA No.", '<>%1', '');
                 SETFILTER("Posting Date", DateFilter);
-
-                // CurrReport.CREATETOTALS(NetWeight);
-                // CurrReport.CREATETOTALS("Sales Cr.Memo Line".Amount, "Sales Cr.Memo Line"."Line Amount");
             end;
         }
         dataitem(Cumul; "Sales Shipment Line")
@@ -338,9 +329,6 @@ report 50034 "Relevé des Sorties Export 2"
             column(GETFILTER___Location_Filter___Control1000000028; GETFILTER("PWD Location Filter"))
             {
             }
-            // column(Page___FORMAT_CurrReport_PAGENO__Control1000000069; 'Page ' + FORMAT(CurrReport.PAGENO()))
-            // {
-            // }
             column(Page___FORMAT_CurrReport_PAGENO__Control1000000069; 'Page ')
             {
             }
@@ -413,7 +401,6 @@ report 50034 "Relevé des Sorties Export 2"
 
             trigger OnAfterGetRecord()
             begin
-                //C2A GTE 22 06 04
                 IF Quantity = 0 THEN CurrReport.SKIP();
                 SalesShipHeader.SETCURRENTKEY("PWD DSA No.", "Posting Date");
                 SalesShipHeader.GET(Cumul."Document No.");
@@ -439,9 +426,6 @@ report 50034 "Relevé des Sorties Export 2"
                 DSACrMemoAmount := 0;
                 NetWeight := 0;
                 Lineamount := 0;
-                //CurrReport.CREATETOTALS(DSACrMemoWeight, DSACrMemoAmount);
-                //CurrReport.CREATETOTALS(NetWeight, Lineamount);
-                //CurrReport.NEWPAGE();
                 SETFILTER("Location Code", LocationFilter);
                 CLEAR(CurrMonthly);
                 CLEAR(CurrPM);
@@ -537,7 +521,7 @@ report 50034 "Relevé des Sorties Export 2"
         FromCRMemoLines.SETRANGE("PWD Provision/materiel", Cumul."PWD Provision/materiel");
         FromCRMemoLines.SETRANGE("Location Code", Cumul."Location Code");
         FromCRMemoLines.SETRANGE("PWD Monthly Code", Cumul."PWD Monthly Code");
-        IF FromCRMemoLines.FIND('-') THEN
+        IF FromCRMemoLines.FindSet() THEN
             REPEAT
                 IF NOT BlankDSA THEN BEGIN
                     FromCRMemoHeader.GET(FromCRMemoLines."Document No.");

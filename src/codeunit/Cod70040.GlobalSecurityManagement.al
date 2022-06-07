@@ -48,7 +48,7 @@ codeunit 70040 "PWD GlobalSecurityManagement"
                         IF NOT AllObj.GET(Permission."Object Type", Permission."Object ID") THEN
                             Permission.DELETE()
                         ELSE BEGIN
-                            //ToDo
+                            //TODO
                             Permission."Execute Permission" := Permission."Execute Permission"::Yes;
                             Permission."Insert Permission" := Permission."Insert Permission"::Yes;
                             Permission."Modify Permission" := Permission."Modify Permission"::Yes;
@@ -301,7 +301,7 @@ codeunit 70040 "PWD GlobalSecurityManagement"
         AllObj.SETRANGE("Object Type", AllObj."Object Type"::Page);
         IF AllObj.FindFirst() THEN
             REPEAT
-                //ToDo
+                //TODO
                 IF STRPOS(UPPERCASE(AllObj."Object Name"), 'MENU') <> 0 THEN
                     SetExecuteYes(UserRole."Role ID", AllObj."Object Type", AllObj."Object ID");
             UNTIL AllObj.NEXT() = 0;

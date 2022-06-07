@@ -108,7 +108,7 @@ table 70041 "PWD Object Membership"
         LineNo := 0;
         LineCount := AllObj.COUNT;
         Window.UPDATE(1, Text1000000000);
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindSet() THEN
             REPEAT
                 LineNo += 1;
                 Window.UPDATE(2, AllObj."Object Name");
@@ -127,7 +127,7 @@ table 70041 "PWD Object Membership"
         LineNo := 0;
         LineCount := AllObj.COUNT;
         Window.UPDATE(1, Text1000000001);
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindSet() THEN
             REPEAT
                 LineNo += 1;
                 Window.UPDATE(2, AllObj."Object Name");
@@ -145,7 +145,7 @@ table 70041 "PWD Object Membership"
         LineNo := 0;
         LineCount := AllObj.COUNT;
         Window.UPDATE(1, Text1000000002);
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindSet() THEN
             REPEAT
                 LineNo += 1;
                 Window.UPDATE(2, AllObj."Object Name");
@@ -161,14 +161,14 @@ table 70041 "PWD Object Membership"
 
         Window.UPDATE(1, Text1000000003);
         ObjectMembership.RESET();
-        IF ObjectMembership.FIND('-') THEN
+        IF ObjectMembership.FindSet() THEN
             REPEAT
                 IF NOT AllObj.GET(ObjectMembership."Object Type", ObjectMembership."Object ID") THEN
                     ObjectMembership.DELETE();
             UNTIL ObjectMembership.NEXT() = 0;
 
         ObjectMembership.RESET();
-        IF ObjectMembership.FIND('-') THEN BEGIN
+        IF ObjectMembership.FindFirst() THEN BEGIN
             AllObj.RESET();
             ObjectMembership."No. of Objects" := AllObj.COUNT;
             ObjectMembership.MODIFY();

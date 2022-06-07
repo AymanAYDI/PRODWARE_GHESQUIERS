@@ -141,7 +141,7 @@ report 50053 "PWD Palmares des articles"
                 ItemLedgerEntry.SETRANGE("Entry Type", ItemLedgerEntry."Entry Type"::Sale);
                 IF DateFilter <> '' THEN
                     ItemLedgerEntry.SETFILTER("Posting Date", DateFilter);
-                IF ItemLedgerEntry.FIND('-') THEN
+                IF ItemLedgerEntry.FindSet() THEN
                     REPEAT
                         ItemLedgerEntry.CALCFIELDS("Sales Amount (Actual)");
                         VarSalesAmount += ItemLedgerEntry."Sales Amount (Actual)";

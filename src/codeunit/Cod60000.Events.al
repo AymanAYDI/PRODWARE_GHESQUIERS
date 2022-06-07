@@ -855,6 +855,39 @@ codeunit 60000 "PWD Events"
         AutoArchiveManagement.StoreSalesDocument(SalesHeader);
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnPostItemJnlLineOnBeforeCopyTrackingFromSpec', '', false, false)]
+    local procedure CDU80_OnPostItemJnlLineOnBeforeCopyTrackingFromSpec_SalesPost(TrackingSpecification: Record "Tracking Specification"; var ItemJnlLine: Record "Item Journal Line"; SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; SalesInvHeader: Record "Sales Invoice Header"; SalesCrMemoHeader: Record "Sales Cr.Memo Header")
+    begin
+        ItemJnlLine."Expiration Date" := TrackingSpecification."Expiration Date";
+        ItemJnlLine."PWD Seafrance Order No." := SalesHeader."PWD Seafrance Order No.";
+        ItemJnlLine."PWD Seafrance Order Line No." := SalesLine."PWD Seafrance Order Line No.";
+
+        ItemJnlLine."PWD Reference" := SalesHeader."PWD Reference";//TODO A vérifier GenRef
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnPostItemJnlLineOnAfterCopyDocumentFields', '', false, false)]
+    local procedure CDU80_OnPostItemJnlLineOnAfterCopyDocumentFields_SalesPost(var ItemJournalLine: Record "Item Journal Line"; SalesLine: Record "Sales Line"; WarehouseReceiptHeader: Record "Warehouse Receipt Header"; WarehouseShipmentHeader: Record "Warehouse Shipment Header")
+    var
+        SalesHeader: Record "Sales Header";
+    begin
+        IF ItemJournalLine."PWD Reference" = '' THEN BEGIN
+            SalesHeader.Get(SalesLine."Document Type", SalesLine."Document No."); //TODO A vérifier GenRef
+            ItemJournalLine."PWD Reference" := SalesHeader."PWD Reference";
+        END
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnPostItemJnlLineOnBeforeIsJobContactLineCheck', '', false, false)]
+    local procedure CDU80_OnPostItemJnlLineOnBeforeIsJobContactLineCheck_SalesPost(var ItemJnlLine: Record "Item Journal Line"; SalesHeader: Record "Sales Header"; SalesLine: Record "Sales Line"; var ShouldPostItemJnlLine: Boolean)
+    begin
+        ItemJnlLine."PWD Family Code" := SalesLine."PWD Family";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforePostItemChargePerOrder', '', false, false)]
+    local procedure CDU80_OnBeforePostItemChargePerOrder_SalesPost(var SalesHeader: Record "Sales Header"; var SalesLine: Record "Sales Line"; var ItemJnlLine2: Record "Item Journal Line"; var ItemChargeSalesLine: Record "Sales Line"; CommitIsSuppressed: Boolean)
+    begin
+        ItemJnlLine2."PWD Reference" := SalesHeader."PWD Reference";
+    end;
+
 
     //---CDU81---
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post (Yes/No)", 'OnBeforeConfirmSalesPost', '', false, false)]

@@ -209,7 +209,7 @@ tableextension 60019 "PWD ItemJournalLine" extends "Item Journal Line"
         ItemJnlBatch.GET("Journal Template Name", "Journal Batch Name");
         ItemJnlLine.SETRANGE("Journal Template Name", "Journal Template Name");
         ItemJnlLine.SETRANGE("Journal Batch Name", "Journal Batch Name");
-        IF ItemJnlLine.FIND('-') THEN BEGIN
+        IF ItemJnlLine.FindFirst() THEN BEGIN
             "Posting Date" := LastItemJnlLine."Posting Date";
             "Document Date" := LastItemJnlLine."Posting Date";
             IF (ItemJnlTemplate.Type IN

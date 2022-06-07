@@ -320,7 +320,7 @@ pageextension 50067 "PWD SalesOrderSubform" extends "Sales Order Subform"
             CustomsCertif.GET(DocTemplateCode);
             CLEAR(HealthCertifWordMngt);
             CurrPage.SETSELECTIONFILTER(SalesLine);
-            //ToDo
+            //TODO
             //HealthCertifWordMngt.Merge(SalesLine, CustomsCertif, CustomsCertif."No.");
         END;
     END;
@@ -336,7 +336,7 @@ pageextension 50067 "PWD SalesOrderSubform" extends "Sales Order Subform"
             IF Item.Comment = TRUE THEN BEGIN
                 ItemComment.SETRANGE("Table Name", ItemComment."Table Name"::Item);
                 ItemComment.SETRANGE("No.", Item."No.");
-                IF ItemComment.FIND('-') THEN BEGIN
+                IF ItemComment.FindFirst() THEN BEGIN
                     FormComment.SETTABLEVIEW(ItemComment);
                     FormComment.EDITABLE(FALSE);
                     FormComment.RUN();

@@ -65,7 +65,7 @@ table 70042 "PWD Object Membership Buffer"
         AllObj.SETRANGE("Object Type", "Object Type"::"Table Data");
         AllObj.SETFILTER("Object ID", '>=2000000000');
         Window.UPDATE(1, Text1000000000);
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindSet() THEN
             REPEAT
                 IF AllObj."Object ID" IN [2000000002 .. 2000000006, 2000000053, 2000000054, 2000000058, 2000000203] THEN
                     IF NOT ObjectMembership.GET(AllObj."Object Type", AllObj."Object ID") THEN BEGIN
@@ -79,7 +79,7 @@ table 70042 "PWD Object Membership Buffer"
         AllObj.RESET();
         AllObj.SETRANGE("Object Type", "Object Type"::System);
         Window.UPDATE(1, Text1000000001);
-        IF AllObj.FIND('-') THEN
+        IF AllObj.FindSet() THEN
             REPEAT
                 IF NOT ObjectMembership.GET(AllObj."Object Type", AllObj."Object ID") THEN BEGIN
                     ObjectMembership.INIT();

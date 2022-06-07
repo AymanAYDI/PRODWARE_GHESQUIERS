@@ -136,7 +136,7 @@ report 60000 "PWD Purchase - Receipt"
                         trigger OnAfterGetRecord()
                         begin
                             IF Number = 1 THEN BEGIN
-                                IF NOT PostedDocDim1.FIND('-') THEN
+                                IF NOT PostedDocDim1.FindFirst() THEN
                                     CurrReport.BREAK();
                             END ELSE
                                 IF NOT Continue THEN
@@ -289,7 +289,7 @@ report 60000 "PWD Purchase - Receipt"
                             trigger OnAfterGetRecord()
                             begin
                                 IF Number = 1 THEN BEGIN
-                                    IF NOT PostedDocDim2.FIND('-') THEN
+                                    IF NOT PostedDocDim2.FindFirst() THEN
                                         CurrReport.BREAK();
                                 END ELSE
                                     IF NOT Continue THEN
@@ -327,7 +327,7 @@ report 60000 "PWD Purchase - Receipt"
                         begin
                             IF (NOT ShowCorrectionLinesV) AND Correction THEN
                                 CurrReport.SKIP();
-                            //ToDo
+                            //TODO
                             //PostedDocDim2.SETRANGE("Table ID", DATABASE::"Purch. Rcpt. Line");
                             PrixLigne := "Purch. Rcpt. Line".Quantity * "Purch. Rcpt. Line"."Direct Unit Cost";
                             IF "Purch. Rcpt. Line"."Line Discount %" <> 0 THEN
@@ -339,13 +339,12 @@ report 60000 "PWD Purchase - Receipt"
                         trigger OnPreDataItem()
                         begin
 
-                            MoreLines := FIND('+');
+                            MoreLines := FindLast();
                             WHILE MoreLines AND (Description = '') AND ("No." = '') AND (Quantity = 0) DO
                                 MoreLines := NEXT(-1) <> 0;
                             IF NOT MoreLines THEN
                                 CurrReport.BREAK();
                             SETRANGE("Line No.", 0, "Line No.");
-                            //CurrReport.CREATETOTALS(PrixLigne, PoidsNetLigne, PoidsBrutLigne);
                         end;
                     }
                     dataitem(Total; Integer)

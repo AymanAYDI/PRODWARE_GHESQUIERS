@@ -115,7 +115,7 @@ page 50056 "PWD Prepared Sales Order"
                     begin
                         Memberof.SETRANGE(Memberof."User ID", USERID);
                         Memberof.SETRANGE(Memberof."Role ID", 'SUPER');
-                        IF NOT Memberof.FIND('-') THEN
+                        IF NOT Memberof.FindFirst() THEN
                             ERROR(Text1000000004);
                     end;*/
                 }
@@ -824,7 +824,7 @@ page 50056 "PWD Prepared Sales Order"
 
                     trigger OnAction()
                     var
-                    //ToDo
+                    //TODO
                     //BizTalkManagement: Codeunit "BizTalkManagement";
                     begin
                         // BizTalkManagement.SendSalesOrderConf(Rec);
@@ -866,7 +866,7 @@ page 50056 "PWD Prepared Sales Order"
                     begin
                         IF Rec."PWD Preparation in process" = FALSE THEN MESSAGE(Text1000000002);
                         CurrPage.SETSELECTIONFILTER(SalesHeader);
-                        //ToDo
+                        //TODO
                         //REPORT.RUN(REPORT::"Picking List Unit Price Null", TRUE, TRUE, SalesHeader);
                         REPORT.RUN(REPORT::"Picking List", TRUE, TRUE, SalesHeader);
                     end;
@@ -939,7 +939,7 @@ page 50056 "PWD Prepared Sales Order"
                 PromotedOnly = true;
                 trigger OnAction()
                 begin
-                    //ToDo
+                    //TODO
                     //CurrPage.SalesLines.PAGE.ItemAvailability(2);
                 end;
             }
@@ -965,7 +965,7 @@ page 50056 "PWD Prepared Sales Order"
         PurchRRec.RESET();
         PurchRRec.SETCURRENTKEY("Order No.", "Document Date");
         PurchRRec.SETRANGE("Order No.", Rec."No.");
-        IF PurchRRec.FIND('-') THEN
+        IF PurchRRec.FindSet() THEN
             DateLastPurchR := FORMAT(PurchRRec."Document Date")
         ELSE
             DateLastPurchR := '';
@@ -999,14 +999,14 @@ page 50056 "PWD Prepared Sales Order"
         PurchRRec.RESET();
         PurchRRec.SETCURRENTKEY("Order No.", "Document Date");
         PurchRRec.SETRANGE("Order No.", Rec."No.");
-        IF PurchRRec.FIND('-') THEN
+        IF PurchRRec.FindFirst() THEN
             DateLastPurchR := FORMAT(PurchRRec."Document Date")
         ELSE
             DateLastPurchR := '';
     end;
 
     var
-        //ToDo
+        //TODO
         //Memberof: Record 2000000003;
         SalesSetup: Record "Sales & Receivables Setup";
         SalesHeader: Record "Sales Header";

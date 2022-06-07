@@ -157,7 +157,7 @@ report 50023 "PWD Import Microsoft Excel"
             column(ICStatus; "IC Status")
             {
             }
-            column(Id; Id)
+            column(Id; systemID)
             {
             }
             column(IncomingDocumentEntryNo; "Incoming Document Entry No.")
@@ -633,7 +633,7 @@ report 50023 "PWD Import Microsoft Excel"
             }
             trigger OnPreDataItem()
             begin
-                //ToDo
+                //TODO
                 //CREATE(AppExcel);
                 //AppExcel.Visible := TRUE;
             end;
@@ -644,10 +644,10 @@ report 50023 "PWD Import Microsoft Excel"
                 SalesSetup.GET();
                 salesline.SETRANGE("Document Type", "Document Type");
                 salesline.SETRANGE("Document No.", "No.");
-                IF salesline.FIND('-') THEN
+                IF salesline.FindSet() THEN
                     REPEAT
                         Purchline.RESET();
-                        //ToDo
+                        //TODO
                         //Purchline.SETRANGE("PWD Sales Type Doc Appeal tenders", "Document Type");
                         Purchline.SETRANGE("PWD Sales No. Appeal Tenders", "No.");
                         Purchline.SETCURRENTKEY("Document Type", "Document No.", "Line No.");
@@ -657,13 +657,13 @@ report 50023 "PWD Import Microsoft Excel"
                                 ImportFile :=
                                   SalesSetup."PWD Path xls File Export" + '\' + DosArgumentII + '\' +
                                   FORMAT(Purchline."Buy-from Vendor No.") + FORMAT(Purchline."Document No.") + '.xls';
-                                //ToDo
+                                //TODO
                                 /*IF EXISTS(ImportFile) THEN BEGIN
                                     OpenFile.OPEN(ImportFile);
                                     AppExcel.Workbooks.Add(ImportFile);
                                     AppExcel.Range('A7').Select;*/
                                 REPEAT
-                                    //ToDo
+                                    //TODO
                                     //Cell := FORMAT(AppExcel.ActiveCell.Value);
                                     IF Cell = '' THEN
                                         NewCell := 0
@@ -674,9 +674,9 @@ report 50023 "PWD Import Microsoft Excel"
                                     Purchline2.SETRANGE("Document Type", Purchline."Document Type");
                                     Purchline2.SETRANGE("Document No.", Purchline."Document No.");
                                     Purchline2.SETCURRENTKEY("Document Type", "Document No.", "Line No.");
-                                    IF Purchline2.FIND('-') THEN
+                                    IF Purchline2.FindFirst() THEN
                                         ;
-                                //ToDo
+                                //TODO
                                 /*
                                 IF Purchline2."Line No." = NewCell THEN BEGIN
                                     MESSAGE(FORMAT(AppExcel.ActiveCell.Offset(0, 7).Value));

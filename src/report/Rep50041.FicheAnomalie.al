@@ -168,7 +168,7 @@ report 50041 "PWD Fiche Anomalie"
             begin
                 CompanyInfo.GET();
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
-                //ToDo a vérifier  FormatAddr.SalesHeaderShipTo(ShipToAddr, CompanyAddr, "Sales Header");
+                //TODO a vérifier  FormatAddr.SalesHeaderShipTo(ShipToAddr, CompanyAddr, "Sales Header");
                 FormatAddr.SalesHeaderShipTo(ShipToAddr, CompanyAddr, "Sales Header");
                 IF NOT call.GET("Sales Header"."PWD Call No.") THEN call.INIT();
                 IF NOT Recarea.GET(call.Area) THEN Recarea.INIT();

@@ -75,7 +75,7 @@ codeunit 50001 "PWD Customs Doc AttachmentMngt"
 
          SETRANGE(GUID, '{00020905-0000-0000-C000-000000000046}');
          SETFILTER(Version, '>=%1', '8.1');
-         IF FIND('-') THEN
+         IF FindFirst() THEN
              EXIT(TRUE);
 
          IF RequireAutomation THEN
