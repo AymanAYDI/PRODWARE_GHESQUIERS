@@ -188,7 +188,7 @@ page 50069 "PWD CIEL Data"
                 Promoted = true;
                 PromotedIsBig = true;
                 ApplicationArea = All;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     BooGModify := TRUE;
@@ -204,7 +204,7 @@ page 50069 "PWD CIEL Data"
                 Promoted = true;
                 PromotedIsBig = true;
                 ApplicationArea = All;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     BooGModify := FALSE;

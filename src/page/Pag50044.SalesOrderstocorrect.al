@@ -62,7 +62,7 @@ page 50044 "PWD Sales Orders to correct"
                 PromotedCategory = Process;
                 ApplicationArea = All;
                 Image = UntrackedQuantity;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     SalesHeader.RESET();

@@ -8,7 +8,7 @@ report 50034 "Relevé des Sorties Export 2"
     //    FED_010420088report50034_Ghesquiers:SOBI 23/04/08 : - changes
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/RelevédesSortiesExport2.rdl';
-
+    UsageCategory = None;
     Permissions = TableData "Sales Shipment Line" = rm,
                   TableData "Sales Cr.Memo Line" = rm;
 

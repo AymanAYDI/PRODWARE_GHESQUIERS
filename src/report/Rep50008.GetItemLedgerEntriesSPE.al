@@ -50,8 +50,6 @@ report 50008 "Get Item Ledger Entries SPE"
                                    ("Country/Region Code" = '')
                                 THEN
                                     CurrReport.SKIP();
-                                //IF "Transfer Order No." = '' THEN BEGIN
-                                //TODO Cde adapté selon nouveau std
                                 if ("Order Type" <> "Order Type"::Transfer) or ("Order No." = '') then begin
                                     Location.GET("Location Code");
                                     IF (Location."Country/Region Code" <> '') AND
@@ -59,8 +57,6 @@ report 50008 "Get Item Ledger Entries SPE"
                                     THEN
                                         CurrReport.SKIP();
                                 END ELSE BEGIN
-                                    //ItemLedgEntry.SETRANGE("Transfer Order No.", "Transfer Order No.");
-                                    //TODO Cde adapté selon nouveau std
                                     ItemLedgEntry.SetCurrentKey("Order Type", "Order No.");
                                     ItemLedgEntry.SetRange("Order Type", "Order Type"::Transfer);
                                     ItemLedgEntry.SetRange("Order No.", "Order No.");

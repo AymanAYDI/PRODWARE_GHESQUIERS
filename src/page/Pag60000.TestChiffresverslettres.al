@@ -40,7 +40,7 @@ page 60000 "PWD Test Chiffres vers lettres"
                 PromotedCategory = Process;
                 Image= Action;
                 ApplicationArea = All;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     codeu.InitTextVariable();

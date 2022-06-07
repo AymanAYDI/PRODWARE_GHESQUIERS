@@ -66,6 +66,7 @@ page 50012 "PWD Restitution List"
                 PromotedCategory = Process;
                 RunObject = Page "Comment Sheet";
                 RunPageLink = "Table name" = CONST(Restitution), "No." = FIELD(Cle);
+                PromotedOnly = true;
             }
         }
     }

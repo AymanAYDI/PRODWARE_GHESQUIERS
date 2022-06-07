@@ -75,7 +75,7 @@ page 50043 "PWD Sales Lines to Prepare"
                 PromotedCategory = Process;
                 ApplicationArea = All;
                 Image = ItemAvailability;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 var
                     ItemAvailFormsMgt: Codeunit "Item Availability Forms Mgt";

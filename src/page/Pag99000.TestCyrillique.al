@@ -25,11 +25,11 @@ page 99000 "PWD Test Cyrillique"
                 PromotedCategory = Process;
                 ApplicationArea = All;
                 Image = CreateDocument;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
 
-                    //TODO
+                    //TODO: Automation
                     //CLEAR(Excel);
                     //CREATE(Excel);
                     /*

@@ -936,7 +936,7 @@ page 50056 "PWD Prepared Sales Order"
                 PromotedCategory = Process;
                 ApplicationArea = All;
                 Image = ItemAvailability;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     //ToDo

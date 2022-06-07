@@ -197,7 +197,6 @@ tableextension 60005 "PWD Customer" extends Customer
         {
             Caption = 'Acknowledgement';
             Description = 'PW2009';
-            //TODOOptionMembers = "AR par impression","AR par Fax","AR par Email"; //Récupérer la traduction
             DataClassification = CustomerContent;
         }
         field(55019; "PWD No. d accises"; Code[20])

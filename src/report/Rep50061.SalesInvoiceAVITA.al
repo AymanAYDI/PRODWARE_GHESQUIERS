@@ -1,7 +1,7 @@
 report 50061 "PWD Sales - Invoice AVITA"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/report/rdl/SalesInvoiceAVITA.rdlc';
+    RDLCLayout = './src/report/rdl/SalesInvoiceAVITA.rdl';
     Caption = 'Sales - Invoice AVITA';
     UsageCategory = None;
     dataset
@@ -607,49 +607,49 @@ report 50061 "PWD Sales - Invoice AVITA"
                             END;
                             IF Type = Type::Item THEN
                                 IF NOT ItemTrans.GET("No.", '', 'ENU') THEN ItemTrans.INIT();
-                                ShowTypeNo := Type.AsInteger();
-                                ShowTypeNo1 := Type.AsInteger();
-                                IntGLineNo := "Sales Invoice Line"."Line No.";
-                                IF Type <> Type::Item THEN
-                                    IntTriRTC := IntGTotalLocation + 1
-                                ELSE
-                                    IF ("Location Code" = 'CML') OR ("Location Code" = '1') THEN
-                                        IntTriRTC := 1
-                                    ELSE BEGIN
-                                        j := 2;
-                                        BooLFind := FALSE;
-                                        IF IntGTotalLocation = 1 THEN
+                            ShowTypeNo := Type.AsInteger();
+                            ShowTypeNo1 := Type.AsInteger();
+                            IntGLineNo := "Sales Invoice Line"."Line No.";
+                            IF Type <> Type::Item THEN
+                                IntTriRTC := IntGTotalLocation + 1
+                            ELSE
+                                IF ("Location Code" = 'CML') OR ("Location Code" = '1') THEN
+                                    IntTriRTC := 1
+                                ELSE BEGIN
+                                    j := 2;
+                                    BooLFind := FALSE;
+                                    IF IntGTotalLocation = 1 THEN
+                                        BooLFind := TRUE;
+                                    WHILE (j <= IntGTotalLocation) OR (NOT BooLFind) DO BEGIN
+                                        IF TxtGLocationFilter[j] = "Location Code" THEN BEGIN
+                                            IntTriRTC := j;
                                             BooLFind := TRUE;
-                                        WHILE (j <= IntGTotalLocation) OR (NOT BooLFind) DO BEGIN
-                                            IF TxtGLocationFilter[j] = "Location Code" THEN BEGIN
-                                                IntTriRTC := j;
-                                                BooLFind := TRUE;
-                                            END;
-                                            j := j + 1;
                                         END;
+                                        j := j + 1;
                                     END;
-                                RecGCallType.GET("Sales Invoice Header"."PWD Call Type");
-                                IF RecGCallType."Message EXO" = TRUE THEN
-                                    TxTGMentionEXO := 'Exonération TVA art.262 II du C.G.I.'
-                                ELSE
-                                    TxTGMentionEXO := '';
+                                END;
+                            RecGCallType.GET("Sales Invoice Header"."PWD Call Type");
+                            IF RecGCallType."Message EXO" = TRUE THEN
+                                TxTGMentionEXO := 'Exonération TVA art.262 II du C.G.I.'
+                            ELSE
+                                TxTGMentionEXO := '';
 
-                                IF VATAmountLine.GetTotalVATAmount() = 0 THEN BEGIN
-                                    FOR i := 1 TO 4 DO BEGIN
-                                        CodGVatArrayID[i] := ' ';
-                                        RecGVatArrayRate[i] := 0;
-                                        RecGVatArrayBase[i] := 0;
-                                        RecGVatArrayAmount[i] := 0;
-                                    END;
-                                    EXIT;
+                            IF VATAmountLine.GetTotalVATAmount() = 0 THEN BEGIN
+                                FOR i := 1 TO 4 DO BEGIN
+                                    CodGVatArrayID[i] := ' ';
+                                    RecGVatArrayRate[i] := 0;
+                                    RecGVatArrayBase[i] := 0;
+                                    RecGVatArrayAmount[i] := 0;
                                 END;
-                                FOR i := 1 TO VATAmountLine.COUNT DO BEGIN
-                                    VATAmountLine.GetLine(i);
-                                    CodGVatArrayID[i] := VATAmountLine."VAT Identifier";
-                                    RecGVatArrayRate[i] := VATAmountLine."VAT %";
-                                    RecGVatArrayBase[i] := VATAmountLine."VAT Base";
-                                    RecGVatArrayAmount[i] := VATAmountLine."VAT Amount";
-                                END;
+                                EXIT;
+                            END;
+                            FOR i := 1 TO VATAmountLine.COUNT DO BEGIN
+                                VATAmountLine.GetLine(i);
+                                CodGVatArrayID[i] := VATAmountLine."VAT Identifier";
+                                RecGVatArrayRate[i] := VATAmountLine."VAT %";
+                                RecGVatArrayBase[i] := VATAmountLine."VAT Base";
+                                RecGVatArrayAmount[i] := VATAmountLine."VAT Amount";
+                            END;
                             IF "Sales Invoice Line"."PWD Designation ENU" <> '' THEN
                                 GDescription := "Sales Invoice Line"."PWD Designation ENU"
                             ELSE
