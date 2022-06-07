@@ -816,6 +816,46 @@ codeunit 60000 "PWD Events"
             END;
     end;
 
+    [EventSubscriber(ObjectType::Table, DataBase::"Res. Journal Line", 'OnAfterCopyResJnlLineFromSalesLine', '', false, false)]
+    local procedure TAB207_OnAfterCopyResJnlLineFromSalesLine_ResJournalLine(var SalesLine: Record "Sales Line"; var ResJnlLine: Record "Res. Journal Line")
+    var
+        SalesHeader: Record "Sales Header";
+    begin
+        SalesHeader.Get(SalesLine."Document Type", SalesLine."Document No."); //TODO A vérifier GenRef
+        ResJnlLine."PWD Reference" := SalesHeader."PWD Reference";
+    end;
+
+    [EventSubscriber(ObjectType::Table, DataBase::"Sales Shipment Line", 'OnAfterInitFromSalesLine', '', false, false)]
+    local procedure TAB111_OnAfterInitFromSalesLine_SalesShipmentLine(SalesShptHeader: Record "Sales Shipment Header"; SalesLine: Record "Sales Line"; var SalesShptLine: Record "Sales Shipment Line")
+    begin
+        IF SalesShptLine.Quantity = 0 THEN
+            SalesShptLine."PWD Quantity Seafrance" := 0;
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeSalesShptLineInsert', '', false, false)]
+    local procedure CDU80_OnBeforeSalesShptLineInsert_SalesPost(var SalesShptLine: Record "Sales Shipment Line"; SalesShptHeader: Record "Sales Shipment Header"; SalesLine: Record "Sales Line"; CommitIsSuppressed: Boolean; PostedWhseShipmentLine: Record "Posted Whse. Shipment Line"; SalesHeader: Record "Sales Header"; WhseShip: Boolean; WhseReceive: Boolean; ItemLedgShptEntryNo: Integer; xSalesLine: record "Sales Line"; var TempSalesLineGlobal: record "Sales Line" temporary; var IsHandled: Boolean)
+    begin
+        IF SalesShptLine."Line Discount %" <> 0 THEN
+            SalesShptLine."PWD Line Amount" := (SalesShptLine.Quantity * SalesShptLine."Unit Price") * (1 - (SalesShptLine."Line Discount %") / 100)
+        ELSE
+            SalesShptLine."PWD Line Amount" := (SalesShptLine.Quantity * SalesShptLine."Unit Price");
+    end;
+
+    [EventSubscriber(ObjectType::Table, DataBase::"Gen. Journal Line", 'OnAfterCopyGenJnlLineFromSalesHeader', '', false, false)]
+    local procedure TAB81_OnAfterCopyGenJnlLineFromSalesHeader_GenJournalLine(SalesHeader: Record "Sales Header"; var GenJournalLine: Record "Gen. Journal Line")
+    begin
+        GenJournalLine."PWD Reference" := SalesHeader."PWD Reference";//TODO A vérifier GenRef
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeUpdateWhseDocuments', '', false, false)]
+    local procedure CDU80_OnBeforeUpdateWhseDocuments_SalesPost(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean; WhseReceive: Boolean; WhseShip: Boolean; WhseRcptHeader: Record "Warehouse Receipt Header"; WhseShptHeader: Record "Warehouse Shipment Header"; var TempWhseRcptHeader: Record "Warehouse Receipt Header" temporary; var TempWhseShptHeader: Record "Warehouse Shipment Header" temporary)
+    var
+        AutoArchiveManagement: Codeunit "PWD ArchiveAutoManagement";
+    begin
+        AutoArchiveManagement.StoreSalesDocument(SalesHeader);
+    end;
+
+
     //---CDU81---
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post (Yes/No)", 'OnBeforeConfirmSalesPost', '', false, false)]
     local procedure CDU81_OnBeforeConfirmSalesPost_SalesPostYesNo(var SalesHeader: Record "Sales Header"; var HideDialog: Boolean; var IsHandled: Boolean; var DefaultOption: Integer; var PostAndSend: Boolean)

@@ -17,10 +17,10 @@ report 50039 "SEAF : relevé vtes à emporter"
             column(EndDate; EndDate)
             {
             }
-            column(au_; 'au')
+            column(au_; Au_Lbl)
             {
             }
-            column(Page_FORMAT_CurrReport_PAGENO_; 'Page ')
+            column(Page_Caption; Page_Caption)
             {
             }
             column(NetWeight; NetWeight)
@@ -102,27 +102,14 @@ report 50039 "SEAF : relevé vtes à emporter"
                     NetWeight := "Net Weight" * Quantity;
                     VAEWeight += NetWeight;
                     CLEAR(LineAmount);
-                    //>> 03/08/2011 SU-DADE cf appel TI056815
-                    //OLD CODE
-                    //IF ("No."<>'POMONA') AND ("No."<>'PROLAIDIS') THEN
                     IF ("No." <> 'DAVIGEL') AND ("No." <> 'EPISAVEURS') AND
                        ("No." <> 'FOURNIER') AND ("No." <> 'MIX BUFFET') AND
                        ("No." <> 'PRUVOST') AND ("No." <> 'TERRE AZUR') AND
-                    //>>TI170895
                        ("No." <> 'MBRIDOR') AND ("No." <> 'LESAGE') AND ("No." <> 'MGLACE') AND
                        ("No." <> 'MUNEL') AND ("No." <> 'MDAVIGEL') AND ("No." <> 'MCHOCOLAT') AND
-
-                    //<<TI170895
-                    //<< 03/08/2011 SU-DADE cf appel TI056815
-                    //>> 03/02/2016 SU-DADE cf appel TI312622
                        ("No." <> 'DPOMONA') AND
-                    //<< 03/02/2016 SU-DADE cf appel TI312622
-                    //>> 01/07/2016 SU-DADE cf appel TI333205
                        ("No." <> 'DEPISAV') AND
-                    //<< 01/07/2016 SU-DADE cf appel TI333205
-                    //>> 07/05/2018 SU-DADE cf appel TI414520
                        ("No." <> 'DTERREA') THEN
-                        //<< 07/05/2018 SU-DADE cf appel TI414520
                         LineAmount := Quantity * Item."PWD Customs Price" ELSE
                         IF "PWD Valeur douane (correction)" <> 0 THEN
                             LineAmount := Quantity * "PWD Valeur douane (correction)" ELSE
@@ -131,7 +118,6 @@ report 50039 "SEAF : relevé vtes à emporter"
 
                 trigger OnPreDataItem()
                 begin
-                    //CurrReport.CREATETOTALS(NetWeight, LineAmount);
                 end;
             }
 
@@ -144,11 +130,10 @@ report 50039 "SEAF : relevé vtes à emporter"
 
             trigger OnPreDataItem()
             begin
-                //CurrReport.CREATETOTALS(NetWeight, LineAmount);
                 StartDate := GETRANGEMIN("Posting Date");
                 EndDate := GETRANGEMAX("Posting Date");
 
-                IF NOT (BlankDSA) THEN; //SETFILTER("PWD DSA No.", '<>%1', '');
+                IF NOT (BlankDSA) THEN;
             end;
         }
         dataitem(VAECrMemoHeader; "Sales Cr.Memo Header")
@@ -184,7 +169,7 @@ report 50039 "SEAF : relevé vtes à emporter"
                 column(VAECrMemoLine_Document_No; "Document No.")
                 {
                 }
-                column(Avoirs_Ventes_à_emporterCaption; 'Avoirs Ventes à emporter')
+                column(Avoirs_Ventes_à_emporterCaption; AvoirsVentesEmporterCaption)
                 {
                 }
                 column(VAECrMemoLine_LineAmount; LineAmount)
@@ -211,6 +196,9 @@ report 50039 "SEAF : relevé vtes à emporter"
                 column(VAECrMemoLine_Line_No_; "Line No.")
                 {
                 }
+                column(VAECrMemoAmount; VAECrMemoAmount)
+                {
+                }
 
                 trigger OnAfterGetRecord()
                 begin
@@ -218,45 +206,28 @@ report 50039 "SEAF : relevé vtes à emporter"
                     NetWeight := "Net Weight" * Quantity;
                     VAECrMemoWeight += NetWeight;
                     CLEAR(LineAmount);
-                    //>> 03/08/2011 SU-DADE cf appel TI056815
-                    //OLD CODE
-                    //IF ("No."<>'POMONA') AND ("No."<>'PROLAIDIS') THEN
-                    IF ("No." <> 'DAVIGEL') AND ("No." <> 'EPISAVEURS') AND
+                    IF("No." <> 'DAVIGEL') AND ("No." <> 'EPISAVEURS') AND
                        ("No." <> 'FOURNIER') AND ("No." <> 'MIX BUFFET') AND
                        ("No." <> 'PRUVOST') AND ("No." <> 'TERRE AZUR') AND
-                    //<< 03/08/2011 SU-DADE cf appel TI056815
-
-                    //>> 03/02/2016 SU-DADE cf appel TI312622
                        ("No." <> 'DPOMONA') AND
-                    //<< 03/02/2016 SU-DADE cf appel TI312622
-                    //>> 01/07/2016 SU-DADE cf appel TI333205
                        ("No." <> 'DEPISAV') AND
-                    //<< 01/07/2016 SU-DADE cf appel TI333205
-                    //>> 07/05/2018 SU-DADE cf appel TI414520
                        ("No." <> 'DTERREA') THEN
-                        //<< 07/05/2018 SU-DADE cf appel TI414520
-
                         LineAmount := Quantity * Item."PWD Customs Price" ELSE
-                        IF "PWD Valeur douane (correction)" <> 0 THEN
-                            LineAmount := Quantity * "PWD Valeur douane (correction)" ELSE
-                            LineAmount := Quantity * "Unit Cost (LCY)";
-
+                    IF "PWD Valeur douane (correction)" <> 0 THEN
+                        LineAmount := Quantity * "PWD Valeur douane (correction)" ELSE
+                        LineAmount := Quantity * "Unit Cost (LCY)";
                     VAECrMemoAmount += LineAmount;
                 end;
 
                 trigger OnPreDataItem()
                 begin
-                    //CurrReport.CREATETOTALS(NetWeight, LineAmount);
                 end;
             }
 
             trigger OnPreDataItem()
             begin
-                IF NOT (BlankDSA) THEN; // SETFILTER("PWD DSA No.", '<>%1', '');
-
+                IF NOT (BlankDSA) THEN;
                 SETRANGE("Posting Date", StartDate, EndDate);
-
-                //CurrReport.CREATETOTALS(NetWeight, LineAmount);
             end;
         }
     }
@@ -289,19 +260,21 @@ report 50039 "SEAF : relevé vtes à emporter"
         VAECrMemoWeight: Decimal;
         VAEWeight: Decimal;
         BlankDSA: Boolean;
-        Avoirs_Ventes_à_emporterCaptionLbl: Label 'Avoirs Ventes à emporter';
         BLCaptionLbl: Label 'BL';
         Bon_de_livraisonCaptionLbl: Label 'Bon de livraison';
         CDSCaptionLbl: Label 'CDS';
         DATECaptionLbl: Label 'DATE';
         NDPCaptionLbl: Label 'NDP';
         POIDSCaptionLbl: Label 'POIDS';
+        Au_Lbl : label 'au';
+        Page_Caption : label 'Page';
         ReleveVentesEmporterConsommationBordLbl: Label 'Relevé des ventes à emporter & consommation à bord du :';
-        "TotalAvoirsVentesemporterCaptionLbl": Label 'Total Avoirs Ventes à emporter';
+        TotalAvoirsVentesemporterCaptionLbl: Label 'Total Avoirs Ventes à emporter';
         "Total_Ventes_emporterCaptionLbl": Label 'Total Ventes à emporter';
         TYPECaptionLbl: Label 'TYPE';
         V1CaptionLbl: Label '1';
         V7CaptionLbL: Label '7';
         VALEURCaptionLbl: Label 'VALEUR';
-        "Ventes_à_emporterCaptionLbl": Label 'Ventes à emporter';
+        AvoirsVentesEmporterCaption: label 'Avoirs Ventes à emporter';
+        Ventes_à_emporterCaptionLbl: Label 'Ventes à emporter';
 }

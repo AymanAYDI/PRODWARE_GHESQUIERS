@@ -654,8 +654,8 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = 'Dimensions';
                     Image = Dimensions;
-                    //ToDo
-                    //RunObject = Page "Document Dimensions";
+                    //TODO
+                    RunObject = Page "Dimension Set Entries";
                     //RunPageLink = "Table ID" = CONST(36), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0);
                     ApplicationArea = All;
                 }

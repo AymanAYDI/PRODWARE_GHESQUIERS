@@ -998,19 +998,21 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
     procedure FctPushVendorAndUnitCostItem()
     var
         RecLItem: Record Item;
-        RecLPurchasePrice: Record "Purchase Price";
+        RecLPurchasePrice: Record "Price List Line";
     begin
         TESTFIELD(Type, Type::Item);
         RecLPurchasePrice.RESET();
-        RecLPurchasePrice.SETRANGE("Item No.", "No.");
-        IF PAGE.RUNMODAL(PAGE::"Get Purchase Price", RecLPurchasePrice) = ACTION::LookupOK THEN BEGIN
+        RecLPurchasePrice.SETRANGE("Asset No.", "No.");
+        IF PAGE.RUNMODAL(PAGE::"Price List Lines", RecLPurchasePrice) = ACTION::LookupOK THEN BEGIN
             VALIDATE("Unit Cost (LCY)", RecLPurchasePrice."Direct Unit Cost");
+            //ToDo
+            /*
             VALIDATE("PWD Vendor No.", RecLPurchasePrice."Vendor No.");
             MODIFY();
             IF RecLItem.GET("No.") THEN BEGIN
                 RecLItem.VALIDATE("Vendor No.", RecLPurchasePrice."Vendor No.");
                 RecLItem.MODIFY();
-            END;
+            END;*/
         END;
     end;
 

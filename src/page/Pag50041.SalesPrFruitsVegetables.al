@@ -239,7 +239,7 @@ page 50041 "Sales Pr Fruits & Vegetables"
 
     trigger OnAfterGetRecord()
     begin
-        OnAfterGetCurrRecord();
+        Fct_OnAfterGetCurrRecord();
     end;
 
     trigger OnInit()
@@ -257,7 +257,7 @@ page 50041 "Sales Pr Fruits & Vegetables"
     begin
         //ToDo
         //"Sales Type" := xRec."Sales Type";
-        OnAfterGetCurrRecord();
+        Fct_OnAfterGetCurrRecord();
     end;
 
     trigger OnOpenPage()
@@ -420,7 +420,7 @@ page 50041 "Sales Pr Fruits & Vegetables"
         SetRecFilters();
     end;
 
-    local procedure OnAfterGetCurrRecord()
+    local procedure Fct_OnAfterGetCurrRecord()
     begin
         xRec := Rec;
         //ToDo
