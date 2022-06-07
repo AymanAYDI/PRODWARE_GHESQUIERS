@@ -654,10 +654,12 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     Caption = 'Dimensions';
                     Image = Dimensions;
-                    //TODO
-                    RunObject = Page "Dimension Set Entries";
-                    //RunPageLink = "Table ID" = CONST(36), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0);
                     ApplicationArea = All;
+                    trigger OnAction()
+                    begin
+                        Rec.ShowDocDim();
+                        CurrPage.SaveRecord();
+                    end;
                 }
                 separator(Action120)
                 {
@@ -824,8 +826,8 @@ page 50056 "PWD Prepared Sales Order"
 
                     trigger OnAction()
                     var
-                    //TODO
-                    //BizTalkManagement: Codeunit "BizTalkManagement";
+                    //ToDo
+                    // BizTalkManagement: Codeunit "BizTalkManagement";
                     begin
                         // BizTalkManagement.SendSalesOrderConf(Rec);
                     end;
@@ -938,7 +940,14 @@ page 50056 "PWD Prepared Sales Order"
                 Image = ItemAvailability;
                 PromotedOnly = true;
                 trigger OnAction()
+                var
+                    SalesLine: Record "Sales Line";
+                    ItemAvailabilityFormsMgt: Codeunit "Item Availability Forms Mgt";
                 begin
+                    //ToDo
+                    SalesLine.SetRange("Document No.", Rec."No.");
+                    if SalesLine.FindSet() then
+                        ItemAvailabilityFormsMgt.ShowItemAvailFromSalesLine(SalesLine, 2);
                     //TODO
                     //CurrPage.SalesLines.PAGE.ItemAvailability(2);
                 end;

@@ -412,10 +412,10 @@ page 50063 "PWD Sales AVOIR to prepare V2"
         TempNewSalesLine."PWD Preparation in Process" := TRUE;
         TempNewSalesLine.MODIFY(TRUE);
         CLEAR(DimMgt);
-        //TODO
-        /*DimMgt.InsertDocDim(
-          DATABASE::"Sales Line", TempNewSalesLine."Document Type", TempNewSalesLine."Document No.", TempNewSalesLine."Line No.",
-          TempNewSalesLine."Shortcut Dimension 1 Code", TempNewSalesLine."Shortcut Dimension 2 Code");*/
+        //ToDo
+        // DimMgt.InsertDocDim(
+        //   DATABASE::"Sales Line", TempNewSalesLine."Document Type", TempNewSalesLine."Document No.", TempNewSalesLine."Line No.",
+        //   TempNewSalesLine."Shortcut Dimension 1 Code", TempNewSalesLine."Shortcut Dimension 2 Code");
     end;
 
     local procedure NoOnFormat()

@@ -155,14 +155,18 @@ page 50064 "PWD Modify Item Ledger Entries"
                 Caption = 'Ent&ry';
                 action("A&xe analytique")
                 {
-                    Caption = 'Dimensions';
-                    //TODO
-                    /*
-                    RunObject = Page "Ledger Entry Dimensions";
-                    RunPageLink = "Table ID" = CONST(32), "Entry No." = FIELD("Entry No.");*/
-                    ShortCutKey = 'Shift+Ctrl+D';
-                    Image = Dimensions;
+                    AccessByPermission = TableData Dimension = R;
                     ApplicationArea = All;
+                    Caption = 'Dimensions';
+                    Image = Dimensions;
+                    Promoted = true;
+                    PromotedCategory = Category4;
+                    ShortCutKey = 'Alt+D';
+                    ToolTip = 'View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.';
+                    trigger OnAction()
+                    begin
+                        Rec.ShowDimensions();
+                    end;
                 }
                 action("Ecritures &valeur")
                 {
@@ -246,6 +250,7 @@ page 50064 "PWD Modify Item Ledger Entries"
         ObjTransl: Record "Object Translation";
         ItemNo: Code[20];
         SourceTableName: Text[100];
+        CurrOrderNo: Code[20];
     begin
         CASE TRUE OF
             Rec.GETFILTER("Item No.") <> '':
@@ -254,13 +259,12 @@ page 50064 "PWD Modify Item Ledger Entries"
                     SourceTableName := ObjTransl.TranslateObject(ObjTransl."Object Type"::Table, 27);
                     EXIT(STRSUBSTNO('%1 %2', SourceTableName, ItemNo));
                 END;
-        //TODO
-        /*Rec.GETFILTER("Prod. Order No.") <> '':
-            IF Rec.GETRANGEMIN("Prod. Order No.") = Rec.GETRANGEMAX("Prod. Order No.") THEN BEGIN
-                CurrOrderNo := Rec.GETRANGEMIN("Prod. Order No.");
-                SourceTableName := ObjTransl.TranslateObject(ObjTransl."Object Type"::Table, 5405);
-                EXIT(STRSUBSTNO('%1 %2', SourceTableName, CurrOrderNo));
-            END;*/
+            ((Rec.GETFILTER("Order No.") <> '') and (Rec.GETFILTER("Order Type") = format(Rec."Order Type"::Production))):
+                IF Rec.GETRANGEMIN("Order No.") = Rec.GETRANGEMAX("Order No.") THEN BEGIN
+                    CurrOrderNo := Rec.GETRANGEMIN("Order No.");
+                    SourceTableName := ObjTransl.TranslateObject(ObjTransl."Object Type"::Table, 5405);
+                    EXIT(STRSUBSTNO('%1 %2', SourceTableName, CurrOrderNo));
+                END;
         END;
     end;
 }

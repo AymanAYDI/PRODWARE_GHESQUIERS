@@ -410,12 +410,14 @@ page 50053 "PWD Feuille saisie prestation"
                 action("A&xe analytique")
                 {
                     Caption = 'Dimensions';
-                    RunObject = Page "Dimension Set Entries";
-                    //TODO
-                    //RunPageLink = "Table ID" = CONST(83), "Journal Template Name" = FIELD("Journal Template Name"), "Journal Batch Name" = FIELD("Journal Batch Name"), "Journal Line No." = FIELD("Line No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                     ApplicationArea = All;
                     Image = Dimensions;
+                    trigger OnAction()
+                    begin
+                        Rec.ShowDimensions();
+                        CurrPage.SaveRecord();
+                    end;
                 }
                 action("Lignes traçabilité")
                 {
