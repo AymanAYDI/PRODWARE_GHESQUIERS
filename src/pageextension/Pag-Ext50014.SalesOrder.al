@@ -62,7 +62,6 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 ApplicationArea = All;
                 trigger OnValidate()
                 begin
-                    //TODO
                     AccessControl.SETRANGE(AccessControl."User Security ID", UserSecurityId());
                     AccessControl.SETRANGE(AccessControl."Role ID", CstG002);
                     IF NOT AccessControl.FindFirst() THEN
@@ -481,9 +480,15 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                     caption = 'Disponibilité Art. Mag.';
                     Image = ItemAvailability;
                     Trigger OnAction()
+                    var
+                        SalesLine: Record "Sales Line";
+                        ItemAvailabilityFormsMgt: Codeunit "Item Availability Forms Mgt";
                     BEGIN
-                        //TODO
-                        //CurrPage.SalesLines.Page.ItemAvailability(2);
+                        SalesLine.RESET();
+                        SalesLine.SETRANGE("Document Type", Rec."Document Type");
+                        SalesLine.SETRANGE("Document No.", Rec."No.");
+                        SalesLine.SETRANGE(Type, SalesLine.Type::Item);
+                        ItemAvailabilityFormsMgt.ShowItemAvailFromSalesLine(SalesLine, 2);
                     END;
                 }
             }

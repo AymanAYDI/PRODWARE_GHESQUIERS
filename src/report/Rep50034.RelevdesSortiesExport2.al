@@ -115,6 +115,12 @@ report 50034 "Relevé des Sorties Export 2"
                 column(Sales_Shipment_Line_Line_Amount; "PWD Line Amount")
                 {
                 }
+                column(TotWeight; TotWeight)
+                {
+                }
+                column(TotAmount; TotAmount)
+                {
+                }
                 trigger OnAfterGetRecord()
                 var
                     RecLCountry: Record "Country/Region";
