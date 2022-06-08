@@ -11,277 +11,6 @@
       <rd:DataSourceID>8d337ddc-36b3-41b9-8684-915a7e63de22</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="DELIVERY_NOTE">
-          <DataField>DELIVERY_NOTE</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_Reference">
-          <DataField>Sales_Shipment_Header_Reference</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_Bill_to_Customer_No">
-          <DataField>Sales_Shipment_Header_Bill_to_Customer_No</DataField>
-        </Field>
-        <Field Name="Titre">
-          <DataField>Titre</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_Promised_Delivery_Date">
-          <DataField>Sales_Shipment_Header_Promised_Delivery_Date</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_Order_No">
-          <DataField>Sales_Shipment_Header_Order_No</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_Posting_Date">
-          <DataField>Sales_Shipment_Header_Posting_Date</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_Ship_to_City">
-          <DataField>Sales_Shipment_Header_Ship_to_City</DataField>
-        </Field>
-        <Field Name="ShipToAddr_1_">
-          <DataField>ShipToAddr_1_</DataField>
-        </Field>
-        <Field Name="ShippingAgent_Name">
-          <DataField>ShippingAgent_Name</DataField>
-        </Field>
-        <Field Name="CompanyAddr_2_">
-          <DataField>CompanyAddr_2_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_3_">
-          <DataField>CompanyAddr_3_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_4_">
-          <DataField>CompanyAddr_4_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_5_">
-          <DataField>CompanyAddr_5_</DataField>
-        </Field>
-        <Field Name="Tel_CompanyInfo_Phone_No">
-          <DataField>Tel_CompanyInfo_Phone_No</DataField>
-        </Field>
-        <Field Name="E_Mail_CompanyInfo_E_Mail">
-          <DataField>E_Mail_CompanyInfo_E_Mail</DataField>
-        </Field>
-        <Field Name="au_Capital_CompanyInfo_Stock_Capital">
-          <DataField>au_Capital_CompanyInfo_Stock_Capital</DataField>
-        </Field>
-        <Field Name="Fax_CompanyInfo_Fax_No">
-          <DataField>Fax_CompanyInfo_Fax_No</DataField>
-        </Field>
-        <Field Name="Intracom_CompanyInfo_VAT_Registration_No">
-          <DataField>Intracom_CompanyInfo_VAT_Registration_No</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_Bill_to_Name">
-          <DataField>Sales_Shipment_Header_Bill_to_Name</DataField>
-        </Field>
-        <Field Name="CompanyAddr_1_">
-          <DataField>CompanyAddr_1_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_No">
-          <DataField>Sales_Shipment_Header_No</DataField>
-        </Field>
-        <Field Name="CompanyInfo_Logo_AVITA_facture">
-          <DataField>CompanyInfo_Logo_AVITA_facture</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_Ship_to_Address">
-          <DataField>Sales_Shipment_Header_Ship_to_Address</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_Delivry_time">
-          <DataField>Sales_Shipment_Header_Delivry_time</DataField>
-        </Field>
-        <Field Name="ADMIS_ET_RECONNU_CONFORME_LE">
-          <DataField>ADMIS_ET_RECONNU_CONFORME_LE</DataField>
-        </Field>
-        <Field Name="Format_Sales_Shipment_Header_Posting_Date">
-          <DataField>Format_Sales_Shipment_Header_Posting_Date</DataField>
-        </Field>
-        <Field Name="TotalPoidsNet">
-          <DataField>TotalPoidsNet</DataField>
-        </Field>
-        <Field Name="TotalPoidsNetFormat">
-          <DataField>TotalPoidsNetFormat</DataField>
-        </Field>
-        <Field Name="Item_BL_Sales_Shipment_Line_Document_No">
-          <DataField>Item_BL_Sales_Shipment_Line_Document_No</DataField>
-        </Field>
-        <Field Name="NbLigneTotal">
-          <DataField>NbLigneTotal</DataField>
-        </Field>
-        <Field Name="TotalQuantite">
-          <DataField>TotalQuantite</DataField>
-        </Field>
-        <Field Name="TotalQuantiteFormat">
-          <DataField>TotalQuantiteFormat</DataField>
-        </Field>
-        <Field Name="Destinataire_Caption">
-          <DataField>Destinataire_Caption</DataField>
-        </Field>
-        <Field Name="Date_livraison_Caption">
-          <DataField>Date_livraison_Caption</DataField>
-        </Field>
-        <Field Name="Date_de_doc_Caption">
-          <DataField>Date_de_doc_Caption</DataField>
-        </Field>
-        <Field Name="Lieu_Caption">
-          <DataField>Lieu_Caption</DataField>
-        </Field>
-        <Field Name="Emplacement_Caption">
-          <DataField>Emplacement_Caption</DataField>
-        </Field>
-        <Field Name="Commande_n_Caption">
-          <DataField>Commande_n_Caption</DataField>
-        </Field>
-        <Field Name="N_de_véhicule_Caption">
-          <DataField>N_de_véhicule_Caption</DataField>
-        </Field>
-        <Field Name="Navire_Caption">
-          <DataField>Navire_Caption</DataField>
-        </Field>
-        <Field Name="Armateur_Caption">
-          <DataField>Armateur_Caption</DataField>
-        </Field>
-        <Field Name="Transporteur_Caption">
-          <DataField>Transporteur_Caption</DataField>
-        </Field>
-        <Field Name="Expéditeur_Caption">
-          <DataField>Expéditeur_Caption</DataField>
-        </Field>
-        <Field Name="Référence_commande_Caption">
-          <DataField>Référence_commande_Caption</DataField>
-        </Field>
-        <Field Name="N_de_document_Caption">
-          <DataField>N_de_document_Caption</DataField>
-        </Field>
-        <Field Name="Poids_net_ligneCaption">
-          <DataField>Poids_net_ligneCaption</DataField>
-        </Field>
-        <Field Name="QuantitéCaption">
-          <DataField>QuantitéCaption</DataField>
-        </Field>
-        <Field Name="UnitéCaption">
-          <DataField>UnitéCaption</DataField>
-        </Field>
-        <Field Name="DésignationCaption">
-          <DataField>DésignationCaption</DataField>
-        </Field>
-        <Field Name="Code_articleCaption">
-          <DataField>Code_articleCaption</DataField>
-        </Field>
-        <Field Name="N_de_ligneCaption">
-          <DataField>N_de_ligneCaption</DataField>
-        </Field>
-        <Field Name="Heure_livraisonCaption">
-          <DataField>Heure_livraisonCaption</DataField>
-        </Field>
-        <Field Name="Par_procurationCaption">
-          <DataField>Par_procurationCaption</DataField>
-        </Field>
-        <Field Name="VisaCaption">
-          <DataField>VisaCaption</DataField>
-        </Field>
-        <Field Name="A_Calais_leCaption">
-          <DataField>A_Calais_leCaption</DataField>
-        </Field>
-        <Field Name="TOTAL_Poids_netCaption">
-          <DataField>TOTAL_Poids_netCaption</DataField>
-        </Field>
-        <Field Name="Arrété_àCaption">
-          <DataField>Arrété_àCaption</DataField>
-        </Field>
-        <Field Name="TOTAL_QuantitéCaption">
-          <DataField>TOTAL_QuantitéCaption</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_No">
-          <DataField>Sales_Shipment_Line_No</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Shelf_Bin_No">
-          <DataField>Sales_Shipment_Line_Shelf_Bin_No</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Location_Code">
-          <DataField>Sales_Shipment_Line_Location_Code</DataField>
-        </Field>
-        <Field Name="EntrepotLocationFilter">
-          <DataField>EntrepotLocationFilter</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Unit_of_Measure_Code">
-          <DataField>Sales_Shipment_Line_Unit_of_Measure_Code</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Quantity">
-          <DataField>Sales_Shipment_Line_Quantity</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_QuantityFormat">
-          <DataField>Sales_Shipment_Line_QuantityFormat</DataField>
-        </Field>
-        <Field Name="Description_Description_2">
-          <DataField>Description_Description_2</DataField>
-        </Field>
-        <Field Name="NumLigne">
-          <DataField>NumLigne</DataField>
-        </Field>
-        <Field Name="Net_Weight__Quantity">
-          <DataField>Net_Weight__Quantity</DataField>
-        </Field>
-        <Field Name="Net_Weight__QuantityFormat">
-          <DataField>Net_Weight__QuantityFormat</DataField>
-        </Field>
-        <Field Name="TextDLC_SF">
-          <DataField>TextDLC_SF</DataField>
-        </Field>
-        <Field Name="Type">
-          <DataField>Type</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Description">
-          <DataField>Sales_Shipment_Line_Description</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Document_No">
-          <DataField>Sales_Shipment_Line_Document_No</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Line_No">
-          <DataField>Sales_Shipment_Line_Line_No</DataField>
-        </Field>
-        <Field Name="PrintMag">
-          <DataField>PrintMag</DataField>
-        </Field>
-        <Field Name="NewBinNo">
-          <DataField>NewBinNo</DataField>
-        </Field>
-        <Field Name="FinLigne">
-          <DataField>FinLigne</DataField>
-        </Field>
-        <Field Name="CodeDEpotEntete">
-          <DataField>CodeDEpotEntete</DataField>
-        </Field>
-        <Field Name="CodeSeaFrance">
-          <DataField>CodeSeaFrance</DataField>
-        </Field>
-        <Field Name="CodeSommier">
-          <DataField>CodeSommier</DataField>
-        </Field>
-        <Field Name="NumDSA">
-          <DataField>NumDSA</DataField>
-        </Field>
-        <Field Name="ShowCustAddr">
-          <DataField>ShowCustAddr</DataField>
-        </Field>
-        <Field Name="QtéAlcoolTotal">
-          <DataField>QtéAlcoolTotal</DataField>
-        </Field>
-        <Field Name="QtéAlcoolTotalFormat">
-          <DataField>QtéAlcoolTotalFormat</DataField>
-        </Field>
-        <Field Name="QtéTabacTotal">
-          <DataField>QtéTabacTotal</DataField>
-        </Field>
-        <Field Name="QtéTabacTotalFormat">
-          <DataField>QtéTabacTotalFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -3298,12 +3027,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -3368,4 +3091,275 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>c6dcca5f-0dda-4ca8-b864-c8e1c84f14ee</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="DELIVERY_NOTE">
+          <DataField>DELIVERY_NOTE</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_Reference">
+          <DataField>Sales_Shipment_Header_Reference</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_Bill_to_Customer_No">
+          <DataField>Sales_Shipment_Header_Bill_to_Customer_No</DataField>
+        </Field>
+        <Field Name="Titre">
+          <DataField>Titre</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_Promised_Delivery_Date">
+          <DataField>Sales_Shipment_Header_Promised_Delivery_Date</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_Order_No">
+          <DataField>Sales_Shipment_Header_Order_No</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_Posting_Date">
+          <DataField>Sales_Shipment_Header_Posting_Date</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_Ship_to_City">
+          <DataField>Sales_Shipment_Header_Ship_to_City</DataField>
+        </Field>
+        <Field Name="ShipToAddr_1_">
+          <DataField>ShipToAddr_1_</DataField>
+        </Field>
+        <Field Name="ShippingAgent_Name">
+          <DataField>ShippingAgent_Name</DataField>
+        </Field>
+        <Field Name="CompanyAddr_2_">
+          <DataField>CompanyAddr_2_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_3_">
+          <DataField>CompanyAddr_3_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_4_">
+          <DataField>CompanyAddr_4_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_5_">
+          <DataField>CompanyAddr_5_</DataField>
+        </Field>
+        <Field Name="Tel_CompanyInfo_Phone_No">
+          <DataField>Tel_CompanyInfo_Phone_No</DataField>
+        </Field>
+        <Field Name="E_Mail_CompanyInfo_E_Mail">
+          <DataField>E_Mail_CompanyInfo_E_Mail</DataField>
+        </Field>
+        <Field Name="au_Capital_CompanyInfo_Stock_Capital">
+          <DataField>au_Capital_CompanyInfo_Stock_Capital</DataField>
+        </Field>
+        <Field Name="Fax_CompanyInfo_Fax_No">
+          <DataField>Fax_CompanyInfo_Fax_No</DataField>
+        </Field>
+        <Field Name="Intracom_CompanyInfo_VAT_Registration_No">
+          <DataField>Intracom_CompanyInfo_VAT_Registration_No</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_Bill_to_Name">
+          <DataField>Sales_Shipment_Header_Bill_to_Name</DataField>
+        </Field>
+        <Field Name="CompanyAddr_1_">
+          <DataField>CompanyAddr_1_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_No">
+          <DataField>Sales_Shipment_Header_No</DataField>
+        </Field>
+        <Field Name="CompanyInfo_Logo_AVITA_facture">
+          <DataField>CompanyInfo_Logo_AVITA_facture</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_Ship_to_Address">
+          <DataField>Sales_Shipment_Header_Ship_to_Address</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_Delivry_time">
+          <DataField>Sales_Shipment_Header_Delivry_time</DataField>
+        </Field>
+        <Field Name="ADMIS_ET_RECONNU_CONFORME_LE">
+          <DataField>ADMIS_ET_RECONNU_CONFORME_LE</DataField>
+        </Field>
+        <Field Name="Format_Sales_Shipment_Header_Posting_Date">
+          <DataField>Format_Sales_Shipment_Header_Posting_Date</DataField>
+        </Field>
+        <Field Name="TotalPoidsNet">
+          <DataField>TotalPoidsNet</DataField>
+        </Field>
+        <Field Name="TotalPoidsNetFormat">
+          <DataField>TotalPoidsNetFormat</DataField>
+        </Field>
+        <Field Name="Item_BL_Sales_Shipment_Line_Document_No">
+          <DataField>Item_BL_Sales_Shipment_Line_Document_No</DataField>
+        </Field>
+        <Field Name="NbLigneTotal">
+          <DataField>NbLigneTotal</DataField>
+        </Field>
+        <Field Name="TotalQuantite">
+          <DataField>TotalQuantite</DataField>
+        </Field>
+        <Field Name="TotalQuantiteFormat">
+          <DataField>TotalQuantiteFormat</DataField>
+        </Field>
+        <Field Name="Destinataire_Caption">
+          <DataField>Destinataire_Caption</DataField>
+        </Field>
+        <Field Name="Date_livraison_Caption">
+          <DataField>Date_livraison_Caption</DataField>
+        </Field>
+        <Field Name="Date_de_doc_Caption">
+          <DataField>Date_de_doc_Caption</DataField>
+        </Field>
+        <Field Name="Lieu_Caption">
+          <DataField>Lieu_Caption</DataField>
+        </Field>
+        <Field Name="Emplacement_Caption">
+          <DataField>Emplacement_Caption</DataField>
+        </Field>
+        <Field Name="Commande_n_Caption">
+          <DataField>Commande_n_Caption</DataField>
+        </Field>
+        <Field Name="N_de_véhicule_Caption">
+          <DataField>N_de_véhicule_Caption</DataField>
+        </Field>
+        <Field Name="Navire_Caption">
+          <DataField>Navire_Caption</DataField>
+        </Field>
+        <Field Name="Armateur_Caption">
+          <DataField>Armateur_Caption</DataField>
+        </Field>
+        <Field Name="Transporteur_Caption">
+          <DataField>Transporteur_Caption</DataField>
+        </Field>
+        <Field Name="Expéditeur_Caption">
+          <DataField>Expéditeur_Caption</DataField>
+        </Field>
+        <Field Name="Référence_commande_Caption">
+          <DataField>Référence_commande_Caption</DataField>
+        </Field>
+        <Field Name="N_de_document_Caption">
+          <DataField>N_de_document_Caption</DataField>
+        </Field>
+        <Field Name="Poids_net_ligneCaption">
+          <DataField>Poids_net_ligneCaption</DataField>
+        </Field>
+        <Field Name="QuantitéCaption">
+          <DataField>QuantitéCaption</DataField>
+        </Field>
+        <Field Name="UnitéCaption">
+          <DataField>UnitéCaption</DataField>
+        </Field>
+        <Field Name="DésignationCaption">
+          <DataField>DésignationCaption</DataField>
+        </Field>
+        <Field Name="Code_articleCaption">
+          <DataField>Code_articleCaption</DataField>
+        </Field>
+        <Field Name="N_de_ligneCaption">
+          <DataField>N_de_ligneCaption</DataField>
+        </Field>
+        <Field Name="Heure_livraisonCaption">
+          <DataField>Heure_livraisonCaption</DataField>
+        </Field>
+        <Field Name="Par_procurationCaption">
+          <DataField>Par_procurationCaption</DataField>
+        </Field>
+        <Field Name="VisaCaption">
+          <DataField>VisaCaption</DataField>
+        </Field>
+        <Field Name="A_Calais_leCaption">
+          <DataField>A_Calais_leCaption</DataField>
+        </Field>
+        <Field Name="TOTAL_Poids_netCaption">
+          <DataField>TOTAL_Poids_netCaption</DataField>
+        </Field>
+        <Field Name="Arrété_àCaption">
+          <DataField>Arrété_àCaption</DataField>
+        </Field>
+        <Field Name="TOTAL_QuantitéCaption">
+          <DataField>TOTAL_QuantitéCaption</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_No">
+          <DataField>Sales_Shipment_Line_No</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Shelf_Bin_No">
+          <DataField>Sales_Shipment_Line_Shelf_Bin_No</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Location_Code">
+          <DataField>Sales_Shipment_Line_Location_Code</DataField>
+        </Field>
+        <Field Name="EntrepotLocationFilter">
+          <DataField>EntrepotLocationFilter</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Unit_of_Measure_Code">
+          <DataField>Sales_Shipment_Line_Unit_of_Measure_Code</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Quantity">
+          <DataField>Sales_Shipment_Line_Quantity</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_QuantityFormat">
+          <DataField>Sales_Shipment_Line_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Description_Description_2">
+          <DataField>Description_Description_2</DataField>
+        </Field>
+        <Field Name="NumLigne">
+          <DataField>NumLigne</DataField>
+        </Field>
+        <Field Name="Net_Weight__Quantity">
+          <DataField>Net_Weight__Quantity</DataField>
+        </Field>
+        <Field Name="Net_Weight__QuantityFormat">
+          <DataField>Net_Weight__QuantityFormat</DataField>
+        </Field>
+        <Field Name="TextDLC_SF">
+          <DataField>TextDLC_SF</DataField>
+        </Field>
+        <Field Name="Type">
+          <DataField>Type</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Description">
+          <DataField>Sales_Shipment_Line_Description</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Document_No">
+          <DataField>Sales_Shipment_Line_Document_No</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Line_No">
+          <DataField>Sales_Shipment_Line_Line_No</DataField>
+        </Field>
+        <Field Name="PrintMag">
+          <DataField>PrintMag</DataField>
+        </Field>
+        <Field Name="NewBinNo">
+          <DataField>NewBinNo</DataField>
+        </Field>
+        <Field Name="FinLigne">
+          <DataField>FinLigne</DataField>
+        </Field>
+        <Field Name="CodeDEpotEntete">
+          <DataField>CodeDEpotEntete</DataField>
+        </Field>
+        <Field Name="CodeSeaFrance">
+          <DataField>CodeSeaFrance</DataField>
+        </Field>
+        <Field Name="CodeSommier">
+          <DataField>CodeSommier</DataField>
+        </Field>
+        <Field Name="NumDSA">
+          <DataField>NumDSA</DataField>
+        </Field>
+        <Field Name="ShowCustAddr">
+          <DataField>ShowCustAddr</DataField>
+        </Field>
+        <Field Name="QtéAlcoolTotal">
+          <DataField>QtéAlcoolTotal</DataField>
+        </Field>
+        <Field Name="QtéAlcoolTotalFormat">
+          <DataField>QtéAlcoolTotalFormat</DataField>
+        </Field>
+        <Field Name="QtéTabacTotal">
+          <DataField>QtéTabacTotal</DataField>
+        </Field>
+        <Field Name="QtéTabacTotalFormat">
+          <DataField>QtéTabacTotalFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

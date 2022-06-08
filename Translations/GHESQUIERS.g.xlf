@@ -11418,31 +11418,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Picking List - NamedType Edité_le_CaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 2202279620 - NamedType 689524896" size-unit="char" translate="yes" xml:space="preserve">
-          <source>......................................</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Picking List - NamedType EmptyStringCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2202279620 - NamedType 1483914203" size-unit="char" translate="yes" xml:space="preserve">
-          <source>......................................</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Picking List - NamedType EmptyStringCaption_Control1000000062Lbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2202279620 - NamedType 2783482841" size-unit="char" translate="yes" xml:space="preserve">
-          <source>......................................</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Picking List - NamedType EmptyStringCaption_Control1000000064Lbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2202279620 - NamedType 350917015" size-unit="char" translate="yes" xml:space="preserve">
-          <source>......................................</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Picking List - NamedType EmptyStringCaption_Control1000000066Lbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2202279620 - NamedType 1650485653" size-unit="char" translate="yes" xml:space="preserve">
-          <source>..................................................................</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Picking List - NamedType EmptyStringCaption_Control1000000068Lbl</note>
-        </trans-unit>
         <trans-unit id="Report 2202279620 - NamedType 2213590123" size-unit="char" translate="yes" xml:space="preserve">
           <source>********** FIN DE BP **********</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12224,7 +12199,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Invoice AVITA - NamedType Text002</note>
         </trans-unit>
         <trans-unit id="Report 4050282536 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sales - Invoice %1 %2</source>
+          <source>Sales - Invoice %1</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Invoice AVITA - NamedType Text004</note>
         </trans-unit>
@@ -14158,6 +14133,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD IntrastatJournal - Action PWD Extract with Filtering - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3293917796 - Control 434707724 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2600738069">
+          <source>Totale amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD IntrastatJournal - Control PWD DecGTotalAmount - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1299222318 - Control 1037078176 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14637,6 +14617,11 @@
           <source>Purchase Prices</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesLineFactBox - Control PWD Purchase Prices - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3605102415 - NamedType 1889548419" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 3605102415">
+          <source>SUPER</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesOrder - NamedType CstG002</note>
         </trans-unit>
         <trans-unit id="PageExtension 3605102415 - NamedType 615536529" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 3605102415">
           <source>Vous n'avez pas les droits pour modifier ce champ !</source>

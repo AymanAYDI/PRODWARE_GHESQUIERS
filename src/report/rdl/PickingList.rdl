@@ -3211,6 +3211,9 @@ End Function
         <Field Name="Sales_Line_Previous_Line_No">
           <DataField>Sales_Line_Previous_Line_No</DataField>
         </Field>
+        <Field Name="LastFieldNo">
+          <DataField>LastFieldNo</DataField>
+        </Field>
         <Field Name="Reservation_Entry__Expiration_Date_">
           <DataField>Reservation_Entry__Expiration_Date_</DataField>
         </Field>
@@ -3271,29 +3274,14 @@ End Function
         <Field Name="Marquage__Caption">
           <DataField>Marquage__Caption</DataField>
         </Field>
-        <Field Name="EmptyStringCaption">
-          <DataField>EmptyStringCaption</DataField>
-        </Field>
-        <Field Name="EmptyStringCaption_Control1000000062">
-          <DataField>EmptyStringCaption_Control1000000062</DataField>
-        </Field>
         <Field Name="Date_Fabrication__Caption">
           <DataField>Date_Fabrication__Caption</DataField>
-        </Field>
-        <Field Name="EmptyStringCaption_Control1000000064">
-          <DataField>EmptyStringCaption_Control1000000064</DataField>
         </Field>
         <Field Name="DLC__Caption">
           <DataField>DLC__Caption</DataField>
         </Field>
-        <Field Name="EmptyStringCaption_Control1000000066">
-          <DataField>EmptyStringCaption_Control1000000066</DataField>
-        </Field>
         <Field Name="Abattoir_ou_atelier_de_découpe__Caption">
           <DataField>Abattoir_ou_atelier_de_découpe__Caption</DataField>
-        </Field>
-        <Field Name="EmptyStringCaption_Control1000000068">
-          <DataField>EmptyStringCaption_Control1000000068</DataField>
         </Field>
         <Field Name="T__conservation__Caption">
           <DataField>T__conservation__Caption</DataField>
