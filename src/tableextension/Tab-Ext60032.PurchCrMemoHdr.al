@@ -62,20 +62,5 @@ tableextension 60032 "PWD PurchCrMemoHdr" extends "Purch. Cr. Memo Hdr."
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(99008500; "PWD Date Received"; Date)
-        {
-            Caption = 'Date Received';
-            DataClassification = CustomerContent;
-        }
-        field(99008501; "PWD Time Received"; Time)
-        {
-            Caption = 'Time Received';
-            DataClassification = CustomerContent;
-        }
-        field(99008508; "PWD BizTalk Purch Cr Memo"; Boolean)
-        {
-            Caption = 'BizTalk Purchase Credit Memo';
-            DataClassification = CustomerContent;
-        }
     }
 }

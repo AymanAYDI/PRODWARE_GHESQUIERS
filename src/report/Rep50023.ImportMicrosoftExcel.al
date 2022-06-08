@@ -1,6 +1,6 @@
 report 50023 "PWD Import Microsoft Excel"
 {
-    Caption = 'PWD Import Microsoft Excel';
+    Caption = 'Import Microsoft Excel';
     ProcessingOnly = true;
     UsageCategory = None;
     dataset

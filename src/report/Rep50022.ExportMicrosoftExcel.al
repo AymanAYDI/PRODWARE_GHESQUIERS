@@ -1,6 +1,6 @@
 report 50022 "PWD Export Microsoft Excel"
 {
-    Caption = 'PWD Export Microsoft Excel';
+    Caption = 'Export Microsoft Excel';
     ProcessingOnly = true;
     UsageCategory = None;
     dataset

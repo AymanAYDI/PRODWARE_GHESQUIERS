@@ -47,6 +47,7 @@ tableextension 60003 "PWD Location" extends Location
         }
         field(50007; "PWD Magasin libre"; Boolean)
         {
+            Caption = 'Magasin libre';
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }

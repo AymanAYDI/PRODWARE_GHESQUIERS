@@ -333,6 +333,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         }
         field(50050; "PWD NewPage"; Integer)
         {
+            Caption = 'New Page';
             Description = 'RE_GHE1.00';
             DataClassification = CustomerContent;
         }
@@ -623,6 +624,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         }
         field(55049; "PWD Quantite initiale"; Decimal)
         {
+            Caption = 'Quantite initiale';
             Description = 'PW2009';
             Editable = false;
             DataClassification = CustomerContent;
@@ -668,6 +670,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         }
         field(70010; "PWD MethodeCalculPresta."; Text[30])
         {
+            Caption = 'Methode de Calcul (prestation)';
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
