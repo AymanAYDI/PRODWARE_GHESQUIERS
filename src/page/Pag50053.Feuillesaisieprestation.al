@@ -469,7 +469,6 @@ page 50053 "PWD Feuille saisie prestation"
                         var
                             ItemAvailabilityFormsMgt: Codeunit "Item Availability Forms Mgt";
                         begin
-                            //TODO Verif
                             ItemAvailabilityFormsMgt.ShowItemAvailFromItemJnlLine(Rec, 0);
                         end;
                     }
@@ -483,7 +482,6 @@ page 50053 "PWD Feuille saisie prestation"
                         var
                             ItemAvailabilityFormsMgt: Codeunit "Item Availability Forms Mgt";
                         begin
-                            //TODO Verif
                             ItemAvailabilityFormsMgt.ShowItemAvailFromItemJnlLine(Rec, 1);
                         end;
                     }
@@ -497,7 +495,6 @@ page 50053 "PWD Feuille saisie prestation"
                         var
                             ItemAvailabilityFormsMgt: Codeunit "Item Availability Forms Mgt";
                         begin
-                            //TODO Verif
                             ItemAvailabilityFormsMgt.ShowItemAvailFromItemJnlLine(Rec, 2);
                         end;
                     }
@@ -511,7 +508,6 @@ page 50053 "PWD Feuille saisie prestation"
                         var
                             ItemAvailabilityFormsMgt: Codeunit "Item Availability Forms Mgt";
                         begin
-                            //TODO Verif
                             ItemAvailabilityFormsMgt.ShowItemAvailFromItemJnlLine(Rec, 3);
                         end;
                     }

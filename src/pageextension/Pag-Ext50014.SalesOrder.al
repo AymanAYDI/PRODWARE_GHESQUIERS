@@ -63,11 +63,10 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 trigger OnValidate()
                 begin
                     //TODO
-                    /*
-                                        Memberof.SETRANGE(Memberof."User ID", USERID);
-                                        Memberof.SETRANGE(Memberof."Role ID", CstG002);
-                                        IF NOT Memberof.FindFirst() THEN
-                                            ERROR(cstG004);*/
+                    AccessControl.SETRANGE(AccessControl."User Security ID", UserSecurityId());
+                    AccessControl.SETRANGE(AccessControl."Role ID", CstG002);
+                    IF NOT AccessControl.FindFirst() THEN
+                        ERROR(cstG004);
                 end;
             }
             field("PWD DateLastPurchR"; DateLastPurchR)
@@ -581,8 +580,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
     END;
 
     var
-        //TODO
-        //Memberof: Record 2000000003;
+        AccessControl: Record "Access Control";
         SalesHeader: Record "Sales Header";
         PurchRRec: Record "Sales Shipment Header";
         CreatePurchQuote: Report "Create Purchase Quote r -TrB";
@@ -590,4 +588,5 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
         UserMgt: Codeunit "User Setup Management";
         cstG004: Label 'Vous n''avez pas les droits pour modifier ce champ !';
         DateLastPurchR: Text[30];
+        CstG002: Label 'SUPER';
 }

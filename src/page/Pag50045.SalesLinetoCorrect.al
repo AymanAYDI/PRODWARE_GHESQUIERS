@@ -520,19 +520,16 @@ page 50045 "PWD Sales Line to Correct"
         IF TransferExtendedText.MakeUpdate() THEN
             UpdateForm(TRUE);
     end;
-    //TODO function unitil 
-    /*
-        procedure ShowReservation()
-        begin
-            Rec.FIND();
-            Rec.ShowReservation();
-        end;
-    */
+    // procedure ShowReservation()
+    // begin
+    //     Rec.FIND();
+    //     Rec.ShowReservation();
+    // end;
+
     procedure ItemAvailability(AvailabilityType: Option Date,Variant,Location,Bin)
     var
         "ItemAvailabilityFormsMgt": Codeunit "Item Availability Forms Mgt";
     begin
-        //TODO verif
         ItemAvailabilityFormsMgt.ShowItemAvailFromSalesLine(rec, AvailabilityType);
     end;
 
@@ -540,8 +537,6 @@ page 50045 "PWD Sales Line to Correct"
     begin
         Rec.ShowReservationEntries(TRUE);
     end;
-
-    //TODO Function unitil 
     /*
         procedure ShowDimensions()
         begin

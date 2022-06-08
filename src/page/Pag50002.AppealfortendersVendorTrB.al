@@ -195,11 +195,11 @@ page 50002 "Appeal for tenders/Vendor -TrB"
         SalesOrder: Page "Sales Order";
         SalesQuote: Page "Sales Quote";
         "Description 2Emphasize": Boolean;
-        DescriptionEmphasize: Boolean;
+        // DescriptionEmphasize: Boolean;
         "No.Emphasize": Boolean;
         ShowDetail: Boolean;
         "Description 2Indent": Integer;
-        DescriptionIndent: Integer;
+        // DescriptionIndent: Integer;
         "No.Indent": Integer;
         Text1000000000: Label 'New line added';
         BuyFromVendorName: Text[30];
@@ -240,11 +240,10 @@ page 50002 "Appeal for tenders/Vendor -TrB"
 
     local procedure DescriptionOnFormat()
     begin
-        //TODO var not used
-        IF Rec.Detail = TRUE THEN
-            DescriptionIndent := 500
-        ELSE
-            DescriptionEmphasize := TRUE;
+        // IF Rec.Detail = TRUE THEN
+        //     DescriptionIndent := 500
+        // ELSE
+        //     DescriptionEmphasize := TRUE;
     end;
 
     local procedure Description2OnFormat()

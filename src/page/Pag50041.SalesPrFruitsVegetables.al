@@ -255,7 +255,6 @@ page 50041 "Sales Pr Fruits & Vegetables"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        //TODO Verif
         Rec."Source Type" := xRec."Source Type";
         Fct_OnAfterGetCurrRecord();
     end;

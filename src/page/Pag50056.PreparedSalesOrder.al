@@ -944,12 +944,9 @@ page 50056 "PWD Prepared Sales Order"
                     SalesLine: Record "Sales Line";
                     ItemAvailabilityFormsMgt: Codeunit "Item Availability Forms Mgt";
                 begin
-                    //ToDo
                     SalesLine.SetRange("Document No.", Rec."No.");
                     if SalesLine.FindSet() then
                         ItemAvailabilityFormsMgt.ShowItemAvailFromSalesLine(SalesLine, 2);
-                    //TODO
-                    //CurrPage.SalesLines.PAGE.ItemAvailability(2);
                 end;
             }
             action("&Imprimer")

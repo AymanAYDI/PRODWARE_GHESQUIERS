@@ -316,8 +316,6 @@ page 50042 "PWD Sales Orders to prepare"
                     SalesLine2."PWD Previous Line No" := SalesLine."Line No.";
                     SalesLine2.INSERT(TRUE);
                     Qtyinserted := SalesLine2.Quantity;
-                    //TODO Var Not used
-                    //ItemNo2 := SalesLine2."No.";
                 END;
             UNTIL (RecLocPriority.NEXT() = 0) OR (InsertedSalesLineQty = InputQuantity);
             IF UnavailableQty > 0 THEN BEGIN

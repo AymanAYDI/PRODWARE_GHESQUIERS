@@ -203,34 +203,42 @@ pageextension 50006 "PWD CustomerList" extends "Customer List"
             field("PWD Mobil No.1"; Rec."PWD Mobil No. 1")
             {
                 ApplicationArea = All;
+                Editable = false;
             }
             field("PWD Mobil No.2"; Rec."PWD Mobil No. 2")
             {
                 ApplicationArea = All;
+                Editable = false;
             }
             field("PWD Phone fixe No."; Rec."PWD Phone fixe No.")
             {
                 ApplicationArea = All;
+                Editable = false;
             }
             field("PWD E-Mail"; Rec."E-Mail")
             {
                 ApplicationArea = All;
+                Editable = false;
             }
             field("PWD E-Mail 2"; Rec."PWD E-Mail 2")
             {
                 ApplicationArea = All;
+                Editable = false;
             }
             field("PWD E-Mail 3"; Rec."PWD E-Mail 3")
             {
                 ApplicationArea = All;
+                Editable = false;
             }
             field("PWD E-Mail 4"; Rec."PWD E-Mail 4")
             {
                 ApplicationArea = All;
+                Editable = false;
             }
             field("PWD Web Identifier"; Rec."PWD Web Identifier")
             {
                 ApplicationArea = all;
+                Editable = false;
             }
             field("PWD Last Shipping Date"; Rec."PWD Last Shipping Date")
             {
@@ -263,11 +271,11 @@ pageextension 50006 "PWD CustomerList" extends "Customer List"
                 {
                     ApplicationArea = All;
                     Caption = 'Adresse Mail';
+                    Editable = false;
                 }
             }
         }
-        //TODO
-        /*modify(SalesHistSelltoFactBox)
+        modify(SalesHistSelltoFactBox)
         {
             Editable = false;
         }
@@ -294,7 +302,7 @@ pageextension 50006 "PWD CustomerList" extends "Customer List"
         modify(Control1905767507)
         {
             Editable = false;
-        }*/
+        }
     }
     var
         TxtGAddressList: Text[1024];
