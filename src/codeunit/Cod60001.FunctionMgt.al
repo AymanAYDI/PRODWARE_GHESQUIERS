@@ -247,17 +247,16 @@ codeunit 60001 "PWD Function Mgt"
     procedure FctT37_OnBeforeGetUnitCost_SalesLine(var SalesLine: Record "Sales Line"; var IsHandled: Boolean)
     var
         Item: Record Item;
-        //SalesPriceOld: Record "Sales Price";//TODO Utiliser "Price List Line" ou "Sales Price"
-        SalesPrice: Record "Price List Line";
+        SalesPrice: Record "Sales Price";
         UOMMgt: Codeunit "Unit of Measure Management";
     begin
         IsHandled := true;
         SalesLine.TestField(Type, SalesLine.Type::Item);
         SalesLine.TestField("No.");
         SalesLine.GetItem(Item);
-        SalesPrice.SETRANGE("Asset No.", Item."No.");
-        SalesPrice.SETRANGE("Source Type", SalesPrice."Source Type"::"All Customers");
-        SalesPrice.SETFILTER("Source No.", '%1', '');
+        SalesPrice.SETRANGE("Item No.", Item."No.");
+        SalesPrice.SETRANGE("Sales Type", SalesPrice."Sales Type"::"All Customers");
+        SalesPrice.SETFILTER("Sales Code", '%1', '');
 
         IF SalesPrice.FindFirst() THEN BEGIN
             IF ((SalesPrice."Starting Date" = 0D) OR (SalesPrice."Starting Date" <= WORKDATE())) AND

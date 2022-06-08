@@ -655,8 +655,8 @@ codeunit 60000 "PWD Events"
     end;
 
     //---TAB7001---
-    [EventSubscriber(ObjectType::Table, DataBase::"Price List Line", 'OnAfterValidateEvent', 'Unit Price', false, false)]
-    local procedure OnAfterValidateEvent_UnitPrice_PriceListLine(var Rec: Record "Price List Line"; var xRec: Record "Price List Line"; CurrFieldNo: Integer)
+    [EventSubscriber(ObjectType::Table, DataBase::"Sales Price", 'OnAfterValidateEvent', 'Unit Price', false, false)]
+    local procedure OnAfterValidateEvent_UnitPrice_PriceListLine(var Rec: Record "Sales Price"; var xRec: Record "Sales Price"; CurrFieldNo: Integer)
     begin
         IF (Rec."PWD Percentage Profit" <> 0) AND (Rec."PWD Percentage Profit" <> 100) THEN
             Rec."PWD Purch. Cost" := ROUND(Rec."Unit Price" * (1 - Rec."PWD Percentage Profit" / 100), 0.01, '<')

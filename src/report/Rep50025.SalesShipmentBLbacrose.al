@@ -17,7 +17,6 @@ report 50025 "Sales - Shipment BL bac rose"
                 column(DELIVERY_NOTE; DELIVERY_NOTE)
                 {
                 }
-
                 column(Sales_Shipment_Header_Reference; "Sales Shipment Header"."PWD Reference")
                 {
                 }
