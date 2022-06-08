@@ -8232,6 +8232,9 @@ End Function
         <Field Name="PageLoop_Number">
           <DataField>PageLoop_Number</DataField>
         </Field>
+        <Field Name="NoOfCopies">
+          <DataField>NoOfCopies</DataField>
+        </Field>
         <Field Name="Sales_Shipment_Line_Description">
           <DataField>Sales_Shipment_Line_Description</DataField>
         </Field>

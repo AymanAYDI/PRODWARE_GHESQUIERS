@@ -3433,6 +3433,9 @@ End Function</Code>
         <Field Name="CommentSalesLineAnomalie_Linked_Sales_Line">
           <DataField>CommentSalesLineAnomalie_Linked_Sales_Line</DataField>
         </Field>
+        <Field Name="LastFieldNo">
+          <DataField>LastFieldNo</DataField>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>

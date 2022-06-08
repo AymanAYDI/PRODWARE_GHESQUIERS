@@ -1,11 +1,5 @@
 report 50034 "Relevé des Sorties Export 2"
 {
-    // ---------------------------------------------------
-    // Prodware - www.prodware.fr
-    // --------------------------------------------------
-    //
-    // //>>GHE1.01
-    //    FED_010420088report50034_Ghesquiers:SOBI 23/04/08 : - changes
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/RelevédesSortiesExport2.rdl';
     UsageCategory = None;
@@ -121,15 +115,18 @@ report 50034 "Relevé des Sorties Export 2"
                 column(Sales_Shipment_Line_Line_Amount; "PWD Line Amount")
                 {
                 }
+                column(TotWeight; TotWeight)
+                {
+                }
+                column(TotAmount; TotAmount)
+                {
+                }
                 trigger OnAfterGetRecord()
                 var
                     RecLCountry: Record "Country/Region";
                     RecLCustomer: Record Customer;
                 begin
-                    //C2A GTE 22 06 04
                     IF Quantity = 0 THEN CurrReport.SKIP();
-
-                    //>>FED_010420088report50034_Ghesquiers
                     CLEAR(CodGCodeMensuel);
                     IF RecLCustomer.GET("Sales Shipment Line"."Sell-to Customer No.") THEN BEGIN
                         RecLCountry.RESET();
@@ -137,8 +134,6 @@ report 50034 "Relevé des Sorties Export 2"
                         IF RecLCountry.FindFirst() THEN
                             CodGCodeMensuel := RecLCountry."PWD Monthly Code";
                     END;
-                    //<<FED_010420088report50034_Ghesquiers
-
                     Item.RESET();
                     IF NOT Item.GET("Sales Shipment Line"."No.") THEN Item.INIT();
 
@@ -169,11 +164,6 @@ report 50034 "Relevé des Sorties Export 2"
 
             trigger OnPreDataItem()
             begin
-                //CurrReport.CREATETOTALS ("Sales Shipment Line"."PWD Line Amount");
-                //CurrReport.CREATETOTALS(NetWeight);
-                //CurrReport.CREATETOTALS(DSACrMemoWeight,DSACrMemoAmount);
-                //CurrReport.CREATETOTALS(LineWeight,Lineamount);
-
                 LocationFilter := GETFILTER("PWD Location Filter");
                 DateFilter := GETFILTER("Posting Date");
                 DateMin := GETRANGEMIN("Posting Date");
@@ -464,8 +454,6 @@ report 50034 "Relevé des Sorties Export 2"
         Lineamount: Decimal;
         NetWeight: Decimal;
         ShipWeight: Decimal;
-        TotalCrMemoAmount: Decimal;
-        TotalCrMemoWeight: Decimal;
         TotAmount: Decimal;
         TotWeight: Decimal;
         CurrPM: Integer;
@@ -534,9 +522,6 @@ report 50034 "Relevé des Sorties Export 2"
                     DSACrMemoAmount += FromCRMemoLines."Line Amount";
                 END;
             UNTIL FromCRMemoLines.NEXT() = 0;
-
-        TotalCrMemoWeight += DSACrMemoWeight;
-        TotalCrMemoAmount += DSACrMemoAmount;
     end;
 
 }

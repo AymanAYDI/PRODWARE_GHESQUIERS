@@ -3538,6 +3538,18 @@ End Function
         <Field Name="Sales_Shipment_Line_Line_AmountFormat">
           <DataField>Sales_Shipment_Line_Line_AmountFormat</DataField>
         </Field>
+        <Field Name="TotWeight">
+          <DataField>TotWeight</DataField>
+        </Field>
+        <Field Name="TotWeightFormat">
+          <DataField>TotWeightFormat</DataField>
+        </Field>
+        <Field Name="TotAmount">
+          <DataField>TotAmount</DataField>
+        </Field>
+        <Field Name="TotAmountFormat">
+          <DataField>TotAmountFormat</DataField>
+        </Field>
         <Field Name="DateFilter">
           <DataField>DateFilter</DataField>
         </Field>

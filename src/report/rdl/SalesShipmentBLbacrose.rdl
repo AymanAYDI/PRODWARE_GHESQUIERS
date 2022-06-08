@@ -24,7 +24,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>4.06123cm</Height>
+                  <Height>3.46123cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -145,8 +145,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Top>0cm</Top>
-                              <Left>0cm</Left>
                               <Height>0.4064cm</Height>
                               <Width>1.31708cm</Width>
                               <Style />
@@ -1245,274 +1243,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                                       </TablixCell>
                                     </TablixCells>
                                   </TablixRow>
-                                  <TablixRow>
-                                    <Height>0.6cm</Height>
-                                    <TablixCells>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox9">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontStyle>Normal</FontStyle>
-                                                      <FontSize>9pt</FontSize>
-                                                      <TextDecoration>None</TextDecoration>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox9</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </RightBorder>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox10">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontStyle>Normal</FontStyle>
-                                                      <FontSize>9pt</FontSize>
-                                                      <TextDecoration>None</TextDecoration>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox10</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </RightBorder>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox11">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontStyle>Normal</FontStyle>
-                                                      <FontSize>9pt</FontSize>
-                                                      <TextDecoration>None</TextDecoration>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox11</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </RightBorder>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox12">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontStyle>Normal</FontStyle>
-                                                      <FontSize>9pt</FontSize>
-                                                      <TextDecoration>None</TextDecoration>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox12</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </RightBorder>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox13">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontStyle>Normal</FontStyle>
-                                                      <FontSize>9pt</FontSize>
-                                                      <TextDecoration>None</TextDecoration>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox13</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </RightBorder>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox14">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <FontStyle>Normal</FontStyle>
-                                                      <FontSize>9pt</FontSize>
-                                                      <TextDecoration>None</TextDecoration>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox14</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </RightBorder>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                    </TablixCells>
-                                  </TablixRow>
                                 </TablixRows>
                               </TablixBody>
                               <TablixColumnHierarchy>
@@ -1564,18 +1294,11 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                                         </Visibility>
                                       </TablixMember>
                                       <TablixMember />
-                                      <TablixMember>
-                                        <Visibility>
-                                          <Hidden>=IIF(Fields!FinLigne.Value,False,True)</Hidden>
-                                        </Visibility>
-                                      </TablixMember>
                                     </TablixMembers>
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
-                              <Top>0cm</Top>
-                              <Left>0cm</Left>
-                              <Height>4.06123cm</Height>
+                              <Height>3.46123cm</Height>
                               <Width>19.12314cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
@@ -1669,9 +1392,7 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>0cm</Top>
-            <Left>0cm</Left>
-            <Height>4.06123cm</Height>
+            <Height>3.46123cm</Height>
             <Width>19.12315cm</Width>
             <Style>
               <Border>
@@ -1709,7 +1430,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>0cm</Top>
                   <Left>1.27315cm</Left>
                   <Height>0.423cm</Height>
                   <Width>14.91cm</Width>
@@ -1735,7 +1455,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <Top>0cm</Top>
                       <Left>3.37315cm</Left>
                       <Height>0.423cm</Height>
                       <Width>5.25cm</Width>
@@ -1994,8 +1713,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                           <Value>=Convert.ToBase64String(Fields!CompanyInfo_Logo_AVITA_facture.Value)</Value>
                           <MIMEType>image/bmp</MIMEType>
                           <Sizing>FitProportional</Sizing>
-                          <Top>0cm</Top>
-                          <Left>0cm</Left>
                           <Height>2.961cm</Height>
                           <Width>2.94cm</Width>
                           <Style>
@@ -2006,8 +1723,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                         </Image>
                       </ReportItems>
                       <KeepTogether>true</KeepTogether>
-                      <Top>0cm</Top>
-                      <Left>0cm</Left>
                       <Height>2.961cm</Height>
                       <Width>2.94cm</Width>
                       <ZIndex>11</ZIndex>
@@ -2020,7 +1735,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                   </ReportItems>
                   <KeepTogether>true</KeepTogether>
                   <Top>0.846cm</Top>
-                  <Left>0cm</Left>
                   <Height>4.653cm</Height>
                   <Width>8.62315cm</Width>
                   <ZIndex>1</ZIndex>
@@ -2141,7 +1855,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <Top>0cm</Top>
                       <Left>0.525cm</Left>
                       <Height>0.423cm</Height>
                       <Width>4.41cm</Width>
@@ -2430,7 +2143,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <Top>0cm</Top>
                       <Left>0.42cm</Left>
                       <Height>0.423cm</Height>
                       <Width>4.2cm</Width>
@@ -2618,7 +2330,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <Top>0cm</Top>
                       <Left>12.285cm</Left>
                       <Height>0.423cm</Height>
                       <Width>2.1cm</Width>
@@ -2641,7 +2352,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <Top>0cm</Top>
                       <Left>6.405cm</Left>
                       <Height>0.423cm</Height>
                       <Width>2.52cm</Width>
@@ -2689,7 +2399,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <Top>0cm</Top>
                       <Left>0.315cm</Left>
                       <Height>0.423cm</Height>
                       <Width>2.73cm</Width>
@@ -2716,7 +2425,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <Top>0cm</Top>
                       <Left>3.255cm</Left>
                       <Height>0.423cm</Height>
                       <Width>3.15cm</Width>
@@ -2770,7 +2478,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <Top>0cm</Top>
                       <Left>14.385cm</Left>
                       <Height>0.423cm</Height>
                       <Width>4.62cm</Width>
@@ -2797,7 +2504,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <Top>0cm</Top>
                       <Left>8.925cm</Left>
                       <Height>0.423cm</Height>
                       <Width>2.73cm</Width>
@@ -2841,8 +2547,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                 </Rectangle>
               </ReportItems>
               <KeepTogether>true</KeepTogether>
-              <Top>0cm</Top>
-              <Left>0cm</Left>
               <Height>6.768cm</Height>
               <Width>19.12315cm</Width>
               <Style>
@@ -2877,8 +2581,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
-              <Left>0cm</Left>
               <Height>0.423cm</Height>
               <Width>1.47cm</Width>
               <Style>
@@ -2907,7 +2609,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Left>1.47cm</Left>
               <Height>0.423cm</Height>
               <Width>1.05cm</Width>
@@ -2934,7 +2635,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Left>2.73cm</Left>
               <Height>0.423cm</Height>
               <Width>8.19cm</Width>
@@ -2966,7 +2666,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                 </Paragraph>
               </Paragraphs>
               <Top>0.423cm</Top>
-              <Left>0cm</Left>
               <Height>0.423cm</Height>
               <Width>2.52cm</Width>
               <ZIndex>3</ZIndex>
@@ -3027,7 +2726,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                 </Paragraph>
               </Paragraphs>
               <Top>1.02239cm</Top>
-              <Left>0cm</Left>
               <Height>0.423cm</Height>
               <Width>2.52cm</Width>
               <ZIndex>5</ZIndex>
@@ -3088,7 +2786,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                 </Paragraph>
               </Paragraphs>
               <Top>1.44539cm</Top>
-              <Left>0cm</Left>
               <Height>0.423cm</Height>
               <Width>2.52cm</Width>
               <ZIndex>7</ZIndex>
@@ -3179,7 +2876,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Left>13.23cm</Left>
               <Height>0.423cm</Height>
               <Width>2.52cm</Width>
@@ -3239,7 +2935,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Left>15.96cm</Left>
               <Height>0.423cm</Height>
               <Width>2.52cm</Width>
@@ -3326,8 +3021,6 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
         <InteractiveHeight>11in</InteractiveHeight>
         <InteractiveWidth>8.5in</InteractiveWidth>
         <LeftMargin>1.3cm</LeftMargin>
-        <RightMargin>0cm</RightMargin>
-        <TopMargin>0cm</TopMargin>
         <BottomMargin>0.7cm</BottomMargin>
         <ColumnSpacing>1.27cm</ColumnSpacing>
         <Style />

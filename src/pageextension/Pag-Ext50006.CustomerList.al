@@ -275,34 +275,34 @@ pageextension 50006 "PWD CustomerList" extends "Customer List"
                 }
             }
         }
-        modify(SalesHistSelltoFactBox)
-        {
-            Editable = false;
-        }
-        modify(SalesHistBilltoFactBox)
-        {
-            Editable = false;
-        }
-        modify(CustomerStatisticsFactBox)
-        {
-            Editable = false;
-        }
-        modify(CustomerDetailsFactBox)
-        {
-            Editable = false;
-        }
-        modify(Control1907829707)
-        {
-            Editable = false;
-        }
-        modify(Control1902613707)
-        {
-            Editable = false;
-        }
-        modify(Control1905767507)
-        {
-            Editable = false;
-        }
+        // modify(SalesHistSelltoFactBox)
+        // {
+        //     Editable = false;
+        // }
+        // modify(SalesHistBilltoFactBox)
+        // {
+        //     Editable = false;
+        // }
+        // modify(CustomerStatisticsFactBox)
+        // {
+        //     Editable = false;
+        // }
+        // modify(CustomerDetailsFactBox)
+        // {
+        //     Editable = false;
+        // }
+        // modify(Control1907829707)
+        // {
+        //     Editable = false;
+        // }
+        // modify(Control1902613707)
+        // {
+        //     Editable = false;
+        // }
+        // modify(Control1905767507)
+        // {
+        //     Editable = false;
+        // }
     }
     var
         TxtGAddressList: Text[1024];
