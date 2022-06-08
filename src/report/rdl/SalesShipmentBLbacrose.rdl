@@ -3635,6 +3635,33 @@ End Function
         <Field Name="FinLigne">
           <DataField>FinLigne</DataField>
         </Field>
+        <Field Name="CodeDEpotEntete">
+          <DataField>CodeDEpotEntete</DataField>
+        </Field>
+        <Field Name="CodeSeaFrance">
+          <DataField>CodeSeaFrance</DataField>
+        </Field>
+        <Field Name="CodeSommier">
+          <DataField>CodeSommier</DataField>
+        </Field>
+        <Field Name="NumDSA">
+          <DataField>NumDSA</DataField>
+        </Field>
+        <Field Name="ShowCustAddr">
+          <DataField>ShowCustAddr</DataField>
+        </Field>
+        <Field Name="QtéAlcoolTotal">
+          <DataField>QtéAlcoolTotal</DataField>
+        </Field>
+        <Field Name="QtéAlcoolTotalFormat">
+          <DataField>QtéAlcoolTotalFormat</DataField>
+        </Field>
+        <Field Name="QtéTabacTotal">
+          <DataField>QtéTabacTotal</DataField>
+        </Field>
+        <Field Name="QtéTabacTotalFormat">
+          <DataField>QtéTabacTotalFormat</DataField>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>

@@ -121,8 +121,12 @@ tableextension 60014 "PWD PurchaseLine" extends "Purchase Line"
         }
         key(Key50002; "Line No.")
         {
-        }
+        }        
         key(Key50003; "Document Type", "Special Order Sales No.", "Special Order Sales Line No.")
+        {
+            SumIndexFields = Quantity;
+        }
+        key(key50004;"Document Type","Document No.","Line No.")
         {
             SumIndexFields = Quantity;
         }

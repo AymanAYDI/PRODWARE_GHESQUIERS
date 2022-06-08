@@ -303,11 +303,11 @@ page 50026 "PWD Archived Purchase Order"
                     ApplicationArea = all;
                     Caption = 'Dimensions';
                     Image = Dimensions;
-                    //ToDo
-                    /*
-                    RunObject = Page "Document Dimensions Archive";
-                    RunPageLink = "Table ID" = CONST(38), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0), "Doc. No. Occurrence" = FIELD("Doc. No. Occurrence"), "Version No." = FIELD("Version No.");
-                */
+                    trigger OnAction()
+                    begin
+                        Rec.ShowDimensions();
+                        CurrPage.SaveRecord();
+                    end;
                 }
             }
             group("<Action122>")
@@ -318,11 +318,11 @@ page 50026 "PWD Archived Purchase Order"
                     ApplicationArea = all;
                     Caption = 'Dimensions';
                     Image = Dimensions;
-                    //ToDo
-                    /*
-                                        RunObject = Page "Document Dimensions Archive";
-                                        RunPageLink = "Table ID" = CONST(38), "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No."), "Line No." = CONST(0), "Doc. No. Occurrence" = FIELD("Doc. No. Occurrence"), "Version No." = FIELD("Version No.");
-                                    */
+                    trigger OnAction()
+                    begin
+                        Rec.ShowDimensions();
+                        CurrPage.SaveRecord();
+                    end;
                 }
             }
         }

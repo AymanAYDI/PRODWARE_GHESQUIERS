@@ -62,12 +62,11 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 ApplicationArea = All;
                 trigger OnValidate()
                 begin
-                    //ToDo
-                    /*
-                                        Memberof.SETRANGE(Memberof."User ID", USERID);
-                                        Memberof.SETRANGE(Memberof."Role ID", CstG002);
-                                        IF NOT Memberof.FIND('-') THEN
-                                            ERROR(cstG004);*/
+                    //TODO
+                    AccessControl.SETRANGE(AccessControl."User Security ID", UserSecurityId());
+                    AccessControl.SETRANGE(AccessControl."Role ID", CstG002);
+                    IF NOT AccessControl.FindFirst() THEN
+                        ERROR(cstG004);
                 end;
             }
             field("PWD DateLastPurchR"; DateLastPurchR)
@@ -253,7 +252,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 BEGIN
                     IF Rec."PWD Preparation in process" = FALSE THEN MESSAGE(cstG004);
                     CurrPage.SETSELECTIONFILTER(SalesHeader);
-                    //ToDo
+                    //TODO
                     //REPORT.RUN(REPORT::"Picking List Unit Price Null", TRUE, TRUE, SalesHeader);
                     REPORT.RUN(REPORT::"Picking List", TRUE, TRUE, SalesHeader);
                 END;
@@ -483,7 +482,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                     Image = ItemAvailability;
                     Trigger OnAction()
                     BEGIN
-                        //ToDo
+                        //TODO
                         //CurrPage.SalesLines.Page.ItemAvailability(2);
                     END;
                 }
@@ -500,18 +499,18 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
     BEGIN
         /* Member.SETRANGE("User ID",USERID);
          Member.SETRANGE("Role ID",'DIRECTION');
-         IF NOT Member.FIND('-') THEN BEGIN
+         IF NOT Member.FindFist() THEN BEGIN
             //Ctrl des lignes
             SalesLineCtrl.SETRANGE("Document Type","Document Type");
             SalesLineCtrl.SETRANGE("Document No.","No.");
             SalesLineCtrl.SETRANGE(Type,SalesLineCtrl.Type::Item);
             SalesLineCtrl.SETRANGE("Unit Price",0);
-            IF SalesLineCtrl.FIND('-') THEN REPEAT
+            IF SalesLineCtrl.FindFirst() THEN REPEAT
               IF (Location.GET(SalesLineCtrl."Location Code")) AND(Location."Controle du prix plancher") THEN
                ERROR(cstG005);
             UNTIL SalesLineCtrl.NEXT=0;
             SalesLineCtrl.SETRANGE("Unit Price");
-            IF SalesLineCtrl.FIND('-') THEN BEGIN
+            IF SalesLineCtrl.FindSet() THEN BEGIN
                REPEAT
 
                   //*** Controle prix unitaire > prix plancher de l'article
@@ -558,7 +557,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
         PurchRRec.RESET();
         PurchRRec.SETCURRENTKEY("Order No.", "Document Date");
         PurchRRec.SETRANGE("Order No.", Rec."No.");
-        IF PurchRRec.FIND('-') THEN
+        IF PurchRRec.FindFirst() THEN
             DateLastPurchR := FORMAT(PurchRRec."Document Date")
         ELSE
             DateLastPurchR := '';
@@ -569,7 +568,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
         PurchRRec.RESET();
         PurchRRec.SETCURRENTKEY(PurchRRec."Order No.", PurchRRec."Document Date");
         PurchRRec.SETRANGE(PurchRRec."Order No.", Rec."No.");
-        IF PurchRRec.FIND('-') THEN
+        IF PurchRRec.FindFirst() THEN
             DateLastPurchR := FORMAT(PurchRRec."Document Date")
         ELSE
             DateLastPurchR := '';
@@ -581,8 +580,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
     END;
 
     var
-        //ToDo
-        //Memberof: Record 2000000003;
+        AccessControl: Record "Access Control";
         SalesHeader: Record "Sales Header";
         PurchRRec: Record "Sales Shipment Header";
         CreatePurchQuote: Report "Create Purchase Quote r -TrB";
@@ -590,4 +588,5 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
         UserMgt: Codeunit "User Setup Management";
         cstG004: Label 'Vous n''avez pas les droits pour modifier ce champ !';
         DateLastPurchR: Text[30];
+        CstG002: Label 'SUPER';
 }

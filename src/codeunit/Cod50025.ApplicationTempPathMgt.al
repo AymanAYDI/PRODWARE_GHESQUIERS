@@ -13,7 +13,7 @@ codeunit 50025 "PWD Application Temp Path Mgt."
 
     procedure GetClientTempPath(): Text[1024]
     begin
-        //ToDo
+        //TODO
         /*
         IF ClientTempPath = '' THEN
             ClientTempPath := ThreeTierMgt.Path(ThreeTierMgt.ClientTempFileName('', ''));
@@ -23,7 +23,7 @@ codeunit 50025 "PWD Application Temp Path Mgt."
 
     procedure GetServerTempPath(): Text[1024]
     begin
-        //ToDo
+        //TODO
         /*
         IF ServerTempPath = '' THEN
             ServerTempPath := ThreeTierMgt.Path(ThreeTierMgt.ServerTempFileName('', ''));

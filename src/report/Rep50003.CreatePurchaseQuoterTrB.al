@@ -27,7 +27,7 @@ report 50003 "Create Purchase Quote r -TrB"
                             DocType := "PWD Appeal for Tenders"."Document Type".AsInteger();
                             DocNo := "PWD Appeal for Tenders"."Document No.";
                             VendorNo := "PWD Appeal for Tenders"."Vendor No.";
-                            //ToDo Var Not Used 
+                            //TODO Var Not Used 
                             //ReqRecDate := "PWD Appeal for Tenders"."Requested Receipt Date";
                         END;
                         IF NOT SalesLine.GET("Document Type", "Document No.", "Line No. document") THEN
@@ -39,7 +39,7 @@ report 50003 "Create Purchase Quote r -TrB"
                     AppTenders.SETRANGE("Document No.", "PWD Appeal for Tenders"."Document No.");
                     AppTenders.SETRANGE("Line No. document", "PWD Appeal for Tenders"."Line No. document");
                     AppTenders.SETRANGE(Detail, TRUE);
-                    IF NOT AppTenders.FIND('-') THEN BEGIN
+                    IF NOT AppTenders.FindFirst() THEN BEGIN
                         AppTenders.SETRANGE(Detail, FALSE);
                         AppTenders.DELETEALL();
                     END;

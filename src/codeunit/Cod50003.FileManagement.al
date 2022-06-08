@@ -2,23 +2,37 @@ codeunit 50003 "PWD File Management"
 {
     procedure ClientTempFileName(FileExtension: Text) ClientFileName: Text
     var
+        TempFile: File;
         ClientTempPath: Text;
     begin
         if not IsLocalFileSystemAccessible() then
             Error(LocalFileSystemNotAccessibleErr);
 
         // Returns the pseudo uniquely generated name of a non existing file in the client temp directory
-        //ToDo
-        /*
-        TempFile.CreateTempFile;
+        //TODO
+        /*TempFile.CreateTempFile();
         ClientFileName := CreateFileNameWithExtension(TempFile.Name, FileExtension);
-        TempFile.Close;
+
         TempFile.Create(ClientFileName);
         TempFile.Close;
         ClientTempPath := GetDirectoryName(DownloadTempFile(ClientFileName));
         if Erase(ClientFileName) then;
-        ClientFileHelper.Delete(ClientTempPath + '\' + PathHelper.GetFileName(ClientFileName));*/
+        ClientFileHelper.Delete(ClientTempPath + '\' + PathHelper.GetFileName(ClientFileName));
         ClientFileName := CreateFileNameWithExtension(ClientTempPath + '\' + Format(CreateGuid()), FileExtension);
+        */
+    end;
+
+    procedure Path(Filename: Text[1024]) Path: Text[1024]
+    begin
+        Filename := DELCHR(Filename, '<');
+        Path := Filename;
+        WHILE STRPOS(Filename, '\') <> 0 DO BEGIN
+            Filename := COPYSTR(Filename, STRPOS(Filename, '\') + 1);
+        END;
+        IF STRLEN(Path) > STRLEN(Filename) THEN
+            EXIT(COPYSTR(Path, 1, STRLEN(Path) - STRLEN(Filename)))
+        ELSE
+            EXIT('');
     end;
 
     procedure CreateFileNameWithExtension(FileNameWithoutExtension: Text; Extension: Text) FileName: Text
@@ -45,7 +59,7 @@ codeunit 50003 "PWD File Management"
             exit(FileName);
 
         FileName := DelChr(FileName, '<');
-        //ToDo
+        //TODO
         //exit(PathHelper.GetDirectoryName(FileName));
     end;
 
@@ -54,7 +68,7 @@ codeunit 50003 "PWD File Management"
         FileName: Text;
     begin
         FileName := ServerFileName;
-        //ToDo
+        //TODO
         /*
         Path := Magicpath;
         Download(ServerFileName, '', Path, AllFilesDescriptionTxt, FileName);*/

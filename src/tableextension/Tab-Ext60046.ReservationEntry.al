@@ -36,6 +36,10 @@ tableextension 60046 "PWD ReservationEntry" extends "Reservation Entry"
         {
             SumIndexFields = "Quantity (Base)";
         }
+        key(Key50002; "Source Type", "Source Subtype", "Source ID", "Source Ref. No.", "Reservation Status")
+        {
+            SumIndexFields = Quantity;
+        }
     }
     //Unsupported feature: Code Modification on "SetPointer(PROCEDURE 2)".
 

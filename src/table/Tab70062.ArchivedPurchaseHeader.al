@@ -17,7 +17,7 @@ table 70062 "PWD Archived Purchase Header"
         }
         field(2; "Buy-from Vendor No."; Code[20])
         {
-            Caption = 'Buy-from Vendor No.'; //TODO Récuperer traduction FRA=N° preneur d'ordre
+            Caption = 'Buy-from Vendor No.';
             TableRelation = Vendor;
             DataClassification = CustomerContent;
         }
@@ -374,33 +374,33 @@ table 70062 "PWD Archived Purchase Header"
         }
         field(78; "VAT Country Code"; Code[10])
         {
-            Caption = 'VAT Country Code'; //TODO Récuperer traduction
+            Caption = 'VAT Country Code';
             TableRelation = "Country/Region";
             DataClassification = CustomerContent;
         }
         field(79; "Buy-from Vendor Name"; Text[100])
         {
             Caption = 'Buy-from Vendor Name';
-            //TODO Récuperer traduction            DataClassification = CustomerContent;
+            DataClassification = CustomerContent;
         }
         field(80; "Buy-from Vendor Name 2"; Text[50])
         {
             Caption = 'Buy-from Vendor Name 2';
-            //TODO Récuperer traduction            DataClassification = CustomerContent;
+            DataClassification = CustomerContent;
         }
         field(81; "Buy-from Address"; Text[100])
         {
             Caption = 'Buy-from Address';
-            //TODO Récuperer traduction            DataClassification = CustomerContent;
+            DataClassification = CustomerContent;
         }
         field(82; "Buy-from Address 2"; Text[50])
         {
             Caption = 'Buy-from Address 2';
-            //TODO Récuperer traduction            DataClassification = CustomerContent;
+            DataClassification = CustomerContent;
         }
         field(83; "Buy-from City"; Text[30])
         {
-            Caption = 'Buy-from City'; //TODO Récuperer traduction
+            Caption = 'Buy-from City';
             TableRelation = "Post Code".City;
             //This property is currently not supported
             //TestTableRelation = false;
@@ -410,7 +410,7 @@ table 70062 "PWD Archived Purchase Header"
         field(84; "Buy-from Contact"; Text[100])
         {
             Caption = 'Buy-from Contact';
-            //TODO Récuperer traduction            DataClassification = CustomerContent;
+            DataClassification = CustomerContent;
         }
         field(85; "Pay-to Post Code"; Code[20])
         {
@@ -429,13 +429,13 @@ table 70062 "PWD Archived Purchase Header"
         }
         field(87; "Pay-to Country Code"; Code[10])
         {
-            Caption = 'Pay-to Country Code'; //TODO Récuperer traduction
+            Caption = 'Pay-to Country Code';
             TableRelation = "Country/Region";
             DataClassification = CustomerContent;
         }
         field(88; "Buy-from Post Code"; Code[20])
         {
-            Caption = 'Buy-from Post Code'; //TODO Récuperer traduction
+            Caption = 'Buy-from Post Code';
             TableRelation = "Post Code";
             //This property is currently not supported
             //TestTableRelation = false;
@@ -446,11 +446,11 @@ table 70062 "PWD Archived Purchase Header"
         {
             CaptionClass = '5,1,' + "Buy-from Country Code";
             Caption = 'Buy-from County';
-            //TODO Récuperer traduction            DataClassification = CustomerContent;
+            DataClassification = CustomerContent;
         }
         field(90; "Buy-from Country Code"; Code[10])
         {
-            Caption = 'Buy-from Country Code'; //TODO Récuperer traduction
+            Caption = 'Buy-from Country Code';
             TableRelation = "Country/Region";
             DataClassification = CustomerContent;
         }
@@ -471,7 +471,7 @@ table 70062 "PWD Archived Purchase Header"
         }
         field(93; "Ship-to Country Code"; Code[10])
         {
-            Caption = 'Ship-to Country Code'; //TODO Récuperer traduction
+            Caption = 'Ship-to Country Code';
             TableRelation = "Country/Region";
             DataClassification = CustomerContent;
         }
@@ -570,7 +570,7 @@ table 70062 "PWD Archived Purchase Header"
         }
         field(120; Status; Option)
         {
-            Caption = 'Status'; //TODO Récuperer traduction
+            Caption = 'Status';
             OptionCaption = 'Open,Released,Pending Approval,Pending Prepayment';
             OptionMembers = Open,Released,"Pending Approval","Pending Prepayment";
             DataClassification = CustomerContent;
@@ -678,7 +678,7 @@ table 70062 "PWD Archived Purchase Header"
         field(5753; "Posting from Whse. Ref."; Integer)
         {
             Caption = 'Posting from Whse. Ref.';
-            //TODO Récuperer traduction            DataClassification = CustomerContent;
+            DataClassification = CustomerContent;
         }
         field(5754; "Location Filter"; Code[10])
         {

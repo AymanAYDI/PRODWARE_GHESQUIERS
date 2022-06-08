@@ -39,6 +39,7 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
             field("PWD DateLastPurchR"; DateLastPurchR)
             {
                 ApplicationArea = All;
+                Caption = 'Date of last purchase receipt';
             }
         }
         addafter("Prepayment")
@@ -101,7 +102,7 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
             {
                 applicationArea = all;
                 SubPageLink = "Document Type" = FIELD("Document Type")
-                            //ToDo
+                            //TODO
                             //,"No." = FIELD("Document No.")
                             ;
             }
@@ -218,7 +219,7 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
         PurchRRec.RESET();
         PurchRRec.SETCURRENTKEY("Order No.", "Document Date");
         PurchRRec.SETRANGE("Order No.", Rec."No.");
-        IF PurchRRec.FIND('-') THEN
+        IF PurchRRec.FindFirst() THEN
             DateLastPurchR := FORMAT(PurchRRec."Document Date")
         ELSE
             DateLastPurchR := '';
@@ -229,7 +230,7 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
         PurchRRec.RESET();
         PurchRRec.SETCURRENTKEY("Order No.", "Document Date");
         PurchRRec.SETRANGE("Order No.", Rec."No.");
-        IF PurchRRec.FIND('-') THEN
+        IF PurchRRec.FindFirst() THEN
             DateLastPurchR := FORMAT(PurchRRec."Document Date")
         ELSE
             DateLastPurchR := '';

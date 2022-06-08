@@ -293,7 +293,7 @@ report 50103 "Sales - Shipment BL bac blanc"
                             ItemEntryRelation.SETRANGE("Source Batch Name", '');
                             ItemEntryRelation.SETRANGE("Source Prod. Order Line", 0);
                             ItemEntryRelation.SETRANGE("Source Ref. No.", "Line No.");
-                            IF ItemEntryRelation.FIND('-') THEN
+                            IF ItemEntryRelation.FindSet() THEN
                                 REPEAT
                                     ItemLedgEntry.GET(ItemEntryRelation."Item Entry No.");
                                     TextDLC := 'DLC : ' + FORMAT(ItemLedgEntry."Expiration Date");
@@ -371,7 +371,7 @@ report 50103 "Sales - Shipment BL bac blanc"
                     ELSE
                         ReferenceText := FIELDCAPTION("Your Reference");
                     FormatAddr.SalesShptShipTo(ShipToAddr, "Sales Shipment Header");
-                    //ToDo verifier
+                    //TODO verifier
                     FormatAddr.SalesShptBillTo(CustAddr, ShipToAddr, "Sales Shipment Header");
                     ShowCustAddr := "Bill-to Customer No." <> "Sell-to Customer No.";
                     FOR i := 1 TO ARRAYLEN(CustAddr) DO
@@ -392,7 +392,7 @@ report 50103 "Sales - Shipment BL bac blanc"
                     SalesShipLine.SETFILTER(Quantity, '<>0');
                     NbLigneTotal := SalesShipLine.COUNT;
                     SalesShipLine.SETRANGE(Type);
-                    IF SalesShipLine.FIND('-') THEN
+                    IF SalesShipLine.FindFirst() THEN
                         CodeDEpotEntete := SalesShipLine."Location Code"
                     ELSE
                         CodeDEpotEntete := '';
@@ -405,7 +405,7 @@ report 50103 "Sales - Shipment BL bac blanc"
                     SalesShipLine.SETRANGE(Type, SalesShipLine.Type::Item);
                     SalesShipLine.SETFILTER("Location Code", '<>%1', '');
                     SalesShipLine.SETFILTER(Quantity, '<>0');
-                    SalesShipLine.FIND('-');
+                    SalesShipLine.FindSet();
                     REPEAT
                         Item.GET(SalesShipLine."No.");
                         IF ItemFamily.GET(ItemFamily.Type::Item, ItemFamily."Group Type"::Family, '', Item."Pwd Family") THEN BEGIN
@@ -435,7 +435,7 @@ report 50103 "Sales - Shipment BL bac blanc"
                     SalesShipmentLine2.SETCURRENTKEY("Document No.", "Location Code", "PWD Shelf/Bin No.");
                     SalesShipmentLine2.SETFILTER("Location Code", '<>%1|%2|%3', 'CML', '1', '');
                     SalesShipmentLine2.SETFILTER(Quantity, '<>0');
-                    IF SalesShipmentLine2.FIND('-') THEN
+                    IF SalesShipmentLine2.FindSet() THEN
                         REPEAT
                             IF ((SalesShipmentLine2."Location Code" <> LastLocation) AND
                                (SalesShipmentLine2."Location Code" <> 'CML') AND

@@ -33,7 +33,7 @@ codeunit 50000 "PWD Customs Sales Doc WordMngt"
          Text030: Label 'Formal Salutation';
          Text031: Label 'Informal Salutation';
 
- //ToDo
+ //TODO
      procedure CreateWordAttachment(WordCaption: Text[260]; AttchmentNo: Code[10]) NewAttachNo: Code[10]
      var
          Attachment: Record "PWD Customs Documents Template";
@@ -145,7 +145,7 @@ codeunit 50000 "PWD Customs Sales Doc WordMngt"
              WordHided := TRUE;
          END;
          Window.UPDATE(6, Text006);
-         IF SalesLine.FIND('-') THEN
+         IF SalesLine.FindSet() THEN
              REPEAT
                  ExecuteMerge(wrdApp, SalesLine, Attachement, TemplateCode);
              UNTIL SalesLine.NEXT() = 0;

@@ -298,7 +298,7 @@ report 50025 "Sales - Shipment BL bac rose"
                             ItemEntryRelation.SETRANGE("Source Batch Name", '');
                             ItemEntryRelation.SETRANGE("Source Prod. Order Line", 0);
                             ItemEntryRelation.SETRANGE("Source Ref. No.", "Line No.");
-                            IF ItemEntryRelation.FIND('-') THEN
+                            IF ItemEntryRelation.FindSet() THEN
                                 REPEAT
                                     ItemLedgEntry.GET(ItemEntryRelation."Item Entry No.");
                                     TextDLC := 'DLC : ' + FORMAT(ItemLedgEntry."Expiration Date");
@@ -413,7 +413,7 @@ report 50025 "Sales - Shipment BL bac rose"
                     SalesShipLine.SETRANGE(Type, SalesShipLine.Type::Item);
                     SalesShipLine.SETFILTER("Location Code", '<>%1', '');
                     SalesShipLine.SETFILTER(Quantity, '<>0');
-                    SalesShipLine.FIND('-');
+                    SalesShipLine.FindSet();
                     REPEAT
                         Item.GET(SalesShipLine."No.");
                         IF ItemFamily.GET(ItemFamily.Type::Item, ItemFamily."Group Type"::Family, '', Item."PWD Family") THEN BEGIN
@@ -443,7 +443,7 @@ report 50025 "Sales - Shipment BL bac rose"
                     SalesShipmentLine2.SETCURRENTKEY("Document No.", "Location Code", "PWD Shelf/Bin No.");
                     SalesShipmentLine2.SETFILTER("Location Code", '<>%1|%2|%3', 'CML', '1', '');
                     SalesShipmentLine2.SETFILTER(Quantity, '<>0');
-                    IF SalesShipmentLine2.FIND('-') THEN
+                    IF SalesShipmentLine2.FindSet() THEN
                         REPEAT
                             IF ((SalesShipmentLine2."Location Code" <> LastLocation) AND
                                (SalesShipmentLine2."Location Code" <> 'CML') AND
@@ -517,8 +517,8 @@ report 50025 "Sales - Shipment BL bac rose"
     begin
         IF NOT CurrReport.USEREQUESTPAGE THEN
             InitLogInteraction();
-        //ToDo var inused
-        DepotSpecial := '8';
+        //TODO var inused
+        //DepotSpecial := '8';
 
         If UserSetup.Get() then
             UserSetup.CALCFIELDS("PWD Signing");
@@ -548,7 +548,7 @@ report 50025 "Sales - Shipment BL bac rose"
         NewBinNo: Boolean;
         PrintMag: boolean;
         ShowCustAddr: Boolean;
-        DepotSpecial: Code[10];
+        //DepotSpecial: Code[10];
         DesAFD: Code[10];
         LastBinNo: Code[10];
         LastLocation: Code[10];

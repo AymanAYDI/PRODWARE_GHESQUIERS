@@ -231,7 +231,7 @@ report 50112 "PWD Export COALA"
 
     local procedure MakeExcelDataHeader()
     begin
-        //ToDo
+        //TODO
         /*
         TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Document Date"), FALSE, '', FALSE, FALSE, TRUE, '');
         TempExcelBuf.AddColumn(FORMAT(Text000), FALSE, '', FALSE, FALSE, TRUE, '');
@@ -251,7 +251,7 @@ report 50112 "PWD Export COALA"
     begin
         BlankFiller := PADSTR(' ', MAXSTRLEN(BlankFiller), ' ');
         TempExcelBuf.NewRow();
-        //ToDo
+        //TODO
         /*
         TempExcelBuf.AddColumn(
           "PWD Export COALA"."Document Date", FALSE, '', FALSE,
@@ -298,7 +298,7 @@ report 50112 "PWD Export COALA"
 
     procedure CreateExcelbook()
     begin
-        //ToDo
+        //TODO
         /*TempExcelBuf.CreateBook;
         TempExcelBuf.CreateSheet(Text002, Text001, COMPANYNAME, USERID);
         TempExcelBuf.GiveUserControl;*/

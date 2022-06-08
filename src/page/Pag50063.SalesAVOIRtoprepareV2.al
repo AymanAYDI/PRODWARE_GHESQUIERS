@@ -77,7 +77,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
                 PromotedCategory = Process;
                 ApplicationArea = All;
                 Image = UpdateUnitCost;
-
+                PromotedOnly = true;
                 trigger OnAction()
                 begin
                     SalesHeader.RESET();
@@ -158,7 +158,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
         IF SalesHeader.COUNT = 0 THEN
             ERROR(Text1000000010);
 
-        IF SalesHeader.FIND('-') THEN BEGIN
+        IF SalesHeader.FindFirst() THEN BEGIN
             IF SalesHeader."PWD Preparation in process" = FALSE THEN BEGIN
                 CLEAR(ReleaseSalesDoc);
                 PWDSetGetFunctions.InitRelease(TRUE);
@@ -170,7 +170,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
                 SalesLine.SETRANGE("PWD Order Trading brand", FALSE);
                 SalesLine.SETRANGE("PWD Trading Brand", FALSE);
                 SalesLine.SETRANGE("PWD Preparation in Process", FALSE);
-                IF SalesLine.FIND('-') THEN
+                IF SalesLine.FindSet() THEN
                     REPEAT
                         BreakdownSalesLineQty(SalesLine."Qty. to Ship (Base)");
                     UNTIL SalesLine.NEXT() = 0;
@@ -180,7 +180,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
                 SalesLine.SETRANGE(SalesLine."Document No.", SalesHeader."No.");
                 SalesLine.SETRANGE(SalesLine."PWD Preparation in Process", TRUE);
                 SalesLine.SETRANGE("PWD Trading Brand", FALSE);
-                IF SalesLine.FIND('-') THEN
+                IF SalesLine.FindSet() THEN
                     REPEAT
                         Item.GET(SalesLine."No.");
                         IF (Item."PWD Trading Brand" = FALSE) AND (Item."PWD Butchery" = FALSE) AND (SalesLine."PWD Countermark Location" = FALSE) THEN
@@ -289,7 +289,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
         ItemSalesLine.SETRANGE("No.", SalesLine."No.");
         ItemSalesLine.SETRANGE("Date Filter", 0D, SalesLine."Shipment Date");
         ItemSalesLine.SETRANGE("Location Filter", RecLocPriority."PWD Location code");
-        IF ItemSalesLine.FIND('-') THEN
+        IF ItemSalesLine.FindFirst() THEN
             ItemSalesLine.CALCFIELDS("Qty. on Sales Order");
         Item.RESET();
         Item.SETRANGE("No.", SalesLine."No.");
@@ -332,8 +332,8 @@ page 50063 "PWD Sales AVOIR to prepare V2"
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Lot No.", '<>%1', '');
         ItemLedgerEntry.SETRANGE(ItemLedgerEntry.Positive, TRUE);
         ItemLedgerEntry.SETFILTER(ItemLedgerEntry."Remaining Quantity", '<>%1', 0);
-        IF ItemLedgerEntry.FIND('-') THEN BEGIN
-            IF ReservEntryNo.FIND('+') THEN
+        IF ItemLedgerEntry.FIND() THEN BEGIN
+            IF ReservEntryNo.FindLast() THEN
                 EntryNo := ReservEntryNo."Entry No."
             ELSE
                 EntryNo := 0;
@@ -387,7 +387,7 @@ page 50063 "PWD Sales AVOIR to prepare V2"
         TempNewSalesLine.MODIFY(TRUE);
 
         CLEAR(DimMgt);
-        //ToDo
+        //TODO
         /* DimMgt.InsertDocDim(
            DATABASE::"Sales Line", TempNewSalesLine."Document Type", TempNewSalesLine."Document No.", TempNewSalesLine."Line No.",
            TempNewSalesLine."Shortcut Dimension 1 Code", TempNewSalesLine."Shortcut Dimension 2 Code");*/
@@ -413,9 +413,9 @@ page 50063 "PWD Sales AVOIR to prepare V2"
         TempNewSalesLine.MODIFY(TRUE);
         CLEAR(DimMgt);
         //ToDo
-        /*DimMgt.InsertDocDim(
-          DATABASE::"Sales Line", TempNewSalesLine."Document Type", TempNewSalesLine."Document No.", TempNewSalesLine."Line No.",
-          TempNewSalesLine."Shortcut Dimension 1 Code", TempNewSalesLine."Shortcut Dimension 2 Code");*/
+        // DimMgt.InsertDocDim(
+        //   DATABASE::"Sales Line", TempNewSalesLine."Document Type", TempNewSalesLine."Document No.", TempNewSalesLine."Line No.",
+        //   TempNewSalesLine."Shortcut Dimension 1 Code", TempNewSalesLine."Shortcut Dimension 2 Code");
     end;
 
     local procedure NoOnFormat()

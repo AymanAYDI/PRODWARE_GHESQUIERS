@@ -32,7 +32,7 @@ report 50006 "Accept selected offers -TrB"
                             ERROR(Text1000000003, "Sales Line"."Document Type",
                                  "Sales Line"."Document No.", "Sales Line"."Line No.", "Sales Line"."No.");
                     END ELSE BEGIN
-                        PurchQuoteLine.FIND('-');
+                        PurchQuoteLine.FindFirst();
                         // C2A GTE
                         IF PurchQuoteLine."Currency Code" = '' THEN BEGIN
                             "Sales Line".VALIDATE("Unit Cost (LCY)", PurchQuoteLine."Direct Unit Cost");

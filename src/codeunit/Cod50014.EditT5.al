@@ -11,7 +11,7 @@ codeunit 50014 "PWD Edit T5"
         CustomsLine.SETRANGE("Document Type", CustomsLine."Document Type"::"S.Shipment");
         CustomsLine.SETRANGE("Document No.", Rec."No.");
         CustomsLine.SETRANGE("Customs Document Type", CustomsLine."Customs Document Type"::T5);
-        IF NOT CustomsLine.FIND('-') THEN BEGIN
+        IF NOT CustomsLine.FindFirst() THEN BEGIN
             CLEAR(Locationlist);
             CLEAR(CleRestitList);
             CLEAR(CustomsLine);
@@ -22,7 +22,7 @@ codeunit 50014 "PWD Edit T5"
             SalesShipmentLine.SETFILTER("Location Code", '3|5|6');
             SalesShipmentLine.SETFILTER("PWD Cle (restitution)", '<>%1', '');
             SalesShipmentLine.SETFILTER(Quantity, '<>0');
-            IF SalesShipmentLine.FIND('-') THEN
+            IF SalesShipmentLine.FindFirst() THEN
                 REPEAT
                     IF CurrentCleRest <> SalesShipmentLine."PWD Cle (restitution)" THEN BEGIN
                         i += 1;
@@ -30,7 +30,7 @@ codeunit 50014 "PWD Edit T5"
                         CleRestitList[i] := SalesShipmentLine."PWD Cle (restitution)";
                         CurrentCleRest := SalesShipmentLine."PWD Cle (restitution)";
                         CustomsLine.RESET();
-                        IF CustomsLine.FIND('+') THEN
+                        IF CustomsLine.FindLast() THEN
                             NextLineNo := CustomsLine."Entry No." + 1 ELSE
                             NextLineNo := 1;
                         IF CustomsLine.RECORDLEVELLOCKING THEN
@@ -58,7 +58,7 @@ codeunit 50014 "PWD Edit T5"
         SalesShipmentLine.SETFILTER("Location Code", '3|5|6');
         SalesShipmentLine.SETFILTER("PWD Cle (restitution)", '<>%1', '');
         SalesShipmentLine.SETFILTER(Quantity, '<>0');
-        IF SalesShipmentLine.FIND('-') THEN
+        IF SalesShipmentLine.FindSet() THEN
             REPEAT
                 IF CurrentCleRest <> SalesShipmentLine."PWD Cle (restitution)" THEN BEGIN
                     i += 1;
@@ -76,7 +76,7 @@ codeunit 50014 "PWD Edit T5"
             SalesShipmentLine.SETRANGE("Location Code", Locationlist[j]);
             SalesShipmentLine.SETRANGE("PWD Cle (restitution)", CleRestitList[j]);
             SalesShipmentLine.SETFILTER(Quantity, '<>0');
-            IF SalesShipmentLine.FIND('-') THEN BEGIN
+            IF SalesShipmentLine.FindFirst() THEN BEGIN
                 CLEAR(TotalGrossWeight);
                 CLEAR(TotalNetWeight);
                 CLEAR(TotalParcel);
@@ -93,7 +93,7 @@ codeunit 50014 "PWD Edit T5"
                 CustomsLine.SETRANGE("Customs Document Type", CustomsLine."Customs Document Type"::T5);
                 CustomsLine.SETRANGE("Location Code", Locationlist[j]);
                 CustomsLine.SETRANGE("Cle (restitution)", CleRestitList[j]);
-                IF CustomsLine.FIND('-') THEN BEGIN
+                IF CustomsLine.FindFirst() THEN BEGIN
                     CustomsLine."Gross Weight" := TotalGrossWeight;
                     CustomsLine."Net Weight" := TotalNetWeight;
                     CustomsLine."Parcel nb." := TotalParcel;
@@ -111,7 +111,7 @@ codeunit 50014 "PWD Edit T5"
             CustomsLine.MODIFYALL("Total Line", CustomsLine.COUNT);
             CustomsLine.CALCSUMS("Parcel nb.");
             CustomsLine.MODIFYALL("Total Parcel", CustomsLine."Parcel nb.");
-            IF CustomsLine.FIND('-') THEN
+            IF CustomsLine.FindSet() THEN
                 REPEAT
                     j += 1;
                     CustomsLine."Line No." := j;
@@ -150,7 +150,7 @@ codeunit 50014 "PWD Edit T5"
         CustomsLine.SETRANGE("Document Type", CustomsLine."Document Type"::"S.Shipment");
         CustomsLine.SETRANGE("Document No.", SalesShipHeader."No.");
         CustomsLine.SETRANGE("Customs Document Type", CustomsLine."Customs Document Type"::T5);
-        IF CustomsLine.FIND('-') THEN
+        IF CustomsLine.FindSet() THEN
             REPEAT
                 IF (LastLocationCode <> CustomsLine."Location Code") THEN BEGIN
                     LastLocationCode := CustomsLine."Location Code";

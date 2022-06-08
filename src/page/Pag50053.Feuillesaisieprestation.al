@@ -35,7 +35,7 @@ page 50053 "PWD Feuille saisie prestation"
             }
             field(VendorNo; VendorNo)
             {
-                Caption = 'Fournisseur';
+                Caption = 'Vendor No';
                 Editable = false;
                 ApplicationArea = All;
             }
@@ -43,10 +43,11 @@ page 50053 "PWD Feuille saisie prestation"
             {
                 Editable = false;
                 ApplicationArea = All;
+                Caption = 'Vendor Name';
             }
             field(TypePresta; TypePresta)
             {
-                Caption = 'Prestation';
+                Caption = 'Prestation Type';
                 Editable = false;
                 ApplicationArea = All;
             }
@@ -54,16 +55,18 @@ page 50053 "PWD Feuille saisie prestation"
             {
                 Editable = false;
                 ApplicationArea = All;
+                Caption = 'Prestation Name';
             }
             field(CustNo; CustNo)
             {
-                Caption = 'Client';
+                Caption = 'Customer';
                 Editable = false;
                 ApplicationArea = All;
             }
             field(CustName; CustName)
             {
                 Editable = false;
+                Caption = 'Customer Name';
                 ApplicationArea = All;
             }
             repeater(Control1)
@@ -356,6 +359,7 @@ page 50053 "PWD Feuille saisie prestation"
                 field("Field_PJ1"; PJ1)
                 {
                     ApplicationArea = All;
+                    Caption = 'PJ1';
 
                     trigger OnValidate()
                     begin
@@ -365,6 +369,7 @@ page 50053 "PWD Feuille saisie prestation"
                 field("Field_PJ2"; PJ2)
                 {
                     ApplicationArea = All;
+                    Caption = 'PJ2';
 
                     trigger OnValidate()
                     begin
@@ -374,6 +379,7 @@ page 50053 "PWD Feuille saisie prestation"
                 field("Field_PJ3"; PJ3)
                 {
                     ApplicationArea = All;
+                    Caption = 'PJ3';
 
                     trigger OnValidate()
                     begin
@@ -383,6 +389,7 @@ page 50053 "PWD Feuille saisie prestation"
                 field("Field_PJ4"; PJ4)
                 {
                     ApplicationArea = All;
+                    Caption = 'PJ4';
 
                     trigger OnValidate()
                     begin
@@ -403,12 +410,14 @@ page 50053 "PWD Feuille saisie prestation"
                 action("A&xe analytique")
                 {
                     Caption = 'Dimensions';
-                    RunObject = Page "Dimension Set Entries";
-                    //ToDo
-                    //RunPageLink = "Table ID" = CONST(83), "Journal Template Name" = FIELD("Journal Template Name"), "Journal Batch Name" = FIELD("Journal Batch Name"), "Journal Line No." = FIELD("Line No.");
                     ShortCutKey = 'Shift+Ctrl+D';
                     ApplicationArea = All;
                     Image = Dimensions;
+                    trigger OnAction()
+                    begin
+                        Rec.ShowDimensions();
+                        CurrPage.SaveRecord();
+                    end;
                 }
                 action("Lignes traçabilité")
                 {
@@ -457,9 +466,10 @@ page 50053 "PWD Feuille saisie prestation"
                         ApplicationArea = All;
 
                         trigger OnAction()
+                        var
+                            ItemAvailabilityFormsMgt: Codeunit "Item Availability Forms Mgt";
                         begin
-                            //ToDo
-                            //ItemAvailability(0);
+                            ItemAvailabilityFormsMgt.ShowItemAvailFromItemJnlLine(Rec, 0);
                         end;
                     }
                     action(Variante)
@@ -469,9 +479,10 @@ page 50053 "PWD Feuille saisie prestation"
                         Image = ItemVariant;
 
                         trigger OnAction()
+                        var
+                            ItemAvailabilityFormsMgt: Codeunit "Item Availability Forms Mgt";
                         begin
-                            //ToDo
-                            //ItemAvailability(1);
+                            ItemAvailabilityFormsMgt.ShowItemAvailFromItemJnlLine(Rec, 1);
                         end;
                     }
                     action(Magasin)
@@ -481,9 +492,10 @@ page 50053 "PWD Feuille saisie prestation"
                         ApplicationArea = All;
 
                         trigger OnAction()
+                        var
+                            ItemAvailabilityFormsMgt: Codeunit "Item Availability Forms Mgt";
                         begin
-                            //ToDo
-                            //ItemAvailability(2);
+                            ItemAvailabilityFormsMgt.ShowItemAvailFromItemJnlLine(Rec, 2);
                         end;
                     }
                     action(Emplacement)
@@ -493,9 +505,10 @@ page 50053 "PWD Feuille saisie prestation"
                         ApplicationArea = All;
 
                         trigger OnAction()
+                        var
+                            ItemAvailabilityFormsMgt: Codeunit "Item Availability Forms Mgt";
                         begin
-                            //ToDo
-                            //ItemAvailability(3);
+                            ItemAvailabilityFormsMgt.ShowItemAvailFromItemJnlLine(Rec, 3);
                         end;
                     }
                 }
@@ -554,7 +567,7 @@ page 50053 "PWD Feuille saisie prestation"
                     begin
                         CurrPage.SETSELECTIONFILTER(ItemJnlLine);
                         ItemJnlLine.SETRANGE("Line No.");
-                        //ToDo
+                        //TODO
                         //REPORT.RUNMODAL(REPORT::"Bon de commande prestation", TRUE, TRUE, ItemJnlLine);
                     end;
                 }
@@ -569,7 +582,7 @@ page 50053 "PWD Feuille saisie prestation"
                         InvSetup.GET();
                         ItemJnlBatch.GET(InvSetup."PWD Nom modele prestation", CurrentJnlBatchName);
                         ItemJnlBatch.SETRECFILTER();
-                        //ToDo
+                        //TODO
                         //REPORT.RUNMODAL(REPORT::"Avis placement prestation", TRUE, TRUE, ItemJnlBatch);
                     end;
                 }
@@ -636,7 +649,7 @@ page 50053 "PWD Feuille saisie prestation"
     trigger OnAfterGetRecord()
     begin
         Rec.ShowShortcutDimCode(ShortcutDimCode);
-        OnAfterGetCurrRecord();
+        Fct_OnAfterGetCurrRecord();
     end;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
@@ -650,7 +663,7 @@ page 50053 "PWD Feuille saisie prestation"
     begin
         Rec.SetUpNewLinePrest(xRec);
         CLEAR(ShortcutDimCode);
-        OnAfterGetCurrRecord();
+        Fct_OnAfterGetCurrRecord();
     end;
 
     trigger OnOpenPage()
@@ -724,14 +737,14 @@ page 50053 "PWD Feuille saisie prestation"
         ReservEntry: Record "Reservation Entry";
     begin
         FromItemJnlLine.COPY(Rec);
-        FromItemJnlLine.FIND('-');
+        FromItemJnlLine.FindSet();
         REPEAT
             CLEAR(ReservEntry);
             ReservEntry.SETCURRENTKEY("Source ID", "Source Batch Name", "Source Ref. No.");
             ReservEntry.SETRANGE("Source ID", FromItemJnlLine."Journal Template Name");
             ReservEntry.SETRANGE("Source Batch Name", FromItemJnlLine."Journal Batch Name");
             ReservEntry.SETRANGE("Source Ref. No.", FromItemJnlLine."Line No.");
-            IF (ReservEntry.FIND('-')) AND (FromItemJnlLine."Location Code" <> ReservEntry."Location Code") THEN BEGIN
+            IF (ReservEntry.FindFirst()) AND (FromItemJnlLine."Location Code" <> ReservEntry."Location Code") THEN BEGIN
                 ReservEntry."Location Code" := FromItemJnlLine."Location Code";
                 ReservEntry.MODIFY();
             END;
@@ -766,7 +779,7 @@ page 50053 "PWD Feuille saisie prestation"
         CurrPage.UPDATE(FALSE);
     end;
 
-    local procedure OnAfterGetCurrRecord()
+    local procedure Fct_OnAfterGetCurrRecord()
     begin
         xRec := Rec;
         ItemJnlMgt.GetItem(Rec."Item No.", ItemDescription);

@@ -6,7 +6,7 @@ codeunit 50022 "PWD Run douane1"
     begin
         CLEAR(SalesShipHeader);
         SalesShipHeader.SETFILTER("PWD Location Filter", '3');
-        //ToDo
+        //TODO
         //REPORT.RUNMODAL(REPORT::"Relevé des Sorties Export", TRUE, TRUE, SalesShipHeader);
     end;
 }

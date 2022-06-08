@@ -40,6 +40,7 @@ page 50049 "PWD Liste préstations"
                 RunObject = Page "PWD Tarifs préstation";
                 RunPageLink = "Code prestation" = FIELD(Code);
                 ApplicationArea = All;
+                PromotedOnly = true;                
             }
         }
     }
