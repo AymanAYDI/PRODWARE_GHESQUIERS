@@ -62,8 +62,15 @@ report 50039 "SEAF : relevé vtes à emporter"
             column(Sales_Shipment_Header_No_; "No.")
             {
             }
-
-
+            column(NetWeightTotal; NetWeightTotal)
+            {
+            }
+            column(AmountTotal; AmountTotal)
+            {
+            }
+            column(VAEAmount; VAEAmount)
+            {
+            }
             dataitem(VAE; "Sales Shipment Line")
             {
                 DataItemLink = "Document No." = FIELD("No.");
