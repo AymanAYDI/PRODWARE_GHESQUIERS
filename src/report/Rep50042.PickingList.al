@@ -195,6 +195,9 @@ report 50042 "PWD Picking List"
                 column(Sales_Line_Previous_Line_No; "PWD Previous Line No")
                 {
                 }
+                column(LastFieldNo; LastFieldNo)
+                {
+                }
                 dataitem("Reservation Entry"; "Reservation Entry")
                 {
                     DataItemLink = "Item No." = FIELD("No."), "Location Code" = FIELD("Location Code"), "Source Subtype" = FIELD("Document Type"), "Source ID" = FIELD("Document No."), "Source Ref. No." = FIELD("Line No.");
@@ -265,28 +268,13 @@ report 50042 "PWD Picking List"
                     column(Marquage__Caption; Marquage__CaptionLbl)
                     {
                     }
-                    column(EmptyStringCaption; EmptyStringCaptionLbl)
-                    {
-                    }
-                    column(EmptyStringCaption_Control1000000062; EmptyStringCaption_Control1000000062Lbl)
-                    {
-                    }
                     column(Date_Fabrication__Caption; Date_Fabrication__CaptionLbl)
-                    {
-                    }
-                    column(EmptyStringCaption_Control1000000064; EmptyStringCaption_Control1000000064Lbl)
                     {
                     }
                     column(DLC__Caption; DLC__CaptionLbl)
                     {
                     }
-                    column(EmptyStringCaption_Control1000000066; EmptyStringCaption_Control1000000066Lbl)
-                    {
-                    }
                     column("Abattoir_ou_atelier_de_découpe__Caption"; Abattoir_ou_atelier_de_découpe__CaptionLbl)
-                    {
-                    }
-                    column(EmptyStringCaption_Control1000000068; EmptyStringCaption_Control1000000068Lbl)
                     {
                     }
                     column(T__conservation__Caption; T__conservation__CaptionLbl)
@@ -329,15 +317,11 @@ report 50042 "PWD Picking List"
                 trigger OnAfterGetRecord()
                 begin
                     IF "Sales Line"."Location Code" <> CodeMagasinMem THEN BEGIN
-                        IF CallType.GET("Sales Header"."PWD Call Type") THEN BEGIN
-                            IF CallType."Pas de saut de page sur BP" = FALSE THEN BEGIN
-                                CurrReport.NEWPAGE();
+                        IF CallType.GET("Sales Header"."PWD Call Type") THEN
+                            IF CallType."Pas de saut de page sur BP" = FALSE THEN
+                                IntGNewPage := IntGNewPage + 1
+                            ELSE
                                 IntGNewPage := IntGNewPage + 1;
-                            END;
-                        END ELSE BEGIN
-                            CurrReport.NEWPAGE();
-                            IntGNewPage := IntGNewPage + 1;
-                        END;
                         CodeMagasinMem := "Sales Line"."Location Code";
                     END;
                     IF NOT SKU.GET("Sales Line"."Location Code", "Sales Line"."No.", "Sales Line"."Variant Code") THEN
@@ -346,14 +330,10 @@ report 50042 "PWD Picking List"
                         IF Item.GET("Sales Line"."No.") THEN BEGIN
                             IF (BinCode <> Item."Shelf No.") AND (LocationCode = "Sales Line"."Location Code") THEN BEGIN
                                 IF CallType.GET("Sales Header"."PWD Call Type") THEN BEGIN
-                                    IF CallType."Pas de saut de page sur BP" = FALSE THEN BEGIN
-                                        CurrReport.NEWPAGE();
+                                    IF CallType."Pas de saut de page sur BP" = FALSE THEN
                                         IntGNewPage := IntGNewPage + 1;
-                                    END;
-                                END ELSE BEGIN
-                                    CurrReport.NEWPAGE();
+                                END ELSE
                                     IntGNewPage := IntGNewPage + 1;
-                                END;
                                 ShowLocationHeader := TRUE;
                             END ELSE
                                 ShowLocationHeader := FALSE;
@@ -444,11 +424,6 @@ report 50042 "PWD Picking List"
         DLC_CaptionLbl: Label 'DLC';
         DLCCaptionLbl: Label 'DLC';
         "Edité_le_CaptionLbl": Label 'Edité le ';
-        EmptyStringCaption_Control1000000062Lbl: Label '......................................';
-        EmptyStringCaption_Control1000000064Lbl: Label '......................................';
-        EmptyStringCaption_Control1000000066Lbl: Label '......................................';
-        EmptyStringCaption_Control1000000068Lbl: Label '..................................................................';
-        EmptyStringCaptionLbl: Label '......................................';
         FIN_DE_BP___________CaptionLbl: Label '********** FIN DE BP **********';
         "Livré_à__CaptionLbl": Label 'Livré à :';
         Lot_No_CaptionLbl: Label 'Label1000000076';
