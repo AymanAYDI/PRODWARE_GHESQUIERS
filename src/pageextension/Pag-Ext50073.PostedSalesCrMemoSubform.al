@@ -11,11 +11,11 @@ pageextension 50073 "PWD PostedSalesCrMemoSubform" extends "Posted Sales Cr. Mem
             Enabled = false;
             Editable = false;
         }
-        modify("Cross-Reference No.")
+        modify("Item Reference No.")
         {
             Editable = false;
         }
-        addafter("Cross-Reference No.")
+        addafter("Item Reference No.")
         {
             field("PWD Location Code"; Rec."Location Code")
             {

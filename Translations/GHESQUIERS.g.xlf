@@ -9618,6 +9618,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Modify Item Ledger Entries - Action E&amp;criture - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3793722035 - Action 409191559 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Modify Item Ledger Entries - Action A&amp;xe analytique - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 3793722035 - Action 409191559 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dimensions</source>
           <note from="Developer" annotates="general" priority="2"></note>

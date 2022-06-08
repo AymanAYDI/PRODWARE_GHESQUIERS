@@ -165,7 +165,7 @@ table 50030 "PWD Customs Documents Template"
                         ELSE
                             FileName := ExportToFile;
                         IF FileName <> '' THEN BEGIN
-                            Attachment.EXPORT(FileName);
+                            //TODO Attachment.EXPORT(FileName);
                             EXIT(TRUE);
                         END ELSE
                             EXIT(FALSE)
@@ -211,7 +211,7 @@ table 50030 "PWD Customs Documents Template"
                 //ELSE
                 FileName := ImportFromFile;
             IF FileName <> '' THEN BEGIN
-                Attachment.IMPORT(FileName);
+                //TODO Attachment.IMPORT(FileName);
                 //TODO
                 //"File Extension" := UPPERCASE(AttachmentManagement.FileExtension(FileName));
                 EXIT(TRUE)
@@ -289,8 +289,8 @@ table 50030 "PWD Customs Documents Template"
         "Storage Pointer" := RMSetup."Attachment Storage Location";
         IF "No." <> '' THEN BEGIN
             FileName := ConstDiskFileName();
-            IF FileName <> '' THEN
-                Attachment.EXPORT(FileName);
+            //TODO IF FileName <> '' THEN
+            //TODO Attachment.EXPORT(FileName);
         END;
 
         Attachment2."No." := Rec."No.";

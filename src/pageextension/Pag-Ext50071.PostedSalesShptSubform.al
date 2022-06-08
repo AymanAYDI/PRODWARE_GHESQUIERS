@@ -10,7 +10,7 @@ pageextension 50071 "PWD PostedSalesShptSubform" extends "Posted Sales Shpt. Sub
         {
             Editable = false;
         }
-        modify("Cross-Reference No.")
+        modify("Item Reference No.")
         {
             Editable = false;
         }

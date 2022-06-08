@@ -811,11 +811,11 @@ codeunit 60000 "PWD Events"
     begin
         IF Item.GET(SalesLine."No.") AND Location.GET(SalesLine."Location Code") THEN
             IF (Location."PWD Controle du prix plancher" = TRUE) THEN BEGIN
-                IF (Item."PWD Bottom Price" <> 0) AND (SalesLine."Unit Price" < Item."PWD Bottom Price") THEN begin
+                IF (Item."PWD Bottom Price" <> 0) AND (SalesLine."Unit Price" < Item."PWD Bottom Price") THEN BEGIN
                     Error1 := STRSUBSTNO(Text1000000005, SalesLine."No.", SalesLine."Line No.", Item."PWD Bottom Price");
                     //ERROR(STRSUBSTNO(Text1000000005, SalesLine."No.", SalesLine."Line No.", Item."PWD Bottom Price"));
                     ERROR(Error1);
-                end;
+                END;
                 IF (SalesLine."Unit Price" = 0) THEN BEGIN
                     Error2 := STRSUBSTNO(Text1000000006, SalesLine."No.", SalesLine."Line No.");
                     //ERROR(STRSUBSTNO(Text1000000006, SalesLine."No.", SalesLine."Line No."));
@@ -870,7 +870,11 @@ codeunit 60000 "PWD Events"
         ItemJnlLine."PWD Seafrance Order No." := SalesHeader."PWD Seafrance Order No.";
         ItemJnlLine."PWD Seafrance Order Line No." := SalesLine."PWD Seafrance Order Line No.";
 
-        ItemJnlLine."PWD Reference" := SalesHeader."PWD Reference";//TODO A vérifier GenRef
+        IF SalesInvHeader."PWD Reference" <> '' THEN
+            ItemJnlLine."PWD Reference" := SalesInvHeader."PWD Reference"//TODO A vérifier GenRef
+        else
+            if SalesCrMemoHeader."PWD Reference" <> '' THEN
+                ItemJnlLine."PWD Reference" := SalesCrMemoHeader."PWD Reference";
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnPostItemJnlLineOnAfterCopyDocumentFields', '', false, false)]
