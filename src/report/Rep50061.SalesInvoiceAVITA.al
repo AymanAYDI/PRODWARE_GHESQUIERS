@@ -248,13 +248,13 @@ report 50061 "PWD Sales - Invoice AVITA"
                         column(Sales_Invoice_Line__VAT_Identifier_; "VAT Identifier")
                         {
                         }
-                        column(VAT__Prcnt_; VATAmountLine."VAT %")
+                        column(VAT__Prcnt_; TempVATAmountLine."VAT %")
                         {
                         }
-                        column(Amount_Including_VAT_; VATAmountLine."VAT Amount")
+                        column(Amount_Including_VAT_; TempVATAmountLine."VAT Amount")
                         {
                         }
-                        column(VAT_Base_Amount_; VATAmountLine."VAT Base")
+                        column(VAT_Base_Amount_; TempVATAmountLine."VAT Base")
                         {
                         }
                         column(IntTriRTC; IntTriRTC)
@@ -295,7 +295,7 @@ report 50061 "PWD Sales - Invoice AVITA"
                             AutoFormatExpression = "Sales Invoice Line".GetCurrencyCode();
                             AutoFormatType = 1;
                         }
-                        column(VATAmountLine_VATAmountText; VATAmountLine.VATAmountText())
+                        column(VATAmountLine_VATAmountText; TempVATAmountLine.VATAmountText())
                         {
                         }
                         column(TotalExclVATText; TotalExclVATText)
@@ -588,18 +588,18 @@ report 50061 "PWD Sales - Invoice AVITA"
                         begin
                             IF (Type = Type::"G/L Account") AND (NOT ShowInternalInfoV) THEN
                                 "No." := '';
-                            VATAmountLine.INIT();
-                            VATAmountLine."VAT Identifier" := "VAT Identifier";
-                            VATAmountLine."VAT Calculation Type" := "VAT Calculation Type";
-                            VATAmountLine."Tax Group Code" := "Tax Group Code";
-                            VATAmountLine."VAT %" := "VAT %";
-                            VATAmountLine."VAT Base" := Amount;
-                            VATAmountLine."Amount Including VAT" := "Amount Including VAT";
-                            VATAmountLine."Line Amount" := "Line Amount";
+                            TempVATAmountLine.INIT();
+                            TempVATAmountLine."VAT Identifier" := "VAT Identifier";
+                            TempVATAmountLine."VAT Calculation Type" := "VAT Calculation Type";
+                            TempVATAmountLine."Tax Group Code" := "Tax Group Code";
+                            TempVATAmountLine."VAT %" := "VAT %";
+                            TempVATAmountLine."VAT Base" := Amount;
+                            TempVATAmountLine."Amount Including VAT" := "Amount Including VAT";
+                            TempVATAmountLine."Line Amount" := "Line Amount";
                             IF "Allow Invoice Disc." THEN
-                                VATAmountLine."Inv. Disc. Base Amount" := "Line Amount";
-                            VATAmountLine."Invoice Discount Amount" := "Inv. Discount Amount";
-                            VATAmountLine.InsertLine();
+                                TempVATAmountLine."Inv. Disc. Base Amount" := "Line Amount";
+                            TempVATAmountLine."Invoice Discount Amount" := "Inv. Discount Amount";
+                            TempVATAmountLine.InsertLine();
                             IF IncludeShptNoV THEN BEGIN
                                 ShipmentInvoiced.RESET();
                                 ShipmentInvoiced.SETRANGE("Invoice No.", "Sales Invoice Line"."Document No.");
@@ -634,7 +634,7 @@ report 50061 "PWD Sales - Invoice AVITA"
                             ELSE
                                 TxTGMentionEXO := '';
 
-                            IF VATAmountLine.GetTotalVATAmount() = 0 THEN BEGIN
+                            IF TempVATAmountLine.GetTotalVATAmount() = 0 THEN BEGIN
                                 FOR i := 1 TO 4 DO BEGIN
                                     CodGVatArrayID[i] := ' ';
                                     RecGVatArrayRate[i] := 0;
@@ -643,12 +643,12 @@ report 50061 "PWD Sales - Invoice AVITA"
                                 END;
                                 EXIT;
                             END;
-                            FOR i := 1 TO VATAmountLine.COUNT DO BEGIN
-                                VATAmountLine.GetLine(i);
-                                CodGVatArrayID[i] := VATAmountLine."VAT Identifier";
-                                RecGVatArrayRate[i] := VATAmountLine."VAT %";
-                                RecGVatArrayBase[i] := VATAmountLine."VAT Base";
-                                RecGVatArrayAmount[i] := VATAmountLine."VAT Amount";
+                            FOR i := 1 TO TempVATAmountLine.COUNT DO BEGIN
+                                TempVATAmountLine.GetLine(i);
+                                CodGVatArrayID[i] := TempVATAmountLine."VAT Identifier";
+                                RecGVatArrayRate[i] := TempVATAmountLine."VAT %";
+                                RecGVatArrayBase[i] := TempVATAmountLine."VAT Base";
+                                RecGVatArrayAmount[i] := TempVATAmountLine."VAT Amount";
                             END;
                             IF "Sales Invoice Line"."PWD Designation ENU" <> '' THEN
                                 GDescription := "Sales Invoice Line"."PWD Designation ENU"
@@ -658,7 +658,7 @@ report 50061 "PWD Sales - Invoice AVITA"
 
                         trigger OnPreDataItem()
                         begin
-                            VATAmountLine.DELETEALL();
+                            TempVATAmountLine.DELETEALL();
                             MoreLines := FindLast();
                             WHILE MoreLines AND (Description = '') AND ("No." = '') AND (Quantity = 0) AND (Amount = 0) DO
                                 MoreLines := NEXT(-1) <> 0;
@@ -898,7 +898,7 @@ report 50061 "PWD Sales - Invoice AVITA"
         SalesPurchPerson: Record "Salesperson/Purchaser";
         ShipmentInvoiced: Record "Shipment Invoiced";
         ShipmentMethod: Record "Shipment Method";
-        VATAmountLine: Record "VAT Amount Line" temporary;
+        TempVATAmountLine: Record "VAT Amount Line" temporary;
         FormatAddr: Codeunit "Format Address";
         Language: Codeunit Language;
         PWDFunctionMgt: codeunit "PWD Function Mgt";
@@ -956,7 +956,7 @@ report 50061 "PWD Sales - Invoice AVITA"
         Text000: Label 'Salesperson';
         Text001: Label 'Total %1';
         Text002: Label 'Total %1 Incl. VAT';
-        Text004: Label 'Sales - Invoice %1 %2';
+        Text004: Label 'Sales - Invoice %1';
         Text005: Label 'Page %1';
         Text006: Label 'Total %1 Excl. VAT';
         Text007: Label 'ShipmentNo';
@@ -995,14 +995,14 @@ report 50061 "PWD Sales - Invoice AVITA"
     var
         j: Integer;
     begin
-        IF VATAmountLine.GetTotalVATAmount() = 0 THEN
+        IF TempVATAmountLine.GetTotalVATAmount() = 0 THEN
             EXIT;
-        FOR j := 1 TO VATAmountLine.COUNT DO BEGIN
-            VATAmountLine.GetLine(j);
-            VatArrayID[j] := VATAmountLine."VAT Identifier";
-            VatArrayRate[j] := VATAmountLine."VAT %";
-            VatArrayBase[j] := VATAmountLine."VAT Base";
-            VatArrayAmount[j] := VATAmountLine."VAT Amount";
+        FOR j := 1 TO TempVATAmountLine.COUNT DO BEGIN
+            TempVATAmountLine.GetLine(j);
+            VatArrayID[j] := TempVATAmountLine."VAT Identifier";
+            VatArrayRate[j] := TempVATAmountLine."VAT %";
+            VatArrayBase[j] := TempVATAmountLine."VAT Base";
+            VatArrayAmount[j] := TempVATAmountLine."VAT Amount";
         END;
     end;
 }

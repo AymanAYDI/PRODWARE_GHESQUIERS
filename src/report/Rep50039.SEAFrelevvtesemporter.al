@@ -20,7 +20,7 @@ report 50039 "SEAF : relevé vtes à emporter"
             column(au_; Au_Lbl)
             {
             }
-            column(Page_Caption; Page_Caption)
+            column(PageNo_Caption; Page_Caption)
             {
             }
             column(NetWeight; NetWeight)
@@ -29,7 +29,7 @@ report 50039 "SEAF : relevé vtes à emporter"
             column(LineAmount; LineAmount)
             {
             }
-            column("Relevé_des_ventes_à_emporter_consommation_à_bord_du_Caption"; ReleveVentesEmporterConsommationBordLbl)
+            column(Relevé_des_ventes_Caption; ReleveVentesEmporterConsommationBordLbl)
             {
             }
             column(CDSCaption; CDSCaptionLbl)
@@ -56,14 +56,21 @@ report 50039 "SEAF : relevé vtes à emporter"
             column(Bon_de_livraisonCaption; Bon_de_livraisonCaptionLbl)
             {
             }
-            column("Ventes_à_emporterCaption"; Ventes_à_emporterCaptionLbl)
+            column(Ventes_à_emporterCaption; Ventes_à_emporterCaptionLbl)
             {
             }
             column(Sales_Shipment_Header_No_; "No.")
             {
             }
-
-
+            column(NetWeightTotal; NetWeightTotal)
+            {
+            }
+            column(AmountTotal; AmountTotal)
+            {
+            }
+            column(VAEAmount; VAEAmount)
+            {
+            }
             dataitem(VAE; "Sales Shipment Line")
             {
                 DataItemLink = "Document No." = FIELD("No.");
@@ -206,16 +213,16 @@ report 50039 "SEAF : relevé vtes à emporter"
                     NetWeight := "Net Weight" * Quantity;
                     VAECrMemoWeight += NetWeight;
                     CLEAR(LineAmount);
-                    IF("No." <> 'DAVIGEL') AND ("No." <> 'EPISAVEURS') AND
+                    IF ("No." <> 'DAVIGEL') AND ("No." <> 'EPISAVEURS') AND
                        ("No." <> 'FOURNIER') AND ("No." <> 'MIX BUFFET') AND
                        ("No." <> 'PRUVOST') AND ("No." <> 'TERRE AZUR') AND
                        ("No." <> 'DPOMONA') AND
                        ("No." <> 'DEPISAV') AND
                        ("No." <> 'DTERREA') THEN
                         LineAmount := Quantity * Item."PWD Customs Price" ELSE
-                    IF "PWD Valeur douane (correction)" <> 0 THEN
-                        LineAmount := Quantity * "PWD Valeur douane (correction)" ELSE
-                        LineAmount := Quantity * "Unit Cost (LCY)";
+                        IF "PWD Valeur douane (correction)" <> 0 THEN
+                            LineAmount := Quantity * "PWD Valeur douane (correction)" ELSE
+                            LineAmount := Quantity * "Unit Cost (LCY)";
                     VAECrMemoAmount += LineAmount;
                 end;
 
@@ -266,8 +273,8 @@ report 50039 "SEAF : relevé vtes à emporter"
         DATECaptionLbl: Label 'DATE';
         NDPCaptionLbl: Label 'NDP';
         POIDSCaptionLbl: Label 'POIDS';
-        Au_Lbl : label 'au';
-        Page_Caption : label 'Page';
+        Au_Lbl: label 'au';
+        Page_Caption: label 'Page';
         ReleveVentesEmporterConsommationBordLbl: Label 'Relevé des ventes à emporter & consommation à bord du :';
         TotalAvoirsVentesemporterCaptionLbl: Label 'Total Avoirs Ventes à emporter';
         "Total_Ventes_emporterCaptionLbl": Label 'Total Ventes à emporter';

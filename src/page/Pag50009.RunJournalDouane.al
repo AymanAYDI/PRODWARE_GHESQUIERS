@@ -1,6 +1,6 @@
 page 50009 "PWD Run Journal/Douane"
 {
-    Caption = 'PWD Run Journal/Douane';
+    Caption = 'Run Journal/Douane';
     PageType = Card;
 
     actions

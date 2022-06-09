@@ -1269,7 +1269,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table PWD Archived Purchase Line - Field No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2042832132 - Field 1986218713 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Catalog</source>
+          <source>Nonstock</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table PWD Archived Purchase Line - Field Nonstock - Property Caption</note>
         </trans-unit>
@@ -2849,7 +2849,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table PWD Archived Sales Line - Field No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 338885181 - Field 1986218713 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Catalog</source>
+          <source>Nonstock</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table PWD Archived Sales Line - Field Nonstock - Property Caption</note>
         </trans-unit>
@@ -10119,7 +10119,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Roles Setup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3810444212 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>PWD Run Journal/Douane</source>
+          <source>Run Journal/Douane</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Run Journal/Douane - Property Caption</note>
         </trans-unit>
@@ -11139,7 +11139,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Evaluation stock SAS Ghes - NamedType ValueCaption_Control56Lbl</note>
         </trans-unit>
         <trans-unit id="Report 4261726424 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>PWD Export CIEL</source>
+          <source>Export CIEL</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - Property Caption</note>
         </trans-unit>
@@ -11179,7 +11179,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - Control StartingDate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3194608448 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>PWD Export Microsoft Excel</source>
+          <source>Export Microsoft Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export Microsoft Excel - Property Caption</note>
         </trans-unit>
@@ -11264,7 +11264,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Fiche Anomalie - NamedType àCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 759502767 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>PWD Import Microsoft Excel</source>
+          <source>Import Microsoft Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Import Microsoft Excel - Property Caption</note>
         </trans-unit>
@@ -11427,31 +11427,6 @@
           <source>Edité le </source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Picking List - NamedType Edité_le_CaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2202279620 - NamedType 689524896" size-unit="char" translate="yes" xml:space="preserve">
-          <source>......................................</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Picking List - NamedType EmptyStringCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2202279620 - NamedType 1483914203" size-unit="char" translate="yes" xml:space="preserve">
-          <source>......................................</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Picking List - NamedType EmptyStringCaption_Control1000000062Lbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2202279620 - NamedType 2783482841" size-unit="char" translate="yes" xml:space="preserve">
-          <source>......................................</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Picking List - NamedType EmptyStringCaption_Control1000000064Lbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2202279620 - NamedType 350917015" size-unit="char" translate="yes" xml:space="preserve">
-          <source>......................................</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Picking List - NamedType EmptyStringCaption_Control1000000066Lbl</note>
-        </trans-unit>
-        <trans-unit id="Report 2202279620 - NamedType 1650485653" size-unit="char" translate="yes" xml:space="preserve">
-          <source>..................................................................</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Picking List - NamedType EmptyStringCaption_Control1000000068Lbl</note>
         </trans-unit>
         <trans-unit id="Report 2202279620 - NamedType 2213590123" size-unit="char" translate="yes" xml:space="preserve">
           <source>********** FIN DE BP **********</source>
@@ -12234,7 +12209,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Invoice AVITA - NamedType Text002</note>
         </trans-unit>
         <trans-unit id="Report 4050282536 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sales - Invoice %1 %2</source>
+          <source>Sales - Invoice %1</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Invoice AVITA - NamedType Text004</note>
         </trans-unit>
@@ -14168,6 +14143,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD IntrastatJournal - Action PWD Extract with Filtering - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3293917796 - Control 434707724 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2600738069">
+          <source>Totale amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD IntrastatJournal - Control PWD DecGTotalAmount - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1299222318 - Control 1037078176 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15634,17 +15614,17 @@
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD ItemJournalLine - Field PWD Cetificate Transit No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 796314491 - Field 1965423801 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
-          <source>PWD Code client</source>
+          <source>Code client</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD ItemJournalLine - Field PWD Code client - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 796314491 - Field 3177677103 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
-          <source>PWD Code fournisseur</source>
+          <source>Code fournisseur</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD ItemJournalLine - Field PWD Code fournisseur - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 796314491 - Field 1795155101 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
-          <source>PWD Code prestation</source>
+          <source>Code prestation</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD ItemJournalLine - Field PWD Code prestation - Property Caption</note>
         </trans-unit>
@@ -15684,12 +15664,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD ItemJournalLine - Field PWD Meat Type - Property OptionCaption</note>
         </trans-unit>
         <trans-unit id="TableExtension 796314491 - Field 2921994152 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
-          <source>PWD Montant douane</source>
+          <source>Montant douane</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD ItemJournalLine - Field PWD Montant douane - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 796314491 - Field 3524863190 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
-          <source>PWD Nb. unite</source>
+          <source>Nb. unite</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD ItemJournalLine - Field PWD Nb. unite - Property Caption</note>
         </trans-unit>
@@ -15719,7 +15699,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD ItemJournalLine - Field PWD Parcel Nb. - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 796314491 - Field 3768399100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 346005766">
-          <source>PWD Reference</source>
+          <source>Reference</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD ItemJournalLine - Field PWD Reference - Property Caption</note>
         </trans-unit>
@@ -15929,7 +15909,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD Location - Field PWD Magasin DEB - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3983714186 - Field 271911887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3891454143">
-          <source>PWD Magasin libre</source>
+          <source>Magasin libre</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD Location - Field PWD Magasin libre - Property Caption</note>
         </trans-unit>
@@ -16283,16 +16263,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD PurchCrMemoHdr - Field PWD Attachment 4 - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 3309672702 - Field 1082508065 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2271228953">
-          <source>BizTalk Purchase Credit Memo</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD PurchCrMemoHdr - Field PWD BizTalk Purch Cr Memo - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3309672702 - Field 1527359060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2271228953">
-          <source>Date Received</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD PurchCrMemoHdr - Field PWD Date Received - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 3309672702 - Field 489469453 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2271228953">
           <source>Delivered Quantity Rating</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -16322,11 +16292,6 @@
           <source>Technical Rating</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD PurchCrMemoHdr - Field PWD Technical Rating - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 3309672702 - Field 1832051643 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2271228953">
-          <source>Time Received</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD PurchCrMemoHdr - Field PWD Time Received - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3704101046 - Field 660537896 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 518488723">
           <source>Cetificate Transit No.</source>
@@ -17514,7 +17479,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesLine - Field PWD Marked - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1044911975 - Field 3900387774 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
-          <source>PWD MethodeCalculPresta.</source>
+          <source>Methode de Calcul (prestation)</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesLine - Field PWD MethodeCalculPresta. - Property Caption</note>
         </trans-unit>
@@ -17544,7 +17509,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesLine - Field PWD New Item - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1044911975 - Field 1513345080 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
-          <source>PWD NewPage</source>
+          <source>New Page</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesLine - Field PWD NewPage - Property Caption</note>
         </trans-unit>
@@ -17639,7 +17604,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesLine - Field PWD Qte. Receipted Sp.Order - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1044911975 - Field 3066256801 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
-          <source>PWD Quantite initiale</source>
+          <source>Quantite initiale</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesLine - Field PWD Quantite initiale - Property Caption</note>
         </trans-unit>

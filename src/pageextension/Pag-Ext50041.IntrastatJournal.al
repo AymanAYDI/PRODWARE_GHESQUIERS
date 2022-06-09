@@ -13,6 +13,7 @@ pageextension 50041 "PWD IntrastatJournal" extends "Intrastat Journal"
         {
             field("PWD DecGTotalAmount"; DecGTotalAmount)
             {
+                caption = 'Totale amount';
                 ApplicationArea = all;
             }
         }

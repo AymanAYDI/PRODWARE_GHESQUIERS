@@ -482,14 +482,13 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                     Trigger OnAction()
                     var
                         SalesLine: Record "Sales Line";
-
                         ItemAvailabilityFormsMgt: Codeunit "Item Availability Forms Mgt";
                     BEGIN
-                        Clear("SalesLine");
-                        SalesLine.SetRange("Document No.", Rec."No.");
-                        SalesLine.SetRange("Document Type", Rec."Document Type");
-                        if SalesLine.FindSet() then
-                            ItemAvailabilityFormsMgt.ShowItemAvailFromSalesLine(SalesLine, 2);
+                        SalesLine.RESET();
+                        SalesLine.SETRANGE("Document Type", Rec."Document Type");
+                        SalesLine.SETRANGE("Document No.", Rec."No.");
+                        SalesLine.SETRANGE(Type, SalesLine.Type::Item);
+                        ItemAvailabilityFormsMgt.ShowItemAvailFromSalesLine(SalesLine, 2);
                     END;
                 }
             }

@@ -1,6 +1,6 @@
 report 50128 "PWD Export CIEL"
 {
-    Caption = 'PWD Export CIEL';
+    Caption = 'Export CIEL';
     ProcessingOnly = true;
     UsageCategory = None;
     dataset
