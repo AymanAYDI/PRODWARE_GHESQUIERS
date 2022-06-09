@@ -24,7 +24,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>3.46123cm</Height>
+                  <Height>3.77873cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -83,7 +83,7 @@ Cstr(Fields!Fax_CompanyInfo_Fax_No.Value) + Chr(177) +
 Cstr(Fields!Intracom_CompanyInfo_VAT_Registration_No.Value) + Chr(177) +
 Cstr(Fields!Sales_Shipment_Header_Bill_to_Name.Value) + Chr(177) +
 Cstr(Fields!Sales_Shipment_Header_No.Value) + Chr(177) +
-Cstr(Fields!CompanyInfo_Logo_AVITA_facture.Value) + Chr(177) +
+Cstr(Fields!Sales_Shipment_Header_No.Value) + Chr(177) +
 Cstr(Fields!Sales_Shipment_Header_Ship_to_Address.Value) + Chr(177) +
 Cstr(Fields!Sales_Shipment_Header_Delivry_time.Value) + Chr(177) +
 Cstr(Fields!ADMIS_ET_RECONNU_CONFORME_LE.Value) + Chr(177) +
@@ -117,7 +117,7 @@ Cstr(Fields!VisaCaption.Value) + Chr(177) +
 Cstr(Fields!A_Calais_leCaption.Value) + Chr(177) +
 Cstr(Fields!TOTAL_Poids_netCaption.Value) + Chr(177) +
 Cstr(Fields!Arrété_àCaption.Value) + Chr(177) +
-Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
+Cstr(Fields!TOTAL_QuantitéCaption.Value) + Chr(177), 1)</Hidden>
                                             </Visibility>
                                             <Style>
                                               <Border>
@@ -126,6 +126,7 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                                               <BackgroundColor>Red</BackgroundColor>
                                             </Style>
                                           </Textbox>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                     </TablixCells>
@@ -1298,6 +1299,7 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
+                              <Top>0.125in</Top>
                               <Height>3.46123cm</Height>
                               <Width>19.12314cm</Width>
                               <ZIndex>1</ZIndex>
@@ -1392,7 +1394,7 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Height>3.46123cm</Height>
+            <Height>3.77873cm</Height>
             <Width>19.12315cm</Width>
             <Style>
               <Border>
@@ -2954,7 +2956,7 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value), 1)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(68,1)</Value>
+                      <Value>=Code.GetData(28,1)</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                         <Format>N</Format>
