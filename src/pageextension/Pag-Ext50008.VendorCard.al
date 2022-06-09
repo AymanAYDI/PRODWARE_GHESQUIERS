@@ -12,7 +12,6 @@ pageextension 50008 "PWD VendorCard" extends "Vendor Card"
             {
                 ApplicationArea = All;
                 Importance = Standard;
-                ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
                 Visible = PWDNoFieldVisible;
             }
         }

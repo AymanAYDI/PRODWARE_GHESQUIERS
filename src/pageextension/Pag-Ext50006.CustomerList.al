@@ -270,7 +270,7 @@ pageextension 50006 "PWD CustomerList" extends "Customer List"
                 field("PWD TxtGAddressList"; TxtGAddressList)
                 {
                     ApplicationArea = All;
-                    Caption = 'Adresse Mail';
+                    Caption = 'Liste des Emails';
                     Editable = false;
                 }
             }

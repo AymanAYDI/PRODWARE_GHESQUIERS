@@ -71,7 +71,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
             field("PWD DateLastPurchR"; DateLastPurchR)
             {
                 ApplicationArea = All;
-                Caption = 'Date de la derni‚re livraison';
+                Caption = 'Date de la derniére livraison';
             }
             field("PWD Seafrance Order No."; Rec."PWD Seafrance Order No.")
             {
@@ -318,7 +318,6 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                 PromotedCategory = Category6;
                 PromotedIsBig = true;
                 ShortCutKey = 'F9';
-                ToolTip = 'Finalize the document or journal by posting the amounts and quantities to the related accounts in your company books.';
                 AboutTitle = 'Posting the order';
                 AboutText = 'Posting will ship or invoice the quantities on the order, or both. Post and Send can save the order as a file, print it, or attach it to an email, all in one go.';
 

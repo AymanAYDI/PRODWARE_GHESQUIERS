@@ -162,7 +162,6 @@ page 50064 "PWD Modify Item Ledger Entries"
                     Promoted = true;
                     PromotedCategory = Category4;
                     ShortCutKey = 'Alt+D';
-                    ToolTip = 'View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.';
                     trigger OnAction()
                     begin
                         Rec.ShowDimensions();

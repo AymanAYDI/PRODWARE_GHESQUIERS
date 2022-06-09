@@ -55,7 +55,7 @@ pageextension 50042 "PWD SalesOrderStatistics" extends "Sales Order Statistics"
                 }
                 field("PWD TotalBiere"; TotalBiere)
                 {
-                    Caption = 'BiŠre';
+                    Caption = 'Bière';
                     applicationarea = all;
                 }
                 field("PWD TotalVin"; TotalVin)

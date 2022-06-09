@@ -8569,17 +8569,17 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PrintTextAmount(dec =&gt; Letter) - NamedType Text1120001</note>
         </trans-unit>
         <trans-unit id="Codeunit 1115438998 - Method 968758740 - NamedType 2527245036" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Une ligne au moins a un prix nul.\Voulez-vous lancer quand mˆme la commande ?</source>
+          <source>Une ligne au moins a un prix nul.\Voulez-vous lancer quand même la commande ?</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PWD CduEvents AM - Method OnAfterActionEvent_SalesOrder_Release - NamedType CstG003</note>
         </trans-unit>
         <trans-unit id="Codeunit 1115438998 - Method 2928199977 - NamedType 3802638270" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Indiquez un Nø de client factur‚ dans la fiche client</source>
+          <source>Indiquez un N° de client facturé dans la fiche client</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PWD CduEvents AM - Method OnAfterValidateEvent_SalesInvoice_No - NamedType CstG001</note>
         </trans-unit>
         <trans-unit id="Codeunit 1115438998 - Method 2658230432 - NamedType 937755461" size-unit="char" translate="yes" xml:space="preserve">
-          <source>La ligne %1 pour l'article %2 ne possŠde pas de quantit‚.</source>
+          <source>La ligne %1 pour l'article %2 ne possède pas de quantité.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PWD CduEvents AM - Method OnBeforeActionEvent_SalesQuote_MakeOrder - NamedType Gtext001</note>
         </trans-unit>
@@ -8589,7 +8589,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PWD CduEvents AM - Method OnBeforeActionEvent_SalesQuote_Make_Order - NamedType Gtext001</note>
         </trans-unit>
         <trans-unit id="Codeunit 1115438998 - Method 1183871147 - NamedType 3626748722" size-unit="char" translate="yes" xml:space="preserve">
-          <source>ENU=The order cannot be validated because the ordered quantity on Sales Line %1 doesn't match the prepared quantity.</source>
+          <source>The order cannot be validated because the ordered quantity on Sales Line %1 doesn't match the prepared quantity.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PWD CduEvents AM - Method OnConfirmPostOnBeforeSetSelection - NamedType Text1000000002</note>
         </trans-unit>
@@ -9617,11 +9617,6 @@
           <source>Ent&amp;ry</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Modify Item Ledger Entries - Action E&amp;criture - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3793722035 - Action 409191559 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View or edit dimensions, such as area, project, or department, that you can assign to sales and purchase documents to distribute costs and analyze transaction history.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Modify Item Ledger Entries - Action A&amp;xe analytique - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3793722035 - Action 409191559 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Dimensions</source>
@@ -10749,7 +10744,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Create Purchase Quote r -TrB - NamedType Text1000000005</note>
         </trans-unit>
         <trans-unit id="Report 874766570 - NamedType 1882567894" size-unit="char" translate="yes" xml:space="preserve">
-          <source>ENU=Creating purchase orders           #3######\</source>
+          <source>Creating purchase orders           #3######\</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Create Purchase Quote r -TrB - NamedType Text1000000006</note>
         </trans-unit>
@@ -10797,11 +10792,6 @@
           <source>Ending Date</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Get Item Ledger Entries SPE - Control Field_EndDate - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Report 3566107190 - Control 4155483620 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>This option will group entries with the same Tariff No, Country/Region Code, Item No, Cust.VAT Registration No. This feature substract items returns from shipments. This is required in the French Intrastat reporting.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report Get Item Ledger Entries SPE - Control Field_GroupEntries - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Report 3566107190 - Control 4155483620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Group Entries</source>
@@ -14093,11 +14083,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ContactCard - Control PWD Specific - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1064369381 - Control 1037078176 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
-          <source>Specifies the number of the customer. The field is either filled automatically from a defined number series, or you enter the number manually because you have enabled manual number entry in the number-series setup.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD CustomerCard - Control PWD No. - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 1064369381 - Control 2848727629 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
           <source>Specific</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14124,7 +14109,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD CustomerList - Control PWD EMail - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3622496239 - Control 1092259348 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2901867346">
-          <source>Adresse Mail</source>
+          <source>Liste des Emails</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD CustomerList - Control PWD TxtGAddressList - Property Caption</note>
         </trans-unit>
@@ -14137,11 +14122,6 @@
           <source>Totale amount</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD IntrastatJournal - Control PWD DecGTotalAmount - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 1299222318 - Control 1037078176 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
-          <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ItemCard - Control PWD No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 1299222318 - Control 1351199789 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Customs</source>
@@ -14194,7 +14174,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ItemList - Action SEAF : relevé vtes à emporter - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1588052448 - Method 3098423979 - NamedType 3626748722" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1588052448">
-          <source>Please add then correct tracking line for the outbound butchery line.;FRA=Veuillez saisir la ligne tra‡abilit‚ pour l'ecriture de sortie boucherie.</source>
+          <source>Please add then correct tracking line for the outbound butchery line.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ItemTrackingLines - Method SetOrigineButcheryEntry - NamedType Text1000000002</note>
         </trans-unit>
@@ -14543,20 +14523,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseOrder - Action PWD Post - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 647356634 - Action 4169699992 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
-          <source>Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseOrder - Action PWD PWD Post and &amp;Print - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 647356634 - Action 4169699992 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
           <source>Post and &amp;Print</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseOrder - Action PWD PWD Post and &amp;Print - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 647356634 - Control 3081376320 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
-          <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseOrder - Control PWD NO. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 647356634 - Control 3446409637 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
           <source>Date of last purchase receipt</source>
@@ -14578,20 +14548,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseOrderList - Action PWD Commande PDF / Mail - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 2988578080 - Action 1742589981 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3195034673">
-          <source>Finalize the document or journal by posting the amounts and quantities to the related accounts in your company books.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseOrderList - Action PWD Post - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 2988578080 - Action 1742589981 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3195034673">
           <source>P&amp;ost</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseOrderList - Action PWD Post - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2988578080 - Action 2772625387 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3195034673">
-          <source>Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseOrderList - Action PWD PostAndPrint - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 2988578080 - Action 2772625387 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3195034673">
           <source>Post and &amp;Print</source>
@@ -14668,11 +14628,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesOrder - Action PWD Post - Property AboutTitle</note>
         </trans-unit>
-        <trans-unit id="PageExtension 3605102415 - Action 1742589981 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Finalize the document or journal by posting the amounts and quantities to the related accounts in your company books.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesOrder - Action PWD Post - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 3605102415 - Action 1742589981 - Property 247559172" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
           <source>Posting will ship or invoice the quantities on the order, or both. Post and Send can save the order as a file, print it, or attach it to an email, all in one go.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14744,7 +14699,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesOrder - Action Disponibilité Art. Mag. - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3605102415 - Control 3446409637 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1673401186">
-          <source>Date de la derni‚re livraison</source>
+          <source>Date de la derniére livraison</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesOrder - Control PWD DateLastPurchR - Property Caption</note>
         </trans-unit>
@@ -14769,7 +14724,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesOrderStatistics - Control PWD TotalAlcoolPur - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1086159148 - Control 1105906244 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3845140901">
-          <source>BiŠre</source>
+          <source>Bière</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesOrderStatistics - Control PWD TotalBiere - Property Caption</note>
         </trans-unit>
@@ -14799,7 +14754,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesOrderStatistics - Control PWD TotalVolEff - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1536053321 - Method 284689930 - NamedType 2989052105" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1536053321">
-          <source>L'article %1 n'a pas de commentaires associ‚s</source>
+          <source>L'article %1 n'a pas de commentaires associés</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesOrderSubform - Method ShowItemComments - NamedType Text1000000003</note>
         </trans-unit>
@@ -14857,11 +14812,6 @@
           <source>Sélection des fournisseurs à interroger</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesQuote - Action PWD Selection des fournisseurs interroger - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 211738147 - Control 1037078176 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
-          <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesQuote - Control PWD No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="PageExtension 2311890862 - Action 3042539540 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 734185571">
           <source>Quote PDF / Email</source>
@@ -14957,11 +14907,6 @@
           <source>Service rates</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SmallBusinessOwnerRC - Action PWD Service rates M2 - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 2348913853 - Control 1037078176 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4055858012">
-          <source>Specifies the number of the involved entry or record, according to the specified number series.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD VendorCard - Control PWD No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="TableExtension 3330782148 - Field 3817745668 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3469146285">
           <source>In Agrement No.</source>

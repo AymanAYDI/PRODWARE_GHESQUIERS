@@ -12,7 +12,6 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
             {
                 ApplicationArea = Suite;
                 Importance = Promoted;
-                ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
                 Visible = DocNoVisible;
             }
         }
@@ -201,7 +200,6 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
                 PromotedCategory = Category6;
                 PromotedIsBig = true;
                 ShortCutKey = 'Shift+F9';
-                ToolTip = 'Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.';
 
                 trigger OnAction()
                 begin

@@ -39,7 +39,7 @@ codeunit 60002 "PWD CduEvents AM"
     local procedure OnBeforeActionEvent_SalesQuote_MakeOrder(var Rec: Record "Sales Header")
     var
         RecLSalesLines: Record "Sales Line";
-        Gtext001: Label 'La ligne %1 pour l''article %2 ne possŠde pas de quantit‚.';
+        Gtext001: Label 'La ligne %1 pour l''article %2 ne possède pas de quantité.';
     begin
         RecLSalesLines.RESET();
         RecLSalesLines.SETRANGE("Document Type", Rec."Document Type");
@@ -54,7 +54,7 @@ codeunit 60002 "PWD CduEvents AM"
     local procedure OnAfterActionEvent_SalesOrder_Release(var Rec: Record "Sales Header")
     var
         SalesLine2_local: Record "Sales Line";
-        CstG003: Label 'Une ligne au moins a un prix nul.\Voulez-vous lancer quand mˆme la commande ?';
+        CstG003: Label 'Une ligne au moins a un prix nul.\Voulez-vous lancer quand même la commande ?';
     begin
         SalesLine2_local.RESET();
         SalesLine2_local.SETRANGE(SalesLine2_local."Document Type", Rec."Document Type");
@@ -73,7 +73,7 @@ codeunit 60002 "PWD CduEvents AM"
     var
         RecCust: Record Customer;
         RecCall: Record "PWD Call";
-        CstG001: Label 'Indiquez un Nø de client factur‚ dans la fiche client';
+        CstG001: Label 'Indiquez un N° de client facturé dans la fiche client';
     BEGIN
         IF RecCall.GET(Rec."PWD Call No.") THEN
             IF RecCust.GET(RecCall.Ship) THEN
@@ -389,7 +389,7 @@ codeunit 60002 "PWD CduEvents AM"
     local procedure OnConfirmPostOnBeforeSetSelection(var SalesHeader: Record "Sales Header")
     var
         SalesLine: Record "Sales Line";
-        Text1000000002: Label 'ENU=The order cannot be validated because the ordered quantity on Sales Line %1 doesn''t match the prepared quantity.';
+        Text1000000002: Label 'The order cannot be validated because the ordered quantity on Sales Line %1 doesn''t match the prepared quantity.';
     begin
         case SalesHeader."Document Type" of
             SalesHeader."Document Type"::Order:

@@ -12,7 +12,6 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
             {
                 ApplicationArea = All;
                 Importance = Standard;
-                ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
                 Visible = PWDDocNoVisible;
             }
 

@@ -94,7 +94,7 @@ pageextension 50060 "PWD ItemTrackingLines" extends "Item Tracking Lines"
 
     PROCEDURE SetOrigineButcheryEntry(VAR OriginButchEntryFilter: Record "Reservation Entry"; ShowCaption: Boolean);
     VAR
-        Text1000000002: Label 'Please add then correct tracking line for the outbound butchery line.;FRA=Veuillez saisir la ligne tra‡abilit‚ pour l''ecriture de sortie boucherie.';
+        Text1000000002: Label 'Please add then correct tracking line for the outbound butchery line.';
     BEGIN
         IF NOT OriginButchEntryFilter.FIND() THEN
             ERROR(Text1000000002);

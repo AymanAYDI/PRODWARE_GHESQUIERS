@@ -231,7 +231,6 @@ report 50008 "Get Item Ledger Entries SPE"
                     field("Field_GroupEntries"; GroupEntries)
                     {
                         Caption = 'Group Entries';
-                        ToolTip = 'This option will group entries with the same Tariff No, Country/Region Code, Item No, Cust.VAT Registration No. This feature substract items returns from shipments. This is required in the French Intrastat reporting.';
                         ApplicationArea = All;
                     }
                 }

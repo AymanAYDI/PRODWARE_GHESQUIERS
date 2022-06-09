@@ -41,7 +41,6 @@ pageextension 50078 "PWD PurchaseOrderList" extends "Purchase Order List"
                 PromotedCategory = Category8;
                 PromotedIsBig = true;
                 ShortCutKey = 'F9';
-                ToolTip = 'Finalize the document or journal by posting the amounts and quantities to the related accounts in your company books.';
                 trigger OnAction()
                 var
                     ValidatePurchaseOrder: Report "PWD Validate Purchase Order";
@@ -61,7 +60,6 @@ pageextension 50078 "PWD PurchaseOrderList" extends "Purchase Order List"
                 PromotedCategory = Category8;
                 PromotedIsBig = true;
                 ShortCutKey = 'Shift+F9';
-                ToolTip = 'Finalize and prepare to print the document or journal. The values and quantities are posted to the related accounts. A report request window where you can specify what to include on the print-out.';
 
                 trigger OnAction()
                 var

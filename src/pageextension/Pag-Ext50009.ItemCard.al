@@ -12,7 +12,6 @@ pageextension 50009 "PWD ItemCard" extends "Item Card"
             {
                 ApplicationArea = All;
                 Importance = Standard;
-                ToolTip = 'Specifies the number of the involved entry or record, according to the specified number series.';
                 Visible = NoFieldVisible;
             }
             field("PWD SEAF Code"; Rec."PWD SEAF Code")

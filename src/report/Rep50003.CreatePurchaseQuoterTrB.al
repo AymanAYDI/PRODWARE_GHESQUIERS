@@ -100,7 +100,7 @@ report 50003 "Create Purchase Quote r -TrB"
         Window: Dialog;
         NextLineNo: Integer;
         Text1000000005: Label 'Sales document #1###### #2######\';
-        Text1000000006: Label 'ENU=Creating purchase orders           #3######\';
+        Text1000000006: Label 'Creating purchase orders           #3######\';
         Text1000000007: Label 'Creating purchase lines            #4######\';
         Text1000000014: Label 'Create purchase quote ?';
         DocType: Option Quote,"Order",Invoice,"Credit Memo","Blanket Order","Return Order";

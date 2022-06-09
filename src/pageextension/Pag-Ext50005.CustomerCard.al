@@ -12,7 +12,6 @@ pageextension 50005 "PWD CustomerCard" extends "Customer Card"
             {
                 ApplicationArea = All;
                 Importance = Standard;
-                ToolTip = 'Specifies the number of the customer. The field is either filled automatically from a defined number series, or you enter the number manually because you have enabled manual number entry in the number-series setup.';
                 Visible = PWDNoFieldVisible;
             }
         }

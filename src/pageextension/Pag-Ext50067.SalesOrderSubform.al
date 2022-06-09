@@ -329,7 +329,7 @@ pageextension 50067 "PWD SalesOrderSubform" extends "Sales Order Subform"
     VAR
         ItemComment: Record "Comment Line";
         FormComment: Page "Comment Sheet";
-        Text1000000003: label 'L''article %1 n''a pas de commentaires associ‚s';
+        Text1000000003: label 'L''article %1 n''a pas de commentaires associés';
     BEGIN
         IF (Rec.Type = Rec.Type::Item) AND (Item.GET(Rec."No.")) THEN BEGIN
             Item.CALCFIELDS(Comment);
