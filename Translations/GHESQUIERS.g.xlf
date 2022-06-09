@@ -8584,7 +8584,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PWD CduEvents AM - Method OnBeforeActionEvent_SalesQuote_MakeOrder - NamedType Gtext001</note>
         </trans-unit>
         <trans-unit id="Codeunit 1115438998 - Method 1150781557 - NamedType 937755461" size-unit="char" translate="yes" xml:space="preserve">
-          <source>La ligne %1 pour l'article %2 ne possŠde pas de quantit‚.</source>
+          <source>La ligne %1 pour l'article %2 ne possède pas de quantité.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PWD CduEvents AM - Method OnBeforeActionEvent_SalesQuote_Make_Order - NamedType Gtext001</note>
         </trans-unit>

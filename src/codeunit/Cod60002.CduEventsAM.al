@@ -299,7 +299,7 @@ codeunit 60002 "PWD CduEvents AM"
     local procedure OnBeforeActionEvent_SalesQuote_Make_Order(var Rec: Record "Sales Header")
     var
         RecLSalesLines: Record "Sales Line";
-        Gtext001: Label 'La ligne %1 pour l''article %2 ne possŠde pas de quantit‚.';
+        Gtext001: Label 'La ligne %1 pour l''article %2 ne possède pas de quantité.';
     begin
         RecLSalesLines.RESET();
         RecLSalesLines.SETRANGE("Document Type", Rec."Document Type");
