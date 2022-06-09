@@ -55,7 +55,7 @@ pageextension 50005 "PWD CustomerCard" extends "Customer Card"
             {
                 ApplicationArea = All;
             }
-            Field(SetLastInvoiceNo; SetLastInvoiceNo())
+            Field(Field_SetLastInvoiceNo; SetLastInvoiceNo())
             {
                 Caption = 'Last invoice No.';
                 ApplicationArea = All;

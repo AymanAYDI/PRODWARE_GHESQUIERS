@@ -11,199 +11,6 @@
       <rd:DataSourceID>76fa9b9a-bf33-493e-8717-ccbc6f8c013f</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="StartDate">
-          <DataField>StartDate</DataField>
-        </Field>
-        <Field Name="EndDate">
-          <DataField>EndDate</DataField>
-        </Field>
-        <Field Name="au_">
-          <DataField>au_</DataField>
-        </Field>
-        <Field Name="PageNo_Caption">
-          <DataField>PageNo_Caption</DataField>
-        </Field>
-        <Field Name="NetWeight">
-          <DataField>NetWeight</DataField>
-        </Field>
-        <Field Name="NetWeightFormat">
-          <DataField>NetWeightFormat</DataField>
-        </Field>
-        <Field Name="LineAmount">
-          <DataField>LineAmount</DataField>
-        </Field>
-        <Field Name="LineAmountFormat">
-          <DataField>LineAmountFormat</DataField>
-        </Field>
-        <Field Name="Relevé_des_ventes_Caption">
-          <DataField>Relevé_des_ventes_Caption</DataField>
-        </Field>
-        <Field Name="CDSCaption">
-          <DataField>CDSCaption</DataField>
-        </Field>
-        <Field Name="TYPECaption">
-          <DataField>TYPECaption</DataField>
-        </Field>
-        <Field Name="BLCaption">
-          <DataField>BLCaption</DataField>
-        </Field>
-        <Field Name="DATECaption">
-          <DataField>DATECaption</DataField>
-        </Field>
-        <Field Name="NDPCaption">
-          <DataField>NDPCaption</DataField>
-        </Field>
-        <Field Name="POIDSCaption">
-          <DataField>POIDSCaption</DataField>
-        </Field>
-        <Field Name="VALEURCaption">
-          <DataField>VALEURCaption</DataField>
-        </Field>
-        <Field Name="Bon_de_livraisonCaption">
-          <DataField>Bon_de_livraisonCaption</DataField>
-        </Field>
-        <Field Name="Ventes_à_emporterCaption">
-          <DataField>Ventes_à_emporterCaption</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_No_">
-          <DataField>Sales_Shipment_Header_No_</DataField>
-        </Field>
-        <Field Name="NetWeightTotal">
-          <DataField>NetWeightTotal</DataField>
-        </Field>
-        <Field Name="NetWeightTotalFormat">
-          <DataField>NetWeightTotalFormat</DataField>
-        </Field>
-        <Field Name="AmountTotal">
-          <DataField>AmountTotal</DataField>
-        </Field>
-        <Field Name="AmountTotalFormat">
-          <DataField>AmountTotalFormat</DataField>
-        </Field>
-        <Field Name="VAEAmount">
-          <DataField>VAEAmount</DataField>
-        </Field>
-        <Field Name="VAEAmountFormat">
-          <DataField>VAEAmountFormat</DataField>
-        </Field>
-        <Field Name="V7Caption">
-          <DataField>V7Caption</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_DSA_No">
-          <DataField>Sales_Shipment_Header_DSA_No</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_Posting_Date">
-          <DataField>Sales_Shipment_Header_Posting_Date</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_National_Add_Code">
-          <DataField>Sales_Shipment_Line_National_Add_Code</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_NetWeight">
-          <DataField>Sales_Shipment_Line_NetWeight</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_NetWeightFormat">
-          <DataField>Sales_Shipment_Line_NetWeightFormat</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_LineAmount">
-          <DataField>Sales_Shipment_Line_LineAmount</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_LineAmountFormat">
-          <DataField>Sales_Shipment_Line_LineAmountFormat</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Document_No">
-          <DataField>Sales_Shipment_Line_Document_No</DataField>
-        </Field>
-        <Field Name="V1Caption">
-          <DataField>V1Caption</DataField>
-        </Field>
-        <Field Name="VAE_Line_No_">
-          <DataField>VAE_Line_No_</DataField>
-        </Field>
-        <Field Name="NetWeight_">
-          <DataField>NetWeight_</DataField>
-        </Field>
-        <Field Name="NetWeight_Format">
-          <DataField>NetWeight_Format</DataField>
-        </Field>
-        <Field Name="LineAmount_">
-          <DataField>LineAmount_</DataField>
-        </Field>
-        <Field Name="LineAmount_Format">
-          <DataField>LineAmount_Format</DataField>
-        </Field>
-        <Field Name="VAEWeight_VAECrMemoWeight">
-          <DataField>VAEWeight_VAECrMemoWeight</DataField>
-        </Field>
-        <Field Name="VAEWeight_VAECrMemoWeightFormat">
-          <DataField>VAEWeight_VAECrMemoWeightFormat</DataField>
-        </Field>
-        <Field Name="VAEAmount_LineAmount">
-          <DataField>VAEAmount_LineAmount</DataField>
-        </Field>
-        <Field Name="VAEAmount_LineAmountFormat">
-          <DataField>VAEAmount_LineAmountFormat</DataField>
-        </Field>
-        <Field Name="Total_Avoirs_Ventes_emporterCaption">
-          <DataField>Total_Avoirs_Ventes_emporterCaption</DataField>
-        </Field>
-        <Field Name="Total_Ventes_emporterCaption">
-          <DataField>Total_Ventes_emporterCaption</DataField>
-        </Field>
-        <Field Name="VAECrMemoHeader_No_">
-          <DataField>VAECrMemoHeader_No_</DataField>
-        </Field>
-        <Field Name="VAECrMemoLine_Document_No">
-          <DataField>VAECrMemoLine_Document_No</DataField>
-        </Field>
-        <Field Name="Avoirs_Ventes_à_emporterCaption">
-          <DataField>Avoirs_Ventes_à_emporterCaption</DataField>
-        </Field>
-        <Field Name="VAECrMemoLine_LineAmount">
-          <DataField>VAECrMemoLine_LineAmount</DataField>
-        </Field>
-        <Field Name="VAECrMemoLine_LineAmountFormat">
-          <DataField>VAECrMemoLine_LineAmountFormat</DataField>
-        </Field>
-        <Field Name="VAECrMemoLine_NetWeight">
-          <DataField>VAECrMemoLine_NetWeight</DataField>
-        </Field>
-        <Field Name="VAECrMemoLine_NetWeightFormat">
-          <DataField>VAECrMemoLine_NetWeightFormat</DataField>
-        </Field>
-        <Field Name="VAECrMemoLine_National_Add_Code">
-          <DataField>VAECrMemoLine_National_Add_Code</DataField>
-        </Field>
-        <Field Name="VAECrMemoHeader_Posting_Date">
-          <DataField>VAECrMemoHeader_Posting_Date</DataField>
-        </Field>
-        <Field Name="VAECrMemoHeader_DSA_No">
-          <DataField>VAECrMemoHeader_DSA_No</DataField>
-        </Field>
-        <Field Name="V7_Lbl">
-          <DataField>V7_Lbl</DataField>
-        </Field>
-        <Field Name="V1_Lbl">
-          <DataField>V1_Lbl</DataField>
-        </Field>
-        <Field Name="VAECrMemoLine_Line_No_">
-          <DataField>VAECrMemoLine_Line_No_</DataField>
-        </Field>
-        <Field Name="VAECrMemoAmount">
-          <DataField>VAECrMemoAmount</DataField>
-        </Field>
-        <Field Name="VAECrMemoAmountFormat">
-          <DataField>VAECrMemoAmountFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -217,7 +24,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>4.42387cm</Height>
+                  <Height>5.046cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -516,11 +323,62 @@
                                     </TablixCells>
                                   </TablixRow>
                                   <TablixRow>
+                                    <Height>0.6cm</Height>
+                                    <TablixCells>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="Textbox18">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!Ventes_à_emporterCaption.Value</Value>
+                                                    <Style>
+                                                      <FontSize>9pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox18</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <BottomBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </BottomBorder>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                          <ColSpan>8</ColSpan>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell />
+                                      <TablixCell />
+                                      <TablixCell />
+                                      <TablixCell />
+                                      <TablixCell />
+                                      <TablixCell />
+                                      <TablixCell />
+                                    </TablixCells>
+                                  </TablixRow>
+                                  <TablixRow>
                                     <Height>0.423cm</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox3">
+                                          <Textbox Name="Textbox51">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
@@ -536,17 +394,11 @@
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox3</rd:DefaultName>
+                                            <rd:DefaultName>Textbox51</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -576,14 +428,8 @@
                                             <rd:DefaultName>Textbox5</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -613,14 +459,8 @@
                                             <rd:DefaultName>Textbox7</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -650,14 +490,8 @@
                                             <rd:DefaultName>Textbox11</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -687,14 +521,8 @@
                                             <rd:DefaultName>Textbox13</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -724,14 +552,8 @@
                                             <rd:DefaultName>Textbox9</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -761,14 +583,8 @@
                                             <rd:DefaultName>Textbox15</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -798,14 +614,8 @@
                                             <rd:DefaultName>Textbox17</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -843,6 +653,16 @@
                                                 <Color>LightGrey</Color>
                                                 <Style>Solid</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
+                                              <BottomBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -875,6 +695,16 @@
                                                 <Color>LightGrey</Color>
                                                 <Style>Solid</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
+                                              <BottomBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -907,6 +737,16 @@
                                                 <Color>LightGrey</Color>
                                                 <Style>Solid</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
+                                              <BottomBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -939,6 +779,16 @@
                                                 <Color>LightGrey</Color>
                                                 <Style>Solid</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
+                                              <BottomBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -971,6 +821,16 @@
                                                 <Color>LightGrey</Color>
                                                 <Style>Solid</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
+                                              <BottomBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -1003,6 +863,16 @@
                                                 <Color>LightGrey</Color>
                                                 <Style>Solid</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
+                                              <BottomBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -1035,6 +905,16 @@
                                                 <Color>LightGrey</Color>
                                                 <Style>Solid</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
+                                              <BottomBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -1067,6 +947,16 @@
                                                 <Color>LightGrey</Color>
                                                 <Style>Solid</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
+                                              <BottomBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </BottomBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -1124,11 +1014,11 @@
                                     </TablixCells>
                                   </TablixRow>
                                   <TablixRow>
-                                    <Height>0.423cm</Height>
+                                    <Height>0.6cm</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox42">
+                                          <Textbox Name="V7_Lbl">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
@@ -1144,12 +1034,16 @@
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox42</rd:DefaultName>
+                                            <rd:DefaultName>V7_Lbl</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
                                               <BottomBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1165,7 +1059,7 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox43">
+                                          <Textbox Name="V1_Lbl">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
@@ -1181,12 +1075,16 @@
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox43</rd:DefaultName>
+                                            <rd:DefaultName>V1_Lbl</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
                                               <BottomBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1202,7 +1100,7 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox44">
+                                          <Textbox Name="Textbox343">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
@@ -1218,12 +1116,16 @@
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox44</rd:DefaultName>
+                                            <rd:DefaultName>Textbox343</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
                                               <BottomBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1239,14 +1141,14 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox45">
+                                          <Textbox Name="Textbox19">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!VAECrMemoHeader_Posting_Date.Value</Value>
+                                                    <Value>=Fields!Sales_Shipment_Header_Posting_Date.Value</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                     </Style>
@@ -1255,12 +1157,17 @@
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox45</rd:DefaultName>
+                                            <rd:DefaultName>Textbox11</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Color>LightGrey</Color>
                                                 <Style>Solid</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
                                               <BottomBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1276,7 +1183,7 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox46">
+                                          <Textbox Name="Textbox27">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
@@ -1292,12 +1199,16 @@
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox46</rd:DefaultName>
+                                            <rd:DefaultName>Textbox26</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
                                               <BottomBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1313,7 +1224,7 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox47">
+                                          <Textbox Name="Textbox28">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
@@ -1329,12 +1240,16 @@
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox47</rd:DefaultName>
+                                            <rd:DefaultName>Textbox28</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
                                               <BottomBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1350,7 +1265,7 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox48">
+                                          <Textbox Name="Textbox30">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
@@ -1366,12 +1281,16 @@
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox48</rd:DefaultName>
+                                            <rd:DefaultName>Textbox30</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
                                               <BottomBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1387,7 +1306,7 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox49">
+                                          <Textbox Name="Textbox32">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
@@ -1400,15 +1319,21 @@
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
-                                                <Style />
+                                                <Style>
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox49</rd:DefaultName>
+                                            <rd:DefaultName>Textbox32</rd:DefaultName>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
                                               <BottomBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -1452,6 +1377,11 @@
                                                 <Color>LightGrey</Color>
                                                 <Style>Solid</Style>
                                               </Border>
+                                              <TopBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </TopBorder>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -1720,18 +1650,25 @@
                                 <TablixMembers>
                                   <TablixMember />
                                   <TablixMember>
+                                    <KeepWithGroup>After</KeepWithGroup>
+                                  </TablixMember>
+                                  <TablixMember>
                                     <Group Name="Details2">
                                       <GroupExpressions>
                                         <GroupExpression>=Fields!Sales_Shipment_Line_Document_No.Value</GroupExpression>
                                         <GroupExpression>=Fields!Sales_Shipment_Line_National_Add_Code.Value</GroupExpression>
                                       </GroupExpressions>
                                     </Group>
+                                    <TablixMembers>
+                                      <TablixMember />
+                                    </TablixMembers>
                                     <Visibility>
                                       <Hidden>=iif(Fields!Sales_Shipment_Line_Document_No.Value &lt;&gt; " ", False, True)</Hidden>
                                     </Visibility>
                                   </TablixMember>
+                                  <TablixMember />
                                   <TablixMember>
-                                    <KeepWithGroup>Before</KeepWithGroup>
+                                    <KeepWithGroup>After</KeepWithGroup>
                                   </TablixMember>
                                   <TablixMember>
                                     <Group Name="VAECrMemoHeader_No_">
@@ -1746,42 +1683,13 @@
                                     </SortExpressions>
                                     <TablixMembers>
                                       <TablixMember />
-                                      <TablixMember>
-                                        <TablixMembers>
-                                          <TablixMember>
-                                            <Group Name="VAECrMemoLine_Document_No">
-                                              <GroupExpressions>
-                                                <GroupExpression>=Fields!VAECrMemoLine_Document_No.Value</GroupExpression>
-                                              </GroupExpressions>
-                                              <Filters>
-                                                <Filter>
-                                                  <FilterExpression>=Microsoft.ReportingServices.RdlObjectModel.ExpressionParser.VBFunctions.cstr(Fields!VAECrMemoLine_Document_No.Value)</FilterExpression>
-                                                  <Operator>GreaterThanOrEqual</Operator>
-                                                  <FilterValues>
-                                                    <FilterValue>""</FilterValue>
-                                                  </FilterValues>
-                                                </Filter>
-                                              </Filters>
-                                            </Group>
-                                            <SortExpressions>
-                                              <SortExpression>
-                                                <Value>=Fields!VAECrMemoLine_Document_No.Value</Value>
-                                              </SortExpression>
-                                            </SortExpressions>
-                                          </TablixMember>
-                                        </TablixMembers>
-                                      </TablixMember>
                                     </TablixMembers>
                                   </TablixMember>
-                                  <TablixMember>
-                                    <KeepWithGroup>Before</KeepWithGroup>
-                                  </TablixMember>
-                                  <TablixMember>
-                                    <KeepWithGroup>Before</KeepWithGroup>
-                                  </TablixMember>
+                                  <TablixMember />
+                                  <TablixMember />
                                 </TablixMembers>
                               </TablixRowHierarchy>
-                              <Height>3.669cm</Height>
+                              <Height>4.446cm</Height>
                               <Width>19.16909cm</Width>
                               <Style>
                                 <Border>
@@ -1859,9 +1767,7 @@ Cstr(Fields!Ventes_à_emporterCaption.Value)
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <Top>0cm</Top>
-            <Left>0cm</Left>
-            <Height>4.42387cm</Height>
+            <Height>5.046cm</Height>
             <Width>19.16909cm</Width>
             <Style>
               <Border>
@@ -1870,13 +1776,13 @@ Cstr(Fields!Ventes_à_emporterCaption.Value)
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>4.42387cm</Height>
+        <Height>5.046cm</Height>
         <Style />
       </Body>
-      <Width>19.16909cm</Width>
+      <Width>19.19259cm</Width>
       <Page>
         <PageHeader>
-          <Height>1.692cm</Height>
+          <Height>1.269cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1974,29 +1880,6 @@ Cstr(Fields!Ventes_à_emporterCaption.Value)
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
             </Textbox>
-            <Textbox Name="Ventes_à_emporterCaption">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(6,1)</Value>
-                      <Style>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <Top>1.269cm</Top>
-              <Height>0.423cm</Height>
-              <Width>9.9cm</Width>
-              <ZIndex>4</ZIndex>
-              <Style>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
             <Textbox Name="Page___FORMAT_CurrReport_PAGENO_">
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
@@ -2016,7 +1899,7 @@ Cstr(Fields!Ventes_à_emporterCaption.Value)
               <Left>16.90371cm</Left>
               <Height>0.423cm</Height>
               <Width>1.1365cm</Width>
-              <ZIndex>5</ZIndex>
+              <ZIndex>4</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -2044,7 +1927,7 @@ Cstr(Fields!Ventes_à_emporterCaption.Value)
               <Left>18.11076cm</Left>
               <Height>0.423cm</Height>
               <Width>1.05833cm</Width>
-              <ZIndex>6</ZIndex>
+              <ZIndex>5</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -2070,12 +1953,6 @@ Cstr(Fields!Ventes_à_emporterCaption.Value)
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -2110,9 +1987,226 @@ Public Function BlankNegAndZero(ByVal Value As Decimal)
     end if
     Return Value
 End Function
+Shared public negval as decimal
+Public Function Negvalbuff(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Shared Data1 as Object
+Public Function GetData(Num as Integer, Group as integer) as Object
+if Group = 1 then
+   Return Cstr(Choose(Num, Split(Cstr(Data1),Chr(177))))
+End If
+
+End Function
+
+Public Function SetData(NewData as Object,Group as integer)
+  If Group = 1 and NewData &gt; "" Then
+      Data1 = NewData
+  End If
+
+  Return True
+End Function
+
 </Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>38aa1580-ecc1-49b9-bc39-934564676f70</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+        </Field>
+        <Field Name="EndDate">
+          <DataField>EndDate</DataField>
+        </Field>
+        <Field Name="Txt_au">
+          <DataField>Txt_au</DataField>
+        </Field>
+        <Field Name="PageNo_Caption">
+          <DataField>PageNo_Caption</DataField>
+        </Field>
+        <Field Name="NetWeight">
+          <DataField>NetWeight</DataField>
+        </Field>
+        <Field Name="NetWeightFormat">
+          <DataField>NetWeightFormat</DataField>
+        </Field>
+        <Field Name="LineAmount">
+          <DataField>LineAmount</DataField>
+        </Field>
+        <Field Name="LineAmountFormat">
+          <DataField>LineAmountFormat</DataField>
+        </Field>
+        <Field Name="Relevé_des_ventes_Caption">
+          <DataField>Relevé_des_ventes_Caption</DataField>
+        </Field>
+        <Field Name="CDSCaption">
+          <DataField>CDSCaption</DataField>
+        </Field>
+        <Field Name="TYPECaption">
+          <DataField>TYPECaption</DataField>
+        </Field>
+        <Field Name="BLCaption">
+          <DataField>BLCaption</DataField>
+        </Field>
+        <Field Name="DATECaption">
+          <DataField>DATECaption</DataField>
+        </Field>
+        <Field Name="NDPCaption">
+          <DataField>NDPCaption</DataField>
+        </Field>
+        <Field Name="POIDSCaption">
+          <DataField>POIDSCaption</DataField>
+        </Field>
+        <Field Name="VALEURCaption">
+          <DataField>VALEURCaption</DataField>
+        </Field>
+        <Field Name="Bon_de_livraisonCaption">
+          <DataField>Bon_de_livraisonCaption</DataField>
+        </Field>
+        <Field Name="Ventes_à_emporterCaption">
+          <DataField>Ventes_à_emporterCaption</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_No_">
+          <DataField>Sales_Shipment_Header_No_</DataField>
+        </Field>
+        <Field Name="NetWeightTotal">
+          <DataField>NetWeightTotal</DataField>
+        </Field>
+        <Field Name="NetWeightTotalFormat">
+          <DataField>NetWeightTotalFormat</DataField>
+        </Field>
+        <Field Name="AmountTotal">
+          <DataField>AmountTotal</DataField>
+        </Field>
+        <Field Name="AmountTotalFormat">
+          <DataField>AmountTotalFormat</DataField>
+        </Field>
+        <Field Name="VAEAmount">
+          <DataField>VAEAmount</DataField>
+        </Field>
+        <Field Name="VAEAmountFormat">
+          <DataField>VAEAmountFormat</DataField>
+        </Field>
+        <Field Name="V7Caption">
+          <DataField>V7Caption</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_DSA_No">
+          <DataField>Sales_Shipment_Header_DSA_No</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_Posting_Date">
+          <DataField>Sales_Shipment_Header_Posting_Date</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_National_Add_Code">
+          <DataField>Sales_Shipment_Line_National_Add_Code</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_NetWeight">
+          <DataField>Sales_Shipment_Line_NetWeight</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_NetWeightFormat">
+          <DataField>Sales_Shipment_Line_NetWeightFormat</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_LineAmount">
+          <DataField>Sales_Shipment_Line_LineAmount</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_LineAmountFormat">
+          <DataField>Sales_Shipment_Line_LineAmountFormat</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Document_No">
+          <DataField>Sales_Shipment_Line_Document_No</DataField>
+        </Field>
+        <Field Name="V1Caption">
+          <DataField>V1Caption</DataField>
+        </Field>
+        <Field Name="VAE_Line_No_">
+          <DataField>VAE_Line_No_</DataField>
+        </Field>
+        <Field Name="V7_Lbl">
+          <DataField>V7_Lbl</DataField>
+        </Field>
+        <Field Name="V1_Lbl">
+          <DataField>V1_Lbl</DataField>
+        </Field>
+        <Field Name="NetWeight_">
+          <DataField>NetWeight_</DataField>
+        </Field>
+        <Field Name="NetWeight_Format">
+          <DataField>NetWeight_Format</DataField>
+        </Field>
+        <Field Name="LineAmount_">
+          <DataField>LineAmount_</DataField>
+        </Field>
+        <Field Name="LineAmount_Format">
+          <DataField>LineAmount_Format</DataField>
+        </Field>
+        <Field Name="VAEWeight_VAECrMemoWeight">
+          <DataField>VAEWeight_VAECrMemoWeight</DataField>
+        </Field>
+        <Field Name="VAEWeight_VAECrMemoWeightFormat">
+          <DataField>VAEWeight_VAECrMemoWeightFormat</DataField>
+        </Field>
+        <Field Name="VAEAmount_LineAmount">
+          <DataField>VAEAmount_LineAmount</DataField>
+        </Field>
+        <Field Name="VAEAmount_LineAmountFormat">
+          <DataField>VAEAmount_LineAmountFormat</DataField>
+        </Field>
+        <Field Name="Total_Avoirs_Ventes_emporterCaption">
+          <DataField>Total_Avoirs_Ventes_emporterCaption</DataField>
+        </Field>
+        <Field Name="Total_Ventes_emporterCaption">
+          <DataField>Total_Ventes_emporterCaption</DataField>
+        </Field>
+        <Field Name="VAECrMemoHeader_No_">
+          <DataField>VAECrMemoHeader_No_</DataField>
+        </Field>
+        <Field Name="VAECrMemoLine_Document_No">
+          <DataField>VAECrMemoLine_Document_No</DataField>
+        </Field>
+        <Field Name="Avoirs_Ventes_à_emporterCaption">
+          <DataField>Avoirs_Ventes_à_emporterCaption</DataField>
+        </Field>
+        <Field Name="VAECrMemoLine_LineAmount">
+          <DataField>VAECrMemoLine_LineAmount</DataField>
+        </Field>
+        <Field Name="VAECrMemoLine_LineAmountFormat">
+          <DataField>VAECrMemoLine_LineAmountFormat</DataField>
+        </Field>
+        <Field Name="VAECrMemoLine_NetWeight">
+          <DataField>VAECrMemoLine_NetWeight</DataField>
+        </Field>
+        <Field Name="VAECrMemoLine_NetWeightFormat">
+          <DataField>VAECrMemoLine_NetWeightFormat</DataField>
+        </Field>
+        <Field Name="VAECrMemoLine_National_Add_Code">
+          <DataField>VAECrMemoLine_National_Add_Code</DataField>
+        </Field>
+        <Field Name="VAECrMemoHeader_Posting_Date">
+          <DataField>VAECrMemoHeader_Posting_Date</DataField>
+        </Field>
+        <Field Name="VAECrMemoHeader_DSA_No">
+          <DataField>VAECrMemoHeader_DSA_No</DataField>
+        </Field>
+        <Field Name="VAECrMemoLine_Line_No_">
+          <DataField>VAECrMemoLine_Line_No_</DataField>
+        </Field>
+        <Field Name="VAECrMemoAmount">
+          <DataField>VAECrMemoAmount</DataField>
+        </Field>
+        <Field Name="VAECrMemoAmountFormat">
+          <DataField>VAECrMemoAmountFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

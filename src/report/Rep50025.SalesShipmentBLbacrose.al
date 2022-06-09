@@ -17,7 +17,6 @@ report 50025 "Sales - Shipment BL bac rose"
                 column(DELIVERY_NOTE; DELIVERY_NOTE)
                 {
                 }
-
                 column(Sales_Shipment_Header_Reference; "Sales Shipment Header"."PWD Reference")
                 {
                 }
@@ -184,6 +183,9 @@ report 50025 "Sales - Shipment BL bac rose"
                 {
                 }
                 column(TOTAL_QuantitéCaption; TOTAL_QuantitéCaptionLbl)
+                {
+                }
+                column(DepotSpecial; DepotSpecial)
                 {
                 }
                 dataitem(BoucleMag; Integer)
@@ -517,8 +519,7 @@ report 50025 "Sales - Shipment BL bac rose"
     begin
         IF NOT CurrReport.USEREQUESTPAGE THEN
             InitLogInteraction();
-        //TODO var inused
-        //DepotSpecial := '8';
+        DepotSpecial := '8';
 
         If UserSetup.Get() then
             UserSetup.CALCFIELDS("PWD Signing");
@@ -548,7 +549,7 @@ report 50025 "Sales - Shipment BL bac rose"
         NewBinNo: Boolean;
         PrintMag: boolean;
         ShowCustAddr: Boolean;
-        //DepotSpecial: Code[10];
+        DepotSpecial: Code[10];
         DesAFD: Code[10];
         LastBinNo: Code[10];
         LastLocation: Code[10];

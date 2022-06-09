@@ -855,7 +855,7 @@ table 70063 "PWD Archived Purchase Line"
         }
         field(5710; Nonstock; Boolean)
         {
-            Caption = 'Catalog';
+            Caption = 'Nonstock';
             DataClassification = CustomerContent;
         }
         field(5711; "Purchasing Code"; Code[10])

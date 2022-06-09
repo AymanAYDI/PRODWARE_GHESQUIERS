@@ -29,17 +29,20 @@ tableextension 60019 "PWD ItemJournalLine" extends "Item Journal Line"
         }
         field(50010; "PWD Code prestation"; Code[10])
         {
+            Caption = 'Code prestation';
             Description = 'PW2009';
             TableRelation = "PWD Prestations";
             DataClassification = CustomerContent;
         }
         field(50011; "PWD Code fournisseur"; Code[20])
         {
+            Caption = 'Code fournisseur';
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
         field(50012; "PWD Code client"; Code[20])
         {
+            Caption = 'Code client';
             Description = 'PW2009';
             TableRelation = Customer;
             DataClassification = CustomerContent;
@@ -52,6 +55,7 @@ tableextension 60019 "PWD ItemJournalLine" extends "Item Journal Line"
         }
         field(50015; "PWD Reference"; Text[100])
         {
+            Caption = 'Reference';
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
@@ -145,11 +149,13 @@ tableextension 60019 "PWD ItemJournalLine" extends "Item Journal Line"
         }
         field(55108; "PWD Nb. unite"; Decimal)
         {
+            Caption = 'Nb. unite';
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
         field(55109; "PWD Montant douane"; Decimal)
         {
+            Caption = 'Montant douane';
             Description = 'PW2009';
             DataClassification = CustomerContent;
 

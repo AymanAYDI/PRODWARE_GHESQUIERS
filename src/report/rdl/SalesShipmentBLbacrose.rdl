@@ -1333,28 +1333,8 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value) + Chr(177), 1)</Hidden>
                           <KeepTogether>true</KeepTogether>
                           <Style>
                             <Border>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </RightBorder>
                           </Style>
                         </Rectangle>
                       </CellContents>
@@ -1403,7 +1383,7 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value) + Chr(177), 1)</Hidden>
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>4.42106cm</Height>
+        <Height>3.46123cm</Height>
         <Style />
       </Body>
       <Width>19.12315cm</Width>
@@ -1717,6 +1697,9 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value) + Chr(177), 1)</Hidden>
                           <Sizing>FitProportional</Sizing>
                           <Height>2.961cm</Height>
                           <Width>2.94cm</Width>
+                          <Visibility>
+                            <Hidden>=iif(ISNOTHING(Fields!CompanyInfo_Logo_AVITA_facture.Value) = TRUE,true,false)</Hidden>
+                          </Visibility>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -3272,6 +3255,9 @@ End Function
         </Field>
         <Field Name="TOTAL_QuantitéCaption">
           <DataField>TOTAL_QuantitéCaption</DataField>
+        </Field>
+        <Field Name="DepotSpecial">
+          <DataField>DepotSpecial</DataField>
         </Field>
         <Field Name="Sales_Shipment_Line_No">
           <DataField>Sales_Shipment_Line_No</DataField>

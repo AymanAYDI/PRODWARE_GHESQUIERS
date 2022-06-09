@@ -333,6 +333,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         }
         field(50050; "PWD NewPage"; Integer)
         {
+            Caption = 'New Page';
             Description = 'RE_GHE1.00';
             DataClassification = CustomerContent;
         }
@@ -623,6 +624,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         }
         field(55049; "PWD Quantite initiale"; Decimal)
         {
+            Caption = 'Quantite initiale';
             Description = 'PW2009';
             Editable = false;
             DataClassification = CustomerContent;
@@ -668,6 +670,7 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         }
         field(70010; "PWD MethodeCalculPresta."; Text[30])
         {
+            Caption = 'Methode de Calcul (prestation)';
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
@@ -996,21 +999,19 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
     procedure FctPushVendorAndUnitCostItem()
     var
         RecLItem: Record Item;
-        RecLPurchasePrice: Record "Price List Line";
+        RecLPurchasePrice: Record "Purchase Price";
     begin
         TESTFIELD(Type, Type::Item);
         RecLPurchasePrice.RESET();
-        RecLPurchasePrice.SETRANGE("Asset No.", "No.");
-        IF PAGE.RUNMODAL(PAGE::"Price List Lines", RecLPurchasePrice) = ACTION::LookupOK THEN BEGIN
+        RecLPurchasePrice.SETRANGE("Item No.", "No.");
+        IF PAGE.RUNMODAL(PAGE::"Get Purchase Price", RecLPurchasePrice) = ACTION::LookupOK THEN BEGIN
             VALIDATE("Unit Cost (LCY)", RecLPurchasePrice."Direct Unit Cost");
-            //TODO
-            /*
-                        VALIDATE("PWD Vendor No.", RecLPurchasePrice."Vendor No.");
-                        MODIFY();
-                        IF RecLItem.GET("No.") THEN BEGIN
-                            RecLItem.VALIDATE("Vendor No.", RecLPurchasePrice."Vendor No.");
-                            RecLItem.MODIFY();
-                        END;*/
+            VALIDATE("PWD Vendor No.", RecLPurchasePrice."Vendor No.");
+            MODIFY;
+            IF RecLItem.GET("No.") THEN BEGIN
+                RecLItem.VALIDATE("Vendor No.", RecLPurchasePrice."Vendor No.");
+                RecLItem.MODIFY;
+            END;
         END;
     end;
 
