@@ -628,11 +628,11 @@ report 50061 "PWD Sales - Invoice AVITA"
                                         j := j + 1;
                                     END;
                                 END;
-                            RecGCallType.GET("Sales Invoice Header"."PWD Call Type");
-                            IF RecGCallType."Message EXO" = TRUE THEN
-                                TxTGMentionEXO := 'Exonération TVA art.262 II du C.G.I.'
-                            ELSE
-                                TxTGMentionEXO := '';
+                            if RecGCallType.GET("Sales Invoice Header"."PWD Call Type") then // ------------------------------------------
+                                IF RecGCallType."Message EXO" = TRUE THEN
+                                    TxTGMentionEXO := 'Exonération TVA art.262 II du C.G.I.'
+                                ELSE
+                                    TxTGMentionEXO := '';
 
                             IF TempVATAmountLine.GetTotalVATAmount() = 0 THEN BEGIN
                                 FOR i := 1 TO 4 DO BEGIN

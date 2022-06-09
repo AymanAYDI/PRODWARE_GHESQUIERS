@@ -1,4 +1,4 @@
-tableextension 60063 "PWD PriceListLine" extends "Price List Line"
+tableextension 60063 "PWD SalesPrice" extends "Sales Price"
 {
     fields
     {
@@ -30,16 +30,15 @@ tableextension 60063 "PWD PriceListLine" extends "Price List Line"
                     "Unit Price" := ROUND("PWD Purch. Cost", 0.01, '<');
             end;
         }
-        //TODO //"Description" existe dans le STD
-        // field(50002; "PWD Description"; Text[50])
-        // {
-        //     Caption = 'Description';
-        //     Description = 'PW2009';
-        //     DataClassification = CustomerContent;
-        // }
+        field(50002; "PWD Description"; Text[50])
+        {
+            Caption = 'Description';
+            Description = 'PW2009';
+            DataClassification = CustomerContent;
+        }
         field(50014; "PWD Family"; Code[10])
         {
-            CalcFormula = Lookup(Item."PWD Family" WHERE("No." = FIELD("Asset No.")));
+            CalcFormula = Lookup(Item."PWD Family" WHERE("No." = FIELD("Item No.")));
             Caption = 'Family';
             Description = 'PW2009';
             FieldClass = FlowField;

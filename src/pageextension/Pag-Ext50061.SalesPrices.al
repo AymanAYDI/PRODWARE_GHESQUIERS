@@ -1,7 +1,14 @@
-pageextension 50061 "PWD PriceListLines" extends "Price List Lines"
+pageextension 50061 "PWD SalesPrices" extends "Sales Prices"
 {
     layout
     {
+        addafter("Item No.")
+        {
+            field("PWD Description"; Rec."PWD Description")
+            {
+                ApplicationArea = all;
+            }
+        }
         addafter("Unit Price")
         {
             field("PWD Purch. Cost"; Rec."PWD Purch. Cost")

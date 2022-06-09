@@ -579,7 +579,7 @@ report 50026 "Sales - Shipment AVITA - DAA"
                     column(PageLoop_Number; Number)
                     {
                     }
-                    column(NoOfCopies;NoOfCopies)
+                    column(NoOfCopies; NoOfCopies)
                     {
                     }
                     dataitem("Sales Shipment Line"; "Sales Shipment Line")
@@ -832,8 +832,6 @@ report 50026 "Sales - Shipment AVITA - DAA"
                                 IF NOT Item.GET("Sales Shipment Line"."No.") THEN
                                     Item.INIT();
                             END;
-                            //TODO var not used.
-                            //CodeDEpotEntete := "Sales Shipment Line"."Location Code";
                             // Calcul total tabac alcool
                             QtéAlcool := 0;
                             QtéTabac := 0;
@@ -1003,19 +1001,11 @@ report 50026 "Sales - Shipment AVITA - DAA"
                 ELSE
                     ReferenceText := FIELDCAPTION("Your Reference");
                 FormatAddr.SalesShptShipTo(ShipToAddr, "Sales Shipment Header");
-                //TODO a vérifier
                 FormatAddr.SalesShptBillTo(CustAddr, ShipToAddr, "Sales Shipment Header");
-                //TODO Var not used
-                //ShowCustAddr := "Bill-to Customer No." <> "Sell-to Customer No.";
-                FOR i := 1 TO ARRAYLEN(CustAddr) DO
-                    IF CustAddr[i] <> ShipToAddr[i] THEN
-                        //TODO Var not used
-                        //ShowCustAddr := TRUE;
-
-                        IF LogInteraction THEN
-                            IF NOT CurrReport.PREVIEW THEN
-                                SegManagement.LogDocument(
-                              5, "No.", 0, 0, DATABASE::Customer, "Sell-to Customer No.", "Salesperson Code", '', "Posting Description", '');
+                IF LogInteraction THEN
+                    IF NOT CurrReport.PREVIEW THEN
+                        SegManagement.LogDocument(
+                      5, "No.", 0, 0, DATABASE::Customer, "Sell-to Customer No.", "Salesperson Code", '', "Posting Description", '');
                 //<-< GUE-RE.1.00
                 //*** Recherche du nom du transporteur
                 IF NOT ShippingAgent.GET("Sales Shipment Header"."Shipping Agent Code") THEN
@@ -1030,12 +1020,6 @@ report 50026 "Sales - Shipment AVITA - DAA"
                 NbLigneTotal := SalesShipLine.COUNT;
                 SalesShipLine.SETRANGE(Type);
                 IF SalesShipLine.FindFirst() THEN;
-                //TODO var not used.
-                //CodeDEpotEntete := SalesShipLine."Location Code"
-                //ELSE
-                //TODO var not used.
-                //CodeDEpotEntete := '';
-
                 NumLigne := 0;
                 QtéAlcoolTotal := 0;
                 QtéTabacTotal := 0;
@@ -1099,8 +1083,6 @@ report 50026 "Sales - Shipment AVITA - DAA"
     begin
         IF NOT CurrReport.USEREQUESTPAGE THEN
             InitLogInteraction();
-        //TODO Var not used
-        //DepotSpecial := '8';
 
         IF USERID <> '' THEN
             UserTable.GET(USERID);
@@ -1129,14 +1111,8 @@ report 50026 "Sales - Shipment AVITA - DAA"
         SegManagement: Codeunit SegManagement;
         LogInteraction: Boolean;
         ShowCorrectionLines: Boolean;
-        //TODO Var not used
-        //ShowCustAddr: Boolean;
         BillToPostCode: Code[20];
-        //TODO Var not used
-        //DepotSpecial: Code[10];
         SellToPostCode: Code[20];
-        //TODO var not used.
-        //CodeDEpotEntete: Code[20];
         "QtéAlcool": Decimal;
         "QtéAlcoolTotal": Decimal;
         "QtéTabac": Decimal;

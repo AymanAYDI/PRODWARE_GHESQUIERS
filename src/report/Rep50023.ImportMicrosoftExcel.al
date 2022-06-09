@@ -647,8 +647,7 @@ report 50023 "PWD Import Microsoft Excel"
                 IF salesline.FindSet() THEN
                     REPEAT
                         Purchline.RESET();
-                        //TODO
-                        //Purchline.SETRANGE("PWD Sales Type Doc Appeal tenders", "Document Type");
+                        Purchline.SETRANGE("PWD SalesTypeDocAppealTend.", "Document Type".AsInteger());
                         Purchline.SETRANGE("PWD Sales No. Appeal Tenders", "No.");
                         Purchline.SETCURRENTKEY("Document Type", "Document No.", "Line No.");
                         IF Purchline.FINDSet() THEN

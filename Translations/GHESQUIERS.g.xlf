@@ -9668,10 +9668,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Prepared Sales Order - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3670417220 - NamedType 1889548419" size-unit="char" translate="yes" xml:space="preserve">
+          <source>SUPER</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Prepared Sales Order - NamedType CstG002</note>
+        </trans-unit>
         <trans-unit id="Page 3670417220 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unable to execute this function while in view only mode.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Prepared Sales Order - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Page 3670417220 - NamedType 607174660" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You are not allowed to modify this field !</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Prepared Sales Order - NamedType Text1000000004</note>
         </trans-unit>
         <trans-unit id="Page 3670417220 - Control 3004656566 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Invoicing</source>
@@ -14093,10 +14103,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD CustomerCard - Control PWD Seafrance Order - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1064369381 - Control 1226264956 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
+        <trans-unit id="PageExtension 1064369381 - Control 3228158783 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
           <source>Last invoice No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD CustomerCard - Control SetLastInvoiceNo - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD CustomerCard - Control Field_SetLastInvoiceNo - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3622496239 - Control 181060037 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2901867346">
           <source>Last invoice No.</source>
@@ -15958,21 +15968,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD PaymentTerms - Field PWD International Description - Property Caption</note>
         </trans-unit>
-        <trans-unit id="TableExtension 2206308582 - Field 2851693807 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2964960979">
-          <source>Family</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD PriceListLine - Field PWD Family - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2206308582 - Field 3380404079 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2964960979">
-          <source>Percentage Profit</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD PriceListLine - Field PWD Percentage Profit - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="TableExtension 2206308582 - Field 3248379342 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2964960979">
-          <source>Purch. Cost</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD PriceListLine - Field PWD Purch. Cost - Property Caption</note>
-        </trans-unit>
         <trans-unit id="TableExtension 1529114465 - Field 3189275053 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2072992664">
           <source>Attachment 1</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -17672,6 +17667,26 @@
           <source>Vendor No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesLineArchive - Field PWD Vendor No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3814350378 - Field 2469419127 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2243515271">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesPrice - Field PWD Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3814350378 - Field 2851693807 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2243515271">
+          <source>Family</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesPrice - Field PWD Family - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3814350378 - Field 3380404079 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2243515271">
+          <source>Percentage Profit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesPrice - Field PWD Percentage Profit - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 3814350378 - Field 3248379342 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2243515271">
+          <source>Purch. Cost</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesPrice - Field PWD Purch. Cost - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 3486706245 - Field 942378656 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4145206282">
           <source>Archive Orders</source>

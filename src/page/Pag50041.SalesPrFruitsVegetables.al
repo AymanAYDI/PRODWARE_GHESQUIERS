@@ -5,7 +5,7 @@ page 50041 "Sales Pr Fruits & Vegetables"
     DelayedInsert = true;
     PageType = Card;
     SaveValues = true;
-    SourceTable = "Price List Line";
+    SourceTable = "Sales Price";
     SourceTableView = WHERE("PWD Family" = CONST('50'));
     ApplicationArea = all;
     UsageCategory = Tasks;
@@ -108,23 +108,22 @@ page 50041 "Sales Pr Fruits & Vegetables"
             {
                 ShowCaption = false;
 
-                field("Source Type"; Rec."Source Type")
+                field("Sales Type"; Rec."Sales Type")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                //TODO
-                /*field("Sales Code"; "Sales Code")
+                field("Sales Code"; Rec."Sales Code")
                 {
                     Editable = "Sales CodeEditable";
                     Visible = false;
                     ApplicationArea = All;
-                }*/
-                field("Asset No."; Rec."Asset No.")
+                }
+                field("Item No."; Rec."Item No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Rec."Description")
+                field(Description; Rec."PWD Description")
                 {
                     ApplicationArea = All;
                 }
@@ -255,7 +254,7 @@ page 50041 "Sales Pr Fruits & Vegetables"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        Rec."Source Type" := xRec."Source Type";
+        Rec."Sales Type" := xRec."Sales Type";
         Fct_OnAfterGetCurrRecord();
     end;
 
@@ -284,54 +283,65 @@ page 50041 "Sales Pr Fruits & Vegetables"
 
     procedure GetRecFilters()
     begin
-        IF Rec.GETFILTERS <> '' THEN
-            //TODO Verif
-            IF Rec.GETFILTER("Source Type") <> '' THEN
+        IF Rec.GETFILTERS <> '' THEN BEGIN
+            IF Rec.GETFILTER("Sales Type") <> '' THEN
+                //>> 03/04/2014 SU-DADE cf appel TI218444
+                //SalesTypeFilter := "Sales Type"
+                // dade
                 SalesTypeFilter := SalesTypeFilter
+            //<< 03/04/2014 SU-DADE cf appel TI218444
             ELSE
                 SalesTypeFilter := SalesTypeFilter::None;
-        //TODO
-        //SalesCodeFilter := Rec.GETFILTER("Sales Code");
-        ItemNoFilter := Rec.GETFILTER("Asset No.");
-        CurrencyCodeFilter := Rec.GETFILTER("Currency Code");
+
+            SalesCodeFilter := Rec.GETFILTER("Sales Code");
+            ItemNoFilter := Rec.GETFILTER("Item No.");
+            CurrencyCodeFilter := Rec.GETFILTER("Currency Code");
+        END;
 
         EVALUATE(StartingDateFilter, Rec.GETFILTER("Starting Date"));
-    end;
+    END;
 
     procedure SetRecFilters()
     begin
 
         SalesCodeFilterCtrlEnable := TRUE;
-        //TODO VERIF
+        //>> 03/04/2014 SU-DADE cf appel TI218444
         IF SalesTypeFilter <> SalesTypeFilter::None THEN
-            Rec.SETRANGE("Source Type", SalesTypeFilter)
+            Rec.SETRANGE("Sales Type", SalesTypeFilter)
+        //<< 03/04/2014 SU-DADE cf appel TI218444
         ELSE
-            Rec.SETRANGE("Source Type");
+            Rec.SETRANGE("Sales Type");
+
         IF SalesTypeFilter IN [SalesTypeFilter::"All Customers", SalesTypeFilter::None] THEN BEGIN
+            //>> 03/04/2014 SU-DADE cf appel TI218444
+            //CurrPage.SalesCodeFilterCtrl.ENABLED(FALSE);
+
             SalesCodeFilterCtrlEnable := FALSE;
+            //<< 03/04/2014 SU-DADE cf appel TI218444
             SalesCodeFilter := '';
         END;
-        //TODO verif 
+
         IF SalesCodeFilter <> '' THEN
-            Rec.SETFILTER("Source Type", SalesCodeFilter)
+            Rec.SETFILTER("Sales Code", SalesCodeFilter)
         ELSE
-            Rec.SETRANGE("Source Type");
+            Rec.SETRANGE("Sales Code");
+
         IF StartingDateFilter <> '' THEN
             Rec.SETFILTER("Starting Date", StartingDateFilter)
         ELSE
             Rec.SETRANGE("Starting Date");
 
         IF ItemNoFilter <> '' THEN
-            Rec.SETFILTER("Asset No.", ItemNoFilter)
+            Rec.SETFILTER("Item No.", ItemNoFilter)
         ELSE
-            Rec.SETRANGE("Asset No.");
+            Rec.SETRANGE("Item No.");
 
         IF CurrencyCodeFilter <> '' THEN
             Rec.SETFILTER("Currency Code", CurrencyCodeFilter)
         ELSE
             Rec.SETRANGE("Currency Code");
         CurrPage.UPDATE(TRUE);
-    end;
+    END;
 
     procedure GetCaption(): Text[250]
     var
@@ -341,8 +351,7 @@ page 50041 "Sales Pr Fruits & Vegetables"
         DescriptionValue: Text[250];
     begin
         GetRecFilters();
-        //TODO Verif
-        IF Rec."Source Type" = Rec."Source Type"::"All Customers" THEN
+        IF Rec."Sales Type" = Rec."Sales Type"::"All Customers" THEN
             "Sales CodeEditable" := FALSE
         ELSE
             "Sales CodeEditable" := TRUE;
@@ -415,7 +424,7 @@ page 50041 "Sales Pr Fruits & Vegetables"
     local procedure Fct_OnAfterGetCurrRecord()
     begin
         xRec := Rec;
-        IF Rec."Source Type" = Rec."Source Type"::"All Customers" THEN
+        IF Rec."Sales Type" = Rec."Sales Type"::"All Customers" THEN
             "Sales CodeEditable" := FALSE
         ELSE
             "Sales CodeEditable" := TRUE;

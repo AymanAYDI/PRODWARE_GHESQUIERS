@@ -48,7 +48,7 @@ report 50124 "PWD Apurement fin de mois V2"
             column(EmptyString_Control57; '')
             {
             }
-            column(STRSUBSTNO_Text006__CIEL_Personal_Caption_____; STRSUBSTNO(Text006, "PWD CIEL Personal Caption", ''))
+            column(STRSUBSTNO_Text006__CIEL_Personal_Caption_____; STRSUBSTNO(Text006, "PWD CIEL Personal Caption"))
             {
             }
             column(STRSUBSTNO_Text007__CIEL_Personal_Caption__; STRSUBSTNO(Text007, "PWD CIEL Personal Caption"))

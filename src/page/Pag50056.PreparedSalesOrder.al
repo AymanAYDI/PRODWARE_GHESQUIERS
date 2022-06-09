@@ -111,13 +111,13 @@ page 50056 "PWD Prepared Sales Order"
                 {
                     ApplicationArea = All;
 
-                    /*trigger OnValidate()
+                    trigger OnValidate()
                     begin
-                        Memberof.SETRANGE(Memberof."User ID", USERID);
-                        Memberof.SETRANGE(Memberof."Role ID", 'SUPER');
-                        IF NOT Memberof.FindFirst() THEN
+                        AccessControl.SETRANGE(AccessControl."User Security ID", UserSecurityId());
+                        AccessControl.SETRANGE(AccessControl."Role ID", CstG002);
+                        IF NOT AccessControl.FindFirst() THEN
                             ERROR(Text1000000004);
-                    end;*/
+                    end;
                 }
                 field(Status; Rec.Status)
                 {
@@ -1012,8 +1012,7 @@ page 50056 "PWD Prepared Sales Order"
     end;
 
     var
-        //TODO
-        //Memberof: Record 2000000003;
+        AccessControl: Record "Access Control";
         SalesSetup: Record "Sales & Receivables Setup";
         SalesHeader: Record "Sales Header";
         PurchRRec: Record "Sales Shipment Header";
@@ -1026,6 +1025,8 @@ page 50056 "PWD Prepared Sales Order"
         ReportPrint: Codeunit "Test Report-Print";
         UserMgt: Codeunit "User Setup Management";
         Text000: Label 'Unable to execute this function while in view only mode.';
+        CstG002: Label 'SUPER';
+        Text1000000004: Label 'You are not allowed to modify this field !';
         DateLastPurchR: Text[30];
 
     procedure UpdateAllowed(): Boolean

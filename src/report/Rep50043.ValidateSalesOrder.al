@@ -89,7 +89,7 @@ report 50043 "PWD Validate Sales Order"
         CurrExchRate: Record "Currency Exchange Rate";
         Cust: Record Customer;
         GenLedSetUp: Record "General Ledger Setup";
-        PermissionSet: Record "Permission Set";
+        AccessControl: Record "Access Control";
         TempSalesLine: Record "Sales Line" temporary;
         TotalSalesLine: Record "Sales Line";
         TotalSalesLineLCY: Record "Sales Line";
@@ -172,9 +172,9 @@ report 50043 "PWD Validate Sales Order"
         GenLedSetUp.GET();
         IF Cust."PWD Discount Profit %" > ProfitPct THEN BEGIN
             //*** Recherche si userid appartient au role direction
-            //TODO MemberOf.SETRANGE("User ID",USERID);
-            PermissionSet.SETRANGE("Role ID", GenLedSetUp."PWD Direction Role ID");
-            IF not PermissionSet.IsEmpty THEN BEGIN
+            AccessControl.SETRANGE(AccessControl."User Security ID", UserSecurityId());
+            AccessControl.SETRANGE(AccessControl."Role ID", GenLedSetUp."PWD Direction Role ID");
+            IF Not AccessControl.IsEmpty() THEN BEGIN
                 IF CONFIRM(Text1000000000, TRUE, ProfitPct, Cust."PWD Discount Profit %", '%') = FALSE THEN
                     ERROR(Text1000000001, ProfitPct, Cust."PWD Discount Profit %", '%');
             END ELSE

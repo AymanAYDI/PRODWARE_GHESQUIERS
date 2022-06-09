@@ -17,7 +17,6 @@ report 50025 "Sales - Shipment BL bac rose"
                 column(DELIVERY_NOTE; DELIVERY_NOTE)
                 {
                 }
-
                 column(Sales_Shipment_Header_Reference; "Sales Shipment Header"."PWD Reference")
                 {
                 }
@@ -517,8 +516,6 @@ report 50025 "Sales - Shipment BL bac rose"
     begin
         IF NOT CurrReport.USEREQUESTPAGE THEN
             InitLogInteraction();
-        //TODO var inused
-        //DepotSpecial := '8';
 
         If UserSetup.Get() then
             UserSetup.CALCFIELDS("PWD Signing");
@@ -548,7 +545,6 @@ report 50025 "Sales - Shipment BL bac rose"
         NewBinNo: Boolean;
         PrintMag: boolean;
         ShowCustAddr: Boolean;
-        //DepotSpecial: Code[10];
         DesAFD: Code[10];
         LastBinNo: Code[10];
         LastLocation: Code[10];
@@ -597,16 +593,16 @@ report 50025 "Sales - Shipment BL bac rose"
         "UnitéCaptionLbl": Label 'Unité';
         VisaCaptionLbl: Label 'Visa : ';
         SalesPersonText: Text[20];
-        LOC1: Text[30];
-        LOC2: Text[30];
+        LOC1: Text[100];
+        LOC2: Text[100];
         LocationFilter: array[20] of Text[30];
-        ReferenceText: Text[30];
+        ReferenceText: Text[35];
         TextDLC: Text[30];
         TextDLC_SF: Text[30];
         Titre: Text[30];
-        CompanyAddr: array[8] of Text[50];
-        ShipToAddr: array[8] of Text[50];
-        LocationName: array[20] of Text[60];
+        CompanyAddr: array[8] of Text[100];
+        ShipToAddr: array[8] of Text[100];
+        LocationName: array[20] of Text[200];
         TextFooter1: Text[80];
         TextFooter2: Text[80];
         TextFooter3: Text[80];

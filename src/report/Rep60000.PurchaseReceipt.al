@@ -327,8 +327,7 @@ report 60000 "PWD Purchase - Receipt"
                         begin
                             IF (NOT ShowCorrectionLinesV) AND Correction THEN
                                 CurrReport.SKIP();
-                            //TODO
-                            //PostedDocDim2.SETRANGE("Table ID", DATABASE::"Purch. Rcpt. Line");
+                            PostedDocDim2.SETRANGE("Dimension Set ID", "Dimension Set ID");
                             PrixLigne := "Purch. Rcpt. Line".Quantity * "Purch. Rcpt. Line"."Direct Unit Cost";
                             IF "Purch. Rcpt. Line"."Line Discount %" <> 0 THEN
                                 PrixLigne := ROUND(PrixLigne - (PrixLigne * "Purch. Rcpt. Line"."Line Discount %" / 100), 0.01);
