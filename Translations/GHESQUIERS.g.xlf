@@ -14118,10 +14118,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD CustomerCard - Control PWD Seafrance Order - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1064369381 - Control 1226264956 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
+        <trans-unit id="PageExtension 1064369381 - Control 3228158783 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 523354100">
           <source>Last invoice No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD CustomerCard - Control SetLastInvoiceNo - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD CustomerCard - Control Field_SetLastInvoiceNo - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3622496239 - Control 181060037 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2901867346">
           <source>Last invoice No.</source>

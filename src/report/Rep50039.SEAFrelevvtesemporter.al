@@ -17,7 +17,7 @@ report 50039 "SEAF : relevé vtes à emporter"
             column(EndDate; EndDate)
             {
             }
-            column(au_; Au_Lbl)
+            column(Txt_au; Au_Lbl)
             {
             }
             column(PageNo_Caption; Page_Caption)
@@ -51,6 +51,9 @@ report 50039 "SEAF : relevé vtes à emporter"
             {
             }
             column(VALEURCaption; VALEURCaptionLbl)
+            {
+            }
+            column(Avoirs_Ventes_à_emporterCaption; AvoirsVentesEmporterCaption)
             {
             }
             column(Bon_de_livraisonCaption; Bon_de_livraisonCaptionLbl)
@@ -102,6 +105,18 @@ report 50039 "SEAF : relevé vtes à emporter"
                 column(VAE_Line_No_; "Line No.")
                 {
                 }
+                column(V7_Lbl; V7CaptionLbL)
+                {
+                }
+                column(V1_Lbl; V1CaptionLbl)
+                {
+                }
+                column(Total_Avoirs_Ventes_emporterCaption; TotalAvoirsVentesemporterCaptionLbl)
+                {
+                }
+                column(Total_Ventes_emporterCaption; Total_Ventes_emporterCaptionLbl)
+                {
+                }
 
                 trigger OnAfterGetRecord()
                 begin
@@ -140,7 +155,7 @@ report 50039 "SEAF : relevé vtes à emporter"
                 StartDate := GETRANGEMIN("Posting Date");
                 EndDate := GETRANGEMAX("Posting Date");
 
-                IF NOT (BlankDSA) THEN;
+                //_IF NOT (BlankDSA) THEN;
             end;
         }
         dataitem(VAECrMemoHeader; "Sales Cr.Memo Header")
@@ -153,6 +168,8 @@ report 50039 "SEAF : relevé vtes à emporter"
             column(LineAmount_; LineAmount)
             {
             }
+
+
             column(VAEWeight_VAECrMemoWeight; VAEWeight - VAECrMemoWeight)
             {
             }
@@ -160,12 +177,8 @@ report 50039 "SEAF : relevé vtes à emporter"
             {
             }
 
-            column(Total_Avoirs_Ventes_emporterCaption; TotalAvoirsVentesemporterCaptionLbl)
-            {
-            }
-            column(Total_Ventes_emporterCaption; Total_Ventes_emporterCaptionLbl)
-            {
-            }
+
+
             column(VAECrMemoHeader_No_; "No.")
             {
             }
@@ -176,9 +189,7 @@ report 50039 "SEAF : relevé vtes à emporter"
                 column(VAECrMemoLine_Document_No; "Document No.")
                 {
                 }
-                column(Avoirs_Ventes_à_emporterCaption; AvoirsVentesEmporterCaption)
-                {
-                }
+
                 column(VAECrMemoLine_LineAmount; LineAmount)
                 {
                 }
@@ -188,18 +199,20 @@ report 50039 "SEAF : relevé vtes à emporter"
                 column(VAECrMemoLine_National_Add_Code; "PWD National Add. Code")
                 {
                 }
+                column(V7_CrLbl; V7CaptionLbL)
+                {
+                }
+                column(V1_CrLbl; V1CaptionLbl)
+                {
+                }
+
                 column(VAECrMemoHeader_Posting_Date; VAECrMemoHeader."Posting Date")
                 {
                 }
                 column(VAECrMemoHeader_DSA_No; VAECrMemoHeader."PWD DSA No.")
                 {
                 }
-                column(V7_Lbl; V7CaptionLbL)
-                {
-                }
-                column(V1_Lbl; V1CaptionLbl)
-                {
-                }
+
                 column(VAECrMemoLine_Line_No_; "Line No.")
                 {
                 }
@@ -233,7 +246,7 @@ report 50039 "SEAF : relevé vtes à emporter"
 
             trigger OnPreDataItem()
             begin
-                IF NOT (BlankDSA) THEN;
+                //_ IF NOT (BlankDSA) THEN;
                 SETRANGE("Posting Date", StartDate, EndDate);
             end;
         }

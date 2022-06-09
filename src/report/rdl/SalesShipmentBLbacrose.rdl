@@ -24,7 +24,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>4.37873cm</Height>
+                  <Height>3.77873cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -83,7 +83,7 @@ Cstr(Fields!Fax_CompanyInfo_Fax_No.Value) + Chr(177) +
 Cstr(Fields!Intracom_CompanyInfo_VAT_Registration_No.Value) + Chr(177) +
 Cstr(Fields!Sales_Shipment_Header_Bill_to_Name.Value) + Chr(177) +
 Cstr(Fields!Sales_Shipment_Header_No.Value) + Chr(177) +
-Cstr(Fields!CompanyInfo_Logo_AVITA_facture.Value) + Chr(177) +
+Cstr(Fields!Sales_Shipment_Header_No.Value) + Chr(177) +
 Cstr(Fields!Sales_Shipment_Header_Ship_to_Address.Value) + Chr(177) +
 Cstr(Fields!Sales_Shipment_Header_Delivry_time.Value) + Chr(177) +
 Cstr(Fields!ADMIS_ET_RECONNU_CONFORME_LE.Value) + Chr(177) +
@@ -117,7 +117,7 @@ Cstr(Fields!VisaCaption.Value) + Chr(177) +
 Cstr(Fields!A_Calais_leCaption.Value) + Chr(177) +
 Cstr(Fields!TOTAL_Poids_netCaption.Value) + Chr(177) +
 Cstr(Fields!Arrété_àCaption.Value) + Chr(177) +
-Cstr(Fields!TOTAL_QuantitéCaption.Value)+ Chr(177), 1)</Hidden>
+Cstr(Fields!TOTAL_QuantitéCaption.Value) + Chr(177), 1)</Hidden>
                                             </Visibility>
                                             <Style>
                                               <Border>
@@ -1299,8 +1299,8 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value)+ Chr(177), 1)</Hidden>
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
-                              <Top>0.3175cm</Top>
-                              <Height>4.06123cm</Height>
+                              <Top>0.125in</Top>
+                              <Height>3.46123cm</Height>
                               <Width>19.12314cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
@@ -1333,28 +1333,8 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value)+ Chr(177), 1)</Hidden>
                           <KeepTogether>true</KeepTogether>
                           <Style>
                             <Border>
-                              <Style>Solid</Style>
+                              <Style>None</Style>
                             </Border>
-                            <TopBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </TopBorder>
-                            <BottomBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </BottomBorder>
-                            <LeftBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </LeftBorder>
-                            <RightBorder>
-                              <Color>Black</Color>
-                              <Style>Solid</Style>
-                              <Width>1pt</Width>
-                            </RightBorder>
                           </Style>
                         </Rectangle>
                       </CellContents>
@@ -1394,7 +1374,7 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value)+ Chr(177), 1)</Hidden>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Height>4.37873cm</Height>
+            <Height>3.77873cm</Height>
             <Width>19.12315cm</Width>
             <Style>
               <Border>
@@ -1403,7 +1383,7 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value)+ Chr(177), 1)</Hidden>
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>4.42106cm</Height>
+        <Height>3.46123cm</Height>
         <Style />
       </Body>
       <Width>19.12315cm</Width>
@@ -1717,6 +1697,9 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value)+ Chr(177), 1)</Hidden>
                           <Sizing>FitProportional</Sizing>
                           <Height>2.961cm</Height>
                           <Width>2.94cm</Width>
+                          <Visibility>
+                            <Hidden>=iif(ISNOTHING(Fields!CompanyInfo_Logo_AVITA_facture.Value) = TRUE,true,false)</Hidden>
+                          </Visibility>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -2956,7 +2939,7 @@ Cstr(Fields!TOTAL_QuantitéCaption.Value)+ Chr(177), 1)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(68,1)</Value>
+                      <Value>=Code.GetData(28,1)</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
                         <Format>N</Format>
@@ -3272,6 +3255,9 @@ End Function
         </Field>
         <Field Name="TOTAL_QuantitéCaption">
           <DataField>TOTAL_QuantitéCaption</DataField>
+        </Field>
+        <Field Name="DepotSpecial">
+          <DataField>DepotSpecial</DataField>
         </Field>
         <Field Name="Sales_Shipment_Line_No">
           <DataField>Sales_Shipment_Line_No</DataField>
