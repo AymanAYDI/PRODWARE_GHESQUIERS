@@ -1,7 +1,7 @@
 report 50039 "SEAF : relevé vtes à emporter"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/report/rdl/SEAFrelevévtesàemporterIch.rdl';
+    RDLCLayout = './src/report/rdl/SEAFrelevévtesàemporter.rdl';
     ApplicationArea = all;
     UsageCategory = ReportsAndAnalysis;
 
