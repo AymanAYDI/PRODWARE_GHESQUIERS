@@ -516,8 +516,6 @@ report 50025 "Sales - Shipment BL bac rose"
     begin
         IF NOT CurrReport.USEREQUESTPAGE THEN
             InitLogInteraction();
-        //TODO var inused
-        //DepotSpecial := '8';
 
         If UserSetup.Get() then
             UserSetup.CALCFIELDS("PWD Signing");
@@ -547,7 +545,6 @@ report 50025 "Sales - Shipment BL bac rose"
         NewBinNo: Boolean;
         PrintMag: boolean;
         ShowCustAddr: Boolean;
-        //DepotSpecial: Code[10];
         DesAFD: Code[10];
         LastBinNo: Code[10];
         LastLocation: Code[10];

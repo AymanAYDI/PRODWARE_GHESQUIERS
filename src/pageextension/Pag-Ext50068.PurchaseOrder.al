@@ -101,11 +101,13 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
             part("PWD Purchases Line FactBox"; "PWD Purchases Line FactBox")
             {
                 applicationArea = all;
-                SubPageLink = "Document Type" = FIELD("Document Type")
-                            //TODO
-                            //,"No." = FIELD("Document No.")
-                            ;
+                Provider = PurchLines;
+                SubPageLink = "Document Type" = FIELD("Document Type"),
+                            "Document No." = FIELD("Document No."),
+                            "Line No." = FIELD("Line No.");
+
             }
+
         }
     }
     actions

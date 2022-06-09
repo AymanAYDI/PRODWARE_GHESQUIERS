@@ -3210,7 +3210,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!Banque_____CompanyInfo__Bank_Name_______Iban_____CompanyInfo__Bank_Branch_No___CompanyInfo__Bank_Account_No________Swift_code_____CompanyInfo__Payment_Routing_No__.value</Value>
+                                                    <Value>=Fields!DataItem1000000080.value</Value>
                                                     <Style>
                                                       <FontSize>9pt</FontSize>
                                                     </Style>
@@ -3263,7 +3263,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!LA_MARCHANDISE_LIVREE_RESTE_NOTRE_PROPRIETE_JUSQU_AU_REGLEMENT_COMPLET_DE_LA_FACTURE__loi_80_335_PARUE_AU_J_O__DU_13_05_80_Caption.value</Value>
+                                                    <Value>=Fields!DataItem1000000053.value</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                     </Style>
@@ -3308,7 +3308,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!Aucun_escompte_ne_sera_accordé_en_cas_de_paiement_anticipé__Tout_retard_de_paiement_entraînera_des_pénalités_de_retard_représentant_1_5__du_montant_H_T__de_la_facture_par_mois_de_retard_Caption.value</Value>
+                                                    <Value>=Fields!DataItem1000000056.value</Value>
                                                     <Style>
                                                       <FontSize>6pt</FontSize>
                                                     </Style>
@@ -3357,21 +3357,21 @@
                                   </TablixMember>
                                   <TablixMember>
                                     <Visibility>
-                                      <Hidden>=Fields!Banque_____CompanyInfo__Bank_Name_______Iban_____CompanyInfo__Bank_Branch_No___CompanyInfo__Bank_Account_No________Swift_code_____CompanyInfo__Payment_Routing_No__.value=""</Hidden>
+                                      <Hidden>=Fields!DataItem1000000080.value=""</Hidden>
                                     </Visibility>
                                     <KeepWithGroup>Before</KeepWithGroup>
                                     <KeepTogether>true</KeepTogether>
                                   </TablixMember>
                                   <TablixMember>
                                     <Visibility>
-                                      <Hidden>=Fields!LA_MARCHANDISE_LIVREE_RESTE_NOTRE_PROPRIETE_JUSQU_AU_REGLEMENT_COMPLET_DE_LA_FACTURE__loi_80_335_PARUE_AU_J_O__DU_13_05_80_Caption.value=""</Hidden>
+                                      <Hidden>=Fields!DataItem1000000053.value=""</Hidden>
                                     </Visibility>
                                     <KeepWithGroup>Before</KeepWithGroup>
                                     <KeepTogether>true</KeepTogether>
                                   </TablixMember>
                                   <TablixMember>
                                     <Visibility>
-                                      <Hidden>=Fields!Aucun_escompte_ne_sera_accordé_en_cas_de_paiement_anticipé__Tout_retard_de_paiement_entraînera_des_pénalités_de_retard_représentant_1_5__du_montant_H_T__de_la_facture_par_mois_de_retard_Caption.value=""</Hidden>
+                                      <Hidden>=Fields!DataItem1000000056.value=""</Hidden>
                                     </Visibility>
                                     <KeepWithGroup>Before</KeepWithGroup>
                                     <KeepTogether>true</KeepTogether>
@@ -3426,17 +3426,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!CustAddr_1_.Value + Chr(177) +
-Fields!CustAddr_2_.Value + Chr(177)+
-Fields!CustAddr_3_.Value + Chr(177)+
-Fields!CustAddr_4_.Value + Chr(177)+
-Fields!CustAddr_5_.Value + Chr(177)+
-Fields!CustAddr_6_.Value + Chr(177)+
-Fields!CustAddr_7_.Value + Chr(177)+
-Fields!CustAddr_8_.Value + Chr(177)+
-Fields!Sales_Invoice_Header___Bill_to_Additional_name_.Value + Chr(177)+
-Fields!TxtGC_O.Value + Chr(177) +
-Fields!CustMail4.Value</Value>
+                                                    <Value EvaluationMode="Constant" />
                                                     <Style>
                                                       <Color>#ff0000</Color>
                                                     </Style>
@@ -3446,7 +3436,23 @@ Fields!CustMail4.Value</Value>
                                               </Paragraph>
                                             </Paragraphs>
                                             <ZIndex>6</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!CustAddr_1_.Value) + Chr(177) +
+Cstr(Fields!CustAddr_2_.Value) + Chr(177)+
+Cstr(Fields!CustAddr_3_.Value) + Chr(177)+
+Cstr(Fields!CustAddr_4_.Value) + Chr(177)+
+Cstr(Fields!CustAddr_5_.Value) + Chr(177)+
+Cstr(Fields!CustAddr_6_.Value) + Chr(177)+
+Cstr(Fields!CustAddr_7_.Value) + Chr(177)+
+Cstr(Fields!CustAddr_8_.Value) + Chr(177)+
+Cstr(Fields!Sales_Invoice_Header___Bill_to_Additional_name_.Value) + Chr(177)+
+Cstr(Fields!TxtGC_O.Value) + Chr(177) +
+Cstr(Fields!CustMail4.Value) + Chr(177) , 1)</Hidden>
+                                            </Visibility>
                                             <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
@@ -3465,7 +3471,7 @@ Fields!CustMail4.Value</Value>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!CompanyAddr_1_.Value+ Chr(177)+Fields!CompanyAddr_2_.Value+ Chr(177)+Fields!CompanyAddr_3_.Value+ Chr(177)+Fields!CompanyAddr_4_.Value+ Chr(177)+Fields!InvoiceCaption_Control1000000075.Value</Value>
+                                                    <Value EvaluationMode="Constant" />
                                                     <Style>
                                                       <Color>#ff0000</Color>
                                                     </Style>
@@ -3475,7 +3481,17 @@ Fields!CustMail4.Value</Value>
                                               </Paragraph>
                                             </Paragraphs>
                                             <ZIndex>5</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!CompanyAddr_1_.Value)+ Chr(177)+
+Cstr(Fields!CompanyAddr_2_.Value)+ Chr(177)+
+Cstr(Fields!CompanyAddr_3_.Value)+ Chr(177)+
+Cstr(Fields!CompanyAddr_4_.Value)+ Chr(177)+
+Cstr(Fields!InvoiceCaption_Control1000000075.Value)+ Chr(177) , 2)</Hidden>
+                                            </Visibility>
                                             <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
@@ -3494,7 +3510,7 @@ Fields!CustMail4.Value</Value>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!au_Capital_de___CompanyInfo__Stock_Capital_.Value+ Chr(177)+Fields!Pays_Name.Value+ Chr(177)+Fields!Tel_______CompanyInfo__Phone_No__.Value+ Chr(177)+Fields!Fax_______CompanyInfo__Fax_No__.Value+ Chr(177)+Fields!E_Mail_______CompanyInfo__E_Mail_.Value+ Chr(177)+Fields!N__TVA_____CompanyInfo__VAT_Registration_No__.Value+ Chr(177)+Fields!RCS____CompanyInfo__Trade_Register_.Value+ Chr(177)+Fields!N__Siret____CompanyInfo__Registration_No__.Value</Value>
+                                                    <Value EvaluationMode="Constant" />
                                                     <Style>
                                                       <Color>#ff0000</Color>
                                                     </Style>
@@ -3504,7 +3520,20 @@ Fields!CustMail4.Value</Value>
                                               </Paragraph>
                                             </Paragraphs>
                                             <ZIndex>4</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!au_Capital_de___CompanyInfo__Stock_Capital_.Value)+ Chr(177)+
+Cstr(Fields!Pays_Name.Value)+ Chr(177)+
+Cstr(Fields!Tel_______CompanyInfo__Phone_No__.Value)+ Chr(177)+
+Cstr(Fields!Fax_______CompanyInfo__Fax_No__.Value)+ Chr(177)+
+Cstr(Fields!E_Mail_______CompanyInfo__E_Mail_.Value)+ Chr(177)+
+Cstr(Fields!N__TVA_____CompanyInfo__VAT_Registration_No__.Value)+ Chr(177)+
+Cstr(Fields!RCS____CompanyInfo__Trade_Register_.Value)+ Chr(177)+
+Cstr(Fields!N__Siret____CompanyInfo__Registration_No__.Value)+ Chr(177) , 3)</Hidden>
+                                            </Visibility>
                                             <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
@@ -3523,7 +3552,7 @@ Fields!CustMail4.Value</Value>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!Sales_Invoice_Header___Bill_to_Customer_No__.Value+ Chr(177)+Fields!Cust__VAT_Registration_No__.Value+ Chr(177) +Fields!InvoiceCaption_Control1000000064.Value</Value>
+                                                    <Value EvaluationMode="Constant" />
                                                     <Style>
                                                       <Color>#ff0000</Color>
                                                     </Style>
@@ -3533,7 +3562,15 @@ Fields!CustMail4.Value</Value>
                                               </Paragraph>
                                             </Paragraphs>
                                             <ZIndex>3</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!Sales_Invoice_Header___Bill_to_Customer_No__.Value)+ Chr(177)+
+Cstr(Fields!Cust__VAT_Registration_No__.Value)+ Chr(177) +
+Cstr(Fields!InvoiceCaption_Control1000000064.Value) + Chr(177) , 4)</Hidden>
+                                            </Visibility>
                                             <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
@@ -3552,7 +3589,7 @@ Fields!CustMail4.Value</Value>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!ShipToAddr_1_.Value + Chr(177) +Fields!ShipToAddr_2_.Value + Chr(177) +Fields!ShipToAddr_3_.Value + Chr(177) +Fields!ShipToAddr_4_.Value + Chr(177) +Fields!ShipToAddr_5_.Value + Chr(177) +Fields!ShipToAddr_6_.Value + Chr(177) +Fields!ShipToAddr_7_.Value+ Chr(177) +Fields!CAPTAIN_AND_OWNER_S_OF_M_VCaption.Value+ Chr(177) +Fields!ShipmentCaption.Value+ Chr(177) +Fields!InvoiceCaption.Value</Value>
+                                                    <Value EvaluationMode="Constant" />
                                                     <Style>
                                                       <Color>#ff0000</Color>
                                                     </Style>
@@ -3562,7 +3599,22 @@ Fields!CustMail4.Value</Value>
                                               </Paragraph>
                                             </Paragraphs>
                                             <ZIndex>2</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!ShipToAddr_1_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_2_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_3_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_4_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_5_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_6_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_7_.Value)+ Chr(177) +
+Cstr(Fields!CAPTAIN_AND_OWNER_S_OF_M_VCaption.Value)+ Chr(177) +
+Cstr(Fields!ShipmentCaption.Value)+ Chr(177) +
+Cstr(Fields!InvoiceCaption.Value)+ Chr(177) , 5)</Hidden>
+                                            </Visibility>
                                             <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
@@ -3581,14 +3633,7 @@ Fields!CustMail4.Value</Value>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!Conditions_de_paiement___Settlement___Caption.Value + Chr(177) +
-Fields!PaymentMethod_Description__________PaymentTerms_Description.value + Chr(177) +
-Fields!Sales_Invoice_Header___Due_Date_Caption.value + Chr(177) +
-Fields!Sales_Invoice_Header___Due_Date_.value + Chr(177) +
-Fields!Banque_____CompanyInfo__Bank_Name_______Iban_____CompanyInfo__Bank_Branch_No___CompanyInfo__Bank_Account_No________Swift_code_____CompanyInfo__Payment_Routing_No__.value + Chr(177) +
-Fields!LA_MARCHANDISE_LIVREE_RESTE_NOTRE_PROPRIETE_JUSQU_AU_REGLEMENT_COMPLET_DE_LA_FACTURE__loi_80_335_PARUE_AU_J_O__DU_13_05_80_Caption.value + Chr(177) +
-Fields!Aucun_escompte_ne_sera_accordé_en_cas_de_paiement_anticipé__Tout_retard_de_paiement_entraînera_des_pénalités_de_retard_représentant_1_5__du_montant_H_T__de_la_facture_par_mois_de_retard_Caption.value + Chr(177) +
-Fields!Textindemnitéforfaitaire_Caption.Value</Value>
+                                                    <Value EvaluationMode="Constant" />
                                                     <Style>
                                                       <Color>#ff0000</Color>
                                                     </Style>
@@ -3598,7 +3643,20 @@ Fields!Textindemnitéforfaitaire_Caption.Value</Value>
                                               </Paragraph>
                                             </Paragraphs>
                                             <ZIndex>1</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!Conditions_de_paiement___Settlement___Caption.Value) + Chr(177) +
+Cstr(Fields!PaymentMethod_Description__________PaymentTerms_Description.Value) + Chr(177) +
+Cstr(Fields!Sales_Invoice_Header___Due_Date_Caption.Value) + Chr(177) +
+Cstr(Fields!Sales_Invoice_Header___Due_Date_.Value) + Chr(177) +
+Cstr(Fields!DataItem1000000080.Value) + Chr(177) +
+Cstr(Fields!DataItem1000000053.Value) + Chr(177) +
+Cstr(Fields!DataItem1000000056.Value) + Chr(177) +
+Cstr(Fields!Textindemnitéforfaitaire_Caption.Value) + Chr(177) , 6)</Hidden>
+                                            </Visibility>
                                             <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
@@ -3617,12 +3675,7 @@ Fields!Textindemnitéforfaitaire_Caption.Value</Value>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!STRSUBSTNO_Text004_CopyText_.Value + Chr(177) +
-Fields!N__de_commande_____Sales_Invoice_Header___Order_No__.Value + Chr(177) +
-Fields!Vos_ref___.Value + Chr(177) +
-Fields!Sales_Invoice_Header__Reference.Value + Chr(177) +
-Fields!REP________Sales_Invoice_Header___Salesperson_Code_.Value + Chr(177) +
-Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
+                                                    <Value EvaluationMode="Constant" />
                                                     <Style>
                                                       <Color>#ff0000</Color>
                                                     </Style>
@@ -3631,7 +3684,18 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!STRSUBSTNO_Text004_CopyText_.Value) + Chr(177) +
+Cstr(Fields!N__de_commande_____Sales_Invoice_Header___Order_No__.Value) + Chr(177) +
+Cstr(Fields!Vos_ref___.Value) + Chr(177) +
+Cstr(Fields!Sales_Invoice_Header__Reference.Value) + Chr(177) +
+Cstr(Fields!REP________Sales_Invoice_Header___Salesperson_Code_.Value) + Chr(177) +
+Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)</Hidden>
+                                            </Visibility>
                                             <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
@@ -3680,9 +3744,6 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                               <Height>0.424cm</Height>
                               <Width>3.29583cm</Width>
                               <ZIndex>4</ZIndex>
-                              <Visibility>
-                                <Hidden>true</Hidden>
-                              </Visibility>
                               <Style />
                             </Tablix>
                             <Tablix Name="table4">
@@ -3767,11 +3828,11 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                               </Border>
                                               <TopBorder>
                                                 <Color>Black</Color>
-                                                <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
                                               <LeftBorder>
-                                                <Style>None</Style>
+                                                <Color>Black</Color>
+                                                <Width>1pt</Width>
                                               </LeftBorder>
                                               <RightBorder>
                                                 <Style>None</Style>
@@ -3948,6 +4009,11 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
+                                              <LeftBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </LeftBorder>
                                               <RightBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -4116,6 +4182,16 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                               <BottomBorder>
                                                 <Style>None</Style>
                                               </BottomBorder>
+                                              <LeftBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </LeftBorder>
+                                              <RightBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </RightBorder>
                                               <VerticalAlign>Bottom</VerticalAlign>
                                               <PaddingLeft>1pt</PaddingLeft>
                                               <PaddingRight>1pt</PaddingRight>
@@ -4230,6 +4306,9 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                               </Paragraph>
                                             </Paragraphs>
                                             <ZIndex>11</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Last(Fields!CodGVatArrayID_2.Value)=""</Hidden>
+                                            </Visibility>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -4268,6 +4347,9 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                               </Paragraph>
                                             </Paragraphs>
                                             <ZIndex>10</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Last(Fields!CodGVatArrayID_2.Value)=""</Hidden>
+                                            </Visibility>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -4278,6 +4360,16 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                               <BottomBorder>
                                                 <Style>None</Style>
                                               </BottomBorder>
+                                              <LeftBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </LeftBorder>
+                                              <RightBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </RightBorder>
                                               <VerticalAlign>Bottom</VerticalAlign>
                                               <PaddingLeft>1pt</PaddingLeft>
                                               <PaddingRight>1pt</PaddingRight>
@@ -4307,6 +4399,9 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                               </Paragraph>
                                             </Paragraphs>
                                             <ZIndex>9</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Last(Fields!CodGVatArrayID_2.Value)=""</Hidden>
+                                            </Visibility>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -4436,6 +4531,16 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                               <BottomBorder>
                                                 <Style>None</Style>
                                               </BottomBorder>
+                                              <LeftBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </LeftBorder>
+                                              <RightBorder>
+                                                <Color>Black</Color>
+                                                <Style>Solid</Style>
+                                                <Width>1pt</Width>
+                                              </RightBorder>
                                               <VerticalAlign>Bottom</VerticalAlign>
                                               <PaddingLeft>1pt</PaddingLeft>
                                               <PaddingRight>1pt</PaddingRight>
@@ -4553,6 +4658,9 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                               <TopBorder>
                                                 <Style>None</Style>
                                               </TopBorder>
+                                              <BottomBorder>
+                                                <Style>None</Style>
+                                              </BottomBorder>
                                               <VerticalAlign>Bottom</VerticalAlign>
                                               <PaddingLeft>1pt</PaddingLeft>
                                               <PaddingRight>1pt</PaddingRight>
@@ -4588,6 +4696,9 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                               <TopBorder>
                                                 <Style>None</Style>
                                               </TopBorder>
+                                              <BottomBorder>
+                                                <Style>None</Style>
+                                              </BottomBorder>
                                               <VerticalAlign>Bottom</VerticalAlign>
                                               <PaddingLeft>1pt</PaddingLeft>
                                               <PaddingRight>1pt</PaddingRight>
@@ -4624,6 +4735,9 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                               <TopBorder>
                                                 <Style>None</Style>
                                               </TopBorder>
+                                              <BottomBorder>
+                                                <Style>None</Style>
+                                              </BottomBorder>
                                               <VerticalAlign>Bottom</VerticalAlign>
                                               <PaddingLeft>1pt</PaddingLeft>
                                               <PaddingRight>1pt</PaddingRight>
@@ -4651,6 +4765,154 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
+                                            <Style>
+                                              <Border>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <TopBorder>
+                                                <Style>None</Style>
+                                              </TopBorder>
+                                              <BottomBorder>
+                                                <Style>None</Style>
+                                              </BottomBorder>
+                                              <VerticalAlign>Bottom</VerticalAlign>
+                                              <PaddingLeft>1pt</PaddingLeft>
+                                              <PaddingRight>1pt</PaddingRight>
+                                              <PaddingTop>1pt</PaddingTop>
+                                              <PaddingBottom>1pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                    </TablixCells>
+                                  </TablixRow>
+                                  <TablixRow>
+                                    <Height>0.092cm</Height>
+                                    <TablixCells>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="Textbox67">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value />
+                                                    <Style>
+                                                      <FontSize>8pt</FontSize>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox67</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <TopBorder>
+                                                <Style>None</Style>
+                                              </TopBorder>
+                                              <VerticalAlign>Bottom</VerticalAlign>
+                                              <PaddingLeft>1pt</PaddingLeft>
+                                              <PaddingRight>1pt</PaddingRight>
+                                              <PaddingTop>1pt</PaddingTop>
+                                              <PaddingBottom>1pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="Textbox68">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value />
+                                                    <Style>
+                                                      <FontSize>8pt</FontSize>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox68</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <TopBorder>
+                                                <Style>None</Style>
+                                              </TopBorder>
+                                              <VerticalAlign>Bottom</VerticalAlign>
+                                              <PaddingLeft>1pt</PaddingLeft>
+                                              <PaddingRight>1pt</PaddingRight>
+                                              <PaddingTop>1pt</PaddingTop>
+                                              <PaddingBottom>1pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="Textbox73">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value />
+                                                    <Style>
+                                                      <FontSize>8pt</FontSize>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox73</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Style>Solid</Style>
+                                              </Border>
+                                              <TopBorder>
+                                                <Style>None</Style>
+                                              </TopBorder>
+                                              <VerticalAlign>Bottom</VerticalAlign>
+                                              <PaddingLeft>1pt</PaddingLeft>
+                                              <PaddingRight>1pt</PaddingRight>
+                                              <PaddingTop>1pt</PaddingTop>
+                                              <PaddingBottom>1pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="Textbox78">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value />
+                                                    <Style>
+                                                      <FontSize>8pt</FontSize>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox78</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -4708,9 +4970,6 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                         <KeepTogether>true</KeepTogether>
                                       </TablixMember>
                                       <TablixMember>
-                                        <Visibility>
-                                          <Hidden>=Last(Fields!CodGVatArrayID_2.Value)=""</Hidden>
-                                        </Visibility>
                                         <KeepWithGroup>After</KeepWithGroup>
                                         <KeepTogether>true</KeepTogether>
                                       </TablixMember>
@@ -4728,13 +4987,15 @@ Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
                                         <KeepWithGroup>After</KeepWithGroup>
                                         <KeepTogether>true</KeepTogether>
                                       </TablixMember>
+                                      <TablixMember>
+                                        <KeepWithGroup>After</KeepWithGroup>
+                                      </TablixMember>
                                     </TablixMembers>
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <Top>3.26cm</Top>
-                              <Left>0cm</Left>
-                              <Height>2.43492cm</Height>
+                              <Height>2.52692cm</Height>
                               <Width>10.6cm</Width>
                               <ZIndex>5</ZIndex>
                               <Style>

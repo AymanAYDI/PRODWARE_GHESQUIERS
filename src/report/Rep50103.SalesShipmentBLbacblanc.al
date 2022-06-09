@@ -371,13 +371,7 @@ report 50103 "Sales - Shipment BL bac blanc"
                     ELSE
                         ReferenceText := FIELDCAPTION("Your Reference");
                     FormatAddr.SalesShptShipTo(ShipToAddr, "Sales Shipment Header");
-                    //TODO verifier
-                    FormatAddr.SalesShptBillTo(CustAddr, ShipToAddr, "Sales Shipment Header");
-                    ShowCustAddr := "Bill-to Customer No." <> "Sell-to Customer No.";
-                    FOR i := 1 TO ARRAYLEN(CustAddr) DO
-                        IF CustAddr[i] <> ShipToAddr[i] THEN
-                            ShowCustAddr := TRUE;
-
+                    ShowCustAddr := FormatAddr.SalesShptBillTo(CustAddr, ShipToAddr, "Sales Shipment Header");
                     IF LogInteractionV THEN
                         IF NOT CurrReport.PREVIEW THEN
                             SegManagement.LogDocument(

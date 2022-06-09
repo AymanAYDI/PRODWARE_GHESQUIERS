@@ -93,7 +93,8 @@ report 50126 "Validate And Print Sales Order"
         CurrExchRate: Record "Currency Exchange Rate";
         Cust: Record Customer;
         GenLedSetUp: Record "General Ledger Setup";
-        MemberOf: Record "Permission Set";
+        //MemberOf: Record "Permission Set";
+        AccessControl: Record "Access Control";
         LSalesLine: Record "Sales Line";
         TempSalesLine: Record "Sales Line" temporary;
         TotalSalesLine: Record "Sales Line";
@@ -175,14 +176,16 @@ report 50126 "Validate And Print Sales Order"
         ELSE
             ProfitPct := ROUND(100 * ProfitLCY / TotalSalesLineLCY.Amount, 0.01);
         GenLedSetUp.GET();
-        IF Cust."PWD Discount Profit %" > ProfitPct THEN
+        IF Cust."PWD Discount Profit %" > ProfitPct THEN begin
             //*** Recherche si userid appartient au role direction
-            //TODO MemberOf.SETRANGE("User ID",USERID);
-            IF MemberOf.Get(GenLedSetUp."PWD Direction Role ID") THEN BEGIN
+            AccessControl.SETRANGE(AccessControl."User Security ID", UserSecurityId());
+            AccessControl.SETRANGE(AccessControl."Role ID", GenLedSetUp."PWD Direction Role ID");
+            IF AccessControl.FindFirst() THEN BEGIN
                 IF CONFIRM(Text1000000000, TRUE, ProfitPct, Cust."PWD Discount Profit %", '%') = FALSE THEN
                     ERROR(Text1000000001, ProfitPct, Cust."PWD Discount Profit %", '%');
             END ELSE
                 ERROR(Text1000000001, ProfitPct, Cust."PWD Discount Profit %", '%');
+        end;
     end;
 
     local procedure "Code"()

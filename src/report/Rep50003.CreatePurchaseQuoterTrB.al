@@ -27,8 +27,6 @@ report 50003 "Create Purchase Quote r -TrB"
                             DocType := "PWD Appeal for Tenders"."Document Type".AsInteger();
                             DocNo := "PWD Appeal for Tenders"."Document No.";
                             VendorNo := "PWD Appeal for Tenders"."Vendor No.";
-                            //TODO Var Not Used 
-                            //ReqRecDate := "PWD Appeal for Tenders"."Requested Receipt Date";
                         END;
                         IF NOT SalesLine.GET("Document Type", "Document No.", "Line No. document") THEN
                             SalesLine.INIT();
@@ -96,7 +94,6 @@ report 50003 "Create Purchase Quote r -TrB"
         DocNo: Code[20];
         FiltreNumdoc: Code[20];
         VendorNo: Code[20];
-        //ReqRecDate: Date;
         Window: Dialog;
         NextLineNo: Integer;
         Text1000000005: Label 'Sales document #1###### #2######\';
