@@ -4,6 +4,7 @@ page 50054 "PWD Codes Add. National"
     SourceTable = "PWD National Add. Code";
     ApplicationArea = all;
     UsageCategory = Administration;
+    Caption = 'Codes Add. National';
     layout
     {
         area(content)

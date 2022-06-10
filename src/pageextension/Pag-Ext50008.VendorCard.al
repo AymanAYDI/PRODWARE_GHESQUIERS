@@ -12,7 +12,6 @@ pageextension 50008 "PWD VendorCard" extends "Vendor Card"
             {
                 ApplicationArea = All;
                 Importance = Standard;
-                Visible = PWDNoFieldVisible;
             }
         }
         addafter("Primary Contact No.")
@@ -65,13 +64,4 @@ pageextension 50008 "PWD VendorCard" extends "Vendor Card"
             }
         }
     }
-    var
-        PWDNoFieldVisible: Boolean;
-
-    procedure PWDSetNoFieldVisible()
-    var
-        DocumentNoVisibility: Codeunit DocumentNoVisibility;
-    begin
-        PWDNoFieldVisible := DocumentNoVisibility.VendorNoIsVisible();
-    end;
 }

@@ -14,7 +14,7 @@ tableextension 60005 "PWD Customer" extends Customer
             Description = 'PW2009';
             DataClassification = CustomerContent;
         }
-        field(50002; "PWD Customer No. COALA"; Code[8])
+        field(50002; "PWD Customer No. COALA"; Code[20])
         {
             Caption = 'N° client COALA';
             DataClassification = CustomerContent;

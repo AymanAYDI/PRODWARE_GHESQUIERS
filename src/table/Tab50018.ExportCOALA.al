@@ -63,7 +63,7 @@ table 50018 "PWD Export COALA"
         {
             DataClassification = CustomerContent;
         }
-        field(12; "G/L Account No. COALA"; Code[8])
+        field(12; "G/L Account No. COALA"; Code[20])
         {
             DataClassification = CustomerContent;
         }
