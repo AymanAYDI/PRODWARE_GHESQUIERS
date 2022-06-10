@@ -4,6 +4,7 @@ report 50074 "PWD Inventaire pour la douane"
     RDLCLayout = './src/report/rdl/Inventairepourladouane.rdl';
     ApplicationArea = all;
     UsageCategory = ReportsAndAnalysis;
+    caption = 'Inventaire pour la douane';
 
     dataset
     {

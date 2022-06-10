@@ -5,6 +5,7 @@ page 50018 "PWD List Export COALA"
     SourceTableView = SORTING("Entry No.") ORDER(Descending) WHERE("Export COALA Succes" = CONST(true));
     ApplicationArea = all;
     UsageCategory = Lists;
+    Caption = 'List Export COALA';
     layout
     {
         area(content)
