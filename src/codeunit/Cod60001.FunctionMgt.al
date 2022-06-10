@@ -1095,6 +1095,62 @@ codeunit 60001 "PWD Function Mgt"
             EXIT(FALSE);
     END;
 
+
+    //---CDU92---
+    procedure PrintDocumentsWithCheckDialogCommon(ReportUsage: Enum "Report Selection Usage"; RecordVariant: Variant; IsGUI: Boolean; AccountNoFieldNo: Integer; WithCheck: Boolean; TableNo: Integer)
+    var
+        ReportSelection: Record "Report Selections";
+        ReportLayoutSelection: Record "Report Layout Selection";
+        TempReportSelections: Record "Report Selections" temporary;
+        TempNameValueBuffer: Record "Name/Value Buffer" temporary;
+        RecRef: RecordRef;
+        RecRefToPrint: RecordRef;
+        RecVarToPrint: Variant;
+        AccountNoFilter: Text;
+        IsHandled: Boolean;
+    begin
+
+        RecRef.GetTable(RecordVariant);
+        ReportSelection.GetUniqueAccountNos(TempNameValueBuffer, RecRef, AccountNoFieldNo);
+
+        ReportSelection.SelectTempReportSelectionsToPrint(TempReportSelections, TempNameValueBuffer, WithCheck, ReportUsage, TableNo);
+        if TempReportSelections.FindSet() then
+            repeat
+                if TempReportSelections."Custom Report Layout Code" <> '' then
+                    ReportLayoutSelection.SetTempLayoutSelected(TempReportSelections."Custom Report Layout Code")
+                else
+                    ReportLayoutSelection.SetTempLayoutSelected('');
+
+                TempNameValueBuffer.FindSet();
+                AccountNoFilter := ReportSelection.GetAccountNoFilterForCustomReportLayout(TempReportSelections, TempNameValueBuffer, TableNo);
+                GetFilteredRecordRef(RecRefToPrint, RecRef, AccountNoFieldNo, AccountNoFilter);
+                RecVarToPrint := RecRefToPrint;
+
+                IsHandled := false;
+                if not IsHandled then
+                    REPORT.RunModal(TempReportSelections."Report ID", IsGUI, false, RecVarToPrint);
+
+
+                ReportLayoutSelection.SetTempLayoutSelected('');
+            until TempReportSelections.Next() = 0;
+
+    end;
+
+    local procedure GetFilteredRecordRef(var RecRefToPrint: RecordRef; RecRefSource: RecordRef; AccountNoFieldNo: Integer; AccountNoFilter: Text)
+    var
+        AccountNoFieldRef: FieldRef;
+    begin
+        RecRefToPrint := RecRefSource.Duplicate();
+
+        if (AccountNoFieldNo <> 0) and (AccountNoFilter <> '') then begin
+            AccountNoFieldRef := RecRefToPrint.Field(AccountNoFieldNo);
+            AccountNoFieldRef.SetFilter(AccountNoFilter);
+        end;
+
+        if RecRefToPrint.FindSet() then;
+    end;
+
+
     //---CDU 229---
     PROCEDURE PrintT5(SalesShipmentHeader: Record "Sales Shipment Header");
     VAR
