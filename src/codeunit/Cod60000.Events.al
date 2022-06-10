@@ -829,7 +829,7 @@ codeunit 60000 "PWD Events"
     var
         SalesHeader: Record "Sales Header";
     begin
-        SalesHeader.Get(SalesLine."Document Type", SalesLine."Document No."); //TODO A vérifier GenRef
+        SalesHeader.Get(SalesLine."Document Type", SalesLine."Document No.");
         ResJnlLine."PWD Reference" := SalesHeader."PWD Reference";
     end;
 
@@ -852,7 +852,7 @@ codeunit 60000 "PWD Events"
     [EventSubscriber(ObjectType::Table, DataBase::"Gen. Journal Line", 'OnAfterCopyGenJnlLineFromSalesHeader', '', false, false)]
     local procedure TAB81_OnAfterCopyGenJnlLineFromSalesHeader_GenJournalLine(SalesHeader: Record "Sales Header"; var GenJournalLine: Record "Gen. Journal Line")
     begin
-        GenJournalLine."PWD Reference" := SalesHeader."PWD Reference";//TODO A vérifier GenRef
+        GenJournalLine."PWD Reference" := SalesHeader."PWD Reference";
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeUpdateWhseDocuments', '', false, false)]
@@ -871,7 +871,7 @@ codeunit 60000 "PWD Events"
         ItemJnlLine."PWD Seafrance Order Line No." := SalesLine."PWD Seafrance Order Line No.";
 
         IF SalesInvHeader."PWD Reference" <> '' THEN
-            ItemJnlLine."PWD Reference" := SalesInvHeader."PWD Reference"//TODO A vérifier GenRef
+            ItemJnlLine."PWD Reference" := SalesInvHeader."PWD Reference"
         else
             if SalesCrMemoHeader."PWD Reference" <> '' THEN
                 ItemJnlLine."PWD Reference" := SalesCrMemoHeader."PWD Reference";
@@ -883,9 +883,9 @@ codeunit 60000 "PWD Events"
         SalesHeader: Record "Sales Header";
     begin
         IF ItemJournalLine."PWD Reference" = '' THEN BEGIN
-            SalesHeader.Get(SalesLine."Document Type", SalesLine."Document No."); //TODO A vérifier GenRef
+            SalesHeader.Get(SalesLine."Document Type", SalesLine."Document No.");
             ItemJournalLine."PWD Reference" := SalesHeader."PWD Reference";
-        END
+        END;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnPostItemJnlLineOnBeforeIsJobContactLineCheck', '', false, false)]
@@ -975,19 +975,6 @@ codeunit 60000 "PWD Events"
     end;
 
     //---CDU90---
-    //TODO à vérifier cet event
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnAfterInsertPostedHeaders', '', false, false)]
-    local procedure CDU90_OnAfterInsertPostedHeaders_PurchPost(var PurchaseHeader: Record "Purchase Header"; var PurchRcptHeader: Record "Purch. Rcpt. Header"; var PurchInvHeader: Record "Purch. Inv. Header"; var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr."; var ReturnShptHeader: Record "Return Shipment Header"; var PurchSetup: Record "Purchases & Payables Setup")
-    var
-        GenRef: Text[100];
-    begin
-        if PurchaseHeader.Invoice then
-            if PurchaseHeader."Document Type" in [PurchaseHeader."Document Type"::Order, PurchaseHeader."Document Type"::Invoice] then
-                GenRef := PurchInvHeader."PWD Reference" //TODO var globale
-            else
-                GenRef := PurchaseHeader."PWD Reference";
-    end;
-
     [EventSubscriber(ObjectType::Table, DataBase::"Gen. Journal Line", 'OnAfterCopyGenJnlLineFromPurchHeader', '', false, false)]
     local procedure TAB81_OnAfterCopyGenJnlLineFromPurchHeader_GenJournalLine(PurchaseHeader: Record "Purchase Header"; var GenJournalLine: Record "Gen. Journal Line")
     begin
@@ -1019,7 +1006,7 @@ codeunit 60000 "PWD Events"
     var
         PurchaseHeader: record "Purchase Header";
     begin
-        PurchaseHeader.Get(PurchLine."Document Type", PurchLine."Document No.");  //TODO à vérifier
+        PurchaseHeader.Get(PurchLine."Document Type", PurchLine."Document No.");
         ItemJnlLine."PWD Reference" := PurchaseHeader."PWD Reference";
 
         ItemJnlLine."PWD Notice Series No." := PurchaseHeader."PWD Notice Series No.";  //TODO à vérifier
@@ -1035,26 +1022,38 @@ codeunit 60000 "PWD Events"
 
 
     //---CDU92---
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post + Print", 'OnBeforePrintReceive', '', false, false)]
-    local procedure CDU92_OnBeforePrintReceive_PurchPostPrint(var PurchaseHeader: Record "Purchase Header"; var IsHandled: Boolean)
+    //TODO à vérifier
+    [EventSubscriber(ObjectType::Table, DataBase::"Report Selections", 'OnBeforePrintWithGUIYesNoVendor', '', false, false)]
+    local procedure TAB77_OnBeforePrintWithGUIYesNoVendor_ReportSelections(ReportUsage: Integer; RecordVariant: Variant; IsGUI: Boolean; VendorNoFieldNo: Integer; var Handled: Boolean)
     var
         ReportSelection: Record "Report Selections";
-        ReturnShptHeader: Record "Return Shipment Header";
+        FunctionsMgt: Codeunit "PWD Function Mgt";
     begin
-        ReportSelection.PrintWithDialogForVend(
-              ReportSelection.Usage::"Notice Investment", ReturnShptHeader, false, ReturnShptHeader.FieldNo("Buy-from Vendor No."));
+        FunctionsMgt.PrintDocumentsWithCheckDialogCommon(
+         ReportSelection.Usage::"Notice Investment", RecordVariant, IsGUI, VendorNoFieldNo, false, DATABASE::Vendor);
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post + Print", 'OnBeforePrintInvoice', '', false, false)]
-    local procedure CDU92_OnBeforePrintInvoice_PurchPostPrint(var PurchaseHeader: Record "Purchase Header"; var IsHandled: Boolean)
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post + Print", 'OnBeforeGetReport', '', false, false)]
+    local procedure CDU92_OnBeforeGetReport_PurchPostPrint(var PurchaseHeader: Record "Purchase Header"; var IsHandled: Boolean)
     var
-        PurchInvHeader: Record "Purch. Inv. Header";
+        PurchPostPrint: codeunit "Purch.-Post + Print";
     begin
-        if PurchaseHeader."Last Posting No." = '' then
-            PurchInvHeader."No." := PurchaseHeader."No."
-        else
-            PurchInvHeader."No." := PurchaseHeader."Last Posting No.";
-        PurchInvHeader.SetRecFilter();
+        case PurchaseHeader."Document Type" of
+            PurchaseHeader."Document Type"::Order:
+                if PurchaseHeader.Receive then
+                    PurchPostPrint.PrintReceive(PurchaseHeader);
+            PurchaseHeader."Document Type"::Invoice:
+                PurchPostPrint.PrintInvoice(PurchaseHeader);
+            PurchaseHeader."Document Type"::"Return Order":
+                begin
+                    if PurchaseHeader.Ship then
+                        PurchPostPrint.PrintShip(PurchaseHeader);
+                    if PurchaseHeader.Invoice then
+                        PurchPostPrint.PrintCrMemo(PurchaseHeader);
+                end;
+            PurchaseHeader."Document Type"::"Credit Memo":
+                PurchPostPrint.PrintCrMemo(PurchaseHeader);
+        end;
         IsHandled := true;
     end;
 
