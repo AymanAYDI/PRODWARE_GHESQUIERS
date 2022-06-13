@@ -4,6 +4,7 @@ page 50055 "PWD Famille / sous-famille"
     SourceTable = "PWD Family & Sub Family";
     ApplicationArea = all;
     UsageCategory = Administration;
+    Caption = 'Famille / sous-famille';
     layout
     {
         area(content)

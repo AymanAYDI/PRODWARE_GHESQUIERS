@@ -7,6 +7,7 @@ page 50007 "PWD Consultation des Ecr Art"
     SourceTable = "Item Ledger Entry";
     ApplicationArea = all;
     UsageCategory = ReportsAndAnalysis;
+    caption ='Consultation des Ecr Art';
 
     layout
     {

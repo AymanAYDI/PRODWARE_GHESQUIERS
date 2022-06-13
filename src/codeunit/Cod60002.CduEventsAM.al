@@ -17,16 +17,7 @@ codeunit 60002 "PWD CduEvents AM"
     begin
         CustCard.PWDSetNoFieldVisible();
     end;
-    //--Page26--
-    [EventSubscriber(ObjectType::Page, Page::"Vendor Card", 'OnOpenPageEvent', '', false, false)]
-    local procedure VendorCard_OnOpenPageEvent(var rec: record Vendor)
-    var
-        VendCard: page "Vendor Card";
-    begin
-        VendCard.PWDSetNoFieldVisible();
-    end;
 
-    //--Page41--
     [EventSubscriber(ObjectType::Page, Page::"Sales Quote", 'OnOpenPageEvent', '', false, false)]
     local procedure OnOpenPageEvent_SalesQuote(var Rec: Record "Sales Header")
     var
