@@ -5,6 +5,7 @@ codeunit 60005 "PWD Set/Get Functions"
     var
         GboolSkipLoc: Boolean;
         Processing: Boolean;
+        HeaderWasReleasedGet: Boolean;
         CountryCode: Code[10];
         OriginLotNo: Code[20];
         StockingAdviceNo: Code[20];
@@ -132,5 +133,15 @@ codeunit 60005 "PWD Set/Get Functions"
     PROCEDURE GetGenRef(): Text[100]
     BEGIN
         exit(GenRef);
+    END;
+
+    PROCEDURE SetHeaderWasReleased(HeaderWasReleased: Boolean);
+    BEGIN
+        HeaderWasReleasedGet := HeaderWasReleased;
+    END;
+
+    PROCEDURE GetHeaderWasReleased(): Boolean
+    BEGIN
+        exit(HeaderWasReleasedGet);
     END;
 }

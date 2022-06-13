@@ -9293,6 +9293,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD CIEL Data - Action View - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2571922296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Codes Add. National</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Codes Add. National - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1637377605 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consultation des Ecr Art</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Consultation des Ecr Art - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1637377605 - NamedType 1417616473" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pour les écritures liées à la prestation, filtrer sur Code prestation &lt;&gt; ''</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9362,6 +9372,11 @@
           <source>Prestation</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD En-tête saisie préstation - Control Prestation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1421488341 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Famille / sous-famille</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Famille / sous-famille - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3124969363 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Family &amp; Sub Family</source>
@@ -9572,6 +9587,11 @@
           <source>Fiscal Caption</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Fiscal Caption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 71301311 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>List Export COALA</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD List Export COALA - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 150197218 - Action 1928094743 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Tarifs</source>
@@ -11257,6 +11277,11 @@
           <source>Import Microsoft Excel</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Import Microsoft Excel - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1220198909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inventaire pour la douane</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Inventaire pour la douane - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1220198909 - NamedType 1948612954" size-unit="char" translate="yes" xml:space="preserve">
           <source>Diff.</source>

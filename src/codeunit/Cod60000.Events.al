@@ -350,15 +350,15 @@ codeunit 60000 "PWD Events"
     [EventSubscriber(ObjectType::Table, DataBase::"Sales Line", 'OnBeforeValidateEvent', 'Unit Price', false, false)]
     local procedure T37_OnBeforeValidateEvent_SalesLine_UnitPrice(var Rec: Record "Sales Line"; var xRec: Record "Sales Line"; CurrFieldNo: Integer)
     var
+        SetGetFunctions: Codeunit "PWD Set/Get Functions";
         SalesHeader: Record "Sales Header";
-        HeaderWasReleased: Boolean;
-
+    //HeaderWasReleased: Boolean;
     begin
         IF CurrFieldNo = Rec.FIELDNO("Unit Price") THEN BEGIN
             //Rec.GetSalesHeader;
             SalesHeader.GET(Rec."Document Type", Rec."Document No.");
             IF SalesHeader.Status = SalesHeader.Status::Released THEN BEGIN
-                HeaderWasReleased := TRUE;
+                SetGetFunctions.SetHeaderWasReleased(TRUE);
                 Rec.SuspendStatusCheck(TRUE);
             END;
         END;
@@ -368,12 +368,13 @@ codeunit 60000 "PWD Events"
 
     local procedure T37_OnAfterValidateEvent_SalesLine_UnitPrice(var Rec: Record "Sales Line"; var xRec: Record "Sales Line"; CurrFieldNo: Integer)
     var
-        HeaderWasReleased: Boolean;//TODO à vérifier
+        SetGetFunctions: Codeunit "PWD Set/Get Functions";
+    //HeaderWasReleased: Boolean;//TODO Reste a tester
     begin
         IF Rec.Quantity <> 0 THEN
             Rec.CtrlUnitPrice();
-        IF HeaderWasReleased THEN BEGIN
-            HeaderWasReleased := FALSE;
+        IF SetGetFunctions.GetHeaderWasReleased() THEN BEGIN
+            SetGetFunctions.SetHeaderWasReleased(FALSE);
             Rec.SuspendStatusCheck(FALSE);
         END;
     end;

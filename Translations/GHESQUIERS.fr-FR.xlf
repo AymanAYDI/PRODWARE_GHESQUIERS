@@ -14489,7 +14489,7 @@
         </trans-unit>
         <trans-unit id="Report 4050282536 - NamedType 1699916946" size-unit="char" translate="yes" xml:space="preserve">
           <source>Amount</source>
-          <target state="translated">Montant</target>
+          <target state="translated">Amount</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Invoice AVITA - NamedType AmountCaption_Control1000000052Lbl</note>
         </trans-unit>
@@ -14585,7 +14585,7 @@
         </trans-unit>
         <trans-unit id="Report 4050282536 - NamedType 3246368361" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quantity</source>
-          <target state="translated">Quantité</target>
+          <target state="translated">Quantity</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Invoice AVITA - NamedType QuantityCaptionLbl</note>
         </trans-unit>
@@ -14609,7 +14609,7 @@
         </trans-unit>
         <trans-unit id="Report 4050282536 - NamedType 2047603120" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shipment</source>
-          <target state="translated">Expédition</target>
+          <target state="translated">Livré</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Invoice AVITA - NamedType ShipmentCaptionLbl</note>
         </trans-unit>
@@ -14651,7 +14651,7 @@
         </trans-unit>
         <trans-unit id="Report 4050282536 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total %1 Excl. VAT</source>
-          <target state="translated">Valeur nette totale %1 sans TVA</target>
+          <target state="translated">Total %1 HT</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Invoice AVITA - NamedType Text006</note>
         </trans-unit>
@@ -14669,7 +14669,7 @@
         </trans-unit>
         <trans-unit id="Report 4050282536 - NamedType 1065670270" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unit</source>
-          <target state="translated">Unité</target>
+          <target state="translated">Unit</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Invoice AVITA - NamedType UnitCaptionLbl</note>
         </trans-unit>
@@ -14681,13 +14681,13 @@
         </trans-unit>
         <trans-unit id="Report 4050282536 - NamedType 791501463" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unit Price</source>
-          <target state="translated">Prix unitaire</target>
+          <target state="translated">Unit Price</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Invoice AVITA - NamedType Unit_PriceCaption_Control1000000048Lbl</note>
         </trans-unit>
         <trans-unit id="Report 4050282536 - NamedType 228223056" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT</source>
-          <target state="translated">TVA</target>
+          <target state="translated">VAT</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Invoice AVITA - NamedType VAT_Identifier_CaptionLbl</note>
         </trans-unit>
