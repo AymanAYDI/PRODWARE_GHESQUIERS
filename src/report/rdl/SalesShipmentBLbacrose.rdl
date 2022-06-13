@@ -3256,9 +3256,6 @@ End Function
         <Field Name="TOTAL_QuantitéCaption">
           <DataField>TOTAL_QuantitéCaption</DataField>
         </Field>
-        <Field Name="DepotSpecial">
-          <DataField>DepotSpecial</DataField>
-        </Field>
         <Field Name="Sales_Shipment_Line_No">
           <DataField>Sales_Shipment_Line_No</DataField>
         </Field>

@@ -153,7 +153,8 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                     BEGIN
                         SalesShptHeader := Rec;
                         SalesShptHeader.SETRECFILTER();
-                        REPORT.RUN(50105, FALSE, FALSE, SalesShptHeader);
+                        //TODO: Report 50105 pas dans la liste des reports à migrer
+                        // REPORT.RUN(50105, FALSE, FALSE, SalesShptHeader);
                         REPORT.RUN(Report::"Sales - Shipmt BLAVI bac blanc", FALSE, FALSE, SalesShptHeader);
                     END;
                 }

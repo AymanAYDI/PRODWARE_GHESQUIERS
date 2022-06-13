@@ -5,16 +5,17 @@ codeunit 60005 "PWD Set/Get Functions"
     var
         GboolSkipLoc: Boolean;
         Processing: Boolean;
+        HeaderWasReleasedGet: Boolean;
         CountryCode: Code[10];
         OriginLotNo: Code[20];
         StockingAdviceNo: Code[20];
         ToLocationCode: Code[20];
         CertifTransNo: Code[30];
+        GenRef: Code[100];
         ButchExpirationDate: Date;
         ButchExpirationDate2: Date;
         MemLineDiscount: Decimal;
         MemUnitPrice: Decimal;
-        GenRef: Text[100];
 
     //---TAB37---
     procedure SetMemLineDiscount(NewMemLineDiscount: Decimal)
@@ -132,5 +133,15 @@ codeunit 60005 "PWD Set/Get Functions"
     PROCEDURE GetGenRef(): Text[100]
     BEGIN
         exit(GenRef);
+    END;
+
+    PROCEDURE SetHeaderWasReleased(HeaderWasReleased: Boolean);
+    BEGIN
+        HeaderWasReleasedGet := HeaderWasReleased;
+    END;
+
+    PROCEDURE GetHeaderWasReleased(): Boolean
+    BEGIN
+        exit(HeaderWasReleasedGet);
     END;
 }

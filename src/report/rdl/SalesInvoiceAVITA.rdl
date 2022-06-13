@@ -19,12 +19,12 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>19.31172cm</Width>
+                  <Width>19.3892cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>8.6cm</Height>
+                  <Height>9.11289cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2547,6 +2547,7 @@
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
+                              <Left>0.06172cm</Left>
                               <Height>2.33811cm</Height>
                               <Width>18.78752cm</Width>
                               <Style />
@@ -2995,8 +2996,8 @@
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Top>3.5775cm</Top>
-                              <Left>11.295cm</Left>
+                              <Top>4.41309cm</Top>
+                              <Left>11.37248cm</Left>
                               <Height>1.79999cm</Height>
                               <Width>7.62752cm</Width>
                               <ZIndex>1</ZIndex>
@@ -3004,32 +3005,6 @@
                                 <VerticalAlign>Bottom</VerticalAlign>
                               </Style>
                             </Tablix>
-                            <Textbox Name="MentionEXO">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=First(Fields!TxTGMentionEXO_.Value)</Value>
-                                      <Style />
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>MentionEXO</rd:DefaultName>
-                              <Top>2.6cm</Top>
-                              <Height>0.4cm</Height>
-                              <Width>19.25cm</Width>
-                              <ZIndex>2</ZIndex>
-                              <Style>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
                             <Tablix Name="table6">
                               <TablixBody>
                                 <TablixColumns>
@@ -3378,11 +3353,11 @@
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
-                              <Top>6.6cm</Top>
+                              <Top>7.11289cm</Top>
                               <Left>0.4cm</Left>
                               <Height>2cm</Height>
                               <Width>18.6cm</Width>
-                              <ZIndex>3</ZIndex>
+                              <ZIndex>2</ZIndex>
                               <Visibility>
                                 <Hidden>true</Hidden>
                               </Visibility>
@@ -3741,11 +3716,73 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
+                              <Left>0.06172cm</Left>
                               <Height>0.424cm</Height>
                               <Width>3.29583cm</Width>
-                              <ZIndex>4</ZIndex>
+                              <ZIndex>3</ZIndex>
                               <Style />
                             </Tablix>
+                            <Textbox Name="NewPage">
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Code.IsNewPage(0,Fields!Sales_Invoice_Header_No_.Value,Fields!OutputNo.Value)</Value>
+                                      <Style>
+                                        <FontSize>7pt</FontSize>
+                                        <Color>Red</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <Left>4.06172cm</Left>
+                              <Height>0.423cm</Height>
+                              <Width>0.31746cm</Width>
+                              <ZIndex>4</ZIndex>
+                              <Visibility>
+                                <Hidden>true</Hidden>
+                              </Visibility>
+                              <Style>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
+                            <Textbox Name="CompanyInfo_Picture">
+                              <KeepTogether>true</KeepTogether>
+                              <Paragraphs>
+                                <Paragraph>
+                                  <TextRuns>
+                                    <TextRun>
+                                      <Value>=Convert.ToBase64String(Fields!CompanyInfo__Logo_AVITA_facture_.Value)</Value>
+                                      <Style>
+                                        <Color>#ff0000</Color>
+                                      </Style>
+                                    </TextRun>
+                                  </TextRuns>
+                                  <Style />
+                                </Paragraph>
+                              </Paragraphs>
+                              <Top>5.35416cm</Top>
+                              <Left>10.85389cm</Left>
+                              <Height>0.31746cm</Height>
+                              <Width>0.3cm</Width>
+                              <ZIndex>5</ZIndex>
+                              <Visibility>
+                                <Hidden>true</Hidden>
+                              </Visibility>
+                              <Style>
+                                <VerticalAlign>Middle</VerticalAlign>
+                                <PaddingLeft>2pt</PaddingLeft>
+                                <PaddingRight>2pt</PaddingRight>
+                                <PaddingTop>2pt</PaddingTop>
+                                <PaddingBottom>2pt</PaddingBottom>
+                              </Style>
+                            </Textbox>
                             <Tablix Name="table4">
                               <TablixBody>
                                 <TablixColumns>
@@ -3828,11 +3865,11 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                               </Border>
                                               <TopBorder>
                                                 <Color>Black</Color>
+                                                <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
                                               <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Width>1pt</Width>
+                                                <Style>None</Style>
                                               </LeftBorder>
                                               <RightBorder>
                                                 <Style>None</Style>
@@ -4009,11 +4046,6 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </TopBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
                                               <RightBorder>
                                                 <Color>Black</Color>
                                                 <Style>Solid</Style>
@@ -4182,16 +4214,6 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                               <BottomBorder>
                                                 <Style>None</Style>
                                               </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </RightBorder>
                                               <VerticalAlign>Bottom</VerticalAlign>
                                               <PaddingLeft>1pt</PaddingLeft>
                                               <PaddingRight>1pt</PaddingRight>
@@ -4306,9 +4328,6 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                               </Paragraph>
                                             </Paragraphs>
                                             <ZIndex>11</ZIndex>
-                                            <Visibility>
-                                              <Hidden>=Last(Fields!CodGVatArrayID_2.Value)=""</Hidden>
-                                            </Visibility>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -4347,9 +4366,6 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                               </Paragraph>
                                             </Paragraphs>
                                             <ZIndex>10</ZIndex>
-                                            <Visibility>
-                                              <Hidden>=Last(Fields!CodGVatArrayID_2.Value)=""</Hidden>
-                                            </Visibility>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -4360,16 +4376,6 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                               <BottomBorder>
                                                 <Style>None</Style>
                                               </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </RightBorder>
                                               <VerticalAlign>Bottom</VerticalAlign>
                                               <PaddingLeft>1pt</PaddingLeft>
                                               <PaddingRight>1pt</PaddingRight>
@@ -4399,9 +4405,6 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                               </Paragraph>
                                             </Paragraphs>
                                             <ZIndex>9</ZIndex>
-                                            <Visibility>
-                                              <Hidden>=Last(Fields!CodGVatArrayID_2.Value)=""</Hidden>
-                                            </Visibility>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -4531,16 +4534,6 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                               <BottomBorder>
                                                 <Style>None</Style>
                                               </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </RightBorder>
                                               <VerticalAlign>Bottom</VerticalAlign>
                                               <PaddingLeft>1pt</PaddingLeft>
                                               <PaddingRight>1pt</PaddingRight>
@@ -4787,11 +4780,11 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                     </TablixCells>
                                   </TablixRow>
                                   <TablixRow>
-                                    <Height>0.092cm</Height>
+                                    <Height>0.11317cm</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox67">
+                                          <Textbox Name="Textbox115">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
@@ -4807,7 +4800,7 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox67</rd:DefaultName>
+                                            <rd:DefaultName>Textbox115</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -4826,7 +4819,7 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox68">
+                                          <Textbox Name="Textbox117">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
@@ -4842,7 +4835,7 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox68</rd:DefaultName>
+                                            <rd:DefaultName>Textbox117</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -4861,7 +4854,7 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox73">
+                                          <Textbox Name="Textbox118">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
@@ -4877,7 +4870,7 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox73</rd:DefaultName>
+                                            <rd:DefaultName>Textbox118</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -4896,7 +4889,7 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox78">
+                                          <Textbox Name="Textbox120">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
@@ -4912,7 +4905,7 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox78</rd:DefaultName>
+                                            <rd:DefaultName>Textbox120</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>Solid</Style>
@@ -4970,6 +4963,9 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                         <KeepTogether>true</KeepTogether>
                                       </TablixMember>
                                       <TablixMember>
+                                        <Visibility>
+                                          <Hidden>=Last(Fields!CodGVatArrayID_2.Value)=""</Hidden>
+                                        </Visibility>
                                         <KeepWithGroup>After</KeepWithGroup>
                                         <KeepTogether>true</KeepTogether>
                                       </TablixMember>
@@ -4987,82 +4983,61 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                         <KeepWithGroup>After</KeepWithGroup>
                                         <KeepTogether>true</KeepTogether>
                                       </TablixMember>
-                                      <TablixMember>
-                                        <KeepWithGroup>After</KeepWithGroup>
-                                      </TablixMember>
                                     </TablixMembers>
+                                  </TablixMember>
+                                  <TablixMember>
+                                    <KeepWithGroup>Before</KeepWithGroup>
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
-                              <Top>3.26cm</Top>
-                              <Height>2.52692cm</Height>
+                              <Top>4.41309cm</Top>
+                              <Height>2.54809cm</Height>
                               <Width>10.6cm</Width>
-                              <ZIndex>5</ZIndex>
+                              <ZIndex>6</ZIndex>
                               <Style>
                                 <VerticalAlign>Bottom</VerticalAlign>
                               </Style>
                             </Tablix>
-                            <Textbox Name="NewPage">
+                            <Textbox Name="MentionEXO">
+                              <CanGrow>true</CanGrow>
                               <KeepTogether>true</KeepTogether>
                               <Paragraphs>
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Code.IsNewPage(0,Fields!Sales_Invoice_Header_No_.Value,Fields!OutputNo.Value)</Value>
-                                      <Style>
-                                        <FontSize>7pt</FontSize>
-                                        <Color>Red</Color>
-                                      </Style>
+                                      <Value>=Fields!TxTGMentionEXO_.Value</Value>
+                                      <Style />
                                     </TextRun>
                                   </TextRuns>
                                   <Style />
                                 </Paragraph>
                               </Paragraphs>
-                              <Left>4cm</Left>
-                              <Height>0.423cm</Height>
-                              <Width>0.31746cm</Width>
-                              <ZIndex>6</ZIndex>
-                              <Visibility>
-                                <Hidden>true</Hidden>
-                              </Visibility>
-                              <Style>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="CompanyInfo_Picture">
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Convert.ToBase64String(Fields!CompanyInfo__Logo_AVITA_facture_.Value)</Value>
-                                      <Style>
-                                        <Color>#ff0000</Color>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <Top>4.84127cm</Top>
-                              <Left>9.475cm</Left>
-                              <Height>0.31746cm</Height>
-                              <Width>0.3cm</Width>
+                              <rd:DefaultName>MentionEXO</rd:DefaultName>
+                              <Top>3.78731cm</Top>
+                              <Left>0.06172cm</Left>
+                              <Height>0.48467cm</Height>
+                              <Width>19.25cm</Width>
                               <ZIndex>7</ZIndex>
-                              <Visibility>
-                                <Hidden>true</Hidden>
-                              </Visibility>
                               <Style>
-                                <VerticalAlign>Middle</VerticalAlign>
                                 <PaddingLeft>2pt</PaddingLeft>
                                 <PaddingRight>2pt</PaddingRight>
                                 <PaddingTop>2pt</PaddingTop>
                                 <PaddingBottom>2pt</PaddingBottom>
                               </Style>
                             </Textbox>
+                            <Rectangle Name="Rectangle2">
+                              <KeepTogether>true</KeepTogether>
+                              <Top>2.5145cm</Top>
+                              <Left>0.1392cm</Left>
+                              <Height>0.02646cm</Height>
+                              <Width>19.23424cm</Width>
+                              <ZIndex>8</ZIndex>
+                              <Style>
+                                <Border>
+                                  <Style>None</Style>
+                                </Border>
+                              </Style>
+                            </Rectangle>
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
                           <Style />
@@ -5109,15 +5084,15 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                 </FilterValues>
               </Filter>
             </Filters>
-            <Height>8.6cm</Height>
-            <Width>19.31172cm</Width>
+            <Height>9.11289cm</Height>
+            <Width>19.3892cm</Width>
             <Style />
           </Tablix>
         </ReportItems>
-        <Height>8.6cm</Height>
+        <Height>9.11289cm</Height>
         <Style />
       </Body>
-      <Width>19.31172cm</Width>
+      <Width>19.3892cm</Width>
       <Page>
         <PageHeader>
           <Height>9.66984cm</Height>
@@ -5779,9 +5754,9 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                 </Paragraph>
               </Paragraphs>
               <Top>1.2cm</Top>
-              <Left>10.15cm</Left>
+              <Left>9.59967cm</Left>
               <Height>0.424cm</Height>
-              <Width>2.35428cm</Width>
+              <Width>2.90461cm</Width>
               <ZIndex>26</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -5948,9 +5923,9 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                 </Paragraph>
               </Paragraphs>
               <Top>5.088cm</Top>
-              <Left>9.8cm</Left>
+              <Left>9.59967cm</Left>
               <Height>0.424cm</Height>
-              <Width>2.544cm</Width>
+              <Width>2.74433cm</Width>
               <ZIndex>33</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -5972,9 +5947,9 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                 </Paragraph>
               </Paragraphs>
               <Top>4.664cm</Top>
-              <Left>9.8cm</Left>
+              <Left>9.59967cm</Left>
               <Height>0.424cm</Height>
-              <Width>2.544cm</Width>
+              <Width>2.74433cm</Width>
               <ZIndex>34</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
@@ -6142,9 +6117,9 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Left>11.2cm</Left>
+                  <Left>10.219cm</Left>
                   <Height>0.63492cm</Height>
-                  <Width>2cm</Width>
+                  <Width>2.981cm</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
                     <VerticalAlign>Middle</VerticalAlign>
@@ -6172,7 +6147,7 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                   </Paragraphs>
                   <Left>2.1cm</Left>
                   <Height>0.63492cm</Height>
-                  <Width>9.1cm</Width>
+                  <Width>8.119cm</Width>
                   <ZIndex>3</ZIndex>
                   <Style>
                     <VerticalAlign>Middle</VerticalAlign>
@@ -6198,8 +6173,9 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
+                  <Left>0.06172cm</Left>
                   <Height>0.63492cm</Height>
-                  <Width>2.1cm</Width>
+                  <Width>2.03828cm</Width>
                   <ZIndex>4</ZIndex>
                   <Style>
                     <VerticalAlign>Middle</VerticalAlign>
@@ -6250,14 +6226,18 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
             </Textbox>
             <Image Name="CompanyInfo__Logo_AVITA_facture_1">
               <Source>Database</Source>
-              <Value>=Convert.FromBase64String(Code.GetPicture(1))</Value>
+              <Value>=First(Fields!CompanyInfo__Logo_AVITA_facture_.Value, "DataSet_Result")</Value>
               <MIMEType>image/bmp</MIMEType>
               <Sizing>FitProportional</Sizing>
               <Top>0.8cm</Top>
               <Height>2.6cm</Height>
               <Width>2.4cm</Width>
               <ZIndex>41</ZIndex>
-              <Style />
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
             </Image>
             <Textbox Name="textbox96">
               <KeepTogether>true</KeepTogether>
@@ -6435,6 +6415,7 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                   <Style />
                 </Paragraph>
               </Paragraphs>
+              <Top>0cm</Top>
               <Height>0.31746cm</Height>
               <Width>0.95238cm</Width>
               <Visibility>
@@ -6562,6 +6543,7 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                   <Style />
                 </Paragraph>
               </Paragraphs>
+              <Top>0cm</Top>
               <Left>0.4cm</Left>
               <Height>0.4cm</Height>
               <Width>6.2cm</Width>
@@ -6599,6 +6581,7 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                   <Style />
                 </Paragraph>
               </Paragraphs>
+              <Top>0cm</Top>
               <Left>6.6cm</Left>
               <Height>0.4cm</Height>
               <Width>5.44415cm</Width>
@@ -6631,6 +6614,7 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                   <Style />
                 </Paragraph>
               </Paragraphs>
+              <Top>0cm</Top>
               <Left>12cm</Left>
               <Height>0.4cm</Height>
               <Width>3.6cm</Width>
@@ -6664,6 +6648,7 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                   <Style />
                 </Paragraph>
               </Paragraphs>
+              <Top>0cm</Top>
               <Left>15.6cm</Left>
               <Height>0.4cm</Height>
               <Width>3.2cm</Width>
@@ -6718,7 +6703,7 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
           <Style />
         </PageFooter>
         <PageHeight>29.7cm</PageHeight>
-        <PageWidth>20cm</PageWidth>
+        <PageWidth>21cm</PageWidth>
         <InteractiveWidth>21cm</InteractiveWidth>
         <LeftMargin>1cm</LeftMargin>
         <RightMargin>0.1cm</RightMargin>
