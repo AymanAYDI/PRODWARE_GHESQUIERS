@@ -14,7 +14,6 @@ codeunit 60005 "PWD Set/Get Functions"
         ButchExpirationDate2: Date;
         MemLineDiscount: Decimal;
         MemUnitPrice: Decimal;
-        GenRef: Text[100];
 
     //---TAB37---
     procedure SetMemLineDiscount(NewMemLineDiscount: Decimal)
@@ -124,13 +123,4 @@ codeunit 60005 "PWD Set/Get Functions"
         exit(ButchExpirationDate2);
     END;
 
-    PROCEDURE SetGenRef(GenRef: Text[100]);
-    BEGIN
-        GenRef := GenRef;
-    END;
-
-    PROCEDURE GetGenRef(): Text[100]
-    BEGIN
-        exit(GenRef);
-    END;
 }

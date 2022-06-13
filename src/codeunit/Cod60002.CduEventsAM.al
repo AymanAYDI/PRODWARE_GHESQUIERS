@@ -310,18 +310,6 @@ codeunit 60002 "PWD CduEvents AM"
             ERROR(Gtext001, RecLSalesLines."Line No.", RecLSalesLines."No.");
     end;
     //--Cdu90--
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnAfterInsertPostedHeaders', '', false, false)]
-    local procedure OnAfterInsertPostedHeaders(var PurchaseHeader: Record "Purchase Header"; var PurchRcptHeader: Record "Purch. Rcpt. Header"; var PurchInvHeader: Record "Purch. Inv. Header"; var PurchCrMemoHdr: Record "Purch. Cr. Memo Hdr."; var ReturnShptHeader: Record "Return Shipment Header"; var PurchSetup: Record "Purchases & Payables Setup")
-    var
-        PWDSetGetFunctions: Codeunit "PWD Set/Get Functions";
-    begin
-        if PurchaseHeader.Invoice then
-            if PurchaseHeader."Document Type" in [PurchaseHeader."Document Type"::Order, PurchaseHeader."Document Type"::Invoice] then
-                PWDSetGetFunctions.SetGenRef(PurchInvHeader."PWD Reference")
-            else
-                PWDSetGetFunctions.SetGenRef(PurchaseHeader."PWD Reference");
-    end;
-
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Release Sales Document", 'OnBeforeReleaseSalesDoc', '', false, false)]
     local procedure CDU414_OnBeforeReleaseSalesDocEvent(var SalesHeader: Record "Sales Header"; PreviewMode: Boolean; var IsHandled: Boolean; SkipCheckReleaseRestrictions: Boolean)
     var
