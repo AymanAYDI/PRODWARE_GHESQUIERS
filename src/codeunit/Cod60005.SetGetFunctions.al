@@ -11,11 +11,11 @@ codeunit 60005 "PWD Set/Get Functions"
         StockingAdviceNo: Code[20];
         ToLocationCode: Code[20];
         CertifTransNo: Code[30];
+        GenRef: Code[100];
         ButchExpirationDate: Date;
         ButchExpirationDate2: Date;
         MemLineDiscount: Decimal;
         MemUnitPrice: Decimal;
-        GenRef: Text[100];
 
     //---TAB37---
     procedure SetMemLineDiscount(NewMemLineDiscount: Decimal)
