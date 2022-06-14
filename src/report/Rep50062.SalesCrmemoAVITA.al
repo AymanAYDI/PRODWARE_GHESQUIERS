@@ -124,7 +124,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                     column(CustAdditionalname; Cust."PWD Additional name")
                     {
                     }
-                    column(EMail4; 'E-mail 4 :  ' + Cust."PWD E-Mail 4")
+                    column(CustMail4; 'E-mail 4 :  ' + Cust."PWD E-Mail 4")
                     {
 
                     }
@@ -179,7 +179,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                         column(STRSUBSTNO_Text004_CopyText_; STRSUBSTNO(Text004, CopyText))
                         {
                         }
-                        column(Sales_Invoice_Header__Reference; 'Vos Références :  ' + "Sales Cr.Memo Header"."PWD Reference")
+                        column(Sales_CrMemo_Header__Reference; 'Vos Références :  ' + "Sales Cr.Memo Header"."PWD Reference")
                         {
                         }
                         column(Sales_Cr_Memo_Line_Description_Caption; FIELDCAPTION(Description))
@@ -192,16 +192,16 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                         {
 
                         }
-                        column(Amount; AmountLbl)
+                        column(AmountCaption; AmountLbl)
                         {
                         }
                         column(Unit_PriceCaption; Unit_PriceCaptionLbl)
                         {
                         }
-                        column(Sales_Cr_Memo_Line__Unit_of_Measure_Caption; FIELDCAPTION("Unit of Measure"))
+                        column(UnitCaption; UnitCaptionLbl)
                         {
                         }
-                        column(UnitCaption; UnitCaptionLbl)
+                        column(UnitCaptionFR; UnitCaptionFRLbl)
                         {
                         }
                         column(STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__; Text005)
@@ -219,16 +219,19 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                         column(Unit_PriceCaptionFR; Unit_PriceCaptionFRLbl)
                         {
                         }
-                        column(Sales_Cr_Memo_Line_QuantityCaption; FIELDCAPTION(Quantity))
+                        column(QuantityCaption; QuantityCaptionLbl)
                         {
                         }
-                        column(ContinuedCaption; ContinuedCaptionLbl)
+                        column(QuantityCaptionFR; QuantityCaptionFRLbl)
                         {
                         }
                         column(Sales_Cr_Memo_Line__Line_Amount_; "Line Amount")
                         {
                             AutoFormatExpression = "Sales Cr.Memo Line".GetCurrencyCode();
                             AutoFormatType = 1;
+                        }
+                        column(SalesLine__Type_; ShowTypeNo)
+                        {
                         }
                         column(Sales_Cr_Memo_Line_Description; Description)
                         {
@@ -282,7 +285,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                             AutoFormatType = 1;
                             AutoFormatExpression = "Sales Cr.Memo Line".GetCurrencyCode();
                         }
-                        column(VATAmountLine_VATAmountText; VATAmountLine.VATAmountText)
+                        column(VATAmountLine_VATAmountText; VATAmountLine.VATAmountText())
                         {
                         }
                         column(TotalExclVATText; TotalExclVATText)
@@ -358,6 +361,13 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                         column(LA_MARCHANDISE_LIVREE_RESTECaption; LA_MARCHANDISE_LIVREE_RESTECaptionLbl)
                         {
                         }
+                        column(Sales_CrMemo_Line_Document_No_; "Document No.")
+                        {
+                        }
+                        column(Sales_CrMemo_Line_Line_No_; "Line No.")
+                        {
+                        }
+
                         dataitem(DimensionLoop2; Integer)
                         {
                             DataItemTableView = SORTING(Number) WHERE(Number = FILTER(1 ..));
@@ -431,6 +441,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                             //C2A
                             IF Type = Type::Item THEN
                                 IF NOT ItemTrans.GET("No.", '', 'ENU') THEN ItemTrans.INIT();
+                            ShowTypeNo := Type.AsInteger();
                         end;
 
                     }
@@ -493,8 +504,6 @@ report 50062 "PWD Sales - Cr.memo AVITA"
 
                 END;
 
-                // PostedDocDim1.SETRANGE("Table ID", DATABASE::"Sales Cr.Memo Header");
-                // PostedDocDim1.SETRANGE("Document No.", "Sales Cr.Memo Header"."No.");
                 DocDim1.SETRANGE("Dimension Set ID", "Sales Cr.Memo Header"."Dimension Set ID");
 
                 IF "Salesperson Code" = '' THEN BEGIN
@@ -700,11 +709,11 @@ report 50062 "PWD Sales - Cr.memo AVITA"
         Text004: Label 'Sales - Cr.Memo %1 %2';
         AmountLbl: Label 'Amount';
         Unit_PriceCaptionLbl: Label 'Unit Price';
+        UnitCaptionFRLbl: Label 'Unit';
         UnitCaptionLbl: Label 'Unit';
         Text005: Label 'Page %1';
         AmountCaptionFRLbl: Label 'Amount';
         Unit_PriceCaptionFRLbl: Label 'Unit Price';
-        ContinuedCaptionLbl: Label 'Continued';
         InvoiceCaption_Control1000000002Lbl: Label 'Invoice';
         Conditions_de_paiement___SettlementCaptionLbl: Label 'Conditions de paiement / Settlement';
         TauxCaptionLbl: Label 'Taux';
@@ -715,5 +724,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
         Text001: Label 'Total %1';
         Text002: Label 'Total %1 Incl. VAT';
         Text006: Label 'Total %1 Excl. VAT';
-
+        QuantityCaptionLbl: Label 'Quantity';
+        QuantityCaptionFRLbl: Label 'Quantity';
+        ShowTypeNo: Integer;
 }
