@@ -11,298 +11,6 @@
       <rd:DataSourceID>32182e5e-f323-4e39-ad02-58c0195bec93</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Sales_Header_Document_Type">
-          <DataField>Sales_Header_Document_Type</DataField>
-        </Field>
-        <Field Name="Sales_Header_No_">
-          <DataField>Sales_Header_No_</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="ShipToAddr_1_">
-          <DataField>ShipToAddr_1_</DataField>
-        </Field>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="call__Board_Location_">
-          <DataField>call__Board_Location_</DataField>
-        </Field>
-        <Field Name="Recarea_Text">
-          <DataField>Recarea_Text</DataField>
-        </Field>
-        <Field Name="Sales_Line__Requested_Delivery_Date_">
-          <DataField>Sales_Line__Requested_Delivery_Date_</DataField>
-        </Field>
-        <Field Name="STRSUBSTNO_Text000_Sales_Header_No__Order_Date">
-          <DataField>STRSUBSTNO_Text000_Sales_Header_No__Order_Date</DataField>
-        </Field>
-        <Field Name="Sales_Header__Reference">
-          <DataField>Sales_Header__Reference</DataField>
-        </Field>
-        <Field Name="TIME">
-          <DataField>TIME</DataField>
-        </Field>
-        <Field Name="Sales_Header___Sell_to_Contact_">
-          <DataField>Sales_Header___Sell_to_Contact_</DataField>
-        </Field>
-        <Field Name="Sales_Line__Location_Code_">
-          <DataField>Sales_Line__Location_Code_</DataField>
-        </Field>
-        <Field Name="Sales_Line__Family_Code_">
-          <DataField>Sales_Line__Family_Code_</DataField>
-        </Field>
-        <Field Name="Sales_Line__No__">
-          <DataField>Sales_Line__No__</DataField>
-        </Field>
-        <Field Name="Sales_Line_Description">
-          <DataField>Sales_Line_Description</DataField>
-        </Field>
-        <Field Name="Sales_Line_Quantity">
-          <DataField>Sales_Line_Quantity</DataField>
-        </Field>
-        <Field Name="Sales_Line_QuantityFormat">
-          <DataField>Sales_Line_QuantityFormat</DataField>
-        </Field>
-        <Field Name="Sales_Line__Unit_of_Measure_Code_">
-          <DataField>Sales_Line__Unit_of_Measure_Code_</DataField>
-        </Field>
-        <Field Name="Item__SEAF_E_price_">
-          <DataField>Item__SEAF_E_price_</DataField>
-        </Field>
-        <Field Name="Item__SEAF_E_price_Format">
-          <DataField>Item__SEAF_E_price_Format</DataField>
-        </Field>
-        <Field Name="SKU__Shelf_No__">
-          <DataField>SKU__Shelf_No__</DataField>
-        </Field>
-        <Field Name="CallType2_Pas_de_saut_de_page_sur_BP_">
-          <DataField>CallType2_Pas_de_saut_de_page_sur_BP_</DataField>
-        </Field>
-        <Field Name="Sales_Header_No">
-          <DataField>Sales_Header_No</DataField>
-        </Field>
-        <Field Name="Lot_No_">
-          <DataField>Lot_No_</DataField>
-        </Field>
-        <Field Name="ABS_Quantity">
-          <DataField>ABS_Quantity</DataField>
-        </Field>
-        <Field Name="ABS_QuantityFormat">
-          <DataField>ABS_QuantityFormat</DataField>
-        </Field>
-        <Field Name="Reservation_Entry_Expiration_Date">
-          <DataField>Reservation_Entry_Expiration_Date</DataField>
-        </Field>
-        <Field Name="CallType2_Ne_pas_imprimer_DLC_sur_BP">
-          <DataField>CallType2_Ne_pas_imprimer_DLC_sur_BP</DataField>
-        </Field>
-        <Field Name="Line_No">
-          <DataField>Line_No</DataField>
-        </Field>
-        <Field Name="SalesLine_ShelfBinNo">
-          <DataField>SalesLine_ShelfBinNo</DataField>
-        </Field>
-        <Field Name="CallType2_TriSurCodeSEAF">
-          <DataField>CallType2_TriSurCodeSEAF</DataField>
-        </Field>
-        <Field Name="TxtShelfBinNoGroup">
-          <DataField>TxtShelfBinNoGroup</DataField>
-        </Field>
-        <Field Name="Description_2_______Designation_ENU_">
-          <DataField>Description_2_______Designation_ENU_</DataField>
-        </Field>
-        <Field Name="RefFournisseur">
-          <DataField>RefFournisseur</DataField>
-        </Field>
-        <Field Name="Call_Type">
-          <DataField>Call_Type</DataField>
-        </Field>
-        <Field Name="Sales_Line__COUNT">
-          <DataField>Sales_Line__COUNT</DataField>
-        </Field>
-        <Field Name="IntGNewPage">
-          <DataField>IntGNewPage</DataField>
-        </Field>
-        <Field Name="PICKING_LISTCaption">
-          <DataField>PICKING_LISTCaption</DataField>
-        </Field>
-        <Field Name="Livré_à__Caption">
-          <DataField>Livré_à__Caption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Requested_Delivery_DateCaption">
-          <DataField>Requested_Delivery_DateCaption</DataField>
-        </Field>
-        <Field Name="Commande_N_Caption">
-          <DataField>Commande_N_Caption</DataField>
-        </Field>
-        <Field Name="Edité_le_Caption">
-          <DataField>Edité_le_Caption</DataField>
-        </Field>
-        <Field Name="àCaption">
-          <DataField>àCaption</DataField>
-        </Field>
-        <Field Name="parCaption">
-          <DataField>parCaption</DataField>
-        </Field>
-        <Field Name="SKU__Shelf_No__Caption">
-          <DataField>SKU__Shelf_No__Caption</DataField>
-        </Field>
-        <Field Name="Sales_Line__No__Caption">
-          <DataField>Sales_Line__No__Caption</DataField>
-        </Field>
-        <Field Name="Sales_Line_DescriptionCaption">
-          <DataField>Sales_Line_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="QuantitéCaption">
-          <DataField>QuantitéCaption</DataField>
-        </Field>
-        <Field Name="Quantité_préparéeCaption">
-          <DataField>Quantité_préparéeCaption</DataField>
-        </Field>
-        <Field Name="UnitéCaption">
-          <DataField>UnitéCaption</DataField>
-        </Field>
-        <Field Name="Sales_Line__Location_Code_Caption">
-          <DataField>Sales_Line__Location_Code_Caption</DataField>
-        </Field>
-        <Field Name="ShowLocationHeader">
-          <DataField>ShowLocationHeader</DataField>
-        </Field>
-        <Field Name="Sales_Line__Family_Code_Caption">
-          <DataField>Sales_Line__Family_Code_Caption</DataField>
-        </Field>
-        <Field Name="Code_familleCaption">
-          <DataField>Code_familleCaption</DataField>
-        </Field>
-        <Field Name="Lot_No_Caption">
-          <DataField>Lot_No_Caption</DataField>
-        </Field>
-        <Field Name="DLC_Caption">
-          <DataField>DLC_Caption</DataField>
-        </Field>
-        <Field Name="FIN_DE_BP___________Caption">
-          <DataField>FIN_DE_BP___________Caption</DataField>
-        </Field>
-        <Field Name="Sales_Line_Document_Type">
-          <DataField>Sales_Line_Document_Type</DataField>
-        </Field>
-        <Field Name="Sales_Line_Document_No_">
-          <DataField>Sales_Line_Document_No_</DataField>
-        </Field>
-        <Field Name="Sales_Line_Previous_Line_No">
-          <DataField>Sales_Line_Previous_Line_No</DataField>
-        </Field>
-        <Field Name="LastFieldNo">
-          <DataField>LastFieldNo</DataField>
-        </Field>
-        <Field Name="Reservation_Entry__Expiration_Date_">
-          <DataField>Reservation_Entry__Expiration_Date_</DataField>
-        </Field>
-        <Field Name="ABS_Quantity_">
-          <DataField>ABS_Quantity_</DataField>
-        </Field>
-        <Field Name="ABS_Quantity_Format">
-          <DataField>ABS_Quantity_Format</DataField>
-        </Field>
-        <Field Name="Reservation_Entry__Lot_No__">
-          <DataField>Reservation_Entry__Lot_No__</DataField>
-        </Field>
-        <Field Name="BooShowDLC">
-          <DataField>BooShowDLC</DataField>
-        </Field>
-        <Field Name="DLCCaption">
-          <DataField>DLCCaption</DataField>
-        </Field>
-        <Field Name="Reservation_Entry__Lot_No__Caption">
-          <DataField>Reservation_Entry__Lot_No__Caption</DataField>
-        </Field>
-        <Field Name="Reservation_Entry_Entry_No_">
-          <DataField>Reservation_Entry_Entry_No_</DataField>
-        </Field>
-        <Field Name="Reservation_Entry_Positive">
-          <DataField>Reservation_Entry_Positive</DataField>
-        </Field>
-        <Field Name="Reservation_Entry_Item_No_">
-          <DataField>Reservation_Entry_Item_No_</DataField>
-        </Field>
-        <Field Name="Reservation_Entry_Location_Code">
-          <DataField>Reservation_Entry_Location_Code</DataField>
-        </Field>
-        <Field Name="Reservation_Entry_Source_Subtype">
-          <DataField>Reservation_Entry_Source_Subtype</DataField>
-        </Field>
-        <Field Name="Reservation_Entry_Source_ID">
-          <DataField>Reservation_Entry_Source_ID</DataField>
-        </Field>
-        <Field Name="Reservation_Entry_Source_Ref__No_">
-          <DataField>Reservation_Entry_Source_Ref__No_</DataField>
-        </Field>
-        <Field Name="Item__Conserving_Temperature_">
-          <DataField>Item__Conserving_Temperature_</DataField>
-        </Field>
-        <Field Name="Item__Conserving_Temperature_Format">
-          <DataField>Item__Conserving_Temperature_Format</DataField>
-        </Field>
-        <Field Name="Item__Transport_Temperature_">
-          <DataField>Item__Transport_Temperature_</DataField>
-        </Field>
-        <Field Name="Item__Transport_Temperature_Format">
-          <DataField>Item__Transport_Temperature_Format</DataField>
-        </Field>
-        <Field Name="N__d_agréement__Caption">
-          <DataField>N__d_agréement__Caption</DataField>
-        </Field>
-        <Field Name="Marquage__Caption">
-          <DataField>Marquage__Caption</DataField>
-        </Field>
-        <Field Name="Date_Fabrication__Caption">
-          <DataField>Date_Fabrication__Caption</DataField>
-        </Field>
-        <Field Name="DLC__Caption">
-          <DataField>DLC__Caption</DataField>
-        </Field>
-        <Field Name="Abattoir_ou_atelier_de_découpe__Caption">
-          <DataField>Abattoir_ou_atelier_de_découpe__Caption</DataField>
-        </Field>
-        <Field Name="T__conservation__Caption">
-          <DataField>T__conservation__Caption</DataField>
-        </Field>
-        <Field Name="T__transport__Caption">
-          <DataField>T__transport__Caption</DataField>
-        </Field>
-        <Field Name="InfoTrading_Number">
-          <DataField>InfoTrading_Number</DataField>
-        </Field>
-        <Field Name="CommentSalesLine_Description">
-          <DataField>CommentSalesLine_Description</DataField>
-        </Field>
-        <Field Name="CommentSalesLine_Document_Type">
-          <DataField>CommentSalesLine_Document_Type</DataField>
-        </Field>
-        <Field Name="CommentSalesLine_Document_No_">
-          <DataField>CommentSalesLine_Document_No_</DataField>
-        </Field>
-        <Field Name="CommentSalesLine_Line_No_">
-          <DataField>CommentSalesLine_Line_No_</DataField>
-        </Field>
-        <Field Name="CommentSalesLine_Linked_Sales_Line">
-          <DataField>CommentSalesLine_Linked_Sales_Line</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -3360,12 +3068,6 @@ Cstr(Fields!SalesLine_Family_Code.Value)
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -3500,4 +3202,296 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>8b25bc3a-546a-497d-b4e0-72a01e90cae2</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Sales_Header_Document_Type">
+          <DataField>Sales_Header_Document_Type</DataField>
+        </Field>
+        <Field Name="Sales_Header_No_">
+          <DataField>Sales_Header_No_</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="ShipToAddr_1_">
+          <DataField>ShipToAddr_1_</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="call__Board_Location_">
+          <DataField>call__Board_Location_</DataField>
+        </Field>
+        <Field Name="Recarea_Text">
+          <DataField>Recarea_Text</DataField>
+        </Field>
+        <Field Name="Sales_Line__Requested_Delivery_Date_">
+          <DataField>Sales_Line__Requested_Delivery_Date_</DataField>
+        </Field>
+        <Field Name="STRSUBSTNO_Text000_Sales_Header_No__Order_Date">
+          <DataField>STRSUBSTNO_Text000_Sales_Header_No__Order_Date</DataField>
+        </Field>
+        <Field Name="Sales_Header__Reference">
+          <DataField>Sales_Header__Reference</DataField>
+        </Field>
+        <Field Name="TIME">
+          <DataField>TIME</DataField>
+        </Field>
+        <Field Name="Sales_Header___Sell_to_Contact_">
+          <DataField>Sales_Header___Sell_to_Contact_</DataField>
+        </Field>
+        <Field Name="Sales_Line__Location_Code_">
+          <DataField>Sales_Line__Location_Code_</DataField>
+        </Field>
+        <Field Name="Sales_Line__Family_Code_">
+          <DataField>Sales_Line__Family_Code_</DataField>
+        </Field>
+        <Field Name="Sales_Line__No__">
+          <DataField>Sales_Line__No__</DataField>
+        </Field>
+        <Field Name="Sales_Line_Description">
+          <DataField>Sales_Line_Description</DataField>
+        </Field>
+        <Field Name="Sales_Line_Quantity">
+          <DataField>Sales_Line_Quantity</DataField>
+        </Field>
+        <Field Name="Sales_Line_QuantityFormat">
+          <DataField>Sales_Line_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Sales_Line__Unit_of_Measure_Code_">
+          <DataField>Sales_Line__Unit_of_Measure_Code_</DataField>
+        </Field>
+        <Field Name="Item__SEAF_E_price_">
+          <DataField>Item__SEAF_E_price_</DataField>
+        </Field>
+        <Field Name="Item__SEAF_E_price_Format">
+          <DataField>Item__SEAF_E_price_Format</DataField>
+        </Field>
+        <Field Name="SKU__Shelf_No__">
+          <DataField>SKU__Shelf_No__</DataField>
+        </Field>
+        <Field Name="CallType2_Pas_de_saut_de_page_sur_BP_">
+          <DataField>CallType2_Pas_de_saut_de_page_sur_BP_</DataField>
+        </Field>
+        <Field Name="Sales_Header_No">
+          <DataField>Sales_Header_No</DataField>
+        </Field>
+        <Field Name="Lot_No_">
+          <DataField>Lot_No_</DataField>
+        </Field>
+        <Field Name="ABS_Quantity">
+          <DataField>ABS_Quantity</DataField>
+        </Field>
+        <Field Name="ABS_QuantityFormat">
+          <DataField>ABS_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Reservation_Entry_Expiration_Date">
+          <DataField>Reservation_Entry_Expiration_Date</DataField>
+        </Field>
+        <Field Name="CallType2_Ne_pas_imprimer_DLC_sur_BP">
+          <DataField>CallType2_Ne_pas_imprimer_DLC_sur_BP</DataField>
+        </Field>
+        <Field Name="Line_No">
+          <DataField>Line_No</DataField>
+        </Field>
+        <Field Name="SalesLine_ShelfBinNo">
+          <DataField>SalesLine_ShelfBinNo</DataField>
+        </Field>
+        <Field Name="CallType2_TriSurCodeSEAF">
+          <DataField>CallType2_TriSurCodeSEAF</DataField>
+        </Field>
+        <Field Name="TxtShelfBinNoGroup">
+          <DataField>TxtShelfBinNoGroup</DataField>
+        </Field>
+        <Field Name="Description_2_______Designation_ENU_">
+          <DataField>Description_2_______Designation_ENU_</DataField>
+        </Field>
+        <Field Name="RefFournisseur">
+          <DataField>RefFournisseur</DataField>
+        </Field>
+        <Field Name="Call_Type">
+          <DataField>Call_Type</DataField>
+        </Field>
+        <Field Name="Sales_Line__COUNT">
+          <DataField>Sales_Line__COUNT</DataField>
+        </Field>
+        <Field Name="IntGNewPage">
+          <DataField>IntGNewPage</DataField>
+        </Field>
+        <Field Name="PICKING_LISTCaption">
+          <DataField>PICKING_LISTCaption</DataField>
+        </Field>
+        <Field Name="Livré_à__Caption">
+          <DataField>Livré_à__Caption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Requested_Delivery_DateCaption">
+          <DataField>Requested_Delivery_DateCaption</DataField>
+        </Field>
+        <Field Name="Commande_N_Caption">
+          <DataField>Commande_N_Caption</DataField>
+        </Field>
+        <Field Name="Edité_le_Caption">
+          <DataField>Edité_le_Caption</DataField>
+        </Field>
+        <Field Name="àCaption">
+          <DataField>àCaption</DataField>
+        </Field>
+        <Field Name="parCaption">
+          <DataField>parCaption</DataField>
+        </Field>
+        <Field Name="SKU__Shelf_No__Caption">
+          <DataField>SKU__Shelf_No__Caption</DataField>
+        </Field>
+        <Field Name="Sales_Line__No__Caption">
+          <DataField>Sales_Line__No__Caption</DataField>
+        </Field>
+        <Field Name="Sales_Line_DescriptionCaption">
+          <DataField>Sales_Line_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="QuantitéCaption">
+          <DataField>QuantitéCaption</DataField>
+        </Field>
+        <Field Name="Quantité_préparéeCaption">
+          <DataField>Quantité_préparéeCaption</DataField>
+        </Field>
+        <Field Name="UnitéCaption">
+          <DataField>UnitéCaption</DataField>
+        </Field>
+        <Field Name="Sales_Line__Location_Code_Caption">
+          <DataField>Sales_Line__Location_Code_Caption</DataField>
+        </Field>
+        <Field Name="ShowLocationHeader">
+          <DataField>ShowLocationHeader</DataField>
+        </Field>
+        <Field Name="Sales_Line__Family_Code_Caption">
+          <DataField>Sales_Line__Family_Code_Caption</DataField>
+        </Field>
+        <Field Name="Code_familleCaption">
+          <DataField>Code_familleCaption</DataField>
+        </Field>
+        <Field Name="Lot_No_Caption">
+          <DataField>Lot_No_Caption</DataField>
+        </Field>
+        <Field Name="DLC_Caption">
+          <DataField>DLC_Caption</DataField>
+        </Field>
+        <Field Name="FIN_DE_BP___________Caption">
+          <DataField>FIN_DE_BP___________Caption</DataField>
+        </Field>
+        <Field Name="Sales_Line_Document_Type">
+          <DataField>Sales_Line_Document_Type</DataField>
+        </Field>
+        <Field Name="Sales_Line_Document_No_">
+          <DataField>Sales_Line_Document_No_</DataField>
+        </Field>
+        <Field Name="Sales_Line_Previous_Line_No">
+          <DataField>Sales_Line_Previous_Line_No</DataField>
+        </Field>
+        <Field Name="LastFieldNo">
+          <DataField>LastFieldNo</DataField>
+        </Field>
+        <Field Name="Reservation_Entry__Expiration_Date_">
+          <DataField>Reservation_Entry__Expiration_Date_</DataField>
+        </Field>
+        <Field Name="ABS_Quantity_">
+          <DataField>ABS_Quantity_</DataField>
+        </Field>
+        <Field Name="ABS_Quantity_Format">
+          <DataField>ABS_Quantity_Format</DataField>
+        </Field>
+        <Field Name="Reservation_Entry__Lot_No__">
+          <DataField>Reservation_Entry__Lot_No__</DataField>
+        </Field>
+        <Field Name="BooShowDLC">
+          <DataField>BooShowDLC</DataField>
+        </Field>
+        <Field Name="DLCCaption">
+          <DataField>DLCCaption</DataField>
+        </Field>
+        <Field Name="Reservation_Entry__Lot_No__Caption">
+          <DataField>Reservation_Entry__Lot_No__Caption</DataField>
+        </Field>
+        <Field Name="Reservation_Entry_Entry_No_">
+          <DataField>Reservation_Entry_Entry_No_</DataField>
+        </Field>
+        <Field Name="Reservation_Entry_Positive">
+          <DataField>Reservation_Entry_Positive</DataField>
+        </Field>
+        <Field Name="Reservation_Entry_Item_No_">
+          <DataField>Reservation_Entry_Item_No_</DataField>
+        </Field>
+        <Field Name="Reservation_Entry_Location_Code">
+          <DataField>Reservation_Entry_Location_Code</DataField>
+        </Field>
+        <Field Name="Reservation_Entry_Source_Subtype">
+          <DataField>Reservation_Entry_Source_Subtype</DataField>
+        </Field>
+        <Field Name="Reservation_Entry_Source_ID">
+          <DataField>Reservation_Entry_Source_ID</DataField>
+        </Field>
+        <Field Name="Reservation_Entry_Source_Ref__No_">
+          <DataField>Reservation_Entry_Source_Ref__No_</DataField>
+        </Field>
+        <Field Name="Item__Conserving_Temperature_">
+          <DataField>Item__Conserving_Temperature_</DataField>
+        </Field>
+        <Field Name="Item__Conserving_Temperature_Format">
+          <DataField>Item__Conserving_Temperature_Format</DataField>
+        </Field>
+        <Field Name="Item__Transport_Temperature_">
+          <DataField>Item__Transport_Temperature_</DataField>
+        </Field>
+        <Field Name="Item__Transport_Temperature_Format">
+          <DataField>Item__Transport_Temperature_Format</DataField>
+        </Field>
+        <Field Name="N__d_agréement__Caption">
+          <DataField>N__d_agréement__Caption</DataField>
+        </Field>
+        <Field Name="Marquage__Caption">
+          <DataField>Marquage__Caption</DataField>
+        </Field>
+        <Field Name="Date_Fabrication__Caption">
+          <DataField>Date_Fabrication__Caption</DataField>
+        </Field>
+        <Field Name="DLC__Caption">
+          <DataField>DLC__Caption</DataField>
+        </Field>
+        <Field Name="Abattoir_ou_atelier_de_découpe__Caption">
+          <DataField>Abattoir_ou_atelier_de_découpe__Caption</DataField>
+        </Field>
+        <Field Name="T__conservation__Caption">
+          <DataField>T__conservation__Caption</DataField>
+        </Field>
+        <Field Name="T__transport__Caption">
+          <DataField>T__transport__Caption</DataField>
+        </Field>
+        <Field Name="InfoTrading_Number">
+          <DataField>InfoTrading_Number</DataField>
+        </Field>
+        <Field Name="CommentSalesLine_Description">
+          <DataField>CommentSalesLine_Description</DataField>
+        </Field>
+        <Field Name="CommentSalesLine_Document_Type">
+          <DataField>CommentSalesLine_Document_Type</DataField>
+        </Field>
+        <Field Name="CommentSalesLine_Document_No_">
+          <DataField>CommentSalesLine_Document_No_</DataField>
+        </Field>
+        <Field Name="CommentSalesLine_Line_No_">
+          <DataField>CommentSalesLine_Line_No_</DataField>
+        </Field>
+        <Field Name="CommentSalesLine_Linked_Sales_Line">
+          <DataField>CommentSalesLine_Linked_Sales_Line</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

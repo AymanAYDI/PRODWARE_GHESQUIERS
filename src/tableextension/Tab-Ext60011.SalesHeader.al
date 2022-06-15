@@ -50,7 +50,8 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
                     VALIDATE("Location Code", LocationPriority."PWD Location code");
                 IF (CallType.GET("PWD Call Type")) AND ("PWD Call Type" <> '') THEN BEGIN
                     CallType.TESTFIELD("Posting No. Series");
-                    VALIDATE("Posting No. Series", CallType."Posting No. Series");
+                    //VALIDATE("Posting No. Series", CallType."Posting No. Series")
+                    "Posting No. Series" := CallType."Posting No. Series";
                     CallType.TESTFIELD("Shipping No. Series");
                     VALIDATE("Shipping No. Series", CallType."Shipping No. Series");
                 END;

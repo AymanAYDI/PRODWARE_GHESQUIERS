@@ -24,7 +24,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>2.32692cm</Height>
+                  <Height>2.40392cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -376,7 +376,7 @@
                                     </TablixCells>
                                   </TablixRow>
                                   <TablixRow>
-                                    <Height>0.423cm</Height>
+                                    <Height>0.5cm</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
@@ -1099,7 +1099,8 @@ OR (Fields!NumLigne.Value=0)</Hidden>
                                           </TablixMember>
                                           <TablixMember>
                                             <Visibility>
-                                              <Hidden>=(ReportItems!Sales_Shipment_Line__No__.Value="")</Hidden>
+                                              <Hidden>=(ReportItems!Sales_Shipment_Line__No__.Value&lt;&gt;"" and Fields!Description__Description_2_.Value&lt;&gt;"") OR (ReportItems!Sales_Shipment_Line__No__.Value="" and Fields!Sales_Shipment_Line_Quantity.Value&lt;&gt;0)
+OR (Fields!NumLigne.Value&lt;&gt;0)</Hidden>
                                             </Visibility>
                                           </TablixMember>
                                         </TablixMembers>
@@ -1111,7 +1112,7 @@ OR (Fields!NumLigne.Value=0)</Hidden>
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
-                              <Height>2.32692cm</Height>
+                              <Height>2.40392cm</Height>
                               <Width>18.18784cm</Width>
                               <Style>
                                 <Border>
@@ -1363,15 +1364,15 @@ Cstr(Fields!Bonded_Allowance_Caption.Value)
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
             <Left>0.01612cm</Left>
-            <Height>2.32692cm</Height>
+            <Height>2.40392cm</Height>
             <Width>18.18783cm</Width>
             <Style />
           </Tablix>
         </ReportItems>
-        <Height>2.32692cm</Height>
+        <Height>2.40392cm</Height>
         <Style />
       </Body>
-      <Width>18.20395cm</Width>
+      <Width>18.20396cm</Width>
       <Page>
         <PageHeader>
           <Height>6.50439cm</Height>
@@ -2029,8 +2030,8 @@ Cstr(Fields!Bonded_Allowance_Caption.Value)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>3.26223cm</Top>
-                  <Left>0.17893cm</Left>
+                  <Top>3.05056cm</Top>
+                  <Left>0.18629cm</Left>
                   <Height>0.44854cm</Height>
                   <Width>5.39683cm</Width>
                   <Style>
@@ -2077,8 +2078,8 @@ Cstr(Fields!Bonded_Allowance_Caption.Value)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>0.64095cm</Top>
-                  <Left>0.17893cm</Left>
+                  <Top>0.53541cm</Top>
+                  <Left>0.18629cm</Left>
                   <Height>0.423cm</Height>
                   <Width>1.26984cm</Width>
                   <ZIndex>2</ZIndex>
@@ -2101,8 +2102,8 @@ Cstr(Fields!Bonded_Allowance_Caption.Value)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.17113cm</Top>
-                  <Left>0.17893cm</Left>
+                  <Top>1.06559cm</Top>
+                  <Left>0.18629cm</Left>
                   <Height>0.423cm</Height>
                   <Width>1.26984cm</Width>
                   <ZIndex>3</ZIndex>
@@ -2125,8 +2126,8 @@ Cstr(Fields!Bonded_Allowance_Caption.Value)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.80609cm</Top>
-                  <Left>0.17893cm</Left>
+                  <Top>1.59442cm</Top>
+                  <Left>0.18629cm</Left>
                   <Height>0.423cm</Height>
                   <Width>1.26984cm</Width>
                   <ZIndex>4</ZIndex>
@@ -2149,8 +2150,8 @@ Cstr(Fields!Bonded_Allowance_Caption.Value)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>2.75847cm</Top>
-                  <Left>0.17893cm</Left>
+                  <Top>2.5468cm</Top>
+                  <Left>0.18629cm</Left>
                   <Height>0.423cm</Height>
                   <Width>1.26984cm</Width>
                   <ZIndex>5</ZIndex>
@@ -2175,8 +2176,8 @@ Cstr(Fields!Bonded_Allowance_Caption.Value)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>2.26437cm</Top>
-                  <Left>1.44878cm</Left>
+                  <Top>2.0527cm</Top>
+                  <Left>1.45614cm</Left>
                   <Height>0.423cm</Height>
                   <Width>4.12698cm</Width>
                   <ZIndex>6</ZIndex>
@@ -2203,8 +2204,8 @@ Cstr(Fields!Bonded_Allowance_Caption.Value)
                       </Style>
                     </Paragraph>
                   </Paragraphs>
-                  <Top>3.71078cm</Top>
-                  <Left>0.17897cm</Left>
+                  <Top>3.49911cm</Top>
+                  <Left>0.18633cm</Left>
                   <Height>0.423cm</Height>
                   <Width>5.39679cm</Width>
                   <ZIndex>7</ZIndex>
@@ -2229,8 +2230,8 @@ Cstr(Fields!Bonded_Allowance_Caption.Value)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.80609cm</Top>
-                  <Left>1.44878cm</Left>
+                  <Top>1.59442cm</Top>
+                  <Left>1.45614cm</Left>
                   <Height>0.423cm</Height>
                   <Width>4.12698cm</Width>
                   <ZIndex>8</ZIndex>
@@ -2254,8 +2255,8 @@ Cstr(Fields!Bonded_Allowance_Caption.Value)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>0.64095cm</Top>
-                  <Left>1.44878cm</Left>
+                  <Top>0.53541cm</Top>
+                  <Left>1.45614cm</Left>
                   <Height>0.423cm</Height>
                   <Width>4.41828cm</Width>
                   <ZIndex>9</ZIndex>
@@ -2280,8 +2281,8 @@ Cstr(Fields!Bonded_Allowance_Caption.Value)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>1.17113cm</Top>
-                  <Left>1.44877cm</Left>
+                  <Top>1.06559cm</Top>
+                  <Left>1.45613cm</Left>
                   <Height>0.423cm</Height>
                   <Width>4.41829cm</Width>
                   <ZIndex>10</ZIndex>
@@ -2304,8 +2305,8 @@ Cstr(Fields!Bonded_Allowance_Caption.Value)
                       <Style />
                     </Paragraph>
                   </Paragraphs>
-                  <Top>2.75847cm</Top>
-                  <Left>1.44878cm</Left>
+                  <Top>2.5468cm</Top>
+                  <Left>1.45614cm</Left>
                   <Height>0.423cm</Height>
                   <Width>4.12698cm</Width>
                   <ZIndex>11</ZIndex>
@@ -2318,7 +2319,7 @@ Cstr(Fields!Bonded_Allowance_Caption.Value)
               <Top>0.52776cm</Top>
               <Left>12.32954cm</Left>
               <Height>4.85451cm</Height>
-              <Width>5.86707cm</Width>
+              <Width>5.87442cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
