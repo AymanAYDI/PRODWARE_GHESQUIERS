@@ -145,7 +145,6 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                         trigger OnAfterGetRecord()
                         var
                         begin
-
                             IF Number = 1 THEN BEGIN
                                 IF NOT DocDim1.FindFirst() THEN
                                     CurrReport.BREAK();
@@ -259,6 +258,9 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                         column(Sales_Cr_Memo_Line__VAT_Identifier_; "VAT Identifier")
                         {
                         }
+                        column(Amount_Including_VAT_; TempVATAmountLine."VAT Amount")
+                        {
+                        }
                         column(ItemTrans_Description; ItemTrans.Description)
                         {
                         }
@@ -285,7 +287,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                             AutoFormatType = 1;
                             AutoFormatExpression = "Sales Cr.Memo Line".GetCurrencyCode();
                         }
-                        column(VATAmountLine_VATAmountText; VATAmountLine.VATAmountText())
+                        column(VATAmountLine_VATAmountText; TempVATAmountLine.VATAmountText())
                         {
                         }
                         column(TotalExclVATText; TotalExclVATText)
@@ -367,7 +369,6 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                         column(Sales_CrMemo_Line_Line_No_; "Line No.")
                         {
                         }
-
                         dataitem(DimensionLoop2; Integer)
                         {
                             DataItemTableView = SORTING(Number) WHERE(Number = FILTER(1 ..));
@@ -410,7 +411,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                         trigger OnPreDataItem()
                         begin
 
-                            VATAmountLine.DELETEALL();
+                            TempVATAmountLine.DELETEALL();
                             MoreLines := FindLast();
                             WHILE MoreLines AND (Description = '') AND ("No." = '') AND (Quantity = 0) AND (Amount = 0) DO
                                 MoreLines := NEXT(-1) <> 0;
@@ -426,18 +427,18 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                             IF (Type = Type::"G/L Account") AND (NOT ShowInternalInfo) THEN
                                 "No." := '';
 
-                            VATAmountLine.INIT();
-                            VATAmountLine."VAT Identifier" := "VAT Identifier";
-                            VATAmountLine."VAT Calculation Type" := "VAT Calculation Type";
-                            VATAmountLine."Tax Group Code" := "Tax Group Code";
-                            VATAmountLine."VAT %" := "VAT %";
-                            VATAmountLine."VAT Base" := Amount;
-                            VATAmountLine."Amount Including VAT" := "Amount Including VAT";
-                            VATAmountLine."Line Amount" := "Line Amount";
+                            TempVATAmountLine.INIT();
+                            TempVATAmountLine."VAT Identifier" := "VAT Identifier";
+                            TempVATAmountLine."VAT Calculation Type" := "VAT Calculation Type";
+                            TempVATAmountLine."Tax Group Code" := "Tax Group Code";
+                            TempVATAmountLine."VAT %" := "VAT %";
+                            TempVATAmountLine."VAT Base" := Amount;
+                            TempVATAmountLine."Amount Including VAT" := "Amount Including VAT";
+                            TempVATAmountLine."Line Amount" := "Line Amount";
                             IF "Allow Invoice Disc." THEN
-                                VATAmountLine."Inv. Disc. Base Amount" := "Line Amount";
-                            VATAmountLine."Invoice Discount Amount" := "Inv. Discount Amount";
-                            VATAmountLine.InsertLine();
+                                TempVATAmountLine."Inv. Disc. Base Amount" := "Line Amount";
+                            TempVATAmountLine."Invoice Discount Amount" := "Inv. Discount Amount";
+                            TempVATAmountLine.InsertLine();
                             //C2A
                             IF Type = Type::Item THEN
                                 IF NOT ItemTrans.GET("No.", '', 'ENU') THEN ItemTrans.INIT();
@@ -463,7 +464,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                 }
                 trigger OnPreDataItem()
                 begin
-                    NoOfLoops := ABS(NoOfCopies) + Cust."Invoice Copies" + 1;
+                    NoOfLoops := ABS(NoOfCopiesV) + Cust."Invoice Copies" + 1;
                     IF NoOfLoops <= 0 THEN
                         NoOfLoops := 1;
                     CopyText := "Sales Cr.Memo Header"."No." + ' DU ' + FORMAT("Sales Cr.Memo Header"."Document Date");
@@ -581,7 +582,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                 group(Options)
                 {
                     Caption = 'Options';
-                    field(NoOfCopies; NoOfCopies)
+                    field(NoOfCopies; NoOfCopiesV)
                     {
                         Caption = 'No. of Copies';
                         ApplicationArea = All;
@@ -637,14 +638,14 @@ report 50062 "PWD Sales - Cr.memo AVITA"
         i: Integer;
     begin
 
-        IF VATAmountLine.GetTotalVATAmount() = 0 THEN
+        IF TempVATAmountLine.GetTotalVATAmount() = 0 THEN
             EXIT;
-        FOR i := 1 TO VATAmountLine.COUNT DO BEGIN
-            VATAmountLine.GetLine(i);
-            VatArrayID[i] := VATAmountLine."VAT Identifier";
-            VatArrayRate[i] := VATAmountLine."VAT %";
-            VatArrayBase[i] := VATAmountLine."VAT Base";
-            VatArrayAmount[i] := VATAmountLine."VAT Amount";
+        FOR i := 1 TO TempVATAmountLine.COUNT DO BEGIN
+            TempVATAmountLine.GetLine(i);
+            VatArrayID[i] := TempVATAmountLine."VAT Identifier";
+            VatArrayRate[i] := TempVATAmountLine."VAT %";
+            VatArrayBase[i] := TempVATAmountLine."VAT Base";
+            VatArrayAmount[i] := TempVATAmountLine."VAT Amount";
         END;
     end;
 
@@ -657,7 +658,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
         SalesPurchPerson: Record "Salesperson/Purchaser";
         CompanyInfo: Record "Company Information";
         Cust: Record Customer;
-        VATAmountLine: Record "VAT Amount Line" TEMPORARY;
+        TempVATAmountLine: Record "VAT Amount Line" TEMPORARY;
         DocDim1: Record "Dimension Set Entry";
         DocDim2: Record "Dimension Set Entry";
         RespCenter: Record "Responsibility Center";
@@ -676,7 +677,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
         TotalExclVATText: Text[50];
         TotalInclVATText: Text[50];
         MoreLines: Boolean;
-        NoOfCopies: Integer;
+        NoOfCopiesV: Integer;
         NoOfLoops: Integer;
         CopyText: Text[50];
         ShowShippingAddr: Boolean;
