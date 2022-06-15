@@ -3,6 +3,7 @@ report 50053 "PWD Palmares des articles"
     DefaultLayout = RDLC;
     RDLCLayout = './src/report/rdl/Palmaresdesarticles.rdl';
     UsageCategory = None;
+    Caption = 'Palmares des articles';
     dataset
     {
         dataitem("Item Ledger Entry"; "Item Ledger Entry")

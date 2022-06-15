@@ -14547,12 +14547,6 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Conditions_de_paiement___SettlementCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 3113396396 - NamedType 4036938315" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Continued</source>
-          <target state="needs-translation"/>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType ContinuedCaptionLbl</note>
-        </trans-unit>
         <trans-unit id="Report 3113396396 - NamedType 595034892" size-unit="char" translate="yes" xml:space="preserve">
           <source>E-Mail : </source>
           <target state="needs-translation"/>
@@ -14984,6 +14978,12 @@
           <target state="translated">Afficher info. internes</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Invoice AVITA - Control ShowInternalInfo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 16260164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PWD Validate Purchase Order</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Validate Purchase Order - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 16260164 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to post the %1?</source>

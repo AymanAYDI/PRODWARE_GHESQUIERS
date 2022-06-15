@@ -12483,6 +12483,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Invoice AVITA - Control ShowInternalInfo - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 16260164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PWD Validate Purchase Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Validate Purchase Order - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 16260164 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to post the %1?</source>
           <note from="Developer" annotates="general" priority="2"></note>
