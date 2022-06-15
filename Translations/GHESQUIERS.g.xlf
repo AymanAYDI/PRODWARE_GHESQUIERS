@@ -8733,6 +8733,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PWD Function Mgt - Method FCT_CDU414OnAfterReleaseSalesDocEvent - NamedType Txt50000</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4102534337 - Method 2516910284 - NamedType 1889548419" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DIRECTION</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PWD Function Mgt - Method FCT_CDU414OnBeforeReleaseSalesDocEvent - NamedType CstG002</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4102534337 - Method 4037583003 - NamedType 1453922602" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pas de document à imprimer.</source>
           <note from="Developer" annotates="general" priority="2"></note>
