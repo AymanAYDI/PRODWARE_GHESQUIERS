@@ -4986,6 +4986,9 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                                     </TablixMembers>
                                   </TablixMember>
                                   <TablixMember>
+                                    <Visibility>
+                                      <Hidden>=Last(Fields!CodGVatArrayID_1.Value)=""</Hidden>
+                                    </Visibility>
                                     <KeepWithGroup>Before</KeepWithGroup>
                                   </TablixMember>
                                 </TablixMembers>
@@ -6415,7 +6418,6 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Height>0.31746cm</Height>
               <Width>0.95238cm</Width>
               <Visibility>
@@ -6543,7 +6545,6 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Left>0.4cm</Left>
               <Height>0.4cm</Height>
               <Width>6.2cm</Width>
@@ -6581,7 +6582,6 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Left>6.6cm</Left>
               <Height>0.4cm</Height>
               <Width>5.44415cm</Width>
@@ -6614,7 +6614,6 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Left>12cm</Left>
               <Height>0.4cm</Height>
               <Width>3.6cm</Width>
@@ -6648,7 +6647,6 @@ Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177) , 7)
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Left>15.6cm</Left>
               <Height>0.4cm</Height>
               <Width>3.2cm</Width>
