@@ -7,6 +7,7 @@ report 50033 "PWD Relevé de douane"
     //   - Migration2009 changement cle
     // --------------------------------------------
     DefaultLayout = RDLC;
+    caption = 'Relevé de douane';
     RDLCLayout = './src/report/rdl/Relevédedouane.rdl';
     ApplicationArea = all;
     UsageCategory = ReportsAndAnalysis;

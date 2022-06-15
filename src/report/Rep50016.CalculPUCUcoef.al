@@ -1,5 +1,6 @@
 report 50016 "PWD Calcul PU=CU*coef"
 {
+    Caption = 'Calcul PU=CU*coef';
     ProcessingOnly = true;
     UsageCategory = None;
     dataset
