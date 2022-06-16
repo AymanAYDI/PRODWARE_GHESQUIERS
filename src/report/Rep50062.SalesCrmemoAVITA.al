@@ -418,7 +418,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                             IF NOT MoreLines THEN
                                 CurrReport.BREAK();
                             SETRANGE("Line No.", 0, "Line No.");
-                            CurrReport.CREATETOTALS("Line Amount", Amount, "Amount Including VAT", "Inv. Discount Amount");
+                            //CurrReport.CREATETOTALS("Line Amount", Amount, "Amount Including VAT", "Inv. Discount Amount");
                         end;
 
                         trigger OnAfterGetRecord()

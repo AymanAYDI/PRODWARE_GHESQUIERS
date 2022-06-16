@@ -24,7 +24,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>5.04387cm</Height>
+                  <Height>4.8039cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -929,8 +929,7 @@
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Top>1.00191cm</Top>
-                              <Left>0cm</Left>
+                              <Top>0.76194cm</Top>
                               <Height>1.25258cm</Height>
                               <Width>20.86477cm</Width>
                               <Style>
@@ -1303,6 +1302,7 @@
                                                 <Style>Solid</Style>
                                                 <Width>1pt</Width>
                                               </BottomBorder>
+                                              <BackgroundColor>Black</BackgroundColor>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -1899,8 +1899,7 @@
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Top>2.3956cm</Top>
-                              <Left>0cm</Left>
+                              <Top>2.15563cm</Top>
                               <Height>2.64827cm</Height>
                               <Width>20.86477cm</Width>
                               <ZIndex>1</ZIndex>
@@ -1910,29 +1909,6 @@
                                 </Border>
                               </Style>
                             </Tablix>
-                            <Textbox Name="Ventes_à_emporterCaption">
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!Ventes_à_emporterCaption.Value</Value>
-                                      <Style>
-                                        <FontWeight>Bold</FontWeight>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <Left>0cm</Left>
-                              <Height>0.423cm</Height>
-                              <Width>9.9cm</Width>
-                              <ZIndex>2</ZIndex>
-                              <Style>
-                                <VerticalAlign>Middle</VerticalAlign>
-                              </Style>
-                            </Textbox>
                             <Tablix Name="Tablix4">
                               <TablixBody>
                                 <TablixColumns>
@@ -2243,11 +2219,10 @@
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Top>0.57891cm</Top>
-                              <Left>0cm</Left>
+                              <Top>0.33894cm</Top>
                               <Height>0.423cm</Height>
                               <Width>20.86627cm</Width>
-                              <ZIndex>3</ZIndex>
+                              <ZIndex>2</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -2269,11 +2244,11 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox1</rd:DefaultName>
-                              <Top>0.08059in</Top>
-                              <Left>4.29139in</Left>
+                              <Top>0.04167in</Top>
+                              <Left>0.00059in</Left>
                               <Height>0.19783cm</Height>
                               <Width>2.5cm</Width>
-                              <ZIndex>4</ZIndex>
+                              <ZIndex>3</ZIndex>
                               <Visibility>
                                 <Hidden>=Code.SetData(Cstr(Fields!Relevé_des_ventes_Caption.Value) + Chr(177) +
 Cstr(Fields!StartDate.Value) + Chr(177) +
@@ -2325,7 +2300,8 @@ Cstr(Fields!Ventes_à_emporterCaption.Value)
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Height>5.04387cm</Height>
+            <Top>0cm</Top>
+            <Height>4.8039cm</Height>
             <Width>20.86627cm</Width>
             <Style>
               <Border>
@@ -2334,13 +2310,13 @@ Cstr(Fields!Ventes_à_emporterCaption.Value)
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>5.04387cm</Height>
+        <Height>4.8039cm</Height>
         <Style />
       </Body>
       <Width>20.86627cm</Width>
       <Page>
         <PageHeader>
-          <Height>1.2705cm</Height>
+          <Height>1.94783cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2494,6 +2470,30 @@ Cstr(Fields!Ventes_à_emporterCaption.Value)
               <Height>1.269cm</Height>
               <Width>9.9cm</Width>
               <ZIndex>5</ZIndex>
+              <Style>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Ventes_à_emporterCaption">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Fields!Ventes_à_emporterCaption.Value</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>1.34844cm</Top>
+              <Left>0.0015cm</Left>
+              <Height>0.423cm</Height>
+              <Width>9.9cm</Width>
+              <ZIndex>6</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>

@@ -518,18 +518,20 @@ codeunit 60000 "PWD Events"
         PurchLine."PWD Purchaser code" := PurchHeader."Purchaser Code";
     end;
 
-    [EventSubscriber(ObjectType::Table, DataBase::"Purchase Line", 'OnCopyFromItemOnAfterCheck', '', false, false)]
-    local procedure TAB39_OnCopyFromItemOnAfterCheck_PurchaseLine(PurchaseLine: Record "Purchase Line"; Item: Record Item; CallingFieldNo: Integer)
+    //[EventSubscriber(ObjectType::Table, DataBase::"Purchase Line", 'OnCopyFromItemOnAfterCheck', '', false, false)]
+    //local procedure TAB39_OnCopyFromItemOnAfterCheck_PurchaseLine(PurchaseLine: Record "Purchase Line"; Item: Record Item; CallingFieldNo: Integer)
+    [EventSubscriber(ObjectType::Table, DataBase::"Purchase Line", 'OnAfterAssignItemValues', '', false, false)]
+    local procedure TAB39_OnAfterAssignItemValues_PurchaseLine(var PurchLine: Record "Purchase Line"; Item: Record Item; CurrentFieldNo: Integer; PurchHeader: Record "Purchase Header")
     var
         VendorRec: Record Vendor;
     begin
-        PurchaseLine."PWD Family" := Item."PWD Family";
-        PurchaseLine."PWD Cle (restitution)" := Item."PWD Restitution Key";
+        PurchLine."PWD Family" := Item."PWD Family";
+        PurchLine."PWD Cle (restitution)" := Item."PWD Restitution Key";
 
-        IF VendorRec.GET(PurchaseLine."Buy-from Vendor No.") THEN
-            PurchaseLine."PWD Origin" := VendorRec."Country/Region Code";
+        IF VendorRec.GET(PurchLine."Buy-from Vendor No.") THEN
+            PurchLine."PWD Origin" := VendorRec."Country/Region Code";
 
-        PurchaseLine.Modify();
+        //PurchLine.Modify();
     end;
 
     [EventSubscriber(ObjectType::Table, DataBase::"Purchase Line", 'OnAfterValidateEvent', 'Location Code', false, false)]
