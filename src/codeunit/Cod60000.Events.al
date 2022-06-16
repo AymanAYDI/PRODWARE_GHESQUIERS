@@ -687,7 +687,7 @@ codeunit 60000 "PWD Events"
         ItemJnlPostLine: Codeunit "Item Jnl.-Post Line";
         FunctionsMgt: Codeunit "PWD Function Mgt";
     begin
-        IsHandled := true;  //TODO  à vérifier
+        IsHandled := true;
         if ItemTrackingSetup.TrackingRequired() and (ItemJnlLine."Quantity (Base)" <> 0) and
             (ItemJnlLine."Value Entry Type" = ItemJnlLine."Value Entry Type"::"Direct Cost") and
             not DisableItemTracking and not ItemJnlLine.Adjustment and
@@ -762,8 +762,6 @@ codeunit 60000 "PWD Events"
         TempItemJournalLine."PWD Meat Family" := TempTrackingSpecification."PWD Meat Family";
         TempItemJournalLine."PWD Meat Type" := TempTrackingSpecification."PWD Meat Type";
     end;
-
-
     //---CDU80---
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeCheckMandatoryHeaderFields', '', false, false)]
     local procedure CDU80_OnBeforeCheckMandatoryHeaderFields_SalesPost(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean)
