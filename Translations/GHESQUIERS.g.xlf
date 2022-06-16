@@ -14253,6 +14253,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report SEAF : relevé vtes à emporter - NamedType Ventes_à_emporterCaptionLbl</note>
         </trans-unit>
+        <trans-unit id="Report 1656491412 - Control 4004956288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Imprimer N DSA vide</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEAF : relevé vtes à emporter - Control BlankDSA - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2705054982 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Validate and Print Sales Order</source>
           <note from="Developer" annotates="general" priority="2"></note>

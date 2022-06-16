@@ -258,11 +258,23 @@ report 50039 "SEAF : relevé vtes à emporter"
     {
         layout
         {
+            area(content)
+            {
+                group(Options)
+                {
+                    field(BlankDSA; BlankDSA)
+                    {
+                        Caption = 'Imprimer N DSA vide';
+                        ApplicationArea = All;
+                    }
+                }
+            }
         }
+        trigger OnInit()
+        begin
+            BlankDSA := TRUE;
+        end;
 
-        actions
-        {
-        }
     }
 
     labels
