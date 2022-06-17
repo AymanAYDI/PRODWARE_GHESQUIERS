@@ -8,55 +8,21 @@
         <ConnectString />
       </ConnectionProperties>
       <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>eb844e03-339e-4e92-b6b3-f37738fb2ab1</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <ReportSections>
     <ReportSection>
       <Body>
-        <Height>9.5525cm</Height>
+        <Height>2in</Height>
         <Style />
       </Body>
-      <Width>19.95045cm</Width>
+      <Width>6.5in</Width>
       <Page>
-        <PageHeader>
-          <Height>9.03492cm</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageHeader>
-        <PageFooter>
-          <Height>2.54cm</Height>
-          <PrintOnFirstPage>true</PrintOnFirstPage>
-          <PrintOnLastPage>true</PrintOnLastPage>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </PageFooter>
-        <PageHeight>29.7cm</PageHeight>
-        <PageWidth>20cm</PageWidth>
-        <LeftMargin>1cm</LeftMargin>
-        <RightMargin>0.1cm</RightMargin>
-        <TopMargin>0.1cm</TopMargin>
-        <BottomMargin>0.1cm</BottomMargin>
-        <ColumnSpacing>1.27cm</ColumnSpacing>
         <Style />
       </Page>
     </ReportSection>
   </ReportSections>
-  <Code>Shared LineNbr as Integer
-Public PageNum as Integer = 1
-Shared VatNbr as Integer
-Public OldFactNo as String
-
-
-Public Function BlankZero(ByVal Value As Decimal)
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
     end if
@@ -90,185 +56,10 @@ Public Function BlankNegAndZero(ByVal Value As Decimal)
     end if
     Return Value
 End Function
-
-Shared Data1 as Object
-Shared Data2 as Object
-Shared Data3 as Object
-Shared Data4 as Object
-Shared Data5 as Object
-Shared Data6 as Object
-Shared Data7 as Object
-
-Public Function GetData(Num as Integer, Group as integer) as Object
-if Group = 1 then
-   Return Cstr(Choose(Num, Split(Cstr(Data1),Chr(177))))
-End If
-
-if Group = 2 then
-   Return Cstr(Choose(Num, Split(Cstr(Data2),Chr(177))))
-End If
-
-if Group = 3 then
-   Return Cstr(Choose(Num, Split(Cstr(Data3),Chr(177))))
-End If
-
-if Group = 4 then
-   Return Cstr(Choose(Num, Split(Cstr(Data4),Chr(177))))
-End If
-
-if Group = 5 then
-   Return Cstr(Choose(Num, Split(Cstr(Data5),Chr(177))))
-End If
-
-if Group = 6 then
-   Return Cstr(Choose(Num, Split(Cstr(Data6),Chr(177))))
-End If
-
-if Group = 7 then
-   Return Cstr(Choose(Num, Split(Cstr(Data7),Chr(177))))
-End If
-End Function
-
-Public Function SetData(NewData as Object,Group as integer)
-  If Group = 1 and NewData &gt; "" Then
-      Data1 = NewData
-  End If
-
-  If Group = 2 and NewData &gt; "" Then
-      Data2 = NewData
-  End If
-
-  If Group = 3 and NewData &gt; "" Then
-      Data3 = NewData
-  End If
-
-  If Group = 4 and NewData &gt; "" Then
-      Data4 = NewData
-  End If
-
-  If Group = 5 and NewData &gt; "" Then
-      Data5 = NewData
-  End If
-
-  If Group = 6 and NewData &gt; "" Then
-      Data6 = NewData
-  End If
-
-  If Group = 7 and NewData &gt; "" Then
-      Data7 = NewData
-  End If
-End Function
-
-Public Function IncrLineNbr(Str as String) 
-        If Str&lt;&gt;"" Then
-                LineNbr=LineNbr+1
-        End if
-End Function
-
-Public Function GetLineNbr() As Integer
-        Return LineNbr/2
-End Function    
-
-Public Function SetLineNbr(Nbr as Integer)
-        LineNbr=Nbr
-End Function
-        
-Public Function GetEmptyLineNbr () as Integer
-        Dim LineNbrT as Integer
-        LineNbrT = (LineNbr/2) Mod 22
-        If LineNbrT =0 then 
-                Return 22
-        end if
-        Return 12-LineNbrT
-End Function
-
-Public Function GetPageNum() as Integer
-        Return PageNum
-End Function
-
-Public Function SetVatNbr(nbr as integer)
-        VatNbr=nbr
-end function
-
-Public Function GetVatNbr() as integer
-        Return VatNbr
-end function
-
-Public Function IncVatNbr()
-        VatNbr=VatNbr+1
-end function
-
-
-Shared PictureData1 as Object
-Shared PictureData2 as Object
-Shared PictureData3 as Object
-
-Public Function GetPicture(Group as integer) as Object
-if Group = 1 then
-   Return PictureData1
-End If
-
-if Group = 2 then
-   Return PictureData2
-End If
-
-if Group = 3 then
-   Return PictureData3
-End If
-End Function
-
-Public Function SetPicture(NewData as Object,Group as integer)
-  If Group = 1 and NewData &gt; "" Then
-      PictureData1 = NewData
-  End If
-
-  If Group = 2 and NewData &gt; "" Then
-      PictureData2 = NewData
-  End If
-
-  If Group = 3 and NewData &gt; "" Then
-      PictureData3 = NewData
-  End If
-End Function
-
-REM Reset Page Number:
-
-    Shared offset As Integer
-    Shared newPage As Object
-    Shared currentgroup1 As Object
-    Shared currentgroup2 As Object
-    Shared currentgroup3 As Object
-
-    Public Function GetGroupPageNumber(ByVal NewPage As Boolean, ByVal pagenumber As Integer) As Object
-        If NewPage Then
-            offset = pagenumber - 1
-        End If
-        Return pagenumber - offset
-    End Function
-
-    Public Function IsNewPage(ByVal group1 As Object, ByVal group2 As Object, ByVal group3 As Object) As Boolean
-        newPage = False
-        If Not (group1 = currentgroup1) Then
-            newPage = True
-            currentgroup1 = group1
-        Else
-            If Not (group2 = currentgroup2) Then
-                newPage = True
-                currentgroup2 = group2
-            Else
-                If Not (group3 = currentgroup3) Then
-                    newPage = True
-                    currentgroup3 = group3
-                End If
-            End If
-        End If
-        Return newPage
-    End Function
-
 </Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
   <DataSets>
     <DataSet Name="DataSet_Result">

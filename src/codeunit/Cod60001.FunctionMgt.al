@@ -1538,7 +1538,7 @@ codeunit 60001 "PWD Function Mgt"
         EXIT(OldItemNetChange);
     END;
     //---CDU333---
-    procedure FCT_CDU333OnAfterInsertPurchOrderLine(var PurchOrderLine: Record "Purchase Line")
+    procedure FCT_CDU333OnAfterInsertPurchOrderLine(var PurchOrderLine: Record "Purchase Line"; var RequisitionLine: Record "Requisition Line")
     var
         SalesOrderLine: Record "Sales Line";
     begin
@@ -1546,6 +1546,7 @@ codeunit 60001 "PWD Function Mgt"
         PurchOrderLine."Special Order Sales Line No." := 0;
         PurchOrderLine."Special Order" := FALSE;
         PurchOrderLine.MODIFY();
+        SalesOrderLine.Get(SalesOrderLine."Document Type"::Order, RequisitionLine."Sales Order No.", RequisitionLine."Sales Order Line No.");
         SalesOrderLine."Special Order" := FALSE;
         SalesOrderLine."Special Order Purchase No." := '';
         SalesOrderLine."Special Order Purch. Line No." := 0;
@@ -1772,7 +1773,7 @@ codeunit 60001 "PWD Function Mgt"
     var
         AccessControl: Record "Access Control";
         SetGetFunction: Codeunit "PWD Set/Get Functions";
-        CstG002 : label 'DIRECTION';
+        CstG002: label 'DIRECTION';
     begin
         IF SalesHeader."PWD Preparation Status" = SalesHeader."PWD Preparation Status"::" " THEN
             SalesHeader."PWD Preparation Status" := SalesHeader."PWD Preparation Status"::"Ready to prepare";
@@ -1783,7 +1784,7 @@ codeunit 60001 "PWD Function Mgt"
                 SalesHeaderCheckError(SalesHeader)
             ELSE
                 SalesHeaderCheckMessage(SalesHeader);
-    end;
+        end;
     end;
 
     procedure FCT_CDU414OnAfterReleaseSalesDocEvent(var SalesHeader: Record "Sales Header")

@@ -345,7 +345,7 @@ codeunit 60002 "PWD CduEvents AM"
     var
         CduFunctiontMgt: Codeunit "PWD Function Mgt";
     begin
-        CduFunctiontMgt.FCT_CDU333OnAfterInsertPurchOrderLine(PurchOrderLine);
+        CduFunctiontMgt.FCT_CDU333OnAfterInsertPurchOrderLine(PurchOrderLine, RequisitionLine);
     end;
     //---CDU5703---
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Catalog Item Management", 'OnCreateNewItemOnBeforeItemInsert', '', false, false)]
