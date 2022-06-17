@@ -155,7 +155,8 @@ report 50039 "SEAF : relevé vtes à emporter"
                 StartDate := GETRANGEMIN("Posting Date");
                 EndDate := GETRANGEMAX("Posting Date");
 
-                //_IF NOT (BlankDSA) THEN;
+                IF NOT (BlankDSA) THEN
+                    SETFILTER("PWD DSA No.", '<>%1', '');
             end;
         }
         dataitem(VAECrMemoHeader; "Sales Cr.Memo Header")
@@ -246,7 +247,8 @@ report 50039 "SEAF : relevé vtes à emporter"
 
             trigger OnPreDataItem()
             begin
-                //_ IF NOT (BlankDSA) THEN;
+                IF NOT (BlankDSA) THEN
+                    SETFILTER("PWD DSA No.", '<>%1', '');
                 SETRANGE("Posting Date", StartDate, EndDate);
             end;
         }
@@ -256,11 +258,23 @@ report 50039 "SEAF : relevé vtes à emporter"
     {
         layout
         {
+            area(content)
+            {
+                group(Options)
+                {
+                    field(BlankDSA; BlankDSA)
+                    {
+                        Caption = 'Imprimer N DSA vide';
+                        ApplicationArea = All;
+                    }
+                }
+            }
         }
+        trigger OnInit()
+        begin
+            BlankDSA := TRUE;
+        end;
 
-        actions
-        {
-        }
     }
 
     labels

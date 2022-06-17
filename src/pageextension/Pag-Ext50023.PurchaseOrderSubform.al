@@ -7,6 +7,7 @@ pageextension 50023 "PWD PurchaseOrderSubform" extends "Purchase Order Subform"
             field("PWD Line No."; Rec."Line No.")
             {
                 ApplicationArea = all;
+                Editable = false;
             }
         }
         addafter(Description)
@@ -84,13 +85,9 @@ pageextension 50023 "PWD PurchaseOrderSubform" extends "Purchase Order Subform"
                 ApplicationArea = all;
             }
         }
-        addafter("Promised Receipt Date")
+        addbefore("Promised Receipt Date")
         {
             field("PWD Requested Receipt Date"; Rec."Requested Receipt Date")
-            {
-                ApplicationArea = all;
-            }
-            field("PWD Promised Receipt Date"; Rec."Promised Receipt Date")
             {
                 ApplicationArea = all;
             }

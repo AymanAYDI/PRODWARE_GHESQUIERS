@@ -33,14 +33,6 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
         }
         addafter("Salesperson Code")
         {
-            field("PWD Requested Delivery Date"; Rec."Requested Delivery Date")
-            {
-                ApplicationArea = All;
-            }
-            field("PWD Promised Delivery Date"; Rec."Promised Delivery Date")
-            {
-                ApplicationArea = All;
-            }
             field("PWD Ne pas utiliser No. de DSA"; Rec."PWD Ne pas utiliser No. de DSA")
             {
                 ApplicationArea = All;

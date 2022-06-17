@@ -1770,16 +1770,20 @@ codeunit 60001 "PWD Function Mgt"
     //---CDU414---
     procedure FCT_CDU414OnBeforeReleaseSalesDocEvent(var SalesHeader: Record "Sales Header")
     var
-        UserRole: Record "Access Control";
+        AccessControl: Record "Access Control";
         SetGetFunction: Codeunit "PWD Set/Get Functions";
+        CstG002 : label 'DIRECTION';
     begin
         IF SalesHeader."PWD Preparation Status" = SalesHeader."PWD Preparation Status"::" " THEN
             SalesHeader."PWD Preparation Status" := SalesHeader."PWD Preparation Status"::"Ready to prepare";
-        IF NOT SetGetFunction.GetProcessing() THEN
-            IF NOT UserRole.GET(USERID, 'DIRECTION') THEN
+        IF NOT SetGetFunction.GetProcessing() THEN begin
+            AccessControl.SETRANGE(AccessControl."User Security ID", UserSecurityId());
+            AccessControl.SETRANGE(AccessControl."Role ID", CstG002);
+            IF AccessControl.IsEmpty() THEN
                 SalesHeaderCheckError(SalesHeader)
             ELSE
                 SalesHeaderCheckMessage(SalesHeader);
+    end;
     end;
 
     procedure FCT_CDU414OnAfterReleaseSalesDocEvent(var SalesHeader: Record "Sales Header")
@@ -1805,7 +1809,7 @@ codeunit 60001 "PWD Function Mgt"
 
     procedure TestDocumentAvita(VAR SalesHeader: Record "Sales Header")
     VAR
-        Item: Record "Sales Line";
+        Item: Record Item;
         SalesLine: Record "Sales Line";
         Txt1000000004: Label 'Les poids doivent être renseignés sur la ligne %1 .';
     begin
@@ -1815,14 +1819,10 @@ codeunit 60001 "PWD Function Mgt"
         SalesLine.SETRANGE(Type, 2);
         IF SalesLine.FindSet() THEN
             REPEAT
-                //Contole marge article
                 Item.GET(SalesLine."No.");
-                //   IF SalesLine."% de marge r‚alis‚" < Item."Profit %" THEN ERROR (Text1000000003,SalesLine."Line No.",SalesLine."No.",
-                //    Item."Profit %",'%');
                 IF (SalesLine."Net Weight" = 0) OR (SalesLine."Gross Weight" = 0) THEN
                     ERROR(Txt1000000004, SalesLine."Line No.");
-            //*** Suppr SCA - C2A - 13/11/2003
-            //IF SalesLine."Unit Price" = 0 THEN ERROR (Text1000000005,SalesLine."Line No.");
+
             UNTIL SalesLine.NEXT() = 0;
     end;
 

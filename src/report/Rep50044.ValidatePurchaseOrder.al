@@ -2,6 +2,7 @@ report 50044 "PWD Validate Purchase Order"
 {
     ProcessingOnly = true;
     UsageCategory = None;
+    Caption = 'Validate Purchase Order';
     dataset
     {
         dataitem(PurchHeader; "Purchase Header")
@@ -33,6 +34,7 @@ report 50044 "PWD Validate Purchase Order"
             {
                 group(Control1000000001)
                 {
+                    ShowCaption = false;
                     field("Field_PostingDate"; PostingDate)
                     {
                         Caption = 'Date de comptabilisation';

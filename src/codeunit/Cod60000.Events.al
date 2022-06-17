@@ -350,15 +350,15 @@ codeunit 60000 "PWD Events"
     [EventSubscriber(ObjectType::Table, DataBase::"Sales Line", 'OnBeforeValidateEvent', 'Unit Price', false, false)]
     local procedure T37_OnBeforeValidateEvent_SalesLine_UnitPrice(var Rec: Record "Sales Line"; var xRec: Record "Sales Line"; CurrFieldNo: Integer)
     var
+        SetGetFunctions: Codeunit "PWD Set/Get Functions";
         SalesHeader: Record "Sales Header";
-        HeaderWasReleased: Boolean;
-
+    //HeaderWasReleased: Boolean;
     begin
         IF CurrFieldNo = Rec.FIELDNO("Unit Price") THEN BEGIN
             //Rec.GetSalesHeader;
             SalesHeader.GET(Rec."Document Type", Rec."Document No.");
             IF SalesHeader.Status = SalesHeader.Status::Released THEN BEGIN
-                HeaderWasReleased := TRUE;
+                SetGetFunctions.SetHeaderWasReleased(TRUE);
                 Rec.SuspendStatusCheck(TRUE);
             END;
         END;
@@ -368,12 +368,13 @@ codeunit 60000 "PWD Events"
 
     local procedure T37_OnAfterValidateEvent_SalesLine_UnitPrice(var Rec: Record "Sales Line"; var xRec: Record "Sales Line"; CurrFieldNo: Integer)
     var
-        HeaderWasReleased: Boolean;//TODO à vérifier
+        SetGetFunctions: Codeunit "PWD Set/Get Functions";
+    //HeaderWasReleased: Boolean;//TODO Reste a tester
     begin
         IF Rec.Quantity <> 0 THEN
             Rec.CtrlUnitPrice();
-        IF HeaderWasReleased THEN BEGIN
-            HeaderWasReleased := FALSE;
+        IF SetGetFunctions.GetHeaderWasReleased() THEN BEGIN
+            SetGetFunctions.SetHeaderWasReleased(FALSE);
             Rec.SuspendStatusCheck(FALSE);
         END;
     end;
@@ -517,18 +518,20 @@ codeunit 60000 "PWD Events"
         PurchLine."PWD Purchaser code" := PurchHeader."Purchaser Code";
     end;
 
-    [EventSubscriber(ObjectType::Table, DataBase::"Purchase Line", 'OnCopyFromItemOnAfterCheck', '', false, false)]
-    local procedure TAB39_OnCopyFromItemOnAfterCheck_PurchaseLine(PurchaseLine: Record "Purchase Line"; Item: Record Item; CallingFieldNo: Integer)
+    //[EventSubscriber(ObjectType::Table, DataBase::"Purchase Line", 'OnCopyFromItemOnAfterCheck', '', false, false)]
+    //local procedure TAB39_OnCopyFromItemOnAfterCheck_PurchaseLine(PurchaseLine: Record "Purchase Line"; Item: Record Item; CallingFieldNo: Integer)
+    [EventSubscriber(ObjectType::Table, DataBase::"Purchase Line", 'OnAfterAssignItemValues', '', false, false)]
+    local procedure TAB39_OnAfterAssignItemValues_PurchaseLine(var PurchLine: Record "Purchase Line"; Item: Record Item; CurrentFieldNo: Integer; PurchHeader: Record "Purchase Header")
     var
         VendorRec: Record Vendor;
     begin
-        PurchaseLine."PWD Family" := Item."PWD Family";
-        PurchaseLine."PWD Cle (restitution)" := Item."PWD Restitution Key";
+        PurchLine."PWD Family" := Item."PWD Family";
+        PurchLine."PWD Cle (restitution)" := Item."PWD Restitution Key";
 
-        IF VendorRec.GET(PurchaseLine."Buy-from Vendor No.") THEN
-            PurchaseLine."PWD Origin" := VendorRec."Country/Region Code";
+        IF VendorRec.GET(PurchLine."Buy-from Vendor No.") THEN
+            PurchLine."PWD Origin" := VendorRec."Country/Region Code";
 
-        PurchaseLine.Modify();
+        //PurchLine.Modify();
     end;
 
     [EventSubscriber(ObjectType::Table, DataBase::"Purchase Line", 'OnAfterValidateEvent', 'Location Code', false, false)]
@@ -686,7 +689,7 @@ codeunit 60000 "PWD Events"
         ItemJnlPostLine: Codeunit "Item Jnl.-Post Line";
         FunctionsMgt: Codeunit "PWD Function Mgt";
     begin
-        IsHandled := true;  //TODO  à vérifier
+        IsHandled := true;
         if ItemTrackingSetup.TrackingRequired() and (ItemJnlLine."Quantity (Base)" <> 0) and
             (ItemJnlLine."Value Entry Type" = ItemJnlLine."Value Entry Type"::"Direct Cost") and
             not DisableItemTracking and not ItemJnlLine.Adjustment and
@@ -761,8 +764,6 @@ codeunit 60000 "PWD Events"
         TempItemJournalLine."PWD Meat Family" := TempTrackingSpecification."PWD Meat Family";
         TempItemJournalLine."PWD Meat Type" := TempTrackingSpecification."PWD Meat Type";
     end;
-
-
     //---CDU80---
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeCheckMandatoryHeaderFields', '', false, false)]
     local procedure CDU80_OnBeforeCheckMandatoryHeaderFields_SalesPost(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean)

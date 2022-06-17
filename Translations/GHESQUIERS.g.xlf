@@ -8733,6 +8733,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit PWD Function Mgt - Method FCT_CDU414OnAfterReleaseSalesDocEvent - NamedType Txt50000</note>
         </trans-unit>
+        <trans-unit id="Codeunit 4102534337 - Method 2516910284 - NamedType 1889548419" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DIRECTION</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit PWD Function Mgt - Method FCT_CDU414OnBeforeReleaseSalesDocEvent - NamedType CstG002</note>
+        </trans-unit>
         <trans-unit id="Codeunit 4102534337 - Method 4037583003 - NamedType 1453922602" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pas de document à imprimer.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9293,6 +9298,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD CIEL Data - Action View - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2571922296 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Codes Add. National</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Codes Add. National - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1637377605 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Consultation des Ecr Art</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Consultation des Ecr Art - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1637377605 - NamedType 1417616473" size-unit="char" translate="yes" xml:space="preserve">
           <source>Pour les écritures liées à la prestation, filtrer sur Code prestation &lt;&gt; ''</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -9362,6 +9377,11 @@
           <source>Prestation</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD En-tête saisie préstation - Control Prestation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1421488341 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Famille / sous-famille</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Famille / sous-famille - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3124969363 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Family &amp; Sub Family</source>
@@ -9572,6 +9592,11 @@
           <source>Fiscal Caption</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Fiscal Caption - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 71301311 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>List Export COALA</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD List Export COALA - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 150197218 - Action 1928094743 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>&amp;Tarifs</source>
@@ -10943,6 +10968,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Apurement fin de mois V2 - NamedType Text007</note>
         </trans-unit>
+        <trans-unit id="Report 3155057384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calcul PU=CU*coef</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Calcul PU=CU*coef - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 3155057384 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11258,6 +11288,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Import Microsoft Excel - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1220198909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inventaire pour la douane</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Inventaire pour la douane - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 1220198909 - NamedType 1948612954" size-unit="char" translate="yes" xml:space="preserve">
           <source>Diff.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11292,6 +11327,11 @@
           <source>Physique</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Inventaire pour la douane - NamedType PhysiqueCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3906944373 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Palmares des articles</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Palmares des articles - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 3906944373 - NamedType 2550724157" size-unit="char" translate="yes" xml:space="preserve">
           <source>% CA Total</source>
@@ -11397,6 +11437,11 @@
           <source>Date Fabrication :</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Picking List - NamedType Date_Fabrication__CaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 2202279620 - NamedType 3461834954" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Picking List - NamedType Description</note>
         </trans-unit>
         <trans-unit id="Report 2202279620 - NamedType 426453089" size-unit="char" translate="yes" xml:space="preserve">
           <source>DLC</source>
@@ -11998,6 +12043,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Quote AVITA - Control ShowInternalInformation - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 2448639977 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Relevé de douane</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Relevé de douane - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2448639977 - NamedType 668813044" size-unit="char" translate="yes" xml:space="preserve">
           <source>COMPTABILITE-MATIERES</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -12062,6 +12112,186 @@
           <source>Relevé de douane du %1 au %2</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Relevé de douane - NamedType Text1000000002</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales - Cr.memo AVITA</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 2151761296" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType AmountCaptionFRLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 1245862610" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType AmountLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 1933578523" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Base</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType BaseCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 3709733001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>CAPTAIN AND OWNER'S OF M/V</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType CAPTAIN_AND_OWNER_S_OF_M_VCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 3505630412" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Conditions de paiement / Settlement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Conditions_de_paiement___SettlementCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 595034892" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-Mail : </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType EMailCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 2475311197" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fax : </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType FaxCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 3175368996" size-unit="char" translate="yes" xml:space="preserve">
+          <source>N° id. intracom : </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType IdintracomCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 3730409591" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType InvoiceCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 3930073689" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType InvoiceCaptionLbl2</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 1823788146" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType InvoiceCaption_Control1000000002Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 1607132773" size-unit="char" translate="yes" xml:space="preserve">
+          <source>LA MARCHANDISE LIVREE RESTE NOTRE PROPRIETE JUSQU'AU REGLEMENT COMPLET DE LA FACTURE (loi 80.335 PARUE AU J.O. DU 13.05.80)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType LA_MARCHANDISE_LIVREE_RESTECaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 3997410993" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Montant</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType MontantCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 2806299533" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType QuantityCaptionFRLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 3246368361" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType QuantityCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 2047603120" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType ShipmentCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 2269230152" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Taux</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType TauxCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 1201915627" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tel : </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType TelCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Salesperson</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1 Incl. VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales - Cr.Memo %1 %2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Text004</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page %1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Text005</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total %1 Excl. VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Text006</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 96848874" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType UnitCaptionFRLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 1065670270" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType UnitCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 653909416" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Unit_PriceCaptionFRLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 2446068092" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Unit_PriceCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - ReportDataItem 552782286 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Sales Cr.Memo</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - ReportDataItem Sales Cr.Memo Header - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - ReportDataItem 1131532675 - Method 3245603402 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>COPY</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - ReportDataItem CopyLoop - Method OnAfterGetRecord - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - Control 2991839654 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Inlude Shipment No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - Control IncludeShptNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - Control 816368762 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Log Interaction</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - Control LogInteraction - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - Control 2578066365 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. of Copies</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - Control NoOfCopies - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - Control 316520822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Internal Information</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - Control ShowInternalInfo - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 4050282536 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales - Invoice AVITA</source>
@@ -12272,6 +12502,11 @@
           <source>Show Internal Information</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Invoice AVITA - Control ShowInternalInfo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 16260164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Validate Purchase Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Validate Purchase Order - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 16260164 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
           <source>Do you want to post the %1?</source>
@@ -14018,6 +14253,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report SEAF : relevé vtes à emporter - NamedType Ventes_à_emporterCaptionLbl</note>
         </trans-unit>
+        <trans-unit id="Report 1656491412 - Control 4004956288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Imprimer N DSA vide</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEAF : relevé vtes à emporter - Control BlankDSA - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2705054982 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Validate and Print Sales Order</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14537,6 +14777,11 @@
           <source>Post and &amp;Print</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseOrder - Action PWD PWD Post and &amp;Print - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 647356634 - Control 1336101634 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Buy-from Contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseOrder - Control PWD Buy-from Contact - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 647356634 - Control 3446409637 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
           <source>Date of last purchase receipt</source>

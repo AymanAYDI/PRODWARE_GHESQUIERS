@@ -18,6 +18,57 @@ report 50042 "PWD Picking List"
             column(Sales_Header_No_; "No.")
             {
             }
+            column(Sales_Line__No__Caption; FIELDCAPTION("No."))
+            {
+            }
+            column(SKU__Shelf_No__Caption; SKU__Shelf_No__CaptionLbl)
+            {
+            }
+            column(Sales_Line_DescriptionCaption; Description)
+            {
+            }
+            column("QuantitéCaption"; QuantitéCaptionLbl)
+            {
+            }
+            column("Quantité_préparéeCaption"; Quantité_préparéeCaptionLbl)
+            {
+            }
+            column("UnitéCaption"; UnitéCaptionLbl)
+            {
+            }
+            column(Sales_Line__Location_Code_Caption; FIELDCAPTION("Location Code"))
+            {
+            }
+            column(SalesLine_Family_Code; "Sales Line"."PWD Family Code")
+            {
+            }
+            column(Sales_Line__Family_Code_Caption; Code_familleCaptionLbl)
+            {
+            }
+            column(SalesLine_LocationCode; "Sales Line"."Location Code")
+            {
+            }
+            column(N__d_agréement__Caption; N__d_agréement__CaptionLbl)
+            {
+            }
+            column(Marquage__Caption; Marquage__CaptionLbl)
+            {
+            }
+            column(Date_Fabrication__Caption; Date_Fabrication__CaptionLbl)
+            {
+            }
+            column(DLC__Caption; DLC__CaptionLbl)
+            {
+            }
+            column(Abattoir_Caption; Abattoir_ou_atelier_de_découpe__CaptionLbl)
+            {
+            }
+            column(T__conservation__Caption; T__conservation__CaptionLbl)
+            {
+            }
+            column(T_transport_Caption; T__transport__CaptionLbl)
+            {
+            }
             dataitem("Sales Line"; "Sales Line")
             {
                 DataItemLink = "Document Type" = FIELD("Document Type"), "Document No." = FIELD("No.");
@@ -147,31 +198,7 @@ report 50042 "PWD Picking List"
                 column(parCaption; parCaptionLbl)
                 {
                 }
-                column(SKU__Shelf_No__Caption; SKU__Shelf_No__CaptionLbl)
-                {
-                }
-                column(Sales_Line__No__Caption; FIELDCAPTION("No."))
-                {
-                }
-                column(Sales_Line_DescriptionCaption; FIELDCAPTION(Description))
-                {
-                }
-                column("QuantitéCaption"; QuantitéCaptionLbl)
-                {
-                }
-                column("Quantité_préparéeCaption"; Quantité_préparéeCaptionLbl)
-                {
-                }
-                column("UnitéCaption"; UnitéCaptionLbl)
-                {
-                }
-                column(Sales_Line__Location_Code_Caption; FIELDCAPTION("Location Code"))
-                {
-                }
                 column(ShowLocationHeader; ShowLocationHeader)
-                {
-                }
-                column(Sales_Line__Family_Code_Caption; FIELDCAPTION("PWD Family Code"))
                 {
                 }
                 column(Code_familleCaption; Code_familleCaptionLbl)
@@ -258,31 +285,11 @@ report 50042 "PWD Picking List"
                     {
                         DecimalPlaces = 0 : 2;
                     }
-                    column(Item__Transport_Temperature_; Item."PWD Transport Temperature")
+                    column(Item_Transport_Temperature_; Item."PWD Transport Temperature")
                     {
                         DecimalPlaces = 0 : 2;
                     }
-                    column(N__d_agréement__Caption; N__d_agréement__CaptionLbl)
-                    {
-                    }
-                    column(Marquage__Caption; Marquage__CaptionLbl)
-                    {
-                    }
-                    column(Date_Fabrication__Caption; Date_Fabrication__CaptionLbl)
-                    {
-                    }
-                    column(DLC__Caption; DLC__CaptionLbl)
-                    {
-                    }
-                    column("Abattoir_ou_atelier_de_découpe__Caption"; Abattoir_ou_atelier_de_découpe__CaptionLbl)
-                    {
-                    }
-                    column(T__conservation__Caption; T__conservation__CaptionLbl)
-                    {
-                    }
-                    column(T__transport__Caption; T__transport__CaptionLbl)
-                    {
-                    }
+
                     column(InfoTrading_Number; Number)
                     {
                     }
@@ -290,7 +297,7 @@ report 50042 "PWD Picking List"
                     trigger OnAfterGetRecord()
                     begin
                         IF "Sales Header"."PWD Call Type" <> 'TRADING' THEN CurrReport.SKIP();
-                        IF NOT Item.GET("Sales Line"."No.") THEN Item.INIT();
+                        IF NOT Item.GET("Sales Line"."No.") THEN;
                     end;
                 }
                 dataitem(CommentSalesLine; "Sales Line")
@@ -439,6 +446,7 @@ report 50042 "PWD Picking List"
         T__transport__CaptionLbl: Label 'T° transport :';
         Text000: Label '%1 du %2';
         "UnitéCaptionLbl": Label 'Unité';
+        Description: label 'Description';
         RefFournisseur: Text[20];
         TxtShelfBinNoGroup: Text[30];
         CompanyAddr: array[8] of Text[50];
