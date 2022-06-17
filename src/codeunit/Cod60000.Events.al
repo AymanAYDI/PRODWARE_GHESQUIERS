@@ -689,7 +689,7 @@ codeunit 60000 "PWD Events"
         ItemJnlPostLine: Codeunit "Item Jnl.-Post Line";
         FunctionsMgt: Codeunit "PWD Function Mgt";
     begin
-        IsHandled := true;  //TODO  à vérifier
+        IsHandled := true;
         if ItemTrackingSetup.TrackingRequired() and (ItemJnlLine."Quantity (Base)" <> 0) and
             (ItemJnlLine."Value Entry Type" = ItemJnlLine."Value Entry Type"::"Direct Cost") and
             not DisableItemTracking and not ItemJnlLine.Adjustment and
@@ -764,8 +764,6 @@ codeunit 60000 "PWD Events"
         TempItemJournalLine."PWD Meat Family" := TempTrackingSpecification."PWD Meat Family";
         TempItemJournalLine."PWD Meat Type" := TempTrackingSpecification."PWD Meat Type";
     end;
-
-
     //---CDU80---
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnBeforeCheckMandatoryHeaderFields', '', false, false)]
     local procedure CDU80_OnBeforeCheckMandatoryHeaderFields_SalesPost(var SalesHeader: Record "Sales Header"; var IsHandled: Boolean)
@@ -1025,7 +1023,7 @@ codeunit 60000 "PWD Events"
 
 
     //---CDU92---
-    //TODO à vérifier
+    //TODO Fct "PrintDocumentsWithCheckDialogCommon" copie du std car elle est locale ds Tab 77 "Report Selections"
     [EventSubscriber(ObjectType::Table, DataBase::"Report Selections", 'OnBeforePrintWithGUIYesNoVendor', '', false, false)]
     local procedure TAB77_OnBeforePrintWithGUIYesNoVendor_ReportSelections(ReportUsage: Integer; RecordVariant: Variant; IsGUI: Boolean; VendorNoFieldNo: Integer; var Handled: Boolean)
     var

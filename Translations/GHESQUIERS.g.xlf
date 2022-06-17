@@ -14798,6 +14798,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseOrder - Action PWD PWD Post and &amp;Print - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 647356634 - Control 1336101634 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
+          <source>Buy-from Contact</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseOrder - Control PWD Buy-from Contact - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 647356634 - Control 3446409637 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
           <source>Date of last purchase receipt</source>
           <note from="Developer" annotates="general" priority="2"></note>

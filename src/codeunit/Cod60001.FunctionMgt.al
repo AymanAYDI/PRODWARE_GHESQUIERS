@@ -174,7 +174,7 @@ codeunit 60001 "PWD Function Mgt"
     var
         Memberof: Record "Access Control";
         Location: Record Location;
-        RecLocPriority: Record "PWD Location Priority";  //TODO Vérifier cette variable utilisée aussi dans des champs spec et ds une fct
+        RecLocPriority: Record "PWD Location Priority";
         RecSalesHeader: Record "Sales Header";
         Text1000000005: label 'This call type is not allowed for the location %1';
         Text1000000025: label 'Vous n''êtes pas autorisé à saisir des mouvements sur le magasin %1.;';

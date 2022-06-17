@@ -20,6 +20,7 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
             field("PWD Buy-from Contact"; Rec."Buy-from Contact")
             {
                 ApplicationArea = All;
+                Caption = 'Buy-from Contact';
             }
         }
         addafter("Pay-to Contact No.")
