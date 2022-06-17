@@ -1102,7 +1102,7 @@ codeunit 60000 "PWD Events"
     // end;
 
     //---CDU92---
-    //TODO à vérifier
+    //TODO Fct "PrintDocumentsWithCheckDialogCommon" copie du std car elle est locale ds Tab 77 "Report Selections"
     [EventSubscriber(ObjectType::Table, DataBase::"Report Selections", 'OnBeforePrintWithGUIYesNoVendor', '', false, false)]
     local procedure TAB77_OnBeforePrintWithGUIYesNoVendor_ReportSelections(ReportUsage: Integer; RecordVariant: Variant; IsGUI: Boolean; VendorNoFieldNo: Integer; var Handled: Boolean)
     var

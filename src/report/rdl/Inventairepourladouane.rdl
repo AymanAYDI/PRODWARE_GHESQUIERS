@@ -673,7 +673,7 @@ Cstr(Fields!Etat_des_stocks_DouaneCaption.Value)
                                                     <Value>=Fields!Item_Inventory.Value</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
-                                                      <Format>=Fields!Item_Item__Qty__on_Sales_Order_Format.Value</Format>
+                                                      <Format>=Fields!Item_InventoryFormat.Value</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -684,26 +684,6 @@ Cstr(Fields!Etat_des_stocks_DouaneCaption.Value)
                                               <Border>
                                                 <Style>Solid</Style>
                                               </Border>
-                                              <TopBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </TopBorder>
-                                              <BottomBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </BottomBorder>
-                                              <LeftBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </LeftBorder>
-                                              <RightBorder>
-                                                <Color>Black</Color>
-                                                <Style>Solid</Style>
-                                                <Width>1pt</Width>
-                                              </RightBorder>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>0.15cm</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
@@ -711,6 +691,7 @@ Cstr(Fields!Etat_des_stocks_DouaneCaption.Value)
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
