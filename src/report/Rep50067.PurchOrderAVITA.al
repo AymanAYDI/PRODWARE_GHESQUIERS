@@ -241,6 +241,9 @@ report 50067 "PWD Purch Order AVITA"
                             AutoFormatExpression = "Purchase Header"."Currency Code";
                             AutoFormatType = 2;
                         }
+                        column(LineNo_PurchLine; "Purchase Line"."Line No.")
+                        {
+                        }
                         column(Purchase_Line___Line_Amount_; "Purchase Line"."Line Amount")
                         {
                             AutoFormatExpression = "Purchase Header"."Currency Code";
@@ -379,13 +382,13 @@ report 50067 "PWD Purch Order AVITA"
                         column(VATDiscountAmountCaption; VATDiscountAmountCaptionLbl)
                         {
                         }
-                        column(DataItem1000000038; Veuillez_respecter_l_adresse_et_la_date_de_livraison_spécif__De_même__les_quant_et_les_prix_sont_impératifs__ToutLbl)
+                        column(Text_Footer; Text_Footer)
                         {
                         }
-                        column("Nous_vous_prions_de_nous_apporter_une_information_systématique_et_immédiate_en_cas_de_manquants_Caption"; Nous_vous_prions_de_nous_apporter_une_information_systématique_et_immédiate_en_cas_de_manquants_CaptionLbl)
+                        column(Text_Footer2; Text_Footer2)
                         {
                         }
-                        column("Sincères_salutations_Caption"; Sincères_salutations_CaptionLbl)
+                        column(Salutation_Text; Salutation_Text)
                         {
                         }
                         column(RoundLoop_Number; Number)
@@ -722,7 +725,7 @@ report 50067 "PWD Purch Order AVITA"
     begin
         IF USERID() <> '' THEN
             IF NOT UserTable.GET(USERID) THEN;
-        IF UserSecurityId() <> '' THEN
+        IF not IsNullGUID(UserSecurityId()) THEN
             IF NOT User.GET(UserSecurityId()) THEN;
     end;
 
@@ -781,14 +784,14 @@ report 50067 "PWD Purch Order AVITA"
         Direct_Unit_CostCaptionLbl: Label 'Direct Unit Cost';
         Header_DimensionsCaptionLbl: Label 'Header Dimensions';
         "Notre_référence__CaptionLbl": Label 'Notre référence :';
-        Nous_vous_prions_de_nous_apporter_une_information_systématique_et_immédiate_en_cas_de_manquants_CaptionLbl: Label 'Nous vous prions de nous apporter une information systématique et immédiate en cas de manquants.';
+        Text_Footer2: Label 'Nous vous prions de nous apporter une information systématique et immédiate en cas de manquants.';
         ORDERCaption_Control1000000047Lbl: Label 'ORDER';
         ORDERCaptionLbl: Label 'ORDER';
         PurchLine__Inv__Discount_Amount_CaptionLbl: Label 'Inv. Discount Amount';
         "QuantitéCaptionLbl": Label 'Quantité';
         QuantityCaptionLbl: Label 'Quantity';
         "Réf__FnsCaptionLbl": Label ' Réf. Fns';
-        Sincères_salutations_CaptionLbl: Label ' Tout défaut pourra motiver le refus de la livraison.';
+        Salutation_Text: Label ' Tout défaut pourra motiver le refus de la livraison.';
         SubtotalCaptionLbl: Label 'Subtotal';
         Tel_03_21_19_66_37___Fax_03_21_96_89_39CaptionLbl: Label 'Tel 03 21 19 66 37 / Fax 03 21 96 89 39';
         Text000: Label 'Purchaser';
@@ -800,7 +803,7 @@ report 50067 "PWD Purch Order AVITA"
         UnitCaptionLbl: Label 'Unit';
         "UnitéCaptionLbl": Label 'Unité';
         VATDiscountAmountCaptionLbl: Label 'Payment Discount on VAT';
-        Veuillez_respecter_l_adresse_et_la_date_de_livraison_spécif__De_même__les_quant_et_les_prix_sont_impératifs__ToutLbl: Label '    Veuillez respecter l''adresse et la date de livraison spécifiées, de même que les quantités et les prix.         NE PAS DEPASSER LES QUANTITES COMMANDEES.';
+        Text_Footer: Label '    Veuillez respecter l''adresse et la date de livraison spécifiées, de même que les quantités et les prix.         NE PAS DEPASSER LES QUANTITES COMMANDEES.';
         "RéfFournisseur": Text[20];
         CopyText: Text[30];
         DescriptionENU: Text[30];
