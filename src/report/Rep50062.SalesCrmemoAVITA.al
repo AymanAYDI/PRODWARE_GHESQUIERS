@@ -14,11 +14,10 @@ report 50062 "PWD Sales - Cr.memo AVITA"
             column(Sales_CrMemo_Header_No_; "No.")
             {
             }
-
-            dataitem(CopyLoop; Integer)
+            dataitem(CopyLoop; "Integer")
             {
                 DataItemTableView = SORTING(Number);
-                dataitem(PageLoop; Integer)
+                dataitem(PageLoop; "Integer")
                 {
                     DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
                     column(CompanyInfo__Logo_ISSA_; CompanyInfo."PWD Logo ISSA")
@@ -131,43 +130,43 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                     column(GCO; GCO)
                     {
                     }
-                    dataitem(DimensionLoop1; Integer)
+                    dataitem(DimensionLoop1; "Integer")
                     {
                         DataItemLinkReference = "Sales Cr.Memo Header";
                         DataItemTableView = SORTING(Number) WHERE(Number = FILTER(1 ..));
-                        trigger OnPreDataItem()
-                        begin
+                        // trigger OnPreDataItem()
+                        // begin
 
-                            IF NOT ShowInternalInfo THEN
-                                CurrReport.BREAK();
-                        end;
+                        //     IF NOT ShowInternalInfo THEN
+                        //         CurrReport.BREAK();
+                        // end;
 
-                        trigger OnAfterGetRecord()
-                        var
-                        begin
-                            IF Number = 1 THEN BEGIN
-                                IF NOT DocDim1.FindFirst() THEN
-                                    CurrReport.BREAK();
-                            END ELSE
-                                IF NOT Continue THEN
-                                    CurrReport.BREAK();
+                        // trigger OnAfterGetRecord()
+                        // var
+                        // begin
+                        //     IF Number = 1 THEN BEGIN
+                        //         IF NOT DocDim1.FindFirst() THEN
+                        //             CurrReport.BREAK();
+                        //     END ELSE
+                        //         IF NOT Continue THEN
+                        //             CurrReport.BREAK();
 
-                            CLEAR(DimText);
-                            Continue := FALSE;
-                            REPEAT
-                                OldDimText := DimText;
-                                IF DimText = '' THEN
-                                    DimText := STRSUBSTNO('%1 %2', DocDim1."Dimension Code", DocDim1."Dimension Value Code")
-                                ELSE
-                                    DimText :=
-                                      STRSUBSTNO('%1, %2 %3', DimText, DocDim1."Dimension Code", DocDim1."Dimension Value Code");
-                                IF STRLEN(DimText) > MAXSTRLEN(OldDimText) THEN BEGIN
-                                    DimText := OldDimText;
-                                    Continue := TRUE;
-                                    EXIT;
-                                END;
-                            UNTIL (DocDim1.NEXT() = 0);
-                        end;
+                        //     CLEAR(DimText);
+                        //     Continue := FALSE;
+                        //     REPEAT
+                        //         OldDimText := DimText;
+                        //         IF DimText = '' THEN
+                        //             DimText := STRSUBSTNO('%1 %2', DocDim1."Dimension Code", DocDim1."Dimension Value Code")
+                        //         ELSE
+                        //             DimText :=
+                        //               STRSUBSTNO('%1, %2 %3', DimText, DocDim1."Dimension Code", DocDim1."Dimension Value Code");
+                        //         IF STRLEN(DimText) > MAXSTRLEN(OldDimText) THEN BEGIN
+                        //             DimText := OldDimText;
+                        //             Continue := TRUE;
+                        //             EXIT;
+                        //         END;
+                        //     UNTIL (DocDim1.NEXT() = 0);
+                        // end;
 
                     }
                     dataitem("Sales Cr.Memo Line"; "Sales Cr.Memo Line")
@@ -372,92 +371,93 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                         dataitem(DimensionLoop2; Integer)
                         {
                             DataItemTableView = SORTING(Number) WHERE(Number = FILTER(1 ..));
-                            trigger OnPreDataItem()
-                            begin
-                                IF NOT ShowInternalInfo THEN
-                                    CurrReport.BREAK();
-                                DocDim2.SETRANGE("Dimension Set ID", "Sales Cr.Memo Line"."Dimension Set ID");
-                            end;
+                            // trigger OnPreDataItem()
+                            // begin
+                            //     IF NOT ShowInternalInfo THEN
+                            //         CurrReport.BREAK();
+                            //     DocDim2.SETRANGE("Dimension Set ID", "Sales Cr.Memo Line"."Dimension Set ID");
+                            // end;
 
-                            trigger OnAfterGetRecord()
-                            var
-                            begin
+                            // trigger OnAfterGetRecord()
+                            // var
+                            // begin
 
-                                IF Number = 1 THEN BEGIN
-                                    IF NOT DocDim2.FindFirst() THEN
-                                        CurrReport.BREAK();
-                                END ELSE
-                                    IF NOT Continue THEN
-                                        CurrReport.BREAK();
+                            //     IF Number = 1 THEN BEGIN
+                            //         IF NOT DocDim2.FindFirst() THEN
+                            //             CurrReport.BREAK();
+                            //     END ELSE
+                            //         IF NOT Continue THEN
+                            //             CurrReport.BREAK();
 
-                                CLEAR(DimText);
-                                Continue := FALSE;
-                                REPEAT
-                                    OldDimText := DimText;
-                                    IF DimText = '' THEN
-                                        DimText := STRSUBSTNO('%1 %2', DocDim2."Dimension Code", DocDim2."Dimension Value Code")
-                                    ELSE
-                                        DimText :=
-                                          STRSUBSTNO('%1, %2 %3', DimText, DocDim2."Dimension Code", DocDim2."Dimension Value Code");
-                                    IF STRLEN(DimText) > MAXSTRLEN(OldDimText) THEN BEGIN
-                                        DimText := OldDimText;
-                                        Continue := TRUE;
-                                        EXIT;
-                                    END;
-                                UNTIL (DocDim2.NEXT() = 0);
-                            end;
+                            //     CLEAR(DimText);
+                            //     Continue := FALSE;
+                            //     REPEAT
+                            //         OldDimText := DimText;
+                            //         IF DimText = '' THEN
+                            //             DimText := STRSUBSTNO('%1 %2', DocDim2."Dimension Code", DocDim2."Dimension Value Code")
+                            //         ELSE
+                            //             DimText :=
+                            //               STRSUBSTNO('%1, %2 %3', DimText, DocDim2."Dimension Code", DocDim2."Dimension Value Code");
+                            //         IF STRLEN(DimText) > MAXSTRLEN(OldDimText) THEN BEGIN
+                            //             DimText := OldDimText;
+                            //             Continue := TRUE;
+                            //             EXIT;
+                            //         END;
+                            //     UNTIL (DocDim2.NEXT() = 0);
+                            // end;
 
                         }
-                        trigger OnPreDataItem()
-                        begin
+                        // trigger OnPreDataItem()
+                        // begin
 
-                            TempVATAmountLine.DELETEALL();
-                            MoreLines := FindLast();
-                            WHILE MoreLines AND (Description = '') AND ("No." = '') AND (Quantity = 0) AND (Amount = 0) DO
-                                MoreLines := NEXT(-1) <> 0;
-                            IF NOT MoreLines THEN
-                                CurrReport.BREAK();
-                            SETRANGE("Line No.", 0, "Line No.");
-                            //CurrReport.CREATETOTALS("Line Amount", Amount, "Amount Including VAT", "Inv. Discount Amount");
-                        end;
+                        //     TempVATAmountLine.DELETEALL();
+                        //     MoreLines := FindLast();
+                        //     WHILE MoreLines AND (Description = '') AND ("No." = '') AND (Quantity = 0) AND (Amount = 0) DO
+                        //         MoreLines := NEXT(-1) <> 0;
+                        //     IF NOT MoreLines THEN
+                        //         CurrReport.BREAK();
+                        //     SETRANGE("Line No.", 0, "Line No.");
+                        //     //CurrReport.CREATETOTALS("Line Amount", Amount, "Amount Including VAT", "Inv. Discount Amount");
+                        // end;
 
-                        trigger OnAfterGetRecord()
-                        var
-                        begin
-                            IF (Type = Type::"G/L Account") AND (NOT ShowInternalInfo) THEN
-                                "No." := '';
+                        // trigger OnAfterGetRecord()
+                        // var
+                        // begin
+                        //     IF (Type = Type::"G/L Account") AND (NOT ShowInternalInfo) THEN
+                        //         "No." := '';
 
-                            TempVATAmountLine.INIT();
-                            TempVATAmountLine."VAT Identifier" := "VAT Identifier";
-                            TempVATAmountLine."VAT Calculation Type" := "VAT Calculation Type";
-                            TempVATAmountLine."Tax Group Code" := "Tax Group Code";
-                            TempVATAmountLine."VAT %" := "VAT %";
-                            TempVATAmountLine."VAT Base" := Amount;
-                            TempVATAmountLine."Amount Including VAT" := "Amount Including VAT";
-                            TempVATAmountLine."Line Amount" := "Line Amount";
-                            IF "Allow Invoice Disc." THEN
-                                TempVATAmountLine."Inv. Disc. Base Amount" := "Line Amount";
-                            TempVATAmountLine."Invoice Discount Amount" := "Inv. Discount Amount";
-                            TempVATAmountLine.InsertLine();
-                            //C2A
-                            IF Type = Type::Item THEN
-                                IF NOT ItemTrans.GET("No.", '', 'ENU') THEN ItemTrans.INIT();
-                            ShowTypeNo := Type.AsInteger();
-                        end;
+                        //     TempVATAmountLine.INIT();
+                        //     TempVATAmountLine."VAT Identifier" := "VAT Identifier";
+                        //     TempVATAmountLine."VAT Calculation Type" := "VAT Calculation Type";
+                        //     TempVATAmountLine."Tax Group Code" := "Tax Group Code";
+                        //     TempVATAmountLine."VAT %" := "VAT %";
+                        //     TempVATAmountLine."VAT Base" := Amount;
+                        //     TempVATAmountLine."Amount Including VAT" := "Amount Including VAT";
+                        //     TempVATAmountLine."Line Amount" := "Line Amount";
+                        //     IF "Allow Invoice Disc." THEN
+                        //         TempVATAmountLine."Inv. Disc. Base Amount" := "Line Amount";
+                        //     TempVATAmountLine."Invoice Discount Amount" := "Inv. Discount Amount";
+                        //     TempVATAmountLine.InsertLine();
+                        //     //C2A
+                        //     IF Type = Type::Item THEN
+                        //         IF NOT ItemTrans.GET("No.", '', 'ENU') THEN ItemTrans.INIT();
+                        //     ShowTypeNo := Type.AsInteger();
+                        // end;
 
                     }
                     dataitem(Total; Integer)
                     {
-
+                        DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
                     }
                     dataitem(Total2; Integer)
                     {
-                        trigger OnPreDataItem()
-                        begin
+                        DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
+                        // trigger OnPreDataItem()
+                        // begin
 
-                            IF NOT ShowShippingAddr THEN
-                                CurrReport.BREAK();
-                        end;
+                        //     IF NOT ShowShippingAddr THEN
+                        //         CurrReport.BREAK();
+                        // end;
 
                     }
 
@@ -481,94 +481,94 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                     OutputNo += 1;
                 end;
 
-                trigger OnPostDataItem()
-                var
-                begin
-                    IF NOT CurrReport.PREVIEW THEN
-                        SalesCrMemoCountPrinted.RUN("Sales Cr.Memo Header");
-                end;
+                // trigger OnPostDataItem()
+                // var
+                // begin
+                //     IF NOT CurrReport.PREVIEW THEN
+                //         SalesCrMemoCountPrinted.RUN("Sales Cr.Memo Header");
+                // end;
             }
 
-            trigger OnAfterGetRecord()
-            begin
+            // trigger OnAfterGetRecord()
+            // begin
 
-                CurrReport.LANGUAGE := Language.GetLanguageIdOrDefault("Language Code");
+            //     CurrReport.LANGUAGE := Language.GetLanguageIdOrDefault("Language Code");
 
-                IF RespCenter.GET("Responsibility Center") THEN BEGIN
-                    FormatAddr.RespCenter(CompanyAddr, RespCenter);
-                    CompanyInfo."Phone No." := RespCenter."Phone No.";
-                    CompanyInfo."Fax No." := RespCenter."Fax No.";
-                END ELSE BEGIN
-                    CompanyInfo.GET();
-                    FormatAddr.Company(CompanyAddr, CompanyInfo);
-                    CompanyInfo.CALCFIELDS("PWD Logo AVITA facture", "PWD Logo ISSA");
+            //     IF RespCenter.GET("Responsibility Center") THEN BEGIN
+            //         FormatAddr.RespCenter(CompanyAddr, RespCenter);
+            //         CompanyInfo."Phone No." := RespCenter."Phone No.";
+            //         CompanyInfo."Fax No." := RespCenter."Fax No.";
+            //     END ELSE BEGIN
+            //         CompanyInfo.GET();
+            //         FormatAddr.Company(CompanyAddr, CompanyInfo);
+            //         CompanyInfo.CALCFIELDS("PWD Logo AVITA facture", "PWD Logo ISSA");
 
-                END;
+            //     END;
 
-                DocDim1.SETRANGE("Dimension Set ID", "Sales Cr.Memo Header"."Dimension Set ID");
+            //     DocDim1.SETRANGE("Dimension Set ID", "Sales Cr.Memo Header"."Dimension Set ID");
 
-                IF "Salesperson Code" = '' THEN BEGIN
-                    SalesPurchPerson.INIT();
-                    SalesPersonText := '';
-                END ELSE BEGIN
-                    SalesPurchPerson.GET("Salesperson Code");
-                    SalesPersonText := Text000;
-                END;
-                IF "Your Reference" = '' THEN
-                    ReferenceText := ''
-                ELSE
-                    ReferenceText := FIELDCAPTION("Your Reference");
-                IF "VAT Registration No." = '' THEN
-                    VATNoText := ''
-                ELSE
-                    VATNoText := FIELDCAPTION("VAT Registration No.");
-                IF "Currency Code" = '' THEN BEGIN
-                    GLSetup.TESTFIELD("LCY Code");
-                    TotalText := STRSUBSTNO(Text001, GLSetup."LCY Code");
-                    TotalInclVATText := STRSUBSTNO(Text002, GLSetup."LCY Code");
-                    TotalExclVATText := STRSUBSTNO(Text006, GLSetup."LCY Code");
-                END ELSE BEGIN
-                    TotalText := STRSUBSTNO(Text001, "Currency Code");
-                    TotalInclVATText := STRSUBSTNO(Text002, "Currency Code");
-                    TotalExclVATText := STRSUBSTNO(Text006, "Currency Code");
-                END;
-                FormatAddr.SalesCrMemoBillTo(CustAddr, "Sales Cr.Memo Header");
-                Cust.GET("Bill-to Customer No.");
-                //>> 01/07/2019 SU-DADE cf appel TI462849
-                IF Cust."PWD C/O" THEN
-                    GCO := 'C/O'
-                ELSE
-                    GCO := '';
-                //<< 01/07/2019 SU-DADE cf appel TI462849
+            //     IF "Salesperson Code" = '' THEN BEGIN
+            //         SalesPurchPerson.INIT();
+            //         SalesPersonText := '';
+            //     END ELSE BEGIN
+            //         SalesPurchPerson.GET("Salesperson Code");
+            //         SalesPersonText := Text000;
+            //     END;
+            //     IF "Your Reference" = '' THEN
+            //         ReferenceText := ''
+            //     ELSE
+            //         ReferenceText := FIELDCAPTION("Your Reference");
+            //     IF "VAT Registration No." = '' THEN
+            //         VATNoText := ''
+            //     ELSE
+            //         VATNoText := FIELDCAPTION("VAT Registration No.");
+            //     IF "Currency Code" = '' THEN BEGIN
+            //         GLSetup.TESTFIELD("LCY Code");
+            //         TotalText := STRSUBSTNO(Text001, GLSetup."LCY Code");
+            //         TotalInclVATText := STRSUBSTNO(Text002, GLSetup."LCY Code");
+            //         TotalExclVATText := STRSUBSTNO(Text006, GLSetup."LCY Code");
+            //     END ELSE BEGIN
+            //         TotalText := STRSUBSTNO(Text001, "Currency Code");
+            //         TotalInclVATText := STRSUBSTNO(Text002, "Currency Code");
+            //         TotalExclVATText := STRSUBSTNO(Text006, "Currency Code");
+            //     END;
+            //     FormatAddr.SalesCrMemoBillTo(CustAddr, "Sales Cr.Memo Header");
+            //     Cust.GET("Bill-to Customer No.");
+            //     //>> 01/07/2019 SU-DADE cf appel TI462849
+            //     IF Cust."PWD C/O" THEN
+            //         GCO := 'C/O'
+            //     ELSE
+            //         GCO := '';
+            //     //<< 01/07/2019 SU-DADE cf appel TI462849
 
-                IF "Payment Terms Code" = '' THEN
-                    PaymentTerms.INIT()
-                ELSE
-                    PaymentTerms.GET("Payment Terms Code");
+            //     IF "Payment Terms Code" = '' THEN
+            //         PaymentTerms.INIT()
+            //     ELSE
+            //         PaymentTerms.GET("Payment Terms Code");
 
-                //BEGIN   11/10/06   C2A(LLE)   cf CDVN001274
-                IF NOT PaymentMethod.GET("Payment Method Code") THEN
-                    PaymentMethod.INIT();
-                //END   11/10/06   C2A(LLE)
+            //     //BEGIN   11/10/06   C2A(LLE)   cf CDVN001274
+            //     IF NOT PaymentMethod.GET("Payment Method Code") THEN
+            //         PaymentMethod.INIT();
+            //     //END   11/10/06   C2A(LLE)
 
-                IF "Shipment Method Code" = '' THEN
-                    ShipmentMethod.INIT()
-                ELSE
-                    ShipmentMethod.GET("Shipment Method Code");
+            //     IF "Shipment Method Code" = '' THEN
+            //         ShipmentMethod.INIT()
+            //     ELSE
+            //         ShipmentMethod.GET("Shipment Method Code");
 
-                FormatAddr.SalesCrMemoShipTo(ShipToAddr, CustAddr, "Sales Cr.Memo Header");
-                ShowShippingAddr := "Sell-to Customer No." <> "Bill-to Customer No.";
-                FOR i := 1 TO ARRAYLEN(ShipToAddr) DO
-                    IF ShipToAddr[i] <> CustAddr[i] THEN
-                        ShowShippingAddr := TRUE;
-                //>-> GUE-RE.1.00
-                IF LogInteractionV THEN
-                    IF NOT CurrReport.PREVIEW THEN
-                        SegManagement.LogDocument(
-                          6, "No.", 0, 0, DATABASE::Customer, "Sell-to Customer No.", "Salesperson Code", '', "Posting Description", '');
+            //     FormatAddr.SalesCrMemoShipTo(ShipToAddr, CustAddr, "Sales Cr.Memo Header");
+            //     ShowShippingAddr := "Sell-to Customer No." <> "Bill-to Customer No.";
+            //     FOR i := 1 TO ARRAYLEN(ShipToAddr) DO
+            //         IF ShipToAddr[i] <> CustAddr[i] THEN
+            //             ShowShippingAddr := TRUE;
+            //     //>-> GUE-RE.1.00
+            //     IF LogInteractionV THEN
+            //         IF NOT CurrReport.PREVIEW THEN
+            //             SegManagement.LogDocument(
+            //               6, "No.", 0, 0, DATABASE::Customer, "Sell-to Customer No.", "Salesperson Code", '', "Posting Description", '');
 
-                //<-< GUE-RE.1.00
-            end;
+            //     //<-< GUE-RE.1.00
+            // end;
         }
     }
     requestpage
@@ -592,7 +592,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                         Caption = 'Show Internal Information';
                         ApplicationArea = All;
                     }
-                    field(LogInteraction; LogInteractionV)
+                    field(LogInteractionV; LogInteractionV)
                     {
                         Caption = 'Log Interaction';
                         enabled = LogInteractionEnable;
@@ -606,32 +606,32 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                 }
             }
         }
-        trigger OnInit()
-        begin
-            LogInteractionEnable := TRUE;
-        end;
+        // trigger OnInit()
+        // begin
+        //     LogInteractionEnable := TRUE;
+        // end;
 
-        trigger OnOpenPage()
-        begin
-            InitLogInteraction();
-            LogInteractionEnable := LogInteractionV;
-        end;
+        // trigger OnOpenPage()
+        // begin
+        //     InitLogInteraction();
+        //     LogInteractionEnable := LogInteractionV;
+        // end;
     }
-    trigger OnInitReport()
-    begin
-        GLSetup.GET();
-    end;
+    // trigger OnInitReport()
+    // begin
+    //     GLSetup.GET();
+    // end;
 
-    trigger OnPreReport()
-    begin
-        IF NOT CurrReport.UseRequestPage THEN
-            InitLogInteraction();
-    end;
+    // trigger OnPreReport()
+    // begin
+    //     IF NOT CurrReport.UseRequestPage THEN
+    //         InitLogInteraction();
+    // end;
 
-    procedure InitLogInteraction()
-    begin
-        LogInteractionV := SegManagement.FindInteractTmplCode(4) <> '';
-    end;
+    // procedure InitLogInteraction()
+    // begin
+    //     LogInteractionV := SegManagement.FindInteractTmplCode(4) <> '';
+    // end;
 
     procedure DisplayVAT()
     var

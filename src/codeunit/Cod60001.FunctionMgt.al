@@ -174,7 +174,7 @@ codeunit 60001 "PWD Function Mgt"
     var
         Memberof: Record "Access Control";
         Location: Record Location;
-        RecLocPriority: Record "PWD Location Priority";  //TODO Vérifier cette variable utilisée aussi dans des champs spec et ds une fct
+        RecLocPriority: Record "PWD Location Priority";
         RecSalesHeader: Record "Sales Header";
         Text1000000005: label 'This call type is not allowed for the location %1';
         Text1000000025: label 'Vous n''êtes pas autorisé à saisir des mouvements sur le magasin %1.;';
@@ -396,7 +396,7 @@ codeunit 60001 "PWD Function Mgt"
     end;
 
     //---CDU22---
-    procedure FctCDU22_OnAfterInitItemLedgEntry_ItemJnlPostLine(var NewItemLedgEntry: Record "Item Ledger Entry"; var ItemJnlLine: Record "Item Journal Line"; var ItemLedgEntryNo: Integer)
+    procedure FctCDU22_OnAfterInitItemLedgEntry_ItemJnlPostLine(var NewItemLedgEntry: Record "Item Ledger Entry"; var ItemJnlLine: Record "Item Journal Line")
     begin
         NewItemLedgEntry."PWD Montant douane" := ItemJnlLine."PWD Montant douane";
         NewItemLedgEntry."PWD Notice Series No." := ItemJnlLine."PWD Notice Series No.";
@@ -417,6 +417,7 @@ codeunit 60001 "PWD Function Mgt"
         NewItemLedgEntry."PWD Seafrance Order No." := ItemJnlLine."PWD Seafrance Order No.";
         NewItemLedgEntry."PWD Seafrance Order Line No." := ItemJnlLine."PWD Seafrance Order Line No.";
         NewItemLedgEntry."PWD Seafrance Quantity" := ItemJnlLine."PWD Seafrance Quantity";
+        NewItemLedgEntry.Description := ItemJnlLine.Description;
     end;
 
     PROCEDURE TestExpirationDate(ItemJnlLine: Record "Item Journal Line");
@@ -481,7 +482,6 @@ codeunit 60001 "PWD Function Mgt"
                 END;
         END;
     END;
-
     //---CDU23---
     PROCEDURE CtrlButchery(VAR ItemJnlLine: Record "Item Journal Line");
     VAR
@@ -1094,8 +1094,6 @@ codeunit 60001 "PWD Function Mgt"
         ELSE
             EXIT(FALSE);
     END;
-
-
     //---CDU92---
     procedure PrintDocumentsWithCheckDialogCommon(ReportUsage: Enum "Report Selection Usage"; RecordVariant: Variant; IsGUI: Boolean; AccountNoFieldNo: Integer; WithCheck: Boolean; TableNo: Integer)
     var
@@ -1538,7 +1536,7 @@ codeunit 60001 "PWD Function Mgt"
         EXIT(OldItemNetChange);
     END;
     //---CDU333---
-    procedure FCT_CDU333OnAfterInsertPurchOrderLine(var PurchOrderLine: Record "Purchase Line")
+    procedure FCT_CDU333OnAfterInsertPurchOrderLine(var PurchOrderLine: Record "Purchase Line"; var RequisitionLine: Record "Requisition Line")
     var
         SalesOrderLine: Record "Sales Line";
     begin
@@ -1546,6 +1544,7 @@ codeunit 60001 "PWD Function Mgt"
         PurchOrderLine."Special Order Sales Line No." := 0;
         PurchOrderLine."Special Order" := FALSE;
         PurchOrderLine.MODIFY();
+        SalesOrderLine.Get(SalesOrderLine."Document Type"::Order, RequisitionLine."Sales Order No.", RequisitionLine."Sales Order Line No.");
         SalesOrderLine."Special Order" := FALSE;
         SalesOrderLine."Special Order Purchase No." := '';
         SalesOrderLine."Special Order Purch. Line No." := 0;
@@ -1772,7 +1771,7 @@ codeunit 60001 "PWD Function Mgt"
     var
         AccessControl: Record "Access Control";
         SetGetFunction: Codeunit "PWD Set/Get Functions";
-        CstG002 : label 'DIRECTION';
+        CstG002: label 'DIRECTION';
     begin
         IF SalesHeader."PWD Preparation Status" = SalesHeader."PWD Preparation Status"::" " THEN
             SalesHeader."PWD Preparation Status" := SalesHeader."PWD Preparation Status"::"Ready to prepare";
@@ -1783,7 +1782,7 @@ codeunit 60001 "PWD Function Mgt"
                 SalesHeaderCheckError(SalesHeader)
             ELSE
                 SalesHeaderCheckMessage(SalesHeader);
-    end;
+        end;
     end;
 
     procedure FCT_CDU414OnAfterReleaseSalesDocEvent(var SalesHeader: Record "Sales Header")
