@@ -319,7 +319,7 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
                     Rec.TESTFIELD("Requested Delivery Date");
                     Rec.TESTFIELD("Promised Delivery Date");
                     IF (Rec."Requested Delivery Date" < Rec."Document Date") OR (Rec."Promised Delivery Date" < Rec."Document Date") THEN
-                        ERROR('La date de livraison ne peut ˆtre inf‚rieur … la date de document.');
+                        ERROR('La date de livraison ne peut être inférieur à la date de document.');
                     Rec.VerifyPriceweight(Rec);
                     CLEAR(ValidateSalesOrder);
                     ValidateSalesOrder.InitRequete(Rec);
