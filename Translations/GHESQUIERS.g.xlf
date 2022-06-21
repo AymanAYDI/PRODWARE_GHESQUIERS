@@ -11638,11 +11638,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Notre_référence__CaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 43542742 - NamedType 2205961360" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Nous vous prions de nous apporter une information systématique et immédiate en cas de manquants.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Nous_vous_prions_de_nous_apporter_une_information_systématique_et_immédiate_en_cas_de_manquants_CaptionLbl</note>
-        </trans-unit>
         <trans-unit id="Report 43542742 - NamedType 280195238" size-unit="char" translate="yes" xml:space="preserve">
           <source>ORDER</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11673,10 +11668,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Réf__FnsCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 43542742 - NamedType 1716936298" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 43542742 - NamedType 131120748" size-unit="char" translate="yes" xml:space="preserve">
           <source> Tout défaut pourra motiver le refus de la livraison.</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Sincères_salutations_CaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Salutation_Text</note>
         </trans-unit>
         <trans-unit id="Report 43542742 - NamedType 3126303398" size-unit="char" translate="yes" xml:space="preserve">
           <source>Subtotal</source>
@@ -11718,6 +11713,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType TextTVA</note>
         </trans-unit>
+        <trans-unit id="Report 43542742 - NamedType 3149012633" size-unit="char" translate="yes" xml:space="preserve">
+          <source>    Veuillez respecter l'adresse et la date de livraison spécifiées, de même que les quantités et les prix.         NE PAS DEPASSER LES QUANTITES COMMANDEES.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Text_Footer</note>
+        </trans-unit>
+        <trans-unit id="Report 43542742 - NamedType 200975079" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nous vous prions de nous apporter une information systématique et immédiate en cas de manquants.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Text_Footer2</note>
+        </trans-unit>
         <trans-unit id="Report 43542742 - NamedType 1065670270" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unit</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11732,11 +11737,6 @@
           <source>Payment Discount on VAT</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType VATDiscountAmountCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 43542742 - NamedType 2196683903" size-unit="char" translate="yes" xml:space="preserve">
-          <source>    Veuillez respecter l'adresse et la date de livraison spécifiées, de même que les quantités et les prix.         NE PAS DEPASSER LES QUANTITES COMMANDEES.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Veuillez_respecter_l_adresse_et_la_date_de_livraison_spécif__De_même__les_quant_et_les_prix_sont_impératifs__ToutLbl</note>
         </trans-unit>
         <trans-unit id="Report 43542742 - ReportDataItem 2072992664 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Purchase Order</source>
