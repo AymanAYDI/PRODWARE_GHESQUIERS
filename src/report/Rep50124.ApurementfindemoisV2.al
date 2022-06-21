@@ -353,6 +353,12 @@ report 50124 "PWD Apurement fin de mois V2"
         actions
         {
         }
+        trigger OnOpenPage()
+        begin
+
+            IF (StartDate = 0D) AND (EndDate = 0D) THEN
+                EndDate := WORKDATE();
+        end;
     }
 
     labels

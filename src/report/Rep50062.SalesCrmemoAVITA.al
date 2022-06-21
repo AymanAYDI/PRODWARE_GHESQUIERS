@@ -21,7 +21,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                 dataitem(PageLoop; "Integer")
                 {
                     DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
-                    column(CompanyInfo__Logo_ISSA_; CompanyInfo."PWD Logo ISSA")
+                    column(CompanyInfo__Logo_ISSA_; CompanyInfo."PWD Logo AVITA facture")
                     {
                     }
                     column(CustAddr_6_; CustAddr[6])
@@ -42,9 +42,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                     column(CustAddr_2_; CustAddr[2])
                     {
                     }
-                    column(OutputNo; OutputNo)
-                    {
-                    }
+
                     column(CustAddr_1_; CustAddr[1])
                     {
                     }
@@ -129,6 +127,9 @@ report 50062 "PWD Sales - Cr.memo AVITA"
 
                     }
                     column(GCO; GCO)
+                    {
+                    }
+                    column(OutputNo; OutputNo)
                     {
                     }
                     dataitem(DimensionLoop1; "Integer")

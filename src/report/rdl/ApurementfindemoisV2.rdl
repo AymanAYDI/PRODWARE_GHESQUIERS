@@ -128,7 +128,7 @@
                                                   </TextRun>
                                                 </TextRuns>
                                                 <Style>
-                                                  <TextAlign>Right</TextAlign>
+                                                  <TextAlign>Center</TextAlign>
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
@@ -168,7 +168,7 @@
                                                   </TextRun>
                                                 </TextRuns>
                                                 <Style>
-                                                  <TextAlign>Right</TextAlign>
+                                                  <TextAlign>Center</TextAlign>
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
@@ -208,7 +208,7 @@
                                                   </TextRun>
                                                 </TextRuns>
                                                 <Style>
-                                                  <TextAlign>Right</TextAlign>
+                                                  <TextAlign>Center</TextAlign>
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
@@ -248,7 +248,7 @@
                                                   </TextRun>
                                                 </TextRuns>
                                                 <Style>
-                                                  <TextAlign>Right</TextAlign>
+                                                  <TextAlign>Center</TextAlign>
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
@@ -739,7 +739,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!InvoicedQty.Value</Value>
+                                                    <Value>=Sum(Fields!InvoicedQty_Control37.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                       <Format>=First(Fields!InvoicedQty_Control37Format.Value)</Format>
@@ -769,7 +769,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Code.BlankZero(Fields!InvIncreases.Value)</Value>
+                                                    <Value>=Code.BlankZero(Sum(Fields!InvIncreases_Control38.Value))</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                       <Format>=First(Fields!InvIncreases_Control38Format.Value)</Format>
@@ -799,7 +799,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Code.BlankZero(Fields!InvDecreases.Value)</Value>
+                                                    <Value>=Code.BlankZero(Sum(Fields!InvDecreases_Control39.Value))</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                       <Format>=First(Fields!InvDecreases_Control39Format.Value)</Format>
@@ -829,7 +829,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!QttValorisedEndPeriod.Value)</Value>
+                                                    <Value>=Sum(Fields!QttValorisedEndPeriod_Control1000000004.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                       <Format>=First(Fields!QttValorisedEndPeriod_Control1000000004Format.Value)</Format>
@@ -859,7 +859,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!ValueInAmountEndPeriod.Value</Value>
+                                                    <Value>=Sum(Fields!ValueInAmountEndPeriod_Control53.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                       <Format>=First(Fields!ValueInAmountEndPeriod_Control53Format.Value)</Format>
@@ -924,7 +924,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!InvoicedQty.Value)</Value>
+                                                    <Value>=Sum(Fields!InvoicedQty_Control37.Value)</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
@@ -955,7 +955,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Code.BlankZero(Sum(Fields!InvIncreases.Value))</Value>
+                                                    <Value>=Code.BlankZero(Sum(Fields!InvIncreases_Control38.Value))</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
@@ -986,7 +986,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Code.BlankZero(Sum(Fields!InvDecreases.Value))</Value>
+                                                    <Value>=Code.BlankZero(Sum(Fields!InvDecreases_Control39.Value))</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
@@ -1017,7 +1017,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!QttValorisedEndPeriod.Value)</Value>
+                                                    <Value>=Sum(Fields!QttValorisedEndPeriod_Control1000000004.Value)</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
@@ -1048,7 +1048,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!ValueInAmountEndPeriod.Value)</Value>
+                                                    <Value>=Sum(Fields!ValueInAmountEndPeriod_Control53.Value)</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
@@ -1069,6 +1069,7 @@
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                     </TablixCells>
@@ -1097,7 +1098,7 @@
                                   <TablixMember>
                                     <Group Name="Table1_Group">
                                       <GroupExpressions>
-                                        <GroupExpression>=Fields!Item_No_.Value</GroupExpression>
+                                        <GroupExpression>=Fields!Item_CIEL_Personal_Caption.Value</GroupExpression>
                                       </GroupExpressions>
                                     </Group>
                                     <TablixMembers>
@@ -1164,10 +1165,8 @@ Cstr(Fields!Filtre___ecrFilter.Value) + Chr(177), 1)</Hidden>
                                             </Visibility>
                                             <Style>
                                               <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
+                                                <Style>None</Style>
                                               </Border>
-                                              <BackgroundColor>Red</BackgroundColor>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>2pt</PaddingRight>
                                               <PaddingTop>2pt</PaddingTop>
@@ -1294,9 +1293,9 @@ Cstr(Fields!Filtre___ecrFilter.Value) + Chr(177), 1)</Hidden>
                 </Paragraph>
               </Paragraphs>
               <Top>0.846cm</Top>
-              <Left>21.65cm</Left>
+              <Left>19.08883cm</Left>
               <Height>0.423cm</Height>
-              <Width>3.25cm</Width>
+              <Width>5.81117cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
