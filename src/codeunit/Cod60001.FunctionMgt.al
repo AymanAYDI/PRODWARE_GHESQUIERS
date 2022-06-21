@@ -1536,7 +1536,7 @@ codeunit 60001 "PWD Function Mgt"
         EXIT(OldItemNetChange);
     END;
     //---CDU333---
-    procedure FCT_CDU333OnAfterInsertPurchOrderLine(var PurchOrderLine: Record "Purchase Line")
+    procedure FCT_CDU333OnAfterInsertPurchOrderLine(var PurchOrderLine: Record "Purchase Line"; var RequisitionLine: Record "Requisition Line")
     var
         SalesOrderLine: Record "Sales Line";
     begin
@@ -1544,6 +1544,7 @@ codeunit 60001 "PWD Function Mgt"
         PurchOrderLine."Special Order Sales Line No." := 0;
         PurchOrderLine."Special Order" := FALSE;
         PurchOrderLine.MODIFY();
+        SalesOrderLine.Get(SalesOrderLine."Document Type"::Order, RequisitionLine."Sales Order No.", RequisitionLine."Sales Order Line No.");
         SalesOrderLine."Special Order" := FALSE;
         SalesOrderLine."Special Order Purchase No." := '';
         SalesOrderLine."Special Order Purch. Line No." := 0;

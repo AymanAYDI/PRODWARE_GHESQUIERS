@@ -326,6 +326,28 @@ report 50124 "PWD Apurement fin de mois V2"
     {
         layout
         {
+            area(content)
+            {
+                group(Options)
+                {
+                    Caption = 'Options';
+                    field(StartDate; "StartDate")
+                    {
+                        Caption = 'Starting Date';
+                        ApplicationArea = All;
+                    }
+                    field(EndDate; "EndDate")
+                    {
+                        Caption = 'Ending Date';
+                        ApplicationArea = All;
+                    }
+                    field(ToutTypeFamille; "ToutTypeFamille")
+                    {
+                        Caption = 'tout type de famille';
+                        ApplicationArea = All;
+                    }
+                }
+            }
         }
 
         actions

@@ -18,6 +18,12 @@ report 50067 "PWD Purch Order AVITA"
             column(Purchase_Header_No_; "No.")
             {
             }
+            column(PricesIncludingVAT; "Prices Including VAT")
+            {
+            }
+            column(VATBaseDiscount; "VAT Base Discount %")
+            {
+            }
             dataitem(CopyLoop; Integer)
             {
                 DataItemTableView = SORTING(Number);
@@ -97,7 +103,7 @@ report 50067 "PWD Purch Order AVITA"
                     column(Purchase_Header___No__; "Purchase Header"."No.")
                     {
                     }
-                    column(Page___FORMAT_CurrReport_PAGENO_; 'Page ')
+                    column(PAGENO_Caption; 'Page ')
                     {
                     }
                     column(Purchase_Header___Requested_Receipt_Date__; FORMAT("Purchase Header"."Requested Receipt Date", 0, 4))
@@ -121,6 +127,63 @@ report 50067 "PWD Purch Order AVITA"
                     column(ORDERCaption; ORDERCaptionLbl)
                     {
                     }
+                    column(QuantityCaption; QuantityCaptionLbl)
+                    {
+                    }
+                    column(Purchase_Line__Description_Control63Caption; "Purchase Line".FIELDCAPTION(Description))
+                    {
+                    }
+                    column(Code_familleCaption; Code_familleCaptionLbl)
+                    {
+                    }
+                    column(Purchase_Line___No__Caption; "Purchase Line".FIELDCAPTION("No."))
+                    {
+                    }
+                    column("UnitéCaption"; UnitéCaptionLbl)
+                    {
+                    }
+                    column(Direct_Unit_CostCaption; Direct_Unit_CostCaptionLbl)
+                    {
+                    }
+                    column(AmountCaption; AmountCaptionLbl)
+                    {
+                    }
+                    column(Direct_Unit_CostCaption_Control1000000060; Direct_Unit_CostCaption_Control1000000060Lbl)
+                    {
+                    }
+                    column(UnitCaption; UnitCaptionLbl)
+                    {
+                    }
+                    column("Désignation_ENUCaption"; Désignation_ENUCaptionLbl)
+                    {
+                    }
+                    column(AmountCaption_Control45; AmountCaption_Control45Lbl)
+                    {
+                    }
+                    column(ContinuedCaption; ContinuedCaptionLbl)
+                    {
+                    }
+                    column(ContinuedCaption_Control76; ContinuedCaption_Control76Lbl)
+                    {
+                    }
+                    column(PurchLine__Inv__Discount_Amount_Caption; PurchLine__Inv__Discount_Amount_CaptionLbl)
+                    {
+                    }
+                    column(SubtotalCaption; SubtotalCaptionLbl)
+                    {
+                    }
+                    column(VATDiscountAmountCaption; VATDiscountAmountCaptionLbl)
+                    {
+                    }
+                    column(Text_Footer; Text_Footer)
+                    {
+                    }
+                    column(Text_Footer2; Text_Footer2)
+                    {
+                    }
+                    column(Salutation_Text; Salutation_Text)
+                    {
+                    }
                     column(ORDERCaption_Control1000000047; ORDERCaption_Control1000000047Lbl)
                     {
                     }
@@ -128,6 +191,15 @@ report 50067 "PWD Purch Order AVITA"
                     {
                     }
                     column(Contact_livraison__Caption; Contact_livraison__CaptionLbl)
+                    {
+                    }
+                    column(TotalText; TotalText)
+                    {
+                    }
+                    column(TotalExclVATText_Control51; TotalExclVATText)
+                    {
+                    }
+                    column(TotalInclVATText_Control69; TotalInclVATText)
                     {
                     }
                     column(Tel_03_21_19_66_37___Fax_03_21_96_89_39Caption; Tel_03_21_19_66_37___Fax_03_21_96_89_39CaptionLbl)
@@ -140,6 +212,12 @@ report 50067 "PWD Purch Order AVITA"
                     {
                     }
                     column(PageLoop_Number; Number)
+                    {
+                    }
+                    column(TotalInclVATText; TotalInclVATText)
+                    {
+                    }
+                    column(TextTVA; TextTVA)
                     {
                     }
                     dataitem(DimensionLoop1; Integer)
@@ -241,6 +319,9 @@ report 50067 "PWD Purch Order AVITA"
                             AutoFormatExpression = "Purchase Header"."Currency Code";
                             AutoFormatType = 2;
                         }
+                        column(LineNo_PurchLine; "Purchase Line"."Line No.")
+                        {
+                        }
                         column(Purchase_Line___Line_Amount_; "Purchase Line"."Line Amount")
                         {
                             AutoFormatExpression = "Purchase Header"."Currency Code";
@@ -254,30 +335,23 @@ report 50067 "PWD Purch Order AVITA"
                             AutoFormatExpression = "Purchase Header"."Currency Code";
                             AutoFormatType = 1;
                         }
-                        column(PurchLine__Inv__Discount_Amount_; -PurchLine."Inv. Discount Amount")
+                        column(PurchLine__Inv__Discount_Amount_; PurchLine."Inv. Discount Amount")
                         {
                             AutoFormatExpression = "Purchase Line"."Currency Code";
                             AutoFormatType = 1;
                         }
-                        column(PurchLine__Line_Amount__Control109; PurchLine."Line Amount")
+                        column(PurchLine_Line_Amount; PurchLine."Line Amount")
                         {
                             AutoFormatExpression = "Purchase Header"."Currency Code";
                             AutoFormatType = 1;
                         }
-                        column(TotalText; TotalText)
-                        {
-                        }
+
                         column(PurchLine__Line_Amount__PurchLine__Inv__Discount_Amount_; PurchLine."Line Amount" - PurchLine."Inv. Discount Amount")
                         {
                             AutoFormatExpression = "Purchase Header"."Currency Code";
                             AutoFormatType = 1;
                         }
-                        column(TotalInclVATText; TotalInclVATText)
-                        {
-                        }
-                        column(TextTVA; TextTVA)
-                        {
-                        }
+
                         column(VATAmount; VATAmount)
                         {
                             AutoFormatExpression = "Purchase Header"."Currency Code";
@@ -304,12 +378,7 @@ report 50067 "PWD Purch Order AVITA"
                         column(VATAmountLine_VATAmountText; VATAmountLine.VATAmountText())
                         {
                         }
-                        column(TotalExclVATText_Control51; TotalExclVATText)
-                        {
-                        }
-                        column(TotalInclVATText_Control69; TotalInclVATText)
-                        {
-                        }
+
                         column(VATBaseAmount; VATBaseAmount)
                         {
                             AutoFormatExpression = "Purchase Header"."Currency Code";
@@ -331,63 +400,7 @@ report 50067 "PWD Purch Order AVITA"
                         column("QuantitéCaption"; QuantitéCaptionLbl)
                         {
                         }
-                        column(QuantityCaption; QuantityCaptionLbl)
-                        {
-                        }
-                        column(Purchase_Line__Description_Control63Caption; "Purchase Line".FIELDCAPTION(Description))
-                        {
-                        }
-                        column(Code_familleCaption; Code_familleCaptionLbl)
-                        {
-                        }
-                        column(Purchase_Line___No__Caption; "Purchase Line".FIELDCAPTION("No."))
-                        {
-                        }
-                        column("UnitéCaption"; UnitéCaptionLbl)
-                        {
-                        }
-                        column(Direct_Unit_CostCaption; Direct_Unit_CostCaptionLbl)
-                        {
-                        }
-                        column(AmountCaption; AmountCaptionLbl)
-                        {
-                        }
-                        column(Direct_Unit_CostCaption_Control1000000060; Direct_Unit_CostCaption_Control1000000060Lbl)
-                        {
-                        }
-                        column(UnitCaption; UnitCaptionLbl)
-                        {
-                        }
-                        column("Désignation_ENUCaption"; Désignation_ENUCaptionLbl)
-                        {
-                        }
-                        column(AmountCaption_Control45; AmountCaption_Control45Lbl)
-                        {
-                        }
-                        column(ContinuedCaption; ContinuedCaptionLbl)
-                        {
-                        }
-                        column(ContinuedCaption_Control76; ContinuedCaption_Control76Lbl)
-                        {
-                        }
-                        column(PurchLine__Inv__Discount_Amount_Caption; PurchLine__Inv__Discount_Amount_CaptionLbl)
-                        {
-                        }
-                        column(SubtotalCaption; SubtotalCaptionLbl)
-                        {
-                        }
-                        column(VATDiscountAmountCaption; VATDiscountAmountCaptionLbl)
-                        {
-                        }
-                        column(DataItem1000000038; Veuillez_respecter_l_adresse_et_la_date_de_livraison_spécif__De_même__les_quant_et_les_prix_sont_impératifs__ToutLbl)
-                        {
-                        }
-                        column("Nous_vous_prions_de_nous_apporter_une_information_systématique_et_immédiate_en_cas_de_manquants_Caption"; Nous_vous_prions_de_nous_apporter_une_information_systématique_et_immédiate_en_cas_de_manquants_CaptionLbl)
-                        {
-                        }
-                        column("Sincères_salutations_Caption"; Sincères_salutations_CaptionLbl)
-                        {
-                        }
+
                         column(RoundLoop_Number; Number)
                         {
                         }
@@ -496,15 +509,6 @@ report 50067 "PWD Purch Order AVITA"
                             else
                                 ShowRow := false;
 
-                            if ("Purchase Header"."Prices Including VAT" = false) and (VATAmount <> 0) then
-                                ShowRectangle4 := true
-                            else
-                                ShowRectangle4 := false;
-
-                            if (VATDiscountAmount <> 0) AND (VATAmount <> 0) AND "Purchase Header"."Prices Including VAT" AND ("Purchase Header"."VAT Base Discount %" <> 0) then
-                                ShowRectangle5 := true
-                            else
-                                ShowRectangle5 := false;
                             if ("Purchase Header"."Prices Including VAT" AND (VATAmount <> 0)) then
                                 ShowRectangle6 := true
                             else
@@ -722,7 +726,7 @@ report 50067 "PWD Purch Order AVITA"
     begin
         IF USERID() <> '' THEN
             IF NOT UserTable.GET(USERID) THEN;
-        IF UserSecurityId() <> '' THEN
+        IF not IsNullGUID(UserSecurityId()) THEN
             IF NOT User.GET(UserSecurityId()) THEN;
     end;
 
@@ -781,14 +785,14 @@ report 50067 "PWD Purch Order AVITA"
         Direct_Unit_CostCaptionLbl: Label 'Direct Unit Cost';
         Header_DimensionsCaptionLbl: Label 'Header Dimensions';
         "Notre_référence__CaptionLbl": Label 'Notre référence :';
-        Nous_vous_prions_de_nous_apporter_une_information_systématique_et_immédiate_en_cas_de_manquants_CaptionLbl: Label 'Nous vous prions de nous apporter une information systématique et immédiate en cas de manquants.';
+        Text_Footer2: Label 'Nous vous prions de nous apporter une information systématique et immédiate en cas de manquants.';
         ORDERCaption_Control1000000047Lbl: Label 'ORDER';
         ORDERCaptionLbl: Label 'ORDER';
         PurchLine__Inv__Discount_Amount_CaptionLbl: Label 'Inv. Discount Amount';
         "QuantitéCaptionLbl": Label 'Quantité';
         QuantityCaptionLbl: Label 'Quantity';
         "Réf__FnsCaptionLbl": Label ' Réf. Fns';
-        Sincères_salutations_CaptionLbl: Label ' Tout défaut pourra motiver le refus de la livraison.';
+        Salutation_Text: Label ' Tout défaut pourra motiver le refus de la livraison.';
         SubtotalCaptionLbl: Label 'Subtotal';
         Tel_03_21_19_66_37___Fax_03_21_96_89_39CaptionLbl: Label 'Tel 03 21 19 66 37 / Fax 03 21 96 89 39';
         Text000: Label 'Purchaser';
@@ -800,7 +804,7 @@ report 50067 "PWD Purch Order AVITA"
         UnitCaptionLbl: Label 'Unit';
         "UnitéCaptionLbl": Label 'Unité';
         VATDiscountAmountCaptionLbl: Label 'Payment Discount on VAT';
-        Veuillez_respecter_l_adresse_et_la_date_de_livraison_spécif__De_même__les_quant_et_les_prix_sont_impératifs__ToutLbl: Label '    Veuillez respecter l''adresse et la date de livraison spécifiées, de même que les quantités et les prix.         NE PAS DEPASSER LES QUANTITES COMMANDEES.';
+        Text_Footer: Label '    Veuillez respecter l''adresse et la date de livraison spécifiées, de même que les quantités et les prix.         NE PAS DEPASSER LES QUANTITES COMMANDEES.';
         "RéfFournisseur": Text[20];
         CopyText: Text[30];
         DescriptionENU: Text[30];
