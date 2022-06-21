@@ -7,6 +7,7 @@ pageextension 50021 "PWD PurchaseCreditMemo" extends "Purchase Credit Memo"
             field("PWD Buy-from Contact"; Rec."Buy-from Contact")
             {
                 ApplicationArea = all;
+                Caption = 'Buy-from Contact';
             }
         }
     }

@@ -706,15 +706,11 @@ codeunit 60000 "PWD Events"
         RecLInventorySetup: Record "Inventory Setup";
         ItemJnlPostLine: codeunit "Item Jnl.-Post Line";
     begin
-        IsHandled := true;
         RecLInventorySetup.GET();
-        IF RecLInventorySetup."PWD Nom modele prestation" = ItemJournalLine."Journal Template Name" THEN
-            ItemJnlPostLine.ItemValuePosting()
-        ELSE
-            if ((ItemJournalLine.Quantity <> 0) or (ItemJournalLine."Invoiced Quantity" <> 0)) and
-                not (ItemJournalLine.Adjustment and (ItemJournalLine.Amount = 0) and (ItemJournalLine."Amount (ACY)" = 0))
-            then
-                ItemJnlPostLine.ItemValuePosting();
+        IF RecLInventorySetup."PWD Nom modele prestation" = ItemJournalLine."Journal Template Name" THEN begin
+            ItemJnlPostLine.ItemValuePosting();
+            IsHandled := true;
+        end;
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnItemQtyPostingOnAfterCalcInsertItemLedgEntryNeeded', '', false, false)]
@@ -1103,15 +1099,15 @@ codeunit 60000 "PWD Events"
 
     //---CDU92---
     //TODO Fct "PrintDocumentsWithCheckDialogCommon" copie du std car elle est locale ds Tab 77 "Report Selections"
-    [EventSubscriber(ObjectType::Table, DataBase::"Report Selections", 'OnBeforePrintWithGUIYesNoVendor', '', false, false)]
-    local procedure TAB77_OnBeforePrintWithGUIYesNoVendor_ReportSelections(ReportUsage: Integer; RecordVariant: Variant; IsGUI: Boolean; VendorNoFieldNo: Integer; var Handled: Boolean)
-    var
-        ReportSelection: Record "Report Selections";
-        FunctionsMgt: Codeunit "PWD Function Mgt";
-    begin
-        FunctionsMgt.PrintDocumentsWithCheckDialogCommon(
-         ReportSelection.Usage::"Notice Investment", RecordVariant, IsGUI, VendorNoFieldNo, false, DATABASE::Vendor);
-    end;
+    // [EventSubscriber(ObjectType::Table, DataBase::"Report Selections", 'OnBeforePrintWithGUIYesNoVendor', '', false, false)]
+    // local procedure TAB77_OnBeforePrintWithGUIYesNoVendor_ReportSelections(ReportUsage: Integer; RecordVariant: Variant; IsGUI: Boolean; VendorNoFieldNo: Integer; var Handled: Boolean)
+    // var
+    //     ReportSelection: Record "Report Selections";
+    //     FunctionsMgt: Codeunit "PWD Function Mgt";
+    // begin 
+    //     FunctionsMgt.PrintDocumentsWithCheckDialogCommon(
+    //      ReportSelection.Usage::"Notice Investment", RecordVariant, IsGUI, VendorNoFieldNo, false, DATABASE::Vendor);
+    // end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post + Print", 'OnBeforeGetReport', '', false, false)]
     local procedure CDU92_OnBeforeGetReport_PurchPostPrint(var PurchaseHeader: Record "Purchase Header"; var IsHandled: Boolean)

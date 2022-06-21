@@ -14027,7 +14027,7 @@
         </trans-unit>
         <trans-unit id="Report 43542742 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total %1 Excl. VAT</source>
-          <target state="translated">Valeur nette totale %1 sans TVA</target>
+          <target state="translated">Totale %1 HT</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Text006</note>
         </trans-unit>
@@ -14387,7 +14387,7 @@
         </trans-unit>
         <trans-unit id="Report 3398044446 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total %1 Excl. VAT</source>
-          <target state="translated">Valeur nette totale %1 sans TVA</target>
+          <target state="translated">Totale %1 HT</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Quote AVITA - NamedType Text006</note>
         </trans-unit>
@@ -17103,6 +17103,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report SEAF : relevé vtes à emporter - NamedType Ventes_à_emporterCaptionLbl</note>
         </trans-unit>
+        <trans-unit id="Report 1656491412 - Control 4004956288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Imprimer N DSA vide</source>
+          <target state="translated">Imprimer N° DSA vide</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report SEAF : relevé vtes à emporter - Control BlankDSA - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2705054982 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Validate and Print Sales Order</source>
           <target state="translated">Valider et Imprimer Document Vente</target>
@@ -17696,6 +17702,12 @@
           <target state="translated">Impression classique</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Impression classique - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 3354500593 - Control 1336101634 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
+          <source>Buy-from Contact</source>
+          <target state="translated">Contact preneur d'ordre</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PurchaseCreditMemo - Control PWD Buy-from Contact - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 647356634 - Action 2176924989 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 387971303">
           <source>Classement sans suite</source>
