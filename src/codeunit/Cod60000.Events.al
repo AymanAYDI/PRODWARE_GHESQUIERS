@@ -1112,12 +1112,17 @@ codeunit 60000 "PWD Events"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post + Print", 'OnBeforeGetReport', '', false, false)]
     local procedure CDU92_OnBeforeGetReport_PurchPostPrint(var PurchaseHeader: Record "Purchase Header"; var IsHandled: Boolean)
     var
+        PurchRcptHeader: Record "Purch. Rcpt. Header";
         PurchPostPrint: codeunit "Purch.-Post + Print";
     begin
         case PurchaseHeader."Document Type" of
             PurchaseHeader."Document Type"::Order:
-                if PurchaseHeader.Receive then
-                    PurchPostPrint.PrintReceive(PurchaseHeader);
+                if PurchaseHeader.Receive then begin
+                    PurchRcptHeader."No." := PurchaseHeader."Last Receiving No.";
+                    PurchRcptHeader.SetRecFilter();
+                    PurchRcptHeader.PrintRecordsSpec(false);
+                    PurchRcptHeader.PrintRecords(false);
+                end;
             PurchaseHeader."Document Type"::Invoice:
                 PurchPostPrint.PrintInvoice(PurchaseHeader);
             PurchaseHeader."Document Type"::"Return Order":

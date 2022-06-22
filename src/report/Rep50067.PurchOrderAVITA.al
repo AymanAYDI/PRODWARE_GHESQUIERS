@@ -130,6 +130,12 @@ report 50067 "PWD Purch Order AVITA"
                     column(QuantityCaption; QuantityCaptionLbl)
                     {
                     }
+                    column(QuantitéCaption; QuantitéCaptionLbl)
+                    {
+                    }
+                    column(Réf__FnsCaption; Réf__FnsCaptionLbl)
+                    {
+                    }
                     column(Purchase_Line__Description_Control63Caption; "Purchase Line".FIELDCAPTION(Description))
                     {
                     }
@@ -142,13 +148,13 @@ report 50067 "PWD Purch Order AVITA"
                     column("UnitéCaption"; UnitéCaptionLbl)
                     {
                     }
-                    column(Direct_Unit_CostCaption; Direct_Unit_CostCaptionLbl)
+                    column(UnitPriceCaption; UnitPriceCaptionLbl)
                     {
                     }
                     column(AmountCaption; AmountCaptionLbl)
                     {
                     }
-                    column(Direct_Unit_CostCaption_Control1000000060; Direct_Unit_CostCaption_Control1000000060Lbl)
+                    column(UnitPriceCaption_Control1000000060; UnitPriceCaption_Control1000000060Lbl)
                     {
                     }
                     column(UnitCaption; UnitCaptionLbl)
@@ -322,6 +328,10 @@ report 50067 "PWD Purch Order AVITA"
                         column(LineNo_PurchLine; "Purchase Line"."Line No.")
                         {
                         }
+                        column(Type_PurchLine; "Purchase Line".type.AsInteger())
+                        {
+                        }
+
                         column(Purchase_Line___Line_Amount_; "Purchase Line"."Line Amount")
                         {
                             AutoFormatExpression = "Purchase Header"."Currency Code";
@@ -394,13 +404,6 @@ report 50067 "PWD Purch Order AVITA"
                             AutoFormatExpression = "Purchase Header"."Currency Code";
                             AutoFormatType = 1;
                         }
-                        column("Réf__FnsCaption"; Réf__FnsCaptionLbl)
-                        {
-                        }
-                        column("QuantitéCaption"; QuantitéCaptionLbl)
-                        {
-                        }
-
                         column(RoundLoop_Number; Number)
                         {
                         }
@@ -726,8 +729,8 @@ report 50067 "PWD Purch Order AVITA"
     begin
         IF USERID() <> '' THEN
             IF NOT UserTable.GET(USERID) THEN;
-        IF not IsNullGUID(UserSecurityId()) THEN
-            IF NOT User.GET(UserSecurityId()) THEN;
+        // IF not IsNullGUID(UserSecurityId()) THEN
+        //     IF NOT User.GET(UserSecurityId()) THEN;
     end;
 
     var
@@ -781,17 +784,17 @@ report 50067 "PWD Purch Order AVITA"
         Date_de_commande__CaptionLbl: Label 'Date de commande :';
         "Date_de_réception_demandée__CaptionLbl": Label 'Date de réception demandée :';
         "Désignation_ENUCaptionLbl": Label '/ Désignation ENU';
-        Direct_Unit_CostCaption_Control1000000060Lbl: Label 'Direct Unit Cost';
-        Direct_Unit_CostCaptionLbl: Label 'Direct Unit Cost';
+        UnitPriceCaption_Control1000000060Lbl: Label 'Unit Price';
+        UnitPriceCaptionLbl: Label 'Unit Price';
         Header_DimensionsCaptionLbl: Label 'Header Dimensions';
         "Notre_référence__CaptionLbl": Label 'Notre référence :';
         Text_Footer2: Label 'Nous vous prions de nous apporter une information systématique et immédiate en cas de manquants.';
         ORDERCaption_Control1000000047Lbl: Label 'ORDER';
         ORDERCaptionLbl: Label 'ORDER';
         PurchLine__Inv__Discount_Amount_CaptionLbl: Label 'Inv. Discount Amount';
-        "QuantitéCaptionLbl": Label 'Quantité';
+        QuantitéCaptionLbl: Label 'Quantité';
         QuantityCaptionLbl: Label 'Quantity';
-        "Réf__FnsCaptionLbl": Label ' Réf. Fns';
+        Réf__FnsCaptionLbl: Label 'Réf. Fns';
         Salutation_Text: Label ' Tout défaut pourra motiver le refus de la livraison.';
         SubtotalCaptionLbl: Label 'Subtotal';
         Tel_03_21_19_66_37___Fax_03_21_96_89_39CaptionLbl: Label 'Tel 03 21 19 66 37 / Fax 03 21 96 89 39';

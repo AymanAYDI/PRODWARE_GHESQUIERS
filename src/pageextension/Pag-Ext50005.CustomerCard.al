@@ -6,16 +6,15 @@ pageextension 50005 "PWD CustomerCard" extends "Customer Card"
         {
             Visible = false;
         }
-        addafter("No.")
+        addfirst(General)
         {
             field("PWD No."; Rec."No.")
             {
                 ApplicationArea = All;
                 Importance = Standard;
-                Visible = PWDNoFieldVisible;
             }
         }
-        addafter("No.")
+        addafter("PWD No.")
         {
             field("PWD Additional name"; Rec."PWD Additional name")
             {
@@ -195,8 +194,6 @@ pageextension 50005 "PWD CustomerCard" extends "Customer Card"
         }
     }
     var
-        PWDNoFieldVisible: Boolean;
-
     PROCEDURE SetLastInvoiceNo(): Code[20];
     VAR
         recLSalesInvoiceHeader: Record "Sales Invoice Header";
@@ -209,10 +206,4 @@ pageextension 50005 "PWD CustomerCard" extends "Customer Card"
         EXIT('');
     END;
 
-    procedure PWDSetNoFieldVisible()
-    var
-        DocumentNoVisibility: Codeunit DocumentNoVisibility;
-    begin
-        PWDNoFieldVisible := DocumentNoVisibility.CustomerNoIsVisible();
-    end;
 }

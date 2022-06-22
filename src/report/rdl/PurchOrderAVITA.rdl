@@ -346,8 +346,8 @@
                                                     <Width>1pt</Width>
                                                   </RightBorder>
                                                   <VerticalAlign>Bottom</VerticalAlign>
-                                                  <PaddingLeft>2pt</PaddingLeft>
-                                                  <PaddingRight>0.105cm</PaddingRight>
+                                                  <PaddingLeft>0.105cm</PaddingLeft>
+                                                  <PaddingRight>2pt</PaddingRight>
                                                   <PaddingTop>2pt</PaddingTop>
                                                   <PaddingBottom>2pt</PaddingBottom>
                                                 </Style>
@@ -424,14 +424,14 @@
                                           </TablixCell>
                                           <TablixCell>
                                             <CellContents>
-                                              <Textbox Name="Direct_Unit_CostCaption">
+                                              <Textbox Name="UnitPriceCaption">
                                                 <CanGrow>true</CanGrow>
                                                 <KeepTogether>true</KeepTogether>
                                                 <Paragraphs>
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>=First(Fields!Direct_Unit_CostCaption.Value)</Value>
+                                                        <Value>=First(Fields!UnitPriceCaption.Value)</Value>
                                                         <Style>
                                                           <FontSize>9pt</FontSize>
                                                           <FontWeight>Bold</FontWeight>
@@ -445,7 +445,7 @@
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>=First(Fields!AmountCaption.Value)</Value>
+                                                        <Value>=First(Fields!UnitPriceCaption_Control1000000060.Value)</Value>
                                                         <Style>
                                                           <FontSize>9pt</FontSize>
                                                           <FontWeight>Bold</FontWeight>
@@ -513,7 +513,7 @@
                                                   <Paragraph>
                                                     <TextRuns>
                                                       <TextRun>
-                                                        <Value>=First(Fields!Direct_Unit_CostCaption_Control1000000060.Value)</Value>
+                                                        <Value>=First(Fields!AmountCaption.Value)</Value>
                                                         <Style>
                                                           <FontSize>9pt</FontSize>
                                                           <FontWeight>Bold</FontWeight>
@@ -996,6 +996,9 @@
                                                   </Paragraph>
                                                 </Paragraphs>
                                                 <Style>
+                                                  <Border>
+                                                    <Style>None</Style>
+                                                  </Border>
                                                   <VerticalAlign>Middle</VerticalAlign>
                                                   <PaddingLeft>2pt</PaddingLeft>
                                                   <PaddingRight>2pt</PaddingRight>
@@ -1021,6 +1024,9 @@
                                                   </Paragraph>
                                                 </Paragraphs>
                                                 <Style>
+                                                  <Border>
+                                                    <Style>None</Style>
+                                                  </Border>
                                                   <VerticalAlign>Middle</VerticalAlign>
                                                   <PaddingLeft>2pt</PaddingLeft>
                                                   <PaddingRight>2pt</PaddingRight>
@@ -1046,6 +1052,9 @@
                                                   </Paragraph>
                                                 </Paragraphs>
                                                 <Style>
+                                                  <Border>
+                                                    <Style>None</Style>
+                                                  </Border>
                                                   <VerticalAlign>Middle</VerticalAlign>
                                                   <PaddingLeft>2pt</PaddingLeft>
                                                   <PaddingRight>2pt</PaddingRight>
@@ -1121,6 +1130,9 @@
                                                   </Paragraph>
                                                 </Paragraphs>
                                                 <Style>
+                                                  <Border>
+                                                    <Style>None</Style>
+                                                  </Border>
                                                   <VerticalAlign>Middle</VerticalAlign>
                                                   <PaddingLeft>2pt</PaddingLeft>
                                                   <PaddingRight>2pt</PaddingRight>
@@ -1146,6 +1158,9 @@
                                                   </Paragraph>
                                                 </Paragraphs>
                                                 <Style>
+                                                  <Border>
+                                                    <Style>None</Style>
+                                                  </Border>
                                                   <VerticalAlign>Middle</VerticalAlign>
                                                   <PaddingLeft>2pt</PaddingLeft>
                                                   <PaddingRight>2pt</PaddingRight>
@@ -1171,6 +1186,9 @@
                                                   </Paragraph>
                                                 </Paragraphs>
                                                 <Style>
+                                                  <Border>
+                                                    <Style>None</Style>
+                                                  </Border>
                                                   <VerticalAlign>Middle</VerticalAlign>
                                                   <PaddingLeft>2pt</PaddingLeft>
                                                   <PaddingRight>2pt</PaddingRight>
@@ -1196,6 +1214,9 @@
                                                   </Paragraph>
                                                 </Paragraphs>
                                                 <Style>
+                                                  <Border>
+                                                    <Style>None</Style>
+                                                  </Border>
                                                   <VerticalAlign>Middle</VerticalAlign>
                                                   <PaddingLeft>2pt</PaddingLeft>
                                                   <PaddingRight>2pt</PaddingRight>
@@ -3325,8 +3346,16 @@
                                           </Filters>
                                         </Group>
                                         <TablixMembers>
-                                          <TablixMember />
-                                          <TablixMember />
+                                          <TablixMember>
+                                            <Visibility>
+                                              <Hidden>=IIF(Fields!Type_PurchLine.Value &gt; 0, False, True)</Hidden>
+                                            </Visibility>
+                                          </TablixMember>
+                                          <TablixMember>
+                                            <Visibility>
+                                              <Hidden>=IIF(Fields!DescriptionENU.Value &lt;&gt; "", False, True)</Hidden>
+                                            </Visibility>
+                                          </TablixMember>
                                         </TablixMembers>
                                       </TablixMember>
                                       <TablixMember>
@@ -3465,8 +3494,7 @@ Cstr(Fields!Purchase_Header___Document_Date_.Value), 1)</Hidden>
                                                 </Visibility>
                                                 <Style>
                                                   <Border>
-                                                    <Color>LightGrey</Color>
-                                                    <Style>Solid</Style>
+                                                    <Style>None</Style>
                                                   </Border>
                                                 </Style>
                                               </Textbox>
@@ -4155,7 +4183,7 @@ Cstr(Fields!Purchase_Header___Document_Date_.Value), 1)</Hidden>
                 </Paragraph>
               </Paragraphs>
               <Top>0.03457cm</Top>
-              <Left>2.94635cm</Left>
+              <Left>2.62885cm</Left>
               <Height>0.846cm</Height>
               <Width>5.88cm</Width>
               <ZIndex>20</ZIndex>
@@ -4179,7 +4207,7 @@ Cstr(Fields!Purchase_Header___Document_Date_.Value), 1)</Hidden>
                 </Paragraph>
               </Paragraphs>
               <Top>0.88057cm</Top>
-              <Left>2.94635cm</Left>
+              <Left>2.62885cm</Left>
               <Height>0.423cm</Height>
               <Width>5.04cm</Width>
               <ZIndex>21</ZIndex>
@@ -4204,7 +4232,7 @@ Cstr(Fields!Purchase_Header___Document_Date_.Value), 1)</Hidden>
                 </Paragraph>
               </Paragraphs>
               <Top>1.30357cm</Top>
-              <Left>2.94635cm</Left>
+              <Left>2.62885cm</Left>
               <Height>0.423cm</Height>
               <Width>5.04cm</Width>
               <ZIndex>22</ZIndex>
@@ -4229,7 +4257,7 @@ Cstr(Fields!Purchase_Header___Document_Date_.Value), 1)</Hidden>
                 </Paragraph>
               </Paragraphs>
               <Top>1.72657cm</Top>
-              <Left>2.94635cm</Left>
+              <Left>2.62885cm</Left>
               <Height>0.423cm</Height>
               <Width>5.04cm</Width>
               <ZIndex>23</ZIndex>
@@ -4254,7 +4282,7 @@ Cstr(Fields!Purchase_Header___Document_Date_.Value), 1)</Hidden>
                 </Paragraph>
               </Paragraphs>
               <Top>2.14957cm</Top>
-              <Left>2.94635cm</Left>
+              <Left>2.62885cm</Left>
               <Height>0.423cm</Height>
               <Width>5.04cm</Width>
               <ZIndex>24</ZIndex>
@@ -4279,7 +4307,7 @@ Cstr(Fields!Purchase_Header___Document_Date_.Value), 1)</Hidden>
                 </Paragraph>
               </Paragraphs>
               <Top>2.57257cm</Top>
-              <Left>2.94635cm</Left>
+              <Left>2.62885cm</Left>
               <Height>0.423cm</Height>
               <Width>5.04cm</Width>
               <ZIndex>25</ZIndex>
@@ -4558,42 +4586,29 @@ Cstr(Fields!Purchase_Header___Document_Date_.Value), 1)</Hidden>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
             </Textbox>
-            <Rectangle Name="Rectangle15">
-              <ReportItems>
-                <Image Name="CompanyInfo__Logo_AVITA_facture_1">
-                  <Source>Database</Source>
-                  <Value>=Convert.FromBase64String(Fields!CompanyInfo__Logo_AVITA_facture_.Value)</Value>
-                  <MIMEType>image/bmp</MIMEType>
-                  <Height>2.961cm</Height>
-                  <Width>2.94cm</Width>
-                  <Visibility>
-                    <Hidden>=iif(ISNOTHING(Fields!CompanyInfo__Logo_AVITA_facture_.Value) = TRUE,true,false)</Hidden>
-                  </Visibility>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                  </Style>
-                </Image>
-              </ReportItems>
-              <KeepTogether>true</KeepTogether>
-              <Height>2.961cm</Height>
-              <Width>2.94cm</Width>
+            <Image Name="CompanyInfo__Logo_AVITA_facture_1">
+              <Source>Database</Source>
+              <Value>=First(Fields!CompanyInfo__Logo_AVITA_facture_.Value, "DataSet_Result")</Value>
+              <MIMEType>image/bmp</MIMEType>
+              <Sizing>FitProportional</Sizing>
+              <Top>0.165cm</Top>
+              <Left>0.03175cm</Left>
+              <Height>2.6cm</Height>
+              <Width>2.4cm</Width>
               <ZIndex>37</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
               </Style>
-            </Rectangle>
+            </Image>
           </ReportItems>
           <Style />
         </PageHeader>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
-        <LeftMargin>2.1cm</LeftMargin>
+        <LeftMargin>1cm</LeftMargin>
         <TopMargin>2cm</TopMargin>
-        <BottomMargin>2cm</BottomMargin>
         <Style />
       </Page>
     </ReportSection>
@@ -4819,6 +4834,12 @@ End Function</Code>
         <Field Name="QuantityCaption">
           <DataField>QuantityCaption</DataField>
         </Field>
+        <Field Name="QuantitéCaption">
+          <DataField>QuantitéCaption</DataField>
+        </Field>
+        <Field Name="Réf__FnsCaption">
+          <DataField>Réf__FnsCaption</DataField>
+        </Field>
         <Field Name="Purchase_Line__Description_Control63Caption">
           <DataField>Purchase_Line__Description_Control63Caption</DataField>
         </Field>
@@ -4831,14 +4852,14 @@ End Function</Code>
         <Field Name="UnitéCaption">
           <DataField>UnitéCaption</DataField>
         </Field>
-        <Field Name="Direct_Unit_CostCaption">
-          <DataField>Direct_Unit_CostCaption</DataField>
+        <Field Name="UnitPriceCaption">
+          <DataField>UnitPriceCaption</DataField>
         </Field>
         <Field Name="AmountCaption">
           <DataField>AmountCaption</DataField>
         </Field>
-        <Field Name="Direct_Unit_CostCaption_Control1000000060">
-          <DataField>Direct_Unit_CostCaption_Control1000000060</DataField>
+        <Field Name="UnitPriceCaption_Control1000000060">
+          <DataField>UnitPriceCaption_Control1000000060</DataField>
         </Field>
         <Field Name="UnitCaption">
           <DataField>UnitCaption</DataField>
@@ -4960,6 +4981,9 @@ End Function</Code>
         <Field Name="LineNo_PurchLine">
           <DataField>LineNo_PurchLine</DataField>
         </Field>
+        <Field Name="Type_PurchLine">
+          <DataField>Type_PurchLine</DataField>
+        </Field>
         <Field Name="Purchase_Line___Line_Amount_">
           <DataField>Purchase_Line___Line_Amount_</DataField>
         </Field>
@@ -5040,12 +5064,6 @@ End Function</Code>
         </Field>
         <Field Name="TotalAmountInclVATFormat">
           <DataField>TotalAmountInclVATFormat</DataField>
-        </Field>
-        <Field Name="Réf__FnsCaption">
-          <DataField>Réf__FnsCaption</DataField>
-        </Field>
-        <Field Name="QuantitéCaption">
-          <DataField>QuantitéCaption</DataField>
         </Field>
         <Field Name="RoundLoop_Number">
           <DataField>RoundLoop_Number</DataField>

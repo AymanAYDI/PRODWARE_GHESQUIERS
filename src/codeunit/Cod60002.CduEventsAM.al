@@ -9,15 +9,7 @@ codeunit 60002 "PWD CduEvents AM"
     begin
         IF PagCountriesRegions.LOOKUPMODE THEN PagCountriesRegions.EDITABLE(FALSE);
     end;
-    //--Page21--
-    [EventSubscriber(ObjectType::Page, Page::"Customer Card", 'OnBeforeGetSalesPricesAndSalesLineDisc', '', false, false)]
-    local procedure OnBeforeGetSalesPricesAndSalesLineDisc(var LoadOnDemand: Boolean)
-    var
-        CustCard: page "Customer Card";
-    begin
-        CustCard.PWDSetNoFieldVisible();
-    end;
-
+    //--Page21-- 
     [EventSubscriber(ObjectType::Page, Page::"Sales Quote", 'OnOpenPageEvent', '', false, false)]
     local procedure OnOpenPageEvent_SalesQuote(var Rec: Record "Sales Header")
     var

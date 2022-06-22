@@ -11613,16 +11613,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Date_de_réception_demandée__CaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 43542742 - NamedType 2012095352" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Direct Unit Cost</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Direct_Unit_CostCaptionLbl</note>
-        </trans-unit>
-        <trans-unit id="Report 43542742 - NamedType 3261697125" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Direct Unit Cost</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Direct_Unit_CostCaption_Control1000000060Lbl</note>
-        </trans-unit>
         <trans-unit id="Report 43542742 - NamedType 1063382722" size-unit="char" translate="yes" xml:space="preserve">
           <source>/ Désignation ENU</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -11664,7 +11654,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType QuantitéCaptionLbl</note>
         </trans-unit>
         <trans-unit id="Report 43542742 - NamedType 538821654" size-unit="char" translate="yes" xml:space="preserve">
-          <source> Réf. Fns</source>
+          <source>Réf. Fns</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Réf__FnsCaptionLbl</note>
         </trans-unit>
@@ -11727,6 +11717,16 @@
           <source>Unit</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType UnitCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 43542742 - NamedType 3659909257" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType UnitPriceCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 43542742 - NamedType 1508042388" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Unit Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType UnitPriceCaption_Control1000000060Lbl</note>
         </trans-unit>
         <trans-unit id="Report 43542742 - NamedType 2939370661" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unité</source>
