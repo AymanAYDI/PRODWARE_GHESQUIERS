@@ -105,4 +105,15 @@ tableextension 60028 "PWD PurchRcptHeader" extends "Purch. Rcpt. Header"
         //TODO
         //REPORT.RUNMODAL(REPORT::"Déclaration sommaire", TRUE, TRUE, Rec);
     end;
+
+    procedure PrintRecordsSpec(ShowRequestForm: Boolean)
+    var
+        ReportSelection: Record "Report Selections";
+    begin
+        PurchRcptHeader.Copy(Rec);
+        ReportSelection.PrintWithDialogForVend(
+          ReportSelection.Usage::"Notice Investment", PurchRcptHeader, False, FieldNo("Buy-from Vendor No."));
+    end;
+
 }
+
