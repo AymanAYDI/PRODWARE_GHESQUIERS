@@ -157,6 +157,9 @@ report 50124 "PWD Apurement fin de mois V2"
                     column(ValueOfQtyOnHand; ValueOfQtyOnHand)
                     {
                     }
+                    column(Value_Entry_Item_Ledger_Entry_No; "Item Ledger Entry No.")
+                    {
+                    }
                     trigger OnAfterGetRecord()
                     begin
                         IF (EndDate <> 0D) AND ("Posting Date" > EndDate) THEN

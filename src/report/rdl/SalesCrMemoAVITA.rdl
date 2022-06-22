@@ -11,6 +11,367 @@
       <rd:DataSourceID>eb844e03-339e-4e92-b6b3-f37738fb2ab1</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="Sales_CrMemo_Header_No_">
+          <DataField>Sales_CrMemo_Header_No_</DataField>
+        </Field>
+        <Field Name="CompanyInfo__Logo_ISSA_">
+          <DataField>CompanyInfo__Logo_ISSA_</DataField>
+        </Field>
+        <Field Name="CustAddr_6_">
+          <DataField>CustAddr_6_</DataField>
+        </Field>
+        <Field Name="CustAddr_7_">
+          <DataField>CustAddr_7_</DataField>
+        </Field>
+        <Field Name="CustAddr_5_">
+          <DataField>CustAddr_5_</DataField>
+        </Field>
+        <Field Name="CustAddr_4_">
+          <DataField>CustAddr_4_</DataField>
+        </Field>
+        <Field Name="CustAddr_3_">
+          <DataField>CustAddr_3_</DataField>
+        </Field>
+        <Field Name="CustAddr_2_">
+          <DataField>CustAddr_2_</DataField>
+        </Field>
+        <Field Name="CustAddr_1_">
+          <DataField>CustAddr_1_</DataField>
+        </Field>
+        <Field Name="InvoiceCaption">
+          <DataField>InvoiceCaption</DataField>
+        </Field>
+        <Field Name="ShipToAddr_6_">
+          <DataField>ShipToAddr_6_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_7_">
+          <DataField>ShipToAddr_7_</DataField>
+        </Field>
+        <Field Name="N__id__intracom_____CompanyInfo__VAT_Registration_No__">
+          <DataField>N__id__intracom_____CompanyInfo__VAT_Registration_No__</DataField>
+        </Field>
+        <Field Name="ShipToAddr_5_">
+          <DataField>ShipToAddr_5_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_4_">
+          <DataField>ShipToAddr_4_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_3_">
+          <DataField>ShipToAddr_3_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_2_">
+          <DataField>ShipToAddr_2_</DataField>
+        </Field>
+        <Field Name="ShipToAddr_1_">
+          <DataField>ShipToAddr_1_</DataField>
+        </Field>
+        <Field Name="Fax_______CompanyInfo__Fax_No__">
+          <DataField>Fax_______CompanyInfo__Fax_No__</DataField>
+        </Field>
+        <Field Name="E_Mail_______CompanyInfo__E_Mail_">
+          <DataField>E_Mail_______CompanyInfo__E_Mail_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_5_">
+          <DataField>CompanyAddr_5_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_3_">
+          <DataField>CompanyAddr_3_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_4_">
+          <DataField>CompanyAddr_4_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_2_">
+          <DataField>CompanyAddr_2_</DataField>
+        </Field>
+        <Field Name="CompanyAddr_1_">
+          <DataField>CompanyAddr_1_</DataField>
+        </Field>
+        <Field Name="Tel_CompanyInfo_Phone_No__">
+          <DataField>Tel_CompanyInfo_Phone_No__</DataField>
+        </Field>
+        <Field Name="ShipmentCaption">
+          <DataField>ShipmentCaption</DataField>
+        </Field>
+        <Field Name="CAPTAIN_AND_OWNER_S_OF_M_VCaption">
+          <DataField>CAPTAIN_AND_OWNER_S_OF_M_VCaption</DataField>
+        </Field>
+        <Field Name="au_Capital_de___CompanyInfo__Stock_Capital_">
+          <DataField>au_Capital_de___CompanyInfo__Stock_Capital_</DataField>
+        </Field>
+        <Field Name="CompanyInfo__Logo_AVITA_facture_">
+          <DataField>CompanyInfo__Logo_AVITA_facture_</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Header___DSA_No__">
+          <DataField>Sales_Cr_Memo_Header___DSA_No__</DataField>
+        </Field>
+        <Field Name="Cust__VAT_Registration_No__">
+          <DataField>Cust__VAT_Registration_No__</DataField>
+        </Field>
+        <Field Name="InvoiceCaption_Control1000000058">
+          <DataField>InvoiceCaption_Control1000000058</DataField>
+        </Field>
+        <Field Name="CustAdditionalname">
+          <DataField>CustAdditionalname</DataField>
+        </Field>
+        <Field Name="CustMail4">
+          <DataField>CustMail4</DataField>
+        </Field>
+        <Field Name="GCO">
+          <DataField>GCO</DataField>
+        </Field>
+        <Field Name="OutputNo">
+          <DataField>OutputNo</DataField>
+        </Field>
+        <Field Name="STRSUBSTNO_Text004_CopyText_">
+          <DataField>STRSUBSTNO_Text004_CopyText_</DataField>
+        </Field>
+        <Field Name="Sales_CrMemo_Header__Reference">
+          <DataField>Sales_CrMemo_Header__Reference</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line_Description_Caption">
+          <DataField>Sales_Cr_Memo_Line_Description_Caption</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__No__Caption">
+          <DataField>Sales_Cr_Memo_Line__No__Caption</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__VAT_Identifier_Caption">
+          <DataField>Sales_Cr_Memo_Line__VAT_Identifier_Caption</DataField>
+        </Field>
+        <Field Name="AmountCaption">
+          <DataField>AmountCaption</DataField>
+        </Field>
+        <Field Name="Unit_PriceCaption">
+          <DataField>Unit_PriceCaption</DataField>
+        </Field>
+        <Field Name="UnitCaption">
+          <DataField>UnitCaption</DataField>
+        </Field>
+        <Field Name="UnitCaptionFR">
+          <DataField>UnitCaptionFR</DataField>
+        </Field>
+        <Field Name="STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__">
+          <DataField>STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__</DataField>
+        </Field>
+        <Field Name="ReferenceText">
+          <DataField>ReferenceText</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Header___Your_Reference_">
+          <DataField>Sales_Cr_Memo_Header___Your_Reference_</DataField>
+        </Field>
+        <Field Name="AmountCaptionFR">
+          <DataField>AmountCaptionFR</DataField>
+        </Field>
+        <Field Name="Unit_PriceCaptionFR">
+          <DataField>Unit_PriceCaptionFR</DataField>
+        </Field>
+        <Field Name="QuantityCaption">
+          <DataField>QuantityCaption</DataField>
+        </Field>
+        <Field Name="QuantityCaptionFR">
+          <DataField>QuantityCaptionFR</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__Line_Amount_">
+          <DataField>Sales_Cr_Memo_Line__Line_Amount_</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__Line_Amount_Format">
+          <DataField>Sales_Cr_Memo_Line__Line_Amount_Format</DataField>
+        </Field>
+        <Field Name="SalesLine__Type_">
+          <DataField>SalesLine__Type_</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line_Description">
+          <DataField>Sales_Cr_Memo_Line_Description</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__No__">
+          <DataField>Sales_Cr_Memo_Line__No__</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line_Quantity">
+          <DataField>Sales_Cr_Memo_Line_Quantity</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line_QuantityFormat">
+          <DataField>Sales_Cr_Memo_Line_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__Unit_of_Measure_">
+          <DataField>Sales_Cr_Memo_Line__Unit_of_Measure_</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__Unit_Price_">
+          <DataField>Sales_Cr_Memo_Line__Unit_Price_</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__Unit_Price_Format">
+          <DataField>Sales_Cr_Memo_Line__Unit_Price_Format</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__Line_Amount__Control70">
+          <DataField>Sales_Cr_Memo_Line__Line_Amount__Control70</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__Line_Amount__Control70Format">
+          <DataField>Sales_Cr_Memo_Line__Line_Amount__Control70Format</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__VAT_Identifier_">
+          <DataField>Sales_Cr_Memo_Line__VAT_Identifier_</DataField>
+        </Field>
+        <Field Name="Amount_Including_VAT_">
+          <DataField>Amount_Including_VAT_</DataField>
+        </Field>
+        <Field Name="Amount_Including_VAT_Format">
+          <DataField>Amount_Including_VAT_Format</DataField>
+        </Field>
+        <Field Name="ItemTrans_Description">
+          <DataField>ItemTrans_Description</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__Line_Amount__Control86">
+          <DataField>Sales_Cr_Memo_Line__Line_Amount__Control86</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__Line_Amount__Control86Format">
+          <DataField>Sales_Cr_Memo_Line__Line_Amount__Control86Format</DataField>
+        </Field>
+        <Field Name="InvoiceCaption_Control1000000002">
+          <DataField>InvoiceCaption_Control1000000002</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line_Amount">
+          <DataField>Sales_Cr_Memo_Line_Amount</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line_AmountFormat">
+          <DataField>Sales_Cr_Memo_Line_AmountFormat</DataField>
+        </Field>
+        <Field Name="Amount_Including_VAT____Amount">
+          <DataField>Amount_Including_VAT____Amount</DataField>
+        </Field>
+        <Field Name="Amount_Including_VAT____AmountFormat">
+          <DataField>Amount_Including_VAT____AmountFormat</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__Amount_Including_VAT_">
+          <DataField>Sales_Cr_Memo_Line__Amount_Including_VAT_</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__Amount_Including_VAT_Format">
+          <DataField>Sales_Cr_Memo_Line__Amount_Including_VAT_Format</DataField>
+        </Field>
+        <Field Name="VATAmountLine_VATAmountText">
+          <DataField>VATAmountLine_VATAmountText</DataField>
+        </Field>
+        <Field Name="TotalExclVATText">
+          <DataField>TotalExclVATText</DataField>
+        </Field>
+        <Field Name="TotalInclVATText">
+          <DataField>TotalInclVATText</DataField>
+        </Field>
+        <Field Name="VatArrayID_1_">
+          <DataField>VatArrayID_1_</DataField>
+        </Field>
+        <Field Name="VatArrayID_2_">
+          <DataField>VatArrayID_2_</DataField>
+        </Field>
+        <Field Name="VatArrayID_3_">
+          <DataField>VatArrayID_3_</DataField>
+        </Field>
+        <Field Name="VatArrayID_4_">
+          <DataField>VatArrayID_4_</DataField>
+        </Field>
+        <Field Name="VatArrayRate_1_">
+          <DataField>VatArrayRate_1_</DataField>
+        </Field>
+        <Field Name="VatArrayRate_1_Format">
+          <DataField>VatArrayRate_1_Format</DataField>
+        </Field>
+        <Field Name="VatArrayRate_2_">
+          <DataField>VatArrayRate_2_</DataField>
+        </Field>
+        <Field Name="VatArrayRate_2_Format">
+          <DataField>VatArrayRate_2_Format</DataField>
+        </Field>
+        <Field Name="VatArrayRate_3_">
+          <DataField>VatArrayRate_3_</DataField>
+        </Field>
+        <Field Name="VatArrayRate_3_Format">
+          <DataField>VatArrayRate_3_Format</DataField>
+        </Field>
+        <Field Name="VatArrayRate_4_">
+          <DataField>VatArrayRate_4_</DataField>
+        </Field>
+        <Field Name="VatArrayRate_4_Format">
+          <DataField>VatArrayRate_4_Format</DataField>
+        </Field>
+        <Field Name="VatArrayBase_1_">
+          <DataField>VatArrayBase_1_</DataField>
+        </Field>
+        <Field Name="VatArrayBase_1_Format">
+          <DataField>VatArrayBase_1_Format</DataField>
+        </Field>
+        <Field Name="VatArrayBase_2_">
+          <DataField>VatArrayBase_2_</DataField>
+        </Field>
+        <Field Name="VatArrayBase_2_Format">
+          <DataField>VatArrayBase_2_Format</DataField>
+        </Field>
+        <Field Name="VatArrayBase_3_">
+          <DataField>VatArrayBase_3_</DataField>
+        </Field>
+        <Field Name="VatArrayBase_3_Format">
+          <DataField>VatArrayBase_3_Format</DataField>
+        </Field>
+        <Field Name="VatArrayBase_4_">
+          <DataField>VatArrayBase_4_</DataField>
+        </Field>
+        <Field Name="VatArrayBase_4_Format">
+          <DataField>VatArrayBase_4_Format</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_1_">
+          <DataField>VatArrayAmount_1_</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_1_Format">
+          <DataField>VatArrayAmount_1_Format</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_2_">
+          <DataField>VatArrayAmount_2_</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_2_Format">
+          <DataField>VatArrayAmount_2_Format</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_3_">
+          <DataField>VatArrayAmount_3_</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_3_Format">
+          <DataField>VatArrayAmount_3_Format</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_4_">
+          <DataField>VatArrayAmount_4_</DataField>
+        </Field>
+        <Field Name="VatArrayAmount_4_Format">
+          <DataField>VatArrayAmount_4_Format</DataField>
+        </Field>
+        <Field Name="PaymentMethod_Description__________PaymentTerms_Description">
+          <DataField>PaymentMethod_Description__________PaymentTerms_Description</DataField>
+        </Field>
+        <Field Name="Conditions_de_paiement___Settlement___Caption">
+          <DataField>Conditions_de_paiement___Settlement___Caption</DataField>
+        </Field>
+        <Field Name="TauxCaption">
+          <DataField>TauxCaption</DataField>
+        </Field>
+        <Field Name="BaseCaption">
+          <DataField>BaseCaption</DataField>
+        </Field>
+        <Field Name="MontantCaption">
+          <DataField>MontantCaption</DataField>
+        </Field>
+        <Field Name="LA_MARCHANDISE_LIVREE_RESTECaption">
+          <DataField>LA_MARCHANDISE_LIVREE_RESTECaption</DataField>
+        </Field>
+        <Field Name="Sales_CrMemo_Line_Document_No_">
+          <DataField>Sales_CrMemo_Line_Document_No_</DataField>
+        </Field>
+        <Field Name="Sales_CrMemo_Line_Line_No_">
+          <DataField>Sales_CrMemo_Line_Line_No_</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -24,335 +385,12 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>9.00711cm</Height>
+                  <Height>9.01939cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
                         <Rectangle Name="Rectangle1">
                           <ReportItems>
-                            <Tablix Name="Tablix6">
-                              <TablixBody>
-                                <TablixColumns>
-                                  <TablixColumn>
-                                    <Width>0.42258cm</Width>
-                                  </TablixColumn>
-                                  <TablixColumn>
-                                    <Width>0.42258cm</Width>
-                                  </TablixColumn>
-                                  <TablixColumn>
-                                    <Width>0.42258cm</Width>
-                                  </TablixColumn>
-                                  <TablixColumn>
-                                    <Width>0.42258cm</Width>
-                                  </TablixColumn>
-                                  <TablixColumn>
-                                    <Width>0.42258cm</Width>
-                                  </TablixColumn>
-                                  <TablixColumn>
-                                    <Width>0.42258cm</Width>
-                                  </TablixColumn>
-                                  <TablixColumn>
-                                    <Width>0.42258cm</Width>
-                                  </TablixColumn>
-                                </TablixColumns>
-                                <TablixRows>
-                                  <TablixRow>
-                                    <Height>0.424cm</Height>
-                                    <TablixCells>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="CustAddr">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style />
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <Visibility>
-                                              <Hidden>=Code.SetData(Cstr(Fields!CustAddr_1_.Value) + Chr(177) +
-Cstr(Fields!CustAddr_2_.Value) + Chr(177)+
-Cstr(Fields!CustAddr_3_.Value) + Chr(177)+
-Cstr(Fields!CustAddr_4_.Value) + Chr(177)+
-Cstr(Fields!CustAddr_5_.Value) + Chr(177)+
-Cstr(Fields!CustAddr_6_.Value) + Chr(177)+
-Cstr(Fields!CustAddr_7_.Value) + Chr(177)+
-Cstr(Fields!CustMail4.Value) + Chr(177)+
-Cstr(Fields!CustAdditionalname.Value) + Chr(177) , 1)</Hidden>
-                                            </Visibility>
-                                            <Style>
-                                              <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
-                                              </Border>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="CompanyAddr">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style />
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <Visibility>
-                                              <Hidden>=Code.SetData(Cstr(Fields!CompanyAddr_1_.Value)+ Chr(177)+
-Cstr(Fields!CompanyAddr_2_.Value)+ Chr(177)+
-Cstr(Fields!CompanyAddr_3_.Value)+ Chr(177)+
-Cstr(Fields!CompanyAddr_4_.Value)+ Chr(177)+
-Cstr(Fields!InvoiceCaption.Value)+ Chr(177) + 
-Cstr(Fields!CompanyAddr_5_.Value)+ Chr(177), 2)</Hidden>
-                                            </Visibility>
-                                            <Style>
-                                              <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
-                                              </Border>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="CompanyInfo">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style />
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <Visibility>
-                                              <Hidden>=Code.SetData(Cstr(Fields!au_Capital_de___CompanyInfo__Stock_Capital_.Value)+ Chr(177)+
-Cstr(Fields!Tel_______CompanyInfo__Phone_No__.Value)+ Chr(177)+
-Cstr(Fields!Fax_______CompanyInfo__Fax_No__.Value)+ Chr(177)+
-Cstr(Fields!E_Mail_______CompanyInfo__E_Mail_.Value)+ Chr(177)+
-Cstr(Fields!N__id__intracom_____CompanyInfo__VAT_Registration_No__.Value)+ Chr(177), 3)</Hidden>
-                                            </Visibility>
-                                            <Style>
-                                              <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
-                                              </Border>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="SalesHdrInfo">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style />
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <Visibility>
-                                              <Hidden>=Code.SetData(Cstr(Fields!Cust__VAT_Registration_No__.Value)+ Chr(177) +
-Cstr(Fields!InvoiceCaption_Control1000000058.Value) + Chr(177) , 4)</Hidden>
-                                            </Visibility>
-                                            <Style>
-                                              <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
-                                              </Border>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="ShipToAddr">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style />
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <Visibility>
-                                              <Hidden>=Code.SetData(Cstr(Fields!ShipToAddr_1_.Value) + Chr(177) +
-Cstr(Fields!ShipToAddr_2_.Value) + Chr(177) +
-Cstr(Fields!ShipToAddr_3_.Value) + Chr(177) +
-Cstr(Fields!ShipToAddr_4_.Value) + Chr(177) +
-Cstr(Fields!ShipToAddr_5_.Value) + Chr(177) +
-Cstr(Fields!ShipToAddr_6_.Value) + Chr(177) +
-Cstr(Fields!ShipToAddr_7_.Value)+ Chr(177) +
-Cstr(Fields!CAPTAIN_AND_OWNER_S_OF_M_VCaption.Value)+ Chr(177) +
-Cstr(Fields!ShipmentCaption.Value)+ Chr(177) +
-Cstr(Fields!InvoiceCaption_Control1000000002.Value)+ Chr(177) , 5)</Hidden>
-                                            </Visibility>
-                                            <Style>
-                                              <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
-                                              </Border>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Footer">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style />
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <Visibility>
-                                              <Hidden>=Code.SetData(Cstr(Fields!Conditions_de_paiement___Settlement___Caption.Value) + Chr(177) +
-Cstr(Fields!PaymentMethod_Description__________PaymentTerms_Description.Value) + Chr(177) +
-Cstr(Fields!LA_MARCHANDISE_LIVREE_RESTECaption.Value) + Chr(177) +
-Cstr(Fields!Conditions_de_paiement___Settlement___Caption.Value) + Chr(177) +
-Cstr(Fields!PaymentMethod_Description__________PaymentTerms_Description.Value) + Chr(177) , 6)</Hidden>
-                                            </Visibility>
-                                            <Style>
-                                              <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
-                                              </Border>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Header1">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style />
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <Visibility>
-                                              <Hidden>=Code.SetData(Cstr(Fields!STRSUBSTNO_Text004_CopyText_.Value) + Chr(177) +
-Cstr(Fields!Sales_CrMemo_Header__Reference.Value) + Chr(177) +
-Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177)+
-Cstr(Fields!ReferenceText.Value)+ Chr(177)+
-Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden>
-                                            </Visibility>
-                                            <Style>
-                                              <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>Solid</Style>
-                                              </Border>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                    </TablixCells>
-                                  </TablixRow>
-                                </TablixRows>
-                              </TablixBody>
-                              <TablixColumnHierarchy>
-                                <TablixMembers>
-                                  <TablixMember />
-                                  <TablixMember />
-                                  <TablixMember />
-                                  <TablixMember />
-                                  <TablixMember />
-                                  <TablixMember />
-                                  <TablixMember />
-                                </TablixMembers>
-                              </TablixColumnHierarchy>
-                              <TablixRowHierarchy>
-                                <TablixMembers>
-                                  <TablixMember />
-                                </TablixMembers>
-                              </TablixRowHierarchy>
-                              <Left>12.58966cm</Left>
-                              <Height>0.424cm</Height>
-                              <Width>2.95806cm</Width>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                              </Style>
-                            </Tablix>
                             <Tablix Name="Tablix7">
                               <TablixBody>
                                 <TablixColumns>
@@ -1563,10 +1601,9 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
-                              <Top>0.92429cm</Top>
+                              <Top>0.84667cm</Top>
                               <Height>2.7cm</Height>
-                              <Width>19.76462cm</Width>
-                              <ZIndex>1</ZIndex>
+                              <Width>19.7646cm</Width>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1592,7 +1629,7 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                               <Left>12.1371cm</Left>
                               <Height>0.56825cm</Height>
                               <Width>7.62752cm</Width>
-                              <ZIndex>2</ZIndex>
+                              <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -2068,7 +2105,7 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                               <Left>12.1371cm</Left>
                               <Height>1.79999cm</Height>
                               <Width>7.62752cm</Width>
-                              <ZIndex>3</ZIndex>
+                              <ZIndex>2</ZIndex>
                               <Style>
                                 <VerticalAlign>Bottom</VerticalAlign>
                               </Style>
@@ -3283,7 +3320,7 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                               <Top>4.70238cm</Top>
                               <Height>2.54809cm</Height>
                               <Width>10.6cm</Width>
-                              <ZIndex>4</ZIndex>
+                              <ZIndex>3</ZIndex>
                               <Style>
                                 <VerticalAlign>Bottom</VerticalAlign>
                               </Style>
@@ -3309,7 +3346,7 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                               <Left>0.0042cm</Left>
                               <Height>0.63492cm</Height>
                               <Width>2.03828cm</Width>
-                              <ZIndex>5</ZIndex>
+                              <ZIndex>4</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -3340,7 +3377,7 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                               <Left>2.07776cm</Left>
                               <Height>0.63492cm</Height>
                               <Width>8.119cm</Width>
-                              <ZIndex>6</ZIndex>
+                              <ZIndex>5</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -3372,7 +3409,7 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                               <Left>16.50153cm</Left>
                               <Height>0.63492cm</Height>
                               <Width>1.4cm</Width>
-                              <ZIndex>7</ZIndex>
+                              <ZIndex>6</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -3383,6 +3420,358 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                                 <PaddingBottom>2pt</PaddingBottom>
                               </Style>
                             </Textbox>
+                            <Tablix Name="table2">
+                              <TablixBody>
+                                <TablixColumns>
+                                  <TablixColumn>
+                                    <Width>0.42258cm</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>0.42258cm</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>0.42258cm</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>0.49767cm</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>0.51014cm</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>0.51014cm</Width>
+                                  </TablixColumn>
+                                  <TablixColumn>
+                                    <Width>0.51014cm</Width>
+                                  </TablixColumn>
+                                </TablixColumns>
+                                <TablixRows>
+                                  <TablixRow>
+                                    <Height>0.424cm</Height>
+                                    <TablixCells>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="CustAddr2">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value EvaluationMode="Constant" />
+                                                    <Style>
+                                                      <Color>#ff0000</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <ZIndex>6</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!CustAddr_1_.Value) + Chr(177) +
+Cstr(Fields!CustAddr_2_.Value) + Chr(177)+
+Cstr(Fields!CustAddr_3_.Value) + Chr(177)+
+Cstr(Fields!CustAddr_4_.Value) + Chr(177)+
+Cstr(Fields!CustAddr_5_.Value) + Chr(177)+
+Cstr(Fields!CustAddr_6_.Value) + Chr(177)+
+Cstr(Fields!CustAddr_7_.Value) + Chr(177)+
+Cstr(Fields!CustMail4.Value) + Chr(177)+
+Cstr(Fields!CustAdditionalname.Value) + Chr(177) +
+Cstr(Fields!Tel_CompanyInfo_Phone_No__.Value)+ Chr(177), 1)</Hidden>
+                                            </Visibility>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <VerticalAlign>Middle</VerticalAlign>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="CompanyAddr2">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value EvaluationMode="Constant" />
+                                                    <Style>
+                                                      <Color>#ff0000</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <ZIndex>5</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!CompanyAddr_1_.Value)+ Chr(177)+
+Cstr(Fields!CompanyAddr_2_.Value)+ Chr(177)+
+Cstr(Fields!CompanyAddr_3_.Value)+ Chr(177)+
+Cstr(Fields!CompanyAddr_4_.Value)+ Chr(177)+
+Cstr(Fields!InvoiceCaption.Value)+ Chr(177) + 
+Cstr(Fields!CompanyAddr_5_.Value)+ Chr(177), 2)</Hidden>
+                                            </Visibility>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <VerticalAlign>Middle</VerticalAlign>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="CompanyInfo2">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value EvaluationMode="Constant" />
+                                                    <Style>
+                                                      <Color>#ff0000</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <ZIndex>4</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!au_Capital_de___CompanyInfo__Stock_Capital_.Value)+ Chr(177)+
+Cstr(Fields!Tel_CompanyInfo_Phone_No__.Value)+ Chr(177)+
+Cstr(Fields!Fax_______CompanyInfo__Fax_No__.Value)+ Chr(177)+
+Cstr(Fields!E_Mail_______CompanyInfo__E_Mail_.Value)+ Chr(177)+
+Cstr(Fields!N__id__intracom_____CompanyInfo__VAT_Registration_No__.Value)+ Chr(177), 3)</Hidden>
+                                            </Visibility>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <VerticalAlign>Middle</VerticalAlign>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                          <rd:Selected>true</rd:Selected>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="SalesHdrInfo2">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value EvaluationMode="Constant" />
+                                                    <Style>
+                                                      <Color>#ff0000</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <ZIndex>3</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!Cust__VAT_Registration_No__.Value)+ Chr(177) +
+Cstr(Fields!InvoiceCaption_Control1000000058.Value) + Chr(177) , 4)</Hidden>
+                                            </Visibility>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <VerticalAlign>Middle</VerticalAlign>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="ShipToAddr2">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value EvaluationMode="Constant" />
+                                                    <Style>
+                                                      <Color>#ff0000</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <ZIndex>2</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!ShipToAddr_1_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_2_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_3_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_4_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_5_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_6_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_7_.Value)+ Chr(177) +
+Cstr(Fields!CAPTAIN_AND_OWNER_S_OF_M_VCaption.Value)+ Chr(177) +
+Cstr(Fields!ShipmentCaption.Value)+ Chr(177) +
+Cstr(Fields!InvoiceCaption_Control1000000002.Value)+ Chr(177) , 5)</Hidden>
+                                            </Visibility>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <VerticalAlign>Middle</VerticalAlign>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="Footer2">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value EvaluationMode="Constant" />
+                                                    <Style>
+                                                      <Color>#ff0000</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <ZIndex>1</ZIndex>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!Conditions_de_paiement___Settlement___Caption.Value) + Chr(177) +
+Cstr(Fields!PaymentMethod_Description__________PaymentTerms_Description.Value) + Chr(177) +
+Cstr(Fields!LA_MARCHANDISE_LIVREE_RESTECaption.Value) + Chr(177) +
+Cstr(Fields!Conditions_de_paiement___Settlement___Caption.Value) + Chr(177) +
+Cstr(Fields!PaymentMethod_Description__________PaymentTerms_Description.Value) + Chr(177) , 6)</Hidden>
+                                            </Visibility>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <VerticalAlign>Middle</VerticalAlign>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="Header2">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value EvaluationMode="Constant" />
+                                                    <Style>
+                                                      <Color>#ff0000</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!STRSUBSTNO_Text004_CopyText_.Value) + Chr(177) +
+Cstr(Fields!Sales_CrMemo_Header__Reference.Value) + Chr(177) +
+Cstr(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value) + Chr(177)+
+Cstr(Fields!ReferenceText.Value)+ Chr(177)+
+Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden>
+                                            </Visibility>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <VerticalAlign>Middle</VerticalAlign>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                    </TablixCells>
+                                  </TablixRow>
+                                </TablixRows>
+                              </TablixBody>
+                              <TablixColumnHierarchy>
+                                <TablixMembers>
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                  <TablixMember />
+                                </TablixMembers>
+                              </TablixColumnHierarchy>
+                              <TablixRowHierarchy>
+                                <TablixMembers>
+                                  <TablixMember>
+                                    <Group Name="table2_Details_Group">
+                                      <GroupExpressions>
+                                        <GroupExpression>=Fields!Sales_CrMemo_Header_No_.Value</GroupExpression>
+                                        <GroupExpression>=Fields!Sales_CrMemo_Line_Line_No_.Value</GroupExpression>
+                                      </GroupExpressions>
+                                      <DataElementName>Detail</DataElementName>
+                                    </Group>
+                                    <TablixMembers>
+                                      <TablixMember />
+                                    </TablixMembers>
+                                    <DataElementName>Detail_Collection</DataElementName>
+                                    <DataElementOutput>Output</DataElementOutput>
+                                    <KeepTogether>true</KeepTogether>
+                                  </TablixMember>
+                                </TablixMembers>
+                              </TablixRowHierarchy>
+                              <DataSetName>DataSet_Result</DataSetName>
+                              <Top>0.00007cm</Top>
+                              <Left>11.72529cm</Left>
+                              <Height>0.424cm</Height>
+                              <Width>3.29583cm</Width>
+                              <ZIndex>7</ZIndex>
+                              <Style />
+                            </Tablix>
                           </ReportItems>
                           <KeepTogether>true</KeepTogether>
                           <Style>
@@ -3408,7 +3797,6 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                   <Group Name="Details">
                     <GroupExpressions>
                       <GroupExpression>=Fields!Sales_CrMemo_Header_No_.Value</GroupExpression>
-                      <GroupExpression>=Fields!OutputNo.Value</GroupExpression>
                     </GroupExpressions>
                     <PageBreak>
                       <BreakLocation>Between</BreakLocation>
@@ -3419,7 +3807,7 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
             <Top>0.17639cm</Top>
-            <Height>9.00711cm</Height>
+            <Height>9.01939cm</Height>
             <Width>19.76462cm</Width>
             <Style>
               <Border>
@@ -4262,7 +4650,7 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(2,3)</Value>
+                      <Value>=fields!E_Mail_______CompanyInfo__E_Mail_.Value</Value>
                       <Style>
                         <FontSize>8pt</FontSize>
                       </Style>
@@ -4277,6 +4665,35 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
               <Height>0.423cm</Height>
               <Width>6.3cm</Width>
               <ZIndex>29</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox32">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(3,5)</Value>
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox28</rd:DefaultName>
+              <Top>1.56935cm</Top>
+              <Left>13.22645cm</Left>
+              <Height>0.423cm</Height>
+              <Width>6.31172cm</Width>
+              <ZIndex>30</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4381,34 +4798,6 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Textbox Name="textbox46">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.SetData(ReportItems!Footer.Value,6)</Value>
-                      <Style>
-                        <Color>Red</Color>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <Top>0.10583cm</Top>
-              <Left>13.01224cm</Left>
-              <Height>0.31746cm</Height>
-              <Width>0.95238cm</Width>
-              <ZIndex>3</ZIndex>
-              <Visibility>
-                <Hidden>true</Hidden>
-              </Visibility>
-              <Style>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-              </Style>
-            </Textbox>
           </ReportItems>
           <Style>
             <Border>
@@ -4427,6 +4816,12 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Shared LineNbr as Integer
 Public PageNum as Integer = 1
 Shared VatNbr as Integer
@@ -4647,365 +5042,4 @@ REM Reset Page Number:
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="Sales_CrMemo_Header_No_">
-          <DataField>Sales_CrMemo_Header_No_</DataField>
-        </Field>
-        <Field Name="CompanyInfo__Logo_ISSA_">
-          <DataField>CompanyInfo__Logo_ISSA_</DataField>
-        </Field>
-        <Field Name="CustAddr_6_">
-          <DataField>CustAddr_6_</DataField>
-        </Field>
-        <Field Name="CustAddr_7_">
-          <DataField>CustAddr_7_</DataField>
-        </Field>
-        <Field Name="CustAddr_5_">
-          <DataField>CustAddr_5_</DataField>
-        </Field>
-        <Field Name="CustAddr_4_">
-          <DataField>CustAddr_4_</DataField>
-        </Field>
-        <Field Name="CustAddr_3_">
-          <DataField>CustAddr_3_</DataField>
-        </Field>
-        <Field Name="CustAddr_2_">
-          <DataField>CustAddr_2_</DataField>
-        </Field>
-        <Field Name="CustAddr_1_">
-          <DataField>CustAddr_1_</DataField>
-        </Field>
-        <Field Name="InvoiceCaption">
-          <DataField>InvoiceCaption</DataField>
-        </Field>
-        <Field Name="ShipToAddr_6_">
-          <DataField>ShipToAddr_6_</DataField>
-        </Field>
-        <Field Name="ShipToAddr_7_">
-          <DataField>ShipToAddr_7_</DataField>
-        </Field>
-        <Field Name="N__id__intracom_____CompanyInfo__VAT_Registration_No__">
-          <DataField>N__id__intracom_____CompanyInfo__VAT_Registration_No__</DataField>
-        </Field>
-        <Field Name="ShipToAddr_5_">
-          <DataField>ShipToAddr_5_</DataField>
-        </Field>
-        <Field Name="ShipToAddr_4_">
-          <DataField>ShipToAddr_4_</DataField>
-        </Field>
-        <Field Name="ShipToAddr_3_">
-          <DataField>ShipToAddr_3_</DataField>
-        </Field>
-        <Field Name="ShipToAddr_2_">
-          <DataField>ShipToAddr_2_</DataField>
-        </Field>
-        <Field Name="ShipToAddr_1_">
-          <DataField>ShipToAddr_1_</DataField>
-        </Field>
-        <Field Name="Fax_______CompanyInfo__Fax_No__">
-          <DataField>Fax_______CompanyInfo__Fax_No__</DataField>
-        </Field>
-        <Field Name="E_Mail_______CompanyInfo__E_Mail_">
-          <DataField>E_Mail_______CompanyInfo__E_Mail_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_5_">
-          <DataField>CompanyAddr_5_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_3_">
-          <DataField>CompanyAddr_3_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_4_">
-          <DataField>CompanyAddr_4_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_2_">
-          <DataField>CompanyAddr_2_</DataField>
-        </Field>
-        <Field Name="CompanyAddr_1_">
-          <DataField>CompanyAddr_1_</DataField>
-        </Field>
-        <Field Name="Tel_______CompanyInfo__Phone_No__">
-          <DataField>Tel_______CompanyInfo__Phone_No__</DataField>
-        </Field>
-        <Field Name="ShipmentCaption">
-          <DataField>ShipmentCaption</DataField>
-        </Field>
-        <Field Name="CAPTAIN_AND_OWNER_S_OF_M_VCaption">
-          <DataField>CAPTAIN_AND_OWNER_S_OF_M_VCaption</DataField>
-        </Field>
-        <Field Name="au_Capital_de___CompanyInfo__Stock_Capital_">
-          <DataField>au_Capital_de___CompanyInfo__Stock_Capital_</DataField>
-        </Field>
-        <Field Name="CompanyInfo__Logo_AVITA_facture_">
-          <DataField>CompanyInfo__Logo_AVITA_facture_</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Header___DSA_No__">
-          <DataField>Sales_Cr_Memo_Header___DSA_No__</DataField>
-        </Field>
-        <Field Name="Cust__VAT_Registration_No__">
-          <DataField>Cust__VAT_Registration_No__</DataField>
-        </Field>
-        <Field Name="InvoiceCaption_Control1000000058">
-          <DataField>InvoiceCaption_Control1000000058</DataField>
-        </Field>
-        <Field Name="CustAdditionalname">
-          <DataField>CustAdditionalname</DataField>
-        </Field>
-        <Field Name="CustMail4">
-          <DataField>CustMail4</DataField>
-        </Field>
-        <Field Name="GCO">
-          <DataField>GCO</DataField>
-        </Field>
-        <Field Name="OutputNo">
-          <DataField>OutputNo</DataField>
-        </Field>
-        <Field Name="STRSUBSTNO_Text004_CopyText_">
-          <DataField>STRSUBSTNO_Text004_CopyText_</DataField>
-        </Field>
-        <Field Name="Sales_CrMemo_Header__Reference">
-          <DataField>Sales_CrMemo_Header__Reference</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line_Description_Caption">
-          <DataField>Sales_Cr_Memo_Line_Description_Caption</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__No__Caption">
-          <DataField>Sales_Cr_Memo_Line__No__Caption</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__VAT_Identifier_Caption">
-          <DataField>Sales_Cr_Memo_Line__VAT_Identifier_Caption</DataField>
-        </Field>
-        <Field Name="AmountCaption">
-          <DataField>AmountCaption</DataField>
-        </Field>
-        <Field Name="Unit_PriceCaption">
-          <DataField>Unit_PriceCaption</DataField>
-        </Field>
-        <Field Name="UnitCaption">
-          <DataField>UnitCaption</DataField>
-        </Field>
-        <Field Name="UnitCaptionFR">
-          <DataField>UnitCaptionFR</DataField>
-        </Field>
-        <Field Name="STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__">
-          <DataField>STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__</DataField>
-        </Field>
-        <Field Name="ReferenceText">
-          <DataField>ReferenceText</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Header___Your_Reference_">
-          <DataField>Sales_Cr_Memo_Header___Your_Reference_</DataField>
-        </Field>
-        <Field Name="AmountCaptionFR">
-          <DataField>AmountCaptionFR</DataField>
-        </Field>
-        <Field Name="Unit_PriceCaptionFR">
-          <DataField>Unit_PriceCaptionFR</DataField>
-        </Field>
-        <Field Name="QuantityCaption">
-          <DataField>QuantityCaption</DataField>
-        </Field>
-        <Field Name="QuantityCaptionFR">
-          <DataField>QuantityCaptionFR</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__Line_Amount_">
-          <DataField>Sales_Cr_Memo_Line__Line_Amount_</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__Line_Amount_Format">
-          <DataField>Sales_Cr_Memo_Line__Line_Amount_Format</DataField>
-        </Field>
-        <Field Name="SalesLine__Type_">
-          <DataField>SalesLine__Type_</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line_Description">
-          <DataField>Sales_Cr_Memo_Line_Description</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__No__">
-          <DataField>Sales_Cr_Memo_Line__No__</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line_Quantity">
-          <DataField>Sales_Cr_Memo_Line_Quantity</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line_QuantityFormat">
-          <DataField>Sales_Cr_Memo_Line_QuantityFormat</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__Unit_of_Measure_">
-          <DataField>Sales_Cr_Memo_Line__Unit_of_Measure_</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__Unit_Price_">
-          <DataField>Sales_Cr_Memo_Line__Unit_Price_</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__Unit_Price_Format">
-          <DataField>Sales_Cr_Memo_Line__Unit_Price_Format</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__Line_Amount__Control70">
-          <DataField>Sales_Cr_Memo_Line__Line_Amount__Control70</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__Line_Amount__Control70Format">
-          <DataField>Sales_Cr_Memo_Line__Line_Amount__Control70Format</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__VAT_Identifier_">
-          <DataField>Sales_Cr_Memo_Line__VAT_Identifier_</DataField>
-        </Field>
-        <Field Name="Amount_Including_VAT_">
-          <DataField>Amount_Including_VAT_</DataField>
-        </Field>
-        <Field Name="Amount_Including_VAT_Format">
-          <DataField>Amount_Including_VAT_Format</DataField>
-        </Field>
-        <Field Name="ItemTrans_Description">
-          <DataField>ItemTrans_Description</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__Line_Amount__Control86">
-          <DataField>Sales_Cr_Memo_Line__Line_Amount__Control86</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__Line_Amount__Control86Format">
-          <DataField>Sales_Cr_Memo_Line__Line_Amount__Control86Format</DataField>
-        </Field>
-        <Field Name="InvoiceCaption_Control1000000002">
-          <DataField>InvoiceCaption_Control1000000002</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line_Amount">
-          <DataField>Sales_Cr_Memo_Line_Amount</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line_AmountFormat">
-          <DataField>Sales_Cr_Memo_Line_AmountFormat</DataField>
-        </Field>
-        <Field Name="Amount_Including_VAT____Amount">
-          <DataField>Amount_Including_VAT____Amount</DataField>
-        </Field>
-        <Field Name="Amount_Including_VAT____AmountFormat">
-          <DataField>Amount_Including_VAT____AmountFormat</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__Amount_Including_VAT_">
-          <DataField>Sales_Cr_Memo_Line__Amount_Including_VAT_</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__Amount_Including_VAT_Format">
-          <DataField>Sales_Cr_Memo_Line__Amount_Including_VAT_Format</DataField>
-        </Field>
-        <Field Name="VATAmountLine_VATAmountText">
-          <DataField>VATAmountLine_VATAmountText</DataField>
-        </Field>
-        <Field Name="TotalExclVATText">
-          <DataField>TotalExclVATText</DataField>
-        </Field>
-        <Field Name="TotalInclVATText">
-          <DataField>TotalInclVATText</DataField>
-        </Field>
-        <Field Name="VatArrayID_1_">
-          <DataField>VatArrayID_1_</DataField>
-        </Field>
-        <Field Name="VatArrayID_2_">
-          <DataField>VatArrayID_2_</DataField>
-        </Field>
-        <Field Name="VatArrayID_3_">
-          <DataField>VatArrayID_3_</DataField>
-        </Field>
-        <Field Name="VatArrayID_4_">
-          <DataField>VatArrayID_4_</DataField>
-        </Field>
-        <Field Name="VatArrayRate_1_">
-          <DataField>VatArrayRate_1_</DataField>
-        </Field>
-        <Field Name="VatArrayRate_1_Format">
-          <DataField>VatArrayRate_1_Format</DataField>
-        </Field>
-        <Field Name="VatArrayRate_2_">
-          <DataField>VatArrayRate_2_</DataField>
-        </Field>
-        <Field Name="VatArrayRate_2_Format">
-          <DataField>VatArrayRate_2_Format</DataField>
-        </Field>
-        <Field Name="VatArrayRate_3_">
-          <DataField>VatArrayRate_3_</DataField>
-        </Field>
-        <Field Name="VatArrayRate_3_Format">
-          <DataField>VatArrayRate_3_Format</DataField>
-        </Field>
-        <Field Name="VatArrayRate_4_">
-          <DataField>VatArrayRate_4_</DataField>
-        </Field>
-        <Field Name="VatArrayRate_4_Format">
-          <DataField>VatArrayRate_4_Format</DataField>
-        </Field>
-        <Field Name="VatArrayBase_1_">
-          <DataField>VatArrayBase_1_</DataField>
-        </Field>
-        <Field Name="VatArrayBase_1_Format">
-          <DataField>VatArrayBase_1_Format</DataField>
-        </Field>
-        <Field Name="VatArrayBase_2_">
-          <DataField>VatArrayBase_2_</DataField>
-        </Field>
-        <Field Name="VatArrayBase_2_Format">
-          <DataField>VatArrayBase_2_Format</DataField>
-        </Field>
-        <Field Name="VatArrayBase_3_">
-          <DataField>VatArrayBase_3_</DataField>
-        </Field>
-        <Field Name="VatArrayBase_3_Format">
-          <DataField>VatArrayBase_3_Format</DataField>
-        </Field>
-        <Field Name="VatArrayBase_4_">
-          <DataField>VatArrayBase_4_</DataField>
-        </Field>
-        <Field Name="VatArrayBase_4_Format">
-          <DataField>VatArrayBase_4_Format</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_1_">
-          <DataField>VatArrayAmount_1_</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_1_Format">
-          <DataField>VatArrayAmount_1_Format</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_2_">
-          <DataField>VatArrayAmount_2_</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_2_Format">
-          <DataField>VatArrayAmount_2_Format</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_3_">
-          <DataField>VatArrayAmount_3_</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_3_Format">
-          <DataField>VatArrayAmount_3_Format</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_4_">
-          <DataField>VatArrayAmount_4_</DataField>
-        </Field>
-        <Field Name="VatArrayAmount_4_Format">
-          <DataField>VatArrayAmount_4_Format</DataField>
-        </Field>
-        <Field Name="PaymentMethod_Description__________PaymentTerms_Description">
-          <DataField>PaymentMethod_Description__________PaymentTerms_Description</DataField>
-        </Field>
-        <Field Name="Conditions_de_paiement___Settlement___Caption">
-          <DataField>Conditions_de_paiement___Settlement___Caption</DataField>
-        </Field>
-        <Field Name="TauxCaption">
-          <DataField>TauxCaption</DataField>
-        </Field>
-        <Field Name="BaseCaption">
-          <DataField>BaseCaption</DataField>
-        </Field>
-        <Field Name="MontantCaption">
-          <DataField>MontantCaption</DataField>
-        </Field>
-        <Field Name="LA_MARCHANDISE_LIVREE_RESTECaption">
-          <DataField>LA_MARCHANDISE_LIVREE_RESTECaption</DataField>
-        </Field>
-        <Field Name="Sales_CrMemo_Line_Document_No_">
-          <DataField>Sales_CrMemo_Line_Document_No_</DataField>
-        </Field>
-        <Field Name="Sales_CrMemo_Line_Line_No_">
-          <DataField>Sales_CrMemo_Line_Line_No_</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
 </Report>

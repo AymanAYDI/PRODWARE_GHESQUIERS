@@ -95,7 +95,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                     column(CompanyAddr_1_; CompanyAddr[1])
                     {
                     }
-                    column(Tel_______CompanyInfo__Phone_No__; TelCaptionLbl + CompanyInfo."Phone No.")
+                    column(Tel_CompanyInfo_Phone_No__; TelCaptionLbl + CompanyInfo."Phone No.")
                     {
                     }
                     column(ShipmentCaption; ShipmentCaptionLbl)
