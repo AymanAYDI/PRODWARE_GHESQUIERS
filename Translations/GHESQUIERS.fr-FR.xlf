@@ -13986,7 +13986,6 @@
         <trans-unit id="Report 43542742 - NamedType 538821654" size-unit="char" translate="yes" xml:space="preserve">
           <source>Réf. Fns</source>
           <target state="translated"> Réf. Fns</target>
-          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Réf__FnsCaptionLbl</note>
         </trans-unit>
@@ -21156,31 +21155,31 @@
         </trans-unit>
         <trans-unit id="TableExtension 1044911975 - Field 8485518 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>SEAF Code</source>
-          <target state="translated">SEAF Code</target>
+          <target state="translated">OCL Code</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesLine - Field PWD Item SEAF Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1044911975 - Field 2152740220 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>Item SEAF Code 2</source>
-          <target state="translated">SEAF Code N°2</target>
+          <target state="translated">GARRETS Code</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesLine - Field PWD Item SEAF Code 2 - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1044911975 - Field 1515043603 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>Item SEAF Code 3</source>
-          <target state="translated">SEAF Code N°3</target>
+          <target state="translated">EMDER Code</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesLine - Field PWD Item SEAF Code 3 - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1044911975 - Field 877346986 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>Item SEAF Code 4</source>
-          <target state="translated">SEAF Code N°4</target>
+          <target state="translated">JANDENUL Code</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesLine - Field PWD Item SEAF Code 4 - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 1044911975 - Field 239650369 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2574427010">
           <source>Item SEAF Code 5</source>
-          <target state="translated">SEAF Code N°5</target>
+          <target state="translated">HMS Code</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesLine - Field PWD Item SEAF Code 5 - Property Caption</note>
         </trans-unit>

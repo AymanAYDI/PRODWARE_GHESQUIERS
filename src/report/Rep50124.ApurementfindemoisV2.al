@@ -160,7 +160,13 @@ report 50124 "PWD Apurement fin de mois V2"
                     column(Value_Entry_Item_Ledger_Entry_No; "Item Ledger Entry No.")
                     {
                     }
+                    column(CountEntryNo; CountEntryNo)
+                    {
+                    }
+
                     trigger OnAfterGetRecord()
+                    var
+                        ValueEntry: record "Value Entry";
                     begin
                         IF (EndDate <> 0D) AND ("Posting Date" > EndDate) THEN
                             CurrReport.SKIP();
@@ -212,6 +218,16 @@ report 50124 "PWD Apurement fin de mois V2"
                             ExpCostPostedToGL := "Cost Posted to G/L";
                         END ELSE
                             InvCostPostedToGL := "Cost Posted to G/L";
+                        CountEntryNo := 1;
+                        clear(ValueEntry);
+                        ValueEntry.SETRANGE("Item Ledger Entry No.", "Item Ledger Entry"."Entry No.");
+                        ValueEntry.SETFILTER("Variant Code", Item.GETFILTER("Variant Filter"));
+                        ValueEntry.SETFILTER("Location Code", Item.GETFILTER("Location Filter"));
+                        ValueEntry.SETFILTER("Global Dimension 1 Code", Item.GETFILTER("Global Dimension 1 Filter"));
+                        ValueEntry.SETFILTER("Global Dimension 2 Code", Item.GETFILTER("Global Dimension 2 Filter"));
+                        if ValueEntry.findset() then
+                            CountEntryNo := ValueEntry.count();
+
                     end;
 
                     trigger OnPostDataItem()
@@ -233,6 +249,7 @@ report 50124 "PWD Apurement fin de mois V2"
                         SETFILTER("Location Code", Item.GETFILTER("Location Filter"));
                         SETFILTER("Global Dimension 1 Code", Item.GETFILTER("Global Dimension 1 Filter"));
                         SETFILTER("Global Dimension 2 Code", Item.GETFILTER("Global Dimension 2 Filter"));
+
                     end;
                 }
 
@@ -411,6 +428,7 @@ report 50124 "PWD Apurement fin de mois V2"
         ValueOfQtyOnHand: Decimal;
         ValueOfRcdIncreases: Decimal;
         methodeAT: Integer;
+        CountEntryNo: Integer;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         "DésignationCaptionLbl": Label 'Désignation';
         "EntréesCaptionLbl": Label 'Entrées';

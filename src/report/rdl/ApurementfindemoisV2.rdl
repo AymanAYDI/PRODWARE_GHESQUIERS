@@ -19,7 +19,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>27.4cm</Width>
+                  <Width>24.9cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -37,9 +37,6 @@
                                     <Width>1.70562cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>2.5cm</Width>
-                                  </TablixColumn>
-                                  <TablixColumn>
                                     <Width>8.36629cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
@@ -55,7 +52,7 @@
                                     <Width>3.20562cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>2.00562cm</Width>
+                                    <Width>2.00561cm</Width>
                                   </TablixColumn>
                                 </TablixColumns>
                                 <TablixRows>
@@ -78,33 +75,6 @@
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <Style>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox2">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style />
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox2</rd:DefaultName>
                                             <Style>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>2pt</PaddingLeft>
@@ -363,36 +333,6 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox3">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>Item Ledger Entry Item No </Value>
-                                                    <Style>
-                                                      <FontSize>7pt</FontSize>
-                                                      <FontWeight>Bold</FontWeight>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox3</rd:DefaultName>
-                                            <Style>
-                                              <VerticalAlign>Bottom</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>0.075cm</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
                                           <Textbox Name="DésignationCaption">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
@@ -600,10 +540,9 @@
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <ColSpan>3</ColSpan>
+                                          <ColSpan>2</ColSpan>
                                         </CellContents>
                                       </TablixCell>
-                                      <TablixCell />
                                       <TablixCell />
                                       <TablixCell>
                                         <CellContents>
@@ -767,38 +706,6 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Item_Ledger_Entry__Item_No__1">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Fields!Item_Ledger_Entry_Entry_No_.Value</Value>
-                                                    <Style>
-                                                      <FontSize>7pt</FontSize>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Item_Ledger_Entry__Item_No__1</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <VerticalAlign>Middle</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>0.075cm</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                      <TablixCell>
-                                        <CellContents>
                                           <Textbox Name="Item_Description_Item__Description_2_">
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
@@ -922,7 +829,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!QttValorisedEndPeriod_Control1000000004.Value/Count(Fields!Item_Ledger_Entry_Entry_No_.Value))</Value>
+                                                    <Value>=Sum(Fields!QttValorisedEndPeriod_Control1000000004.Value/Fields!CountEntryNo.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                       <Format>=First(Fields!QttValorisedEndPeriod_Control1000000004Format.Value)</Format>
@@ -952,7 +859,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!ValueInAmountEndPeriod_Control53.Value/Count(Fields!Item_Ledger_Entry_Entry_No_.Value))</Value>
+                                                    <Value>=Sum(Fields!ValueInAmountEndPeriod_Control53.Value/Fields!CountEntryNo.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                       <Format>=First(Fields!ValueInAmountEndPeriod_Control53Format.Value)</Format>
@@ -1005,10 +912,9 @@
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <ColSpan>3</ColSpan>
+                                          <ColSpan>2</ColSpan>
                                         </CellContents>
                                       </TablixCell>
-                                      <TablixCell />
                                       <TablixCell />
                                       <TablixCell>
                                         <CellContents>
@@ -1105,17 +1011,17 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="QttValorisedEndPeriod">
+                                          <Textbox Name="QttValorisedEndPeriod_Control15">
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!QttValorisedEndPeriod_Control1000000004.Value/Count(Fields!Item_Ledger_Entry_Entry_No_.Value))</Value>
+                                                    <Value>=Sum(Fields!QttValorisedEndPeriod_Control1000000004.Value/Fields!CountEntryNo.Value)</Value>
                                                     <Style>
-                                                      <FontSize>8pt</FontSize>
+                                                      <FontSize>7pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
-                                                      <Format>=First(Fields!QttValorisedEndPeriodFormat.Value)</Format>
+                                                      <Format>=First(Fields!QttValorisedEndPeriod_Control1000000004Format.Value)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -1136,17 +1042,17 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="ValueInAmountEndPeriod">
+                                          <Textbox Name="ValueInAmountEndPeriod_Control54">
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!ValueInAmountEndPeriod_Control53.Value/Count(Fields!Item_Ledger_Entry_Entry_No_.Value))</Value>
+                                                    <Value>=Sum(Fields!ValueInAmountEndPeriod_Control53.Value/Fields!CountEntryNo.Value)</Value>
                                                     <Style>
-                                                      <FontSize>8pt</FontSize>
+                                                      <FontSize>7pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
-                                                      <Format>=First(Fields!ValueInAmountEndPeriodFormat.Value)</Format>
+                                                      <Format>=First(Fields!ValueInAmountEndPeriod_Control53Format.Value)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -1163,7 +1069,6 @@
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                     </TablixCells>
@@ -1172,7 +1077,6 @@
                               </TablixBody>
                               <TablixColumnHierarchy>
                                 <TablixMembers>
-                                  <TablixMember />
                                   <TablixMember />
                                   <TablixMember />
                                   <TablixMember />
@@ -1223,7 +1127,7 @@
                               <DataSetName>DataSet_Result</DataSetName>
                               <Top>0.42333cm</Top>
                               <Height>2.93454cm</Height>
-                              <Width>27.40001cm</Width>
+                              <Width>24.9cm</Width>
                               <Style />
                             </Tablix>
                             <Tablix Name="Tablix2">
@@ -1328,7 +1232,7 @@ Cstr(Fields!Filtre___ecrFilter.Value) + Chr(177), 1)</Hidden>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
             <Height>3.35789cm</Height>
-            <Width>27.4cm</Width>
+            <Width>24.9cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1339,7 +1243,7 @@ Cstr(Fields!Filtre___ecrFilter.Value) + Chr(177), 1)</Hidden>
         <Height>3.35789cm</Height>
         <Style />
       </Body>
-      <Width>27.4cm</Width>
+      <Width>24.9cm</Width>
       <Page>
         <PageHeader>
           <Height>2.07178cm</Height>
@@ -1937,6 +1841,9 @@ REM Reset Page Number:
         </Field>
         <Field Name="Value_Entry_Item_Ledger_Entry_No">
           <DataField>Value_Entry_Item_Ledger_Entry_No</DataField>
+        </Field>
+        <Field Name="CountEntryNo">
+          <DataField>CountEntryNo</DataField>
         </Field>
       </Fields>
       <Query>
