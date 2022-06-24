@@ -58,7 +58,7 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
         }
         addafter("Bill-to Contact")
         {
-            field("Discount Profit %"; Rec."PWD Discount Profit %")
+            field("PWD Discount Profit %"; Rec."PWD Discount Profit %")
             {
                 ApplicationArea = all;
                 Editable = false;
@@ -103,6 +103,7 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
             action("PWD Calc PU")
             {
                 ApplicationArea = all;
+                Caption = 'Calc PU';
                 Promoted = true;
                 PromotedCategory = Process;
                 Image = Calculate;
@@ -119,6 +120,7 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
             action("PWD Quote PDF_Email")
             {
                 ApplicationArea = all;
+                Caption = 'Quote PDF_Email';
                 Promoted = true;
                 Image = SendTo;
                 PromotedCategory = Process;

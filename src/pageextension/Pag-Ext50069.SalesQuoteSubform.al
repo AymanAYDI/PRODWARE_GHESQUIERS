@@ -130,6 +130,7 @@ pageextension 50069 "PWD SalesQuoteSubform" extends "Sales Quote Subform"
             action("PWD ExtraireCodeFournisseurEtCoutUnitaireDirect")
             {
                 ApplicationArea = all;
+                ShortCutKey = 'Shift+Ctrl+F';
                 Caption = 'Extraire code &Fournisseur et coût unitaire direct';
                 Image = Action;
                 Promoted = true;
@@ -140,6 +141,10 @@ pageextension 50069 "PWD SalesQuoteSubform" extends "Sales Quote Subform"
                     Rec.FctPushVendorAndUnitCostItem();
                 END;
             }
+        }
+        modify("Select Nonstoc&k Items")
+        {
+            ShortcutKey = 'F6';
         }
     }
     PROCEDURE UnitPriceOnFormat()

@@ -14285,7 +14285,7 @@
         </trans-unit>
         <trans-unit id="Report 3398044446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Quote AVITA</source>
-          <target state="translated">Achats : Demande de prix</target>
+          <target state="translated">Devis AVITA</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Quote AVITA - Property Caption</note>
         </trans-unit>
@@ -14399,7 +14399,7 @@
         </trans-unit>
         <trans-unit id="Report 3398044446 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
           <source>Order Confirmation %1</source>
-          <target state="translated">Confirmation de commande %1</target>
+          <target state="translated">DEVIS</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Quote AVITA - NamedType Text004</note>
         </trans-unit>
@@ -18057,11 +18057,23 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesQuote - Action PWD Item no stocks - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 211738147 - Action 893891493 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
+          <source>Calc PU</source>
+          <target state="translated">Calculer PU=CU*Coef</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesQuote - Action PWD Calc PU - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 211738147 - Action 1285117728 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
           <source>Filing Reason</source>
           <target state="translated">Classement sans suite</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesQuote - Action PWD FilingReason - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 211738147 - Action 3332579132 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
+          <source>Quote PDF_Email</source>
+          <target state="translated">Devis PDF / Mail</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesQuote - Action PWD Quote PDF_Email - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 211738147 - Action 4059081929 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
           <source>Trading Brand</source>

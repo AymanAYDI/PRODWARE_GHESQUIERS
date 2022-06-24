@@ -15048,10 +15048,20 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesQuote - Action PWD Item no stocks - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 211738147 - Action 893891493 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
+          <source>Calc PU</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesQuote - Action PWD Calc PU - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 211738147 - Action 1285117728 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
           <source>Filing Reason</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesQuote - Action PWD FilingReason - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 211738147 - Action 3332579132 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
+          <source>Quote PDF_Email</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD SalesQuote - Action PWD Quote PDF_Email - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 211738147 - Action 4059081929 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 280137910">
           <source>Trading Brand</source>
