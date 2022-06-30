@@ -24,114 +24,12 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>13.89741cm</Height>
+                  <Height>14.32074cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
                         <Rectangle Name="Rectangle1">
                           <ReportItems>
-                            <Tablix Name="table6">
-                              <TablixBody>
-                                <TablixColumns>
-                                  <TablixColumn>
-                                    <Width>0.79871cm</Width>
-                                  </TablixColumn>
-                                </TablixColumns>
-                                <TablixRows>
-                                  <TablixRow>
-                                    <Height>0.79417cm</Height>
-                                    <TablixCells>
-                                      <TablixCell>
-                                        <CellContents>
-                                          <Textbox Name="Textbox130">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value />
-                                                    <Style>
-                                                      <Color>Red</Color>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style />
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Textbox130</rd:DefaultName>
-                                            <Visibility>
-                                              <Hidden>=Code.SetData(Cstr(Fields!CompanyAddr_1_.Value) + Chr(177) + 
-Cstr(Fields!CompanyInfoStockCapital_Caption.Value) + Chr(177) + 
-Cstr(Fields!CompanyAddr_2_.Value) + Chr(177) + 
-Cstr(Fields!CompanyAddr_3_.Value) + Chr(177) + 
-Cstr(Fields!CompanyAddr_4_.Value) + Chr(177) + 
-Cstr(Fields!CompanyAddr_5_.Value) + Chr(177) + 
-Cstr(Fields!CompanyInfoPhoneNo.Value) + Chr(177) + 
-Cstr(Fields!FaxCompanyInfoFaxNo.Value) + Chr(177) + 
-Cstr(Fields!E_MailCompanyInfoEMail.Value) + Chr(177) + 
-Cstr(Fields!IdIntracomCompanyInfoVATRegistrationNo.Value) + Chr(177) + 
-Cstr(Fields!CopyText.Value) + Chr(177) + 
-Cstr(Fields!PAGENO_Caption.Value) + Chr(177) + 
-Cstr(Fields!CustAddr_1_.Value) + Chr(177) + 
-Cstr(Fields!CustAddr_2_.Value) + Chr(177) + 
-Cstr(Fields!CustAddr_3_.Value)+ Chr(177) +
-Cstr(Fields!CustAddr_4_.Value) + Chr(177) +
-Cstr(Fields!CustAddr_5_.Value) + Chr(177) +
-Cstr(Fields!CustAddr_6_.Value) + Chr(177) +
-Cstr(Fields!CustAddr_7_.Value) + Chr(177) +
-Cstr(Fields!CustAddr_8_.Value) + Chr(177) +
-Cstr(Fields!SalesHeader_BillToCustomerNo_Caption.Value) + Chr(177) +
-Cstr(Fields!SalesHeader_BillToCustomerNo.Value) + Chr(177) +
-Cstr(Fields!SalesHeader_ReferenceCaption.Value) + Chr(177) +
-Cstr(Fields!SalesHeader_Reference.Value) + Chr(177) +
-Cstr(Fields!SalesPersonText.Value) + Chr(177) +
-Cstr(Fields!SalesPurchPerson_Name.Value) + Chr(177) +
-Cstr(Fields!SalesHeader_ShipmentDate_Caption.Value) + Chr(177) +
-Cstr(Fields!SalesHeader_ShipmentDate.Value) + Chr(177) +
-Cstr(Fields!OrderNo_Caption.Value) + Chr(177) +
-Cstr(Fields!SalesHeader_No.Value) + Chr(177) +
-Cstr(Fields!SalesHeader_PricesIncludingVAT_Caption.Value) + Chr(177) +
-Cstr(Fields!SalesHeader_PricesIncludingVAT.Value) + Chr(177) +
-Cstr(Fields!Ship_to_AddressCaption.Value) + Chr(177) +
-Cstr(Fields!ShipToAddr_1_.Value) + Chr(177) +
-Cstr(Fields!ShipToAddr_2_.Value) + Chr(177) +
-Cstr(Fields!ShipToAddr_3_.Value) + Chr(177) +
-Cstr(Fields!ShipToAddr_4_.Value) + Chr(177) +
-Cstr(Fields!SalesHeader_DocumentDate.Value)
-, 1)</Hidden>
-                                            </Visibility>
-                                            <Style>
-                                              <Border>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <BackgroundColor>Red</BackgroundColor>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixCell>
-                                    </TablixCells>
-                                  </TablixRow>
-                                </TablixRows>
-                              </TablixBody>
-                              <TablixColumnHierarchy>
-                                <TablixMembers>
-                                  <TablixMember />
-                                </TablixMembers>
-                              </TablixColumnHierarchy>
-                              <TablixRowHierarchy>
-                                <TablixMembers>
-                                  <TablixMember>
-                                    <KeepTogether>true</KeepTogether>
-                                  </TablixMember>
-                                </TablixMembers>
-                              </TablixRowHierarchy>
-                              <DataSetName>DataSet_Result</DataSetName>
-                              <Left>18.27949cm</Left>
-                              <Height>0.79417cm</Height>
-                              <Width>0.79871cm</Width>
-                              <Style />
-                            </Tablix>
                             <Rectangle Name="Rectangle13">
                               <ReportItems>
                                 <Textbox Name="Textbox50">
@@ -198,10 +96,10 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                                 </Textbox>
                               </ReportItems>
                               <KeepTogether>true</KeepTogether>
+                              <Top>0.3175cm</Top>
                               <Left>0.03181cm</Left>
                               <Height>0.423cm</Height>
                               <Width>18.10657cm</Width>
-                              <ZIndex>1</ZIndex>
                               <Visibility>
                                 <Hidden>=iif(Fields!DimensionLoop1_Number.Value = 1, False, True)</Hidden>
                               </Visibility>
@@ -230,11 +128,11 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox51</rd:DefaultName>
-                              <Top>0.45828cm</Top>
+                              <Top>0.77578cm</Top>
                               <Left>3.43838cm</Left>
                               <Height>0.423cm</Height>
                               <Width>14.7cm</Width>
-                              <ZIndex>2</ZIndex>
+                              <ZIndex>1</ZIndex>
                               <Visibility>
                                 <Hidden>=iif(Fields!DimensionLoop1_Number.Value &gt; 1, False, True)</Hidden>
                               </Visibility>
@@ -252,10 +150,10 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                               <TablixBody>
                                 <TablixColumns>
                                   <TablixColumn>
-                                    <Width>1.89cm</Width>
+                                    <Width>1.78417cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>7.56cm</Width>
+                                    <Width>7.45417cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>1.47cm</Width>
@@ -267,7 +165,7 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                                     <Width>2cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.47cm</Width>
+                                    <Width>1.68167cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>1.33819cm</Width>
@@ -278,7 +176,7 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                                 </TablixColumns>
                                 <TablixRows>
                                   <TablixRow>
-                                    <Height>1.692cm</Height>
+                                    <Height>1.39567cm</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
@@ -538,6 +436,7 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -597,7 +496,6 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                                       <TablixCell>
                                         <CellContents>
                                           <Textbox Name="Textbox64">
-                                            <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
@@ -758,7 +656,6 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -1186,7 +1083,6 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -1613,7 +1509,6 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -3477,52 +3372,48 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                                 <TablixMembers>
                                   <TablixMember />
                                   <TablixMember>
-                                    <Group Name="Details2">
-                                      <GroupExpressions>
-                                        <GroupExpression>=Fields!Sales_Header_No_.Value</GroupExpression>
-                                      </GroupExpressions>
-                                    </Group>
                                     <TablixMembers>
                                       <TablixMember>
+                                        <Group Name="SalesLine_LineNo">
+                                          <GroupExpressions>
+                                            <GroupExpression>=Fields!Sales_Header_No_.Value</GroupExpression>
+                                            <GroupExpression>=Fields!SalesLine_LineNo.Value</GroupExpression>
+                                          </GroupExpressions>
+                                        </Group>
+                                        <SortExpressions>
+                                          <SortExpression>
+                                            <Value>=Fields!SalesLine_LineNo.Value</Value>
+                                          </SortExpression>
+                                        </SortExpressions>
                                         <TablixMembers>
                                           <TablixMember>
-                                            <Group Name="SalesLine_LineNo">
-                                              <GroupExpressions>
-                                                <GroupExpression>=Fields!SalesLine_LineNo.Value</GroupExpression>
-                                              </GroupExpressions>
-                                            </Group>
-                                            <SortExpressions>
-                                              <SortExpression>
-                                                <Value>=Fields!SalesLine_LineNo.Value</Value>
-                                              </SortExpression>
-                                            </SortExpressions>
+                                            <Visibility>
+                                              <Hidden>=iif(Fields!SalesLine_Type.Value =0 and Fields!SalesLine_Description.Value &lt;&gt;"", False, True)</Hidden>
+                                            </Visibility>
+                                          </TablixMember>
+                                          <TablixMember>
+                                            <Visibility>
+                                              <Hidden>=iif(Fields!SalesLine_Type.Value &lt;&gt;0, False, True)</Hidden>
+                                            </Visibility>
+                                          </TablixMember>
+                                          <TablixMember>
                                             <TablixMembers>
                                               <TablixMember>
-                                                <Visibility>
-                                                  <Hidden>=iif(Fields!SalesLine_Type.Value = " ", False, True)</Hidden>
-                                                </Visibility>
-                                              </TablixMember>
-                                              <TablixMember />
-                                              <TablixMember>
-                                                <TablixMembers>
-                                                  <TablixMember>
-                                                    <Group Name="DimensionLoop2_Number">
-                                                      <GroupExpressions>
-                                                        <GroupExpression>=Fields!DimensionLoop2_Number.Value</GroupExpression>
-                                                      </GroupExpressions>
-                                                    </Group>
-                                                    <SortExpressions>
-                                                      <SortExpression>
-                                                        <Value>=Fields!DimensionLoop2_Number.Value</Value>
-                                                      </SortExpression>
-                                                    </SortExpressions>
-                                                  </TablixMember>
-                                                </TablixMembers>
-                                                <Visibility>
-                                                  <Hidden>=iif(Fields!Dim2_ShowInternalInfo.Value, False, True)</Hidden>
-                                                </Visibility>
+                                                <Group Name="DimensionLoop2_Number">
+                                                  <GroupExpressions>
+                                                    <GroupExpression>=Fields!DimensionLoop2_Number.Value</GroupExpression>
+                                                  </GroupExpressions>
+                                                </Group>
+                                                <SortExpressions>
+                                                  <SortExpression>
+                                                    <Value>=Fields!DimensionLoop2_Number.Value</Value>
+                                                  </SortExpression>
+                                                </SortExpressions>
                                               </TablixMember>
                                             </TablixMembers>
+                                            <Visibility>
+                                              <Hidden>=iif(Fields!Dim2_ShowInternalInfo.Value and Fields!SalesLine_Type.Value &lt;&gt;0, False, True)</Hidden>
+                                            </Visibility>
                                           </TablixMember>
                                         </TablixMembers>
                                       </TablixMember>
@@ -3568,11 +3459,10 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
-                              <RepeatRowHeaders>true</RepeatRowHeaders>
-                              <Top>0.9cm</Top>
-                              <Height>9.8095cm</Height>
+                              <Top>1.2175cm</Top>
+                              <Height>9.51317cm</Height>
                               <Width>19.07819cm</Width>
-                              <ZIndex>3</ZIndex>
+                              <ZIndex>2</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -3710,10 +3600,10 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                                 </Textbox>
                               </ReportItems>
                               <KeepTogether>true</KeepTogether>
-                              <Top>12.96728cm</Top>
+                              <Top>13.28478cm</Top>
                               <Height>0.846cm</Height>
                               <Width>13.4972cm</Width>
-                              <ZIndex>4</ZIndex>
+                              <ZIndex>3</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -4064,11 +3954,11 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
-                              <Top>10.7095cm</Top>
+                              <Top>11.027cm</Top>
                               <Left>0.03181cm</Left>
                               <Height>2.10522cm</Height>
                               <Width>7.14cm</Width>
-                              <ZIndex>5</ZIndex>
+                              <ZIndex>4</ZIndex>
                               <Visibility>
                                 <Hidden>=iif(Fields!VATAmount.Value = 0, True, False)</Hidden>
                               </Visibility>
@@ -4078,8 +3968,111 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                                 </Border>
                               </Style>
                             </Tablix>
+                            <Tablix Name="table6">
+                              <TablixBody>
+                                <TablixColumns>
+                                  <TablixColumn>
+                                    <Width>0.79871cm</Width>
+                                  </TablixColumn>
+                                </TablixColumns>
+                                <TablixRows>
+                                  <TablixRow>
+                                    <Height>0.17639cm</Height>
+                                    <TablixCells>
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="Textbox130">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value />
+                                                    <Style>
+                                                      <Color>Red</Color>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox130</rd:DefaultName>
+                                            <Visibility>
+                                              <Hidden>=Code.SetData(Cstr(Fields!CompanyAddr_1_.Value) + Chr(177) + 
+Cstr(Fields!CompanyInfoStockCapital_Caption.Value) + Chr(177) + 
+Cstr(Fields!CompanyAddr_2_.Value) + Chr(177) + 
+Cstr(Fields!CompanyAddr_3_.Value) + Chr(177) + 
+Cstr(Fields!CompanyAddr_4_.Value) + Chr(177) + 
+Cstr(Fields!CompanyAddr_5_.Value) + Chr(177) + 
+Cstr(Fields!CompanyInfoPhoneNo.Value) + Chr(177) + 
+Cstr(Fields!FaxCompanyInfoFaxNo.Value) + Chr(177) + 
+Cstr(Fields!E_MailCompanyInfoEMail.Value) + Chr(177) + 
+Cstr(Fields!IdIntracomCompanyInfoVATRegistrationNo.Value) + Chr(177) + 
+Cstr(Fields!CopyText.Value) + Chr(177) + 
+Cstr(Fields!PAGENO_Caption.Value) + Chr(177) + 
+Cstr(Fields!CustAddr_1_.Value) + Chr(177) + 
+Cstr(Fields!CustAddr_2_.Value) + Chr(177) + 
+Cstr(Fields!CustAddr_3_.Value)+ Chr(177) +
+Cstr(Fields!CustAddr_4_.Value) + Chr(177) +
+Cstr(Fields!CustAddr_5_.Value) + Chr(177) +
+Cstr(Fields!CustAddr_6_.Value) + Chr(177) +
+Cstr(Fields!CustAddr_7_.Value) + Chr(177) +
+Cstr(Fields!CustAddr_8_.Value) + Chr(177) +
+Cstr(Fields!SalesHeader_BillToCustomerNo_Caption.Value) + Chr(177) +
+Cstr(Fields!SalesHeader_BillToCustomerNo.Value) + Chr(177) +
+Cstr(Fields!SalesHeader_ReferenceCaption.Value) + Chr(177) +
+Cstr(Fields!SalesHeader_Reference.Value) + Chr(177) +
+Cstr(Fields!SalesPersonText.Value) + Chr(177) +
+Cstr(Fields!SalesPurchPerson_Name.Value) + Chr(177) +
+Cstr(Fields!SalesHeader_ShipmentDate_Caption.Value) + Chr(177) +
+Cstr(Fields!SalesHeader_ShipmentDate.Value) + Chr(177) +
+Cstr(Fields!OrderNo_Caption.Value) + Chr(177) +
+Cstr(Fields!SalesHeader_No.Value) + Chr(177) +
+Cstr(Fields!SalesHeader_PricesIncludingVAT_Caption.Value) + Chr(177) +
+Cstr(Fields!SalesHeader_PricesIncludingVAT.Value) + Chr(177) +
+Cstr(Fields!Ship_to_AddressCaption.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_1_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_2_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_3_.Value) + Chr(177) +
+Cstr(Fields!ShipToAddr_4_.Value) + Chr(177) +
+Cstr(Fields!SalesHeader_DocumentDate.Value)
+, 1)</Hidden>
+                                            </Visibility>
+                                            <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <BackgroundColor>Red</BackgroundColor>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
+                                    </TablixCells>
+                                  </TablixRow>
+                                </TablixRows>
+                              </TablixBody>
+                              <TablixColumnHierarchy>
+                                <TablixMembers>
+                                  <TablixMember />
+                                </TablixMembers>
+                              </TablixColumnHierarchy>
+                              <TablixRowHierarchy>
+                                <TablixMembers>
+                                  <TablixMember>
+                                    <KeepTogether>true</KeepTogether>
+                                  </TablixMember>
+                                </TablixMembers>
+                              </TablixRowHierarchy>
+                              <DataSetName>DataSet_Result</DataSetName>
+                              <Top>1.2175cm</Top>
+                              <Left>0.03181cm</Left>
+                              <Height>0.17639cm</Height>
+                              <Width>0.79871cm</Width>
+                              <ZIndex>5</ZIndex>
+                              <Style />
+                            </Tablix>
                           </ReportItems>
-                          <KeepTogether>true</KeepTogether>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -4108,13 +4101,17 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                       <BreakLocation>Between</BreakLocation>
                     </PageBreak>
                   </Group>
+                  <Visibility>
+                    <Hidden>=iif(Fields!Sales_Header_No_.Value &lt;&gt;"",false,true)</Hidden>
+                  </Visibility>
+                  <DataElementOutput>Output</DataElementOutput>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>0.17639cm</Top>
-            <Left>0.03181cm</Left>
-            <Height>13.89741cm</Height>
+            <Left>0.06362cm</Left>
+            <Height>14.32074cm</Height>
             <Width>19.07819cm</Width>
             <Style>
               <Border>
@@ -4123,10 +4120,10 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>14.0738cm</Height>
+        <Height>14.32074cm</Height>
         <Style />
       </Body>
-      <Width>19.11cm</Width>
+      <Width>19.14181cm</Width>
       <Page>
         <PageHeader>
           <Height>9.46434cm</Height>
@@ -4138,13 +4135,10 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                 <Image Name="Image1">
                   <Source>Database</Source>
                   <Value>=First(Fields!CompanyInfo__Logo_AVITA_facture_.Value, "DataSet_Result")</Value>
-                  <MIMEType>image/png</MIMEType>
+                  <MIMEType>image/bmp</MIMEType>
                   <Sizing>FitProportional</Sizing>
                   <Height>2.961cm</Height>
                   <Width>2.94cm</Width>
-                  <Visibility>
-                    <Hidden>=iif(ISNOTHING(Fields!CompanyInfo__Logo_ISSA_.Value) = TRUE,true,false)</Hidden>
-                  </Visibility>
                   <Style>
                     <Border>
                       <Style>None</Style>

@@ -113,6 +113,8 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
             field("PWD Discount Profit %"; Rec."PWD Discount Profit %")
             {
                 ApplicationArea = All;
+                Editable = false;
+
             }
         }
         addafter("Shortcut Dimension 2 Code")
@@ -120,10 +122,12 @@ pageextension 50014 "PWD SalesOrder" extends "Sales Order"
             field("PWD Gen. Bus. Posting Group"; Rec."Gen. Bus. Posting Group")
             {
                 ApplicationArea = All;
+                Editable = false;
             }
             field("PWD VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
             {
                 ApplicationArea = All;
+                Editable = false;
             }
         }
         modify("Payment Terms Code")

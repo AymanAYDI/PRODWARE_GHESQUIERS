@@ -232,17 +232,17 @@ report 50112 "PWD Export COALA"
     local procedure MakeExcelDataHeader()
     begin
         //TODO
-        /*
-        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Document Date"), FALSE, '', FALSE, FALSE, TRUE, '');
-        TempExcelBuf.AddColumn(FORMAT(Text000), FALSE, '', FALSE, FALSE, TRUE, '');
-        TempExcelBuf.AddColumn(FORMAT(Text001), FALSE, '', FALSE, FALSE, TRUE, '');
-        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Document No."), FALSE, '', FALSE, FALSE, TRUE, '');
-        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION(Description), FALSE, '', FALSE, FALSE, TRUE, '');
-        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Debit Amount"), FALSE, '', FALSE, FALSE, TRUE, '');
-        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Credit Amount"), FALSE, '', FALSE, FALSE, TRUE, '');
-        TempExcelBuf.AddColumn(FORMAT(Text002), FALSE, '', FALSE, FALSE, TRUE, '');
-        TempExcelBuf.AddColumn(FORMAT(Text003), FALSE, '', FALSE, FALSE, TRUE, '');
-        */
+
+        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Document Date"), FALSE, '', FALSE, FALSE, TRUE, '', CellType);
+        TempExcelBuf.AddColumn(FORMAT(Text000), FALSE, '', FALSE, FALSE, TRUE, '', '');
+        TempExcelBuf.AddColumn(FORMAT(Text001), FALSE, '', FALSE, FALSE, TRUE, '', '');
+        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Document No."), FALSE, '', FALSE, FALSE, TRUE, '', '');
+        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION(Description), FALSE, '', FALSE, FALSE, TRUE, '', '');
+        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Debit Amount"), FALSE, '', FALSE, FALSE, TRUE, '', '');
+        TempExcelBuf.AddColumn("PWD Export COALA".FIELDCAPTION("Credit Amount"), FALSE, '', FALSE, FALSE, TRUE, '', '');
+        TempExcelBuf.AddColumn(FORMAT(Text002), FALSE, '', FALSE, FALSE, TRUE, '', '');
+        TempExcelBuf.AddColumn(FORMAT(Text003), FALSE, '', FALSE, FALSE, TRUE, ''),'';
+
     end;
 
     procedure MakeExcelDataBody()

@@ -739,7 +739,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
         Unit_PriceCaptionLbl: Label 'Unit Price';
         UnitCaptionFRLbl: Label 'Unit';
         UnitCaptionLbl: Label 'Unit';
-        Text005: Label 'Page %1';
+        Text005: Label 'Page ';
         AmountCaptionFRLbl: Label 'Amount';
         Unit_PriceCaptionFRLbl: Label 'Unit Price';
         InvoiceCaption_Control1000000002Lbl: Label 'Invoice';

@@ -1157,8 +1157,9 @@ codeunit 60000 "PWD Events"
     begin
         if not SalesHeader.Get(SalesHeaderArchive."Document Type", SalesHeaderArchive."No.") then begin
             PWDFunctionsMgt.FctRestoreSalesQuoteDeleted(SalesHeaderArchive);
-            EXIT;
             IsHandled := true;
+            EXIT;
+
         end;
     end;
 

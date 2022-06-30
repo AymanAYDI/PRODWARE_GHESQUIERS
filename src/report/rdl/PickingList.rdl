@@ -3211,6 +3211,57 @@ End Function
         <Field Name="Sales_Header_No_">
           <DataField>Sales_Header_No_</DataField>
         </Field>
+        <Field Name="Sales_Line__No__Caption">
+          <DataField>Sales_Line__No__Caption</DataField>
+        </Field>
+        <Field Name="SKU__Shelf_No__Caption">
+          <DataField>SKU__Shelf_No__Caption</DataField>
+        </Field>
+        <Field Name="Sales_Line_DescriptionCaption">
+          <DataField>Sales_Line_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="QuantitéCaption">
+          <DataField>QuantitéCaption</DataField>
+        </Field>
+        <Field Name="Quantité_préparéeCaption">
+          <DataField>Quantité_préparéeCaption</DataField>
+        </Field>
+        <Field Name="UnitéCaption">
+          <DataField>UnitéCaption</DataField>
+        </Field>
+        <Field Name="Sales_Line__Location_Code_Caption">
+          <DataField>Sales_Line__Location_Code_Caption</DataField>
+        </Field>
+        <Field Name="SalesLine_Family_Code">
+          <DataField>SalesLine_Family_Code</DataField>
+        </Field>
+        <Field Name="Sales_Line__Family_Code_Caption">
+          <DataField>Sales_Line__Family_Code_Caption</DataField>
+        </Field>
+        <Field Name="SalesLine_LocationCode">
+          <DataField>SalesLine_LocationCode</DataField>
+        </Field>
+        <Field Name="N__d_agréement__Caption">
+          <DataField>N__d_agréement__Caption</DataField>
+        </Field>
+        <Field Name="Marquage__Caption">
+          <DataField>Marquage__Caption</DataField>
+        </Field>
+        <Field Name="Date_Fabrication__Caption">
+          <DataField>Date_Fabrication__Caption</DataField>
+        </Field>
+        <Field Name="DLC__Caption">
+          <DataField>DLC__Caption</DataField>
+        </Field>
+        <Field Name="Abattoir_Caption">
+          <DataField>Abattoir_Caption</DataField>
+        </Field>
+        <Field Name="T__conservation__Caption">
+          <DataField>T__conservation__Caption</DataField>
+        </Field>
+        <Field Name="T_transport_Caption">
+          <DataField>T_transport_Caption</DataField>
+        </Field>
         <Field Name="USERID">
           <DataField>USERID</DataField>
         </Field>
@@ -3343,32 +3394,8 @@ End Function
         <Field Name="parCaption">
           <DataField>parCaption</DataField>
         </Field>
-        <Field Name="SKU__Shelf_No__Caption">
-          <DataField>SKU__Shelf_No__Caption</DataField>
-        </Field>
-        <Field Name="Sales_Line__No__Caption">
-          <DataField>Sales_Line__No__Caption</DataField>
-        </Field>
-        <Field Name="Sales_Line_DescriptionCaption">
-          <DataField>Sales_Line_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="QuantitéCaption">
-          <DataField>QuantitéCaption</DataField>
-        </Field>
-        <Field Name="Quantité_préparéeCaption">
-          <DataField>Quantité_préparéeCaption</DataField>
-        </Field>
-        <Field Name="UnitéCaption">
-          <DataField>UnitéCaption</DataField>
-        </Field>
-        <Field Name="Sales_Line__Location_Code_Caption">
-          <DataField>Sales_Line__Location_Code_Caption</DataField>
-        </Field>
         <Field Name="ShowLocationHeader">
           <DataField>ShowLocationHeader</DataField>
-        </Field>
-        <Field Name="Sales_Line__Family_Code_Caption">
-          <DataField>Sales_Line__Family_Code_Caption</DataField>
         </Field>
         <Field Name="Code_familleCaption">
           <DataField>Code_familleCaption</DataField>
@@ -3442,32 +3469,11 @@ End Function
         <Field Name="Item__Conserving_Temperature_Format">
           <DataField>Item__Conserving_Temperature_Format</DataField>
         </Field>
-        <Field Name="Item__Transport_Temperature_">
-          <DataField>Item__Transport_Temperature_</DataField>
+        <Field Name="Item_Transport_Temperature_">
+          <DataField>Item_Transport_Temperature_</DataField>
         </Field>
-        <Field Name="Item__Transport_Temperature_Format">
-          <DataField>Item__Transport_Temperature_Format</DataField>
-        </Field>
-        <Field Name="N__d_agréement__Caption">
-          <DataField>N__d_agréement__Caption</DataField>
-        </Field>
-        <Field Name="Marquage__Caption">
-          <DataField>Marquage__Caption</DataField>
-        </Field>
-        <Field Name="Date_Fabrication__Caption">
-          <DataField>Date_Fabrication__Caption</DataField>
-        </Field>
-        <Field Name="DLC__Caption">
-          <DataField>DLC__Caption</DataField>
-        </Field>
-        <Field Name="Abattoir_ou_atelier_de_découpe__Caption">
-          <DataField>Abattoir_ou_atelier_de_découpe__Caption</DataField>
-        </Field>
-        <Field Name="T__conservation__Caption">
-          <DataField>T__conservation__Caption</DataField>
-        </Field>
-        <Field Name="T__transport__Caption">
-          <DataField>T__transport__Caption</DataField>
+        <Field Name="Item_Transport_Temperature_Format">
+          <DataField>Item_Transport_Temperature_Format</DataField>
         </Field>
         <Field Name="InfoTrading_Number">
           <DataField>InfoTrading_Number</DataField>

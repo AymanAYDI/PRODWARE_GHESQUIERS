@@ -14463,6 +14463,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Quote AVITA - NamedType VATDiscountAmountCaptionLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3398044446 - NamedType 2012124496" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Identifier</source>
+          <target state="translated">Identi TVA</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Quote AVITA - NamedType VATIdentifierCaptionLbl</note>
+        </trans-unit>
         <trans-unit id="Report 3398044446 - ReportDataItem 1192395785 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales Quote</source>
           <target state="translated">Devis ventes</target>
@@ -14507,7 +14513,7 @@
         </trans-unit>
         <trans-unit id="Report 2448639977 - NamedType 299686491" size-unit="char" translate="yes" xml:space="preserve">
           <source>Init=</source>
-          <target state="translated">Init=</target>
+          <target state="translated">Init</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Relevé de douane - NamedType Init_CaptionLbl</note>
         </trans-unit>
@@ -14698,8 +14704,9 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Text004</note>
         </trans-unit>
         <trans-unit id="Report 3113396396 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Page %1</source>
-          <target state="translated">Page %1</target>
+          <source>Page </source>
+           <target state="translated">Page </target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Source text has changed. Please review the translation.</note>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Text005</note>
         </trans-unit>

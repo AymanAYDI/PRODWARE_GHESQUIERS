@@ -44,7 +44,7 @@ report 50072 "PWD Quote AVITA"
             column(AmountCaption; AmountCaptionLbl)
             {
             }
-            column(Sales_Line___VAT_Identifier_Caption; "Sales Line".FIELDCAPTION("VAT Identifier"))
+            column(Sales_Line___VAT_Identifier_Caption; VATIdentifierCaptionLbl)
             {
             }
             column(ContinuedCaption; ContinuedCaptionLbl)
@@ -314,7 +314,7 @@ report 50072 "PWD Quote AVITA"
                     dataitem(RoundLoop; Integer)
                     {
                         DataItemTableView = SORTING(Number);
-                        column(SalesLine_Type; "Sales Line".Type)
+                        column(SalesLine_Type; "Sales Line".Type.AsInteger())
                         {
                         }
                         column(SalesLineLine_Amount; TempSalesLine."Line Amount")
@@ -771,6 +771,7 @@ report 50072 "PWD Quote AVITA"
         VATAmountLine__VAT_Base__Control110CaptionLbl: Label 'Continued';
         VATAmountLine__VAT_Base_CaptionLbl: Label 'Continued';
         VATDiscountAmountCaptionLbl: Label 'Payment Discount on VAT';
+        VATIdentifierCaptionLbl: label 'VAT Identifier';
         CopyText: Text[30];
         ReferenceText: Text[30];
         SalesPersonText: Text[30];

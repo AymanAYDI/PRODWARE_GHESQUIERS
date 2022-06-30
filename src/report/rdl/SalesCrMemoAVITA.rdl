@@ -24,7 +24,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>7.25047cm</Height>
+                  <Height>6.69316cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -233,7 +233,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!Sales_Cr_Memo_Line_Description.Value</Value>
+                                                    <Value>=Fields!Sales_Cr_Memo_Line_Description_Caption.Value.Value</Value>
                                                     <Style />
                                                   </TextRun>
                                                 </TextRuns>
@@ -1535,9 +1535,9 @@
                                   <TablixMember>
                                     <Group Name="Details1">
                                       <GroupExpressions>
-                                        <GroupExpression>=Fields!Sales_CrMemo_Line_Line_No_.Value</GroupExpression>
-                                        <GroupExpression>=Fields!Sales_CrMemo_Header_No_.Value</GroupExpression>
+                                        <GroupExpression>=Fields!Sales_CrMemo_Line_Document_No_.Value</GroupExpression>
                                         <GroupExpression>=Fields!OutputNo.Value</GroupExpression>
+                                        <GroupExpression>=Fields!Sales_CrMemo_Line_Line_No_.Value</GroupExpression>
                                       </GroupExpressions>
                                     </Group>
                                     <TablixMembers>
@@ -1564,9 +1564,10 @@
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
-                              <Top>1.23546cm</Top>
-                              <Height>2.73683cm</Height>
-                              <Width>19.53817cm</Width>
+                              <Top>0.84748cm</Top>
+                              <Left>0.00002cm</Left>
+                              <Height>2.73684cm</Height>
+                              <Width>19.53815cm</Width>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -1588,10 +1589,10 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox27</rd:DefaultName>
-                              <Top>4.0131cm</Top>
-                              <Left>12.16071cm</Left>
+                              <Top>3.62512cm</Top>
+                              <Left>11.42647cm</Left>
                               <Height>0.56825cm</Height>
-                              <Width>7.37746cm</Width>
+                              <Width>8.11172cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -1607,13 +1608,13 @@
                               <TablixBody>
                                 <TablixColumns>
                                   <TablixColumn>
-                                    <Width>1.74417cm</Width>
+                                    <Width>1.98892cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>3.41665cm</Width>
+                                    <Width>3.6614cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>2.21665cm</Width>
+                                    <Width>2.4614cm</Width>
                                   </TablixColumn>
                                 </TablixColumns>
                                 <TablixRows>
@@ -2064,10 +2065,10 @@
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Top>4.70238cm</Top>
-                              <Left>12.16071cm</Left>
+                              <Top>4.3144cm</Top>
+                              <Left>11.42647cm</Left>
                               <Height>1.79999cm</Height>
-                              <Width>7.37746cm</Width>
+                              <Width>8.11173cm</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
                                 <VerticalAlign>Bottom</VerticalAlign>
@@ -3305,8 +3306,8 @@
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
-                              <Top>4.53305cm</Top>
-                              <Left>0.04076cm</Left>
+                              <Top>4.14507cm</Top>
+                              <Left>0.04078cm</Left>
                               <Height>2.54809cm</Height>
                               <Width>10.6cm</Width>
                               <ZIndex>3</ZIndex>
@@ -3331,7 +3332,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox9</rd:DefaultName>
-                              <Top>0.46642cm</Top>
+                              <Top>0.07844cm</Top>
+                              <Left>0.00002cm</Left>
                               <Height>0.63492cm</Height>
                               <Width>2.03828cm</Width>
                               <ZIndex>4</ZIndex>
@@ -3362,43 +3364,11 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox14</rd:DefaultName>
-                              <Top>0.43106cm</Top>
-                              <Left>2.07356cm</Left>
+                              <Top>0.04308cm</Top>
+                              <Left>2.07358cm</Left>
                               <Height>0.63492cm</Height>
                               <Width>8.119cm</Width>
                               <ZIndex>5</ZIndex>
-                              <Style>
-                                <Border>
-                                  <Style>None</Style>
-                                </Border>
-                                <PaddingLeft>2pt</PaddingLeft>
-                                <PaddingRight>2pt</PaddingRight>
-                                <PaddingTop>2pt</PaddingTop>
-                                <PaddingBottom>2pt</PaddingBottom>
-                              </Style>
-                            </Textbox>
-                            <Textbox Name="Textbox31">
-                              <CanGrow>true</CanGrow>
-                              <KeepTogether>true</KeepTogether>
-                              <Paragraphs>
-                                <Paragraph>
-                                  <TextRuns>
-                                    <TextRun>
-                                      <Value>=Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value</Value>
-                                      <Style>
-                                        <FontSize>9pt</FontSize>
-                                      </Style>
-                                    </TextRun>
-                                  </TextRuns>
-                                  <Style />
-                                </Paragraph>
-                              </Paragraphs>
-                              <rd:DefaultName>Textbox15</rd:DefaultName>
-                              <Top>0.43113cm</Top>
-                              <Left>16.49733cm</Left>
-                              <Height>0.63492cm</Height>
-                              <Width>3.04084cm</Width>
-                              <ZIndex>6</ZIndex>
                               <Style>
                                 <Border>
                                   <Style>None</Style>
@@ -3739,11 +3709,11 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <DataSetName>DataSet_Result</DataSetName>
-                              <Top>0.10583cm</Top>
-                              <Left>0.04076cm</Left>
+                              <Top>0.03535cm</Top>
+                              <Left>10.51828cm</Left>
                               <Height>0.25467cm</Height>
                               <Width>3.29583cm</Width>
-                              <ZIndex>7</ZIndex>
+                              <ZIndex>6</ZIndex>
                               <Style />
                             </Tablix>
                           </ReportItems>
@@ -3770,18 +3740,22 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                 <TablixMember>
                   <Group Name="Details">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Sales_CrMemo_Header_No_.Value</GroupExpression>
+                      <GroupExpression>=Fields!Sales_CrMemo_Line_Document_No_.Value</GroupExpression>
                       <GroupExpression>=Fields!OutputNo.Value</GroupExpression>
                     </GroupExpressions>
                     <PageBreak>
                       <BreakLocation>Between</BreakLocation>
+                      <ResetPageNumber>true</ResetPageNumber>
                     </PageBreak>
                   </Group>
+                  <Visibility>
+                    <Hidden>=iif(Fields!Sales_CrMemo_Line_Document_No_.Value&lt;&gt;"",false,true)</Hidden>
+                  </Visibility>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Height>7.25047cm</Height>
+            <Height>6.69316cm</Height>
             <Width>19.53817cm</Width>
             <Style>
               <Border>
@@ -3790,13 +3764,13 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>7.457cm</Height>
+        <Height>6.69316cm</Height>
         <Style />
       </Body>
       <Width>19.53817cm</Width>
       <Page>
         <PageHeader>
-          <Height>8.78397cm</Height>
+          <Height>9.50364cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -4746,6 +4720,38 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
             </Textbox>
+            <Textbox Name="Textbox31">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__.Value, "DataSet_Result") &amp; " " &amp; Globals!PageNumber</Value>
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox15</rd:DefaultName>
+              <Top>8.86872cm</Top>
+              <Left>16.49733cm</Left>
+              <Height>0.63492cm</Height>
+              <Width>3.04084cm</Width>
+              <ZIndex>34</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
           </ReportItems>
           <Style>
             <Border>
@@ -4802,7 +4808,7 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
               </Paragraphs>
               <rd:DefaultName>Textbox114</rd:DefaultName>
               <Height>0.6cm</Height>
-              <Width>5.62326cm</Width>
+              <Width>6.33624cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -4829,7 +4835,7 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox116</rd:DefaultName>
-              <Left>5.70124cm</Left>
+              <Left>6.33624cm</Left>
               <Height>0.6cm</Height>
               <Width>6.05581cm</Width>
               <ZIndex>2</ZIndex>

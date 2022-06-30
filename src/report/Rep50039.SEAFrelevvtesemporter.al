@@ -25,9 +25,12 @@ report 50039 "SEAF : relevé vtes à emporter"
             }
             column(NetWeight; NetWeight)
             {
+                DecimalPlaces = 2 : 2;
+
             }
             column(LineAmount; LineAmount)
             {
+                DecimalPlaces = 2 : 2;
             }
             column(Relevé_des_ventes_Caption; ReleveVentesEmporterConsommationBordLbl)
             {
@@ -92,9 +95,11 @@ report 50039 "SEAF : relevé vtes à emporter"
                 }
                 column(Sales_Shipment_Line_NetWeight; NetWeight)
                 {
+                    DecimalPlaces = 2 : 2;
                 }
                 column(Sales_Shipment_Line_LineAmount; LineAmount)
                 {
+                    DecimalPlaces = 2 : 2;
                 }
                 column(Sales_Shipment_Line_Document_No; "Document No.")
                 {
@@ -165,17 +170,21 @@ report 50039 "SEAF : relevé vtes à emporter"
             RequestFilterFields = "No.", "Location Code";
             column(NetWeight_; NetWeight)
             {
+                DecimalPlaces = 2 : 2;
             }
             column(LineAmount_; LineAmount)
             {
+                DecimalPlaces = 2 : 2;
             }
 
 
             column(VAEWeight_VAECrMemoWeight; VAEWeight - VAECrMemoWeight)
             {
+                DecimalPlaces = 2 : 2;
             }
             column(VAEAmount_LineAmount; VAEAmount - LineAmount)
             {
+                DecimalPlaces = 2 : 2;
             }
 
 
@@ -193,9 +202,11 @@ report 50039 "SEAF : relevé vtes à emporter"
 
                 column(VAECrMemoLine_LineAmount; LineAmount)
                 {
+                    DecimalPlaces = 2 : 2;
                 }
                 column(VAECrMemoLine_NetWeight; NetWeight)
                 {
+                    DecimalPlaces = 2 : 2;
                 }
                 column(VAECrMemoLine_National_Add_Code; "PWD National Add. Code")
                 {

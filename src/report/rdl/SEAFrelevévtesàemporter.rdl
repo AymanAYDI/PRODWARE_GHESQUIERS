@@ -230,6 +230,7 @@
                                                     <Value>=Sum(Fields!Sales_Shipment_Line_NetWeight.Value)</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
+                                                      <Format>=Fields!Sales_Shipment_Line_NetWeightFormat.Value</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -263,6 +264,7 @@
                                                     <Value>=Sum(Fields!Sales_Shipment_Line_LineAmount.Value)</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
+                                                      <Format>=Fields!Sales_Shipment_Line_LineAmountFormat.Value</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -786,6 +788,7 @@
                                                     <Value>=Sum(Fields!Sales_Shipment_Line_NetWeight.Value)</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
+                                                      <Format>=Fields!Sales_Shipment_Line_NetWeightFormat.Value</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -819,6 +822,7 @@
                                                     <Value>=Sum(Fields!Sales_Shipment_Line_LineAmount.Value)</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
+                                                      <Format>=Fields!Sales_Shipment_Line_LineAmountFormat.Value</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -1043,7 +1047,6 @@
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -1180,9 +1183,10 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!VAECrMemoLine_NetWeight.Value</Value>
+                                                    <Value>=Sum(Fields!VAECrMemoLine_NetWeight.Value)</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
+                                                      <Format>=Fields!VAECrMemoLine_NetWeightFormat.Value</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -1213,9 +1217,10 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!VAECrMemoLine_LineAmount.Value</Value>
+                                                    <Value>=Sum(Fields!VAECrMemoLine_LineAmount.Value)</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
+                                                      <Format>=Fields!VAECrMemoLine_LineAmountFormat.Value</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -1624,6 +1629,7 @@
                                                     <Value>=Sum(Fields!NetWeight_.Value)</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
+                                                      <Format>=Fields!NetWeightFormat.Value</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -1655,6 +1661,7 @@
                                                     <Value>=Sum(Fields!LineAmount_.Value)</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
+                                                      <Format>=Fields!LineAmountFormat.Value</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -1759,6 +1766,7 @@
                                                     <Value>=Sum(Fields!Sales_Shipment_Line_NetWeight.Value)-Sum(Fields!NetWeight_.Value)</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
+                                                      <Format>=Fields!NetWeightFormat.Value</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -1791,6 +1799,7 @@
                                                     <Value>=sum(Fields!Sales_Shipment_Line_LineAmount.Value)-Sum(Fields!LineAmount_.Value)</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
+                                                      <Format>=Fields!LineAmountFormat.Value</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -1864,7 +1873,7 @@
                                   <TablixMember>
                                     <Group Name="Group2">
                                       <GroupExpressions>
-                                        <GroupExpression>VAECrMemoLine_Document_No</GroupExpression>
+                                        <GroupExpression>=Fields!VAECrMemoLine_Document_No.Value</GroupExpression>
                                       </GroupExpressions>
                                     </Group>
                                     <SortExpressions>
@@ -1878,15 +1887,6 @@
                                           <GroupExpressions>
                                             <GroupExpression>=Fields!VAECrMemoLine_National_Add_Code.Value</GroupExpression>
                                           </GroupExpressions>
-                                          <Filters>
-                                            <Filter>
-                                              <FilterExpression>=cstr(Fields!VAECrMemoHeader_No_.Value)</FilterExpression>
-                                              <Operator>GreaterThanOrEqual</Operator>
-                                              <FilterValues>
-                                                <FilterValue>""</FilterValue>
-                                              </FilterValues>
-                                            </Filter>
-                                          </Filters>
                                         </Group>
                                       </TablixMember>
                                       <TablixMember>
@@ -2315,7 +2315,7 @@ Cstr(Fields!Ventes_à_emporterCaption.Value)
       <Width>20.86627cm</Width>
       <Page>
         <PageHeader>
-          <Height>1.94783cm</Height>
+          <Height>2.41187cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
