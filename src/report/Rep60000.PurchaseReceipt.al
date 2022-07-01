@@ -1,7 +1,7 @@
 report 60000 "PWD Purchase - Receipt"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/report/rdl/PurchaseReceipt.rdlc';
+    RDLCLayout = './src/report/rdl/PurchaseReceipt.rdl';
     Caption = 'Purchase - Receipt';
     UsageCategory = None;
     dataset
@@ -113,6 +113,87 @@ report 60000 "PWD Purchase - Receipt"
                     column(SPE_Invoice_No_Caption; SPE_Invoice_No_CaptionLbl)
                     {
                     }
+                    column(CompanyInfoGiroNo; CompanyInfo."Giro No.")
+                    {
+                    }
+                    column(CompanyInfoHomePage; CompanyInfo."Home Page")
+                    {
+                    }
+                    column(CompanyInfoBankName; CompanyInfo."Bank Name")
+                    {
+                    }
+                    column(CompanyInfoBankAccNo; CompanyInfo."Bank Account No.")
+                    {
+                    }
+                    column(AccNoCaption; AccNoCaptionLbl)
+                    {
+                    }
+                    column(CompanyInfoEmail; CompanyInfo."E-Mail")
+                    {
+                    }
+                    column(PhoneNoCaption; PhoneNoCaptionLbl)
+                    {
+                    }
+                    column(HomePageCaption; HomePageCaptionLbl)
+                    {
+                    }
+                    column(VATRegNoCaption; VATRegNoCaptionLbl)
+                    {
+                    }
+                    column(GiroNoCaption; GiroNoCaptionLbl)
+                    {
+                    }
+                    column(BankNameCaption; BankNameCaptionLbl)
+                    {
+                    }
+                    column(DocDateCaption; DocDateCaptionLbl)
+                    {
+                    }
+                    column(PageCaption; PageCaptionLbl)
+                    {
+                    }
+                    column(EmailCaption; EmailCaptionLbl)
+                    {
+                    }
+                    column(PaytoVenNoCaption; PaytoVenNoCaptionLbl)
+                    {
+                    }
+                    column(DescCaption; DescCaptionLbl)
+                    {
+                    }
+                    column(QtyCaption; QtyCaptionLbl)
+                    {
+                    }
+                    column(UOMCaption; UOMCaptionLbl)
+                    {
+                    }
+                    column(PaytoAddrCaption; PaytoAddrCaptionLbl)
+                    {
+                    }
+                    column(LocationCap; LocationCap)
+                    {
+                    }
+                    column(CoutUnitDirectCap; CoutUnitDirectCap)
+                    {
+                    }
+                    column(RemiseLigneCap; RemiseLigneCap)
+                    {
+                    }
+                    column(MontantLigneCap; MontantLigneCap)
+                    {
+                    }
+                    column(PoidsNetLigneCap; PoidsNetLigneCap)
+                    {
+                    }
+                    column(PoidsbrutLigneCap; PoidsbrutLigneCap)
+                    {
+                    }
+                    column(ShowInternalInfo; ShowInternalInfoV)
+                    {
+                    }
+                    column(OutputNo; OutputNo)
+                    {
+                    }
                     column(PageLoop_Number; Number)
                     {
                     }
@@ -126,7 +207,7 @@ report 60000 "PWD Purchase - Receipt"
                         column(DimText_Control47; DimText)
                         {
                         }
-                        column(Header_DimensionsCaption; Header_DimensionsCaptionLbl)
+                        column(HeaderDimCaption; Header_DimensionsCaptionLbl)
                         {
                         }
                         column(DimensionLoop1_Number; Number)
@@ -177,6 +258,9 @@ report 60000 "PWD Purchase - Receipt"
                         column(Purch__Rcpt__Line_Description; Description)
                         {
                         }
+                        column(Type_PurchRcptLine; Format(Type, 0, 2))
+                        {
+                        }
                         column(Purch__Rcpt__Line_Description_Control38; Description)
                         {
                         }
@@ -186,16 +270,16 @@ report 60000 "PWD Purchase - Receipt"
                         column(Purch__Rcpt__Line__Unit_of_Measure_; "Unit of Measure")
                         {
                         }
-                        column(Purch__Rcpt__Line__No__; "No.")
+                        column(No_PurchRcptLine; "No.")
                         {
                         }
-                        column(Purch__Rcpt__Line_Description_Control1000000040; Description)
+                        column(Desc_PurchRcptLine; Description)
                         {
                         }
-                        column(Purch__Rcpt__Line_Quantity_Control1000000041; Quantity)
+                        column(Qty_PurchRcptLine; Quantity)
                         {
                         }
-                        column(Purch__Rcpt__Line__Unit_of_Measure__Control1000000042; "Unit of Measure")
+                        column(UOM_PurchRcptLine; "Unit of Measure")
                         {
                         }
                         column(Purch__Rcpt__Line__Direct_Unit_Cost_; "Direct Unit Cost")
@@ -267,19 +351,22 @@ report 60000 "PWD Purchase - Receipt"
                         column(Purch__Rcpt__Line_Document_No_; "Document No.")
                         {
                         }
-                        column(Purch__Rcpt__Line_Line_No_; "Line No.")
+                        column(LineNo_PurchRcptLine; "Line No.")
+                        {
+                        }
+                        column(No_PurchRcptLineCaption; FieldCaption("No."))
                         {
                         }
                         dataitem(DimensionLoop2; Integer)
                         {
                             DataItemTableView = SORTING(Number) WHERE(Number = FILTER(1 ..));
-                            column(DimText_Control65; DimText)
+                            column(DimText1; DimText)
                             {
                             }
                             column(DimText_Control67; DimText)
                             {
                             }
-                            column(Line_DimensionsCaption; Line_DimensionsCaptionLbl)
+                            column(LineDimCaption; Line_DimensionsCaptionLbl)
                             {
                             }
                             column(DimensionLoop2_Number; Number)
@@ -349,10 +436,10 @@ report 60000 "PWD Purchase - Receipt"
                     dataitem(Total; Integer)
                     {
                         DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
-                        column(Purch__Rcpt__Header___Buy_from_Vendor_No__; "Purch. Rcpt. Header"."Buy-from Vendor No.")
+                        column(BuyfromVenNo_PurchRcptHeader; "Purch. Rcpt. Header"."Buy-from Vendor No.")
                         {
                         }
-                        column(Purch__Rcpt__Header___Buy_from_Vendor_No__Caption; "Purch. Rcpt. Header".FIELDCAPTION("Buy-from Vendor No."))
+                        column(BuyfromVenNo_PurchRcptHeaderCaption; "Purch. Rcpt. Header".FIELDCAPTION("Buy-from Vendor No."))
                         {
                         }
                         column(Total_Number; Number)
@@ -372,28 +459,28 @@ report 60000 "PWD Purchase - Receipt"
                         column(Purch__Rcpt__Header___Pay_to_Vendor_No__; "Purch. Rcpt. Header"."Pay-to Vendor No.")
                         {
                         }
-                        column(VendAddr_1_; VendAddr[1])
+                        column(VendAddr1; VendAddr[1])
                         {
                         }
-                        column(VendAddr_2_; VendAddr[2])
+                        column(VendAddr2; VendAddr[2])
                         {
                         }
-                        column(VendAddr_3_; VendAddr[3])
+                        column(VendAddr3; VendAddr[3])
                         {
                         }
-                        column(VendAddr_4_; VendAddr[4])
+                        column(VendAddr4; VendAddr[4])
                         {
                         }
-                        column(VendAddr_5_; VendAddr[5])
+                        column(VendAddr5; VendAddr[5])
                         {
                         }
-                        column(VendAddr_6_; VendAddr[6])
+                        column(VendAddr6; VendAddr[6])
                         {
                         }
-                        column(VendAddr_7_; VendAddr[7])
+                        column(VendAddr7; VendAddr[7])
                         {
                         }
-                        column(VendAddr_8_; VendAddr[8])
+                        column(VendAddr8; VendAddr[8])
                         {
                         }
                         column(Pay_to_AddressCaption; Pay_to_AddressCaptionLbl)
@@ -410,11 +497,12 @@ report 60000 "PWD Purchase - Receipt"
 
                 trigger OnAfterGetRecord()
                 begin
-                    IF Number > 1 THEN
+                    IF Number > 1 THEN begin
                         CopyText := Text001;
-                    //IF ISSERVICETIER THEN
-                    //OutputNo += 1;
-                    //CurrReport.PAGENO := 1;
+                        //IF ISSERVICETIER THEN
+                        OutputNo += 1;
+                        //CurrReport.PAGENO := 1;
+                    end
                 end;
 
                 trigger OnPostDataItem()
@@ -426,7 +514,7 @@ report 60000 "PWD Purchase - Receipt"
                 trigger OnPreDataItem()
                 begin
                     //IF ISSERVICETIER THEN
-                    //OutputNo := 1;
+                    OutputNo := 1;
 
                     NoOfLoops := ABS(NoOfCopies) + 1;
                     CopyText := '';
@@ -550,6 +638,7 @@ report 60000 "PWD Purchase - Receipt"
         PrixLigne: Decimal;
         NoOfCopies: Integer;
         NoOfLoops: Integer;
+        OutputNo: Integer;
         Code_Mag_CaptionLbl: Label 'Code Mag.';
         CompanyInfo__Fax_No__CaptionLbl: Label 'Fax No.';
         CompanyInfo__Phone_No__CaptionLbl: Label 'Phone No.';
@@ -572,9 +661,29 @@ report 60000 "PWD Purchase - Receipt"
         Text001: Label 'COPY';
         Text002: Label 'Purchase - Receipt %1';
         Text003: Label 'Page';
+        AccNoCaptionLbl: Label 'Account No.';
+        PhoneNoCaptionLbl: Label 'Phone No.';
+        HomePageCaptionLbl: Label 'Home Page';
+        VATRegNoCaptionLbl: Label 'VAT Registration No.';
+        GiroNoCaptionLbl: Label 'Giro No.';
+        BankNameCaptionLbl: Label 'Bank';
+        DocDateCaptionLbl: Label 'Document Date';
+        PageCaptionLbl: Label 'Page';
+        EmailCaptionLbl: Label 'Email';
+        DescCaptionLbl: Label 'Description';
+        QtyCaptionLbl: Label 'Quantity';
+        UOMCaptionLbl: Label 'Unit Of Measure';
+        PaytoVenNoCaptionLbl: Label 'Pay-to Vendor No.';
+        PaytoAddrCaptionLbl: Label 'Pay-to Address';
         Total_Poids_brutCaptionLbl: Label 'Total Poids brut';
         Total_Poids_netCaptionLbl: Label 'Total Poids net';
         "UnitéCaptionLbl": Label 'Unité';
+        LocationCap: Label 'Code Mag.';
+        CoutUnitDirectCap: Label 'Cout unit. Direct';
+        RemiseLigneCap: Label '% remise ligne';
+        MontantLigneCap: Label 'Montant Ligne';
+        PoidsNetLigneCap: Label 'Poids net Ligne';
+        PoidsbrutLigneCap: Label 'Poids brut Ligne';
         CopyText: Text[30];
         PurchaserText: Text[30];
         CompanyAddr: array[8] of Text[50];
@@ -583,4 +692,5 @@ report 60000 "PWD Purchase - Receipt"
         OldDimText: Text[75];
         ReferenceText: Text[80];
         DimText: Text[120];
+
 }
