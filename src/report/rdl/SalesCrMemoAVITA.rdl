@@ -3609,6 +3609,7 @@ Cstr(Fields!InvoiceCaption_Control1000000002.Value)+ Chr(177) , 5)</Hidden>
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>

@@ -107,7 +107,7 @@ report 60000 "PWD Purchase - Receipt"
                     column(CompanyInfo__VAT_Registration_No__Caption; CompanyInfo__VAT_Registration_No__CaptionLbl)
                     {
                     }
-                    column(Purch__Rcpt__Header___No__Caption; Purch__Rcpt__Header___No__CaptionLbl)
+                    column(Purch__Rcpt__Header___No__CaptionLbl; Purch__Rcpt__Header___No__CaptionLbl)
                     {
                     }
                     column(SPE_Invoice_No_Caption; SPE_Invoice_No_CaptionLbl)
