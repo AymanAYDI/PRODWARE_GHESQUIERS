@@ -109,6 +109,10 @@ pageextension 50068 "PWD PurchaseOrder" extends "Purchase Order"
             }
 
         }
+        modify("Buy-from Contact")
+        {
+            Visible = false;
+        }
     }
     actions
     {

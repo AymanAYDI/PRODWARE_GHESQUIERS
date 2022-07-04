@@ -43,10 +43,10 @@
                                     <Width>1.3739cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.22919cm</Width>
+                                    <Width>1.55835cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.71193cm</Width>
+                                    <Width>1.35289cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>1.40741cm</Width>
@@ -1611,7 +1611,7 @@
                               <Top>0.3175cm</Top>
                               <Left>0.00001in</Left>
                               <Height>1.48292cm</Height>
-                              <Width>18.03177cm</Width>
+                              <Width>18.00189cm</Width>
                               <Style>
                                 <PaddingLeft>5pt</PaddingLeft>
                                 <PaddingRight>5pt</PaddingRight>
@@ -2657,7 +2657,7 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=First(Fields!Montant_TotalCaption.Value)</Value>
+                                                    <Value>=Fields!Montant_TotalCaption.Value</Value>
                                                     <Style>
                                                       <FontSize>9pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
@@ -2720,7 +2720,7 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=First(Fields!Total_Poids_netCaption.Value)</Value>
+                                                    <Value>=Fields!Total_Poids_netCaption.Value</Value>
                                                     <Style>
                                                       <FontSize>9pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
@@ -2783,7 +2783,7 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=First(Fields!Total_Poids_brutCaption.Value)</Value>
+                                                    <Value>=Fields!Total_Poids_brutCaption.Value</Value>
                                                     <Style>
                                                       <FontSize>9pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>

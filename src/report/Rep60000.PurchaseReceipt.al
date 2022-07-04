@@ -339,13 +339,13 @@ report 60000 "PWD Purchase - Receipt"
                         column(Code_Mag_Caption; Code_Mag_CaptionLbl)
                         {
                         }
-                        column(Total_Poids_netCaption; Total_Poids_netCaptionLbl)
+                        column(Total_Poids_netCaption; Total_Poids_netCaptionLbl1)
                         {
                         }
-                        column(Montant_TotalCaption; Montant_TotalCaptionLbl)
+                        column(Montant_TotalCaption; Montant_TotalCaptionLbl1)
                         {
                         }
-                        column(Total_Poids_brutCaption; Total_Poids_brutCaptionLbl)
+                        column(Total_Poids_brutCaption; Total_Poids_brutCaptionLbl1)
                         {
                         }
                         column(Purch__Rcpt__Line_Document_No_; "Document No.")
@@ -648,7 +648,7 @@ report 60000 "PWD Purchase - Receipt"
         Header_DimensionsCaptionLbl: Label 'Header Dimensions';
         Line_DimensionsCaptionLbl: Label 'Line Dimensions';
         Montant_LigneCaptionLbl: Label 'Montant Ligne';
-        Montant_TotalCaptionLbl: Label 'Montant Total';
+        Montant_TotalCaptionLbl1: Label 'Montant Total';
         N_CaptionLbl: Label 'N°';
         Pay_to_AddressCaptionLbl: Label 'Pay-to Address';
         Poids_brut_LigneCaptionLbl: Label 'Poids brut Ligne';
@@ -675,8 +675,8 @@ report 60000 "PWD Purchase - Receipt"
         UOMCaptionLbl: Label 'Unit Of Measure';
         PaytoVenNoCaptionLbl: Label 'Pay-to Vendor No.';
         PaytoAddrCaptionLbl: Label 'Pay-to Address';
-        Total_Poids_brutCaptionLbl: Label 'Total Poids brut';
-        Total_Poids_netCaptionLbl: Label 'Total Poids net';
+        Total_Poids_brutCaptionLbl1: Label 'Total Poids brut';
+        Total_Poids_netCaptionLbl1: Label 'Total Poids net';
         "UnitéCaptionLbl": Label 'Unité';
         LocationCap: Label 'Code Mag.';
         CoutUnitDirectCap: Label 'Cout unit. Direct';

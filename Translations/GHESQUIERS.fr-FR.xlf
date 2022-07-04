@@ -13163,25 +13163,25 @@
         </trans-unit>
         <trans-unit id="Report 2462420362 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>
-          <target state="needs-translation"/>
+          <target state="translated">Options</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Apurement fin de mois V2 - Control Options - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2462420362 - Control 845401037 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Ending Date</source>
-          <target state="needs-translation"/>
+          <target state="translated">Date fin</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Apurement fin de mois V2 - Control EndDate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2462420362 - Control 3605153064 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Starting Date</source>
-          <target state="needs-translation"/>
+          <target state="translated">Date début</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Apurement fin de mois V2 - Control StartDate - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 2462420362 - Control 2229752112 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>tout type de famille</source>
-          <target state="needs-translation"/>
+          <target state="translated">tout type de famille</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Apurement fin de mois V2 - Control ToutTypeFamille - Property Caption</note>
         </trans-unit>
@@ -13991,7 +13991,7 @@
         </trans-unit>
         <trans-unit id="Report 43542742 - NamedType 131120748" size-unit="char" translate="yes" xml:space="preserve">
           <source> Tout défaut pourra motiver le refus de la livraison.</source>
-          <target state="needs-translation"/>
+          <target state="translated"> Tout défaut pourra motiver le refus de la livraison.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Salutation_Text</note>
         </trans-unit>
@@ -14045,13 +14045,13 @@
         </trans-unit>
         <trans-unit id="Report 43542742 - NamedType 3149012633" size-unit="char" translate="yes" xml:space="preserve">
           <source>    Veuillez respecter l'adresse et la date de livraison spécifiées, de même que les quantités et les prix.         NE PAS DEPASSER LES QUANTITES COMMANDEES.</source>
-          <target state="needs-translation"/>
+          <target state="translated">    Veuillez respecter l'adresse et la date de livraison spécifiées, de même que les quantités et les prix.         NE PAS DEPASSER LES QUANTITES COMMANDEES.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Text_Footer</note>
         </trans-unit>
         <trans-unit id="Report 43542742 - NamedType 200975079" size-unit="char" translate="yes" xml:space="preserve">
           <source>Nous vous prions de nous apporter une information systématique et immédiate en cas de manquants.</source>
-          <target state="needs-translation"/>
+          <target state="translated">Nous vous prions de nous apporter une information systématique et immédiate en cas de manquants.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purch Order AVITA - NamedType Text_Footer2</note>
         </trans-unit>
@@ -14135,7 +14135,7 @@
         </trans-unit>
         <trans-unit id="Report 536531883 - NamedType 3766779288" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cout unit. Direct</source>
-          <target state="needs-translation"/>
+          <target state="translated">Cout unit. Direct</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType CoutUnitDirectCap</note>
         </trans-unit>
@@ -14147,7 +14147,7 @@
         </trans-unit>
         <trans-unit id="Report 536531883 - NamedType 3901489671" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <target state="needs-translation"/>
+          <target state="translated">Description</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType DescCaptionLbl</note>
         </trans-unit>
@@ -14195,13 +14195,13 @@
         </trans-unit>
         <trans-unit id="Report 536531883 - NamedType 1173300905" size-unit="char" translate="yes" xml:space="preserve">
           <source>Code Mag.</source>
-          <target state="needs-translation"/>
+          <target state="translated">Code Mag.</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType LocationCap</note>
         </trans-unit>
         <trans-unit id="Report 536531883 - NamedType 3678733124" size-unit="char" translate="yes" xml:space="preserve">
           <source>Montant Ligne</source>
-          <target state="needs-translation"/>
+          <target state="translated">Montant Ligne</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType MontantLigneCap</note>
         </trans-unit>
@@ -14211,11 +14211,11 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType Montant_LigneCaptionLbl</note>
         </trans-unit>
-        <trans-unit id="Report 536531883 - NamedType 3347716638" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 536531883 - NamedType 2960828637" size-unit="char" translate="yes" xml:space="preserve">
           <source>Montant Total</source>
           <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType Montant_TotalCaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType Montant_TotalCaptionLbl1</note>
         </trans-unit>
         <trans-unit id="Report 536531883 - NamedType 1042555935" size-unit="char" translate="yes" xml:space="preserve">
           <source>N°</source>
@@ -14225,7 +14225,7 @@
         </trans-unit>
         <trans-unit id="Report 536531883 - NamedType 650077689" size-unit="char" translate="yes" xml:space="preserve">
           <source>Page</source>
-          <target state="needs-translation"/>
+          <target state="translated">Page</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType PageCaptionLbl</note>
         </trans-unit>
@@ -14255,13 +14255,13 @@
         </trans-unit>
         <trans-unit id="Report 536531883 - NamedType 113687477" size-unit="char" translate="yes" xml:space="preserve">
           <source>Poids brut Ligne</source>
-          <target state="needs-translation"/>
+          <target state="translated">Poids brut Ligne</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType PoidsbrutLigneCap</note>
         </trans-unit>
         <trans-unit id="Report 536531883 - NamedType 855163287" size-unit="char" translate="yes" xml:space="preserve">
           <source>Poids net Ligne</source>
-          <target state="needs-translation"/>
+          <target state="translated">Poids net Ligne</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType PoidsNetLigneCap</note>
         </trans-unit>
@@ -14297,7 +14297,7 @@
         </trans-unit>
         <trans-unit id="Report 536531883 - NamedType 674481666" size-unit="char" translate="yes" xml:space="preserve">
           <source>% remise ligne</source>
-          <target state="needs-translation"/>
+          <target state="translated">% remise ligne</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType RemiseLigneCap</note>
         </trans-unit>
@@ -14337,17 +14337,17 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType Text003</note>
         </trans-unit>
-        <trans-unit id="Report 536531883 - NamedType 2558496962" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 536531883 - NamedType 1699333953" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total Poids brut</source>
           <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType Total_Poids_brutCaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType Total_Poids_brutCaptionLbl1</note>
         </trans-unit>
-        <trans-unit id="Report 536531883 - NamedType 1588349180" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 536531883 - NamedType 3371373483" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total Poids net</source>
           <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType Total_Poids_netCaptionLbl</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType Total_Poids_netCaptionLbl1</note>
         </trans-unit>
         <trans-unit id="Report 536531883 - NamedType 2939370661" size-unit="char" translate="yes" xml:space="preserve">
           <source>Unité</source>
@@ -14823,11 +14823,11 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Text004</note>
         </trans-unit>
-        <trans-unit id="Report 3113396396 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Report 3113396396 - NamedType 3499563835" size-unit="char" translate="yes" xml:space="preserve">
           <source>Page </source>
           <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Text005</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Text0051</note>
         </trans-unit>
         <trans-unit id="Report 3113396396 - NamedType 2008153173" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total %1 Excl. VAT</source>
@@ -14885,7 +14885,7 @@
         </trans-unit>
         <trans-unit id="Report 3113396396 - Control 2900570228 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Log Interaction</source>
-          <target state="needs-translation"/>
+          <target state="translated">Log Interaction</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - Control LogInteractionV - Property Caption</note>
         </trans-unit>

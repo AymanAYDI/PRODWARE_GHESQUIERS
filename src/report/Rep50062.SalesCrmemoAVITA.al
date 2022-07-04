@@ -204,7 +204,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                         column(UnitCaptionFR; UnitCaptionFRLbl)
                         {
                         }
-                        column(STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__; Text005)
+                        column(STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__; Text0051)
                         {
                         }
                         column(ReferenceText; ReferenceText)
@@ -739,7 +739,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
         Unit_PriceCaptionLbl: Label 'Unit Price';
         UnitCaptionFRLbl: Label 'Unit';
         UnitCaptionLbl: Label 'Unit';
-        Text005: Label 'Page ';
+        Text0051: Label 'Page ';
         AmountCaptionFRLbl: Label 'Amount';
         Unit_PriceCaptionFRLbl: Label 'Unit Price';
         InvoiceCaption_Control1000000002Lbl: Label 'Invoice';

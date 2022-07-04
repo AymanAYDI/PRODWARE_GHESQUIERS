@@ -10,5 +10,9 @@ pageextension 50021 "PWD PurchaseCreditMemo" extends "Purchase Credit Memo"
                 Caption = 'Buy-from Contact';
             }
         }
+        modify("Buy-from Contact")
+        {
+            Visible = false;
+        }
     }
 }

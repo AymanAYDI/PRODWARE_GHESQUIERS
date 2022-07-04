@@ -638,7 +638,7 @@ page 50042 "PWD Sales Orders to prepare"
             END ELSE
                 REPORT.RUNMODAL(Report::"PWD Picking List", TRUE, TRUE, SalesHeader);
             REPORT.RUNMODAL(Report::"PWD Fiche Anomalie", TRUE, TRUE, SalesHeader);
-            REPORT.RUNMODAL(50065, TRUE, TRUE, SalesHeader);
+            //REPORT.RUNMODAL(50065, TRUE, TRUE, SalesHeader);
         END;
     end;
 }

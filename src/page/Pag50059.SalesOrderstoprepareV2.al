@@ -231,6 +231,8 @@ page 50059 "PWD Sales Orders to prepare V2"
         Text1000000013: Label 'The order %1 has not yet been prepared !';
 
     procedure MakePreparation()
+    var
+        LRecSalesLines: Record "Sales Line";
     begin
         NewSalesLine.DELETEALL();
         SalesHeader.RESET();
@@ -289,6 +291,33 @@ page 50059 "PWD Sales Orders to prepare V2"
             PWDSetGetFunctions.SkipLocationControl(TRUE);
             ReleaseSalesDoc.RUN(SalesHeader);
             MESSAGE(Text1000000011, SalesHeader."No.");
+
+            //>-> GHE-RE.1.00
+            //>>GHE-RE1.01
+            //GRepPickingList.Fct_UpdateNewPage(SalesHeader);
+            //<<GHE-RE1.01
+            //<-< GHE-RE.1.00
+
+            COMMIT();
+            REPORT.RUN(Report::"PWD Picking List", TRUE, TRUE, SalesHeader);
+
+            //>-> GHE-RE.1.00
+            LRecSalesLines.SETRANGE("Document Type", SalesHeader."Document Type");
+            LRecSalesLines.SETRANGE("Document No.", SalesHeader."No.");
+            LRecSalesLines.SETFILTER(Type, '<>%1', 0);
+            LRecSalesLines.SETRANGE("PWD Trading Brand", FALSE);
+            LRecSalesLines.SETRANGE("Special Order", FALSE);
+            LRecSalesLines.SETRANGE("Location Code", '');
+            IF NOT LRecSalesLines.ISEMPTY THEN
+                //<-< GHE-RE.1.00
+                REPORT.RUN(Report::"PWD Fiche Anomalie", TRUE, TRUE, SalesHeader);
+            //REPORT.RUN (50065,TRUE,TRUE,SalesHeader);
+            //>-> GUE-RE.1.00
+            //  REPORT.RUN (50052,TRUE,TRUE,SalesHeader); //Prix à 0
+            //<-< GUE-RE.1.00
+
+
+            //<-< GHE-RE.1.00
         END;
     end;
 
