@@ -14339,13 +14339,13 @@
         </trans-unit>
         <trans-unit id="Report 536531883 - NamedType 1699333953" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total Poids brut</source>
-          <target state="needs-translation"/>
+          <target state="translated">Total Poids brut</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType Total_Poids_brutCaptionLbl1</note>
         </trans-unit>
         <trans-unit id="Report 536531883 - NamedType 3371373483" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total Poids net</source>
-          <target state="needs-translation"/>
+          <target state="translated">Total Poids net</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType Total_Poids_netCaptionLbl1</note>
         </trans-unit>

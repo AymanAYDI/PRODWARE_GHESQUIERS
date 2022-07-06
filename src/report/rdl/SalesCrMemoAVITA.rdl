@@ -5199,6 +5199,9 @@ REM Reset Page Number:
         <Field Name="GCO">
           <DataField>GCO</DataField>
         </Field>
+        <Field Name="STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__">
+          <DataField>STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__</DataField>
+        </Field>
         <Field Name="OutputNo">
           <DataField>OutputNo</DataField>
         </Field>
@@ -5228,9 +5231,6 @@ REM Reset Page Number:
         </Field>
         <Field Name="UnitCaptionFR">
           <DataField>UnitCaptionFR</DataField>
-        </Field>
-        <Field Name="STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__">
-          <DataField>STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__</DataField>
         </Field>
         <Field Name="ReferenceText">
           <DataField>ReferenceText</DataField>

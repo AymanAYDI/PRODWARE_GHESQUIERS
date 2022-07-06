@@ -129,6 +129,9 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                     column(GCO; GCO)
                     {
                     }
+                    column(STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__; Text0051)
+                    {
+                    }
                     column(OutputNo; OutputNo)
                     {
                     }
@@ -202,9 +205,6 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                         {
                         }
                         column(UnitCaptionFR; UnitCaptionFRLbl)
-                        {
-                        }
-                        column(STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__; Text0051)
                         {
                         }
                         column(ReferenceText; ReferenceText)

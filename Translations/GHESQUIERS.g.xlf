@@ -11183,6 +11183,41 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 4261726424 - NamedType 3802638270" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Save As</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - NamedType CstG001</note>
+        </trans-unit>
+        <trans-unit id="Report 4261726424 - NamedType 1889548419" size-unit="char" translate="yes" xml:space="preserve">
+          <source>XML Files (*.xml)|*.xml|All Files|*.*</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - NamedType CstG002</note>
+        </trans-unit>
+        <trans-unit id="Report 4261726424 - NamedType 2527245036" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File name must be specified.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - NamedType CstG003</note>
+        </trans-unit>
+        <trans-unit id="Report 4261726424 - NamedType 614155185" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The %1 already exists.\\Do you want to replace the existing file?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - NamedType CstG004</note>
+        </trans-unit>
+        <trans-unit id="Report 4261726424 - NamedType 1251851802" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The file %1 already exists.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - NamedType CstG005</note>
+        </trans-unit>
+        <trans-unit id="Report 4261726424 - NamedType 3633729247" size-unit="char" translate="yes" xml:space="preserve">
+          <source>default.xml</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - NamedType CstG006</note>
+        </trans-unit>
+        <trans-unit id="Report 4261726424 - NamedType 4271425864" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EDI DTI+ CIEL file has been generated.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - NamedType CstG007</note>
+        </trans-unit>
         <trans-unit id="Report 3247409337 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Export COALA</source>
           <note from="Developer" annotates="general" priority="2"></note>

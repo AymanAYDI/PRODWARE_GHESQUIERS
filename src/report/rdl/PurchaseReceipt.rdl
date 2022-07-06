@@ -1208,6 +1208,7 @@
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
+                                                      <Format>n2</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -1262,6 +1263,7 @@
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
+                                                      <Format>n2</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -1289,6 +1291,7 @@
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
+                                                      <Format>n2</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -1316,6 +1319,7 @@
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
+                                                      <Format>n2</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -2694,7 +2698,9 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
-                                                <Style />
+                                                <Style>
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
                                               </Paragraph>
                                             </Paragraphs>
                                             <Style>
@@ -2757,7 +2763,9 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
-                                                <Style />
+                                                <Style>
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
                                               </Paragraph>
                                             </Paragraphs>
                                             <Style>
@@ -2820,7 +2828,9 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
-                                                <Style />
+                                                <Style>
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
                                               </Paragraph>
                                             </Paragraphs>
                                             <Style>
@@ -4280,6 +4290,15 @@ End Function
         <Field Name="PageLoop_Number">
           <DataField>PageLoop_Number</DataField>
         </Field>
+        <Field Name="Total_Poids_netCaption">
+          <DataField>Total_Poids_netCaption</DataField>
+        </Field>
+        <Field Name="Montant_TotalCaption">
+          <DataField>Montant_TotalCaption</DataField>
+        </Field>
+        <Field Name="Total_Poids_brutCaption">
+          <DataField>Total_Poids_brutCaption</DataField>
+        </Field>
         <Field Name="DimText">
           <DataField>DimText</DataField>
         </Field>
@@ -4405,15 +4424,6 @@ End Function
         </Field>
         <Field Name="Code_Mag_Caption">
           <DataField>Code_Mag_Caption</DataField>
-        </Field>
-        <Field Name="Total_Poids_netCaption">
-          <DataField>Total_Poids_netCaption</DataField>
-        </Field>
-        <Field Name="Montant_TotalCaption">
-          <DataField>Montant_TotalCaption</DataField>
-        </Field>
-        <Field Name="Total_Poids_brutCaption">
-          <DataField>Total_Poids_brutCaption</DataField>
         </Field>
         <Field Name="Purch__Rcpt__Line_Document_No_">
           <DataField>Purch__Rcpt__Line_Document_No_</DataField>

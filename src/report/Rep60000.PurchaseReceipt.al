@@ -197,6 +197,15 @@ report 60000 "PWD Purchase - Receipt"
                     column(PageLoop_Number; Number)
                     {
                     }
+                    column(Total_Poids_netCaption; Total_Poids_netCaptionLbl1)
+                    {
+                    }
+                    column(Montant_TotalCaption; Montant_TotalCaptionLbl1)
+                    {
+                    }
+                    column(Total_Poids_brutCaption; Total_Poids_brutCaptionLbl1)
+                    {
+                    }
                     dataitem(DimensionLoop1; Integer)
                     {
                         DataItemLinkReference = "Purch. Rcpt. Header";
@@ -302,12 +311,18 @@ report 60000 "PWD Purchase - Receipt"
                         }
                         column(PrixLigne_Control1000000052; PrixLigne)
                         {
+                            AutoFormatExpression = "Purch. Rcpt. Line".GetCurrencyCodeFromHeader();
+                            AutoFormatType = 1;
                         }
                         column(PoidsNetLigne_Control1000000053; PoidsNetLigne)
                         {
+                            AutoFormatExpression = "Purch. Rcpt. Line".GetCurrencyCodeFromHeader();
+                            AutoFormatType = 1;
                         }
                         column(PoidsBrutLigne_Control1000000054; PoidsBrutLigne)
                         {
+                            AutoFormatExpression = "Purch. Rcpt. Line".GetCurrencyCodeFromHeader();
+                            AutoFormatType = 1;
                         }
                         column("UnitéCaption"; UnitéCaptionLbl)
                         {
@@ -337,15 +352,6 @@ report 60000 "PWD Purchase - Receipt"
                         {
                         }
                         column(Code_Mag_Caption; Code_Mag_CaptionLbl)
-                        {
-                        }
-                        column(Total_Poids_netCaption; Total_Poids_netCaptionLbl1)
-                        {
-                        }
-                        column(Montant_TotalCaption; Montant_TotalCaptionLbl1)
-                        {
-                        }
-                        column(Total_Poids_brutCaption; Total_Poids_brutCaptionLbl1)
                         {
                         }
                         column(Purch__Rcpt__Line_Document_No_; "Document No.")

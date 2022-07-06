@@ -19,6 +19,8 @@ codeunit 50024 "PWD Generation PDF Auto"
         lRecCustomer: Record Customer;
         lRecReportSelect: Record "Report Selections";
         lRecSalesHeader: Record "Sales Header";
+        //lCUMail: Codeunit "mail";
+        lCUMail: Record "Email Item";
         lTxtNewLine: Text[30];
         lTxtEmail: Text[80];
         lTxtFileName: Text[1024];
@@ -48,37 +50,41 @@ codeunit 50024 "PWD Generation PDF Auto"
         lRecCompanyInfo.Get();
         lTxtNewLine := fGetNewLine();
         //TODO
-        /*AddBodyline('Bonjour,');
-        AddBodyline(lTxtNewLine);
-        AddBodyline('Suite à votre demande, veuillez trouver ci-joint notre devis.');
-        AddBodyline(lTxtNewLine);
-        AddBodyline('Cordialement.');
-        AddBodyline(lTxtNewLine);
-        AddBodyline(lTxtNewLine);
-        AddBodyline('Good Day,');
-        AddBodyline(lTxtNewLine);
-        AddBodyline('Following your request, please find attached our quotation.');
-        AddBodyline(lTxtNewLine);
-        AddBodyline('Best regards.');
-        AddBodyline(lTxtNewLine);
-        AddBodyline(lTxtNewLine);
-        AddBodyline('Frédéric MAGNIER');
-        AddBodyline(lTxtNewLine);
-        AddBodyline('Tel +33 3 21 19 66 37');
-        AddBodyline(lTxtNewLine);
-        AddBodyline(lRecCompanyInfo.Name);
-        AddBodyline(lTxtNewLine);
-        AddBodyline(lRecCompanyInfo.Address);
-        AddBodyline(lTxtNewLine);
-        AddBodyline(lRecCompanyInfo."Address 2");
-        AddBodyline(lTxtNewLine);
-        AddBodyline(STRSUBSTNO('%1 %2', lRecCompanyInfo."Post Code", lRecCompanyInfo.City));
-        AddBodyline(lTxtNewLine);
-        AddBodyline('FRANCE');
-        AddBodyline(lTxtNewLine);
-        AddBodyline(lRecCompanyInfo."Home Page");
-        AddBodyline(lTxtNewLine);
-        NewMessage(lTxtEmail, '', '', STRSUBSTNO(Txt001, lRecSalesHeader."No."), '', lTxtFileName, TRUE);*/
+        /*
+        WITH lCUMail DO BEGIN
+        lCUMail.SetBodyText();
+            AddBodyline('Bonjour,');
+            AddBodyline(lTxtNewLine);
+            AddBodyline('Suite à votre demande, veuillez trouver ci-joint notre devis.');
+            AddBodyline(lTxtNewLine);
+            AddBodyline('Cordialement.');
+            AddBodyline(lTxtNewLine);
+            AddBodyline(lTxtNewLine);
+            AddBodyline('Good Day,');
+            AddBodyline(lTxtNewLine);
+            AddBodyline('Following your request, please find attached our quotation.');
+            AddBodyline(lTxtNewLine);
+            AddBodyline('Best regards.');
+            AddBodyline(lTxtNewLine);
+            AddBodyline(lTxtNewLine);
+            AddBodyline('Frédéric MAGNIER');
+            AddBodyline(lTxtNewLine);
+            AddBodyline('Tel +33 3 21 19 66 37');
+            AddBodyline(lTxtNewLine);
+            AddBodyline(lRecCompanyInfo.Name);
+            AddBodyline(lTxtNewLine);
+            AddBodyline(lRecCompanyInfo.Address);
+            AddBodyline(lTxtNewLine);
+            AddBodyline(lRecCompanyInfo."Address 2");
+            AddBodyline(lTxtNewLine);
+            AddBodyline(STRSUBSTNO('%1 %2', lRecCompanyInfo."Post Code", lRecCompanyInfo.City));
+            AddBodyline(lTxtNewLine);
+            AddBodyline('FRANCE');
+            AddBodyline(lTxtNewLine);
+            AddBodyline(lRecCompanyInfo."Home Page");
+            AddBodyline(lTxtNewLine);
+            NewMessage(lTxtEmail, '', '', STRSUBSTNO(Txt001, lRecSalesHeader."No."), '', lTxtFileName, TRUE);
+        end;*/
     end;
 
     procedure GeneratePDFSalesOrder(pCodeDocumentNo: Code[20])
@@ -258,22 +264,22 @@ codeunit 50024 "PWD Generation PDF Auto"
     end;
 
     procedure fInitBullZipPDF(pTxtFileName: Text[1024]) rTxtStatusFile: Text[1024]
-    begin
-        /*  rTxtStatusFile := gCUThreeTierMgt.ClientTempFileName('', 'ini');
-         BullZipPDF := BullZipPDF.ComPdfSettings;
-         BullZipPDFUtil := BullZipPDFUtil.ComPdfUtil;
-         Init;
-          PrinterName := BullZipPDFUtil.DefaultPrinterName;
-          SetValue('Output', pTxtFileName);
-          SetValue('ShowSaveAs', 'never');
-          SetValue('ShowSettings', 'never');
-          SetValue('ShowPDF', 'no');
-          SetValue('ShowProgress', 'no');
-          SetValue('ShowProgressFinished', 'no');
-          SetValue('SuppressErrors', 'yes');
-          SetValue('ConfirmOverwrite', 'no');
-          SetValue('StatusFile', rTxtStatusFile);
-          WriteSettings(TRUE);*/
+    begin/*
+            rTxtStatusFile := gCUThreeTierMgt.ClientTempFileName('', 'ini');
+            BullZipPDF := BullZipPDF.ComPdfSettings;
+            BullZipPDFUtil := BullZipPDFUtil.ComPdfUtil;
+            Init;
+            PrinterName := BullZipPDFUtil.DefaultPrinterName;
+            SetValue('Output', pTxtFileName);
+            SetValue('ShowSaveAs', 'never');
+            SetValue('ShowSettings', 'never');
+            SetValue('ShowPDF', 'no');
+            SetValue('ShowProgress', 'no');
+            SetValue('ShowProgressFinished', 'no');
+            SetValue('SuppressErrors', 'yes');
+            SetValue('ConfirmOverwrite', 'no');
+            SetValue('StatusFile', rTxtStatusFile);
+            WriteSettings(TRUE);*/
     end;
 
     local procedure fWaitForFile(pTxtStatusFile: Text[1024])

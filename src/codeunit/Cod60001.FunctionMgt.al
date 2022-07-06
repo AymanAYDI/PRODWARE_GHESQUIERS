@@ -516,125 +516,125 @@ codeunit 60001 "PWD Function Mgt"
         MemoDocNo := '';
         IF ItemJnlLineCtrl.FindSet() THEN
             REPEAT
-                    //*** controle du type d'article  - si aticle boucherie : 1 seul lot
-                    IF Item.GET(ItemJnlLineCtrl."Item No.") THEN
-                        IF Item."PWD Butchery" = TRUE THEN BEGIN
-                            ReservEntry.RESET();
+                //*** controle du type d'article  - si aticle boucherie : 1 seul lot
+                IF Item.GET(ItemJnlLineCtrl."Item No.") THEN
+                    IF Item."PWD Butchery" = TRUE THEN BEGIN
+                        ReservEntry.RESET();
 
-                            ReservEntry.SETCURRENTKEY("Reservation Status", "Item No.", "Variant Code", "Location Code",
-                                           "Source Type", "Source Subtype", "Expected Receipt Date");
-                            ReservEntry.SETRANGE("Item No.", ItemJnlLineCtrl."Item No.");
-                            ReservEntry.SETFILTER("Source Type", '%1', 83);
+                        ReservEntry.SETCURRENTKEY("Reservation Status", "Item No.", "Variant Code", "Location Code",
+                                       "Source Type", "Source Subtype", "Expected Receipt Date");
+                        ReservEntry.SETRANGE("Item No.", ItemJnlLineCtrl."Item No.");
+                        ReservEntry.SETFILTER("Source Type", '%1', 83);
 
-                            ReservEntry.SETRANGE("Source ID", ItemJnlLineCtrl."Journal Template Name");      //  ARTICLE
-                            ReservEntry.SETRANGE("Source Batch Name", ItemJnlLineCtrl."Journal Batch Name"); //  DEFAUT
-                            ReservEntry.SETRANGE("Source Ref. No.", ItemJnlLineCtrl."Line No.");             //  20000
-                            NbLot := ReservEntry.COUNT;
-                            IF NbLot > 1 THEN
-                                ERROR(Text1000000004, ItemJnlLineCtrl."Line No.", ItemJnlLineCtrl."Item No.");
-                            IF MemoDocNo <> ItemJnlLineCtrl."Document No." THEN BEGIN
-                                MemoDocNo := ItemJnlLineCtrl."Document No.";
-                                //--- Controle des lignes avec document
-                                //MESSAGE('ctrl document %1',MemoDocNo);
-                                ItemJnlLineCtrl2.SETRANGE("Journal Template Name", ItemJnlLine."Journal Template Name");
-                                ItemJnlLineCtrl2.SETRANGE("Journal Batch Name", ItemJnlLine."Journal Batch Name");
-                                ItemJnlLineCtrl2.SETRANGE("PWD Butchery", TRUE);
-                                ItemJnlLineCtrl2.SETRANGE("Document No.", ItemJnlLineCtrl."Document No.");
-                                NbLineDoc := ItemJnlLineCtrl2.COUNT;
+                        ReservEntry.SETRANGE("Source ID", ItemJnlLineCtrl."Journal Template Name");      //  ARTICLE
+                        ReservEntry.SETRANGE("Source Batch Name", ItemJnlLineCtrl."Journal Batch Name"); //  DEFAUT
+                        ReservEntry.SETRANGE("Source Ref. No.", ItemJnlLineCtrl."Line No.");             //  20000
+                        NbLot := ReservEntry.COUNT;
+                        IF NbLot > 1 THEN
+                            ERROR(Text1000000004, ItemJnlLineCtrl."Line No.", ItemJnlLineCtrl."Item No.");
+                        IF MemoDocNo <> ItemJnlLineCtrl."Document No." THEN BEGIN
+                            MemoDocNo := ItemJnlLineCtrl."Document No.";
+                            //--- Controle des lignes avec document
+                            //MESSAGE('ctrl document %1',MemoDocNo);
+                            ItemJnlLineCtrl2.SETRANGE("Journal Template Name", ItemJnlLine."Journal Template Name");
+                            ItemJnlLineCtrl2.SETRANGE("Journal Batch Name", ItemJnlLine."Journal Batch Name");
+                            ItemJnlLineCtrl2.SETRANGE("PWD Butchery", TRUE);
+                            ItemJnlLineCtrl2.SETRANGE("Document No.", ItemJnlLineCtrl."Document No.");
+                            NbLineDoc := ItemJnlLineCtrl2.COUNT;
 
-                                MemoFamily := '';
-                                CtrlFamily := TRUE;
-                                NbItemInPut := 0;
-                                QuantityInput := 0;
-                                QuantityOutput := 0;
-                                InverseControlItemInput := FALSE;
-                                IF ItemJnlLineCtrl2.FindSet() THEN BEGIN
-                                                                       REPEAT
-                                                                           Item2.GET(ItemJnlLineCtrl2."Item No.");
+                            MemoFamily := '';
+                            CtrlFamily := TRUE;
+                            NbItemInPut := 0;
+                            QuantityInput := 0;
+                            QuantityOutput := 0;
+                            InverseControlItemInput := FALSE;
+                            IF ItemJnlLineCtrl2.FindSet() THEN BEGIN
+                                REPEAT
+                                    Item2.GET(ItemJnlLineCtrl2."Item No.");
 
-                                                                           //*** Controle des familles
-                                                                           IF NOT MeatFamily.GET(Item2."PWD Meat Family") THEN
-                                                                               MeatFamily.Control := FALSE;
+                                    //*** Controle des familles
+                                    IF NOT MeatFamily.GET(Item2."PWD Meat Family") THEN
+                                        MeatFamily.Control := FALSE;
 
-                                                                           IF MeatFamily.Control = TRUE THEN BEGIN
-                                                                               IF MemoFamily = '' THEN
-                                                                                   MemoFamily := Item2."PWD Meat Family";
-                                                                               IF (MemoFamily <> Item2."PWD Meat Family") AND (MemoFamily <> '') THEN
-                                                                                   CtrlFamily := FALSE;
-                                                                           END;
-
-                                                                           //*** Controle des kg entr‚e et des kg sorties
-                                                                           IF ItemJnlLineCtrl2."Entry Type" = ItemJnlLineCtrl2."Entry Type"::"Negative Adjmt." THEN
-                                                                               ItemJnlLineCtrl2.Quantity := -ItemJnlLineCtrl2.Quantity;
-                                                                           IF Item2."PWD Meat Type" = Item2."PWD Meat Type"::"Entrée" THEN BEGIN
-                                                                               NbItemInPut := NbItemInPut + 1;
-                                                                               IF ItemJnlLineCtrl2."Entry Type" <> ItemJnlLineCtrl2."Entry Type"::"Negative Adjmt." THEN
-                                                                                   InverseControlItemInput := TRUE;
-                                                                               QuantityInput := QuantityInput + ItemJnlLineCtrl2.Quantity;
-                                                                           END ELSE
-                                                                               QuantityOutput := QuantityOutput + ItemJnlLineCtrl2.Quantity;
-                                                                       UNTIL ItemJnlLineCtrl2.NEXT() = 0;
-
-                                    IF CtrlFamily = FALSE THEN
-                                        ERROR(Text1000000017, MemoDocNo);
-                                    IF NbLineDoc > 1 THEN BEGIN   // si 1 seule ligne on ne controle pas !
-                                        IF InverseControlItemInput = TRUE THEN BEGIN
-                                            QuantityInput := -QuantityInput;
-                                            QuantityOutput := -QuantityOutput;
-                                        END;
-                                        IF (QuantityOutput + QuantityInput) > 0 THEN
-                                            ERROR(Text1000000016)
+                                    IF MeatFamily.Control = TRUE THEN BEGIN
+                                        IF MemoFamily = '' THEN
+                                            MemoFamily := Item2."PWD Meat Family";
+                                        IF (MemoFamily <> Item2."PWD Meat Family") AND (MemoFamily <> '') THEN
+                                            CtrlFamily := FALSE;
                                     END;
+
+                                    //*** Controle des kg entr‚e et des kg sorties
+                                    IF ItemJnlLineCtrl2."Entry Type" = ItemJnlLineCtrl2."Entry Type"::"Negative Adjmt." THEN
+                                        ItemJnlLineCtrl2.Quantity := -ItemJnlLineCtrl2.Quantity;
+                                    IF Item2."PWD Meat Type" = Item2."PWD Meat Type"::"Entrée" THEN BEGIN
+                                        NbItemInPut := NbItemInPut + 1;
+                                        IF ItemJnlLineCtrl2."Entry Type" <> ItemJnlLineCtrl2."Entry Type"::"Negative Adjmt." THEN
+                                            InverseControlItemInput := TRUE;
+                                        QuantityInput := QuantityInput + ItemJnlLineCtrl2.Quantity;
+                                    END ELSE
+                                        QuantityOutput := QuantityOutput + ItemJnlLineCtrl2.Quantity;
+                                UNTIL ItemJnlLineCtrl2.NEXT() = 0;
+
+                                IF CtrlFamily = FALSE THEN
+                                    ERROR(Text1000000017, MemoDocNo);
+                                IF NbLineDoc > 1 THEN BEGIN   // si 1 seule ligne on ne controle pas !
+                                    IF InverseControlItemInput = TRUE THEN BEGIN
+                                        QuantityInput := -QuantityInput;
+                                        QuantityOutput := -QuantityOutput;
+                                    END;
+                                    IF (QuantityOutput + QuantityInput) > 0 THEN
+                                        ERROR(Text1000000016)
                                 END;
                             END;
                         END;
+                    END;
             UNTIL ItemJnlLineCtrl.NEXT() = 0;
 
         //*** MAJ du champ nø lot origine
         IF ItemJnlLine.FindSet() THEN BEGIN
             MemoDocNo := '';
-                                          REPEAT
-                                              IF MemoDocNo <> ItemJnlLineCtrl."Document No." THEN BEGIN
-                                                  MemoDocNo := ItemJnlLineCtrl."Document No.";
-                                                  LotNoOrigin := '';
-                                                  //--- Controle des lignes avec document
-                                                  ItemJnlLineCtrl2.SETRANGE("Journal Template Name", ItemJnlLine."Journal Template Name");
-                                                  ItemJnlLineCtrl2.SETRANGE("Journal Batch Name", ItemJnlLine."Journal Batch Name");
-                                                  ItemJnlLineCtrl2.SETRANGE("PWD Butchery", TRUE);
-                                                  ItemJnlLineCtrl2.SETRANGE("Document No.", ItemJnlLineCtrl."Document No.");
-                                                  NbLineDoc := ItemJnlLineCtrl2.COUNT;
-                                                  //--- Recherche de l'article de type Entr‚e
-                                                  IF ItemJnlLineCtrl2.FindSet() THEN
-                                                      REPEAT
-                                                              Item2.GET(ItemJnlLineCtrl2."Item No.");
-                                                          IF Item2."PWD Meat Type" = Item2."PWD Meat Type"::"Entrée" THEN BEGIN
-                                                              //*** Recherche du nø de lot
-                                                              ReservEntry.RESET();
-                                                              ReservEntry.SETCURRENTKEY("Reservation Status", "Item No.", "Variant Code", "Location Code",
-                                                                  "Source Type", "Source Subtype", "Expected Receipt Date");
-                                                              ReservEntry.SETRANGE("Item No.", ItemJnlLineCtrl2."Item No.");
-                                                              ReservEntry.SETFILTER("Source Type", '%1', 83);
-                                                              ReservEntry.SETRANGE("Source ID", ItemJnlLineCtrl2."Journal Template Name");      //  ARTICLE
-                                                              ReservEntry.SETRANGE("Source Batch Name", ItemJnlLineCtrl."Journal Batch Name"); //  DEFAUT
-                                                              ReservEntry.SETRANGE("Source Ref. No.", ItemJnlLineCtrl."Line No.");             //  20000
-                                                              IF ReservEntry.FINDFirst() THEN
-                                                                  LotNoOrigin := ItemJnlLineCtrl2."Lot No.";
-                                                          END;
-                                                      UNTIL ItemJnlLineCtrl2.NEXT() = 0;
-                                                  IF ItemJnlLineCtrl2.FindSet() THEN
-                                                      REPEAT
-                                                              Item2.GET(ItemJnlLineCtrl2."Item No.");
-                                                          IF Item2."PWD Meat Type" <> Item2."PWD Meat Type"::"Entrée" THEN BEGIN
-                                                              //*** Recherche du nø de lot
-                                                              ReservEntry.SETRANGE("Item No.", ItemJnlLineCtrl2."Item No.");
-                                                              ReservEntry.SETFILTER("Source Type", '%1', 83);
-                                                              ReservEntry.SETRANGE("Source ID", ItemJnlLineCtrl2."Journal Template Name");
-                                                              ReservEntry.SETRANGE("Source Batch Name", ItemJnlLineCtrl."Journal Batch Name");
-                                                              ReservEntry.SETRANGE("Source Ref. No.", ItemJnlLineCtrl."Line No.");
-                                                          END;
-                                                      UNTIL ItemJnlLineCtrl2.NEXT() = 0;
-                                              END;
-                                          UNTIL ItemJnlLineCtrl.NEXT() = 0;
+            REPEAT
+                IF MemoDocNo <> ItemJnlLineCtrl."Document No." THEN BEGIN
+                    MemoDocNo := ItemJnlLineCtrl."Document No.";
+                    LotNoOrigin := '';
+                    //--- Controle des lignes avec document
+                    ItemJnlLineCtrl2.SETRANGE("Journal Template Name", ItemJnlLine."Journal Template Name");
+                    ItemJnlLineCtrl2.SETRANGE("Journal Batch Name", ItemJnlLine."Journal Batch Name");
+                    ItemJnlLineCtrl2.SETRANGE("PWD Butchery", TRUE);
+                    ItemJnlLineCtrl2.SETRANGE("Document No.", ItemJnlLineCtrl."Document No.");
+                    NbLineDoc := ItemJnlLineCtrl2.COUNT;
+                    //--- Recherche de l'article de type Entr‚e
+                    IF ItemJnlLineCtrl2.FindSet() THEN
+                        REPEAT
+                            Item2.GET(ItemJnlLineCtrl2."Item No.");
+                            IF Item2."PWD Meat Type" = Item2."PWD Meat Type"::"Entrée" THEN BEGIN
+                                //*** Recherche du nø de lot
+                                ReservEntry.RESET();
+                                ReservEntry.SETCURRENTKEY("Reservation Status", "Item No.", "Variant Code", "Location Code",
+                                    "Source Type", "Source Subtype", "Expected Receipt Date");
+                                ReservEntry.SETRANGE("Item No.", ItemJnlLineCtrl2."Item No.");
+                                ReservEntry.SETFILTER("Source Type", '%1', 83);
+                                ReservEntry.SETRANGE("Source ID", ItemJnlLineCtrl2."Journal Template Name");      //  ARTICLE
+                                ReservEntry.SETRANGE("Source Batch Name", ItemJnlLineCtrl."Journal Batch Name"); //  DEFAUT
+                                ReservEntry.SETRANGE("Source Ref. No.", ItemJnlLineCtrl."Line No.");             //  20000
+                                IF ReservEntry.FINDFirst() THEN
+                                    LotNoOrigin := ItemJnlLineCtrl2."Lot No.";
+                            END;
+                        UNTIL ItemJnlLineCtrl2.NEXT() = 0;
+                    IF ItemJnlLineCtrl2.FindSet() THEN
+                        REPEAT
+                            Item2.GET(ItemJnlLineCtrl2."Item No.");
+                            IF Item2."PWD Meat Type" <> Item2."PWD Meat Type"::"Entrée" THEN BEGIN
+                                //*** Recherche du nø de lot
+                                ReservEntry.SETRANGE("Item No.", ItemJnlLineCtrl2."Item No.");
+                                ReservEntry.SETFILTER("Source Type", '%1', 83);
+                                ReservEntry.SETRANGE("Source ID", ItemJnlLineCtrl2."Journal Template Name");
+                                ReservEntry.SETRANGE("Source Batch Name", ItemJnlLineCtrl."Journal Batch Name");
+                                ReservEntry.SETRANGE("Source Ref. No.", ItemJnlLineCtrl."Line No.");
+                            END;
+                        UNTIL ItemJnlLineCtrl2.NEXT() = 0;
+                END;
+            UNTIL ItemJnlLineCtrl.NEXT() = 0;
         END;
     END;
 
@@ -650,16 +650,16 @@ codeunit 60001 "PWD Function Mgt"
         SalesLineCtrl.SETRANGE("Document No.", SalesHeader."No.");
         SalesLineCtrl.SETRANGE("PWD Trading Brand", TRUE);
         IF SalesLineCtrl.FindSet() THEN
-                REPEAT
-                    SalesLineCtrl.CALCFIELDS("PWD Quantity Receipted Purch.");
-                    IF (SalesLineCtrl."Qty. to Ship" + SalesLineCtrl."Quantity Shipped") > SalesLineCtrl."PWD Quantity Receipted Purch." THEN
-                        ERROR(Text1000000003, SalesLineCtrl."Line No.", SalesLineCtrl."Qty. to Ship" + SalesLineCtrl."Quantity Shipped",
-                           SalesLineCtrl."PWD Quantity Receipted Purch.");
-                    IF (SalesLineCtrl."Qty. to Invoice" + SalesLineCtrl."Quantity Invoiced") > SalesLineCtrl."PWD Quantity Receipted Purch."
-          THEN
-                        ERROR(Text1000000004, SalesLineCtrl."Line No.", SalesLineCtrl."Qty. to Invoice" + SalesLineCtrl."Quantity Invoiced",
-                           SalesLineCtrl."PWD Quantity Receipted Purch.");
-                UNTIL SalesLineCtrl.NEXT() = 0;
+            REPEAT
+                SalesLineCtrl.CALCFIELDS("PWD Quantity Receipted Purch.");
+                IF (SalesLineCtrl."Qty. to Ship" + SalesLineCtrl."Quantity Shipped") > SalesLineCtrl."PWD Quantity Receipted Purch." THEN
+                    ERROR(Text1000000003, SalesLineCtrl."Line No.", SalesLineCtrl."Qty. to Ship" + SalesLineCtrl."Quantity Shipped",
+                       SalesLineCtrl."PWD Quantity Receipted Purch.");
+                IF (SalesLineCtrl."Qty. to Invoice" + SalesLineCtrl."Quantity Invoiced") > SalesLineCtrl."PWD Quantity Receipted Purch."
+      THEN
+                    ERROR(Text1000000004, SalesLineCtrl."Line No.", SalesLineCtrl."Qty. to Invoice" + SalesLineCtrl."Quantity Invoiced",
+                       SalesLineCtrl."PWD Quantity Receipted Purch.");
+            UNTIL SalesLineCtrl.NEXT() = 0;
     end;
 
     PROCEDURE CalcAvailability(SalesHeader: Record "Sales Header");
@@ -678,7 +678,7 @@ codeunit 60001 "PWD Function Mgt"
         ToSalesLine2.SETFILTER("Location Code", '<>%1', '');
         IF ToSalesLine2.FindSet() THEN
             REPEAT
-                    Item.RESET();
+                Item.RESET();
                 Item.GET(ToSalesLine2."No.");
                 Item.SETFILTER("Location Filter", ToSalesLine2."Location Code");
                 Item.CALCFIELDS(Inventory);
@@ -693,7 +693,7 @@ codeunit 60001 "PWD Function Mgt"
                 RecLSalesLine.SETFILTER("Line No.", '<%1', ToSalesLine2."Line No.");
                 IF RecLSalesLine.FindSet() THEN
                     REPEAT
-                            DecLOtherLineQty += RecLSalesLine."Qty. to Ship (Base)";
+                        DecLOtherLineQty += RecLSalesLine."Qty. to Ship (Base)";
                     UNTIL RecLSalesLine.NEXT() = 0;
                 IF Item.Inventory - (ToSalesLine2."Qty. to Ship (Base)" + DecLOtherLineQty) < 0 THEN
                     ERROR(STRSUBSTNO(Text1000000002, ToSalesLine2."No.", ToSalesLine2."Location Code", ToSalesLine2."Line No.",
@@ -1012,34 +1012,34 @@ codeunit 60001 "PWD Function Mgt"
         SalesLineCtrl.SETRANGE(Type, SalesLineCtrl.Type::Item);
         IF SalesLineCtrl.FINDSet() THEN
             REPEAT
-                    //*** Controle prix unitaire > prix plancher de l'article
-                    IF Item.GET(SalesLineCtrl."No.") THEN
-                        IF Location.GET(SalesLineCtrl."Location Code") AND (Location."PWD Controle du prix plancher") THEN BEGIN
-                            BottomPrice := Item."PWD Bottom Price";
-                            IF SalesHeader."Currency Code" <> '' THEN BEGIN
-                                Currency.GET(SalesHeader."Currency Code");
-                                BottomPrice :=
-                                   ROUND(
-                                         CurrExchRate.ExchangeAmtLCYToFCY(
-                                         SalesLineCtrl.GetDate(), SalesHeader."Currency Code",
-                                         BottomPrice, SalesHeader."Currency Factor"),
-                                         Currency."Unit-Amount Rounding Precision")
-                            END;
-                            IF (SalesLineCtrl."Unit Price" < BottomPrice) OR (SalesLineCtrl."Unit Price" = 0) THEN
-                                IF Avertissement = FALSE THEN
-                                    ERROR(CstG001,
-                                           SalesLineCtrl."Document No.", SalesLineCtrl."Line No.", SalesLineCtrl."No.",
-                                           SalesLineCtrl."Unit Price", BottomPrice)
-                                ELSE
-                                    IF CONFIRM(
-                                          CstG003,
-                                          TRUE,
-                                          SalesLineCtrl."Document No.", SalesLineCtrl."Line No.", SalesLineCtrl."No.",
-                                          SalesLineCtrl."Unit Price", BottomPrice) = FALSE THEN
-                                        ERROR(CstG002,
-                                               SalesLineCtrl."Document No.", SalesLineCtrl."Line No.", SalesLineCtrl."No.",
-                                               SalesLineCtrl."Unit Price", BottomPrice);
+                //*** Controle prix unitaire > prix plancher de l'article
+                IF Item.GET(SalesLineCtrl."No.") THEN
+                    IF Location.GET(SalesLineCtrl."Location Code") AND (Location."PWD Controle du prix plancher") THEN BEGIN
+                        BottomPrice := Item."PWD Bottom Price";
+                        IF SalesHeader."Currency Code" <> '' THEN BEGIN
+                            Currency.GET(SalesHeader."Currency Code");
+                            BottomPrice :=
+                               ROUND(
+                                     CurrExchRate.ExchangeAmtLCYToFCY(
+                                     SalesLineCtrl.GetDate(), SalesHeader."Currency Code",
+                                     BottomPrice, SalesHeader."Currency Factor"),
+                                     Currency."Unit-Amount Rounding Precision")
                         END;
+                        IF (SalesLineCtrl."Unit Price" < BottomPrice) OR (SalesLineCtrl."Unit Price" = 0) THEN
+                            IF Avertissement = FALSE THEN
+                                ERROR(CstG001,
+                                       SalesLineCtrl."Document No.", SalesLineCtrl."Line No.", SalesLineCtrl."No.",
+                                       SalesLineCtrl."Unit Price", BottomPrice)
+                            ELSE
+                                IF CONFIRM(
+                                      CstG003,
+                                      TRUE,
+                                      SalesLineCtrl."Document No.", SalesLineCtrl."Line No.", SalesLineCtrl."No.",
+                                      SalesLineCtrl."Unit Price", BottomPrice) = FALSE THEN
+                                    ERROR(CstG002,
+                                           SalesLineCtrl."Document No.", SalesLineCtrl."Line No.", SalesLineCtrl."No.",
+                                           SalesLineCtrl."Unit Price", BottomPrice);
+                    END;
             UNTIL SalesLineCtrl.NEXT() = 0;
     END;
 
@@ -1057,13 +1057,13 @@ codeunit 60001 "PWD Function Mgt"
             AppTenders.SETRANGE("Document No.", SalesQuoteLine."Document No.");
             AppTenders.SETRANGE("Line No. document", SalesQuoteLine."Line No.");
             AppTenders.FindSet();
-                                                                   REPEAT
-                                                                       AppTendersOrder := AppTenders;
-                                                                       AppTendersOrder."Document Type" := SalesOrderHeader."Document Type";
-                                                                       AppTendersOrder."Document No." := SalesOrderHeader."No.";
-                                                                       AppTendersOrder."Line No. document" := SalesOrderLine."Line No.";
-                                                                       AppTendersOrder.INSERT();
-                                                                   UNTIL AppTenders.NEXT() = 0;
+            REPEAT
+                AppTendersOrder := AppTenders;
+                AppTendersOrder."Document Type" := SalesOrderHeader."Document Type";
+                AppTendersOrder."Document No." := SalesOrderHeader."No.";
+                AppTendersOrder."Line No. document" := SalesOrderLine."Line No.";
+                AppTendersOrder.INSERT();
+            UNTIL AppTenders.NEXT() = 0;
         END;
         IF SalesQuoteLine."PWD Nb Purchase Quote" > 0 THEN BEGIN
             PurchQuoteLine.SETCURRENTKEY("PWD SalesTypeDocAppealTend.", "PWD Sales No. Appeal Tenders", "PWD SalesLineNoAppealTenders");
@@ -1091,9 +1091,9 @@ codeunit 60001 "PWD Function Mgt"
         FromPurchLine.SETRANGE("Document No.", ReceivePurchHeader."No.");
         FromPurchLine.SETFILTER(Type, '<>%1', 0);
         IF FromPurchLine.FindSet() THEN BEGIN
-                                            REPEAT
-                                                IF FromPurchLine.Quantity <> FromPurchLine."Quantity Received" THEN EXIT(FALSE);
-                                            UNTIL FromPurchLine.NEXT() = 0;
+            REPEAT
+                IF FromPurchLine.Quantity <> FromPurchLine."Quantity Received" THEN EXIT(FALSE);
+            UNTIL FromPurchLine.NEXT() = 0;
             EXIT(TRUE);
         END
         ELSE
@@ -1119,10 +1119,10 @@ codeunit 60001 "PWD Function Mgt"
         ReportSelection.SelectTempReportSelectionsToPrint(TempReportSelections, TempNameValueBuffer, WithCheck, ReportUsage, TableNo);
         if TempReportSelections.FindSet() then
             repeat
-                    if TempReportSelections."Custom Report Layout Code" <> '' then
-                        ReportLayoutSelection.SetTempLayoutSelected(TempReportSelections."Custom Report Layout Code")
-                    else
-                        ReportLayoutSelection.SetTempLayoutSelected('');
+                if TempReportSelections."Custom Report Layout Code" <> '' then
+                    ReportLayoutSelection.SetTempLayoutSelected(TempReportSelections."Custom Report Layout Code")
+                else
+                    ReportLayoutSelection.SetTempLayoutSelected('');
 
                 TempNameValueBuffer.FindSet();
                 AccountNoFilter := ReportSelection.GetAccountNoFilterForCustomReportLayout(TempReportSelections, TempNameValueBuffer, TableNo);
@@ -1805,7 +1805,7 @@ codeunit 60001 "PWD Function Mgt"
             IF SalesLine.FINDFIRST() THEN
                 IF CONFIRM(Txt50000, TRUE) THEN
                     REPEAT
-                            SalesLine.VALIDATE("Qty. to Ship", SalesLine.Quantity);
+                        SalesLine.VALIDATE("Qty. to Ship", SalesLine.Quantity);
                         SalesLine.MODIFY();
                     UNTIL SalesLine.NEXT() = 0;
         END;
@@ -1823,7 +1823,7 @@ codeunit 60001 "PWD Function Mgt"
         SalesLine.SETRANGE(Type, 2);
         IF SalesLine.FindSet() THEN
             REPEAT
-                    Item.GET(SalesLine."No.");
+                Item.GET(SalesLine."No.");
                 IF (SalesLine."Net Weight" = 0) OR (SalesLine."Gross Weight" = 0) THEN
                     ERROR(Txt1000000004, SalesLine."Line No.");
 
@@ -2007,7 +2007,7 @@ codeunit 60001 "PWD Function Mgt"
             SalesCommentLineArchive.SETRANGE("Version No.", SalesHeaderArchive."Version No.");
             IF SalesCommentLineArchive.FINDSET() THEN
                 REPEAT
-                        SalesCommentLine.INIT();
+                    SalesCommentLine.INIT();
                     SalesCommentLine.TRANSFERFIELDS(SalesCommentLineArchive);
                     SalesCommentLine.INSERT();
                 UNTIL SalesCommentLineArchive.NEXT() = 0;
@@ -2033,7 +2033,7 @@ codeunit 60001 "PWD Function Mgt"
             SalesLineArchive.SETRANGE("Version No.", SalesHeaderArchive."Version No.");
             IF SalesLineArchive.FINDSET() THEN
                 REPEAT
-                        SalesLine.INIT();
+                    SalesLine.INIT();
                     SalesLine.TRANSFERFIELDS(SalesLineArchive);
                     SalesLine."Document No." := SalesHeader."No.";
                     SalesLine.INSERT(TRUE);
@@ -2211,12 +2211,12 @@ codeunit 60001 "PWD Function Mgt"
             ItemLedgEntry.SETRANGE("Lot No.", LotNo);
 
         IF ItemLedgEntry.FindSet() THEN
-                REPEAT
-                    IF (ItemLedgEntry."Serial No." <> '') OR (ItemLedgEntry."Lot No." <> '') THEN BEGIN
-                        TempItemLedgEntry := ItemLedgEntry;
-                        TempItemLedgEntry.INSERT();
-                    END
-                UNTIL ItemLedgEntry.NEXT() = 0;
+            REPEAT
+                IF (ItemLedgEntry."Serial No." <> '') OR (ItemLedgEntry."Lot No." <> '') THEN BEGIN
+                    TempItemLedgEntry := ItemLedgEntry;
+                    TempItemLedgEntry.INSERT();
+                END
+            UNTIL ItemLedgEntry.NEXT() = 0;
         Window.CLOSE();
         Page.RUNMODAL(Page::"PWD User Item Tracking Entries", TempItemLedgEntry);
     END;
@@ -2236,10 +2236,10 @@ codeunit 60001 "PWD Function Mgt"
         ToPurchPrice.DELETEALL();
         IF FromPurchPrice.FindSet() THEN
             REPEAT
-                    IF FromPurchPrice."Direct Unit Cost" <> 0 THEN BEGIN
-                        ToPurchPrice := FromPurchPrice;
-                        ToPurchPrice.INSERT();
-                    END;
+                IF FromPurchPrice."Direct Unit Cost" <> 0 THEN BEGIN
+                    ToPurchPrice := FromPurchPrice;
+                    ToPurchPrice.INSERT();
+                END;
             UNTIL FromPurchPrice.NEXT() = 0;
     end;
 
