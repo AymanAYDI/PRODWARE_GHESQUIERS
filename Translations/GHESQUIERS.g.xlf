@@ -11223,6 +11223,31 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3247409337 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code journal</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Report 3247409337 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>N° compte</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Report 3247409337 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Monnaie</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Report 3247409337 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Section analytique</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Report 3247409337 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ExportCOALA_%1_%2</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - NamedType Text004</note>
+        </trans-unit>
         <trans-unit id="Report 3247409337 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -14477,6 +14502,16 @@
           <source>Import national add. Code N13</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort Import national add. Code N13 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export CIEL</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 2814184718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ExportItem</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD ExportItem - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3330782148 - Control 3972132648 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
           <source>Douane</source>

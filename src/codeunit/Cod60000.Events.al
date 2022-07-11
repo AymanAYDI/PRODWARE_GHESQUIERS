@@ -707,7 +707,8 @@ codeunit 60000 "PWD Events"
         ItemJnlPostLine: codeunit "Item Jnl.-Post Line";
     begin
         RecLInventorySetup.GET();
-        IF RecLInventorySetup."PWD Nom modele prestation" = ItemJournalLine."Journal Template Name" THEN begin
+        IF (RecLInventorySetup."PWD Nom modele prestation" = ItemJournalLine."Journal Template Name") and ((ItemJournalLine.Quantity = 0)
+        and (ItemJournalLine."Invoiced Quantity" = 0)) THEN begin
             ItemJnlPostLine.ItemValuePosting();
             IsHandled := true;
         end;

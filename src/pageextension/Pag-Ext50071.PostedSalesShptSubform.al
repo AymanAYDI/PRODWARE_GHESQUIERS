@@ -1,5 +1,6 @@
 pageextension 50071 "PWD PostedSalesShptSubform" extends "Posted Sales Shpt. Subform"
 {
+    Editable = true;
     layout
     {
         modify(Type)

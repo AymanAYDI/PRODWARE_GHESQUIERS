@@ -28,6 +28,7 @@ report 50128 "PWD Export CIEL"
     var
         CduG3TierAutomationMgt: Codeunit "File Management";
     begin
+
         //TODO
         /*
                 IF ISSERVICETIER THEN
@@ -163,24 +164,24 @@ report 50128 "PWD Export CIEL"
 
                 XMLDomDoc.save(TxtGFilename);
                 CLEAR(XMLDomDoc);*/
-        TemXMLBuffer.addGroupElement('produit');
-        TemXMLBuffer.addattribute('Export', companyname);
-        RecGCIELData.RESET();
-        RecGCIELData.SETRANGE("Right Type", RecGCIELData."Right Type"::"Value acquittees");
-        IF RecGCIELData.FINDFIRST() THEN
-            REPEAT
-                TemXMLBuffer.addGroupElement('sous produit');
-                TemXMLBuffer.addattribute('Item Volume', Format(RecGCIELData."Item Volume"));
-                TemXMLBuffer.addelement('Sales', Format(RecGCIELData.Sales));
-                TemXMLBuffer.GetParent();
-            UNTIL RecGCIELData.NEXT() = 0;
-        //Data.AddText('Produit');
-        filename := 'Produit.xml';
-        tempblob.CreateOutStream(outstr);
-        //Data.Write(outstr);
-        tempblob.createinstream(instr);
-        TemXMLBuffer.Save(tempblob);
-        DownloadFromStream(instr, '', '', '', filename)
+        // TemXMLBuffer.addGroupElement('produit');
+        // TemXMLBuffer.addattribute('Export', companyname);
+        // RecGCIELData.RESET();
+        // RecGCIELData.SETRANGE("Right Type", RecGCIELData."Right Type"::"Value acquittees");
+        // IF RecGCIELData.FINDFIRST() THEN
+        //     REPEAT
+        //         TemXMLBuffer.addGroupElement('sous produit');
+        //         TemXMLBuffer.addattribute('Item Volume', Format(RecGCIELData."Item Volume"));
+        //         TemXMLBuffer.addelement('Sales', Format(RecGCIELData.Sales));
+        //         TemXMLBuffer.GetParent();
+        //     UNTIL RecGCIELData.NEXT() = 0;
+        // //Data.AddText('Produit');
+        // filename := 'Produit.xml';
+        // tempblob.CreateOutStream(outstr);
+        // //Data.Write(outstr);
+        // tempblob.createinstream(instr);
+        // TemXMLBuffer.Save(tempblob);
+        // DownloadFromStream(instr, '', '', '', filename)
 
 
     end;
