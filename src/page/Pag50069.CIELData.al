@@ -176,7 +176,7 @@ page 50069 "PWD CIEL Data"
                             ERROR(CstG003)
                         ELSE
                             //RepLExportCIEL.RUNMODAL();
-                            Xmlport.Run(50000, false, false);
+                            Xmlport.Run(50000, true, false);
                     END ELSE
                         ERROR(CstG005);
                 end;

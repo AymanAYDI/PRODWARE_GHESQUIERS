@@ -7,22 +7,27 @@ pageextension 50010 "PWD ItemList" extends "Item List"
             field("PWD SEAF Code"; Rec."PWD SEAF Code")
             {
                 ApplicationArea = all;
+                Caption = 'SEAF Code';
             }
             field("PWD SEAF Code 2"; Rec."PWD SEAF Code 2")
             {
                 ApplicationArea = All;
+                Caption = 'SEAF Code 2';
             }
             field("PWD SEAF Code 3"; Rec."PWD SEAF Code 3")
             {
                 ApplicationArea = All;
+                Caption = 'SEAF Code 3';
             }
             field("PWD SEAF Code 4"; Rec."PWD SEAF Code 4")
             {
                 ApplicationArea = All;
+                Caption = 'SEAF Code 4';
             }
             field("PWD SEAF Code 5"; Rec."PWD SEAF Code 5")
             {
                 ApplicationArea = All;
+                Caption = 'SEAF Code 5';
             }
         }
         addafter(Description)
@@ -43,11 +48,11 @@ pageextension 50010 "PWD ItemList" extends "Item List"
             {
                 ApplicationArea = All;
             }
-            field("Family (Sea France)"; Rec."PWD Family (Sea France)")
+            field("PWD Family (Sea France)"; Rec."PWD Family (Sea France)")
             {
                 ApplicationArea = All;
             }
-            field("Sub Family (Sea France)"; Rec."PWD Sub Family (Sea France)")
+            field("PWD Sub Family (Sea France)"; Rec."PWD Sub Family (Sea France)")
             {
                 ApplicationArea = All;
             }
@@ -94,7 +99,7 @@ pageextension 50010 "PWD ItemList" extends "Item List"
             {
                 ApplicationArea = All;
             }
-            field("Product %"; Rec."PWD Product %")
+            field("PWD Product %"; Rec."PWD Product %")
             {
                 ApplicationArea = All;
             }
@@ -126,7 +131,7 @@ pageextension 50010 "PWD ItemList" extends "Item List"
             {
                 ApplicationArea = All;
             }
-            field("ISSA Code (Old Version)"; Rec."PWD ISSA Code (Old Version)")
+            field("PWD ISSA Code (Old Version)"; Rec."PWD ISSA Code (Old Version)")
             {
                 ApplicationArea = All;
             }

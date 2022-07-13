@@ -9479,7 +9479,7 @@
         </trans-unit>
         <trans-unit id="Table 114857529 - Field 1438878576 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>SEAF Code</source>
-          <target state="translated">SEAF Code</target>
+          <target state="translated">OCL Code</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Table PWD Seafrance Sales Line - Field SEAF Code - Property Caption</note>
         </trans-unit>
@@ -13419,11 +13419,83 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 4261726424 - NamedType 3802638270" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Save As</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - NamedType CstG001</note>
+        </trans-unit>
+        <trans-unit id="Report 4261726424 - NamedType 1889548419" size-unit="char" translate="yes" xml:space="preserve">
+          <source>XML Files (*.xml)|*.xml|All Files|*.*</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - NamedType CstG002</note>
+        </trans-unit>
+        <trans-unit id="Report 4261726424 - NamedType 2527245036" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File name must be specified.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - NamedType CstG003</note>
+        </trans-unit>
+        <trans-unit id="Report 4261726424 - NamedType 614155185" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The %1 already exists.\\Do you want to replace the existing file?</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - NamedType CstG004</note>
+        </trans-unit>
+        <trans-unit id="Report 4261726424 - NamedType 1251851802" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The file %1 already exists.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - NamedType CstG005</note>
+        </trans-unit>
+        <trans-unit id="Report 4261726424 - NamedType 3633729247" size-unit="char" translate="yes" xml:space="preserve">
+          <source>default.xml</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - NamedType CstG006</note>
+        </trans-unit>
+        <trans-unit id="Report 4261726424 - NamedType 4271425864" size-unit="char" translate="yes" xml:space="preserve">
+          <source>EDI DTI+ CIEL file has been generated.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export CIEL - NamedType CstG007</note>
+        </trans-unit>
         <trans-unit id="Report 3247409337 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Export COALA</source>
           <target state="translated">Export COALA</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3247409337 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Code journal</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Report 3247409337 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>N° compte</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Report 3247409337 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Monnaie</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Report 3247409337 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Section analytique</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Report 3247409337 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ExportCOALA_%1_%2</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - NamedType Text004</note>
         </trans-unit>
         <trans-unit id="Report 3247409337 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Options</source>
@@ -13616,6 +13688,72 @@
           <target state="translated">Physique</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Inventaire pour la douane - NamedType PhysiqueCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 557413771 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Register - Quantity</source>
+          <target state="translated">Historique des transactions article : Quantité</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Item Register - Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 557413771 - NamedType 684809554" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Item Register - Quantity - NamedType CurrReportPageNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 557413771 - NamedType 3392267841" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Item Register - Quantity - NamedType ItemDescriptionCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 557413771 - NamedType 652190543" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Item Register - Quantity</source>
+          <target state="translated">Historique des transactions article : Quantité</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Item Register - Quantity - NamedType ItemRegQtyCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 557413771 - NamedType 1173300905" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Location Code</source>
+          <target state="translated">Code magasin</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Item Register - Quantity - NamedType LocationCap</note>
+        </trans-unit>
+        <trans-unit id="Report 557413771 - NamedType 4175890945" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Montant douane</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Item Register - Quantity - NamedType Montantdouane</note>
+        </trans-unit>
+        <trans-unit id="Report 557413771 - NamedType 2302100706" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Register No.</source>
+          <target state="translated">N° histori</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Item Register - Quantity - NamedType No_ItemRegisterCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 557413771 - NamedType 2248430457" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Poids Net Unitaire</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Item Register - Quantity - NamedType PoidsNetUnitaire</note>
+        </trans-unit>
+        <trans-unit id="Report 557413771 - NamedType 443421780" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <target state="translated">Date comptabilisation</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Item Register - Quantity - NamedType PostingDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 557413771 - NamedType 2901270359" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Montant douane:</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Item Register - Quantity - NamedType TotalMontantDouane</note>
+        </trans-unit>
+        <trans-unit id="Report 557413771 - NamedType 2248997576" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total Poids Net:</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Item Register - Quantity - NamedType TotalPoidsNet</note>
         </trans-unit>
         <trans-unit id="Report 3906944373 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Palmares des articles</source>
@@ -17331,6 +17469,144 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort Import national add. Code N13 - Property Caption</note>
         </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Export CIEL</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 117704495 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document-accompagnement &gt; daa-dca</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control daa_dca - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 1901150523 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nombre-document-empreinte</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control IntGNbrDocEmpDocAccDaaDca - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 2660041164 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debut-periode</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control TxtGDebPerDocAccDaaDca - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 785147454 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fin-periode</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control TxtGFinPerDocAccDaaDca - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 1337647352 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document-accompagnement &gt; dsa-dsac</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control dsa_dsac - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 234003892 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nombre-document-empreinte</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control IntGNbrDocEmpDocAccDsaDsac - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 4163228187 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debut-periode</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control TxtGDebPerDocAccDsaDsac - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 2095263133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fin-periode</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control TxtGFinPerDocAccDsaDsac - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 1284778962 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>File name</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control TxtGFilename - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 3315940157 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document-accompagnement &gt; numero-empreintes</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control numero_empreintes - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 2716039935 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nombre-document-empreinte</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control IntGNbrDocEmpDocAccNumEmp - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 1078934096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debut-periode</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control TxtGDebPerDocAccNumEmp - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 2936675010 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fin-periode</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control TxtGFinPerDocAccNumEmp - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 1220077509 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Releve-non-apurement</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control relevenonrequest - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 395072385 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Date-expedition</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control DatGDateExpRelNonApu - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 1584139646 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Numero-accise-destinataire</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control TxtGNumAccDesRelNonApu - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 3061398083 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Numero-daa-dac-dae</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control TxtGNumRelNonApu - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 4233223601 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Statistiques</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control Statistiques - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 1981713279 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantite-mouts-jus</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control DecGQtyMoutsJus - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 3986517439 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantite-mouts-mcr</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control DecGQtyMoutsMcr - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 4261726424 - Control 1003853987 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantite-vins-vinaigre</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control DecGQtyVinVinaigre - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="XmlPort 2814184718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ExportItem</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD ExportItem - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 3330782148 - Control 3972132648 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
           <source>Douane</source>
           <target state="translated">Douane</target>
@@ -17397,6 +17673,36 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD IntrastatJournal - Control PWD DecGTotalAmount - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 1299222318 - Control 2283793121 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>SEAF Code</source>
+          <target state="translated">OCL Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ItemCard - Control PWD SEAF Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1299222318 - Control 4066313887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>SEAF Code 2</source>
+          <target state="translated">GARRETS Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ItemCard - Control PWD SEAF Code 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1299222318 - Control 409043208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>SEAF Code 3</source>
+          <target state="translated">EMDER Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ItemCard - Control PWD SEAF Code 3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1299222318 - Control 3597526293 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>SEAF Code 4</source>
+          <target state="translated">JANDENUL Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ItemCard - Control PWD SEAF Code 4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1299222318 - Control 4235222910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
+          <source>SEAF Code 5</source>
+          <target state="translated">HMS Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ItemCard - Control PWD SEAF Code 5 - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1299222318 - Control 1351199789 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1434786627">
           <source>Customs</source>
           <target state="translated">Douane</target>
@@ -17456,6 +17762,36 @@
           <target state="translated">SEAF : relevé vtes à emporter</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ItemList - Action SEAF : relevé vtes à emporter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2293529608 - Control 2283793121 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
+          <source>SEAF Code</source>
+          <target state="translated">OCL Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ItemList - Control PWD SEAF Code - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2293529608 - Control 4066313887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
+          <source>SEAF Code 2</source>
+          <target state="translated">GARRETS Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ItemList - Control PWD SEAF Code 2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2293529608 - Control 409043208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
+          <source>SEAF Code 3</source>
+          <target state="translated">EMDER Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ItemList - Control PWD SEAF Code 3 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2293529608 - Control 3597526293 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
+          <source>SEAF Code 4</source>
+          <target state="translated">JANDENUL Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ItemList - Control PWD SEAF Code 4 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 2293529608 - Control 4235222910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4178721393">
+          <source>SEAF Code 5</source>
+          <target state="translated">HMS Code</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD ItemList - Control PWD SEAF Code 5 - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1588052448 - Method 3098423979 - NamedType 3626748722" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 1588052448">
           <source>Please add then correct tracking line for the outbound butchery line.</source>
@@ -18977,31 +19313,31 @@
         </trans-unit>
         <trans-unit id="TableExtension 862131778 - Field 2283793121 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>SEAF Code</source>
-          <target state="translated">Code SEAF</target>
+          <target state="translated">OCL Code</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD Item - Field PWD SEAF Code - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 862131778 - Field 4066313887 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>SEAF Code 2</source>
-          <target state="translated">Code SEAF N°2</target>
+          <target state="translated">GARRETS Code</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD Item - Field PWD SEAF Code 2 - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 862131778 - Field 409043208 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>SEAF Code 3</source>
-          <target state="translated">Code SEAF N°3</target>
+          <target state="translated">EMDER Code</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD Item - Field PWD SEAF Code 3 - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 862131778 - Field 3597526293 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>SEAF Code 4</source>
-          <target state="translated">Code SEAF N°4</target>
+          <target state="translated">JANDENUL Code</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD Item - Field PWD SEAF Code 4 - Property Caption</note>
         </trans-unit>
         <trans-unit id="TableExtension 862131778 - Field 4235222910 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 3276313895">
           <source>SEAF Code 5</source>
-          <target state="translated">Code SEAF N°5</target>
+          <target state="translated">HMS Code</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD Item - Field PWD SEAF Code 5 - Property Caption</note>
         </trans-unit>

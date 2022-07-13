@@ -17,23 +17,27 @@ pageextension 50009 "PWD ItemCard" extends "Item Card"
             field("PWD SEAF Code"; Rec."PWD SEAF Code")
             {
                 ApplicationArea = all;
+                Caption = 'SEAF Code';
             }
             field("PWD SEAF Code 2"; Rec."PWD SEAF Code 2")
             {
                 ApplicationArea = all;
+                Caption = 'SEAF Code 2';
             }
             field("PWD SEAF Code 3"; Rec."PWD SEAF Code 3")
             {
                 ApplicationArea = all;
+                Caption = 'SEAF Code 3';
             }
             field("PWD SEAF Code 4"; Rec."PWD SEAF Code 4")
-
             {
                 ApplicationArea = all;
+                Caption = 'SEAF Code 4';
             }
             field("PWD SEAF Code 5"; Rec."PWD SEAF Code 5")
             {
                 ApplicationArea = all;
+                Caption = 'SEAF Code 5';
             }
         }
         addafter(Description)
@@ -209,7 +213,7 @@ pageextension 50009 "PWD ItemCard" extends "Item Card"
                 {
                     ApplicationArea = all;
                 }
-                field("Alcool %"; Rec."PWD Alcool %")
+                field("PWD Alcool %"; Rec."PWD Alcool %")
                 {
                     ApplicationArea = all;
                 }
@@ -229,7 +233,7 @@ pageextension 50009 "PWD ItemCard" extends "Item Card"
                 {
                     ApplicationArea = All;
                 }
-                field("ISSA Code (Old Version)"; Rec."PWD ISSA Code (Old Version)")
+                field("PWD ISSA Code (Old Version)"; Rec."PWD ISSA Code (Old Version)")
                 {
                     ApplicationArea = All;
                 }

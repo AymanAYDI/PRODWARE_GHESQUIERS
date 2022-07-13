@@ -1092,6 +1092,29 @@ codeunit 60000 "PWD Events"
         ItemJnlLine."PWD Origin" := PurchLine."PWD Origin";
         ItemJnlLine."PWD Cetificate Transit No." := PurchLine."PWD Cetificate Transit No.";
     end;
+
+    [EventSubscriber(ObjectType::Table, DataBase::"Item Journal Line", 'OnValidateItemNoOnBeforeSetDescription', '', false, false)]
+    local procedure TAB83_OnValidateItemNoOnBeforeSetDescription_ItemJournalLine(var ItemJournalLine: Record "Item Journal Line"; Item: Record Item)
+    begin
+        //MIGRATION2009R2--BEGIN
+        // MODIF C2A(LLE)
+        // on recupere poids net pods brut et prix douane de la fiche article … la saisie du Nø article
+        // cf appel 7195
+        ItemJournalLine.VALIDATE("PWD Gross Weight", Item."Gross Weight");
+        ItemJournalLine.VALIDATE("PWD Net Weight", Item."Net Weight");
+        ItemJournalLine.VALIDATE("PWD Montant douane", Item."PWD Customs Price");
+        // FIN MODIF
+        //MIGRATION2009R2--END
+
+        //MIGRATION2009R2--BEGIN
+        //--------------------------------------------//
+        //*** ajout SCA - C2A - 06/03/03
+        ItemJournalLine."PWD Butchery" := Item."PWD Butchery";
+        ItemJournalLine."PWD Meat Family" := Item."PWD Meat Family";
+        ItemJournalLine."PWD Meat Type" := ItemJournalLine."PWD Meat Type";
+        //--------------------------------------------//
+        //MIGRATION2009R2--END
+    end;
     // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnBeforePostItemChargePerOrder', '', false, false)]
     // local procedure CDU90_OnBeforePostItemChargePerOrder_PurchPost(var PurchHeader: Record "Purchase Header"; var PurchLine: Record "Purchase Line"; var ItemJnlLine2: Record "Item Journal Line"; var ItemChargePurchLine: Record "Purchase Line"; var TempTrackingSpecificationChargeAssmt: Record "Tracking Specification" temporary; CommitIsSupressed: Boolean; var TempItemChargeAssgntPurch: Record "Item Charge Assignment (Purch)" temporary)
     // begin
