@@ -14668,11 +14668,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control DecGQtyVinVinaigre - Property Caption</note>
         </trans-unit>
-        <trans-unit id="XmlPort 2814184718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>ExportItem</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD ExportItem - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PageExtension 3330782148 - Control 3972132648 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
           <source>Douane</source>
           <note from="Developer" annotates="general" priority="2"></note>

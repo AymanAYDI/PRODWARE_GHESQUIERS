@@ -13,7 +13,7 @@ report 50129 "PWD Item Register - Quantity"
             DataItemTableView = SORTING("No.");
             PrintOnlyIfDetail = true;
             RequestFilterFields = "No.";
-            column(CompanyName; COMPANYPROPERTY.DisplayName)
+            column(CompanyName; COMPANYPROPERTY.DisplayName())
             {
             }
             column(ItemRegFilterCopyText; TableCaption + ': ' + ItemRegFilter)
