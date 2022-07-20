@@ -227,7 +227,7 @@ report 50112 "PWD Export COALA"
         Text001: Label 'N° compte';
         Text000: Label 'Code journal';
         Text003: Label 'Section analytique';
-        Text004: Label 'ExportCOALA_%1_%2';
+        Text004: Label 'ExportCOALA';
 
     procedure MakeExcelInfo()
     begin
@@ -303,10 +303,10 @@ report 50112 "PWD Export COALA"
 
     procedure CreateExcelbook()
     begin
-        TempExcelBuf.CreateNewBook('');
+        TempExcelBuf.CreateNewBook(Text004);
         TempExcelBuf.WriteSheet(Text002, COMPANYNAME, USERID);
         TempExcelBuf.CloseBook();
-        //TempExcelBuf.SetFriendlyFilename(StrSubstNo(Text004, currentdatetime, USERID));
+        TempExcelBuf.SetFriendlyFilename(Text004);//StrSubstNo(Text004, currentdatetime, USERID));
         TempExcelBuf.OpenExcel();
     end;
 }

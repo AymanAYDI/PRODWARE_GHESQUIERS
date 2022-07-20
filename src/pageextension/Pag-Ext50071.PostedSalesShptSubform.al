@@ -146,7 +146,7 @@ pageextension 50071 "PWD PostedSalesShptSubform" extends "Posted Sales Shpt. Sub
             {
                 ApplicationArea = All;
             }
-            field("Valeur douane (correction)"; Rec."PWD Valeur douane (correction)")
+            field("PWD Valeur douane (correction)"; Rec."PWD Valeur douane (correction)")
             {
                 ApplicationArea = All;
             }
@@ -159,6 +159,31 @@ pageextension 50071 "PWD PostedSalesShptSubform" extends "Posted Sales Shpt. Sub
             }
         }
     }
+    actions
+    {
+        addafter("F&unctions")
+        {
+            action("PWD Update Document")
+            {
+                ApplicationArea = Suite;
+                Caption = 'Update Document';
+                Image = Edit;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    PostedSalesShipmentUpdate: Page "PWD Pos Sales Shpt.Sub Update";
+                begin
+                    PostedSalesShipmentUpdate.LookupMode := true;
+                    PostedSalesShipmentUpdate.SetRec(Rec);
+                    PostedSalesShipmentUpdate.RunModal();
+                end;
+            }
+        }
+    }
+
     PROCEDURE PrintHealthCertificate();
     VAR
         CustomsCertif: Record "PWD Customs Documents Template";

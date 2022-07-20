@@ -98,6 +98,9 @@ report 60000 "PWD Purchase - Receipt"
                     column(SPE_Purch__Inv__Contact_Vendor; "Purch. Rcpt. Header"."Buy-from Contact")
                     {
                     }
+                    column(VendorContactCap; VendorContact)
+                    {
+                    }
                     column(CompanyInfo__Phone_No__Caption; CompanyInfo__Phone_No__CaptionLbl)
                     {
                     }
@@ -690,6 +693,7 @@ report 60000 "PWD Purchase - Receipt"
         MontantLigneCap: Label 'Montant Ligne';
         PoidsNetLigneCap: Label 'Poids net Ligne';
         PoidsbrutLigneCap: Label 'Poids brut Ligne';
+        VendorContact: Label 'Vendor Contact';
         CopyText: Text[30];
         PurchaserText: Text[30];
         CompanyAddr: array[8] of Text[50];

@@ -19,12 +19,12 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>18.0318cm</Width>
+                  <Width>18.05825cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>7.75759cm</Height>
+                  <Height>8.07509cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -40,28 +40,28 @@
                                     <Width>4.81955cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.3739cm</Width>
+                                    <Width>1.1199cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>1.55835cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.35289cm</Width>
+                                    <Width>1.31908cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.40741cm</Width>
+                                    <Width>1.43387cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.47021cm</Width>
+                                    <Width>1.14108cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>1.40441cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.38439cm</Width>
+                                    <Width>1.6508cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.21506cm</Width>
+                                    <Width>1.5955cm</Width>
                                   </TablixColumn>
                                 </TablixColumns>
                                 <TablixRows>
@@ -151,7 +151,7 @@
                                                   </TextRun>
                                                 </TextRuns>
                                                 <Style>
-                                                  <TextAlign>Right</TextAlign>
+                                                  <TextAlign>Left</TextAlign>
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
@@ -185,7 +185,7 @@
                                                   </TextRun>
                                                 </TextRuns>
                                                 <Style>
-                                                  <TextAlign>Right</TextAlign>
+                                                  <TextAlign>Center</TextAlign>
                                                 </Style>
                                               </Paragraph>
                                             </Paragraphs>
@@ -218,7 +218,9 @@
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
-                                                <Style />
+                                                <Style>
+                                                  <TextAlign>Center</TextAlign>
+                                                </Style>
                                               </Paragraph>
                                             </Paragraphs>
                                             <ZIndex>10</ZIndex>
@@ -245,11 +247,12 @@
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
-                                                      <FontWeight>Bold</FontWeight>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
-                                                <Style />
+                                                <Style>
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox36</rd:DefaultName>
@@ -276,11 +279,12 @@
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
-                                                      <FontWeight>Bold</FontWeight>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
-                                                <Style />
+                                                <Style>
+                                                  <TextAlign>Center</TextAlign>
+                                                </Style>
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox25</rd:DefaultName>
@@ -311,7 +315,9 @@
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
-                                                <Style />
+                                                <Style>
+                                                  <TextAlign>Center</TextAlign>
+                                                </Style>
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox20</rd:DefaultName>
@@ -342,7 +348,9 @@
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
-                                                <Style />
+                                                <Style>
+                                                  <TextAlign>Center</TextAlign>
+                                                </Style>
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox9</rd:DefaultName>
@@ -373,7 +381,9 @@
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
-                                                <Style />
+                                                <Style>
+                                                  <TextAlign>Center</TextAlign>
+                                                </Style>
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox3</rd:DefaultName>
@@ -414,9 +424,9 @@
                                             </Paragraphs>
                                             <rd:DefaultName>textbox10</rd:DefaultName>
                                             <Style>
-                                              <BottomBorder>
-                                                <Style>Solid</Style>
-                                              </BottomBorder>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Top</VerticalAlign>
                                               <PaddingRight>5pt</PaddingRight>
                                             </Style>
@@ -445,9 +455,9 @@
                                             </Paragraphs>
                                             <rd:DefaultName>textbox17</rd:DefaultName>
                                             <Style>
-                                              <BottomBorder>
-                                                <Style>Solid</Style>
-                                              </BottomBorder>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Top</VerticalAlign>
                                               <PaddingLeft>5pt</PaddingLeft>
                                               <PaddingRight>5pt</PaddingRight>
@@ -479,9 +489,9 @@
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox16</rd:DefaultName>
                                             <Style>
-                                              <BottomBorder>
-                                                <Style>Solid</Style>
-                                              </BottomBorder>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Top</VerticalAlign>
                                               <PaddingLeft>5pt</PaddingLeft>
                                               <PaddingRight>5pt</PaddingRight>
@@ -513,9 +523,9 @@
                                             </Paragraphs>
                                             <rd:DefaultName>textbox26</rd:DefaultName>
                                             <Style>
-                                              <BottomBorder>
-                                                <Style>Solid</Style>
-                                              </BottomBorder>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Top</VerticalAlign>
                                               <PaddingLeft>5pt</PaddingLeft>
                                               <PaddingRight>5pt</PaddingRight>
@@ -545,9 +555,9 @@
                                             </Paragraphs>
                                             <rd:DefaultName>textbox27</rd:DefaultName>
                                             <Style>
-                                              <BottomBorder>
-                                                <Style>Solid</Style>
-                                              </BottomBorder>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Top</VerticalAlign>
                                               <PaddingLeft>5pt</PaddingLeft>
                                             </Style>
@@ -576,9 +586,9 @@
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox37</rd:DefaultName>
                                             <Style>
-                                              <BottomBorder>
-                                                <Style>Solid</Style>
-                                              </BottomBorder>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Top</VerticalAlign>
                                               <PaddingLeft>5pt</PaddingLeft>
                                             </Style>
@@ -607,9 +617,9 @@
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox28</rd:DefaultName>
                                             <Style>
-                                              <BottomBorder>
-                                                <Style>Solid</Style>
-                                              </BottomBorder>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Top</VerticalAlign>
                                               <PaddingLeft>5pt</PaddingLeft>
                                             </Style>
@@ -638,9 +648,9 @@
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox21</rd:DefaultName>
                                             <Style>
-                                              <BottomBorder>
-                                                <Style>Solid</Style>
-                                              </BottomBorder>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Top</VerticalAlign>
                                               <PaddingLeft>5pt</PaddingLeft>
                                             </Style>
@@ -669,9 +679,9 @@
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox11</rd:DefaultName>
                                             <Style>
-                                              <BottomBorder>
-                                                <Style>Solid</Style>
-                                              </BottomBorder>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Top</VerticalAlign>
                                               <PaddingLeft>5pt</PaddingLeft>
                                             </Style>
@@ -700,9 +710,9 @@
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox5</rd:DefaultName>
                                             <Style>
-                                              <BottomBorder>
-                                                <Style>Solid</Style>
-                                              </BottomBorder>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Top</VerticalAlign>
                                               <PaddingLeft>5pt</PaddingLeft>
                                             </Style>
@@ -1207,16 +1217,20 @@
                                                     <Value>=Fields!Purch__Rcpt__Line__Direct_Unit_Cost_.Value</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
-                                                      <FontSize>8pt</FontSize>
-                                                      <Format>n2</Format>
+                                                      <FontSize>7pt</FontSize>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
-                                                <Style />
+                                                <Style>
+                                                  <TextAlign>Right</TextAlign>
+                                                </Style>
                                               </Paragraph>
                                             </Paragraphs>
                                             <rd:DefaultName>Textbox39</rd:DefaultName>
                                             <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Top</VerticalAlign>
                                               <PaddingLeft>5pt</PaddingLeft>
                                             </Style>
@@ -1615,7 +1629,7 @@
                               <Top>0.3175cm</Top>
                               <Left>0.00001in</Left>
                               <Height>1.48292cm</Height>
-                              <Width>18.00189cm</Width>
+                              <Width>18.05822cm</Width>
                               <Style>
                                 <PaddingLeft>5pt</PaddingLeft>
                                 <PaddingRight>5pt</PaddingRight>
@@ -1747,7 +1761,7 @@
                                 </TablixColumns>
                                 <TablixRows>
                                   <TablixRow>
-                                    <Height>3.25608cm</Height>
+                                    <Height>3.8646cm</Height>
                                     <TablixCells>
                                       <TablixCell>
                                         <CellContents>
@@ -1776,6 +1790,7 @@
                                                                       <Style>
                                                                         <FontFamily>Segoe UI</FontFamily>
                                                                         <FontSize>8pt</FontSize>
+                                                                        <FontWeight>Bold</FontWeight>
                                                                       </Style>
                                                                     </TextRun>
                                                                   </TextRuns>
@@ -2079,7 +2094,7 @@
                                                     </TablixMember>
                                                   </TablixMembers>
                                                 </TablixRowHierarchy>
-                                                <Top>0.40736cm</Top>
+                                                <Top>1.04236cm</Top>
                                                 <Height>2.82224cm</Height>
                                                 <Width>8.25396cm</Width>
                                                 <Style />
@@ -2088,10 +2103,10 @@
                                                 <TablixBody>
                                                   <TablixColumns>
                                                     <TablixColumn>
-                                                      <Width>2.85714cm</Width>
+                                                      <Width>3.26298cm</Width>
                                                     </TablixColumn>
                                                     <TablixColumn>
-                                                      <Width>5.39684cm</Width>
+                                                      <Width>4.99063cm</Width>
                                                     </TablixColumn>
                                                   </TablixColumns>
                                                   <TablixRows>
@@ -2134,6 +2149,73 @@
                                                         <TablixCell />
                                                       </TablixCells>
                                                     </TablixRow>
+                                                    <TablixRow>
+                                                      <Height>0.35278cm</Height>
+                                                      <TablixCells>
+                                                        <TablixCell>
+                                                          <CellContents>
+                                                            <Textbox Name="Textbox41">
+                                                              <CanGrow>true</CanGrow>
+                                                              <KeepTogether>true</KeepTogether>
+                                                              <Paragraphs>
+                                                                <Paragraph>
+                                                                  <TextRuns>
+                                                                    <TextRun>
+                                                                      <Value>=Fields!PaytoVenNoCaption.Value</Value>
+                                                                      <Style>
+                                                                        <FontFamily>Segoe UI</FontFamily>
+                                                                        <FontSize>8pt</FontSize>
+                                                                      </Style>
+                                                                    </TextRun>
+                                                                  </TextRuns>
+                                                                  <Style>
+                                                                    <TextAlign>Left</TextAlign>
+                                                                  </Style>
+                                                                </Paragraph>
+                                                              </Paragraphs>
+                                                              <rd:DefaultName>Textbox41</rd:DefaultName>
+                                                              <Style>
+                                                                <Border>
+                                                                  <Style>None</Style>
+                                                                </Border>
+                                                                <PaddingRight>5pt</PaddingRight>
+                                                              </Style>
+                                                            </Textbox>
+                                                          </CellContents>
+                                                        </TablixCell>
+                                                        <TablixCell>
+                                                          <CellContents>
+                                                            <Textbox Name="Textbox42">
+                                                              <CanGrow>true</CanGrow>
+                                                              <KeepTogether>true</KeepTogether>
+                                                              <Paragraphs>
+                                                                <Paragraph>
+                                                                  <TextRuns>
+                                                                    <TextRun>
+                                                                      <Value>=Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value</Value>
+                                                                      <Style>
+                                                                        <FontFamily>Segoe UI</FontFamily>
+                                                                        <FontSize>8pt</FontSize>
+                                                                      </Style>
+                                                                    </TextRun>
+                                                                  </TextRuns>
+                                                                  <Style>
+                                                                    <TextAlign>Left</TextAlign>
+                                                                  </Style>
+                                                                </Paragraph>
+                                                              </Paragraphs>
+                                                              <rd:DefaultName>Textbox42</rd:DefaultName>
+                                                              <Style>
+                                                                <Border>
+                                                                  <Style>None</Style>
+                                                                </Border>
+                                                                <PaddingRight>5pt</PaddingRight>
+                                                              </Style>
+                                                            </Textbox>
+                                                          </CellContents>
+                                                        </TablixCell>
+                                                      </TablixCells>
+                                                    </TablixRow>
                                                   </TablixRows>
                                                 </TablixBody>
                                                 <TablixColumnHierarchy>
@@ -2155,6 +2237,9 @@
                                                       <DataElementOutput>Output</DataElementOutput>
                                                       <KeepTogether>true</KeepTogether>
                                                     </TablixMember>
+                                                    <TablixMember>
+                                                      <KeepWithGroup>Before</KeepWithGroup>
+                                                    </TablixMember>
                                                   </TablixMembers>
                                                 </TablixRowHierarchy>
                                                 <Filters>
@@ -2166,8 +2251,9 @@
                                                     </FilterValues>
                                                   </Filter>
                                                 </Filters>
-                                                <Height>0.35278cm</Height>
-                                                <Width>8.25398cm</Width>
+                                                <Left>0.00035cm</Left>
+                                                <Height>0.70556cm</Height>
+                                                <Width>8.25361cm</Width>
                                                 <ZIndex>1</ZIndex>
                                                 <Visibility>
                                                   <Hidden>=IIF(Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value="",TRUE,FALSE)</Hidden>
@@ -2204,8 +2290,8 @@
                                 </TablixMembers>
                               </TablixRowHierarchy>
                               <KeepTogether>true</KeepTogether>
-                              <Top>3.34272cm</Top>
-                              <Height>3.25608cm</Height>
+                              <Top>3.14858cm</Top>
+                              <Height>3.8646cm</Height>
                               <Width>8.25396cm</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
@@ -2404,7 +2490,7 @@
                                   </TablixMember>
                                 </TablixMembers>
                               </TablixRowHierarchy>
-                              <Top>2.6375in</Top>
+                              <Top>2.7625in</Top>
                               <Left>0.00035cm</Left>
                               <Height>1.05834cm</Height>
                               <Width>18.03144cm</Width>
@@ -2461,7 +2547,11 @@ Fields!CompanyInfo__VAT_Registration_No__.Value + Chr(177) +
 Fields!CompanyInfoGiroNo.Value + Chr(177) +
 Fields!CompanyInfoBankName.Value + Chr(177) +
 Fields!CompanyInfoBankAccNo.Value + Chr(177) + 
-Fields!CompanyInfoEmail.Value, 2)</Hidden>
+Fields!CompanyInfoEmail.Value + Chr(177) +
+Fields!CompanyInfo__Fax_No__Caption.Value + Chr(177) + 
+Fields!CompanyInfo__Fax_No__.Value + Chr(177) +
+Fields!SPE_Purch__Inv__Contact_Vendor.Value + Chr(177) + 
+Fields!VendorContactCap.Value + Chr(177), 2)</Hidden>
                                             </Visibility>
                                             <Style>
                                               <Border>
@@ -2694,7 +2784,7 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                                                     <Value>=Sum(Fields!PrixLigne.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
-                                                      <Format>=First(Fields!PrixLigne_Control1000000052Format.Value)</Format>
+                                                      <Format>#,0.00;(#,0.00)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -2704,6 +2794,9 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                                               </Paragraph>
                                             </Paragraphs>
                                             <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>0.105cm</PaddingRight>
@@ -2759,7 +2852,7 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                                                     <Value>=Sum(Fields!PoidsNetLigne.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
-                                                      <Format>=First(Fields!PoidsNetLigne_Control1000000053Format.Value)</Format>
+                                                      <Format>#,0.00;(#,0.00)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -2769,6 +2862,9 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                                               </Paragraph>
                                             </Paragraphs>
                                             <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>0.105cm</PaddingRight>
@@ -2824,7 +2920,7 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                                                     <Value>=Sum(Fields!PoidsBrutLigne.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
-                                                      <Format>=First(Fields!PoidsBrutLigne_Control1000000054Format.Value)</Format>
+                                                      <Format>#,0.00;(#,0.00)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -2834,6 +2930,9 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                                               </Paragraph>
                                             </Paragraphs>
                                             <Style>
+                                              <Border>
+                                                <Style>None</Style>
+                                              </Border>
                                               <VerticalAlign>Middle</VerticalAlign>
                                               <PaddingLeft>2pt</PaddingLeft>
                                               <PaddingRight>0.105cm</PaddingRight>
@@ -2907,9 +3006,9 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
-            <Left>0.01028in</Left>
-            <Height>7.75759cm</Height>
-            <Width>18.0318cm</Width>
+            <Left>0.01831in</Left>
+            <Height>8.07509cm</Height>
+            <Width>18.05825cm</Width>
             <Style>
               <Border>
                 <Width>0.25pt</Width>
@@ -2917,13 +3016,13 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>7.75759cm</Height>
+        <Height>8.09626cm</Height>
         <Style />
       </Body>
-      <Width>18.05791cm</Width>
+      <Width>18.10476cm</Width>
       <Page>
         <PageHeader>
-          <Height>8.4335cm</Height>
+          <Height>8.02962cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2941,89 +3040,14 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Left</TextAlign>
+                    <TextAlign>Right</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>6.00142cm</Top>
-              <Left>3.38989cm</Left>
+              <Top>7.0528cm</Top>
+              <Left>15.42672cm</Left>
               <Height>11pt</Height>
-              <Width>9.32978cm</Width>
-              <Style>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="AccNoCaption">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(13,1)</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <Top>6.81625cm</Top>
-              <Left>12.70883cm</Left>
-              <Height>11pt</Height>
-              <Width>2.63929cm</Width>
-              <ZIndex>1</ZIndex>
-              <Style>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="BankNameCaption">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(14,1)</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <Top>6.39796cm</Top>
-              <Left>12.70883cm</Left>
-              <Height>11pt</Height>
-              <Width>2.63929cm</Width>
-              <ZIndex>2</ZIndex>
-              <Style>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="GiroNoCaption">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(15,1)</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <Top>6.00142cm</Top>
-              <Left>12.71967cm</Left>
-              <Height>11pt</Height>
-              <Width>2.62845cm</Width>
-              <ZIndex>3</ZIndex>
+              <Width>2.62167cm</Width>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3044,11 +3068,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>5.57312cm</Top>
-              <Left>12.70883cm</Left>
+              <Top>5.63175cm</Top>
+              <Left>12.74008cm</Left>
               <Height>11pt</Height>
-              <Width>2.63929cm</Width>
-              <ZIndex>4</ZIndex>
+              <Width>2.61961cm</Width>
+              <ZIndex>1</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3059,7 +3083,7 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(17,1)</Value>
+                      <Value>=Code.GetData(8,2)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -3069,11 +3093,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>4.74382cm</Top>
-              <Left>12.70883cm</Left>
+              <Top>5.19051cm</Top>
+              <Left>12.72923cm</Left>
               <Height>11pt</Height>
               <Width>2.63929cm</Width>
-              <ZIndex>5</ZIndex>
+              <ZIndex>2</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3094,11 +3118,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>4.33553cm</Top>
-              <Left>12.70883cm</Left>
+              <Top>4.80245cm</Top>
+              <Left>12.72923cm</Left>
               <Height>11pt</Height>
               <Width>2.63929cm</Width>
-              <ZIndex>6</ZIndex>
+              <ZIndex>3</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3121,11 +3145,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>3.91848cm</Top>
-              <Left>12.83053cm</Left>
+              <Top>4.36517cm</Top>
+              <Left>12.7204cm</Left>
               <Height>11pt</Height>
-              <Width>5.22737cm</Width>
-              <ZIndex>7</ZIndex>
+              <Width>5.3579cm</Width>
+              <ZIndex>4</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3144,15 +3168,15 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Right</TextAlign>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>3.49019cm</Top>
-              <Left>12.83053cm</Left>
+              <Top>3.93688cm</Top>
+              <Left>12.74008cm</Left>
               <Height>11pt</Height>
-              <Width>5.22737cm</Width>
-              <ZIndex>8</ZIndex>
+              <Width>5.33821cm</Width>
+              <ZIndex>5</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3175,10 +3199,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>3.91848cm</Top>
+              <Top>4.36517cm</Top>
+              <Left>0.0204cm</Left>
               <Height>11pt</Height>
               <Width>360pt</Width>
-              <ZIndex>9</ZIndex>
+              <ZIndex>6</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3201,10 +3226,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>3.49019cm</Top>
+              <Top>3.93688cm</Top>
+              <Left>0.0204cm</Left>
               <Height>11pt</Height>
               <Width>360pt</Width>
-              <ZIndex>10</ZIndex>
+              <ZIndex>7</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3225,11 +3251,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>4.74382cm</Top>
+              <Top>7.0528cm</Top>
               <Left>3.36001cm</Left>
               <Height>11pt</Height>
               <Width>9.33999cm</Width>
-              <ZIndex>11</ZIndex>
+              <ZIndex>8</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3252,10 +3278,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>4.74382cm</Top>
+              <Top>7.0528cm</Top>
+              <Left>0cm</Left>
               <Height>11pt</Height>
               <Width>3.28944cm</Width>
-              <ZIndex>12</ZIndex>
+              <ZIndex>9</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3278,145 +3305,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>6.00142cm</Top>
+              <Top>7.0528cm</Top>
+              <Left>12.75568cm</Left>
               <Height>11pt</Height>
-              <Width>3.32474cm</Width>
-              <ZIndex>13</ZIndex>
-              <Style>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="SalesPurchPersonName">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(10,1)</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>7.22007cm</Top>
-              <Left>15.41515cm</Left>
-              <Height>11pt</Height>
-              <Width>2.64276cm</Width>
-              <ZIndex>14</ZIndex>
-              <Style>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="PurchaserText">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(9,1)</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Left</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>7.22007cm</Top>
-              <Left>5.00775in</Left>
-              <Height>11pt</Height>
-              <Width>2.62844cm</Width>
-              <ZIndex>15</ZIndex>
-              <Style>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="CompanyInfoBankAccNo">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(6,2)</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>6.81625cm</Top>
-              <Left>15.41515cm</Left>
-              <Height>11pt</Height>
-              <Width>2.64276cm</Width>
-              <ZIndex>16</ZIndex>
-              <Style>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="CompanyInfoBankName">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(5,2)</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>6.39796cm</Top>
-              <Left>15.41515cm</Left>
-              <Height>11pt</Height>
-              <Width>2.64276cm</Width>
-              <ZIndex>17</ZIndex>
-              <Style>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="CompanyInfoGiroNo">
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(4,2)</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>6.03173cm</Top>
-              <Left>15.41515cm</Left>
-              <Height>11pt</Height>
-              <Width>2.64276cm</Width>
-              <ZIndex>18</ZIndex>
+              <Width>2.60401cm</Width>
+              <ZIndex>10</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3439,11 +3332,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>5.57312cm</Top>
-              <Left>15.41515cm</Left>
+              <Top>5.63175cm</Top>
+              <Left>15.42672cm</Left>
               <Height>11pt</Height>
               <Width>2.64276cm</Width>
-              <ZIndex>19</ZIndex>
+              <ZIndex>11</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3454,7 +3347,7 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(2,2)</Value>
+                      <Value>=Code.GetData(9,2)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -3466,11 +3359,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>4.74382cm</Top>
-              <Left>15.41515cm</Left>
+              <Top>5.19051cm</Top>
+              <Left>15.43555cm</Left>
               <Height>11pt</Height>
               <Width>2.64276cm</Width>
-              <ZIndex>20</ZIndex>
+              <ZIndex>12</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3493,10 +3386,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>3.07089cm</Top>
+              <Top>3.51758cm</Top>
+              <Left>0.0204cm</Left>
               <Height>11pt</Height>
               <Width>360pt</Width>
-              <ZIndex>21</ZIndex>
+              <ZIndex>13</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3519,11 +3413,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>4.33553cm</Top>
-              <Left>15.41515cm</Left>
+              <Top>4.78222cm</Top>
+              <Left>15.43555cm</Left>
               <Height>11pt</Height>
               <Width>2.64276cm</Width>
-              <ZIndex>22</ZIndex>
+              <ZIndex>14</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3546,10 +3440,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>2.64535cm</Top>
+              <Top>3.09204cm</Top>
+              <Left>0.0204cm</Left>
               <Height>11pt</Height>
               <Width>360pt</Width>
-              <ZIndex>23</ZIndex>
+              <ZIndex>15</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3568,15 +3463,15 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Right</TextAlign>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>3.07089cm</Top>
-              <Left>12.83053cm</Left>
+              <Top>3.51758cm</Top>
+              <Left>12.74008cm</Left>
               <Height>11pt</Height>
-              <Width>5.22737cm</Width>
-              <ZIndex>24</ZIndex>
+              <Width>5.33821cm</Width>
+              <ZIndex>16</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3599,10 +3494,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>2.22705cm</Top>
+              <Top>2.67374cm</Top>
+              <Left>0.0204cm</Left>
               <Height>11pt</Height>
               <Width>360pt</Width>
-              <ZIndex>25</ZIndex>
+              <ZIndex>17</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3621,15 +3517,15 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Right</TextAlign>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>2.64535cm</Top>
-              <Left>12.83053cm</Left>
+              <Top>3.09204cm</Top>
+              <Left>12.74008cm</Left>
               <Height>11pt</Height>
-              <Width>5.22737cm</Width>
-              <ZIndex>26</ZIndex>
+              <Width>5.33821cm</Width>
+              <ZIndex>18</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3652,10 +3548,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>1.80077cm</Top>
+              <Top>2.24746cm</Top>
+              <Left>0.0204cm</Left>
               <Height>11pt</Height>
               <Width>360pt</Width>
-              <ZIndex>27</ZIndex>
+              <ZIndex>19</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3674,15 +3571,15 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Right</TextAlign>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>2.22705cm</Top>
-              <Left>12.83053cm</Left>
+              <Top>2.67374cm</Top>
+              <Left>12.74008cm</Left>
               <Height>11pt</Height>
-              <Width>5.22737cm</Width>
-              <ZIndex>28</ZIndex>
+              <Width>5.33821cm</Width>
+              <ZIndex>20</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3705,10 +3602,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>1.38048cm</Top>
+              <Top>1.82717cm</Top>
+              <Left>0.0204cm</Left>
               <Height>11pt</Height>
               <Width>360pt</Width>
-              <ZIndex>29</ZIndex>
+              <ZIndex>21</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3723,19 +3621,20 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Right</TextAlign>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>1.80077cm</Top>
-              <Left>12.83053cm</Left>
+              <Top>2.24746cm</Top>
+              <Left>12.74008cm</Left>
               <Height>11pt</Height>
-              <Width>5.22737cm</Width>
-              <ZIndex>30</ZIndex>
+              <Width>5.33821cm</Width>
+              <ZIndex>22</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3758,10 +3657,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.95065cm</Top>
+              <Top>1.39734cm</Top>
+              <Left>0.0204cm</Left>
               <Height>11pt</Height>
               <Width>360pt</Width>
-              <ZIndex>31</ZIndex>
+              <ZIndex>23</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3775,37 +3675,8 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                       <Value>=Code.GetData(1,3)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>14pt</FontSize>
+                        <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>5pt</Top>
-              <Left>9.40682cm</Left>
-              <Height>20pt</Height>
-              <Width>8.65108cm</Width>
-              <ZIndex>32</ZIndex>
-              <Style>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-            <Textbox Name="PurchRcptHdrDocDateCapt">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(26,1)</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                        <Format>d</Format>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3814,10 +3685,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>5.57312cm</Top>
-              <Height>11pt</Height>
-              <Width>3.31591cm</Width>
-              <ZIndex>33</ZIndex>
+              <Top>17.66203pt</Top>
+              <Left>12.75568cm</Left>
+              <Height>20pt</Height>
+              <Width>5.32262cm</Width>
+              <ZIndex>24</ZIndex>
               <Style>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
@@ -3836,15 +3708,15 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Right</TextAlign>
+                    <TextAlign>Left</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.95065cm</Top>
-              <Left>12.83053cm</Left>
+              <Top>1.39734cm</Top>
+              <Left>12.74008cm</Left>
               <Height>11pt</Height>
-              <Width>5.22737cm</Width>
-              <ZIndex>34</ZIndex>
+              <Width>5.33821cm</Width>
+              <ZIndex>25</ZIndex>
               <Style>
                 <VerticalAlign>Top</VerticalAlign>
               </Style>
@@ -3859,7 +3731,8 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                       <Value>=Code.GetData(2,3)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -3868,70 +3741,12 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>5.57312cm</Top>
-              <Left>3.38989cm</Left>
+              <Top>6.48835cm</Top>
+              <Left>12.75568cm</Left>
               <Height>11pt</Height>
-              <Width>9.32978cm</Width>
-              <ZIndex>35</ZIndex>
+              <Width>5.34908cm</Width>
+              <ZIndex>26</ZIndex>
               <Style />
-            </Textbox>
-            <Textbox Name="EmailCaptionion">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(28,1)</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <Top>2.03in</Top>
-              <Left>5.01389in</Left>
-              <Height>11pt</Height>
-              <Width>2.63929cm</Width>
-              <ZIndex>36</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
-            </Textbox>
-            <Textbox Name="CompanyInfoEMail">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Code.GetData(7,2)</Value>
-                      <Style>
-                        <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>8pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>2.03in</Top>
-              <Left>15.41515cm</Left>
-              <Height>11pt</Height>
-              <Width>2.64276cm</Width>
-              <ZIndex>37</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-              </Style>
             </Textbox>
             <Textbox Name="PurchRcptHdrPaytoVenNoCapt">
               <CanGrow>true</CanGrow>
@@ -3940,7 +3755,7 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(29,1)</Value>
+                      <Value>=Code.GetData(11,2)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -3952,11 +3767,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>2.03in</Top>
+              <Top>2.93905in</Top>
               <Left>0.0204cm</Left>
               <Height>11pt</Height>
               <Width>3.23378cm</Width>
-              <ZIndex>38</ZIndex>
+              <ZIndex>27</ZIndex>
               <Style>
                 <Border />
               </Style>
@@ -3967,7 +3782,7 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(4,3)</Value>
+                      <Value>=Code.GetData(10,2)</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>8pt</FontSize>
@@ -3977,11 +3792,11 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>2.03in</Top>
+              <Top>2.93905in</Top>
               <Left>3.36001cm</Left>
               <Height>11pt</Height>
               <Width>9.33999cm</Width>
-              <ZIndex>39</ZIndex>
+              <ZIndex>28</ZIndex>
               <Style>
                 <Border />
               </Style>
@@ -4190,6 +4005,9 @@ End Function
         </Field>
         <Field Name="SPE_Purch__Inv__Contact_Vendor">
           <DataField>SPE_Purch__Inv__Contact_Vendor</DataField>
+        </Field>
+        <Field Name="VendorContactCap">
+          <DataField>VendorContactCap</DataField>
         </Field>
         <Field Name="CompanyInfo__Phone_No__Caption">
           <DataField>CompanyInfo__Phone_No__Caption</DataField>

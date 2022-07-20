@@ -121,6 +121,9 @@ report 50034 "Relevé des Sorties Export 2"
                 column(TotAmount; TotAmount)
                 {
                 }
+                column(SalesShipmentLineLineAmount; SalesShipmentLineLineAmount)
+                {
+                }
                 trigger OnAfterGetRecord()
                 var
                     RecLCountry: Record "Country/Region";
@@ -142,6 +145,7 @@ report 50034 "Relevé des Sorties Export 2"
                     TotAmount := "PWD Line Amount";
 
                     ShipWeight += NetWeight;
+                    SalesShipmentLineLineAmount += "Sales Shipment Line"."PWD Line Amount";
 
                     CASE "PWD Provision/materiel" OF
                         "PWD Provision/materiel"::Provision:
@@ -150,6 +154,15 @@ report 50034 "Relevé des Sorties Export 2"
                             "Sales Shipment Line"."PWD DCG Tariff No." := Text002;
                         "PWD Provision/materiel"::" ":
                             "Sales Shipment Line"."PWD DCG Tariff No." := '';
+                    END;
+
+                    CASE "PWD Provision/materiel" OF
+                        "PWD Provision/materiel"::Provision:
+                            CodeDouane := Text001;
+                        "PWD Provision/materiel"::Materiel:
+                            CodeDouane := Text002;
+                        "PWD Provision/materiel"::" ":
+                            CodeDouane := '';
                     END;
 
                     "Sales Shipment Line".MODIFY();
@@ -251,6 +264,9 @@ report 50034 "Relevé des Sorties Export 2"
                 column(Sales_Cr_Memo_Line_Provision_materiel; "PWD Provision/materiel")
                 {
                 }
+                column(SalesCrMemoLineLineAmount; SalesCrMemoLineLineAmount)
+                {
+                }
 
                 trigger OnAfterGetRecord()
                 var
@@ -291,6 +307,7 @@ report 50034 "Relevé des Sorties Export 2"
                     END;
 
                     CrMemoWeight += NetWeight;
+                    SalesCrMemoLineLineAmount += "Sales Cr.Memo Line"."Line Amount";
                 end;
 
                 trigger OnPreDataItem()
@@ -325,7 +342,7 @@ report 50034 "Relevé des Sorties Export 2"
             column(Lineamount_DSACrMemoAmount; Lineamount - DSACrMemoAmount)
             {
             }
-            column(NetWeight_DSACrMemoWeight; NetWeight - DSACrMemoWeight)
+            column(NetWeight_DSACrMemoWeight; NetWeight - DSACrMemoWeight1)
             {
             }
             column(CodeDouane_Control1000000042; CodeDouane)
@@ -343,7 +360,7 @@ report 50034 "Relevé des Sorties Export 2"
             column(TypeMchds; TypeMchds)
             {
             }
-            column(NetWeight_DSACrMemoWeight_Control1000000049; NetWeight - DSACrMemoWeight)
+            column(NetWeight_DSACrMemoWeight_Control1000000049; NetWeight - DSACrMemoWeight1)
             {
             }
             column(Lineamount_DSACrMemoAmount_Control1000000050; Lineamount - DSACrMemoAmount)
@@ -404,7 +421,7 @@ report 50034 "Relevé des Sorties Export 2"
                     CurrLoc := "Location Code";
                     CurrMonthly := "PWD Monthly Code";
                     CurrPM := "PWD Provision/materiel";
-                    FindCRMemoLines('', "PWD Provision/materiel", "PWD Monthly Code", TRUE, "Location Code");
+                    FindCRMemoLines('', "PWD Provision/materiel", "PWD Monthly Code", TRUE, "Location Code", DSACrMemoWeight1);
                 END;
 
                 Lineamount := "PWD Line Amount";//-DSACrMemoAmount;
@@ -412,7 +429,7 @@ report 50034 "Relevé des Sorties Export 2"
 
             trigger OnPreDataItem()
             begin
-                DSACrMemoWeight := 0;
+                DSACrMemoWeight1 := 0;
                 DSACrMemoAmount := 0;
                 NetWeight := 0;
                 Lineamount := 0;
@@ -426,11 +443,24 @@ report 50034 "Relevé des Sorties Export 2"
     {
         layout
         {
+            area(content)
+            {
+                group(Options)
+                {
+                    Caption = 'Options';
+                    field(BlankDSA; BlankDSA)
+                    {
+                        Caption = 'Imprimer N°DSA vide';
+                        ApplicationArea = All;
+                    }
+                }
+            }
         }
 
-        actions
-        {
-        }
+        trigger OnInit()
+        begin
+            BlankDSA := TRUE;
+        end;
     }
 
     labels
@@ -451,11 +481,14 @@ report 50034 "Relevé des Sorties Export 2"
         CrMemoWeight: Decimal;
         DSACrMemoAmount: Decimal;
         DSACrMemoWeight: Decimal;
+        DSACrMemoWeight1: Decimal;
         Lineamount: Decimal;
         NetWeight: Decimal;
         ShipWeight: Decimal;
         TotAmount: Decimal;
         TotWeight: Decimal;
+        SalesShipmentLineLineAmount: Decimal;
+        SalesCrMemoLineLineAmount: Decimal;
         CurrPM: Integer;
         i: Integer;
         AvoirsCaptionLbl: Label 'Avoirs';
@@ -490,16 +523,16 @@ report 50034 "Relevé des Sorties Export 2"
         LocationFilter: Text[30];
 
 
-    procedure FindCRMemoLines(FromDSANo: Code[20]; var FromPM: Option " ",Materiel,Provision; var FromCountry: Code[10]; RAZ: Boolean; var FromLoc: Code[10])
+    procedure FindCRMemoLines(FromDSANo: Code[20]; var FromPM: Option " ",Materiel,Provision; var FromCountry: Code[10]; RAZ: Boolean; var FromLoc: Code[10]; DSACrMemoWeight1: Decimal)
     var
         FromCRMemoHeader: Record "Sales Cr.Memo Header";
         FromCRMemoLines: Record "Sales Cr.Memo Line";
     begin
         FromCRMemoLines.RESET();
         FromCRMemoHeader.RESET();
-        CLEAR(DSACrMemoWeight);
+        CLEAR(DSACrMemoWeight1);
         CLEAR(DSACrMemoAmount);
-        DSACrMemoWeight := 0;
+        DSACrMemoWeight1 := 0;
         DSACrMemoAmount := 0;
 
         FromCRMemoLines.SETCURRENTKEY("Document No.", "PWD Provision/materiel");
@@ -514,11 +547,11 @@ report 50034 "Relevé des Sorties Export 2"
                 IF NOT BlankDSA THEN BEGIN
                     FromCRMemoHeader.GET(FromCRMemoLines."Document No.");
                     IF FromCRMemoHeader."PWD DSA No." <> '' THEN BEGIN
-                        DSACrMemoWeight += FromCRMemoLines.Quantity * FromCRMemoLines."Net Weight";
+                        DSACrMemoWeight1 += FromCRMemoLines.Quantity * FromCRMemoLines."Net Weight";
                         DSACrMemoAmount += FromCRMemoLines."Line Amount";
                     END;
                 END ELSE BEGIN
-                    DSACrMemoWeight += FromCRMemoLines.Quantity * FromCRMemoLines."Net Weight";
+                    DSACrMemoWeight1 += FromCRMemoLines.Quantity * FromCRMemoLines."Net Weight";
                     DSACrMemoAmount += FromCRMemoLines."Line Amount";
                 END;
             UNTIL FromCRMemoLines.NEXT() = 0;

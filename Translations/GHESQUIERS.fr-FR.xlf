@@ -11619,6 +11619,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Personal Caption - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3927386997 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Sales Shipment - Update</source>
+          <target state="translated">Ligne expédition vente enregistrée - Mise à jour</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Pos Sales Shpt.Sub Update - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3927386997 - Control 3097346278 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shipping</source>
+          <target state="translated">Expédition</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Pos Sales Shpt.Sub Update - Control Shipping - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2524624394 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Sales Shpt. Subform</source>
           <target state="translated">Sous-form. expéd. vente enreg.</target>
@@ -14501,9 +14513,15 @@
         </trans-unit>
         <trans-unit id="Report 536531883 - NamedType 1306668226" size-unit="char" translate="yes" xml:space="preserve">
           <source>VAT Registration No.</source>
-          <target state="translated">N° identif.</target>
+          <target state="translated">N° id. intraco</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType VATRegNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 536531883 - NamedType 2006465888" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendor Contact</source>
+          <target state="translated">Contact Fournisseur</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Purchase - Receipt - NamedType VendorContact</note>
         </trans-unit>
         <trans-unit id="Report 536531883 - ReportDataItem 1052755578 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Purchase Receipt</source>
@@ -15560,6 +15578,18 @@
           <target state="translated">VALEUR</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report Relevé des Sorties Export 2 - NamedType VALEURCaption_Control1000000032Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 105453404 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Relevé des Sorties Export 2 - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 105453404 - Control 4004956288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Imprimer N°DSA vide</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Relevé des Sorties Export 2 - Control BlankDSA - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 1327890721 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales - Shipment</source>
@@ -17601,12 +17631,6 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control DecGQtyVinVinaigre - Property Caption</note>
         </trans-unit>
-        <trans-unit id="XmlPort 2814184718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>ExportItem</source>
-          <target state="needs-translation"/>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD ExportItem - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PageExtension 3330782148 - Control 3972132648 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 3469146285">
           <source>Douane</source>
           <target state="translated">Douane</target>
@@ -18188,6 +18212,18 @@
           <target state="translated">Impression classique</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Impression classique - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1656304633 - Action 842345647 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1227332174">
+          <source>Add new information that is relevant to the document, such as information from the shipping agent. You can only edit a few fields because the document has already been posted.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShptSubform - Action PWD Update Document - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 1656304633 - Action 842345647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1227332174">
+          <source>Update Document</source>
+          <target state="translated">Mettre à jour le document</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShptSubform - Action PWD Update Document - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 3354500593 - Control 1336101634 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 4042331808">
           <source>Buy-from Contact</source>
@@ -21113,7 +21149,7 @@
         </trans-unit>
         <trans-unit id="TableExtension 1451635008 - Field 4291869722 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 1192395785">
           <source>Preparation in process</source>
-          <target state="translated">En préparation</target>
+          <target state="translated">BP édité</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">TableExtension PWD SalesHeader - Field PWD Preparation in process - Property Caption</note>
         </trans-unit>
