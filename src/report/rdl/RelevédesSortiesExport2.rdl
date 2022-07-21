@@ -11,322 +11,6 @@
       <rd:DataSourceID>a40ca40f-e4e9-474d-b415-9e5b5f0de1a0</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="GETFILTER___Posting_Date__">
-          <DataField>GETFILTER___Posting_Date__</DataField>
-        </Field>
-        <Field Name="GETFILTER___Location_Filter__">
-          <DataField>GETFILTER___Location_Filter__</DataField>
-        </Field>
-        <Field Name="Page___FORMAT_CurrReport_PAGENO_">
-          <DataField>Page___FORMAT_CurrReport_PAGENO_</DataField>
-        </Field>
-        <Field Name="NetWeight">
-          <DataField>NetWeight</DataField>
-        </Field>
-        <Field Name="NetWeightFormat">
-          <DataField>NetWeightFormat</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line___Line_Amount_">
-          <DataField>Sales_Shipment_Line___Line_Amount_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line___Line_Amount_Format">
-          <DataField>Sales_Shipment_Line___Line_Amount_Format</DataField>
-        </Field>
-        <Field Name="Relevé_des_sorties_du__Caption">
-          <DataField>Relevé_des_sorties_du__Caption</DataField>
-        </Field>
-        <Field Name="CODECaption">
-          <DataField>CODECaption</DataField>
-        </Field>
-        <Field Name="TYPECaption">
-          <DataField>TYPECaption</DataField>
-        </Field>
-        <Field Name="DATECaption">
-          <DataField>DATECaption</DataField>
-        </Field>
-        <Field Name="POIDSCaption">
-          <DataField>POIDSCaption</DataField>
-        </Field>
-        <Field Name="VALEURCaption">
-          <DataField>VALEURCaption</DataField>
-        </Field>
-        <Field Name="COMMANDECaption">
-          <DataField>COMMANDECaption</DataField>
-        </Field>
-        <Field Name="PAYSCaption">
-          <DataField>PAYSCaption</DataField>
-        </Field>
-        <Field Name="MAGCaption">
-          <DataField>MAGCaption</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_No_">
-          <DataField>Sales_Shipment_Header_No_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header_Location_Filter">
-          <DataField>Sales_Shipment_Header_Location_Filter</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header___Sell_to_Customer_No________Sales_Shipment_Header___No__">
-          <DataField>Sales_Shipment_Header___Sell_to_Customer_No________Sales_Shipment_Header___No__</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header___DSA_No__">
-          <DataField>Sales_Shipment_Header___DSA_No__</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Header___Posting_Date_">
-          <DataField>Sales_Shipment_Header___Posting_Date_</DataField>
-        </Field>
-        <Field Name="BLCaption">
-          <DataField>BLCaption</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line__Line_Amount_">
-          <DataField>Sales_Shipment_Line__Line_Amount_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line__Line_Amount_Format">
-          <DataField>Sales_Shipment_Line__Line_Amount_Format</DataField>
-        </Field>
-        <Field Name="CUMULSCaption">
-          <DataField>CUMULSCaption</DataField>
-        </Field>
-        <Field Name="NetWeight_Control1000000011">
-          <DataField>NetWeight_Control1000000011</DataField>
-        </Field>
-        <Field Name="NetWeight_Control1000000011Format">
-          <DataField>NetWeight_Control1000000011Format</DataField>
-        </Field>
-        <Field Name="CustType">
-          <DataField>CustType</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line__Location_Code_">
-          <DataField>Sales_Shipment_Line__Location_Code_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line__Monthly_Code_">
-          <DataField>Sales_Shipment_Line__Monthly_Code_</DataField>
-        </Field>
-        <Field Name="CodeDouane">
-          <DataField>CodeDouane</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Document_No_">
-          <DataField>Sales_Shipment_Line_Document_No_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Line_No_">
-          <DataField>Sales_Shipment_Line_Line_No_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Provision_materiel">
-          <DataField>Sales_Shipment_Line_Provision_materiel</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Line_Amount">
-          <DataField>Sales_Shipment_Line_Line_Amount</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line_Line_AmountFormat">
-          <DataField>Sales_Shipment_Line_Line_AmountFormat</DataField>
-        </Field>
-        <Field Name="TotWeight">
-          <DataField>TotWeight</DataField>
-        </Field>
-        <Field Name="TotWeightFormat">
-          <DataField>TotWeightFormat</DataField>
-        </Field>
-        <Field Name="TotAmount">
-          <DataField>TotAmount</DataField>
-        </Field>
-        <Field Name="TotAmountFormat">
-          <DataField>TotAmountFormat</DataField>
-        </Field>
-        <Field Name="SalesShipmentLineLineAmount">
-          <DataField>SalesShipmentLineLineAmount</DataField>
-        </Field>
-        <Field Name="SalesShipmentLineLineAmountFormat">
-          <DataField>SalesShipmentLineLineAmountFormat</DataField>
-        </Field>
-        <Field Name="DateFilter">
-          <DataField>DateFilter</DataField>
-        </Field>
-        <Field Name="LocationFilter">
-          <DataField>LocationFilter</DataField>
-        </Field>
-        <Field Name="Page___FORMAT_CurrReport_PAGENO__Control1000000020">
-          <DataField>Page___FORMAT_CurrReport_PAGENO__Control1000000020</DataField>
-        </Field>
-        <Field Name="NetWeight_Control1000000061">
-          <DataField>NetWeight_Control1000000061</DataField>
-        </Field>
-        <Field Name="NetWeight_Control1000000061Format">
-          <DataField>NetWeight_Control1000000061Format</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line___Line_Amount_">
-          <DataField>Sales_Cr_Memo_Line___Line_Amount_</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line___Line_Amount_Format">
-          <DataField>Sales_Cr_Memo_Line___Line_Amount_Format</DataField>
-        </Field>
-        <Field Name="ShipWeight_CrMemoWeight">
-          <DataField>ShipWeight_CrMemoWeight</DataField>
-        </Field>
-        <Field Name="ShipWeight_CrMemoWeightFormat">
-          <DataField>ShipWeight_CrMemoWeightFormat</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line___Line_Amount___Sales_Cr_Memo_Line___Line_Amount_">
-          <DataField>Sales_Shipment_Line___Line_Amount___Sales_Cr_Memo_Line___Line_Amount_</DataField>
-        </Field>
-        <Field Name="Sales_Shipment_Line___Line_Amount___Sales_Cr_Memo_Line___Line_Amount_Format">
-          <DataField>Sales_Shipment_Line___Line_Amount___Sales_Cr_Memo_Line___Line_Amount_Format</DataField>
-        </Field>
-        <Field Name="AvoirsCaption">
-          <DataField>AvoirsCaption</DataField>
-        </Field>
-        <Field Name="CODECaption_Control1000000051">
-          <DataField>CODECaption_Control1000000051</DataField>
-        </Field>
-        <Field Name="CUMUL_AVOIRCaption">
-          <DataField>CUMUL_AVOIRCaption</DataField>
-        </Field>
-        <Field Name="CUMULS_LIVRAISON___AVOIRSCaption">
-          <DataField>CUMULS_LIVRAISON___AVOIRSCaption</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Header_No_">
-          <DataField>Sales_Cr_Memo_Header_No_</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Header___Sell_to_Customer_No________Sales_Cr_Memo_Header___No__">
-          <DataField>Sales_Cr_Memo_Header___Sell_to_Customer_No________Sales_Cr_Memo_Header___No__</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Header___Posting_Date_">
-          <DataField>Sales_Cr_Memo_Header___Posting_Date_</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__Sales_Cr_Memo_Line___Line_Amount_">
-          <DataField>Sales_Cr_Memo_Line__Sales_Cr_Memo_Line___Line_Amount_</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__Sales_Cr_Memo_Line___Line_Amount_Format">
-          <DataField>Sales_Cr_Memo_Line__Sales_Cr_Memo_Line___Line_Amount_Format</DataField>
-        </Field>
-        <Field Name="NetWeight_Control1000000054">
-          <DataField>NetWeight_Control1000000054</DataField>
-        </Field>
-        <Field Name="NetWeight_Control1000000054Format">
-          <DataField>NetWeight_Control1000000054Format</DataField>
-        </Field>
-        <Field Name="CodeDouane_Control1000000055">
-          <DataField>CodeDouane_Control1000000055</DataField>
-        </Field>
-        <Field Name="CustType_Control1000000057">
-          <DataField>CustType_Control1000000057</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line__Monthly_Code_">
-          <DataField>Sales_Cr_Memo_Line__Monthly_Code_</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Header___DSA_No__">
-          <DataField>Sales_Cr_Memo_Header___DSA_No__</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line_Document_No_">
-          <DataField>Sales_Cr_Memo_Line_Document_No_</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line_Line_No_">
-          <DataField>Sales_Cr_Memo_Line_Line_No_</DataField>
-        </Field>
-        <Field Name="Sales_Cr_Memo_Line_Provision_materiel">
-          <DataField>Sales_Cr_Memo_Line_Provision_materiel</DataField>
-        </Field>
-        <Field Name="SalesCrMemoLineLineAmount">
-          <DataField>SalesCrMemoLineLineAmount</DataField>
-        </Field>
-        <Field Name="SalesCrMemoLineLineAmountFormat">
-          <DataField>SalesCrMemoLineLineAmountFormat</DataField>
-        </Field>
-        <Field Name="DateFilter_Control1000000012">
-          <DataField>DateFilter_Control1000000012</DataField>
-        </Field>
-        <Field Name="GETFILTER___Location_Filter___Control1000000028">
-          <DataField>GETFILTER___Location_Filter___Control1000000028</DataField>
-        </Field>
-        <Field Name="Page___FORMAT_CurrReport_PAGENO__Control1000000069">
-          <DataField>Page___FORMAT_CurrReport_PAGENO__Control1000000069</DataField>
-        </Field>
-        <Field Name="Lineamount_DSACrMemoAmount">
-          <DataField>Lineamount_DSACrMemoAmount</DataField>
-        </Field>
-        <Field Name="Lineamount_DSACrMemoAmountFormat">
-          <DataField>Lineamount_DSACrMemoAmountFormat</DataField>
-        </Field>
-        <Field Name="NetWeight_DSACrMemoWeight">
-          <DataField>NetWeight_DSACrMemoWeight</DataField>
-        </Field>
-        <Field Name="NetWeight_DSACrMemoWeightFormat">
-          <DataField>NetWeight_DSACrMemoWeightFormat</DataField>
-        </Field>
-        <Field Name="CodeDouane_Control1000000042">
-          <DataField>CodeDouane_Control1000000042</DataField>
-        </Field>
-        <Field Name="CustType_Control1000000044">
-          <DataField>CustType_Control1000000044</DataField>
-        </Field>
-        <Field Name="Cumul__Location_Code_">
-          <DataField>Cumul__Location_Code_</DataField>
-        </Field>
-        <Field Name="Cumul__Monthly_Code_">
-          <DataField>Cumul__Monthly_Code_</DataField>
-        </Field>
-        <Field Name="TypeMchds">
-          <DataField>TypeMchds</DataField>
-        </Field>
-        <Field Name="NetWeight_DSACrMemoWeight_Control1000000049">
-          <DataField>NetWeight_DSACrMemoWeight_Control1000000049</DataField>
-        </Field>
-        <Field Name="NetWeight_DSACrMemoWeight_Control1000000049Format">
-          <DataField>NetWeight_DSACrMemoWeight_Control1000000049Format</DataField>
-        </Field>
-        <Field Name="Lineamount_DSACrMemoAmount_Control1000000050">
-          <DataField>Lineamount_DSACrMemoAmount_Control1000000050</DataField>
-        </Field>
-        <Field Name="Lineamount_DSACrMemoAmount_Control1000000050Format">
-          <DataField>Lineamount_DSACrMemoAmount_Control1000000050Format</DataField>
-        </Field>
-        <Field Name="Relevé_des_sorties_du__Caption_Control1000000027">
-          <DataField>Relevé_des_sorties_du__Caption_Control1000000027</DataField>
-        </Field>
-        <Field Name="CODECaption_Control1000000029">
-          <DataField>CODECaption_Control1000000029</DataField>
-        </Field>
-        <Field Name="COMMANDECaption_Control1000000031">
-          <DataField>COMMANDECaption_Control1000000031</DataField>
-        </Field>
-        <Field Name="VALEURCaption_Control1000000032">
-          <DataField>VALEURCaption_Control1000000032</DataField>
-        </Field>
-        <Field Name="POIDSCaption_Control1000000033">
-          <DataField>POIDSCaption_Control1000000033</DataField>
-        </Field>
-        <Field Name="TYPECaption_Control1000000035">
-          <DataField>TYPECaption_Control1000000035</DataField>
-        </Field>
-        <Field Name="MAGCaption_Control1000000036">
-          <DataField>MAGCaption_Control1000000036</DataField>
-        </Field>
-        <Field Name="PAYSCaption_Control1000000037">
-          <DataField>PAYSCaption_Control1000000037</DataField>
-        </Field>
-        <Field Name="TYPECaption_Control1000000047">
-          <DataField>TYPECaption_Control1000000047</DataField>
-        </Field>
-        <Field Name="CUMULSCaption_Control1000000048">
-          <DataField>CUMULSCaption_Control1000000048</DataField>
-        </Field>
-        <Field Name="Cumul_Document_No_">
-          <DataField>Cumul_Document_No_</DataField>
-        </Field>
-        <Field Name="Cumul_Line_No_">
-          <DataField>Cumul_Line_No_</DataField>
-        </Field>
-        <Field Name="Cumul_Provision_materiel">
-          <DataField>Cumul_Provision_materiel</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -3959,12 +3643,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -4116,4 +3794,320 @@ End Function
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>f2207a02-76af-44fb-93d6-9f76ed790bdb</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="GETFILTER___Posting_Date__">
+          <DataField>GETFILTER___Posting_Date__</DataField>
+        </Field>
+        <Field Name="GETFILTER___Location_Filter__">
+          <DataField>GETFILTER___Location_Filter__</DataField>
+        </Field>
+        <Field Name="Page___FORMAT_CurrReport_PAGENO_">
+          <DataField>Page___FORMAT_CurrReport_PAGENO_</DataField>
+        </Field>
+        <Field Name="NetWeight">
+          <DataField>NetWeight</DataField>
+        </Field>
+        <Field Name="NetWeightFormat">
+          <DataField>NetWeightFormat</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line___Line_Amount_">
+          <DataField>Sales_Shipment_Line___Line_Amount_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line___Line_Amount_Format">
+          <DataField>Sales_Shipment_Line___Line_Amount_Format</DataField>
+        </Field>
+        <Field Name="Relevé_des_sorties_du__Caption">
+          <DataField>Relevé_des_sorties_du__Caption</DataField>
+        </Field>
+        <Field Name="CODECaption">
+          <DataField>CODECaption</DataField>
+        </Field>
+        <Field Name="TYPECaption">
+          <DataField>TYPECaption</DataField>
+        </Field>
+        <Field Name="DATECaption">
+          <DataField>DATECaption</DataField>
+        </Field>
+        <Field Name="POIDSCaption">
+          <DataField>POIDSCaption</DataField>
+        </Field>
+        <Field Name="VALEURCaption">
+          <DataField>VALEURCaption</DataField>
+        </Field>
+        <Field Name="COMMANDECaption">
+          <DataField>COMMANDECaption</DataField>
+        </Field>
+        <Field Name="PAYSCaption">
+          <DataField>PAYSCaption</DataField>
+        </Field>
+        <Field Name="MAGCaption">
+          <DataField>MAGCaption</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_No_">
+          <DataField>Sales_Shipment_Header_No_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header_Location_Filter">
+          <DataField>Sales_Shipment_Header_Location_Filter</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header___Sell_to_Customer_No________Sales_Shipment_Header___No__">
+          <DataField>Sales_Shipment_Header___Sell_to_Customer_No________Sales_Shipment_Header___No__</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header___DSA_No__">
+          <DataField>Sales_Shipment_Header___DSA_No__</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Header___Posting_Date_">
+          <DataField>Sales_Shipment_Header___Posting_Date_</DataField>
+        </Field>
+        <Field Name="BLCaption">
+          <DataField>BLCaption</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line__Line_Amount_">
+          <DataField>Sales_Shipment_Line__Line_Amount_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line__Line_Amount_Format">
+          <DataField>Sales_Shipment_Line__Line_Amount_Format</DataField>
+        </Field>
+        <Field Name="CUMULSCaption">
+          <DataField>CUMULSCaption</DataField>
+        </Field>
+        <Field Name="NetWeight_Control1000000011">
+          <DataField>NetWeight_Control1000000011</DataField>
+        </Field>
+        <Field Name="NetWeight_Control1000000011Format">
+          <DataField>NetWeight_Control1000000011Format</DataField>
+        </Field>
+        <Field Name="CustType">
+          <DataField>CustType</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line__Location_Code_">
+          <DataField>Sales_Shipment_Line__Location_Code_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line__Monthly_Code_">
+          <DataField>Sales_Shipment_Line__Monthly_Code_</DataField>
+        </Field>
+        <Field Name="CodeDouane">
+          <DataField>CodeDouane</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Document_No_">
+          <DataField>Sales_Shipment_Line_Document_No_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Line_No_">
+          <DataField>Sales_Shipment_Line_Line_No_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Provision_materiel">
+          <DataField>Sales_Shipment_Line_Provision_materiel</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Line_Amount">
+          <DataField>Sales_Shipment_Line_Line_Amount</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line_Line_AmountFormat">
+          <DataField>Sales_Shipment_Line_Line_AmountFormat</DataField>
+        </Field>
+        <Field Name="TotWeight">
+          <DataField>TotWeight</DataField>
+        </Field>
+        <Field Name="TotWeightFormat">
+          <DataField>TotWeightFormat</DataField>
+        </Field>
+        <Field Name="TotAmount">
+          <DataField>TotAmount</DataField>
+        </Field>
+        <Field Name="TotAmountFormat">
+          <DataField>TotAmountFormat</DataField>
+        </Field>
+        <Field Name="SalesShipmentLineLineAmount">
+          <DataField>SalesShipmentLineLineAmount</DataField>
+        </Field>
+        <Field Name="SalesShipmentLineLineAmountFormat">
+          <DataField>SalesShipmentLineLineAmountFormat</DataField>
+        </Field>
+        <Field Name="DateFilter">
+          <DataField>DateFilter</DataField>
+        </Field>
+        <Field Name="LocationFilter">
+          <DataField>LocationFilter</DataField>
+        </Field>
+        <Field Name="Page___FORMAT_CurrReport_PAGENO__Control1000000020">
+          <DataField>Page___FORMAT_CurrReport_PAGENO__Control1000000020</DataField>
+        </Field>
+        <Field Name="NetWeight_Control1000000061">
+          <DataField>NetWeight_Control1000000061</DataField>
+        </Field>
+        <Field Name="NetWeight_Control1000000061Format">
+          <DataField>NetWeight_Control1000000061Format</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line___Line_Amount_">
+          <DataField>Sales_Cr_Memo_Line___Line_Amount_</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line___Line_Amount_Format">
+          <DataField>Sales_Cr_Memo_Line___Line_Amount_Format</DataField>
+        </Field>
+        <Field Name="ShipWeight_CrMemoWeight">
+          <DataField>ShipWeight_CrMemoWeight</DataField>
+        </Field>
+        <Field Name="ShipWeight_CrMemoWeightFormat">
+          <DataField>ShipWeight_CrMemoWeightFormat</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line___Line_Amount___Sales_Cr_Memo_Line___Line_Amount_">
+          <DataField>Sales_Shipment_Line___Line_Amount___Sales_Cr_Memo_Line___Line_Amount_</DataField>
+        </Field>
+        <Field Name="Sales_Shipment_Line___Line_Amount___Sales_Cr_Memo_Line___Line_Amount_Format">
+          <DataField>Sales_Shipment_Line___Line_Amount___Sales_Cr_Memo_Line___Line_Amount_Format</DataField>
+        </Field>
+        <Field Name="AvoirsCaption">
+          <DataField>AvoirsCaption</DataField>
+        </Field>
+        <Field Name="CODECaption_Control1000000051">
+          <DataField>CODECaption_Control1000000051</DataField>
+        </Field>
+        <Field Name="CUMUL_AVOIRCaption">
+          <DataField>CUMUL_AVOIRCaption</DataField>
+        </Field>
+        <Field Name="CUMULS_LIVRAISON___AVOIRSCaption">
+          <DataField>CUMULS_LIVRAISON___AVOIRSCaption</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Header_No_">
+          <DataField>Sales_Cr_Memo_Header_No_</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Header___Sell_to_Customer_No________Sales_Cr_Memo_Header___No__">
+          <DataField>Sales_Cr_Memo_Header___Sell_to_Customer_No________Sales_Cr_Memo_Header___No__</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Header___Posting_Date_">
+          <DataField>Sales_Cr_Memo_Header___Posting_Date_</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__Sales_Cr_Memo_Line___Line_Amount_">
+          <DataField>Sales_Cr_Memo_Line__Sales_Cr_Memo_Line___Line_Amount_</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__Sales_Cr_Memo_Line___Line_Amount_Format">
+          <DataField>Sales_Cr_Memo_Line__Sales_Cr_Memo_Line___Line_Amount_Format</DataField>
+        </Field>
+        <Field Name="NetWeight_Control1000000054">
+          <DataField>NetWeight_Control1000000054</DataField>
+        </Field>
+        <Field Name="NetWeight_Control1000000054Format">
+          <DataField>NetWeight_Control1000000054Format</DataField>
+        </Field>
+        <Field Name="CodeDouane_Control1000000055">
+          <DataField>CodeDouane_Control1000000055</DataField>
+        </Field>
+        <Field Name="CustType_Control1000000057">
+          <DataField>CustType_Control1000000057</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line__Monthly_Code_">
+          <DataField>Sales_Cr_Memo_Line__Monthly_Code_</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Header___DSA_No__">
+          <DataField>Sales_Cr_Memo_Header___DSA_No__</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line_Document_No_">
+          <DataField>Sales_Cr_Memo_Line_Document_No_</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line_Line_No_">
+          <DataField>Sales_Cr_Memo_Line_Line_No_</DataField>
+        </Field>
+        <Field Name="Sales_Cr_Memo_Line_Provision_materiel">
+          <DataField>Sales_Cr_Memo_Line_Provision_materiel</DataField>
+        </Field>
+        <Field Name="SalesCrMemoLineLineAmount">
+          <DataField>SalesCrMemoLineLineAmount</DataField>
+        </Field>
+        <Field Name="SalesCrMemoLineLineAmountFormat">
+          <DataField>SalesCrMemoLineLineAmountFormat</DataField>
+        </Field>
+        <Field Name="DateFilter_Control1000000012">
+          <DataField>DateFilter_Control1000000012</DataField>
+        </Field>
+        <Field Name="GETFILTER___Location_Filter___Control1000000028">
+          <DataField>GETFILTER___Location_Filter___Control1000000028</DataField>
+        </Field>
+        <Field Name="Page___FORMAT_CurrReport_PAGENO__Control1000000069">
+          <DataField>Page___FORMAT_CurrReport_PAGENO__Control1000000069</DataField>
+        </Field>
+        <Field Name="Lineamount_DSACrMemoAmount">
+          <DataField>Lineamount_DSACrMemoAmount</DataField>
+        </Field>
+        <Field Name="Lineamount_DSACrMemoAmountFormat">
+          <DataField>Lineamount_DSACrMemoAmountFormat</DataField>
+        </Field>
+        <Field Name="NetWeight_DSACrMemoWeight">
+          <DataField>NetWeight_DSACrMemoWeight</DataField>
+        </Field>
+        <Field Name="NetWeight_DSACrMemoWeightFormat">
+          <DataField>NetWeight_DSACrMemoWeightFormat</DataField>
+        </Field>
+        <Field Name="CodeDouane_Control1000000042">
+          <DataField>CodeDouane_Control1000000042</DataField>
+        </Field>
+        <Field Name="CustType_Control1000000044">
+          <DataField>CustType_Control1000000044</DataField>
+        </Field>
+        <Field Name="Cumul__Location_Code_">
+          <DataField>Cumul__Location_Code_</DataField>
+        </Field>
+        <Field Name="Cumul__Monthly_Code_">
+          <DataField>Cumul__Monthly_Code_</DataField>
+        </Field>
+        <Field Name="TypeMchds">
+          <DataField>TypeMchds</DataField>
+        </Field>
+        <Field Name="NetWeight_DSACrMemoWeight_Control1000000049">
+          <DataField>NetWeight_DSACrMemoWeight_Control1000000049</DataField>
+        </Field>
+        <Field Name="NetWeight_DSACrMemoWeight_Control1000000049Format">
+          <DataField>NetWeight_DSACrMemoWeight_Control1000000049Format</DataField>
+        </Field>
+        <Field Name="Lineamount_DSACrMemoAmount_Control1000000050">
+          <DataField>Lineamount_DSACrMemoAmount_Control1000000050</DataField>
+        </Field>
+        <Field Name="Lineamount_DSACrMemoAmount_Control1000000050Format">
+          <DataField>Lineamount_DSACrMemoAmount_Control1000000050Format</DataField>
+        </Field>
+        <Field Name="Relevé_des_sorties_du__Caption_Control1000000027">
+          <DataField>Relevé_des_sorties_du__Caption_Control1000000027</DataField>
+        </Field>
+        <Field Name="CODECaption_Control1000000029">
+          <DataField>CODECaption_Control1000000029</DataField>
+        </Field>
+        <Field Name="COMMANDECaption_Control1000000031">
+          <DataField>COMMANDECaption_Control1000000031</DataField>
+        </Field>
+        <Field Name="VALEURCaption_Control1000000032">
+          <DataField>VALEURCaption_Control1000000032</DataField>
+        </Field>
+        <Field Name="POIDSCaption_Control1000000033">
+          <DataField>POIDSCaption_Control1000000033</DataField>
+        </Field>
+        <Field Name="TYPECaption_Control1000000035">
+          <DataField>TYPECaption_Control1000000035</DataField>
+        </Field>
+        <Field Name="MAGCaption_Control1000000036">
+          <DataField>MAGCaption_Control1000000036</DataField>
+        </Field>
+        <Field Name="PAYSCaption_Control1000000037">
+          <DataField>PAYSCaption_Control1000000037</DataField>
+        </Field>
+        <Field Name="TYPECaption_Control1000000047">
+          <DataField>TYPECaption_Control1000000047</DataField>
+        </Field>
+        <Field Name="CUMULSCaption_Control1000000048">
+          <DataField>CUMULSCaption_Control1000000048</DataField>
+        </Field>
+        <Field Name="Cumul_Document_No_">
+          <DataField>Cumul_Document_No_</DataField>
+        </Field>
+        <Field Name="Cumul_Line_No_">
+          <DataField>Cumul_Line_No_</DataField>
+        </Field>
+        <Field Name="Cumul_Provision_materiel">
+          <DataField>Cumul_Provision_materiel</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

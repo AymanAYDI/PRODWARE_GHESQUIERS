@@ -10,6 +10,7 @@ page 50080 "PWD Pos Sales Shpt.Sub Update"
     SourceTable = "Sales Shipment Line";
     SourceTableTemporary = true;
     UsageCategory = None;
+    Permissions = TableData "Sales Shipment Line" = rm;
 
     layout
     {

@@ -18221,7 +18221,7 @@
         </trans-unit>
         <trans-unit id="PageExtension 1656304633 - Action 842345647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1227332174">
           <source>Update Document</source>
-          <target state="translated">Mettre à jour le document</target>
+          <target state="translated">Mettre à jour le ligne document</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShptSubform - Action PWD Update Document - Property Caption</note>
         </trans-unit>
