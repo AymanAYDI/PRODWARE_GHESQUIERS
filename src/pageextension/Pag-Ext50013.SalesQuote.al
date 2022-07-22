@@ -6,6 +6,10 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
         {
             Visible = false;
         }
+        modify("Your Reference")
+        {
+            Visible = false;
+        }
         addafter("No.")
         {
             field("PWD No."; Rec."No.")
@@ -45,6 +49,10 @@ pageextension 50013 "PWD SalesQuote" extends "Sales Quote"
         addafter("Bill-to Contact No.")
         {
             field("PWD Bill-to Additional name"; Rec."PWD Bill-to Additional name")
+            {
+                ApplicationArea = all;
+            }
+            field("PWD Bill-to C/O"; Rec."PWD Bill-to C/O")
             {
                 ApplicationArea = all;
             }

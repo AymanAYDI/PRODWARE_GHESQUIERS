@@ -34,7 +34,7 @@
                               <TablixBody>
                                 <TablixColumns>
                                   <TablixColumn>
-                                    <Width>1.47154cm</Width>
+                                    <Width>0.84632cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>1.41401cm</Width>
@@ -46,19 +46,19 @@
                                     <Width>1.40699cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>3.60808cm</Width>
+                                    <Width>2.94453cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>2.92958cm</Width>
+                                    <Width>2.44275cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.42958cm</Width>
+                                    <Width>2.24281cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.42958cm</Width>
+                                    <Width>2.52649cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>4.07173cm</Width>
+                                    <Width>3.94208cm</Width>
                                   </TablixColumn>
                                 </TablixColumns>
                                 <TablixRows>
@@ -261,7 +261,7 @@
                                                     <Value>=Sum(Fields!NetWeight.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
-                                                      <Format>=First(Fields!NetWeight_Control1000000054Format.Value)</Format>
+                                                      <Format>#,0.00;(#,0.00)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -292,7 +292,7 @@
                                                     <Value>=Sum(Fields!Sales_Shipment_Line___Line_Amount_.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
-                                                      <Format>=First(Fields!Sales_Cr_Memo_Line__Sales_Cr_Memo_Line___Line_Amount_Format.Value)</Format>
+                                                      <Format>#,0.00;(#,0.00)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -310,6 +310,7 @@
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -882,7 +883,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!Sales_Shipment_Line___Line_Amount_.Value)</Value>
+                                                    <Value>=Last(Fields!SalesShipmentLineLineAmount.Value)</Value>
                                                     <Style>
                                                       <FontSize>9pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
@@ -994,7 +995,7 @@
                               <DataSetName>DataSet_Result</DataSetName>
                               <Top>1.058cm</Top>
                               <Height>1.45027cm</Height>
-                              <Width>19.28748cm</Width>
+                              <Width>19.29237cm</Width>
                               <Style />
                             </Tablix>
                             <Textbox Name="Sales_Cr_Memo_Header___DSA_No__3">
@@ -1015,7 +1016,7 @@
                               <Top>0.635cm</Top>
                               <Left>0.00489cm</Left>
                               <Height>0.423cm</Height>
-                              <Width>1.47154cm</Width>
+                              <Width>0.84143cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -1059,7 +1060,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.635cm</Top>
-                              <Left>1.47643cm</Left>
+                              <Left>0.84632cm</Left>
                               <Height>0.423cm</Height>
                               <Width>1.41401cm</Width>
                               <ZIndex>2</ZIndex>
@@ -1102,7 +1103,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox51</rd:DefaultName>
                               <Top>0.635cm</Top>
-                              <Left>2.89044cm</Left>
+                              <Left>2.26033cm</Left>
                               <Height>0.423cm</Height>
                               <Width>1.52639cm</Width>
                               <ZIndex>3</ZIndex>
@@ -1143,7 +1144,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.635cm</Top>
-                              <Left>4.41683cm</Left>
+                              <Left>3.78672cm</Left>
                               <Height>0.423cm</Height>
                               <Width>1.40699cm</Width>
                               <ZIndex>4</ZIndex>
@@ -1185,9 +1186,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.635cm</Top>
-                              <Left>5.82382cm</Left>
+                              <Left>5.19371cm</Left>
                               <Height>0.423cm</Height>
-                              <Width>3.60808cm</Width>
+                              <Width>2.94453cm</Width>
                               <ZIndex>5</ZIndex>
                               <Style>
                                 <Border>
@@ -1226,9 +1227,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.635cm</Top>
-                              <Left>9.4319cm</Left>
+                              <Left>8.13824cm</Left>
                               <Height>0.423cm</Height>
-                              <Width>2.92958cm</Width>
+                              <Width>2.44275cm</Width>
                               <ZIndex>6</ZIndex>
                               <Style>
                                 <Border>
@@ -1268,9 +1269,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.635cm</Top>
-                              <Left>12.36148cm</Left>
+                              <Left>10.58099cm</Left>
                               <Height>0.423cm</Height>
-                              <Width>1.42958cm</Width>
+                              <Width>2.24281cm</Width>
                               <ZIndex>7</ZIndex>
                               <Style>
                                 <Border>
@@ -1310,9 +1311,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.635cm</Top>
-                              <Left>13.79106cm</Left>
+                              <Left>12.8238cm</Left>
                               <Height>0.423cm</Height>
-                              <Width>1.42958cm</Width>
+                              <Width>2.52649cm</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
                                 <Border>
@@ -1351,9 +1352,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.635cm</Top>
-                              <Left>15.22064cm</Left>
+                              <Left>15.35029cm</Left>
                               <Height>0.423cm</Height>
-                              <Width>4.07173cm</Width>
+                              <Width>3.94208cm</Width>
                               <ZIndex>9</ZIndex>
                               <Style>
                                 <Border>
@@ -1489,7 +1490,7 @@
                               <TablixBody>
                                 <TablixColumns>
                                   <TablixColumn>
-                                    <Width>1.46665cm</Width>
+                                    <Width>0.84143cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>1.55854cm</Width>
@@ -1498,16 +1499,16 @@
                                     <Width>2.04146cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>3.69192cm</Width>
+                                    <Width>3.02683cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>2.92958cm</Width>
+                                    <Width>2.66555cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.95875cm</Width>
+                                    <Width>2.6851cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.69361cm</Width>
+                                    <Width>2.52649cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>3.94208cm</Width>
@@ -1729,7 +1730,7 @@
                                                     <Value>=Sum(Fields!NetWeight_Control1000000054.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
-                                                      <Format>=First(Fields!NetWeight_Control1000000054Format.Value)</Format>
+                                                      <Format>#,0.00;(#,0.00)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -1770,7 +1771,7 @@
                                                     <Value>=Sum(Fields!Sales_Cr_Memo_Line__Sales_Cr_Memo_Line___Line_Amount_.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
-                                                      <Format>=First(Fields!Sales_Cr_Memo_Line__Sales_Cr_Memo_Line___Line_Amount_Format.Value)</Format>
+                                                      <Format>#,0.00;(#,0.00)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -2220,7 +2221,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Last(Fields!SalesShipmentLineLineAmount.Value)-Sum(Fields!Sales_Cr_Memo_Line___Line_Amount_.Value)</Value>
+                                                    <Value>=Last(Fields!Sales_Shipment_Line___Line_Amount___Sales_Cr_Memo_Line___Line_Amount_.Value)</Value>
                                                     <Style>
                                                       <FontSize>9pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
@@ -2316,7 +2317,7 @@
                               <Top>0.3175cm</Top>
                               <Left>0.08109cm</Left>
                               <Height>2.20367cm</Height>
-                              <Width>19.28259cm</Width>
+                              <Width>19.28748cm</Width>
                               <Style />
                             </Tablix>
                             <Textbox Name="Textbox263">
@@ -2423,7 +2424,7 @@
                               <TablixBody>
                                 <TablixColumns>
                                   <TablixColumn>
-                                    <Width>1.47154cm</Width>
+                                    <Width>0.84143cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
                                     <Width>1.41401cm</Width>
@@ -2435,19 +2436,19 @@
                                     <Width>1.40699cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>3.60808cm</Width>
+                                    <Width>2.27944cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>2.92958cm</Width>
+                                    <Width>2.66555cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.42958cm</Width>
+                                    <Width>2.6851cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>1.42958cm</Width>
+                                    <Width>2.52649cm</Width>
                                   </TablixColumn>
                                   <TablixColumn>
-                                    <Width>4.07173cm</Width>
+                                    <Width>3.94208cm</Width>
                                   </TablixColumn>
                                 </TablixColumns>
                                 <TablixRows>
@@ -2649,7 +2650,7 @@
                                                     <Value>=Sum(Fields!NetWeight_DSACrMemoWeight.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
-                                                      <Format>=First(Fields!NetWeight_Control1000000054Format.Value)</Format>
+                                                      <Format>#,0.00;(#,0.00)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -2680,7 +2681,7 @@
                                                     <Value>=Sum(Fields!Lineamount_DSACrMemoAmount.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
-                                                      <Format>=First(Fields!Sales_Cr_Memo_Line__Sales_Cr_Memo_Line___Line_Amount_Format.Value)</Format>
+                                                      <Format>#,0.00;(#,0.00)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
@@ -2961,7 +2962,6 @@
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -3053,7 +3053,7 @@
                               <Top>0.52025cm</Top>
                               <Left>0.08109cm</Left>
                               <Height>0.423cm</Height>
-                              <Width>1.47154cm</Width>
+                              <Width>0.84143cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -3097,7 +3097,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.52025cm</Top>
-                              <Left>1.55263cm</Left>
+                              <Left>0.92252cm</Left>
                               <Height>0.423cm</Height>
                               <Width>1.41401cm</Width>
                               <ZIndex>2</ZIndex>
@@ -3140,7 +3140,7 @@
                               </Paragraphs>
                               <rd:DefaultName>Textbox51</rd:DefaultName>
                               <Top>0.52025cm</Top>
-                              <Left>2.96664cm</Left>
+                              <Left>2.33653cm</Left>
                               <Height>0.423cm</Height>
                               <Width>1.52639cm</Width>
                               <ZIndex>3</ZIndex>
@@ -3181,7 +3181,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.52025cm</Top>
-                              <Left>4.49303cm</Left>
+                              <Left>3.86292cm</Left>
                               <Height>0.423cm</Height>
                               <Width>1.40699cm</Width>
                               <ZIndex>4</ZIndex>
@@ -3223,9 +3223,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.52025cm</Top>
-                              <Left>5.90002cm</Left>
+                              <Left>5.26991cm</Left>
                               <Height>0.423cm</Height>
-                              <Width>3.60808cm</Width>
+                              <Width>2.27944cm</Width>
                               <ZIndex>5</ZIndex>
                               <Style>
                                 <Border>
@@ -3264,9 +3264,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.52025cm</Top>
-                              <Left>9.5081cm</Left>
+                              <Left>7.54935cm</Left>
                               <Height>0.423cm</Height>
-                              <Width>2.92958cm</Width>
+                              <Width>2.66555cm</Width>
                               <ZIndex>6</ZIndex>
                               <Style>
                                 <Border>
@@ -3306,9 +3306,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.52025cm</Top>
-                              <Left>12.43768cm</Left>
+                              <Left>10.2149cm</Left>
                               <Height>0.423cm</Height>
-                              <Width>1.42958cm</Width>
+                              <Width>2.6851cm</Width>
                               <ZIndex>7</ZIndex>
                               <Style>
                                 <Border>
@@ -3348,9 +3348,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.52025cm</Top>
-                              <Left>13.86726cm</Left>
+                              <Left>12.9cm</Left>
                               <Height>0.423cm</Height>
-                              <Width>1.42958cm</Width>
+                              <Width>2.52649cm</Width>
                               <ZIndex>8</ZIndex>
                               <Style>
                                 <Border>
@@ -3389,9 +3389,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>0.52025cm</Top>
-                              <Left>15.29684cm</Left>
+                              <Left>15.42649cm</Left>
                               <Height>0.423cm</Height>
-                              <Width>4.07173cm</Width>
+                              <Width>3.94208cm</Width>
                               <ZIndex>9</ZIndex>
                               <Style>
                                 <Border>

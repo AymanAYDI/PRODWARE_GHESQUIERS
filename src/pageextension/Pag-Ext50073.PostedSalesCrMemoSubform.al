@@ -110,6 +110,30 @@ pageextension 50073 "PWD PostedSalesCrMemoSubform" extends "Posted Sales Cr. Mem
             Editable = false;
         }
     }
+    actions
+    {
+        addafter(DeferralSchedule)
+        {
+            action("PWD Update Document")
+            {
+                ApplicationArea = Suite;
+                Caption = 'Update Document Line';
+                Image = Edit;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                trigger OnAction()
+                var
+                    PostedSalesCrMemoUpdate: Page "PWD Pos Sales CrMemo.Su Update";
+                begin
+                    PostedSalesCrMemoUpdate.LookupMode := true;
+                    PostedSalesCrMemoUpdate.SetRec(Rec);
+                    PostedSalesCrMemoUpdate.RunModal();
+                end;
+            }
+        }
+    }
     trigger OnModifyRecord(): Boolean
     BEGIN
         CODEUNIT.RUN(CODEUNIT::"PWD Cr.Memo Line - Edit", Rec);

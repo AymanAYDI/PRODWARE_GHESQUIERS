@@ -166,7 +166,7 @@ pageextension 50071 "PWD PostedSalesShptSubform" extends "Posted Sales Shpt. Sub
             action("PWD Update Document")
             {
                 ApplicationArea = Suite;
-                Caption = 'Update Document';
+                Caption = 'Update Document Line';
                 Image = Edit;
                 Promoted = true;
                 PromotedCategory = Process;

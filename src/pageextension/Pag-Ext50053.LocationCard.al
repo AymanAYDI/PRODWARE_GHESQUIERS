@@ -36,7 +36,7 @@ pageextension 50053 "PWD LocationCard" extends "Location Card"
                 ApplicationArea = All;
             }
         }
-        addafter("Put-away")
+        addafter("Bin Policies")
         {
             group("PWD Customs")
             {

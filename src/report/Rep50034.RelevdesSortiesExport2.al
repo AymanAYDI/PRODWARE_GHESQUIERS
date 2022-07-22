@@ -207,7 +207,7 @@ report 50034 "Relevé des Sorties Export 2"
             column(ShipWeight_CrMemoWeight; ShipWeight - CrMemoWeight)
             {
             }
-            column(Sales_Shipment_Line___Line_Amount___Sales_Cr_Memo_Line___Line_Amount_; "Sales Shipment Line"."PWD Line Amount" - "Sales Cr.Memo Line"."Line Amount")
+            column(Sales_Shipment_Line___Line_Amount___Sales_Cr_Memo_Line___Line_Amount_; SalesShipmentLineLineAmount - SalesCrMemoLineLineAmount)//"Sales Shipment Line"."PWD Line Amount" - "Sales Cr.Memo Line"."Line Amount")
             {
             }
             column(AvoirsCaption; AvoirsCaptionLbl)
@@ -342,7 +342,7 @@ report 50034 "Relevé des Sorties Export 2"
             column(Lineamount_DSACrMemoAmount; Lineamount - DSACrMemoAmount)
             {
             }
-            column(NetWeight_DSACrMemoWeight; NetWeight - DSACrMemoWeight1)
+            column(NetWeight_DSACrMemoWeight; NetWeight - DSACrMemoWeight)
             {
             }
             column(CodeDouane_Control1000000042; CodeDouane)
@@ -360,7 +360,7 @@ report 50034 "Relevé des Sorties Export 2"
             column(TypeMchds; TypeMchds)
             {
             }
-            column(NetWeight_DSACrMemoWeight_Control1000000049; NetWeight - DSACrMemoWeight1)
+            column(NetWeight_DSACrMemoWeight_Control1000000049; NetWeight - DSACrMemoWeight)
             {
             }
             column(Lineamount_DSACrMemoAmount_Control1000000050; Lineamount - DSACrMemoAmount)
@@ -408,6 +408,8 @@ report 50034 "Relevé des Sorties Export 2"
 
             trigger OnAfterGetRecord()
             begin
+                DSACrMemoWeight1 := 0;
+                DSACrMemoAmount1 := 0;
                 IF Quantity = 0 THEN CurrReport.SKIP();
                 SalesShipHeader.SETCURRENTKEY("PWD DSA No.", "Posting Date");
                 SalesShipHeader.GET(Cumul."Document No.");
@@ -421,16 +423,18 @@ report 50034 "Relevé des Sorties Export 2"
                     CurrLoc := "Location Code";
                     CurrMonthly := "PWD Monthly Code";
                     CurrPM := "PWD Provision/materiel";
-                    FindCRMemoLines('', "PWD Provision/materiel", "PWD Monthly Code", TRUE, "Location Code", DSACrMemoWeight1);
+                    FindCRMemoLines('', "PWD Provision/materiel", "PWD Monthly Code", TRUE, "Location Code", DSACrMemoWeight1, DSACrMemoAmount1);
                 END;
 
                 Lineamount := "PWD Line Amount";//-DSACrMemoAmount;
+                DSACrMemoWeight := DSACrMemoWeight1;
+                DSACrMemoAmount := DSACrMemoAmount1;
             end;
 
             trigger OnPreDataItem()
             begin
                 DSACrMemoWeight1 := 0;
-                DSACrMemoAmount := 0;
+                DSACrMemoAmount1 := 0;
                 NetWeight := 0;
                 Lineamount := 0;
                 SETFILTER("Location Code", LocationFilter);
@@ -480,6 +484,7 @@ report 50034 "Relevé des Sorties Export 2"
         DateMin: Date;
         CrMemoWeight: Decimal;
         DSACrMemoAmount: Decimal;
+        DSACrMemoAmount1: Decimal;
         DSACrMemoWeight: Decimal;
         DSACrMemoWeight1: Decimal;
         Lineamount: Decimal;
@@ -523,7 +528,7 @@ report 50034 "Relevé des Sorties Export 2"
         LocationFilter: Text[30];
 
 
-    procedure FindCRMemoLines(FromDSANo: Code[20]; var FromPM: Option " ",Materiel,Provision; var FromCountry: Code[10]; RAZ: Boolean; var FromLoc: Code[10]; DSACrMemoWeight1: Decimal)
+    procedure FindCRMemoLines(FromDSANo: Code[20]; var FromPM: Option " ",Materiel,Provision; var FromCountry: Code[10]; RAZ: Boolean; var FromLoc: Code[10]; var DSACrMemoWeight1: Decimal; var DSACrMemoAmount1: Decimal)
     var
         FromCRMemoHeader: Record "Sales Cr.Memo Header";
         FromCRMemoLines: Record "Sales Cr.Memo Line";
@@ -531,9 +536,9 @@ report 50034 "Relevé des Sorties Export 2"
         FromCRMemoLines.RESET();
         FromCRMemoHeader.RESET();
         CLEAR(DSACrMemoWeight1);
-        CLEAR(DSACrMemoAmount);
+        CLEAR(DSACrMemoAmount1);
         DSACrMemoWeight1 := 0;
-        DSACrMemoAmount := 0;
+        DSACrMemoAmount1 := 0;
 
         FromCRMemoLines.SETCURRENTKEY("Document No.", "PWD Provision/materiel");
 
@@ -548,11 +553,11 @@ report 50034 "Relevé des Sorties Export 2"
                     FromCRMemoHeader.GET(FromCRMemoLines."Document No.");
                     IF FromCRMemoHeader."PWD DSA No." <> '' THEN BEGIN
                         DSACrMemoWeight1 += FromCRMemoLines.Quantity * FromCRMemoLines."Net Weight";
-                        DSACrMemoAmount += FromCRMemoLines."Line Amount";
+                        DSACrMemoAmount1 += FromCRMemoLines."Line Amount";
                     END;
                 END ELSE BEGIN
                     DSACrMemoWeight1 += FromCRMemoLines.Quantity * FromCRMemoLines."Net Weight";
-                    DSACrMemoAmount += FromCRMemoLines."Line Amount";
+                    DSACrMemoAmount1 += FromCRMemoLines."Line Amount";
                 END;
             UNTIL FromCRMemoLines.NEXT() = 0;
     end;

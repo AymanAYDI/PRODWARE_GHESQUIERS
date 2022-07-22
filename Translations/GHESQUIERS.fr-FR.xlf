@@ -11619,6 +11619,18 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Page PWD Personal Caption - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 3279629943 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Sales Cr. Memo Subform - Update</source>
+          <target state="translated">Ligne avoir vente enregistré - Mise à jour</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Pos Sales CrMemo.Su Update - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3279629943 - Control 3097346278 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Invoice Details</source>
+          <target state="translated">Détails de la facture</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PWD Pos Sales CrMemo.Su Update - Control Shipping - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3927386997 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Posted Sales Shipment - Update</source>
           <target state="translated">Ligne expédition vente enregistrée - Mise à jour</target>
@@ -13504,7 +13516,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - NamedType Text003</note>
         </trans-unit>
         <trans-unit id="Report 3247409337 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
-          <source>ExportCOALA_%1_%2</source>
+          <source>ExportCOALA</source>
           <target state="needs-translation"/>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Export COALA - NamedType Text004</note>
@@ -17895,6 +17907,12 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedPurchaseReceipt - Control Vendor Quality - Property Caption</note>
         </trans-unit>
+        <trans-unit id="PageExtension 3239350557 - Action 842345647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1257057922">
+          <source>Update Document Line</source>
+          <target state="needs-adaptation">Mettre à jour ligne document</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesCrMemoSubform - Action PWD Update Document - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PageExtension 1446481005 - Action 3007412368 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 2420212404">
           <source>Print</source>
           <target state="translated">Imprimer</target>
@@ -18213,15 +18231,9 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Impression classique - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 1656304633 - Action 842345647 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1227332174">
-          <source>Add new information that is relevant to the document, such as information from the shipping agent. You can only edit a few fields because the document has already been posted.</source>
-          <target state="needs-translation"/>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShptSubform - Action PWD Update Document - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="PageExtension 1656304633 - Action 842345647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1227332174">
-          <source>Update Document</source>
-          <target state="translated">Mettre à jour le ligne document</target>
+          <source>Update Document Line</source>
+          <target state="needs-adaptation">Mettre à jour ligne document</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShptSubform - Action PWD Update Document - Property Caption</note>
         </trans-unit>
