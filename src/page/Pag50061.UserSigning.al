@@ -1,6 +1,7 @@
 page 50061 "PWD User Signing"
 {
     Caption = 'User Signing';
+    UsageCategory = None;
     /*DeleteAllowed = false;
     InsertAllowed = false;
     PageType = Card;

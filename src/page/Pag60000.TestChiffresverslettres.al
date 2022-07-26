@@ -1,7 +1,7 @@
 page 60000 "PWD Test Chiffres vers lettres"
 {
     PageType = Card;
-
+UsageCategory = None;
     layout
     {
         area(content)

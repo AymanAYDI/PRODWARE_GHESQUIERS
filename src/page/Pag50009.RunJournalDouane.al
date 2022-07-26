@@ -2,7 +2,7 @@ page 50009 "PWD Run Journal/Douane"
 {
     Caption = 'Run Journal/Douane';
     PageType = Card;
-
+UsageCategory = None;
     actions
     {
         area(Processing)

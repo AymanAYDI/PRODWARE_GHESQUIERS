@@ -1,7 +1,7 @@
 page 99000 "PWD Test Cyrillique"
 {
     PageType = Card;
-
+    UsageCategory = None;
     layout
     {
         area(content)

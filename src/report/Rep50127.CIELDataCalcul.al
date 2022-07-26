@@ -3,6 +3,7 @@ report 50127 "PWD CIEL Data Calcul"
     Caption = 'CIEL Data Calcul';
     ProcessingOnly = true;
     UseRequestPage = true;
+    UsageCategory = None;
     dataset
     {
         dataitem("Personal Caption"; "PWD Personal Caption")
