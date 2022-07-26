@@ -47,6 +47,10 @@ pageextension 50015 "PWD SalesInvoice" extends "Sales Invoice"
                 ApplicationArea = all;
             }
         }
+        modify("Your Reference")
+        {
+            visible = False;
+        }
     }
     actions
     {
