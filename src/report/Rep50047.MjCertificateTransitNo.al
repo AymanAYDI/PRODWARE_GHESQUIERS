@@ -3,7 +3,8 @@ report 50047 "Màj Certificate Transit No."
     Permissions = TableData "Purch. Rcpt. Line" = rm,
                   TableData "Purch. Inv. Line" = rm;
     ProcessingOnly = true;
-    UsageCategory = None;
+    ApplicationArea = all;
+    UsageCategory = Tasks;
     dataset
     {
     }
