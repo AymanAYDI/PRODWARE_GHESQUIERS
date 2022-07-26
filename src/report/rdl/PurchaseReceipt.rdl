@@ -3279,7 +3279,6 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
                 </Paragraph>
               </Paragraphs>
               <Top>7.0528cm</Top>
-              <Left>0cm</Left>
               <Height>11pt</Height>
               <Width>3.28944cm</Width>
               <ZIndex>9</ZIndex>
@@ -3799,6 +3798,65 @@ Fields!Purch__Rcpt__Header___Pay_to_Vendor_No__.Value, 3)</Hidden>
               <ZIndex>28</ZIndex>
               <Style>
                 <Border />
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox18">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(9,1)</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox18</rd:DefaultName>
+              <Top>6.66474cm</Top>
+              <Height>11pt</Height>
+              <Width>3.28944cm</Width>
+              <ZIndex>29</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox19">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(10,1)</Value>
+                      <Style>
+                        <FontFamily>Segoe UI</FontFamily>
+                        <FontSize>8pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox19</rd:DefaultName>
+              <Top>6.66474cm</Top>
+              <Left>3.36983cm</Left>
+              <Height>11pt</Height>
+              <Width>9.33999cm</Width>
+              <ZIndex>30</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
               </Style>
             </Textbox>
           </ReportItems>
