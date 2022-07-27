@@ -8938,11 +8938,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Choose Customs Doc Template - Control DocumentTemplateCode - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1981770694 - Action 1981770694 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Màj Certificate Transit No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Màj Certificate Transit No. - Action Màj Certificate Transit No. - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 1500253001 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Appeal for tenders</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15098,31 +15093,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipment - Action PWD TM - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 514992723 - NamedType 3802638270" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 514992723">
-          <source>CO</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - NamedType CstG001</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - NamedType 1889548419" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 514992723">
-          <source>CHARSIMPLE</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - NamedType CstG002</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - NamedType 2527245036" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 514992723">
-          <source>CHARGEMENT</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - NamedType CstG003</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - NamedType 614155185" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 514992723">
-          <source>CHARTM</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - NamedType CstG004</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - NamedType 1251851802" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 514992723">
-          <source>MUTATION</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - NamedType CstG005</note>
-        </trans-unit>
         <trans-unit id="PageExtension 514992723 - Action 2625839114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
           <source>Imprimer</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -15133,50 +15103,15 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action Bon de livraison - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 1955145300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>Liste de chargement simple</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action Liste de chargement simple - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PageExtension 514992723 - Action 1726199522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
           <source>Bon d'Avitaillement</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Bon d'Avitaillement - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 32204155 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>Certificat d'origine</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Certificat d'origine - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PageExtension 514992723 - Action 4286629681 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
           <source>DAA</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD DAA - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 1622082975 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>DSA</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD DSA - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 983736794 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>Impression classique</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD ImpressionClassique - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 3525020335 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>Liste de chargement (TM)</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Liste de chargement (TM) - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 1678077032 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>Liste de chargement/magasin</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Liste de chargement/magasin - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 3404943718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>Mutation</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Mutation - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 514992723 - Action 1031111394 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
           <source>T1</source>
@@ -15192,11 +15127,6 @@
           <source>TM</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD TM - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 903494082 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>Impression classique</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Impression classique - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1656304633 - Action 842345647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1227332174">
           <source>Update Document Line</source>

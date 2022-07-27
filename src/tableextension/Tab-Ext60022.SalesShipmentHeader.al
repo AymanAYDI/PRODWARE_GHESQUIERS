@@ -168,14 +168,6 @@ tableextension 60022 "PWD SalesShipmentHeader" extends "Sales Shipment Header"
     begin
 
         IF CustomsType = 'T5' THEN REPORT.RUNMODAL(REPORT::"PWD Calcul PU=CU*coef", TRUE, TRUE, Rec);
-        //TODO
-        /*
-                IF CustomsType = 'CO' THEN REPORT.RUNMODAL(REPORT::"Certificat d'origine", TRUE, TRUE, Rec);
-                IF CustomsType = 'CHARGEMENT' THEN REPORT.RUNMODAL(REPORT::"Loading List", TRUE, TRUE, Rec);
-                IF CustomsType = 'MUTATION' THEN REPORT.RUNMODAL(REPORT::"Loading by Location", TRUE, TRUE, Rec);
-                IF CustomsType = 'TM' THEN REPORT.RUNMODAL(REPORT::TM, TRUE, TRUE, Rec);
-                IF CustomsType = 'CHARSIMPLE' THEN REPORT.RUNMODAL(REPORT::"Loading List-Simple", TRUE, TRUE, Rec);
-                IF CustomsType = 'CHARTM' THEN REPORT.RUNMODAL(REPORT::"Loading List TM", TRUE, TRUE, Rec);*/
     end;
 
     trigger OnInsert()
