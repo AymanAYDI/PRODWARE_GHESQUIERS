@@ -13,6 +13,28 @@ report 50047 "Màj Certificate Transit No."
     {
         layout
         {
+            area(content)
+            {
+                group(Options)
+                {
+                    Caption = 'Options';
+                    field(Recept; Recept)
+                    {
+                        Caption = 'No En-tête réception achat';
+                        ApplicationArea = All;
+                    }
+                    field(Facture; Facture)
+                    {
+                        Caption = 'No En-tête facture achat';
+                        ApplicationArea = All;
+                    }
+                    field(NewCertif; NewCertif)
+                    {
+                        Caption = 'Certificate Transit No.';
+                        ApplicationArea = All;
+                    }
+                }
+            }
         }
 
         actions
