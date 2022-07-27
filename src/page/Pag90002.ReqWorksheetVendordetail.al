@@ -3,7 +3,7 @@ page 90002 "Req. Worksheet/Vendor detail"
     PageType = List;
     SourceTable = "Requisition Line";
     SourceTableView = WHERE("PWD Suppl. lines" = CONST(True));
-
+UsageCategory = None;
     layout
     {
         area(content)

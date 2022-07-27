@@ -3,7 +3,8 @@ page 50017 "PWD Call Type"
     Caption = 'Call Type';
     PageType = List;
     SourceTable = "PWD Call Type";
-    UsageCategory = None;
+    ApplicationArea = all;
+    UsageCategory = lists;
 
     layout
     {

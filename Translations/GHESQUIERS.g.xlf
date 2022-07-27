@@ -10863,6 +10863,26 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Get Item Ledger Entries SPE - Control Field_StartDate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1981770694 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Màj Certificate Transit No. - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1981770694 - Control 512895254 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No En-tête facture achat</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Màj Certificate Transit No. - Control Facture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1981770694 - Control 321798269 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Certificate Transit No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Màj Certificate Transit No. - Control NewCertif - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1981770694 - Control 1386170815 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No En-tête réception achat</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Màj Certificate Transit No. - Control Recept - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2621886902 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inventory Valuation</source>
           <note from="Developer" annotates="general" priority="2"></note>
