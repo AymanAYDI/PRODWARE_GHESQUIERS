@@ -158,6 +158,8 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                     BEGIN
                         SalesShptHeader := Rec;
                         SalesShptHeader.SETRECFILTER();
+                        //REPORT.RUN(50105,FALSE,FALSE,SalesShptHeader);
+                        REPORT.RUN(Report::"Sales - Shipmt BLAVI bac rose", FALSE, FALSE, SalesShptHeader);
                         REPORT.RUN(Report::"Sales - Shipmt BLAVI bac blanc", FALSE, FALSE, SalesShptHeader);
                     END;
                 }
