@@ -436,7 +436,6 @@
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -3461,7 +3460,7 @@
                               </TablixRowHierarchy>
                               <Top>1.2175cm</Top>
                               <Height>9.51317cm</Height>
-                              <Width>19.07819cm</Width>
+                              <Width>19.0782cm</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
                                 <Border>
@@ -4126,7 +4125,7 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
       <Width>19.14181cm</Width>
       <Page>
         <PageHeader>
-          <Height>9.46434cm</Height>
+          <Height>10.05701cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -4178,8 +4177,8 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                     </Paragraph>
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
-                  <Height>0.423cm</Height>
-                  <Width>5.04cm</Width>
+                  <Height>0.35244cm</Height>
+                  <Width>9.27015cm</Width>
                   <Style>
                     <Border>
                       <Style>None</Style>
@@ -4210,8 +4209,8 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>0.423cm</Top>
-                  <Height>0.423cm</Height>
-                  <Width>5.04cm</Width>
+                  <Height>0.35244cm</Height>
+                  <Width>9.27015cm</Width>
                   <ZIndex>1</ZIndex>
                   <Style>
                     <Border>
@@ -4243,8 +4242,8 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>0.846cm</Top>
-                  <Height>0.423cm</Height>
-                  <Width>5.04cm</Width>
+                  <Height>0.35244cm</Height>
+                  <Width>9.27015cm</Width>
                   <ZIndex>2</ZIndex>
                   <Style>
                     <Border>
@@ -4276,8 +4275,8 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                   </Paragraphs>
                   <rd:DefaultName>Textbox7</rd:DefaultName>
                   <Top>1.269cm</Top>
-                  <Height>0.423cm</Height>
-                  <Width>5.04cm</Width>
+                  <Height>0.35244cm</Height>
+                  <Width>9.27015cm</Width>
                   <ZIndex>3</ZIndex>
                   <Style>
                     <Border>
@@ -4293,8 +4292,8 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
               <KeepTogether>true</KeepTogether>
               <Top>2.98217cm</Top>
               <Left>0.03181cm</Left>
-              <Height>1.692cm</Height>
-              <Width>5.04cm</Width>
+              <Height>1.62144cm</Height>
+              <Width>9.27015cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -4325,7 +4324,7 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
               <Top>2.13617cm</Top>
               <Left>11.72819cm</Left>
               <Height>0.423cm</Height>
-              <Width>6.3cm</Width>
+              <Width>7.28863cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -4355,9 +4354,9 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
               </Paragraphs>
               <rd:DefaultName>Textbox12</rd:DefaultName>
               <Top>2.55917cm</Top>
-              <Left>16.34819cm</Left>
+              <Left>17.39582cm</Left>
               <Height>0.423cm</Height>
-              <Width>1.68cm</Width>
+              <Width>1.621cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -4388,8 +4387,8 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
-              <Top>4.78cm</Top>
-              <Left>0.03181cm</Left>
+              <Top>4.67417cm</Top>
+              <Left>0.02117cm</Left>
               <Height>0.423cm</Height>
               <Width>3.15cm</Width>
               <ZIndex>4</ZIndex>
@@ -4423,10 +4422,10 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox22</rd:DefaultName>
-              <Top>4.78cm</Top>
-              <Left>3.39181cm</Left>
+              <Top>4.67417cm</Top>
+              <Left>3.38117cm</Left>
               <Height>0.423cm</Height>
-              <Width>4.9375cm</Width>
+              <Width>7.39079cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -4458,7 +4457,7 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
-              <Top>5.203cm</Top>
+              <Top>5.09717cm</Top>
               <Left>0.03181cm</Left>
               <Height>0.423cm</Height>
               <Width>3.15cm</Width>
@@ -4493,8 +4492,8 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
-              <Top>5.203cm</Top>
-              <Left>3.39181cm</Left>
+              <Top>5.09717cm</Top>
+              <Left>3.38117cm</Left>
               <Height>0.423cm</Height>
               <Width>8.4cm</Width>
               <ZIndex>7</ZIndex>
@@ -4527,8 +4526,9 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
-              <Top>6.00786cm</Top>
-              <Height>0.423cm</Height>
+              <Top>5.59072cm</Top>
+              <Left>0.03181cm</Left>
+              <Height>0.35245cm</Height>
               <Width>3.15cm</Width>
               <ZIndex>8</ZIndex>
               <Style>
@@ -4560,10 +4560,10 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox22</rd:DefaultName>
-              <Top>6.00786cm</Top>
-              <Left>3.36cm</Left>
-              <Height>0.423cm</Height>
-              <Width>6.3cm</Width>
+              <Top>5.59072cm</Top>
+              <Left>3.39181cm</Left>
+              <Height>0.35245cm</Height>
+              <Width>7.6625cm</Width>
               <ZIndex>9</ZIndex>
               <Style>
                 <Border>
@@ -4594,8 +4594,9 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
-              <Top>6.43086cm</Top>
-              <Height>0.423cm</Height>
+              <Top>5.94318cm</Top>
+              <Left>0.03181cm</Left>
+              <Height>0.35245cm</Height>
               <Width>3.15cm</Width>
               <ZIndex>10</ZIndex>
               <Style>
@@ -4627,10 +4628,10 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox22</rd:DefaultName>
-              <Top>6.43086cm</Top>
-              <Left>3.36cm</Left>
-              <Height>0.423cm</Height>
-              <Width>4.9375cm</Width>
+              <Top>5.94318cm</Top>
+              <Left>3.39181cm</Left>
+              <Height>0.35245cm</Height>
+              <Width>6.3cm</Width>
               <ZIndex>11</ZIndex>
               <Style>
                 <Border>
@@ -4661,8 +4662,9 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
-              <Top>6.85386cm</Top>
-              <Height>0.423cm</Height>
+              <Top>6.29562cm</Top>
+              <Left>0.03181cm</Left>
+              <Height>0.35245cm</Height>
               <Width>3.15cm</Width>
               <ZIndex>12</ZIndex>
               <Style>
@@ -4694,10 +4696,10 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox22</rd:DefaultName>
-              <Top>6.85386cm</Top>
-              <Left>3.36cm</Left>
-              <Height>0.423cm</Height>
-              <Width>4.9375cm</Width>
+              <Top>6.29562cm</Top>
+              <Left>3.39181cm</Left>
+              <Height>0.35245cm</Height>
+              <Width>6.3cm</Width>
               <ZIndex>13</ZIndex>
               <Style>
                 <Border>
@@ -4726,8 +4728,9 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox21</rd:DefaultName>
-              <Top>7.27686cm</Top>
-              <Height>0.423cm</Height>
+              <Top>6.64807cm</Top>
+              <Left>0.03181cm</Left>
+              <Height>0.38773cm</Height>
               <Width>3.15cm</Width>
               <ZIndex>14</ZIndex>
               <Style>
@@ -4760,10 +4763,10 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox22</rd:DefaultName>
-              <Top>7.27686cm</Top>
-              <Left>3.36cm</Left>
-              <Height>0.423cm</Height>
-              <Width>4.9375cm</Width>
+              <Top>6.64807cm</Top>
+              <Left>3.39181cm</Left>
+              <Height>0.38773cm</Height>
+              <Width>6.3cm</Width>
               <ZIndex>15</ZIndex>
               <Style>
                 <Border>
@@ -4792,10 +4795,10 @@ Cstr(Fields!SalesHeader_DocumentDate.Value)
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox46</rd:DefaultName>
-              <Top>6.3603cm</Top>
-              <Left>11.96819cm</Left>
+              <Top>5.626cm</Top>
+              <Left>11.902cm</Left>
               <Height>0.49356cm</Height>
-              <Width>4.41cm</Width>
+              <Width>5.23982cm</Width>
               <ZIndex>16</ZIndex>
               <Style>
                 <Border>
@@ -4829,10 +4832,10 @@ Code.GetData(37,1)</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox33</rd:DefaultName>
-              <Top>5.9373cm</Top>
-              <Left>11.95319cm</Left>
+              <Top>5.203cm</Top>
+              <Left>11.887cm</Left>
               <Height>0.423cm</Height>
-              <Width>6.3cm</Width>
+              <Width>7.12982cm</Width>
               <ZIndex>17</ZIndex>
               <Style>
                 <Border>
@@ -4864,10 +4867,10 @@ Code.GetData(37,1)</Value>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox33</rd:DefaultName>
-              <Top>5.5143cm</Top>
-              <Left>11.96819cm</Left>
+              <Top>4.78cm</Top>
+              <Left>11.902cm</Left>
               <Height>0.423cm</Height>
-              <Width>6.3cm</Width>
+              <Width>7.12982cm</Width>
               <ZIndex>18</ZIndex>
               <Style>
                 <Border>
@@ -4906,7 +4909,7 @@ Code.GetData(20,1)</Value>
               <Top>2.98217cm</Top>
               <Left>11.72819cm</Left>
               <Height>0.423cm</Height>
-              <Width>6.3cm</Width>
+              <Width>7.28863cm</Width>
               <ZIndex>19</ZIndex>
               <Style>
                 <Border>
@@ -4941,7 +4944,7 @@ Code.GetData(20,1)</Value>
               <Top>0.02117cm</Top>
               <Left>2.97181cm</Left>
               <Height>0.846cm</Height>
-              <Width>6.72cm</Width>
+              <Width>8.4345cm</Width>
               <ZIndex>20</ZIndex>
               <Style>
                 <Border>
@@ -4976,7 +4979,7 @@ Code.GetData(20,1)</Value>
               <Top>0.86717cm</Top>
               <Left>2.97181cm</Left>
               <Height>0.423cm</Height>
-              <Width>5.04cm</Width>
+              <Width>7.3895cm</Width>
               <ZIndex>21</ZIndex>
               <Style>
                 <Border>
@@ -5015,7 +5018,7 @@ Code.GetData(6,1)</Value>
               <Top>1.29017cm</Top>
               <Left>2.97181cm</Left>
               <Height>0.423cm</Height>
-              <Width>5.04cm</Width>
+              <Width>7.3895cm</Width>
               <ZIndex>22</ZIndex>
               <Style>
                 <Border>
