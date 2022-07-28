@@ -51,5 +51,9 @@ pageextension 50016 "PWD SalesCreditMemo" extends "Sales Credit Memo"
                 ApplicationArea = all;
             }
         }
+        modify("Your Reference")
+        {
+            visible = false;
+        }
     }
 }

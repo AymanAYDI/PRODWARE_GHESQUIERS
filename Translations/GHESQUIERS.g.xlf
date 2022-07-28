@@ -8938,11 +8938,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page Choose Customs Doc Template - Control DocumentTemplateCode - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1981770694 - Action 1981770694 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Màj Certificate Transit No.</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page Màj Certificate Transit No. - Action Màj Certificate Transit No. - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 1500253001 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Appeal for tenders</source>
           <note from="Developer" annotates="general" priority="2"></note>
