@@ -68,7 +68,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!QuantityCaption.Value</Value>
+                                                    <Value>=Fields!QuantityCaptionFR.Value</Value>
                                                     <Style />
                                                   </TextRun>
                                                 </TextRuns>
@@ -77,7 +77,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!QuantityCaptionFR.Value</Value>
+                                                    <Value>=Fields!QuantityCaption.Value</Value>
                                                     <Style />
                                                   </TextRun>
                                                 </TextRuns>
@@ -126,7 +126,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!UnitCaption.Value</Value>
+                                                    <Value>=Fields!UnitCaptionFR.Value</Value>
                                                     <Style />
                                                   </TextRun>
                                                 </TextRuns>
@@ -135,7 +135,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!UnitCaptionFR.Value</Value>
+                                                    <Value>=Fields!UnitCaption.Value</Value>
                                                     <Style />
                                                   </TextRun>
                                                 </TextRuns>
@@ -233,7 +233,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!Sales_Cr_Memo_Line_Description_Caption.Value.Value</Value>
+                                                    <Value>=Fields!Sales_Cr_Memo_Line_Description_Caption.Value</Value>
                                                     <Style />
                                                   </TextRun>
                                                 </TextRuns>
@@ -2068,7 +2068,7 @@
                               <Top>4.3144cm</Top>
                               <Left>11.42647cm</Left>
                               <Height>1.79999cm</Height>
-                              <Width>8.11173cm</Width>
+                              <Width>8.11172cm</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
                                 <VerticalAlign>Bottom</VerticalAlign>
@@ -2485,7 +2485,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Last(Fields!VatArrayRate_1_.Value)</Value>
+                                                    <Value>=Code.BlankZero(Last(Fields!VatArrayRate_1_.Value))</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                     </Style>
@@ -2525,7 +2525,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Last(Fields!VatArrayBase_1_.Value)</Value>
+                                                    <Value>=Code.BlankZero(Last(Fields!VatArrayBase_1_.Value))</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                       <Format>=Fields!VatArrayBase_1_Format.Value</Format>
@@ -2566,7 +2566,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Last(Fields!VatArrayAmount_1_.Value)</Value>
+                                                    <Value>=Code.BlankZero(Last(Fields!VatArrayAmount_1_.Value))</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                     </Style>
@@ -2649,7 +2649,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Last(Fields!VatArrayRate_2_.Value)</Value>
+                                                    <Value>=Code.BlankZero(Last(Fields!VatArrayRate_2_.Value))</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                     </Style>
@@ -2687,7 +2687,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Last(Fields!VatArrayBase_2_.Value)</Value>
+                                                    <Value>=Code.BlankZero(Last(Fields!VatArrayBase_2_.Value))</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                       <Format>=Fields!VatArrayBase_2_Format.Value</Format>
@@ -2726,7 +2726,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Last(Fields!VatArrayAmount_2_.Value)</Value>
+                                                    <Value>=Code.BlankZero(Last(Fields!VatArrayAmount_2_.Value))</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                     </Style>
@@ -2807,7 +2807,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Last(Fields!VatArrayRate_3_.Value)</Value>
+                                                    <Value>=Code.BlankZero(Last(Fields!VatArrayRate_3_.Value))</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                     </Style>
@@ -2845,7 +2845,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Last(Fields!VatArrayBase_3_.Value)</Value>
+                                                    <Value>=Code.BlankZero(Last(Fields!VatArrayBase_3_.Value))</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                       <Format>=Fields!VatArrayBase_3_Format.Value</Format>
@@ -2884,7 +2884,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Last(Fields!VatArrayAmount_3_.Value)</Value>
+                                                    <Value>=Code.BlankZero(Last(Fields!VatArrayAmount_3_.Value))</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                     </Style>
@@ -2965,7 +2965,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Last(Fields!VatArrayRate_4_.Value)</Value>
+                                                    <Value>=Code.BlankZero(Last(Fields!VatArrayRate_4_.Value))</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                     </Style>
@@ -3003,7 +3003,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Last(Fields!VatArrayBase_4_.Value)</Value>
+                                                    <Value>=Code.BlankZero(Last(Fields!VatArrayBase_4_.Value))</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                       <Format>=Fields!VatArrayBase_4_Format.Value</Format>
@@ -3042,7 +3042,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Last(Fields!VatArrayAmount_4_.Value)</Value>
+                                                    <Value>=Code.BlankZero(Last(Fields!VatArrayAmount_4_.Value))</Value>
                                                     <Style>
                                                       <FontSize>8pt</FontSize>
                                                     </Style>
@@ -3262,46 +3262,28 @@
                                         <KeepTogether>true</KeepTogether>
                                       </TablixMember>
                                       <TablixMember>
-                                        <Visibility>
-                                          <Hidden>=Last(Fields!VatArrayID_1_.Value) = ""</Hidden>
-                                        </Visibility>
                                         <KeepWithGroup>After</KeepWithGroup>
                                         <KeepTogether>true</KeepTogether>
                                       </TablixMember>
                                       <TablixMember>
-                                        <Visibility>
-                                          <Hidden>=Last(Fields!VatArrayID_1_.Value) = ""</Hidden>
-                                        </Visibility>
                                         <KeepWithGroup>After</KeepWithGroup>
                                         <KeepTogether>true</KeepTogether>
                                       </TablixMember>
                                       <TablixMember>
-                                        <Visibility>
-                                          <Hidden>=Last(Fields!VatArrayID_2_.Value) = ""</Hidden>
-                                        </Visibility>
                                         <KeepWithGroup>After</KeepWithGroup>
                                         <KeepTogether>true</KeepTogether>
                                       </TablixMember>
                                       <TablixMember>
-                                        <Visibility>
-                                          <Hidden>=Last(Fields!VatArrayID_3_.Value) = ""</Hidden>
-                                        </Visibility>
                                         <KeepWithGroup>After</KeepWithGroup>
                                         <KeepTogether>true</KeepTogether>
                                       </TablixMember>
                                       <TablixMember>
-                                        <Visibility>
-                                          <Hidden>=Last(Fields!VatArrayID_4_.Value) = ""</Hidden>
-                                        </Visibility>
                                         <KeepWithGroup>After</KeepWithGroup>
                                         <KeepTogether>true</KeepTogether>
                                       </TablixMember>
                                     </TablixMembers>
                                   </TablixMember>
                                   <TablixMember>
-                                    <Visibility>
-                                      <Hidden>=Last(Fields!VatArrayID_1_.Value) = ""</Hidden>
-                                    </Visibility>
                                     <KeepWithGroup>Before</KeepWithGroup>
                                   </TablixMember>
                                 </TablixMembers>
@@ -3437,7 +3419,8 @@ Cstr(Fields!CustAddr_6_.Value) + Chr(177)+
 Cstr(Fields!CustAddr_7_.Value) + Chr(177)+
 Cstr(Fields!CustMail4.Value) + Chr(177)+
 Cstr(Fields!CustAdditionalname.Value) + Chr(177) +
-Cstr(Fields!Tel_CompanyInfo_Phone_No__.Value)+ Chr(177), 1)</Hidden>
+Cstr(Fields!Tel_CompanyInfo_Phone_No__.Value)+ Chr(177) +
+Cstr(Fields!Mail4.Value)+ Chr(177), 1)</Hidden>
                                             </Visibility>
                                             <Style>
                                               <Border>
@@ -3609,7 +3592,6 @@ Cstr(Fields!InvoiceCaption_Control1000000002.Value)+ Chr(177) , 5)</Hidden>
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -4460,7 +4442,7 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>=Code.GetData(8,1)</Value>
+                      <Value>=Code.GetData(11,1)</Value>
                       <Style>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -4473,8 +4455,11 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
               <Top>6.89171cm</Top>
               <Left>0.23065cm</Left>
               <Height>0.63492cm</Height>
-              <Width>11.05469cm</Width>
+              <Width>3.61825cm</Width>
               <ZIndex>24</ZIndex>
+              <Visibility>
+                <Hidden>=iif(Fields!CustMail4.Value = "", True, False)</Hidden>
+              </Visibility>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -4751,6 +4736,34 @@ Cstr(Fields!Sales_Cr_Memo_Header___Your_Reference_.Value)+ Chr(177) , 7)</Hidden
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
                 <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox5">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Code.GetData(8,1)</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox5</rd:DefaultName>
+              <Top>6.89171cm</Top>
+              <Left>3.8489cm</Left>
+              <Height>0.63492cm</Height>
+              <Width>7.54227cm</Width>
+              <ZIndex>35</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
               </Style>
             </Textbox>
           </ReportItems>
@@ -5192,6 +5205,9 @@ REM Reset Page Number:
         </Field>
         <Field Name="CustAdditionalname">
           <DataField>CustAdditionalname</DataField>
+        </Field>
+        <Field Name="Mail4">
+          <DataField>Mail4</DataField>
         </Field>
         <Field Name="CustMail4">
           <DataField>CustMail4</DataField>

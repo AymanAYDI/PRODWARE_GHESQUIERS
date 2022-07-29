@@ -14993,7 +14993,7 @@
         </trans-unit>
         <trans-unit id="Report 3113396396 - NamedType 3499563835" size-unit="char" translate="yes" xml:space="preserve">
           <source>Page </source>
-          <target state="translated">Page"</target>
+          <target state="translated">Page </target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Text0051</note>
         </trans-unit>

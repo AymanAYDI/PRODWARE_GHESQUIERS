@@ -122,7 +122,11 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                     column(CustAdditionalname; Cust."PWD Additional name")
                     {
                     }
-                    column(CustMail4; 'E-mail 4 :  ' + Cust."PWD E-Mail 4")
+                    column(Mail4; Mail4Txt)
+                    {
+
+                    }
+                    column(CustMail4; Cust."PWD E-Mail 4")
                     {
 
                     }
@@ -754,5 +758,6 @@ report 50062 "PWD Sales - Cr.memo AVITA"
         Text006: Label 'Total %1 Excl. VAT';
         QuantityCaptionLbl: Label 'Quantity';
         QuantityCaptionFRLbl: Label 'Quantity';
+        Mail4Txt: Label 'E-mail 4 :  ';
         ShowTypeNo: Integer;
 }

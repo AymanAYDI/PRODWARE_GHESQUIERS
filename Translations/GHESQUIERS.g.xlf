@@ -12463,6 +12463,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType LA_MARCHANDISE_LIVREE_RESTECaptionLbl</note>
         </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 3314125271" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-mail 4 :  </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Mail4Txt</note>
+        </trans-unit>
         <trans-unit id="Report 3113396396 - NamedType 3997410993" size-unit="char" translate="yes" xml:space="preserve">
           <source>Montant</source>
           <note from="Developer" annotates="general" priority="2"></note>
