@@ -156,7 +156,7 @@ report 50041 "PWD Fiche Anomalie"
                     column(CommentSalesLineAnomalie_Linked_Sales_Line; "PWD Linked Sales Line")
                     {
                     }
-                    column(LastFieldNo;LastFieldNo)
+                    column(LastFieldNo; LastFieldNo)
                     {
                     }
                 }

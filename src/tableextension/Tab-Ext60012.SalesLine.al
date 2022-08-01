@@ -1007,10 +1007,10 @@ tableextension 60012 "PWD SalesLine" extends "Sales Line"
         IF PAGE.RUNMODAL(PAGE::"Get Purchase Price", RecLPurchasePrice) = ACTION::LookupOK THEN BEGIN
             VALIDATE("Unit Cost (LCY)", RecLPurchasePrice."Direct Unit Cost");
             VALIDATE("PWD Vendor No.", RecLPurchasePrice."Vendor No.");
-            MODIFY;
+            MODIFY();
             IF RecLItem.GET("No.") THEN BEGIN
                 RecLItem.VALIDATE("Vendor No.", RecLPurchasePrice."Vendor No.");
-                RecLItem.MODIFY;
+                RecLItem.MODIFY();
             END;
         END;
     end;

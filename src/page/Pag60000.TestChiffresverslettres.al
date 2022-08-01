@@ -1,7 +1,7 @@
 page 60000 "PWD Test Chiffres vers lettres"
 {
     PageType = Card;
-UsageCategory = None;
+    UsageCategory = None;
     layout
     {
         area(content)
@@ -38,7 +38,7 @@ UsageCategory = None;
             {
                 Promoted = true;
                 PromotedCategory = Process;
-                Image= Action;
+                Image = Action;
                 ApplicationArea = All;
                 PromotedOnly = true;
                 trigger OnAction()

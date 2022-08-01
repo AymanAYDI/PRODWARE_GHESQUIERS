@@ -100,7 +100,7 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
                 SalesLine.SETRANGE(SalesLine."Document No.", "No.");
                 IF SalesLine.FindSet() THEN
                     REPEAT
-                            SalesLine."PWD Preparation in Process" := "PWD Preparation in process";
+                        SalesLine."PWD Preparation in Process" := "PWD Preparation in process";
                         SalesLine.MODIFY();
                     UNTIL SalesLine.NEXT() = 0;
                 IF "PWD Preparation in process" = FALSE THEN BEGIN
@@ -125,7 +125,7 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
                 SalesLine.SETRANGE(SalesLine."Document No.", "No.");
                 IF SalesLine.FindSet() THEN
                     REPEAT
-                            SalesLine."PWD Order Line Prepared" := "PWD Order Prepared";
+                        SalesLine."PWD Order Line Prepared" := "PWD Order Prepared";
                         SalesLine.MODIFY();
                     UNTIL SalesLine.NEXT() = 0;
 
@@ -328,58 +328,58 @@ tableextension 60011 "PWD SalesHeader" extends "Sales Header"
         FromSalesLine.SETRANGE("Document No.", "No.");
         FromSalesLine.SETRANGE(Type, FromSalesLine.Type::Item);
         IF FromSalesLine.FindSet() THEN
-                REPEAT
-                    CLEAR(VolumeLigne);
-                    CLEAR(PoidsLigne);
-                    CLEAR(QtéAlcool);
-                    CLEAR(QtéTabac);
-                    CLEAR(VolumeEff);
+            REPEAT
+                CLEAR(VolumeLigne);
+                CLEAR(PoidsLigne);
+                CLEAR(QtéAlcool);
+                CLEAR(QtéTabac);
+                CLEAR(VolumeEff);
 
-                    VolumeLigne := FromSalesLine."Net Weight" * FromSalesLine."Quantity (Base)";
-                    PoidsLigne := FromSalesLine."Net Weight" * FromSalesLine."Quantity (Base)";
+                VolumeLigne := FromSalesLine."Net Weight" * FromSalesLine."Quantity (Base)";
+                PoidsLigne := FromSalesLine."Net Weight" * FromSalesLine."Quantity (Base)";
 
-                    Item.GET(FromSalesLine."No.");
+                Item.GET(FromSalesLine."No.");
 
-                    // Calcul total tabac alcool
-                    IF ItemFamily.GET(ItemFamily.Type::Item, ItemFamily."Group Type"::Family, '', Item."PWD Family") THEN BEGIN
-                        IF ((ItemFamily."Type famille" = ItemFamily."Type famille"::Alcool) AND (Item."PWD Family" = '47')) THEN BEGIN
-                            IF Item."PWD Alcool %" <> 0 THEN BEGIN
-                                IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN
-                                    QtéAlcool := FromSalesLine."Net Weight" * FromSalesLine."Quantity (Base)" / 100;
-                                IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net x °Alcool" THEN
-                                    QtéAlcool := FromSalesLine."Net Weight" * FromSalesLine."Quantity (Base)" * Item."PWD Alcool %" / 100;
-                            END;
-                            IF ((Item."PWD Family" = '47') AND (Item."PWD Sub Family" <> '05')) THEN TotalAlcoolPur += QtéAlcool;
-                            IF ((Item."PWD Family" = '47') AND (Item."PWD Sub Family" = '05')) THEN TotalRhum += QtéAlcool;
-                        END;
-
-                        IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN
+                // Calcul total tabac alcool
+                IF ItemFamily.GET(ItemFamily.Type::Item, ItemFamily."Group Type"::Family, '', Item."PWD Family") THEN BEGIN
+                    IF ((ItemFamily."Type famille" = ItemFamily."Type famille"::Alcool) AND (Item."PWD Family" = '47')) THEN BEGIN
+                        IF Item."PWD Alcool %" <> 0 THEN BEGIN
                             IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN
-                                QtéTabac := FromSalesLine."Net Weight" * FromSalesLine."Quantity (Base)";
-                    END;
-                    QtéAlcoolTotal := QtéAlcoolTotal + QtéAlcool;
-                    QtéTabacTotal := QtéTabacTotal + QtéTabac;
-
-                    IF ItemFamily.GET(ItemFamily.Type::Item, ItemFamily."Group Type"::Family, '', Item."PWD Family") THEN BEGIN
-                        IF ItemFamily."Type famille" = ItemFamily."Type famille"::Alcool THEN BEGIN
-                            VolumeEff := VolumeLigne;
-                            TotalVolEff += VolumeEff;
-                            IF ItemSubFamily.GET(ItemSubFamily.Type::Item, ItemSubFamily."Group Type"::"Sub Family",
-                                                  Item."PWD Family", Item."PWD Sub Family") THEN BEGIN
-                                IF ((Item."PWD Family" = '46') AND (Item."PWD Sub Family" = '02')) THEN TotalPI += VolumeLigne;
-                                IF (Item."PWD Family" = '41') THEN TotalBiere += VolumeLigne;
-                                IF (Item."PWD Family" IN ['43', '44', '45']) THEN TotalVin += VolumeLigne;
-                            END;
+                                QtéAlcool := FromSalesLine."Net Weight" * FromSalesLine."Quantity (Base)" / 100;
+                            IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net x °Alcool" THEN
+                                QtéAlcool := FromSalesLine."Net Weight" * FromSalesLine."Quantity (Base)" * Item."PWD Alcool %" / 100;
                         END;
-                        IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN
-                            IF ItemSubFamily.GET(ItemSubFamily.Type::Item, ItemSubFamily."Group Type"::"Sub Family",
-                                                  Item."PWD Family", Item."PWD Sub Family") THEN BEGIN
-                                IF ((Item."PWD Family" = '48') AND (Item."PWD Sub Family" = '10')) THEN
-                                    TotalMillCig += ((FromSalesLine."Quantity (Base)" * 200) / 1000);
-                                IF ((Item."PWD Family" = '48') AND (Item."PWD Sub Family" IN ['20', '30'])) THEN TotalKgTabac += PoidsLigne;
-                            END;
+                        IF ((Item."PWD Family" = '47') AND (Item."PWD Sub Family" <> '05')) THEN TotalAlcoolPur += QtéAlcool;
+                        IF ((Item."PWD Family" = '47') AND (Item."PWD Sub Family" = '05')) THEN TotalRhum += QtéAlcool;
                     END;
-                UNTIL FromSalesLine.NEXT() = 0;
+
+                    IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN
+                        IF ItemFamily."Mode de calcul AT" = ItemFamily."Mode de calcul AT"::"Poids Net" THEN
+                            QtéTabac := FromSalesLine."Net Weight" * FromSalesLine."Quantity (Base)";
+                END;
+                QtéAlcoolTotal := QtéAlcoolTotal + QtéAlcool;
+                QtéTabacTotal := QtéTabacTotal + QtéTabac;
+
+                IF ItemFamily.GET(ItemFamily.Type::Item, ItemFamily."Group Type"::Family, '', Item."PWD Family") THEN BEGIN
+                    IF ItemFamily."Type famille" = ItemFamily."Type famille"::Alcool THEN BEGIN
+                        VolumeEff := VolumeLigne;
+                        TotalVolEff += VolumeEff;
+                        IF ItemSubFamily.GET(ItemSubFamily.Type::Item, ItemSubFamily."Group Type"::"Sub Family",
+                                              Item."PWD Family", Item."PWD Sub Family") THEN BEGIN
+                            IF ((Item."PWD Family" = '46') AND (Item."PWD Sub Family" = '02')) THEN TotalPI += VolumeLigne;
+                            IF (Item."PWD Family" = '41') THEN TotalBiere += VolumeLigne;
+                            IF (Item."PWD Family" IN ['43', '44', '45']) THEN TotalVin += VolumeLigne;
+                        END;
+                    END;
+                    IF ItemFamily."Type famille" = ItemFamily."Type famille"::Tabac THEN
+                        IF ItemSubFamily.GET(ItemSubFamily.Type::Item, ItemSubFamily."Group Type"::"Sub Family",
+                                              Item."PWD Family", Item."PWD Sub Family") THEN BEGIN
+                            IF ((Item."PWD Family" = '48') AND (Item."PWD Sub Family" = '10')) THEN
+                                TotalMillCig += ((FromSalesLine."Quantity (Base)" * 200) / 1000);
+                            IF ((Item."PWD Family" = '48') AND (Item."PWD Sub Family" IN ['20', '30'])) THEN TotalKgTabac += PoidsLigne;
+                        END;
+                END;
+            UNTIL FromSalesLine.NEXT() = 0;
     end;
 
     procedure BlockDocument()

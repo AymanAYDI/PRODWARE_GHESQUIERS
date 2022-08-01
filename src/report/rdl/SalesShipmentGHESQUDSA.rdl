@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>3e369d9d-0d64-486c-82c8-b4430813f80d</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="PageCaption">
+          <DataField>PageCaption</DataField>
+        </Field>
+        <Field Name="FournisseurCaption">
+          <DataField>FournisseurCaption</DataField>
+        </Field>
+        <Field Name="CompanyAddr1">
+          <DataField>CompanyAddr1</DataField>
+        </Field>
+        <Field Name="CompanyAddr2">
+          <DataField>CompanyAddr2</DataField>
+        </Field>
+        <Field Name="ShippingAgentCode">
+          <DataField>ShippingAgentCode</DataField>
+        </Field>
+        <Field Name="TransporteurCaption">
+          <DataField>TransporteurCaption</DataField>
+        </Field>
+        <Field Name="DureetransportCaption">
+          <DataField>DureetransportCaption</DataField>
+        </Field>
+        <Field Name="CompanyAddr3">
+          <DataField>CompanyAddr3</DataField>
+        </Field>
+        <Field Name="CompanyAddr4">
+          <DataField>CompanyAddr4</DataField>
+        </Field>
+        <Field Name="CompanyAddr5">
+          <DataField>CompanyAddr5</DataField>
+        </Field>
+        <Field Name="ShippingTime">
+          <DataField>ShippingTime</DataField>
+        </Field>
+        <Field Name="DestinataireCaption">
+          <DataField>DestinataireCaption</DataField>
+        </Field>
+        <Field Name="PostingDate">
+          <DataField>PostingDate</DataField>
+        </Field>
+        <Field Name="DateexpeditionCaption">
+          <DataField>DateexpeditionCaption</DataField>
+        </Field>
+        <Field Name="ShipmentNoCaption">
+          <DataField>ShipmentNoCaption</DataField>
+        </Field>
+        <Field Name="SalesShipmentHeaderNo">
+          <DataField>SalesShipmentHeaderNo</DataField>
+        </Field>
+        <Field Name="NdocumentCaption">
+          <DataField>NdocumentCaption</DataField>
+        </Field>
+        <Field Name="Depot81Caption">
+          <DataField>Depot81Caption</DataField>
+        </Field>
+        <Field Name="FRANCECaption">
+          <DataField>FRANCECaption</DataField>
+        </Field>
+        <Field Name="TextExemplaire">
+          <DataField>TextExemplaire</DataField>
+        </Field>
+        <Field Name="Txt1">
+          <DataField>Txt1</DataField>
+        </Field>
+        <Field Name="Txt2">
+          <DataField>Txt2</DataField>
+        </Field>
+        <Field Name="Txt3">
+          <DataField>Txt3</DataField>
+        </Field>
+        <Field Name="Txt4">
+          <DataField>Txt4</DataField>
+        </Field>
+        <Field Name="Txt5">
+          <DataField>Txt5</DataField>
+        </Field>
+        <Field Name="Txt6">
+          <DataField>Txt6</DataField>
+        </Field>
+        <Field Name="Txt7">
+          <DataField>Txt7</DataField>
+        </Field>
+        <Field Name="Txt8">
+          <DataField>Txt8</DataField>
+        </Field>
+        <Field Name="Txt9">
+          <DataField>Txt9</DataField>
+        </Field>
+        <Field Name="Txt10">
+          <DataField>Txt10</DataField>
+        </Field>
+        <Field Name="Txt11">
+          <DataField>Txt11</DataField>
+        </Field>
+        <Field Name="Txt12">
+          <DataField>Txt12</DataField>
+        </Field>
+        <Field Name="DateCaption">
+          <DataField>DateCaption</DataField>
+        </Field>
+        <Field Name="BillToCustName">
+          <DataField>BillToCustName</DataField>
+        </Field>
+        <Field Name="BillToCustaddr">
+          <DataField>BillToCustaddr</DataField>
+        </Field>
+        <Field Name="BillToCustaddr2">
+          <DataField>BillToCustaddr2</DataField>
+        </Field>
+        <Field Name="BillToPostCode">
+          <DataField>BillToPostCode</DataField>
+        </Field>
+        <Field Name="CommunauteEurpCaption">
+          <DataField>CommunauteEurpCaption</DataField>
+        </Field>
+        <Field Name="DocumentSimplifieCaption">
+          <DataField>DocumentSimplifieCaption</DataField>
+        </Field>
+        <Field Name="CirculationIntraCaption">
+          <DataField>CirculationIntraCaption</DataField>
+        </Field>
+        <Field Name="LieulivraisonCaption">
+          <DataField>LieulivraisonCaption</DataField>
+        </Field>
+        <Field Name="BillToCity">
+          <DataField>BillToCity</DataField>
+        </Field>
+        <Field Name="ShipToCustName">
+          <DataField>ShipToCustName</DataField>
+        </Field>
+        <Field Name="ShipToCustaddr">
+          <DataField>ShipToCustaddr</DataField>
+        </Field>
+        <Field Name="ShipToCustaddr2">
+          <DataField>ShipToCustaddr2</DataField>
+        </Field>
+        <Field Name="ShipToPostCode">
+          <DataField>ShipToPostCode</DataField>
+        </Field>
+        <Field Name="ShipToCity">
+          <DataField>ShipToCity</DataField>
+        </Field>
+        <Field Name="NumeroreferenceCaption">
+          <DataField>NumeroreferenceCaption</DataField>
+        </Field>
+        <Field Name="AutoritecompetenteCaption">
+          <DataField>AutoritecompetenteCaption</DataField>
+        </Field>
+        <Field Name="TxtO">
+          <DataField>TxtO</DataField>
+        </Field>
+        <Field Name="NomAdresseCaption">
+          <DataField>NomAdresseCaption</DataField>
+        </Field>
+        <Field Name="VATRegistrationNo">
+          <DataField>VATRegistrationNo</DataField>
+        </Field>
+        <Field Name="NoTVA">
+          <DataField>NoTVA</DataField>
+        </Field>
+        <Field Name="PourCOMPTECaption">
+          <DataField>PourCOMPTECaption</DataField>
+        </Field>
+        <Field Name="CustVATRegistrationNo">
+          <DataField>CustVATRegistrationNo</DataField>
+        </Field>
+        <Field Name="RecettePrinciCaption">
+          <DataField>RecettePrinciCaption</DataField>
+        </Field>
+        <Field Name="transName">
+          <DataField>transName</DataField>
+        </Field>
+        <Field Name="provtrans">
+          <DataField>provtrans</DataField>
+        </Field>
+        <Field Name="NodateDeclaration">
+          <DataField>NodateDeclaration</DataField>
+        </Field>
+        <Field Name="DesignationProdCaption">
+          <DataField>DesignationProdCaption</DataField>
+        </Field>
+        <Field Name="CodearticleCaption">
+          <DataField>CodearticleCaption</DataField>
+        </Field>
+        <Field Name="NLigneCaption">
+          <DataField>NLigneCaption</DataField>
+        </Field>
+        <Field Name="NombreEmballageCaption">
+          <DataField>NombreEmballageCaption</DataField>
+        </Field>
+        <Field Name="TypeEmballageCaption">
+          <DataField>TypeEmballageCaption</DataField>
+        </Field>
+        <Field Name="PoidsbrutKgCaption">
+          <DataField>PoidsbrutKgCaption</DataField>
+        </Field>
+        <Field Name="PoidsnetKgCaption">
+          <DataField>PoidsnetKgCaption</DataField>
+        </Field>
+        <Field Name="Depot8Caption">
+          <DataField>Depot8Caption</DataField>
+        </Field>
+        <Field Name="AlcoolCaption">
+          <DataField>AlcoolCaption</DataField>
+        </Field>
+        <Field Name="QuantiteCaption">
+          <DataField>QuantiteCaption</DataField>
+        </Field>
+        <Field Name="TabacCaption">
+          <DataField>TabacCaption</DataField>
+        </Field>
+        <Field Name="AlcoolCaption2">
+          <DataField>AlcoolCaption2</DataField>
+        </Field>
+        <Field Name="VolEffectifCaption2">
+          <DataField>VolEffectifCaption2</DataField>
+        </Field>
+        <Field Name="CodeproduitNCCaption">
+          <DataField>CodeproduitNCCaption</DataField>
+        </Field>
+        <Field Name="NumLigne">
+          <DataField>NumLigne</DataField>
+        </Field>
+        <Field Name="SalesShipmentLineNo">
+          <DataField>SalesShipmentLineNo</DataField>
+        </Field>
+        <Field Name="DescriptionTotale">
+          <DataField>DescriptionTotale</DataField>
+        </Field>
+        <Field Name="UnitMeasureCode">
+          <DataField>UnitMeasureCode</DataField>
+        </Field>
+        <Field Name="QuantityBase">
+          <DataField>QuantityBase</DataField>
+        </Field>
+        <Field Name="QuantityBaseFormat">
+          <DataField>QuantityBaseFormat</DataField>
+        </Field>
+        <Field Name="GrossWeight">
+          <DataField>GrossWeight</DataField>
+        </Field>
+        <Field Name="GrossWeightFormat">
+          <DataField>GrossWeightFormat</DataField>
+        </Field>
+        <Field Name="NetWeight">
+          <DataField>NetWeight</DataField>
+        </Field>
+        <Field Name="NetWeightFormat">
+          <DataField>NetWeightFormat</DataField>
+        </Field>
+        <Field Name="AlcoolItem">
+          <DataField>AlcoolItem</DataField>
+        </Field>
+        <Field Name="AlcoolItemFormat">
+          <DataField>AlcoolItemFormat</DataField>
+        </Field>
+        <Field Name="VolumeEff">
+          <DataField>VolumeEff</DataField>
+        </Field>
+        <Field Name="VolumeEffFormat">
+          <DataField>VolumeEffFormat</DataField>
+        </Field>
+        <Field Name="QtéAlcool">
+          <DataField>QtéAlcool</DataField>
+        </Field>
+        <Field Name="QtéAlcoolFormat">
+          <DataField>QtéAlcoolFormat</DataField>
+        </Field>
+        <Field Name="QtéTabac">
+          <DataField>QtéTabac</DataField>
+        </Field>
+        <Field Name="QtéTabacFormat">
+          <DataField>QtéTabacFormat</DataField>
+        </Field>
+        <Field Name="TariffNo">
+          <DataField>TariffNo</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="TotalPI">
+          <DataField>TotalPI</DataField>
+        </Field>
+        <Field Name="TotalPIFormat">
+          <DataField>TotalPIFormat</DataField>
+        </Field>
+        <Field Name="TotalBiere">
+          <DataField>TotalBiere</DataField>
+        </Field>
+        <Field Name="TotalBiereFormat">
+          <DataField>TotalBiereFormat</DataField>
+        </Field>
+        <Field Name="TotalVin">
+          <DataField>TotalVin</DataField>
+        </Field>
+        <Field Name="TotalVinFormat">
+          <DataField>TotalVinFormat</DataField>
+        </Field>
+        <Field Name="TotalVolEff">
+          <DataField>TotalVolEff</DataField>
+        </Field>
+        <Field Name="TotalVolEffFormat">
+          <DataField>TotalVolEffFormat</DataField>
+        </Field>
+        <Field Name="TotalMillCig">
+          <DataField>TotalMillCig</DataField>
+        </Field>
+        <Field Name="TotalMillCigFormat">
+          <DataField>TotalMillCigFormat</DataField>
+        </Field>
+        <Field Name="TotalKgTabac">
+          <DataField>TotalKgTabac</DataField>
+        </Field>
+        <Field Name="TotalKgTabacFormat">
+          <DataField>TotalKgTabacFormat</DataField>
+        </Field>
+        <Field Name="TotalAlcoolPur">
+          <DataField>TotalAlcoolPur</DataField>
+        </Field>
+        <Field Name="TotalAlcoolPurFormat">
+          <DataField>TotalAlcoolPurFormat</DataField>
+        </Field>
+        <Field Name="TotalRhum">
+          <DataField>TotalRhum</DataField>
+        </Field>
+        <Field Name="TotalRhumFormat">
+          <DataField>TotalRhumFormat</DataField>
+        </Field>
+        <Field Name="PICaption">
+          <DataField>PICaption</DataField>
+        </Field>
+        <Field Name="BIERECaption">
+          <DataField>BIERECaption</DataField>
+        </Field>
+        <Field Name="VINChampMousseuxCap">
+          <DataField>VINChampMousseuxCap</DataField>
+        </Field>
+        <Field Name="VOLEFFECTIFCaption">
+          <DataField>VOLEFFECTIFCaption</DataField>
+        </Field>
+        <Field Name="MilleCigaCaption">
+          <DataField>MilleCigaCaption</DataField>
+        </Field>
+        <Field Name="KgTabacCaption">
+          <DataField>KgTabacCaption</DataField>
+        </Field>
+        <Field Name="AlcoolPurCaption">
+          <DataField>AlcoolPurCaption</DataField>
+        </Field>
+        <Field Name="RhumsDomCaption">
+          <DataField>RhumsDomCaption</DataField>
+        </Field>
+        <Field Name="LitresCaption">
+          <DataField>LitresCaption</DataField>
+        </Field>
+        <Field Name="PrixfactValCaption">
+          <DataField>PrixfactValCaption</DataField>
+        </Field>
+        <Field Name="prixfact">
+          <DataField>prixfact</DataField>
+        </Field>
+        <Field Name="prixfactFormat">
+          <DataField>prixfactFormat</DataField>
+        </Field>
+        <Field Name="Signing">
+          <DataField>Signing</DataField>
+        </Field>
+        <Field Name="ACaption">
+          <DataField>ACaption</DataField>
+        </Field>
+        <Field Name="Txt15">
+          <DataField>Txt15</DataField>
+        </Field>
+        <Field Name="Cases113Caption">
+          <DataField>Cases113Caption</DataField>
+        </Field>
+        <Field Name="EntrepriseSignataireCaption">
+          <DataField>EntrepriseSignataireCaption</DataField>
+        </Field>
+        <Field Name="Tel">
+          <DataField>Tel</DataField>
+        </Field>
+        <Field Name="NomsignataireCaption">
+          <DataField>NomsignataireCaption</DataField>
+        </Field>
+        <Field Name="LieudateCaption">
+          <DataField>LieudateCaption</DataField>
+        </Field>
+        <Field Name="SignatureCaption">
+          <DataField>SignatureCaption</DataField>
+        </Field>
+        <Field Name="CompanyInfoCityCaption">
+          <DataField>CompanyInfoCityCaption</DataField>
+        </Field>
+        <Field Name="Contrôleautoritéscaption">
+          <DataField>Contrôleautoritéscaption</DataField>
+        </Field>
+        <Field Name="Renvoi3iemeCaption">
+          <DataField>Renvoi3iemeCaption</DataField>
+        </Field>
+        <Field Name="ouiCaption">
+          <DataField>ouiCaption</DataField>
+        </Field>
+        <Field Name="nonCaption">
+          <DataField>nonCaption</DataField>
+        </Field>
+        <Field Name="Txt14">
+          <DataField>Txt14</DataField>
+        </Field>
+        <Field Name="AttestationsCaption">
+          <DataField>AttestationsCaption</DataField>
+        </Field>
+        <Field Name="NoOfCopies">
+          <DataField>NoOfCopies</DataField>
+        </Field>
+        <Field Name="ShowInternalInfo">
+          <DataField>ShowInternalInfo</DataField>
+        </Field>
+        <Field Name="LogInteraction">
+          <DataField>LogInteraction</DataField>
+        </Field>
+        <Field Name="ShowCorrectionLines">
+          <DataField>ShowCorrectionLines</DataField>
+        </Field>
+        <Field Name="LocationFilter">
+          <DataField>LocationFilter</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="Textbox2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value />
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox2</rd:DefaultName>
+            <Top>0.74875in</Top>
+            <Left>2.18625in</Left>
+            <Height>0.25in</Height>
+            <Width>1in</Width>
+            <Visibility>
+              <Hidden>=Code.SetData(Cstr(Fields!CommunauteEurpCaption.Value)+ Chr(177)+
+Cstr(Fields!DocumentSimplifieCaption.Value)+ Chr(177)+
+Cstr(Fields!CirculationIntraCaption.Value)+ Chr(177)+
+Cstr(Fields!LieulivraisonCaption.Value)+ Chr(177)+
+Cstr(Fields!BillToCustName.Value)+ Chr(177)+
+Cstr(Fields!BillToCustaddr.Value)+ Chr(177)+
+Cstr(Fields!BillToCustaddr2.Value)+ Chr(177)+
+Cstr(Fields!BillToPostCode.Value)+ Chr(177)+
+Cstr(Fields!BillToCity.Value)+ Chr(177)+
+Cstr(Fields!FRANCECaption.Value)+ Chr(177)+
+Cstr(Fields!ShipToCustName.Value)+ Chr(177)+
+Cstr(Fields!ShipToCustaddr.Value)+ Chr(177)+
+Cstr(Fields!ShipToCustaddr2.Value)+ Chr(177)+
+Cstr(Fields!ShipToPostCode.Value)+ Chr(177)+
+Cstr(Fields!ShipToCity.Value)+ Chr(177)+
+Cstr(Fields!DestinataireCaption.Value)+ Chr(177)+
+Cstr(Fields!CustVATRegistrationNo.Value)+ Chr(177)+
+Cstr(Fields!NomAdresseCaption.Value)+ Chr(177)+
+Cstr(Fields!TransporteurCaption.Value)+ Chr(177)+
+Cstr(Fields!DureetransportCaption.Value)+ Chr(177)+
+Cstr(Fields!DateexpeditionCaption.Value)+ Chr(177)+
+Cstr(Fields!ShippingTime.Value)+ Chr(177)+
+Cstr(Fields!PostingDate.Value)+ Chr(177) , 2)</Hidden>
+            </Visibility>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <Height>4.51042in</Height>
+        <Style />
+      </Body>
+      <Width>10.79167in</Width>
+      <Page>
+        <PageHeader>
+          <Height>3.11458in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox1">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value />
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.10292in</Top>
+              <Left>0in</Left>
+              <Height>0.25in</Height>
+              <Width>1in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageFooter>
+          <Height>1.97917in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+</Report>

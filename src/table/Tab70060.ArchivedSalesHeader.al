@@ -595,8 +595,8 @@ table 70060 "PWD Archived Sales Header"
         }
         field(120; Status; Enum "Sales Document Status")
         {
-            Caption = 'Status';       
-             DataClassification = CustomerContent;
+            Caption = 'Status';
+            DataClassification = CustomerContent;
         }
         field(121; "Invoice Discount Calculation"; Option)
         {
