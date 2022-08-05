@@ -51,6 +51,9 @@ report 50108 "Sales - Shipment GHESQU-DSA"
                     column(CompanyAddr5; CompanyAddr[5])
                     {
                     }
+                    column(NAccisesTxt; 'N° Accises : FR012074E1077')
+                    {
+                    }
                     column(ShippingTime; SalesShipmentHeader."Shipping Time")
                     {
                     }
@@ -76,6 +79,12 @@ report 50108 "Sales - Shipment GHESQU-DSA"
                     {
                     }
                     column(FRANCECaption; ' - FRANCE')
+                    {
+                    }
+                    column(Exemplaire; Exemplaire)
+                    {
+                    }
+                    column(Colonne3; Colonne3)
                     {
                     }
                     column(TextExemplaire; TextExemplaire)
@@ -141,6 +150,9 @@ report 50108 "Sales - Shipment GHESQU-DSA"
                     {
                     }
                     column(CirculationIntraCaption; 'CIRCULATION INTRA-COMMUNAUTAIRE-PRODUITS DEJA MIS A LA CONSOMMATION')
+                    {
+                    }
+                    column(TextExemplaire1; TextExemplaire1)
                     {
                     }
                     column(LieulivraisonCaption; 'Lieu de livraison : ')
@@ -370,9 +382,9 @@ report 50108 "Sales - Shipment GHESQU-DSA"
                         column(SignatureCaption; 'Signature')
                         {
                         }
-                        // column(UserTableName;UserTable.Name)
-                        // {
-                        // }
+                        column(UserTableName; UserTable."User ID")
+                        {
+                        }
                         column(CompanyInfoCityCaption; CompanyInfo.City + '   Le ' + FORMAT(SalesShipmentHeader."Posting Date", 0, 4))
                         {
                         }
@@ -389,6 +401,9 @@ report 50108 "Sales - Shipment GHESQU-DSA"
                         {
                         }
                         column(Txt14; Txt14)
+                        {
+                        }
+                        column(Txt13; Txt13)
                         {
                         }
                         column(AttestationsCaption; 'Attestations (relatives à certains vins et alcools,petites brasseries et distilleries)')
@@ -687,7 +702,7 @@ report 50108 "Sales - Shipment GHESQU-DSA"
                 // Modif C2A(LLE) 16/11/04
                 // suite demande Mme Danneels
                 Cust.GET(SalesShipmentHeader."Bill-to Customer No.");
-                Colonne3 := 'Nø D''ACCISES :' + Cust."PWD No. d accises";
+                Colonne3 := 'N° D''ACCISES :' + Cust."PWD No. d accises";
                 // Fin Modif
 
                 NomPaysDest := SalesShipmentHeader."Ship-to Post Code" + ' ' + SalesShipmentHeader."Ship-to City";
@@ -724,8 +739,6 @@ report 50108 "Sales - Shipment GHESQU-DSA"
         }
     }
     trigger OnInitReport()
-    var
-        myInt: Integer;
     begin
         TextExemplaire1 := 'Exemplaire à conserver par le fournisseur';
         TextExemplaire2 := 'Exemplaire à conserver par le destinataire';
@@ -837,7 +850,7 @@ report 50108 "Sales - Shipment GHESQU-DSA"
         Text000: Label 'Salesperson;FRA=Vendeur';
         Text001: Label 'COPY';
         Text002: Label 'Sales - Shipment %1';
-        Text003: Label 'Page %1';
+        Text003: Label 'Page ';
         SalesPurchPerson: Record 13;
         CompanyInfo: Record 79;
         PostedDocDim1: Record "Dimension Set Entry";
@@ -943,6 +956,7 @@ report 50108 "Sales - Shipment GHESQU-DSA"
         Txt11: Label '11';
         Txt12: Label '12';
         Txt14: Label '14';
+        Txt13: Label '13';
         Txt15: Label '15';
 
 }

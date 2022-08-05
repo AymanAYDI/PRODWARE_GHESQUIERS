@@ -14149,7 +14149,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Text002</note>
         </trans-unit>
         <trans-unit id="Report 77819909 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Page %1</source>
+          <source>Page </source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Text003</note>
         </trans-unit>
@@ -14172,6 +14172,11 @@
           <source>12</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt12</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 338626206" size-unit="char" translate="yes" xml:space="preserve">
+          <source>13</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt13</note>
         </trans-unit>
         <trans-unit id="Report 77819909 - NamedType 169717183" size-unit="char" translate="yes" xml:space="preserve">
           <source>14</source>
