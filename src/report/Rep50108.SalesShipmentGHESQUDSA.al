@@ -1,8 +1,6 @@
 report 50108 "Sales - Shipment GHESQU-DSA"
 {
-    ApplicationArea = All;
-    Caption = 'Sales - Shipment GHESQU-DSA';
-    UsageCategory = ReportsAndAnalysis;
+    Caption = 'Sales - Shipment';
     RDLCLayout = './src/report/rdl/SalesShipmentGHESQUDSA.rdl';
 
     dataset
@@ -13,6 +11,9 @@ report 50108 "Sales - Shipment GHESQU-DSA"
             PrintOnlyIfDetail = true;
             RequestFilterFields = "No.", "Sell-to Customer No.", "No. Printed";
             RequestFilterHeading = 'Posted Sales Shipment';
+            column(SalesShipmentHeaderNo; "No.")
+            {
+            }
             dataitem(CopyLoop; Integer)
             {
                 DataItemTableView = SORTING(Number);
@@ -24,6 +25,10 @@ report 50108 "Sales - Shipment GHESQU-DSA"
                     column(PageCaption; Text003)
                     {
                     }
+                    column(ExemplaireT; ExemplaireT)
+                    {
+                    }
+
                     column(FournisseurCaption; 'Fournisseur : ')
                     {
                     }
@@ -69,9 +74,6 @@ report 50108 "Sales - Shipment GHESQU-DSA"
                     column(ShipmentNoCaption; 'Shipment No.')
                     {
                     }
-                    column(SalesShipmentHeaderNo; SalesShipmentHeader."No.")
-                    {
-                    }
                     column(NdocumentCaption; 'N° de document : ')
                     {
                     }
@@ -79,9 +81,6 @@ report 50108 "Sales - Shipment GHESQU-DSA"
                     {
                     }
                     column(FRANCECaption; ' - FRANCE')
-                    {
-                    }
-                    column(Exemplaire; Exemplaire)
                     {
                     }
                     column(Colonne3; Colonne3)
@@ -265,6 +264,9 @@ report 50108 "Sales - Shipment GHESQU-DSA"
                         column(SalesShipmentLineNo; "No.")
                         {
                         }
+                        column(SalesShipmentLineType; Type.AsInteger())
+                        {
+                        }
                         column(DescriptionTotale; DescriptionTotale)
                         {
                         }
@@ -382,7 +384,7 @@ report 50108 "Sales - Shipment GHESQU-DSA"
                         column(SignatureCaption; 'Signature')
                         {
                         }
-                        column(UserTableName; UserTable."User ID")
+                        column(UserTableName; UserTable."Full Name")
                         {
                         }
                         column(CompanyInfoCityCaption; CompanyInfo.City + '   Le ' + FORMAT(SalesShipmentHeader."Posting Date", 0, 4))
@@ -538,6 +540,7 @@ report 50108 "Sales - Shipment GHESQU-DSA"
 
 
                             //Ajout AMI - C2A - 22/04/05 END
+
                         end;
                     }
                     trigger OnAfterGetRecord()
@@ -589,13 +592,27 @@ report 50108 "Sales - Shipment GHESQU-DSA"
 
                     CASE Exemplaire OF
                         1:
-                            TextExemplaire := TextExemplaire1;
+                            BEGIN
+                                TextExemplaire := TextExemplaire1;
+                                ExemplaireT := '1';
+                            END;
                         2:
-                            TextExemplaire := TextExemplaire2;
+                            BEGIN
+                                TextExemplaire := TextExemplaire2;
+                                ExemplaireT := '2';
+                            END;
                         3:
-                            TextExemplaire := TextExemplaire3;
+                            BEGIN
+
+                                TextExemplaire := TextExemplaire3;
+                                ExemplaireT := '3';
+                            END;
                         4:
-                            TextExemplaire := TextExemplaire4;
+                            BEGIN
+
+                                TextExemplaire := TextExemplaire4;
+                                ExemplaireT := '4';
+                            END;
 
                     END;
                 end;
@@ -758,16 +775,16 @@ report 50108 "Sales - Shipment GHESQU-DSA"
 
     trigger OnPreReport()
     var
-        myInt: Integer;
+        USID: Guid;
     begin
         IF NOT CurrReport.UseRequestPage THEN
             InitLogInteraction();
 
 
         DepotSpecial := '8';
-
-        IF USERID <> '' THEN
-            UserTable.GET(USERID);
+        USID := Database.UserSecurityId();
+        //IF USID <> '' THEN
+        UserTable.GET(USID);
 
         UserRec.GET(USERID);
         UserRec.CALCFIELDS("PWD Signing");
@@ -847,7 +864,7 @@ report 50108 "Sales - Shipment GHESQU-DSA"
 
 
     VAR
-        Text000: Label 'Salesperson;FRA=Vendeur';
+        Text000: Label 'Salesperson';
         Text001: Label 'COPY';
         Text002: Label 'Sales - Shipment %1';
         Text003: Label 'Page ';
@@ -891,7 +908,7 @@ report 50108 "Sales - Shipment GHESQU-DSA"
         ItemFamily: Record 50008;
         Exemplaire: Integer;
         NumCopie: Integer;
-        UserTable: Record "User Setup";
+        UserTable: Record "User";
         TextExemplaire: Text[100];
         TextExemplaire1: Text[100];
         TextExemplaire2: Text[100];
@@ -921,6 +938,7 @@ report 50108 "Sales - Shipment GHESQU-DSA"
         BillToCustName: Text[30];
         BillToCustaddr: Text[30];
         BillToCustaddr2: Text[30];
+        ExemplaireT: Text[30];
         BillToPostCode: Code[10];
         BillToCity: Text[30];
         ShipToCustName: Text[30];

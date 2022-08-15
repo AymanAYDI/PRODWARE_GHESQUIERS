@@ -175,6 +175,18 @@ pageextension 50075 "PWD PostedSalesShipments" extends "Posted Sales Shipments"
                         REPORT.RUN(Report::"Sales - Shipment AVITA - DAA", TRUE, FALSE, SalesShptHeader);
                     END;
                 }
+                Action("PWD DSA")
+                {
+                    Caption = 'DSA';
+                    Image = Print;
+                    ApplicationArea = All;
+                    trigger OnAction()
+                    BEGIN
+                        SalesShptHeader := Rec;
+                        SalesShptHeader.SETRECFILTER();
+                        REPORT.RUN(Report::"Sales - Shipment GHESQU-DSA", TRUE, FALSE, SalesShptHeader);
+                    END;
+                }
                 Action("PWD T5")
                 {
                     Caption = 'T5';

@@ -14129,12 +14129,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment BL bac rose - ReportDataItem Sales Shipment Header - Property RequestFilterHeading</note>
         </trans-unit>
         <trans-unit id="Report 77819909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Sales - Shipment GHESQU-DSA</source>
+          <source>Sales - Shipment</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - Property Caption</note>
         </trans-unit>
         <trans-unit id="Report 77819909 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Salesperson;FRA=Vendeur</source>
+          <source>Salesperson</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Text000</note>
         </trans-unit>
@@ -15247,6 +15247,11 @@
           <source>DAA</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD DAA - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="PageExtension 514992723 - Action 1622082975 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
+          <source>DSA</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD DSA - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 514992723 - Action 1031111394 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
           <source>T1</source>

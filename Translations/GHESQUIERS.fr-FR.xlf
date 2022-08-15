@@ -13035,6 +13035,30 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report Get Item Ledger Entries SPE - Control Field_StartDate - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 1981770694 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">Options</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Màj Certificate Transit No. - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1981770694 - Control 512895254 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No En-tête facture achat</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Màj Certificate Transit No. - Control Facture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1981770694 - Control 321798269 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Certificate Transit No.</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Màj Certificate Transit No. - Control NewCertif - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1981770694 - Control 1386170815 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No En-tête réception achat</source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Màj Certificate Transit No. - Control Recept - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 2621886902 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Inventory Valuation</source>
           <target state="translated">Apurement fin de mois</target>
@@ -14930,6 +14954,12 @@
           <target state="translated">LA MARCHANDISE LIVREE RESTE NOTRE PROPRIETE JUSQU'AU REGLEMENT COMPLET DE LA FACTURE (loi 80.335 PARUE AU J.O. DU 13.05.80)</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType LA_MARCHANDISE_LIVREE_RESTECaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3113396396 - NamedType 3314125271" size-unit="char" translate="yes" xml:space="preserve">
+          <source>E-mail 4 :  </source>
+          <target state="needs-translation"/>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PWD Sales - Cr.memo AVITA - NamedType Mail4Txt</note>
         </trans-unit>
         <trans-unit id="Report 3113396396 - NamedType 3997410993" size-unit="char" translate="yes" xml:space="preserve">
           <source>Montant</source>
@@ -16923,6 +16953,138 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment BL bac rose - ReportDataItem Sales Shipment Header - Property RequestFilterHeading</note>
         </trans-unit>
+        <trans-unit id="Report 77819909 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales - Shipment</source>
+          <target state="translated">Expédition DAA</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Salesperson</source>
+          <target state="translated">Vendeur</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>COPY</source>
+          <target state="translated">COPY</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales - Shipment %1</source>
+          <target state="translated">Sales - Shipment %1</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page </source>
+          <target state="translated">Page </target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 2290157555" size-unit="char" translate="yes" xml:space="preserve">
+          <source>1</source>
+          <target state="translated">1 </target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt1</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 2720503651" size-unit="char" translate="yes" xml:space="preserve">
+          <source>10</source>
+          <target state="translated">10</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt10</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 3358200268" size-unit="char" translate="yes" xml:space="preserve">
+          <source>11</source>
+          <target state="translated">11</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt11</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 3995896885" size-unit="char" translate="yes" xml:space="preserve">
+          <source>12</source>
+          <target state="translated">12</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt12</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 338626206" size-unit="char" translate="yes" xml:space="preserve">
+          <source>13</source>
+          <target state="translated">13</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt13</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 169717183" size-unit="char" translate="yes" xml:space="preserve">
+          <source>14</source>
+          <target state="translated">14</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt14</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 807413800" size-unit="char" translate="yes" xml:space="preserve">
+          <source>15</source>
+          <target state="translated">15</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt15</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 4203247406" size-unit="char" translate="yes" xml:space="preserve">
+          <source>2</source>
+          <target state="translated">2</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt2</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 3565550789" size-unit="char" translate="yes" xml:space="preserve">
+          <source>3</source>
+          <target state="translated">3</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt3</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 377067704" size-unit="char" translate="yes" xml:space="preserve">
+          <source>4</source>
+          <target state="translated">4</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt4</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 4034338383" size-unit="char" translate="yes" xml:space="preserve">
+          <source>5</source>
+          <target state="translated">5</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt5</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 1652460938" size-unit="char" translate="yes" xml:space="preserve">
+          <source>6</source>
+          <target state="translated">6</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt6</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 1014764321" size-unit="char" translate="yes" xml:space="preserve">
+          <source>7</source>
+          <target state="translated">7</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt7</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 3734459812" size-unit="char" translate="yes" xml:space="preserve">
+          <source>8</source>
+          <target state="translated">8</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt8</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 3096763195" size-unit="char" translate="yes" xml:space="preserve">
+          <source>9</source>
+          <target state="translated">9</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType Txt9</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - NamedType 1276703417" size-unit="char" translate="yes" xml:space="preserve">
+          <source>o</source>
+          <target state="translated">o</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - NamedType TxtO</note>
+        </trans-unit>
+        <trans-unit id="Report 77819909 - ReportDataItem 4208835177 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posted Sales Shipment</source>
+          <target state="translated">Posted Sales Shipment</target>
+          <note from="Developer" annotates="general" priority="2"/>
+          <note from="Xliff Generator" annotates="general" priority="3">Report Sales - Shipment GHESQU-DSA - ReportDataItem SalesShipmentHeader - Property RequestFilterHeading</note>
+        </trans-unit>
         <trans-unit id="Report 1895669712 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales - Shipment BLAVI bac blanc</source>
           <target state="translated">Ventes : Expédition BLAVI bac blanc</target>
@@ -18111,36 +18273,6 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipment - Action PWD TM - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 514992723 - NamedType 3802638270" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 514992723">
-          <source>CO</source>
-          <target state="translated">CO</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - NamedType CstG001</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - NamedType 1889548419" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 514992723">
-          <source>CHARSIMPLE</source>
-          <target state="translated">CHARSIMPLE</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - NamedType CstG002</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - NamedType 2527245036" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 514992723">
-          <source>CHARGEMENT</source>
-          <target state="translated">CHARGEMENT</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - NamedType CstG003</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - NamedType 614155185" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 514992723">
-          <source>CHARTM</source>
-          <target state="translated">CHARTM</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - NamedType CstG004</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - NamedType 1251851802" size-unit="char" translate="yes" xml:space="preserve" al-object-target="PageExtension 514992723">
-          <source>MUTATION</source>
-          <target state="translated">MUTATION</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - NamedType CstG005</note>
-        </trans-unit>
         <trans-unit id="PageExtension 514992723 - Action 2625839114 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
           <source>Imprimer</source>
           <target state="translated">Imprimer</target>
@@ -18153,23 +18285,11 @@
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action Bon de livraison - Property Caption</note>
         </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 1955145300 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>Liste de chargement simple</source>
-          <target state="translated">Liste de chargement simple</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action Liste de chargement simple - Property Caption</note>
-        </trans-unit>
         <trans-unit id="PageExtension 514992723 - Action 1726199522 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
           <source>Bon d'Avitaillement</source>
           <target state="translated">Bon d'Avitaillement</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Bon d'Avitaillement - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 32204155 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>Certificat d'origine</source>
-          <target state="translated">Certificat d'origine</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Certificat d'origine - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 514992723 - Action 4286629681 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
           <source>DAA</source>
@@ -18182,30 +18302,6 @@
           <target state="translated">DSA</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD DSA - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 983736794 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>Impression classique</source>
-          <target state="translated">Impression classique</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD ImpressionClassique - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 3525020335 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>Liste de chargement (TM)</source>
-          <target state="translated">Liste de chargement (TM)</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Liste de chargement (TM) - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 1678077032 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>Liste de chargement/magasin</source>
-          <target state="translated">Liste de chargement/magasin</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Liste de chargement/magasin - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 3404943718 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>Mutation</source>
-          <target state="translated">Mutation</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Mutation - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 514992723 - Action 1031111394 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
           <source>T1</source>
@@ -18224,12 +18320,6 @@
           <target state="translated">TM</target>
           <note from="Developer" annotates="general" priority="2"/>
           <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD TM - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="PageExtension 514992723 - Action 903494082 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1840709038">
-          <source>Impression classique</source>
-          <target state="translated">Impression classique</target>
-          <note from="Developer" annotates="general" priority="2"/>
-          <note from="Xliff Generator" annotates="general" priority="3">PageExtension PWD PostedSalesShipments - Action PWD Impression classique - Property Caption</note>
         </trans-unit>
         <trans-unit id="PageExtension 1656304633 - Action 842345647 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Page 1227332174">
           <source>Update Document Line</source>
