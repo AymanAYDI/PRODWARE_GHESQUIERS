@@ -28,7 +28,7 @@ report 50128 "PWD Export CIEL"
     var
         CduG3TierAutomationMgt: Codeunit "File Management";
     begin
-
+        Xmlport.Run(50000);
         //TODO
         /*
                 IF ISSERVICETIER THEN

@@ -14773,11 +14773,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control TxtGFinPerDocAccDsaDsac - Property Caption</note>
         </trans-unit>
-        <trans-unit id="XmlPort 4261726424 - Control 1284778962 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>File name</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">XmlPort PWD Export CIEL - Control TxtGFilename - Property Caption</note>
-        </trans-unit>
         <trans-unit id="XmlPort 4261726424 - Control 3315940157 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Document-accompagnement &gt; numero-empreintes</source>
           <note from="Developer" annotates="general" priority="2"></note>
