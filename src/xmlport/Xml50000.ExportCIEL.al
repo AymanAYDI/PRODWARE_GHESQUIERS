@@ -1,33 +1,42 @@
 xmlport 50000 "PWD Export CIEL"
 {
     Caption = 'Export CIEL';
-    //Direction = Export;
-    // FieldDelimiter = '<None>';
-    // FieldSeparator = '<;>';
-    FormatEvaluate = Xml;
-    // TextEncoding = WINDOWS;
-    Format = xml;
+    Direction = Export;
+    FormatEVALUATE = Xml;
     Encoding = UTF8;
-    Namespaces = bc = 'xsi:schemaLocation="http://douane.finances.gouv.fr/app/ciel/dtiplus/v1 ciel-dti-plus_v1.0.7.xsd" xmlns="http://douane.finances.gouv.fr/app/ciel/dtiplus/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"';
-    //UseRequestPage = true;
-    //Encoding = UTF8;
-    //FormatEvaluate = Xml;
-    //UseDefaultNamespace = true;
+    Namespaces = "" = 'http://douane.finances.gouv.fr/app/ciel/dtiplus/v1', xsi = 'http://www.w3.org/2001/XMLSchema-instance',
+    "schemaLocation" = 'http://douane.finances.gouv.fr/app/ciel/dtiplus/v1%20ciel-dti-plus_v1.0.7.xsd';
+
     schema
     {
-        textelement(MouvementsBalances)
+        tableelement(MouvementsBalances; Integer)
         {
-            NamespacePrefix = 'bc';//'xsi:schemaLocation="http://douane.finances.gouv.fr/app/ciel/dtiplus/v1 ciel-dti-plus_v1.0.7.xsd" xmlns="http://douane.finances.gouv.fr/app/ciel/dtiplus/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"';
-            tableelement(PeriodeTaxation; "PWD CIEL Data")
+            XmlName = 'mouvements-balances';
+            UseTemporary = true;
+            textelement(PeriodeTaxation)
             {
-                MinOccurs = Once;
-                MaxOccurs = Once;
                 XmlName = 'periode-taxation';
-                fieldelement(mois; PeriodeTaxation.Month)
+                textelement(mois)
                 {
+                    trigger OnBeforePassVariable()
+                    var
+                        PeriodeTaxation: Record "PWD CIEL Data";
+                    begin
+                        PeriodeTaxation.FINDFIRST();
+                        mois := Format(PeriodeTaxation.Month);
+                    end;
+
                 }
-                fieldelement(annee; PeriodeTaxation.Year)
+                textelement(annee)
                 {
+                    trigger OnBeforePassVariable()
+                    var
+                        PeriodeTaxation: Record "PWD CIEL Data";
+                    begin
+                        PeriodeTaxation.FINDFIRST();
+                        annee := Format(PeriodeTaxation.Year);
+                    end;
+
                 }
 
             }
@@ -52,8 +61,15 @@ xmlport 50000 "PWD Export CIEL"
                     fieldelement(libelle_fiscal; RecGCIELData1."Fiscal Caption")
                     {
                     }
-                    fieldelement(tav; RecGCIELData1."Rate Of Alcohol By Volume")
+                    textelement(RateOfAlcoholByVolume)
                     {
+                        XmlName = 'tav';
+                        trigger OnBeforePassVariable()
+                        begin
+                            IF RecGCIELData1."Rate Of Alcohol By Volume" <> 0 THEN
+                                EVALUATE(RateOfAlcoholByVolume, CONVERTSTR(FORMAT(RecGCIELData1."Rate Of Alcohol By Volume"), ',', '.'));
+
+                        end;
 
                     }
                     fieldelement(observations; RecGCIELData1.Observation)
@@ -63,42 +79,58 @@ xmlport 50000 "PWD Export CIEL"
                     {
                         XmlName = 'balance_stock';
 
-                        fieldelement(stock_debut_periode; RecGCIELData1."Begin Period Stock")
+                        textelement(StockDebutPeriode)
                         {
+                            XmlName = 'stock_debut_periode';
+                            trigger OnBeforePassVariable()
+                            begin
+                                EVALUATE(StockDebutPeriode, CONVERTSTR(FORMAT(RecGCIELData1."Begin Period Stock"), ',', '.'));
+                            end;
                         }
                         textelement(entrees_periode)
                         {
                             XmlName = 'entrees_periode';
-                            fieldelement(achats; RecGCIELData1.Purchase)
+                            textelement(achats)
                             {
+                                XmlName = 'achats';
+                                trigger OnBeforePassVariable()
+                                begin
+                                    EVALUATE(achats, CONVERTSTR(FORMAT(RecGCIELData1.Purchase), ',', '.'));
+                                end;
                             }
                         }
                         textelement(sorties_periode)
                         {
                             XmlName = 'sorties_periode';
-                            fieldelement(ventes; RecGCIELData1.Sales)
+                            textelement(ventes)
                             {
+                                XmlName = 'ventes';
+                                trigger OnBeforePassVariable()
+                                begin
+                                    EVALUATE(ventes, CONVERTSTR(FORMAT(RecGCIELData1.Sales), ',', '.'));
+                                end;
                             }
-                            fieldelement(replacement_suspension; RecGCIELData1."Suspension Replacement")
+                            textelement(replacement_suspension)
                             {
+                                XmlName = 'replacement_suspension';
+                                trigger OnBeforePassVariable()
+                                begin
+                                    EVALUATE(replacement_suspension, CONVERTSTR(FORMAT(RecGCIELData1."Suspension Replacement"), ',', '.'));
+                                end;
                             }
                         }
-                        fieldelement(stock_fin_periode; RecGCIELData1."End Period Stock")
+                        textelement(stock_fin_periode)
                         {
+                            XmlName = 'stock_fin_periode';
+                            trigger OnBeforePassVariable()
+                            begin
+                                EVALUATE(stock_fin_periode, CONVERTSTR(FORMAT(RecGCIELData1."End Period Stock"), ',', '.'));
+                            end;
                         }
+
 
                     }
                 }
-                trigger OnAfterGetRecord()
-                begin
-                    // IF RecGCIELData1."Rate Of Alcohol By Volume" <> 0 THEN
-                    //     EVALUATE(RecGCIELData1."Rate Of Alcohol By Volume", CONVERTSTR(FORMAT(RecGCIELData1."Rate Of Alcohol By Volume"), ',', '.'));
-                    // EVALUATE(RecGCIELData1."Begin Period Stock", CONVERTSTR(FORMAT(RecGCIELData1."Begin Period Stock"), ',', '.'));
-                    // EVALUATE(RecGCIELData1.Purchase, CONVERTSTR(FORMAT(RecGCIELData1.Purchase), ',', '.'));
-                    // EVALUATE(RecGCIELData1.Sales, CONVERTSTR(FORMAT(RecGCIELData1.Sales), ',', '.'));
-                    // EVALUATE(RecGCIELData1."Suspension Replacement", CONVERTSTR(FORMAT(RecGCIELData1."Suspension Replacement"), ',', '.'));
-                    // EVALUATE(RecGCIELData1."End Period Stock", CONVERTSTR(FORMAT(RecGCIELData1."End Period Stock"), ',', '.'));
-                end;
 
             }
             tableelement(RecGCIELData; "PWD CIEL Data")
@@ -114,9 +146,14 @@ xmlport 50000 "PWD Export CIEL"
                     fieldelement(libelle_fiscal; RecGCIELData."Fiscal Caption")
                     {
                     }
-                    fieldelement(tav; RecGCIELData."Rate Of Alcohol By Volume")
+                    textelement(tav)
                     {
-
+                        XmlName = 'tav';
+                        trigger OnBeforePassVariable()
+                        begin
+                            IF RecGCIELData."Rate Of Alcohol By Volume" <> 0 THEN
+                                EVALUATE(tav, CONVERTSTR(FORMAT(RecGCIELData."Rate Of Alcohol By Volume"), ',', '.'));
+                        end;
                     }
                     fieldelement(observations; RecGCIELData.Observation)
                     {
@@ -124,20 +161,40 @@ xmlport 50000 "PWD Export CIEL"
                     textelement(balance_stock1)
                     {
                         XmlName = 'balance_stock';
-                        fieldelement(stock_debut_periode; RecGCIELData."Begin Period Stock")
+                        textelement(stock_debut_periode1)
                         {
+                            XmlName = 'stock_debut_periode';
+                            trigger OnBeforePassVariable()
+                            begin
+                                EVALUATE(stock_debut_periode1, CONVERTSTR(FORMAT(RecGCIELData."Begin Period Stock"), ',', '.'));
+                            end;
                         }
                         textelement(entrees_periode1)
                         {
                             XmlName = 'entrees_periode';
-                            fieldelement(volume_produit; RecGCIELData."Item Volume")
+                            textelement(volume_produit)
                             {
+                                XmlName = 'volume_produit';
+                                trigger OnBeforePassVariable()
+                                begin
+                                    EVALUATE(volume_produit, CONVERTSTR(FORMAT(RecGCIELData."Item Volume"), ',', '.'));
+                                end;
                             }
-                            fieldelement(entree_droits_suspendus; RecGCIELData."Item Suspended Rights")
+                            textelement(entree_droits_suspendus)
                             {
+                                XmlName = 'entree_droits_suspendus';
+                                trigger OnBeforePassVariable()
+                                begin
+                                    EVALUATE(entree_droits_suspendus, CONVERTSTR(FORMAT(RecGCIELData."Item Suspended Rights"), ',', '.'));
+                                end;
                             }
-                            fieldelement(travail_a_facon; RecGCIELData."Input Work With Way")
+                            textelement(travail_a_facon)
                             {
+                                XmlName = 'travail_a_facon';
+                                trigger OnBeforePassVariable()
+                                begin
+                                    EVALUATE(travail_a_facon, CONVERTSTR(FORMAT(RecGCIELData."Input Work With Way"), ',', '.'));
+                                end;
                             }
                         }
                         textelement(sorties_periode1)
@@ -146,60 +203,76 @@ xmlport 50000 "PWD Export CIEL"
                             textelement(sorties_avec_paiement_droits)
                             {
                                 XmlName = 'sorties_avec_paiement_droits';
-                                fieldelement(sorties_avec_paiement_annee_courante; RecGCIELData."Output With Current Year Paym")
+                                textelement(sorties_avec_paiement_annee_courante)
                                 {
+                                    XmlName = 'sorties_avec_paiement_annee_courante';
+                                    trigger OnBeforePassVariable()
+                                    begin
+                                        EVALUATE(sorties_avec_paiement_annee_courante, CONVERTSTR(FORMAT(RecGCIELData."Output With Current Year Paym"), ',', '.'));
+                                    end;
                                 }
                             }
                             textelement(sorties_sans_paiement_droits)
                             {
                                 XmlName = 'sorties_sans_paiement_droits';
-                                fieldelement(sorties_definitives; RecGCIELData."Definitive Output")
+                                textelement(sorties_definitives)
                                 {
+                                    XmlName = 'sorties_definitives';
+                                    trigger OnBeforePassVariable()
+                                    begin
+                                        EVALUATE(sorties_definitives, CONVERTSTR(FORMAT(RecGCIELData."Definitive Output"), ',', '.'));
+                                    end;
                                 }
 
-                                fieldelement(sorties_exoneration_droits; RecGCIELData."Exemption Rights")
+                                textelement(sorties_exoneration_droits)
                                 {
+                                    XmlName = 'sorties_exoneration_droits';
+                                    trigger OnBeforePassVariable()
+                                    begin
+                                        EVALUATE(sorties_exoneration_droits, CONVERTSTR(FORMAT(RecGCIELData."Exemption Rights"), ',', '.'));
+                                    end;
                                 }
 
-                                fieldelement(travail_a_facon; RecGCIELData."Output Work With Way")
+                                textelement(travail_a_facon1)
                                 {
+                                    XmlName = 'travail_a_facon';
+                                    trigger OnBeforePassVariable()
+                                    begin
+                                        EVALUATE(travail_a_facon1, CONVERTSTR(FORMAT(RecGCIELData."Output Work With Way"), ',', '.'));
+                                    end;
                                 }
 
-                                fieldelement(fabrication_autre_produit; RecGCIELData."Other Item Production")
+                                textelement(fabrication_autre_produit)
                                 {
+                                    XmlName = 'fabrication_autre_produit';
+                                    trigger OnBeforePassVariable()
+                                    begin
+                                        EVALUATE(fabrication_autre_produit, CONVERTSTR(FORMAT(RecGCIELData."Other Item Production"), ',', '.'));
+                                    end;
                                 }
 
-                                fieldelement(lies_vins_distilles; RecGCIELData."Distil Wine Lees")
+                                textelement(lies_vins_distilles)
                                 {
+                                    XmlName = 'lies_vins_distilles';
+                                    trigger OnBeforePassVariable()
+                                    begin
+                                        EVALUATE(lies_vins_distilles, CONVERTSTR(FORMAT(RecGCIELData."Distil Wine Lees"), ',', '.'));
+                                    end;
                                 }
                             }
 
                         }
-                        fieldelement(stock_fin_periode; RecGCIELData."End Period Stock")
+                        textelement(stock_fin_periode1)
                         {
+                            XmlName = 'stock_fin_periode';
+                            trigger OnBeforePassVariable()
+                            begin
+                                EVALUATE(stock_fin_periode1, CONVERTSTR(FORMAT(RecGCIELData."End Period Stock"), ',', '.'));
+                            end;
                         }
 
                     }
                 }
-                trigger OnAfterGetRecord()
-                begin
-                    // IF RecGCIELData."Rate Of Alcohol By Volume" <> 0 THEN
-                    //     EVALUATE(RecGCIELData."Rate Of Alcohol By Volume", CONVERTSTR(FORMAT(RecGCIELData."Rate Of Alcohol By Volume"), ',', '.'));
-                    // EVALUATE(RecGCIELData."Begin Period Stock", CONVERTSTR(FORMAT(RecGCIELData."Begin Period Stock"), ',', '.'));
-                    // EVALUATE(RecGCIELData.Purchase, CONVERTSTR(FORMAT(RecGCIELData.Purchase), ',', '.'));
-                    // EVALUATE(RecGCIELData.Sales, CONVERTSTR(FORMAT(RecGCIELData.Sales), ',', '.'));
-                    // EVALUATE(RecGCIELData."Suspension Replacement", CONVERTSTR(FORMAT(RecGCIELData."Suspension Replacement"), ',', '.'));
-                    // EVALUATE(RecGCIELData."End Period Stock", CONVERTSTR(FORMAT(RecGCIELData."End Period Stock"), ',', '.'));
-                    // EVALUATE(RecGCIELData."Item Volume", CONVERTSTR(FORMAT(RecGCIELData."Item Volume"), ',', '.'));
-                    // EVALUATE(RecGCIELData."Item Suspended Rights", CONVERTSTR(FORMAT(RecGCIELData."Item Suspended Rights"), ',', '.'));
-                    // EVALUATE(RecGCIELData."Input Work With Way", CONVERTSTR(FORMAT(RecGCIELData."Input Work With Way"), ',', '.'));
-                    // EVALUATE(RecGCIELData."Input Work With Way", CONVERTSTR(FORMAT(RecGCIELData."Output With Current Year Paym"), ',', '.'));
-                    // EVALUATE(RecGCIELData."Input Work With Way", CONVERTSTR(FORMAT(RecGCIELData."Definitive Output"), ',', '.'));
-                    // EVALUATE(RecGCIELData."Input Work With Way", CONVERTSTR(FORMAT(RecGCIELData."Exemption Rights"), ',', '.'));
-                    // EVALUATE(RecGCIELData."Input Work With Way", CONVERTSTR(FORMAT(RecGCIELData."Output Work With Way"), ',', '.'));
-                    // EVALUATE(RecGCIELData."Input Work With Way", CONVERTSTR(FORMAT(RecGCIELData."Other Item Production"), ',', '.'));
-                    // EVALUATE(RecGCIELData."Input Work With Way", CONVERTSTR(FORMAT(RecGCIELData."Distil Wine Lees"), ',', '.'));
-                end;
 
             }
             textelement(document_accompagnement)
@@ -209,24 +282,25 @@ xmlport 50000 "PWD Export CIEL"
                 {
                     textelement(debut_periode)
                     {
-                        textattribute(TxtGDebPerDocAccNumEmp)
-                        {
+                        trigger OnBeforePassVariable()
+                        begin
+                            debut_periode := TxtGDebPerDocAccNumEmp1;
+                        end;
 
-
-                        }
                     }
                     textelement(fin_periode)
                     {
-                        textattribute(TxtGFinPerDocAccNumEmp)
-                        {
-                        }
+                        trigger OnBeforePassVariable()
+                        begin
+                            fin_periode := TxtGFinPerDocAccNumEmp1;
+                        end;
                     }
                     textelement(nombre_document_empreinte)
                     {
-                        textattribute(IntGNbrDocEmpDocAccNumEmp)
-                        {
-
-                        }
+                        trigger OnBeforePassVariable()
+                        begin
+                            nombre_document_empreinte := FORMAT(IntGNbrDocEmpDocAccNumEmp1);
+                        end;
                     }
 
                 }
@@ -234,9 +308,9 @@ xmlport 50000 "PWD Export CIEL"
                 begin
 
 
-                    IF not ((TxtGDebPerDocAccNumEmp <> '') OR
-                       (TxtGFinPerDocAccNumEmp <> '') OR
-                       (IntGNbrDocEmpDocAccNumEmp <> '')) THEN
+                    IF not ((TxtGDebPerDocAccNumEmp1 <> '') OR
+                       (TxtGFinPerDocAccNumEmp1 <> '') OR
+                       (IntGNbrDocEmpDocAccNumEmp1 <> 0)) THEN
                         currXMLport.Skip();
                 end;
             }
@@ -249,34 +323,35 @@ xmlport 50000 "PWD Export CIEL"
                     textelement(debut_periode1)
                     {
                         XmlName = 'debut_periode';
-                        textattribute(TxtGDebPerDocAccDsaDsac)
-                        {
-
-                        }
+                        trigger OnBeforePassVariable()
+                        begin
+                            debut_periode1 := TxtGDebPerDocAccDsaDsac1;
+                        end;
                     }
                     textelement(fin_periode1)
                     {
                         XmlName = 'fin_periode';
-                        textattribute(TxtGFinPerDocAccDsaDsac)
-                        {
-                        }
+                        trigger OnBeforePassVariable()
+                        begin
+                            fin_periode1 := TxtGFinPerDocAccDsaDsac1;
+                        end;
                     }
                     textelement(nombre_document_empreinte1)
                     {
                         XmlName = 'nombre_document_empreinte';
-                        textattribute(IntGNbrDocEmpDocAccDsaDsac)
-                        {
-
-                        }
+                        trigger OnBeforePassVariable()
+                        begin
+                            nombre_document_empreinte1 := FORMAT(IntGNbrDocEmpDocAccDsaDsac1);
+                        end;
                     }
 
                 }
                 trigger OnBeforePassVariable()
                 begin
 
-                    IF not ((TxtGDebPerDocAccDsaDsac <> '') OR
-                       (TxtGFinPerDocAccDsaDsac <> '') OR
-                       (IntGNbrDocEmpDocAccDsaDsac <> '')) THEN
+                    IF not ((TxtGDebPerDocAccDsaDsac1 <> '') OR
+                       (TxtGFinPerDocAccDsaDsac1 <> '') OR
+                       (IntGNbrDocEmpDocAccDsaDsac1 <> 0)) THEN
                         currXMLport.Skip();
                 end;
             }
@@ -289,34 +364,35 @@ xmlport 50000 "PWD Export CIEL"
                     textelement(debut_periode2)
                     {
                         XmlName = 'debut_periode';
-                        textattribute(TxtGDebPerDocAccDaaDca)
-                        {
-
-                        }
+                        trigger OnBeforePassVariable()
+                        begin
+                            debut_periode2 := TxtGDebPerDocAccDaaDca1;
+                        end;
                     }
                     textelement(fin_periode2)
                     {
                         XmlName = 'fin_periode';
-                        textattribute(TxtGFinPerDocAccDaaDca)
-                        {
-                        }
+                        trigger OnBeforePassVariable()
+                        begin
+                            fin_periode2 := TxtGFinPerDocAccDaaDca1;
+                        end;
                     }
                     textelement(nombre_document_empreinte2)
                     {
                         XmlName = 'nombre_document_empreinte';
-                        textattribute(IntGNbrDocEmpDocAccDaaDca)
-                        {
-
-                        }
+                        trigger OnBeforePassVariable()
+                        begin
+                            nombre_document_empreinte2 := FORMAT(IntGNbrDocEmpDocAccDaaDca1);
+                        end;
                     }
 
                 }
                 trigger OnBeforePassVariable()
                 begin
 
-                    IF not ((TxtGDebPerDocAccDsaDsac <> '') OR
-                       (TxtGFinPerDocAccDsaDsac <> '') OR
-                       (IntGNbrDocEmpDocAccDsaDsac <> '')) THEN
+                    IF not ((TxtGDebPerDocAccDsaDsac1 <> '') OR
+                       (TxtGFinPerDocAccDsaDsac1 <> '') OR
+                       (IntGNbrDocEmpDocAccDsaDsac1 <> 0)) THEN
                         currXMLport.Skip();
                 end;
             }
@@ -326,30 +402,33 @@ xmlport 50000 "PWD Export CIEL"
 
                 textelement(numero_daa_dac_dae)
                 {
-                    textattribute(TxtGNumRelNonApu)
-                    {
-                    }
+                    trigger OnBeforePassVariable()
+                    begin
+                        numero_daa_dac_dae := TxtGNumRelNonApu1;
+                    end;
                 }
                 textelement(date_expedition)
                 {
                     XmlName = 'date-expedition';
-                    textattribute(DatGDateExpRelNonApu)
-                    {
-                    }
+                    trigger OnBeforePassVariable()
+                    begin
+                        date_expedition := FORMAT(DatGDateExpRelNonApu1, 0, 9);
+                    end;
                 }
                 textelement(numero_accise_destinataire)
                 {
                     XmlName = 'numero-accise-destinataire';
-                    textattribute(TxtGNumAccDesRelNonApu)
-                    {
-                    }
+                    trigger OnBeforePassVariable()
+                    begin
+                        numero_accise_destinataire := TxtGNumAccDesRelNonApu1;
+                    end;
                 }
                 trigger OnBeforePassVariable()
                 begin
 
-                    IF not ((TxtGNumRelNonApu <> '') OR
-                    (DatGDateExpRelNonApu <> '') OR
-                    (TxtGNumAccDesRelNonApu <> '')) THEN
+                    IF not ((TxtGNumRelNonApu1 <> '') OR
+                    (DatGDateExpRelNonApu1 <> 0D) OR
+                    (TxtGNumAccDesRelNonApu1 <> '')) THEN
                         currXMLport.Skip();
                 end;
             }
@@ -359,21 +438,24 @@ xmlport 50000 "PWD Export CIEL"
 
                 textelement(quantite_mouts_jus)
                 {
-                    textattribute(DecGQtyMoutsJus)
-                    {
-                    }
+                    trigger OnBeforePassVariable()
+                    begin
+                        quantite_mouts_jus := CONVERTSTR(FORMAT(DecGQtyMoutsJus1), ',', '.');
+                    end;
                 }
                 textelement(quantite_mouts_mcr)
                 {
-                    textattribute(DecGQtyMoutsMcr)
-                    {
-                    }
+                    trigger OnBeforePassVariable()
+                    begin
+                        quantite_mouts_mcr := CONVERTSTR(FORMAT(DecGQtyMoutsMcr1), ',', '.');
+                    end;
                 }
                 textelement(quantite_vins_vinaigre)
                 {
-                    textattribute(DecGQtyVinVinaigre)
-                    {
-                    }
+                    trigger OnBeforePassVariable()
+                    begin
+                        quantite_vins_vinaigre := CONVERTSTR(FORMAT(DecGQtyVinVinaigre1), ',', '.');
+                    end;
 
 
                 }
@@ -389,28 +471,28 @@ xmlport 50000 "PWD Export CIEL"
         {
             area(content)
             {
-                group(GroupFile)
-                {
-                    field(TxtGFilename; TxtGFilename)
-                    {
-                        Caption = 'File name';
-                        ApplicationArea = All;
-                    }
-                }
+                // group(GroupFile)
+                // {
+                //     field(TxtGFilename; TxtGFilename1)
+                //     {
+                //         Caption = 'File name';
+                //         ApplicationArea = All;
+                //     }
+                // }
                 group(numero_empreintes)
                 {
                     caption = 'Document-accompagnement > numero-empreintes';
-                    field(TxtGDebPerDocAccNumEmp; TxtGDebPerDocAccNumEmp)
+                    field(TxtGDebPerDocAccNumEmp; TxtGDebPerDocAccNumEmp1)
                     {
                         Caption = 'Debut-periode';
                         ApplicationArea = All;
                     }
-                    field(TxtGFinPerDocAccNumEmp; TxtGFinPerDocAccNumEmp)
+                    field(TxtGFinPerDocAccNumEmp; TxtGFinPerDocAccNumEmp1)
                     {
                         Caption = 'Fin-periode';
                         ApplicationArea = All;
                     }
-                    field(IntGNbrDocEmpDocAccNumEmp; IntGNbrDocEmpDocAccNumEmp)
+                    field(IntGNbrDocEmpDocAccNumEmp; IntGNbrDocEmpDocAccNumEmp1)
                     {
                         Caption = 'Nombre-document-empreinte';
                         ApplicationArea = All;
@@ -419,17 +501,17 @@ xmlport 50000 "PWD Export CIEL"
                 group(dsa_dsac)
                 {
                     caption = 'Document-accompagnement > dsa-dsac';
-                    field(TxtGDebPerDocAccDsaDsac; TxtGDebPerDocAccDsaDsac)
+                    field(TxtGDebPerDocAccDsaDsac; TxtGDebPerDocAccDsaDsac1)
                     {
                         Caption = 'Debut-periode';
                         ApplicationArea = All;
                     }
-                    field(TxtGFinPerDocAccDsaDsac; TxtGFinPerDocAccDsaDsac)
+                    field(TxtGFinPerDocAccDsaDsac; TxtGFinPerDocAccDsaDsac1)
                     {
                         Caption = 'Fin-periode';
                         ApplicationArea = All;
                     }
-                    field(IntGNbrDocEmpDocAccDsaDsac; IntGNbrDocEmpDocAccDsaDsac)
+                    field(IntGNbrDocEmpDocAccDsaDsac; IntGNbrDocEmpDocAccDsaDsac1)
                     {
                         Caption = 'Nombre-document-empreinte';
                         ApplicationArea = All;
@@ -438,17 +520,17 @@ xmlport 50000 "PWD Export CIEL"
                 group(daa_dca)
                 {
                     caption = 'Document-accompagnement > daa-dca';
-                    field(TxtGDebPerDocAccDaaDca; TxtGDebPerDocAccDaaDca)
+                    field(TxtGDebPerDocAccDaaDca; TxtGDebPerDocAccDaaDca1)
                     {
                         Caption = 'Debut-periode';
                         ApplicationArea = All;
                     }
-                    field(TxtGFinPerDocAccDaaDca; TxtGFinPerDocAccDaaDca)
+                    field(TxtGFinPerDocAccDaaDca; TxtGFinPerDocAccDaaDca1)
                     {
                         Caption = 'Fin-periode';
                         ApplicationArea = All;
                     }
-                    field(IntGNbrDocEmpDocAccDaaDca; IntGNbrDocEmpDocAccDaaDca)
+                    field(IntGNbrDocEmpDocAccDaaDca; IntGNbrDocEmpDocAccDaaDca1)
                     {
                         Caption = 'Nombre-document-empreinte';
                         ApplicationArea = All;
@@ -457,17 +539,17 @@ xmlport 50000 "PWD Export CIEL"
                 group(relevenonrequest)
                 {
                     caption = 'Releve-non-apurement';
-                    field(TxtGNumRelNonApu; TxtGNumRelNonApu)
+                    field(TxtGNumRelNonApu; TxtGNumRelNonApu1)
                     {
                         Caption = 'Numero-daa-dac-dae';
                         ApplicationArea = All;
                     }
-                    field(DatGDateExpRelNonApu; DatGDateExpRelNonApu)
+                    field(DatGDateExpRelNonApu; DatGDateExpRelNonApu1)
                     {
                         Caption = 'Date-expedition';
                         ApplicationArea = All;
                     }
-                    field(TxtGNumAccDesRelNonApu; TxtGNumAccDesRelNonApu)
+                    field(TxtGNumAccDesRelNonApu; TxtGNumAccDesRelNonApu1)
                     {
                         Caption = 'Numero-accise-destinataire';
                         ApplicationArea = All;
@@ -476,17 +558,17 @@ xmlport 50000 "PWD Export CIEL"
                 group(Statistiques)
                 {
                     caption = 'Statistiques';
-                    field(DecGQtyMoutsJus; DecGQtyMoutsJus)
+                    field(DecGQtyMoutsJus; DecGQtyMoutsJus1)
                     {
                         Caption = 'Quantite-mouts-jus';
                         ApplicationArea = All;
                     }
-                    field(DecGQtyMoutsMcr; DecGQtyMoutsMcr)
+                    field(DecGQtyMoutsMcr; DecGQtyMoutsMcr1)
                     {
                         Caption = 'Quantite-mouts-mcr';
                         ApplicationArea = All;
                     }
-                    field(DecGQtyVinVinaigre; DecGQtyVinVinaigre)
+                    field(DecGQtyVinVinaigre; DecGQtyVinVinaigre1)
                     {
                         Caption = 'Quantite-vins-vinaigre';
                         ApplicationArea = All;
@@ -504,23 +586,23 @@ xmlport 50000 "PWD Export CIEL"
         }
     }
     var
-        TxtGFilename: text[1024];
-        TxtGToFile: text[1024];
-    //TxtGDebPerDocAccNumEmp: text[30];
-    //TxtGFinPerDocAccNumEmp: text[30];
-    // TxtGDebPerDocAccDsaDsac: text[30];
-    // TxtGFinPerDocAccDsaDsac: text[30];
-    // TxtGDebPerDocAccDaaDca: text[30];
-    // TxtGFinPerDocAccDaaDca: text[30];
-    // TxtGNumRelNonApu: text[30];
-    // TxtGNumAccDesRelNonApu: text[30];
-    //IntGNbrDocEmpDocAccNumEmp: integer;
-    // IntGNbrDocEmpDocAccDsaDsac: integer;
-    // IntGNbrDocEmpDocAccDaaDca: integer;
-    // DatGDateExpRelNonApu: Date;
-    // DecGQtyMoutsJus: Decimal;
-    // DecGQtyMoutsMcr: Decimal;
-    // DecGQtyVinVinaigre: Decimal;
+        //TxtGFilename1: text[1024];
+        //TxtGToFile1: text[1024];
+        TxtGDebPerDocAccNumEmp1: text[30];
+        TxtGFinPerDocAccNumEmp1: text[30];
+        TxtGDebPerDocAccDsaDsac1: text[30];
+        TxtGFinPerDocAccDsaDsac1: text[30];
+        TxtGDebPerDocAccDaaDca1: text[30];
+        TxtGFinPerDocAccDaaDca1: text[30];
+        TxtGNumRelNonApu1: text[30];
+        TxtGNumAccDesRelNonApu1: text[30];
+        IntGNbrDocEmpDocAccNumEmp1: integer;
+        IntGNbrDocEmpDocAccDsaDsac1: integer;
+        IntGNbrDocEmpDocAccDaaDca1: integer;
+        DatGDateExpRelNonApu1: Date;
+        DecGQtyMoutsJus1: Decimal;
+        DecGQtyMoutsMcr1: Decimal;
+        DecGQtyVinVinaigre1: Decimal;
 
 
 }
