@@ -1164,7 +1164,7 @@ codeunit 60001 "PWD Function Mgt"
         CLEAR(CalcT5);
         CalcT5.RUN(SalesShipmentHeader);
         ReportSelection.SETRANGE(Usage, ReportSelection.Usage::T5);
-        ReportSelection.SETFILTER("Report ID", '<>0');
+        ReportSelection.SETFILTER("Report ID", '<>%1', 0);
         ReportSelection.ASCENDING := FALSE;
         ReportSelection.FindSet();
         REPEAT

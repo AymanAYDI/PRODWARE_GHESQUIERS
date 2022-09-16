@@ -150,12 +150,15 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                     Caption = 'Bon d''Avitaillement';//;
                     Image = PrintReport;
                     Trigger OnAction()
+                    var
+                        DataCompression: Codeunit "Data Compression";
                     BEGIN
                         SalesShptHeader := Rec;
                         SalesShptHeader.SETRECFILTER();
-                        //TODO: Report 50105 pas dans la liste des reports à migrer
-                        // REPORT.RUN(50105, FALSE, FALSE, SalesShptHeader);
-                        REPORT.RUN(Report::"Sales - Shipmt BLAVI bac blanc", FALSE, FALSE, SalesShptHeader);
+                        Rec.CreateZipFolderReports(SalesShptHeader, DataCompression);
+                        // REPORT.RunModal(Report::"Sales - Shipmt BLAVI bac blanc", FALSE, FALSE, SalesShptHeader);
+                        // REPORT.RunModal(Report::"Sales - Shipmt BLAVI bac rose", FALSE, FALSE, SalesShptHeader);
+
                     END;
                 }
                 Action("PWD DAA")
@@ -206,63 +209,63 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                         PWDCduFunctionMgt.PrintT1(Rec);
                     END;
                 }
-                Action("PWD Certificat d''origine")
-                {
-                    ApplicationArea = all;
-                    Caption = 'Certificat d''origine';
-                    Image = Certificate;
-                    Trigger OnAction()
-                    BEGIN
-                        CurrPage.SETSELECTIONFILTER(SalesShptHeader);
-                        SalesShptHeader.PrintCustomsDoc(CstG001);
-                    END;
-                }
-                Action("PWD Liste de chargement simple")
-                {
-                    Caption = 'Liste de chargement simple';
-                    Image = Print;
-                    ApplicationArea = All;
+                // Action("PWD Certificat d''origine")
+                // {
+                //     ApplicationArea = all;
+                //     Caption = 'Certificat d''origine';
+                //     Image = Certificate;
+                //     Trigger OnAction()
+                //     BEGIN
+                //         CurrPage.SETSELECTIONFILTER(SalesShptHeader);
+                //         SalesShptHeader.PrintCustomsDoc(CstG001);
+                //     END;
+                // }
+                // Action("PWD Liste de chargement simple")
+                // {
+                //     Caption = 'Liste de chargement simple';
+                //     Image = Print;
+                //     ApplicationArea = All;
 
-                    trigger OnAction()
-                    BEGIN
-                        CurrPage.SETSELECTIONFILTER(SalesShptHeader);
-                        SalesShptHeader.PrintCustomsDoc(CstG002);
-                    END;
-                }
-                Action("PWD Load/Store List")
-                {
-                    Caption = 'Liste de chargement/magasin';
-                    Image = Print;
-                    ApplicationArea = All;
+                //     trigger OnAction()
+                //     BEGIN
+                //         CurrPage.SETSELECTIONFILTER(SalesShptHeader);
+                //         SalesShptHeader.PrintCustomsDoc(CstG002);
+                //     END;
+                // }
+                // Action("PWD Load/Store List")
+                // {
+                //     Caption = 'Liste de chargement/magasin';
+                //     Image = Print;
+                //     ApplicationArea = All;
 
-                    Trigger OnAction()
-                    BEGIN
-                        CurrPage.SETSELECTIONFILTER(SalesShptHeader);
-                        SalesShptHeader.PrintCustomsDoc(CstG003);
-                    END;
-                }
-                Action("PWD Liste de chargement TM")
-                {
-                    Caption = 'Liste de chargement (TM)';
-                    ApplicationArea = All;
-                    Image = Print;
-                    Trigger OnAction()
-                    BEGIN
-                        CurrPage.SETSELECTIONFILTER(SalesShptHeader);
-                        SalesShptHeader.PrintCustomsDoc(CstG004);
-                    END;
-                }
-                Action("PWD Mutation")
-                {
-                    Caption = 'Mutation';
-                    Image = Print;
-                    ApplicationArea = All;
-                    trigger OnAction()
-                    BEGIN
-                        CurrPage.SETSELECTIONFILTER(SalesShptHeader);
-                        SalesShptHeader.PrintCustomsDoc(CstG005);
-                    END;
-                }
+                //     Trigger OnAction()
+                //     BEGIN
+                //         CurrPage.SETSELECTIONFILTER(SalesShptHeader);
+                //         SalesShptHeader.PrintCustomsDoc(CstG003);
+                //     END;
+                // }
+                // Action("PWD Liste de chargement TM")
+                // {
+                //     Caption = 'Liste de chargement (TM)';
+                //     ApplicationArea = All;
+                //     Image = Print;
+                //     Trigger OnAction()
+                //     BEGIN
+                //         CurrPage.SETSELECTIONFILTER(SalesShptHeader);
+                //         SalesShptHeader.PrintCustomsDoc(CstG004);
+                //     END;
+                // }
+                // Action("PWD Mutation")
+                // {
+                //     Caption = 'Mutation';
+                //     Image = Print;
+                //     ApplicationArea = All;
+                //     trigger OnAction()
+                //     BEGIN
+                //         CurrPage.SETSELECTIONFILTER(SalesShptHeader);
+                //         SalesShptHeader.PrintCustomsDoc(CstG005);
+                //     END;
+                // }
                 Action("PWD TM")
                 {
                     Caption = 'TM';
@@ -275,19 +278,19 @@ pageextension 50027 "PWD PostedSalesShipment" extends "Posted Sales Shipment"
                         PWDCduFunctionMgt.PrintTM(Rec);
                     END;
                 }
-                Action("PWD Classic Print")
-                {
-                    ApplicationArea = all;
-                    Caption = 'Impression classique';
-                    Image = Print;
-                    Trigger OnAction()
-                    VAR
-                        RepLShipmentHeader: Record "Sales Shipment Header";
-                    BEGIN
-                        RepLShipmentHeader.SETRANGE("No.", Rec."No.");
-                        REPORT.RUN(50119, TRUE, TRUE, RepLShipmentHeader);
-                    END;
-                }
+                // Action("PWD Classic Print")
+                // {
+                //     ApplicationArea = all;
+                //     Caption = 'Impression classique';
+                //     Image = Print;
+                //     Trigger OnAction()
+                //     VAR
+                //         RepLShipmentHeader: Record "Sales Shipment Header";
+                //     BEGIN
+                //         RepLShipmentHeader.SETRANGE("No.", Rec."No.");
+                //         REPORT.RUN(50119, TRUE, TRUE, RepLShipmentHeader);
+                //     END;
+                // }
                 Group("PWD Exemplaire 3")
                 {
                     Caption = 'Exemplaire 3';

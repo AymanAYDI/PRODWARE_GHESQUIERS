@@ -18,7 +18,7 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             column(CurrReport_PAGENO; '')
             {
             }
-            column(USERID; USERID)
+            column("USERID"; USERID)
             {
             }
             column(InfoSoc_Name; InfoSoc.Name)
@@ -176,13 +176,30 @@ report 50115 "PWD Evaluation stock SAS Ghes"
             column(Item_Tariff_No_; "Tariff No.")
             {
             }
+            column(Item_Description_____Item__Description_2_Caption; Control34)
+            {
+            }
+            column(QuantityCaption_Control1000000019; QuantityCaption_Control1000000019)
+            {
+            }
+            column(QuantityCaption_Control1000000021; QuantityCaption_Control1000000021)
+            {
+            }
+
+            column(QuantityCaption_Control1000000022; QuantityCaption_Control1000000022)
+            {
+            }
+
+            column(QuantityCaption_Control1000000020; QuantityCaption_Control1000000020Lbl)
+            {
+            }
             dataitem("Item Ledger Entry"; "Item Ledger Entry")
             {
                 DataItemTableView = SORTING("Item No.", Open, "Variant Code", Positive, "Expiration Date", "Lot No.", "Serial No.");
                 column(Item_Ledger_Entry_Item_No_; "Item No.")
                 {
                 }
-                column(Item_Ledger_Entry_Open; Open)
+                column(Open; Open)
                 {
                 }
                 column(Item_Ledger_Entry_Positive; Positive)
@@ -375,6 +392,8 @@ report 50115 "PWD Evaluation stock SAS Ghes"
                     SETFILTER("Global Dimension 2 Code", Item.GETFILTER("Global Dimension 2 Filter"));
                     IF EndDate <> 0D THEN
                         SETRANGE("Posting Date", 0D, EndDate);
+
+                    ItemUnitCost := ROUND(Item."Unit Cost", 0.01);
                 end;
             }
 
@@ -395,6 +414,28 @@ report 50115 "PWD Evaluation stock SAS Ghes"
     {
         layout
         {
+            area(content)
+            {
+                group(Options)
+                {
+                    Caption = 'Options';
+                    field(StartDate; "StartDate")
+                    {
+                        Caption = 'Starting Date';
+                        ApplicationArea = All;
+                    }
+                    field(EndDate; "EndDate")
+                    {
+                        Caption = 'Ending Date';
+                        ApplicationArea = All;
+                    }
+                    field(ShowExpected; "ShowExpected")
+                    {
+                        Caption = 'Include Expected Cost';
+                        ApplicationArea = All;
+                    }
+                }
+            }
         }
 
         actions
@@ -464,6 +505,10 @@ report 50115 "PWD Evaluation stock SAS Ghes"
         ValueCaption_Control32Lbl: Label 'Value';
         ValueCaption_Control56Lbl: Label 'Value';
         ValueCaptionLbl: Label 'Value';
+        Control34: Label 'Control34';
+        QuantityCaption_Control1000000019: Label 'Quantité sur';
+        QuantityCaption_Control1000000021: Label 'Cde Vente  /';
+        QuantityCaption_Control1000000022: Label 'Cde Achat';
         StartDateText: Text[10];
         ItemFilter: Text[250];
 

@@ -374,6 +374,9 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                         column(Sales_CrMemo_Line_Line_No_; "Line No.")
                         {
                         }
+                        column(CountLine; CountLine)
+                        {
+                        }
                         dataitem(DimensionLoop2; Integer)
                         {
                             DataItemTableView = SORTING(Number) WHERE(Number = FILTER(1 ..));
@@ -424,6 +427,7 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                                 CurrReport.BREAK();
                             SETRANGE("Line No.", 0, "Line No.");
                             //CurrReport.CREATETOTALS("Line Amount", Amount, "Amount Including VAT", "Inv. Discount Amount");
+                            CountLine := 3;
                         end;
 
                         trigger OnAfterGetRecord()
@@ -448,6 +452,12 @@ report 50062 "PWD Sales - Cr.memo AVITA"
                             IF Type = Type::Item THEN
                                 IF NOT ItemTrans.GET("No.", '', 'ENU') THEN ItemTrans.INIT();
                             ShowTypeNo := Type.AsInteger();
+                            if (ShowTypeNo = 0) and (Description <> '') then
+                                CountLine += 1;
+                            if (ShowTypeNo > 0) And (Quantity <> 0) And (ItemTrans.Description <> '') then
+                                CountLine += 1;
+                            if (ShowTypeNo > 0) And (Quantity <> 0) then
+                                CountLine += 1;
                         end;
 
                     }
@@ -760,4 +770,5 @@ report 50062 "PWD Sales - Cr.memo AVITA"
         QuantityCaptionFRLbl: Label 'Quantity';
         Mail4Txt: Label 'E-mail 4 :  ';
         ShowTypeNo: Integer;
+        CountLine: integer;
 }

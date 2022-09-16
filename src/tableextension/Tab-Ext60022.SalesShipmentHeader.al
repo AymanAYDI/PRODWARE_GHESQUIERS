@@ -170,6 +170,34 @@ tableextension 60022 "PWD SalesShipmentHeader" extends "Sales Shipment Header"
         IF CustomsType = 'T5' THEN REPORT.RUNMODAL(REPORT::"PWD Calcul PU=CU*coef", TRUE, TRUE, Rec);
     end;
 
+    procedure CreateZipFolderReports(var SalesShptHeader: Record "Sales Shipment Header"; var DataCompression: Codeunit "Data Compression")
+    var
+        blobStorage: Codeunit "Temp Blob";
+        Ref: RecordRef;
+        ZipFileName: Text;
+        FileNameblanc: Text;
+        FileNamerose: Text;
+        ZipOutStream: OutStream;
+        ZipInStream: InStream;
+    begin
+        DataCompression.CreateZipArchive();
+        blobStorage.CreateOutStream(ZipOutStream);
+        ZipFileName := SalesShptHeader."No." + '.zip';
+        Ref.GetTable(SalesShptHeader);
+        Report.SaveAs(Report::"Sales - Shipmt BLAVI bac blanc", '', ReportFormat::Pdf, ZipOutStream, Ref);
+        blobStorage.CreateInStream(ZipInStream);
+        FileNameblanc := 'Ventes _ Expédition BLAVI bac blanc.pdf';
+        DataCompression.AddEntry(ZipInStream, FileNameblanc);
+        Report.SaveAs(Report::"Sales - Shipmt BLAVI bac rose", '', ReportFormat::Pdf, ZipOutStream, Ref);
+        blobStorage.CreateInStream(ZipInStream);
+        FileNamerose := 'Ventes _ Expédition BLAVI bac rose.pdf';
+        DataCompression.AddEntry(ZipInStream, FileNamerose);
+        DataCompression.SaveZipArchive(ZipOutStream);
+        DataCompression.CloseZipArchive();
+        blobStorage.CreateInStream(ZipInStream);
+        DownloadFromStream(ZipInStream, '', '', '', ZipFileName);
+    end;
+
     trigger OnInsert()
     var
     begin

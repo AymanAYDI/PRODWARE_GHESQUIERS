@@ -1559,6 +1559,7 @@ Cstr(Fields!VisaCaption.Value)
                       <Source>Database</Source>
                       <Value>=Convert.ToBase64String(Fields!CompanyInfo__Logo_AVITA_facture_.Value)</Value>
                       <MIMEType>image/bmp</MIMEType>
+                      <Sizing>FitProportional</Sizing>
                       <Height>2.961cm</Height>
                       <Width>2.94cm</Width>
                       <Visibility>
